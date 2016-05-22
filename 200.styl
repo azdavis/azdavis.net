@@ -6,8 +6,8 @@ body
     height 100%
 
 html
-    animation color_change 20s infinite
-    color #111
+    animation bg_color_change 20s infinite
+    color #222
     font-family Menlo, Consolas, monospace
     font-size 44px
     text-rendering optimizeLegibility
@@ -23,7 +23,6 @@ body
 
 a
     background-color transparent
-    color inherit
     -webkit-text-decoration-skip objects
 
 .center
@@ -35,10 +34,15 @@ a
     font-weight bold
     margin 0.5em 0
 
-.octo:hover path
-    fill #44d
+.octo
+    display inline-block
+    *
+        display inline-block
+        fill #222
+    &:hover *
+        fill #66d
 
-@keyframes color_change
+@keyframes bg_color_change
     0%
         background-color #dd2
     14.286%
