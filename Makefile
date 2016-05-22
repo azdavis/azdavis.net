@@ -1,5 +1,7 @@
 Q = &> /dev/null
 
+default: 200.html
+
 %.html: %.pug %.css
 	pug $<
 
