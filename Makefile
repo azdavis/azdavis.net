@@ -1,6 +1,6 @@
 Q = &> /dev/null
 
-default: 200.html
+all: index.html 404.html
 
 %.html: %.pug %.css
 	pug $<
@@ -14,7 +14,7 @@ clean:
 server:
 	@ruby -run -e httpd $(Q)
 
-deploy: default
+deploy: all
 	surge .
 
-.PHONY: default clean server deploy
+.PHONY: all clean server deploy
