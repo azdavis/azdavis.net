@@ -3,3 +3,4 @@ Makefile
 *.md
 *.pug
 *.styl
+*.css
