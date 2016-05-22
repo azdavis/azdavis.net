@@ -14,4 +14,7 @@ clean:
 server:
 	@ruby -run -e httpd $(Q)
 
-.PHONY: clean server
+deploy: default
+	surge .
+
+.PHONY: default clean server deploy
