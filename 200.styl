@@ -7,8 +7,9 @@ body
 
 html
     animation color_change 20s infinite
-    color #ddd
+    color #111
     font-family Menlo, Consolas, monospace
+    font-size 44px
     text-rendering optimizeLegibility
     text-size-adjust 100%
     -moz-osx-font-smoothing grayscale
@@ -20,24 +21,22 @@ body
     margin 0 auto
     padding 10px
 
-#center
-    margin auto
-    padding-bottom 100px
-    text-align center
-    font-size 18px
-    text-shadow 0 0 5px #000
-
-h1
-    font-size 2em
-    margin 0.666em 0
-
 a
     background-color transparent
     color inherit
-    text-decoration none
     -webkit-text-decoration-skip objects
-    &:hover
-        text-decoration underline
+
+.center
+    margin auto
+    padding-bottom 100px
+    text-align center
+
+.big
+    font-weight bold
+    margin 0.5em 0
+
+.octo:hover path
+    fill #44d
 
 @keyframes color_change
     0%
