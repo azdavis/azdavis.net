@@ -12,6 +12,7 @@ clean:
 	find . \( -name '*.html' -o -name '*.css' \) -delete
 
 server:
+	@open http://localhost:8080
 	@ruby -run -e httpd $(Q)
 
 deploy: all
