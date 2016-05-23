@@ -1,4 +1,5 @@
 Q = &> /dev/null
+LCL = 'http://localhost:8080'
 
 all: index.html 404.html
 
@@ -11,14 +12,13 @@ all: index.html 404.html
 clean:
 	find . \( -name '*.html' -o -name '*.css' \) -delete
 
-server:
-	@open 'http://localhost:8080'
+test:
+	@open -ga 'FirefoxDeveloperEdition' $(LCL)
+	@open -ga 'Google Chrome' $(LCL)
+	@open -ga 'Safari' $(LCL)
 	@ruby -run -e httpd $(Q)
 
 deploy: all
 	surge .
 
-view:
-	@open "http://$$(cat CNAME)"
-
-.PHONY: all clean server deploy view
+.PHONY: all clean test deploy
