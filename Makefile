@@ -12,7 +12,7 @@ all: index.html 404.html
 clean:
 	find . \( -name '*.html' -o -name '*.css' \) -delete
 
-test:
+local-testing:
 	@open -ga 'FirefoxDeveloperEdition' $(LCL)
 	@open -ga 'Google Chrome' $(LCL)
 	@open -ga 'Safari' $(LCL)
@@ -21,4 +21,4 @@ test:
 deploy: all
 	surge .
 
-.PHONY: all clean test deploy
+.PHONY: all clean local-testing deploy
