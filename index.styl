@@ -31,11 +31,14 @@ p
     margin-top 20vh
     text-align center
 
-.octo path
-    fill #222
-
-.octo:hover path
-    fill #66d
+.octo
+    display inline-block
+    svg
+        display block
+    path
+        fill #222
+    &:hover path
+        fill #66d
 
 @keyframes bgc
     0%
