@@ -1,7 +1,7 @@
 Q = &> /dev/null
 LCL = 'http://localhost:8080'
 
-all: index.html 404.html
+all: index.css index.html 404.css 404.html
 
 %.html: %.pug
 	pug --doctype 'html' $<
