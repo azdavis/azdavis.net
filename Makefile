@@ -9,11 +9,11 @@ index.html: index.css
 	pug --doctype 'html' $<
 
 %.css: %.styl
-	stylus --use 'autoprefixer-stylus' --compress $<
+	stylus -cu 'autoprefixer-stylus' $<
 
 %.js: %.ts
-	tsc --removeComments $<
-	uglifyjs --compress --mangle --screw-ie8 --output $@ $@
+	tsc $<
+	uglifyjs -cm --screw-ie8 -o $@ $@
 
 clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
