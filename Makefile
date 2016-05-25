@@ -13,7 +13,7 @@ index.html: index.css
 
 %.js: %.ts
 	tsc --removeComments $<
-	uglifyjs --mangle --compress --output $@ $@
+	uglifyjs --compress --mangle --screw-ie8 --output $@ $@
 
 clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
