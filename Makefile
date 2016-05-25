@@ -13,7 +13,7 @@ index.html: index.css
 
 %.js: %.ts
 	tsc $<
-	uglifyjs -cm --screw-ie8 -o $@ $@
+	uglifyjs -cm --screw-ie8 --wrap -o $@ $@
 
 clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
