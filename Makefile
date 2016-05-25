@@ -18,7 +18,7 @@ index.html: index.css
 clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
 
-local-testing:
+server:
 	@open -ga 'FirefoxDeveloperEdition' $(LCL)
 	@open -ga 'Google Chrome' $(LCL)
 	@open -ga 'Safari' $(LCL)
@@ -27,4 +27,4 @@ local-testing:
 deploy: all
 	surge .
 
-.PHONY: all clean local-testing deploy
+.PHONY: all clean server deploy
