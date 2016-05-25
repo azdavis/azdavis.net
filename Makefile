@@ -9,7 +9,7 @@ index.html: index.css
 	pug --doctype 'html' $<
 
 %.css: %.styl
-	stylus -cu 'autoprefixer-stylus' $<
+	stylus -u 'autoprefixer-stylus' -c $<
 
 %.js: %.ts
 	tsc $<
