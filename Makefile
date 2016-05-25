@@ -1,6 +1,5 @@
 Q = > /dev/null
 VQ = &$(Q)
-LCL = 'http://localhost:8080'
 
 all: 404.html index.html
 404.html: 404.css
@@ -20,7 +19,7 @@ clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
 
 server:
-	@open -ga 'Safari' $(LCL)
+	@open -ga 'Safari' 'http://localhost:8080'
 	@ruby -run -e httpd $(VQ)
 
 deploy: all
