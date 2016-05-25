@@ -1,4 +1,5 @@
-Q = &> /dev/null
+Q = > /dev/null
+VQ = &$(Q)
 LCL = 'http://localhost:8080'
 
 all: 404.html index.html
@@ -6,10 +7,10 @@ all: 404.html index.html
 index.html: index.css
 
 %.html: %.pug
-	pug --doctype 'html' $<
+	pug -s --doctype 'html' $<
 
 %.css: %.styl
-	stylus -u 'autoprefixer-stylus' -c $<
+	stylus -u 'autoprefixer-stylus' -c $< $(Q)
 
 %.js: %.ts
 	tsc $<
@@ -22,7 +23,7 @@ server:
 	@open -ga 'FirefoxDeveloperEdition' $(LCL)
 	@open -ga 'Google Chrome' $(LCL)
 	@open -ga 'Safari' $(LCL)
-	@ruby -run -e httpd $(Q)
+	@ruby -run -e httpd $(VQ)
 
 deploy: all
 	surge .
