@@ -1,9 +1,10 @@
 Q = > /dev/null
 VQ = &$(Q)
 
-all: 404.html index.html
+all: 404.html index.html game/index.html
 404.html: 404.css
 index.html: index.css
+game/index.html: game/index.css game/index.js
 
 %.html: %.pug head.pug
 	pug -s -b . --doctype 'html' $<
