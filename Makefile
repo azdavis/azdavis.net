@@ -20,8 +20,6 @@ clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
 
 server:
-	@open -ga 'FirefoxDeveloperEdition' $(LCL)
-	@open -ga 'Google Chrome' $(LCL)
 	@open -ga 'Safari' $(LCL)
 	@ruby -run -e httpd $(VQ)
 
