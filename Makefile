@@ -14,6 +14,8 @@ game/index.html: game/index.css game/index.js
 
 %.js: %.ts
 	tsc --removeComments $<
+	browserify -o $@.tmp $@
+	mv $@.tmp $@
 	uglifyjs -cm --screw-ie8 --wrap -o $@ $@
 
 clean:
