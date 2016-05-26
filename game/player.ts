@@ -2,7 +2,7 @@ import Sprite from './sprite'
 
 class Player extends Sprite {
     speed = 1
-    protected hyp = Math.sqrt(2 * Math.pow(this.speed, 2))
+    private hyp = Math.sqrt(2 * Math.pow(this.speed, 2))
     fill = '#4b4'
     dir = {
         lt: false,
