@@ -1,7 +1,7 @@
 import Sprite from './sprite'
 
 class Player extends Sprite {
-    protected speed = 1
+    speed = 1
     protected hyp = Math.sqrt(2 * Math.pow(this.speed, 2))
     fill = '#4b4'
     dir = {
