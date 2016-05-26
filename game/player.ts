@@ -11,7 +11,7 @@ class Player extends Sprite {
     }
 
     constructor(x: number, y: number) {
-        super(x, y, 50, 50)
+        super(x, y)
         this.elem.className += ' player'
     }
 
