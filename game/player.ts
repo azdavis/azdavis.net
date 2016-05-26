@@ -1,8 +1,10 @@
 import Sprite from './sprite'
 
 class Player extends Sprite {
-    constructor(public x: number, public y: number) {
-        super(x, y)
+    speed = 1
+
+    constructor(x: number, y: number) {
+        super(x, y, 50, 50)
         this.elem.className += ' player'
     }
 }
