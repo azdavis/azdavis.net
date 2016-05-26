@@ -1,9 +1,11 @@
 import Sprite from './sprite'
 
 class Canvas {
-    elem: HTMLCanvasElement
-    ctx: CanvasRenderingContext2D
-    ratio = window.devicePixelRatio || 1
+    private ratio = window.devicePixelRatio || 1
+    private ctx: CanvasRenderingContext2D
+    private elem: HTMLCanvasElement
+    width: number
+    height: number
 
     constructor() {
         this.elem = document.createElement('canvas')
@@ -15,6 +17,8 @@ class Canvas {
     resize(): void {
         let w = window.innerWidth
         let h = window.innerHeight
+        this.width = w
+        this.height = h
         this.elem.width = w * this.ratio
         this.elem.height = h * this.ratio
         this.elem.style.width = w + 'px'
