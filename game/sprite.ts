@@ -1,12 +1,12 @@
 abstract class Sprite {
     elem: HTMLDivElement
     speed: number
+    width = 50
+    height = 50
 
     constructor(
         public x: number,
-        public y: number,
-        public width: number,
-        public height: number
+        public y: number
     ) {
         this.elem = document.createElement('div')
         this.elem.className = 'sprite'
