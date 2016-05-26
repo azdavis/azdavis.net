@@ -22,7 +22,7 @@ server:
 	@open -ga 'Safari' 'http://localhost:8080'
 	@ruby -run -e httpd $(VQ)
 
-deploy: all
+deploy: clean all
 	surge .
 
 .PHONY: all clean server deploy
