@@ -17,7 +17,7 @@ enemies.push(new Enemy(0, 0))
 enemies.push(new Enemy(100, 100))
 enemies.push(new Enemy(400, 300))
 
-window.onkeydown = (e): void => {
+onkeydown = (e): void => {
     switch (e.which) {
     case keys.lt: user.dir.lt = true; break
     case keys.up: user.dir.up = true; break
@@ -26,7 +26,7 @@ window.onkeydown = (e): void => {
     }
 }
 
-window.onkeyup = (e): void => {
+onkeyup = (e): void => {
     switch (e.which) {
     case keys.lt: user.dir.lt = false; break
     case keys.up: user.dir.up = false; break
@@ -35,17 +35,17 @@ window.onkeyup = (e): void => {
     }
 }
 
-window.onresize = () => {
+onresize = () => {
     canvas.resize()
 }
 
 let render = true
 
-window.onblur = () => {
+onblur = () => {
     render = false
 }
 
-window.onfocus = () => {
+onfocus = () => {
     render = true
 }
 
