@@ -1,17 +1,21 @@
 import Player from './player'
 import Enemy from './enemy'
 
+let i = 0
 const $ = document.querySelector.bind(document)
 const keys = {
-    lt: 37,
-    up: 38,
-    rt: 39,
-    dn: 40
+    37: 'lt',
+    38: 'up',
+    39: 'rt',
+    40: 'dn'
 }
+const enemies: Enemy[] = []
+const user = new Player(800, 200)
+console.log(user.speed)
 
-const p = new Player(100, 100)
-const e = new Enemy(400, 400)
+enemies.push(new Enemy(100, 100))
 
-setInterval(() => {
-    e.moveTowards(p)
-}, 5)
+setInterval((): void => {
+    for (i = 0; i < enemies.length; i++)
+        enemies[i].moveTowards(user)
+})
