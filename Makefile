@@ -18,11 +18,11 @@ index.html: index.css
 clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
 
-server:
+test:
 	@open -ga 'Google Chrome' 'http://localhost:8080'
 	@ruby -run -e httpd $(VQ)
 
 deploy: clean all
 	surge .
 
-.PHONY: all clean server deploy
+.PHONY: all clean test deploy
