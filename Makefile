@@ -19,7 +19,7 @@ clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
 
 server:
-	@open -ga 'Safari' 'http://localhost:8080'
+	@open -ga 'Google Chrome' 'http://localhost:8080'
 	@ruby -run -e httpd $(VQ)
 
 deploy: clean all
