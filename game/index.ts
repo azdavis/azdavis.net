@@ -1,63 +1,45 @@
-import Player from './player'
-import Enemy from './enemy'
-import Canvas from './canvas'
+import Game from './game'
 
-let i = 0
+const game = new Game()
+
 const keys = {
     lt: 37,
     up: 38,
     rt: 39,
-    dn: 40
+    dn: 40,
+    p: 80
 }
-const canvas = new Canvas()
-const user = new Player(800, 200)
-const enemies: Enemy[] = []
-
-enemies.push(new Enemy(0, 0))
-enemies.push(new Enemy(100, 100))
-enemies.push(new Enemy(400, 300))
 
 onkeydown = (e) => {
     switch (e.which) {
-    case keys.lt: user.dir.lt = true; break
-    case keys.up: user.dir.up = true; break
-    case keys.rt: user.dir.rt = true; break
-    case keys.dn: user.dir.dn = true; break
+    case keys.lt: game.player.dir.lt = true; break
+    case keys.up: game.player.dir.up = true; break
+    case keys.rt: game.player.dir.rt = true; break
+    case keys.dn: game.player.dir.dn = true; break
+    case keys.p: game.toggle()
     }
 }
 
 onkeyup = (e) => {
     switch (e.which) {
-    case keys.lt: user.dir.lt = false; break
-    case keys.up: user.dir.up = false; break
-    case keys.rt: user.dir.rt = false; break
-    case keys.dn: user.dir.dn = false; break
+    case keys.lt: game.player.dir.lt = false; break
+    case keys.up: game.player.dir.up = false; break
+    case keys.rt: game.player.dir.rt = false; break
+    case keys.dn: game.player.dir.dn = false; break
     }
 }
 
 onresize = () => {
-    canvas.resize()
-}
-
-let renderID
-function render(): void {
-    canvas.clear()
-    user.move()
-    canvas.draw(user)
-    for (i = 0; i < enemies.length; i++) {
-        enemies[i].moveTowards(user)
-        canvas.draw(enemies[i])
-    }
+    game.canvas.resize()
 }
 
 onfocus = () => {
-    renderID = setInterval(render)
+    game.start()
 }
 
 onblur = () => {
-    clearInterval(renderID)
-    canvas.clear()
+    game.stop()
 }
 
 if (document.hasFocus())
-    onfocus()
+    game.start()
