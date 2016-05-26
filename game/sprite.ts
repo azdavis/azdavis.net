@@ -4,10 +4,7 @@ abstract class Sprite {
     width = 50
     height = 50
 
-    constructor(
-        public x: number,
-        public y: number
-    ) {
+    constructor(public x: number, public y: number) {
         this.elem = document.createElement('div')
         this.elem.className = 'sprite'
         this.setStyle()
@@ -26,10 +23,7 @@ abstract class Sprite {
         let dx = p.x - this.x
         let dy = p.y - this.y
         let hyp = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
-        this.move(
-            dx * this.speed / hyp,
-            dy * this.speed / hyp
-        )
+        this.move(dx * this.speed / hyp, dy * this.speed / hyp)
     }
 
     private setStyle(): void {
