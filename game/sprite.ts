@@ -1,22 +1,17 @@
 abstract class Sprite {
-    elem: HTMLDivElement
-    speed: number
     width = 50
     height = 50
+    speed: number
+    fill: string
+    stroke = '#111'
 
-    constructor(public x: number, public y: number) {
-        this.elem = document.createElement('div')
-        this.elem.className = 'sprite'
-        this.setStyle()
-        document.body.appendChild(this.elem)
-    }
+    constructor(public x: number, public y: number) {}
 
     move(dx: number, dy: number): void {
         if (dx == 0 && dy == 0)
             return
         this.x += dx
         this.y += dy
-        this.setStyle()
     }
 
     moveTowards(p: Sprite): void {
@@ -24,11 +19,6 @@ abstract class Sprite {
         let dy = p.y - this.y
         let hyp = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
         this.move(dx * this.speed / hyp, dy * this.speed / hyp)
-    }
-
-    private setStyle(): void {
-        this.elem.style.left = this.x + 'px'
-        this.elem.style.top = this.y + 'px'
     }
 }
 

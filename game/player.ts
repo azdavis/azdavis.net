@@ -2,17 +2,13 @@ import Sprite from './sprite'
 
 class Player extends Sprite {
     speed = 1
+    fill = '#4b4'
     hyp = Math.sqrt(2 * Math.pow(this.speed, 2))
     dir = {
         lt: false,
         up: false,
         rt: false,
         dn: false
-    }
-
-    constructor(x: number, y: number) {
-        super(x, y)
-        this.elem.className += ' player'
     }
 
     move(): void {
