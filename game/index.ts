@@ -1,5 +1,6 @@
 import Player from './player'
 import Enemy from './enemy'
+import Canvas from './canvas'
 
 let i = 0
 const keys = {
@@ -8,8 +9,9 @@ const keys = {
     rt: 39,
     dn: 40
 }
-const enemies: Enemy[] = []
+const canvas = new Canvas()
 const user = new Player(800, 200)
+const enemies: Enemy[] = []
 
 enemies.push(new Enemy(0, 0))
 enemies.push(new Enemy(100, 100))
@@ -33,8 +35,17 @@ window.onkeyup = (e): void => {
     }
 }
 
+window.onresize = () => {
+    canvas.resize()
+}
+
 setInterval((): void => {
+    canvas.clear()
     user.move()
-    for (i = 0; i < enemies.length; i++)
+    canvas.draw(user)
+    for (i = 0; i < enemies.length; i++) {
         enemies[i].moveTowards(user)
+        canvas.draw(enemies[i])
+    }
+    console.log(canvas, user)
 })
