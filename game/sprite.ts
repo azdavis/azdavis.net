@@ -32,6 +32,16 @@ abstract class Sprite {
         this.setStyle()
     }
 
+    moveTowards(p: Sprite): void {
+        let dx = p.x - this.x
+        let dy = p.y - this.y
+        let hyp = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
+        this.move(
+            dx * this.speed / hyp,
+            dy * this.speed / hyp
+        )
+    }
+
     private setStyle(): void {
         this.elem.style.left = this.x + 'px'
         this.elem.style.top = this.y + 'px'
