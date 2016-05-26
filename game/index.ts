@@ -2,26 +2,35 @@ import Player from './player'
 import Enemy from './enemy'
 
 let i = 0
-const $ = document.querySelector.bind(document)
 const keys = {
-    37: 'lt',
-    38: 'up',
-    39: 'rt',
-    40: 'dn'
+    lt: 37,
+    up: 38,
+    rt: 39,
+    dn: 40
 }
 const enemies: Enemy[] = []
 const user = new Player(800, 200)
 
+enemies.push(new Enemy(0, 0))
 enemies.push(new Enemy(100, 100))
+enemies.push(new Enemy(400, 300))
 
 window.onkeydown = (e): void => {
-    if (e.which in keys)
-        user.addDir(keys[e.which])
+    switch (e.which) {
+    case keys.lt: user.dir.lt = true; break
+    case keys.up: user.dir.up = true; break
+    case keys.rt: user.dir.rt = true; break
+    case keys.dn: user.dir.dn = true; break
+    }
 }
 
 window.onkeyup = (e): void => {
-    if (e.which in keys)
-        user.rmDir(keys[e.which])
+    switch (e.which) {
+    case keys.lt: user.dir.lt = false; break
+    case keys.up: user.dir.up = false; break
+    case keys.rt: user.dir.rt = false; break
+    case keys.dn: user.dir.dn = false; break
+    }
 }
 
 setInterval((): void => {
