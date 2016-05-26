@@ -30,6 +30,10 @@ class Player extends Sprite {
             dx *= this.hyp
         if (dy && !dx)
             dy *= this.hyp
+        if (this.x + dx < 0 || this.x + dx > window.innerWidth - this.width)
+            dx = 0
+        if (this.y + dy < 0 || this.y + dy > window.innerHeight - this.height)
+            dy = 0
         super.move(dx, dy)
     }
 }
