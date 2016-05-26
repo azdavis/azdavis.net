@@ -1,14 +1,18 @@
 import Sprite from './sprite'
 
 class Player extends Sprite {
-    speed = 1
+    protected speed = 1
+    protected hyp = Math.sqrt(2 * Math.pow(this.speed, 2))
     fill = '#4b4'
-    hyp = Math.sqrt(2 * Math.pow(this.speed, 2))
     dir = {
         lt: false,
         up: false,
         rt: false,
         dn: false
+    }
+
+    constructor() {
+        super(0, 0)
     }
 
     move(): void {

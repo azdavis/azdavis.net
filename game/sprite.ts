@@ -1,7 +1,7 @@
 abstract class Sprite {
+    protected speed: number
     width = 50
     height = 50
-    speed: number
     fill: string
     stroke = '#111'
 
