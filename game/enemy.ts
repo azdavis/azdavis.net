@@ -4,7 +4,7 @@ class Enemy extends Sprite {
     speed = 0.5
 
     constructor(x: number, y: number) {
-        super(x, y, 50, 50)
+        super(x, y)
         this.elem.className += ' enemy'
     }
 }
