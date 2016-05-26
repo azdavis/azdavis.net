@@ -5,7 +5,12 @@ all: 404.html index.html game/index.html
 404.html: 404.css
 index.html: index.css
 game/index.html: game/index.css game/index.js
-game/index.js: game/sprite.ts game/player.ts game/enemy.ts game/canvas.ts
+game/index.js: \
+	game/sprite.ts \
+	game/player.ts \
+	game/enemy.ts \
+	game/canvas.ts \
+	game/game.ts
 
 %.html: %.pug head.pug
 	pug -s -b . --doctype 'html' $<
