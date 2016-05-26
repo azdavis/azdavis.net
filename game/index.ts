@@ -39,7 +39,19 @@ window.onresize = () => {
     canvas.resize()
 }
 
+let render = true
+
+window.onblur = () => {
+    render = false
+}
+
+window.onfocus = () => {
+    render = true
+}
+
 setInterval((): void => {
+    if (!render)
+        return
     canvas.clear()
     user.move()
     canvas.draw(user)
