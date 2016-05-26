@@ -12,7 +12,7 @@ index.html: index.css
 	stylus -u 'autoprefixer-stylus' -c $< $(Q)
 
 %.js: %.ts
-	tsc $<
+	tsc --removeComments $<
 	uglifyjs -cm --screw-ie8 --wrap -o $@ $@
 
 clean:
