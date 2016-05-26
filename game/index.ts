@@ -35,23 +35,12 @@ onkeyup = (e): void => {
     }
 }
 
-onresize = () => {
+onresize = (): void => {
     canvas.resize()
 }
 
-let render = true
-
-onblur = () => {
-    render = false
-}
-
-onfocus = () => {
-    render = true
-}
-
-setInterval((): void => {
-    if (!render)
-        return
+let renderID
+function render(): void {
     canvas.clear()
     user.move()
     canvas.draw(user)
@@ -59,4 +48,16 @@ setInterval((): void => {
         enemies[i].moveTowards(user)
         canvas.draw(enemies[i])
     }
-})
+}
+
+onfocus = (): void => {
+    renderID = setInterval(render)
+}
+
+onblur = (): void => {
+    clearInterval(renderID)
+    canvas.clear()
+}
+
+if (document.hasFocus())
+    onfocus()
