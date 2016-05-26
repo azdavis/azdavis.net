@@ -47,5 +47,4 @@ setInterval((): void => {
         enemies[i].moveTowards(user)
         canvas.draw(enemies[i])
     }
-    console.log(canvas, user)
 })
