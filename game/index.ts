@@ -11,11 +11,21 @@ const keys = {
 }
 const enemies: Enemy[] = []
 const user = new Player(800, 200)
-console.log(user.speed)
 
 enemies.push(new Enemy(100, 100))
 
+window.onkeydown = (e): void => {
+    if (e.which in keys)
+        user.addDir(keys[e.which])
+}
+
+window.onkeyup = (e): void => {
+    if (e.which in keys)
+        user.rmDir(keys[e.which])
+}
+
 setInterval((): void => {
+    user.move()
     for (i = 0; i < enemies.length; i++)
         enemies[i].moveTowards(user)
 })
