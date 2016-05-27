@@ -50,25 +50,36 @@ class Game {
     private loop(): void {
         this.canvas.clear()
         let i: number
-        let a: Sprite[]
-        a = this.player.bullets
-        for (i = 0; i < a.length; i++) {
-            if (!a[i])
+        let j: number
+        let b: Sprite[] = this.player.bullets
+        let e: Sprite[] = this.enemies
+        for (i = 0; i < b.length; i++) {
+            if (!b[i])
                 continue
-            a[i].move()
-            this.canvas.draw(a[i])
-            if (!this.canvas.weaklyContains(a[i]))
-                a[i] = null
+            b[i].move()
+            this.canvas.draw(b[i])
+            if (!this.canvas.weaklyContains(b[i]))
+                b[i] = null
         }
-        a = this.enemies
         if (Math.random() < 0.001)
-            a.push(new Enemy(
+            e.push(new Enemy(
                 Math.floor(Math.random() * this.canvas.w),
                 Math.floor(Math.random() * this.canvas.h)
             ))
-        for (i = 0; i < a.length; i++) {
-            a[i].moveTowards(this.player)
-            this.canvas.draw(a[i])
+        for (i = 0; i < e.length; i++) {
+            if (!e[i])
+                continue
+            e[i].moveTowards(this.player)
+            this.canvas.draw(e[i])
+            // O(n^2) is the bad
+            for (j = 0; j < b.length; j++) {
+                if (!b[j])
+                    continue
+                if (e[i].isTouching(b[j])) {
+                    e[i] = b[j] = null
+                    break
+                }
+            }
         }
         this.canvas.stronglyContain(this.player)
         this.player.move()
