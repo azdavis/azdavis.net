@@ -11,6 +11,8 @@ class Game {
     canvas: Canvas
     player: Player
 
+    // create this, add a canvas and player, and center the player on the
+    // canvas
     constructor() {
         this.canvas = new Canvas()
         this.player = new Player()
@@ -18,6 +20,7 @@ class Game {
         this.player.y = (this.canvas.h - this.player.h) / 2
     }
 
+    // switch the running state of this
     toggle(): void {
         if (this.running)
             this.stop()
@@ -25,6 +28,7 @@ class Game {
             this.start()
     }
 
+    // start running loop every 2 ms
     start(): void {
         this.running = true
         this.renderID = setInterval(() => {
@@ -32,6 +36,7 @@ class Game {
         }, 2)
     }
 
+    // stop running loop, remove all enemies and player.bullets
     stop(): void {
         this.running = false
         clearInterval(this.renderID)
@@ -41,6 +46,7 @@ class Game {
         this.player.bullets = []
     }
 
+    // move, draw, and handle collisions for all sprites in this
     private render(): void {
         this.canvas.clear()
         let i: number

@@ -7,6 +7,7 @@ class Canvas {
     w: number
     h: number
 
+    // create this, resize it, and append it to the document body
     constructor() {
         this.elem = document.createElement('canvas')
         this.ctx = this.elem.getContext('2d')
@@ -14,6 +15,7 @@ class Canvas {
         document.body.appendChild(this.elem)
     }
 
+    // resize this to be the size of the window
     resize(): void {
         this.w = window.innerWidth
         this.h = window.innerHeight
@@ -24,6 +26,7 @@ class Canvas {
         this.ctx.scale(this.ratio, this.ratio)
     }
 
+    // draw s on this
     draw(s: Sprite): void {
         this.ctx.fillStyle = s.fill
         this.ctx.fillRect(s.x, s.y, s.w, s.h)
@@ -31,6 +34,7 @@ class Canvas {
         this.ctx.strokeRect(s.x, s.y, s.w, s.h)
     }
 
+    // return whether any part of s is inside this
     contains(s: Sprite): boolean {
         return (
             s.x >= 0 &&
@@ -40,6 +44,7 @@ class Canvas {
         )
     }
 
+    // change s's i and j to ensure no part of it is not contained in this
     contain(s: Sprite): void {
         if (s.x + s.i <= 0 || s.x + + s.w + s.i >= this.w)
             s.i = 0
@@ -47,6 +52,7 @@ class Canvas {
             s.j = 0
     }
 
+    // clear the entirety of this
     clear(): void {
         this.ctx.clearRect(0, 0, this.w, this.h)
     }

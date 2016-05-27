@@ -9,6 +9,8 @@ abstract class Sprite {
 
     constructor(public x: number, public y: number) {}
 
+    // move this a magnitude of this.speed in the direction indicated by the
+    // vector with components this.i and this.j
     move(): void {
         if (this.i == 0 && this.j == 0)
             return
@@ -17,12 +19,14 @@ abstract class Sprite {
         this.y += this.speed * this.j / h
     }
 
+    // move this in the direction towards s
     moveTowards(s: Sprite): void {
         this.i = s.x - this.x
         this.j = s.y - this.y
         this.move()
     }
 
+    // return whether any part of this overlaps any part of s
     isTouching(s: Sprite): boolean {
         return (
             this.contains(s.x, s.y) ||
@@ -32,6 +36,7 @@ abstract class Sprite {
         )
     }
 
+    // return whether a point (x, y) is enclosed in this
     private contains(x: number, y: number): boolean {
         return (
             this.x <= x && x <= this.x + this.w &&

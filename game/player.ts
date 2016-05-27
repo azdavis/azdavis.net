@@ -12,6 +12,8 @@ class Player extends Sprite {
         super(0, 0)
     }
 
+    // if this is moving, make a new Bullet which moves in the direction of
+    // movement, otherwise, noop
     shoot(): void {
         if (this.i == 0 && this.j == 0)
             return
