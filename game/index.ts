@@ -28,10 +28,10 @@ onkeydown = (e) => {
 
 onkeyup = (e) => {
     switch (e.which) {
-    case keys.lt: game.player.i += 1; break
-    case keys.up: game.player.j += 1; break
-    case keys.rt: game.player.i -= 1; break
-    case keys.dn: game.player.j -= 1; break
+    case keys.lt: if (game.player.i) game.player.i += 1; break
+    case keys.up: if (game.player.j) game.player.j += 1; break
+    case keys.rt: if (game.player.i) game.player.i -= 1; break
+    case keys.dn: if (game.player.j) game.player.j -= 1; break
     }
     pressed[e.which] = false
 }
