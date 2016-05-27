@@ -7,7 +7,7 @@ import Bullet from './bullet'
 class Game {
     private enemies: Enemy[] = []
     private running = false
-    private renderID: number
+    private loopID: number
     canvas: Canvas
     player: Player
 
@@ -31,15 +31,15 @@ class Game {
     // start running loop every 2 ms
     start(): void {
         this.running = true
-        this.renderID = setInterval(() => {
-            this.render()
+        this.loopID = setInterval(() => {
+            this.loop()
         }, 2)
     }
 
     // stop running loop, remove all enemies and player.bullets
     stop(): void {
         this.running = false
-        clearInterval(this.renderID)
+        clearInterval(this.loopID)
         this.canvas.clear()
         this.player.i = this.player.j = 0
         this.enemies = []
@@ -47,7 +47,7 @@ class Game {
     }
 
     // move, draw, and handle collisions for all sprites in this
-    private render(): void {
+    private loop(): void {
         this.canvas.clear()
         let i: number
         let a: Sprite[]
@@ -57,7 +57,7 @@ class Game {
                 continue
             a[i].move()
             this.canvas.draw(a[i])
-            if (!this.canvas.contains(a[i]))
+            if (!this.canvas.weaklyContains(a[i]))
                 a[i] = null
         }
         a = this.enemies
@@ -65,7 +65,7 @@ class Game {
             a[i].moveTowards(this.player)
             this.canvas.draw(a[i])
         }
-        this.canvas.contain(this.player)
+        this.canvas.stronglyContain(this.player)
         this.player.move()
         this.canvas.draw(this.player)
     }

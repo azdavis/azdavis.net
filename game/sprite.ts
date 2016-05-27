@@ -29,15 +29,15 @@ abstract class Sprite {
     // return whether any part of this overlaps any part of s
     isTouching(s: Sprite): boolean {
         return (
-            this.contains(s.x, s.y) ||
-            this.contains(s.x + s.w, s.y) ||
-            this.contains(s.x, s.y + s.h) ||
-            this.contains(s.x + s.w, s.y + s.h)
+            this.encloses(s.x, s.y) ||
+            this.encloses(s.x + s.w, s.y) ||
+            this.encloses(s.x, s.y + s.h) ||
+            this.encloses(s.x + s.w, s.y + s.h)
         )
     }
 
     // return whether a point (x, y) is enclosed in this
-    private contains(x: number, y: number): boolean {
+    private encloses(x: number, y: number): boolean {
         return (
             this.x <= x && x <= this.x + this.w &&
             this.y <= y && y <= this.y + this.h
