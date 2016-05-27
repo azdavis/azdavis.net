@@ -1,7 +1,7 @@
 abstract class Sprite {
     protected speed: number
-    width: number
-    height: number
+    w: number
+    h: number
     fill: string
     stroke = '#111'
     i = 0
@@ -26,16 +26,16 @@ abstract class Sprite {
     isTouching(s: Sprite): boolean {
         return (
             this.contains(s.x, s.y) ||
-            this.contains(s.x + s.width, s.y) ||
-            this.contains(s.x, s.y + s.height) ||
-            this.contains(s.x + s.width, s.y + s.height)
+            this.contains(s.x + s.w, s.y) ||
+            this.contains(s.x, s.y + s.h) ||
+            this.contains(s.x + s.w, s.y + s.h)
         )
     }
 
     private contains(x: number, y: number): boolean {
         return (
-            this.x <= x && x <= this.x + this.width &&
-            this.y <= y && y <= this.y + this.height
+            this.x <= x && x <= this.x + this.w &&
+            this.y <= y && y <= this.y + this.h
         )
     }
 }

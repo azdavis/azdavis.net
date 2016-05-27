@@ -4,8 +4,8 @@ class Canvas {
     private ratio = window.devicePixelRatio || 1
     private ctx: CanvasRenderingContext2D
     private elem: HTMLCanvasElement
-    width: number
-    height: number
+    w: number
+    h: number
 
     constructor() {
         this.elem = document.createElement('canvas')
@@ -15,42 +15,40 @@ class Canvas {
     }
 
     resize(): void {
-        let w = window.innerWidth
-        let h = window.innerHeight
-        this.width = w
-        this.height = h
-        this.elem.width = w * this.ratio
-        this.elem.height = h * this.ratio
-        this.elem.style.width = w + 'px'
-        this.elem.style.height = h + 'px'
+        this.w = window.innerWidth
+        this.h = window.innerHeight
+        this.elem.width = this.w * this.ratio
+        this.elem.height = this.h * this.ratio
+        this.elem.style.width = this.w + 'px'
+        this.elem.style.height = this.h + 'px'
         this.ctx.scale(this.ratio, this.ratio)
     }
 
     draw(s: Sprite): void {
         this.ctx.fillStyle = s.fill
-        this.ctx.fillRect(s.x, s.y, s.width, s.height)
+        this.ctx.fillRect(s.x, s.y, s.w, s.h)
         this.ctx.strokeStyle = s.stroke
-        this.ctx.strokeRect(s.x, s.y, s.width, s.height)
+        this.ctx.strokeRect(s.x, s.y, s.w, s.h)
     }
 
     contains(s: Sprite): boolean {
         return (
             s.x >= 0 &&
-            s.x + s.width <= this.width &&
+            s.x + s.w <= this.w &&
             s.y >= 0 &&
-            s.y + s.height <= this.height
+            s.y + s.h <= this.h
         )
     }
 
     contain(s: Sprite): void {
-        if (s.x + s.i <= 0 || s.x + + s.width + s.i >= this.width)
+        if (s.x + s.i <= 0 || s.x + + s.w + s.i >= this.w)
             s.i = 0
-        if (s.y + s.j <= 0 || s.y + + s.height + s.j >= this.height)
+        if (s.y + s.j <= 0 || s.y + + s.h + s.j >= this.h)
             s.j = 0
     }
 
     clear(): void {
-        this.ctx.clearRect(0, 0, this.elem.width, this.elem.height)
+        this.ctx.clearRect(0, 0, this.w, this.h)
     }
 }
 

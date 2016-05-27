@@ -2,8 +2,8 @@ import Sprite from './sprite'
 import Bullet from './bullet'
 
 class Player extends Sprite {
-    width = 50
-    height = 50
+    w = 50
+    h = 50
     speed = 1
     fill = '#4b4'
     bullets: Bullet[] = []

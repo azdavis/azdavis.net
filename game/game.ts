@@ -14,8 +14,8 @@ class Game {
     constructor() {
         this.canvas = new Canvas()
         this.player = new Player()
-        this.player.x = (this.canvas.width - this.player.width) / 2
-        this.player.y = (this.canvas.height - this.player.height) / 2
+        this.player.x = (this.canvas.w - this.player.w) / 2
+        this.player.y = (this.canvas.h - this.player.h) / 2
     }
 
     toggle(): void {

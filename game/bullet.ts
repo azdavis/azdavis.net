@@ -1,15 +1,15 @@
 import Sprite from './sprite'
 
 class Bullet extends Sprite {
-    width = 20
-    height = 20
+    w = 20
+    h = 20
     speed = 5
     fill = '#44b'
 
     constructor(s: Sprite) {
         super(s.x, s.y)
-        this.x += (s.width - this.width) / 2
-        this.y += (s.height - this.height) / 2
+        this.x += (s.w - this.w) / 2
+        this.y += (s.h - this.h) / 2
         this.i = s.i
         this.j = s.j
     }
