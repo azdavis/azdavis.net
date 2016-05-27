@@ -3,7 +3,7 @@ import Sprite from './sprite'
 class Bullet extends Sprite {
     w = 20
     h = 20
-    speed = 5
+    speed = 2
     fill = '#44b'
 
     constructor(s: Sprite) {
