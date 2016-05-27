@@ -61,6 +61,11 @@ class Game {
                 a[i] = null
         }
         a = this.enemies
+        if (Math.random() < 0.001)
+            a.push(new Enemy(
+                Math.floor(Math.random() * this.canvas.w),
+                Math.floor(Math.random() * this.canvas.h)
+            ))
         for (i = 0; i < a.length; i++) {
             a[i].moveTowards(this.player)
             this.canvas.draw(a[i])
