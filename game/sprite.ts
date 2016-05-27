@@ -1,24 +1,26 @@
 abstract class Sprite {
     protected speed: number
-    width = 50
-    height = 50
+    width: number
+    height: number
     fill: string
     stroke = '#111'
+    i = 0
+    j = 0
 
     constructor(public x: number, public y: number) {}
 
-    move(dx: number, dy: number): void {
-        if (dx == 0 && dy == 0)
+    move(): void {
+        if (this.i == 0 && this.j == 0)
             return
-        this.x += dx
-        this.y += dy
+        let h = Math.sqrt(Math.pow(this.i, 2) + Math.pow(this.j, 2))
+        this.x += this.speed * this.i / h
+        this.y += this.speed * this.j / h
     }
 
     moveTowards(p: Sprite): void {
-        let dx = p.x - this.x
-        let dy = p.y - this.y
-        let hyp = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
-        this.move(dx * this.speed / hyp, dy * this.speed / hyp)
+        this.i = p.x - this.x
+        this.j = p.y - this.y
+        this.move()
     }
 }
 
