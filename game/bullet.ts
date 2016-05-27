@@ -6,6 +6,8 @@ class Bullet extends Sprite {
     speed = 2
     fill = '#44b'
 
+    // make this always move in the direction that s was going in when this was
+    // made, and start it in the center of s
     constructor(s: Sprite) {
         super(s.x, s.y)
         this.x += (s.w - this.w) / 2

@@ -7,6 +7,7 @@ abstract class Sprite {
     i = 0
     j = 0
 
+    // set x and y as the coordinates for this
     constructor(public x: number, public y: number) {}
 
     // move this a magnitude of this.speed in the direction indicated by the

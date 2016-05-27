@@ -8,6 +8,8 @@ class Player extends Sprite {
     fill = '#4b4'
     bullets: Bullet[] = []
 
+    // put this somewhere where it doesn't matter, since x and y are set by the
+    // canvas dimensions
     constructor() {
         super(0, 0)
     }
