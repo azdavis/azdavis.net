@@ -28,6 +28,8 @@ onkeydown = (e) => {
 
 onkeyup = (e) => {
     switch (e.which) {
+    // `if` makes sure that if the player was stopped from exiting the canvas,
+    // the player does not move backward when the user releases the key
     case keys.lt: if (game.player.i) game.player.i += 1; break
     case keys.up: if (game.player.j) game.player.j += 1; break
     case keys.rt: if (game.player.i) game.player.i -= 1; break
