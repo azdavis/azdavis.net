@@ -4,9 +4,9 @@ import Bullet from './bullet'
 class Player extends Sprite {
     width = 50
     height = 50
-    bullets: Bullet[] = []
     speed = 1
     fill = '#4b4'
+    bullets: Bullet[] = []
 
     constructor() {
         super(0, 0)
