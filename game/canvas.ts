@@ -42,6 +42,13 @@ class Canvas {
         )
     }
 
+    contain(s: Sprite): void {
+        if (s.x + s.i <= 0 || s.x + + s.width + s.i >= this.width)
+            s.i = 0
+        if (s.y + s.j <= 0 || s.y + + s.height + s.j >= this.height)
+            s.j = 0
+    }
+
     clear(): void {
         this.ctx.clearRect(0, 0, this.elem.width, this.elem.height)
     }
