@@ -40,7 +40,7 @@ class Game {
 
     private render(): void {
         this.canvas.clear()
-        let i
+        let i: number
         for (i = 0; i < this.player.bullets.length; i++) {
             this.player.bullets[i].move()
             this.canvas.draw(this.player.bullets[i])
