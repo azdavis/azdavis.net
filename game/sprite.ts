@@ -17,10 +17,26 @@ abstract class Sprite {
         this.y += this.speed * this.j / h
     }
 
-    moveTowards(p: Sprite): void {
-        this.i = p.x - this.x
-        this.j = p.y - this.y
+    moveTowards(s: Sprite): void {
+        this.i = s.x - this.x
+        this.j = s.y - this.y
         this.move()
+    }
+
+    isTouching(s: Sprite): boolean {
+        return (
+            this.contains(s.x, s.y) ||
+            this.contains(s.x + s.width, s.y) ||
+            this.contains(s.x, s.y + s.height) ||
+            this.contains(s.x + s.width, s.y + s.height)
+        )
+    }
+
+    private contains(x: number, y: number): boolean {
+        return (
+            this.x <= x && x <= this.x + this.width &&
+            this.y <= y && y <= this.y + this.height
+        )
     }
 }
 
