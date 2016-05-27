@@ -1,4 +1,5 @@
 import Canvas from './canvas'
+import Sprite from './sprite'
 import Player from './player'
 import Enemy from './enemy'
 import Bullet from './bullet'
@@ -28,26 +29,35 @@ class Game {
         this.running = true
         this.renderID = setInterval(() => {
             this.render()
-        })
+        }, 2)
     }
 
     stop(): void {
         this.running = false
-        this.player.i = this.player.j = 0
         clearInterval(this.renderID)
         this.canvas.clear()
+        this.player.i = this.player.j = 0
+        this.enemies = []
+        this.player.bullets = []
     }
 
     private render(): void {
         this.canvas.clear()
         let i: number
-        for (i = 0; i < this.player.bullets.length; i++) {
-            this.player.bullets[i].move()
-            this.canvas.draw(this.player.bullets[i])
+        let a: Sprite[]
+        a = this.player.bullets
+        for (i = 0; i < a.length; i++) {
+            if (!a[i])
+                continue
+            a[i].move()
+            this.canvas.draw(a[i])
+            if (!this.canvas.contains(a[i]))
+                a[i] = null
         }
-        for (i = 0; i < this.enemies.length; i++) {
-            this.enemies[i].moveTowards(this.player)
-            this.canvas.draw(this.enemies[i])
+        a = this.enemies
+        for (i = 0; i < a.length; i++) {
+            a[i].moveTowards(this.player)
+            this.canvas.draw(a[i])
         }
         this.player.move()
         this.canvas.draw(this.player)
