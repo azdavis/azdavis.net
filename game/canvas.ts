@@ -33,6 +33,15 @@ class Canvas {
         this.ctx.strokeRect(s.x, s.y, s.width, s.height)
     }
 
+    contains(s: Sprite): boolean {
+        return (
+            s.x >= 0 &&
+            s.x + s.width <= this.width &&
+            s.y >= 0 &&
+            s.y + s.height <= this.height
+        )
+    }
+
     clear(): void {
         this.ctx.clearRect(0, 0, this.elem.width, this.elem.height)
     }
