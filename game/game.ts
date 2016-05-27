@@ -59,6 +59,7 @@ class Game {
             a[i].moveTowards(this.player)
             this.canvas.draw(a[i])
         }
+        this.canvas.contain(this.player)
         this.player.move()
         this.canvas.draw(this.player)
     }
