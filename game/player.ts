@@ -6,7 +6,7 @@ class Player extends Sprite {
     h = 50
     speed = 1
     fill = '#4b4'
-    bullets: Bullet[] = []
+    bullets: Bullet[]
 
     // put this somewhere where it doesn't matter, since x and y are set by the
     // canvas dimensions
