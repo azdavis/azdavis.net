@@ -16,7 +16,7 @@ const pressed = {}
 
 // bind keys to player shoot, movement, and game pause
 onkeydown = (e) => {
-    if (pressed[e.which])
+    if (pressed[e.which] || !game.running)
         return
     switch (e.which) {
     case keys.sp: game.player.shoot(); break
@@ -31,6 +31,8 @@ onkeydown = (e) => {
 
 // prevent keys from being held
 onkeyup = (e) => {
+    if (!game.running)
+        return
     switch (e.which) {
     // `if` makes sure that if the player was stopped from exiting the canvas,
     // the player does not move backward when the user releases the key

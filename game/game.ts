@@ -6,8 +6,8 @@ import Bullet from './bullet'
 
 class Game {
     private enemies: Enemy[]
-    private running = false
     private loopID: number
+    running = false
     canvas: Canvas
     player: Player
 
