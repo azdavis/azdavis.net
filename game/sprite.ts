@@ -3,7 +3,7 @@ abstract class Sprite {
     w: number
     h: number
     fill: string
-    stroke = '#111'
+    stroke = '#000'
     i = 0
     j = 0
 
