@@ -1,7 +1,7 @@
 import Sprite from './sprite'
 
 class Canvas {
-    private ratio = window.devicePixelRatio || 1
+    private ratio = devicePixelRatio || 1
     private ctx: CanvasRenderingContext2D
     private elem: HTMLCanvasElement
     w: number
@@ -17,8 +17,8 @@ class Canvas {
 
     // resize this to be the size of the window
     resize(): void {
-        this.w = window.innerWidth
-        this.h = window.innerHeight
+        this.w = innerWidth
+        this.h = innerHeight
         this.elem.width = this.w * this.ratio
         this.elem.height = this.h * this.ratio
         this.elem.style.width = this.w + 'px'
