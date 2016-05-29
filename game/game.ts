@@ -35,7 +35,7 @@ class Game {
         this.running = true
     }
 
-    // stop running loop, remove all enemies and player.bullets
+    // stop running loop
     stop(): void {
         clearInterval(this.loopID)
         this.player.i = this.player.j = 0
@@ -43,6 +43,8 @@ class Game {
         this.running = false
     }
 
+    // position the player in the middle of the canvas, remove all enemies, and
+    // remove all bullets
     reset(): void {
         this.player.x = (this.canvas.w - this.player.w) / 2
         this.player.y = (this.canvas.h - this.player.h) / 2
