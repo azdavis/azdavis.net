@@ -5,7 +5,7 @@ import Enemy from './enemy'
 import Bullet from './bullet'
 
 class Game {
-    private enemies: Enemy[] = []
+    private enemies: Enemy[]
     private running = false
     private loopID: number
     canvas: Canvas
@@ -16,8 +16,7 @@ class Game {
     constructor() {
         this.canvas = new Canvas()
         this.player = new Player()
-        this.player.x = (this.canvas.w - this.player.w) / 2
-        this.player.y = (this.canvas.h - this.player.h) / 2
+        this.reset()
     }
 
     // switch the running state of this
@@ -30,18 +29,23 @@ class Game {
 
     // start running loop every 2 ms
     start(): void {
-        this.running = true
         this.loopID = setInterval(() => {
             this.loop()
         }, 2)
+        this.running = true
     }
 
     // stop running loop, remove all enemies and player.bullets
     stop(): void {
-        this.running = false
         clearInterval(this.loopID)
-        this.canvas.clear()
         this.player.i = this.player.j = 0
+        this.canvas.clear()
+        this.running = false
+    }
+
+    reset(): void {
+        this.player.x = (this.canvas.w - this.player.w) / 2
+        this.player.y = (this.canvas.h - this.player.h) / 2
         this.enemies = []
         this.player.bullets = []
     }
