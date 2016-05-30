@@ -22,9 +22,10 @@ test:
 	@open -ga 'Google Chrome' 'http://localhost:8080'
 	@ruby -run -e httpd $(VQ)
 
-deploy: clean all
+deploy:
 	git checkout master
 	git push origin master
+	$(MAKE) clean all
 	surge .
 
 .PHONY: all clean test deploy
