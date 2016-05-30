@@ -1,14 +1,14 @@
 import Sprite from './sprite'
 
 class Canvas {
+    public w: number
+    public h: number
     private ratio = devicePixelRatio || 1
     private ctx: CanvasRenderingContext2D
     private elem: HTMLCanvasElement
-    w: number
-    h: number
 
     // create this, resize it, and append it to the document body
-    constructor() {
+    public constructor() {
         this.elem = document.createElement('canvas')
         this.ctx = this.elem.getContext('2d')
         this.resize()
@@ -16,7 +16,7 @@ class Canvas {
     }
 
     // resize this to be the size of the window
-    resize(): void {
+    public resize(): void {
         this.w = innerWidth
         this.h = innerHeight
         this.elem.width = this.w * this.ratio
@@ -27,7 +27,7 @@ class Canvas {
     }
 
     // draw s on this
-    draw(s: Sprite): void {
+    public draw(s: Sprite): void {
         this.ctx.fillStyle = s.fill
         this.ctx.fillRect(s.x, s.y, s.w, s.h)
         this.ctx.strokeStyle = s.stroke
@@ -35,7 +35,7 @@ class Canvas {
     }
 
     // return whether any part of s is inside this
-    weaklyContains(s: Sprite): boolean {
+    public weaklyContains(s: Sprite): boolean {
         return (
             s.x >= 0 &&
             s.x + s.w <= this.w &&
@@ -45,15 +45,17 @@ class Canvas {
     }
 
     // change s's i and j to ensure no part of it is not contained in this
-    stronglyContain(s: Sprite): void {
-        if (s.x + s.i <= 0 || s.x + + s.w + s.i >= this.w)
+    public stronglyContain(s: Sprite): void {
+        if (s.x + s.i <= 0 || s.x + + s.w + s.i >= this.w) {
             s.i = 0
-        if (s.y + s.j <= 0 || s.y + + s.h + s.j >= this.h)
+        }
+        if (s.y + s.j <= 0 || s.y + + s.h + s.j >= this.h) {
             s.j = 0
+        }
     }
 
     // clear the entirety of this
-    clear(): void {
+    public clear(): void {
         this.ctx.clearRect(0, 0, this.w, this.h)
     }
 }

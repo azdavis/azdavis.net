@@ -9,15 +9,16 @@ const keys = {
     up: 38,
     rt: 39,
     dn: 40,
-    p: 80
+    p: 80,
 }
 // HACK: keeps track of which keys are pressed
 const pressed = {}
 
 // bind keys to player shoot, movement, and game pause
 onkeydown = (e) => {
-    if (pressed[e.which] || !game.running)
+    if (pressed[e.which] || !game.running) {
         return
+    }
     switch (e.which) {
     case keys.sp: game.player.shoot(); break
     case keys.lt: game.player.i -= 1; break
@@ -31,8 +32,9 @@ onkeydown = (e) => {
 
 // prevent keys from being held
 onkeyup = (e) => {
-    if (!game.running)
+    if (!game.running) {
         return
+    }
     switch (e.which) {
     case keys.lt: game.player.i += 1; break
     case keys.up: game.player.j += 1; break
@@ -59,5 +61,6 @@ onblur = () => {
 
 // start the game if, on page load, the document has focus (for some reason,
 // this is a method on document)
-if (document.hasFocus())
+if (document.hasFocus()) {
     game.start()
+}
