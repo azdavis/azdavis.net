@@ -25,12 +25,6 @@ game/index.js: \
 	mv $@.tmp $@
 	uglifyjs -cm --screw-ie8 --wrap -o $@ $@
 
-# this strange Makefile target ensures that all .ts dependencies for a single
-# .js file are linted
-%.ts: phony
-	@test -e $@
-	tslint $@
-
 clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
 
@@ -45,4 +39,4 @@ deploy:
 	@$(MAKE) clean all
 	surge . $(VQ)
 
-.PHONY: all clean test deploy phony
+.PHONY: all clean test deploy
