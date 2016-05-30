@@ -24,6 +24,7 @@ test:
 
 deploy:
 	git checkout master
+	git pull --rebase origin master
 	git push origin master
 	$(MAKE) clean all
 	surge .
