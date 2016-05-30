@@ -25,7 +25,9 @@ game/index.js: \
 	mv $@.tmp $@
 	uglifyjs -cm --screw-ie8 --wrap -o $@ $@
 
-%.ts: phony # black magic
+# this strange Makefile target ensures that all .ts dependencies for a single
+# .js file are linted
+%.ts: phony
 	@test -e $@
 	tslint $@
 
