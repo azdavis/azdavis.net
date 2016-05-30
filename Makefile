@@ -20,11 +20,14 @@ game/index.js: \
 	stylus -u 'autoprefixer-stylus' -c $< $(Q)
 
 %.js: %.ts
-	tslint $<
 	tsc --removeComments $<
 	browserify -o $@.tmp $@
 	mv $@.tmp $@
 	uglifyjs -cm --screw-ie8 --wrap -o $@ $@
+
+%.ts: phony # black magic
+	@test -e $@
+	tslint $@
 
 clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
@@ -40,4 +43,4 @@ deploy:
 	@$(MAKE) clean all
 	surge . $(VQ)
 
-.PHONY: all clean test deploy
+.PHONY: all clean test deploy phony
