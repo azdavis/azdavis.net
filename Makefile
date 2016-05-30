@@ -23,9 +23,9 @@ test:
 	@ruby -run -e httpd $(VQ)
 
 deploy:
-	git checkout master
-	git pull --rebase origin master
-	git push origin master
+	git checkout -q master
+	git pull -q --rebase origin master
+	git push -q origin master
 	$(MAKE) clean all
 	surge .
 
