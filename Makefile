@@ -20,6 +20,7 @@ game/index.js: \
 	stylus -u 'autoprefixer-stylus' -c $< $(Q)
 
 %.js: %.ts
+	tslint $<
 	tsc --removeComments $<
 	browserify -o $@.tmp $@
 	mv $@.tmp $@
