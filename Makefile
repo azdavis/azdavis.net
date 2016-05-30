@@ -23,6 +23,8 @@ test:
 	@ruby -run -e httpd $(VQ)
 
 deploy: clean all
+	git checkout master
+	git push origin master
 	surge .
 
 .PHONY: all clean test deploy
