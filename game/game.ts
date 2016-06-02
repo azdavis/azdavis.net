@@ -29,9 +29,7 @@ class Game {
 
     // start running loop every 2 ms
     public start(): void {
-        this.loopID = setInterval(() => {
-            this.loop()
-        }, 2)
+        this.loopID = setInterval(() => this.loop(), 2)
         this.running = true
     }
 

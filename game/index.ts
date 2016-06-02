@@ -45,19 +45,13 @@ onkeyup = (e) => {
 }
 
 // resize the canvas when the window is resized
-onresize = () => {
-    game.canvas.resize()
-}
+onresize = () => game.canvas.resize()
 
 // run the game when the window is (re)focused
-onfocus = () => {
-    game.start()
-}
+onfocus = () => game.start()
 
 // stop the game when the window is tabbed out
-onblur = () => {
-    game.stop()
-}
+onblur = () => game.stop()
 
 // start the game if, on page load, the document has focus (for some reason,
 // this is a method on document)
