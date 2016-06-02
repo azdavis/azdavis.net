@@ -26,7 +26,7 @@ deploy:
 	git checkout -q master
 	git pull -q --rebase origin master
 	git push -q origin master
-	$(MAKE) clean all
+	@$(MAKE) clean all
 	surge .
 
 .PHONY: all clean test deploy
