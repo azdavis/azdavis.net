@@ -20,12 +20,26 @@ onkeydown = (e) => {
         return
     }
     switch (e.which) {
-    case keys.sp: game.player.shoot(); break
-    case keys.lt: game.player.i -= 1; break
-    case keys.up: game.player.j -= 1; break
-    case keys.rt: game.player.i += 1; break
-    case keys.dn: game.player.j += 1; break
-    case keys.p: game.toggle(); break
+    case keys.sp:
+        game.player.shoot()
+        break
+    case keys.lt:
+        game.player.i -= 1
+        break
+    case keys.up:
+        game.player.j -= 1
+        break
+    case keys.rt:
+        game.player.i += 1
+        break
+    case keys.dn:
+        game.player.j += 1
+        break
+    case keys.p:
+        game.toggle()
+        break
+    default:
+        return
     }
     pressed[e.which] = true
 }
@@ -36,10 +50,20 @@ onkeyup = (e) => {
         return
     }
     switch (e.which) {
-    case keys.lt: game.player.i += 1; break
-    case keys.up: game.player.j += 1; break
-    case keys.rt: game.player.i -= 1; break
-    case keys.dn: game.player.j -= 1; break
+    case keys.lt:
+        game.player.i += 1
+        break
+    case keys.up:
+        game.player.j += 1
+        break
+    case keys.rt:
+        game.player.i -= 1
+        break
+    case keys.dn:
+        game.player.j -= 1
+        break
+    default:
+        return
     }
     pressed[e.which] = false
 }
