@@ -27,6 +27,6 @@ deploy:
 	git pull -q --rebase origin master
 	git push -q origin master
 	@$(MAKE) clean all
-	surge .
+	surge . $(VQ)
 
 .PHONY: all clean test deploy
