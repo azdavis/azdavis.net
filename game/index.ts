@@ -36,7 +36,11 @@ onkeydown = (e) => {
         game.player.j += 1
         break
     case keys.p:
-        game.toggle()
+        if (this.running) {
+            this.stop()
+        } else {
+            this.start()
+        }
         break
     default:
         return

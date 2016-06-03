@@ -17,15 +17,6 @@ class Game {
         this.reset()
     }
 
-    // switch the running state of this
-    public toggle(): void {
-        if (this.running) {
-            this.stop()
-        } else {
-            this.start()
-        }
-    }
-
     // start running loop every 2 ms
     public start(): void {
         this.loopID = setInterval(() => this.loop(), 2)
