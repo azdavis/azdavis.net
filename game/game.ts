@@ -6,14 +6,18 @@ class Game {
     public running = false
     public canvas: Canvas
     public player: Player
+    private info: HTMLDivElement
     private enemies: Enemy[]
     private loopID: number
+    private score = 0
 
-    // create this, add a canvas and player, and center the player on the
-    // canvas
+    // create this, add a canvas, player, info board, resets this
     public constructor() {
         this.canvas = new Canvas()
         this.player = new Player()
+        this.info = document.createElement('div')
+        this.info.className = 'info'
+        document.body.appendChild(this.info)
         this.reset()
     }
 
@@ -31,13 +35,14 @@ class Game {
         this.running = false
     }
 
-    // position the player in the middle of the canvas, remove all enemies, and
-    // remove all bullets
-    public reset(): void {
+    // position the player in the middle of the canvas, remove all enemies and
+    // player bullets, clear the info board
+    private reset(): void {
         this.player.x = (this.canvas.w - this.player.w) / 2
         this.player.y = (this.canvas.h - this.player.h) / 2
         this.enemies = []
         this.player.bullets = []
+        this.info.innerHTML = ''
     }
 
     // move, draw, and handle collisions for all sprites in this
