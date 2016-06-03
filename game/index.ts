@@ -22,6 +22,7 @@ onkeydown = (e) => {
     switch (e.which) {
     case keys.sp:
         game.player.shoot()
+        game.updateInfo()
         break
     case keys.lt:
         game.player.i -= 1

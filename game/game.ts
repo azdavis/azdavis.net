@@ -11,14 +11,14 @@ class Game {
     private loopID: number
     private score = 0
 
-    // create this, add a canvas, player, info board, resets this
+    // create this, add a canvas, player, info board, resets this, updates info
     public constructor() {
         this.canvas = new Canvas()
         this.player = new Player()
         this.info = document.createElement('div')
-        this.info.className = 'info'
         document.body.appendChild(this.info)
         this.reset()
+        this.updateInfo()
     }
 
     // start running loop every 2 ms
@@ -33,6 +33,16 @@ class Game {
         this.player.i = this.player.j = 0
         this.canvas.clear()
         this.running = false
+    }
+
+    // updates the info board with game score, player lives, and player bullets
+    // information
+    public updateInfo(): void {
+        this.info.innerHTML = [
+            `score: ${this.score}`,
+            `lives: ${this.player.lives}`,
+            `bullets: ${this.player.bullets.length}`,
+        ].join('<br>')
     }
 
     // position the player in the middle of the canvas, remove all enemies and
@@ -81,6 +91,7 @@ class Game {
                 }
                 if (e[i].isTouching(b[j])) {
                     e[i] = b[j] = null
+                    this.updateInfo()
                     break
                 }
             }
