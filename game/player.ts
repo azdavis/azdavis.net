@@ -7,6 +7,7 @@ class Player extends Sprite {
     public speed = 1
     public fill = '#4b4'
     public bullets: Bullet[]
+    public lives = 3
 
     // put this somewhere where it doesn't matter, since x and y are set by the
     // canvas dimensions
