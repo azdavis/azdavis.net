@@ -66,6 +66,9 @@ onkeyup = (e) => {
     case keys.dn:
         game.player.j -= 1
         break
+    case keys.sp:
+    case keys.p:
+        break
     default:
         return
     }
