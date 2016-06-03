@@ -1,5 +1,4 @@
 import Canvas from './canvas'
-import Sprite from './sprite'
 import Player from './player'
 import Enemy from './enemy'
 
@@ -55,8 +54,8 @@ class Game {
         this.canvas.clear()
         let i: number
         let j: number
-        let b: Sprite[] = this.player.bullets
-        let e: Sprite[] = this.enemies
+        let b = this.player.bullets
+        let e = this.enemies
         for (i = 0; i < b.length; i++) {
             if (!b[i]) {
                 continue
