@@ -1,0 +1,3 @@
+*.pug linguist-language=Jade
+*.styl linguist-language=Stylus
+*.ts linguist-language=TypeScript
