@@ -19,7 +19,7 @@ clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
 
 test:
-	@open -ga 'Google Chrome' 'http://localhost:8080'
+	@open -g 'http://localhost:8080'
 	@ruby -run -e httpd $(VQ)
 
 deploy:
