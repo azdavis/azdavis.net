@@ -6,4 +6,5 @@ Makefile
 *.css
 *.ts
 *.js
+*.json
 z
