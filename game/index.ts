@@ -82,7 +82,7 @@ onresize = () => game.canvas.resize()
 // run the game when the window is (re)focused
 onfocus = () => game.start()
 
-// stop the game when the window is tabbed out
+// stop the game when the window is tabbed out, and un-press all keys
 onblur = () => {
     for (let k in pressed) {
         if (pressed[k]) {
