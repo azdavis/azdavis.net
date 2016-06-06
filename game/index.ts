@@ -92,8 +92,7 @@ onblur = () => {
     game.stop()
 }
 
-// start the game if, on page load, the document has focus (for some reason,
-// this is a method on document)
+// start the game if, on page load, the document has focus
 if (document.hasFocus()) {
     game.start()
 }
