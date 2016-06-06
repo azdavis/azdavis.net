@@ -25,7 +25,7 @@ class Game {
         if (this.running) {
             return
         }
-        this.loopID = setInterval(() => this.loop(), 2)
+        this.loopID = setInterval(() => this.loop(), 10)
         this.running = true
     }
 

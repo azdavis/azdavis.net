@@ -4,7 +4,7 @@ import Bullet from './bullet'
 class Player extends Sprite {
     public w = 50
     public h = 50
-    public speed = 1
+    public speed = 4
     public fill = '#4b4'
     public bullets: Bullet[]
     public lives = 3
