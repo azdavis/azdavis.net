@@ -9,10 +9,9 @@ class Canvas {
 
     // create this, resize it, and append it to the document body
     public constructor() {
-        this.elem = document.createElement('canvas')
+        this.elem = <HTMLCanvasElement>document.querySelector('canvas')
         this.ctx = this.elem.getContext('2d')
         this.resize()
-        document.body.appendChild(this.elem)
     }
 
     // resize this to be the size of the window

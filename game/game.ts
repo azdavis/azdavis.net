@@ -15,8 +15,7 @@ class Game {
     public constructor() {
         this.canvas = new Canvas()
         this.player = new Player()
-        this.info = document.createElement('div')
-        document.body.appendChild(this.info)
+        this.info = <HTMLDivElement>document.querySelector('.info')
         this.reset()
         this.updateInfo()
     }
