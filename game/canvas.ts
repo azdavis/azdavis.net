@@ -45,10 +45,10 @@ class Canvas {
 
     // change s's i and j to ensure no part of it is not contained in this
     public stronglyContain(s: Sprite): void {
-        if (s.x + s.i <= 0 || s.x + + s.w + s.i >= this.w) {
+        if (s.x <= 0 && s.i <= 0 || s.x + s.w >= this.w && s.i >= 0) {
             s.i = 0
         }
-        if (s.y + s.j <= 0 || s.y + + s.h + s.j >= this.h) {
+        if (s.y <= 0 && s.j <= 0 || s.y + s.h >= this.h && s.j >= 0) {
             s.j = 0
         }
     }
