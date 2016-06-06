@@ -83,7 +83,14 @@ onresize = () => game.canvas.resize()
 onfocus = () => game.start()
 
 // stop the game when the window is tabbed out
-onblur = () => game.stop()
+onblur = () => {
+    for (let k in pressed) {
+        if (pressed[k]) {
+            pressed[k] = false
+        }
+    }
+    game.stop()
+}
 
 // start the game if, on page load, the document has focus (for some reason,
 // this is a method on document)
