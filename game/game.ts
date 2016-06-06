@@ -22,12 +22,18 @@ class Game {
 
     // start running loop every 2 ms
     public start(): void {
+        if (this.running) {
+            return
+        }
         this.loopID = setInterval(() => this.loop(), 2)
         this.running = true
     }
 
     // stop running loop
     public stop(): void {
+        if (!this.running) {
+            return
+        }
         clearInterval(this.loopID)
         this.player.i = this.player.j = 0
         this.canvas.clear()
