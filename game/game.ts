@@ -101,6 +101,7 @@ class Game {
                 }
             }
         }
+        this.player.getIJ()
         this.canvas.stronglyContain(this.player)
         this.player.move()
         this.canvas.draw(this.player)

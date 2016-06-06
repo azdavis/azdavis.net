@@ -24,18 +24,10 @@ onkeydown = (e) => {
         game.player.shoot()
         game.updateInfo()
         break
-    case keys.lt:
-        game.player.i -= 1
-        break
-    case keys.up:
-        game.player.j -= 1
-        break
-    case keys.rt:
-        game.player.i += 1
-        break
-    case keys.dn:
-        game.player.j += 1
-        break
+    case keys.lt: game.player.dirs.lt = true; break
+    case keys.up: game.player.dirs.up = true; break
+    case keys.rt: game.player.dirs.rt = true; break
+    case keys.dn: game.player.dirs.dn = true; break
     case keys.p:
         if (this.running) {
             this.stop()
@@ -55,18 +47,10 @@ onkeyup = (e) => {
         return
     }
     switch (e.which) {
-    case keys.lt:
-        game.player.i += 1
-        break
-    case keys.up:
-        game.player.j += 1
-        break
-    case keys.rt:
-        game.player.i -= 1
-        break
-    case keys.dn:
-        game.player.j -= 1
-        break
+    case keys.lt: game.player.dirs.lt = false; break
+    case keys.up: game.player.dirs.up = false; break
+    case keys.rt: game.player.dirs.rt = false; break
+    case keys.dn: game.player.dirs.dn = false; break
     case keys.sp:
     case keys.p:
         break
