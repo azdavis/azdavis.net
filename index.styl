@@ -1,56 +1,41 @@
-*
-    box-sizing border-box
+html
+pre
+    font-size 16px
+    font-family Input, Menlo, Consolas, "Liberation Mono", monospace
 
 html
-    animation bg 20s linear infinite
+    background #ddd
     color #222
-    font-size 44px
-    font-family sans-serif
     -ms-text-size-adjust 100%
     -webkit-text-size-adjust 100%
 
-body
+pre
     margin 0
-    padding 10px
+
+body
+    max-width 80ch
+    margin 0 auto
+    padding 1ch
 
 a
-    background transparent
-    &:active
-    &:hover
-        outline 0
+a:visited
+    color inherit
 
-img
-    border 0
+.top div
+    display inline-block
+    width 33.333%
 
-.big
-    margin 0.5em 0
-    font-weight bold
-
-.center
-    margin-top 15vh
+.ct
     text-align center
 
-.icon
-    display inline-block
-    vertical-align top
-    img
-        display block
-        height 1em
-        &:hover
-            opacity 0.5
+.rt
+    text-align right
 
-@keyframes bg
-    0%
-        background #dd2
-    14.286%
-        background #d22
-    28.571%
-        background #d2d
-    42.857%
-        background #22d
-    57.143%
-        background #2dd
-    85.714%
-        background #2d2
-    100%
-        background #dd2
+h2
+    margin 1em 0 0
+    font-weight bold
+
+.indent
+    margin-left 7ch
+    @media only screen and (max-width 600px)
+        margin-left 2ch

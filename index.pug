@@ -1,10 +1,28 @@
-html(lang='ja')
+html(lang='en')
     head
         include /head.pug
-        title こんにちは
+        title man ariel-davis
         style: include index.css
     body
-        .center
-            .big 私はアリエルデイビスです
-            a(href='https://github.com/azdavis').icon
-                img(src='github-logo.png' alt='github-logo')
+        .top
+            div ARIEL-DAVIS(1)
+            .ct User Commands
+            .rt ARIEL-DAVIS(1)
+        h2 NAME
+        .indent ariel-davis - a guy who does things
+        h2 SYNOPSIS
+        pre.indent.
+            #[b ariel-davis] [option]... [command] [arg]...
+        h2 DESCRIPTION
+        .indent bar
+        h2 OPTIONS
+        .indent bar
+        h2 AUTHOR
+        .indent Written by David and Karen Davis.
+        h2 REPORTING BUGS
+        .indent foo
+        h2 COPYRIGHT
+        .indent Copyright © 1998-2016 Ariel Davis. All rights reserved.
+        h2 SEE ALSO
+        - const gh = 'https://github.com/azdavis'
+        .indent GitHub profile at: &lt;#[a(href= gh)= gh]&gt;
