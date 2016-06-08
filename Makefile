@@ -1,5 +1,4 @@
-Q = > /dev/null
-VQ = &$(Q)
+Q = &> /dev/null
 
 all: 404.html index.html game/index.html
 404.html: 404.css
@@ -30,13 +29,13 @@ clean:
 
 test:
 	@open -g 'http://localhost:8080'
-	@ruby -run -e httpd $(VQ)
+	@ruby -run -e httpd $(Q)
 
 deploy:
 	git checkout -q master
 	git pull -q --rebase origin master
 	git push -q origin master
 	@$(MAKE) clean all
-	surge . $(VQ)
+	surge . $(Q)
 
 .PHONY: all clean test deploy
