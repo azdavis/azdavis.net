@@ -35,8 +35,7 @@ onkeydown = (e) => {
     case keys.up: Game.player.dirs.up = true; break
     case keys.rt: Game.player.dirs.rt = true; break
     case keys.dn: Game.player.dirs.dn = true; break
-    default:
-        return
+    default: return
     }
     pressed[e.which] = true
 }
@@ -51,11 +50,8 @@ onkeyup = (e) => {
     case keys.up: Game.player.dirs.up = false; break
     case keys.rt: Game.player.dirs.rt = false; break
     case keys.dn: Game.player.dirs.dn = false; break
-    case keys.sp:
-    case keys.p:
-        break
-    default:
-        return
+    case keys.sp: break
+    default: return
     }
     pressed[e.which] = false
 }
