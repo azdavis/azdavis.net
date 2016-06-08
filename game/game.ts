@@ -25,8 +25,8 @@ namespace Game {
             return
         }
         clearInterval(loopID)
+        setTimeout(Canvas.clear, 10)
         player.i = player.j = 0
-        Canvas.clear()
         running = false
     }
 
