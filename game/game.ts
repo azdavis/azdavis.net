@@ -5,7 +5,7 @@ import Player from './player'
 namespace Game {
     export let running = false
     export const player = new Player()
-    const info = <HTMLDivElement>document.querySelector('.info')
+    const info = <HTMLElement>document.querySelector('.info')
     let enemies: Enemy[]
     let loopID: number
     let score = 0
