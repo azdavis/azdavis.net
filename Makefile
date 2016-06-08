@@ -34,7 +34,7 @@ test:
 deploy:
 	git checkout -q master
 	git push -q origin master
-	@$(MAKE) clean all
+	@$(MAKE) all
 	surge . $(Q)
 
 .PHONY: all clean test deploy
