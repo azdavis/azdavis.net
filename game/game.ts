@@ -66,7 +66,7 @@ namespace Game {
                 player.bullets[i] = null
             }
         }
-        if (Math.random() < 0.001) {
+        if (Math.random() < 0.005) {
             enemies.push(new Enemy(
                 Math.floor(Math.random() * Canvas.w),
                 Math.floor(Math.random() * Canvas.h)
