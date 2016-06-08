@@ -10,7 +10,8 @@ const keys = {
     dn: 40,
     p: 80,
 }
-// HACK: keeps track of which keys are pressed
+
+// keeps track of which keys are pressed
 const pressed = {}
 
 // bind keys to player shoot, movement, and game pause
