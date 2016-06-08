@@ -55,37 +55,35 @@ namespace Game {
         Canvas.clear()
         let i: number
         let j: number
-        let b = player.bullets
-        let e = enemies
-        for (i = 0; i < b.length; i++) {
-            if (!b[i]) {
+        for (i = 0; i < player.bullets.length; i++) {
+            if (!player.bullets[i]) {
                 continue
             }
-            b[i].move()
-            Canvas.draw(b[i])
-            if (!Canvas.weaklyContains(b[i])) {
-                b[i] = null
+            player.bullets[i].move()
+            Canvas.draw(player.bullets[i])
+            if (!Canvas.weaklyContains(player.bullets[i])) {
+                player.bullets[i] = null
             }
         }
         if (Math.random() < 0.001) {
-            e.push(new Enemy(
+            enemies.push(new Enemy(
                 Math.floor(Math.random() * Canvas.w),
                 Math.floor(Math.random() * Canvas.h)
             ))
         }
-        for (i = 0; i < e.length; i++) {
-            if (!e[i]) {
+        for (i = 0; i < enemies.length; i++) {
+            if (!enemies[i]) {
                 continue
             }
-            e[i].moveTowards(player)
-            Canvas.draw(e[i])
+            enemies[i].moveTowards(player)
+            Canvas.draw(enemies[i])
             // O(n^2) is the bad
-            for (j = 0; j < b.length; j++) {
-                if (!b[j]) {
+            for (j = 0; j < player.bullets.length; j++) {
+                if (!player.bullets[j]) {
                     continue
                 }
-                if (e[i].isTouching(b[j])) {
-                    e[i] = b[j] = null
+                if (enemies[i].isTouching(player.bullets[j])) {
+                    enemies[i] = player.bullets[j] = null
                     updateInfo()
                     break
                 }
