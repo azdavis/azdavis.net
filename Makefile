@@ -33,7 +33,6 @@ test:
 
 deploy:
 	git checkout -q master
-	git pull -q --rebase origin master
 	git push -q origin master
 	@$(MAKE) clean all
 	surge . $(Q)
