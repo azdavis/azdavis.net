@@ -53,6 +53,13 @@ namespace Game {
         info.innerHTML = ''
     }
 
+    function lose(): void {
+        started = false
+        stop()
+        info.innerHTML += '<br>game over'
+        info.style.display = 'block'
+    }
+
     // move, draw, and handle collisions for all sprites in this
     let timesSinceReload = 0
     function loop(): void {
@@ -83,8 +90,7 @@ namespace Game {
                 player.lives--
                 updateInfo()
                 if (player.lives <= 0) {
-                    started = false
-                    stop()
+                    lose()
                 }
                 continue
             }
