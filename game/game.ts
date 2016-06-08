@@ -4,7 +4,6 @@ import Enemy from './enemy'
 
 namespace Game {
     export let running = false
-    export const canvas = new Canvas()
     export const player = new Player()
     const info = <HTMLDivElement>document.querySelector('.info')
     let enemies: Enemy[]
@@ -27,7 +26,7 @@ namespace Game {
         }
         clearInterval(loopID)
         player.i = player.j = 0
-        canvas.clear()
+        Canvas.clear()
         running = false
     }
 
@@ -44,8 +43,8 @@ namespace Game {
     // position the player in the middle of the canvas, remove all enemies and
     // player bullets, clear the info board
     function reset(): void {
-        player.x = (canvas.w - player.w) / 2
-        player.y = (canvas.h - player.h) / 2
+        player.x = (Canvas.w - player.w) / 2
+        player.y = (Canvas.h - player.h) / 2
         enemies = []
         player.bullets = []
         info.innerHTML = ''
@@ -53,7 +52,7 @@ namespace Game {
 
     // move, draw, and handle collisions for all sprites in this
     function loop(): void {
-        canvas.clear()
+        Canvas.clear()
         let i: number
         let j: number
         let b = player.bullets
@@ -63,15 +62,15 @@ namespace Game {
                 continue
             }
             b[i].move()
-            canvas.draw(b[i])
-            if (!canvas.weaklyContains(b[i])) {
+            Canvas.draw(b[i])
+            if (!Canvas.weaklyContains(b[i])) {
                 b[i] = null
             }
         }
         if (Math.random() < 0.001) {
             e.push(new Enemy(
-                Math.floor(Math.random() * canvas.w),
-                Math.floor(Math.random() * canvas.h)
+                Math.floor(Math.random() * Canvas.w),
+                Math.floor(Math.random() * Canvas.h)
             ))
         }
         for (i = 0; i < e.length; i++) {
@@ -79,7 +78,7 @@ namespace Game {
                 continue
             }
             e[i].moveTowards(player)
-            canvas.draw(e[i])
+            Canvas.draw(e[i])
             // O(n^2) is the bad
             for (j = 0; j < b.length; j++) {
                 if (!b[j]) {
@@ -93,9 +92,9 @@ namespace Game {
             }
         }
         player.getIJ()
-        canvas.stronglyContain(player)
+        Canvas.stronglyContain(player)
         player.move()
-        canvas.draw(player)
+        Canvas.draw(player)
     }
 
     reset()

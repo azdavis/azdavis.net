@@ -1,3 +1,4 @@
+import Canvas from './canvas'
 import Game from './game'
 
 // the keys on the keyboard we care about, and their KeyboardEvent.which values
@@ -59,7 +60,7 @@ onkeyup = (e) => {
 }
 
 // resize the canvas when the window is resized
-onresize = () => Game.canvas.resize()
+onresize = () => Canvas.resize()
 
 // run the game when the window is (re)focused
 onfocus = () => Game.start()
