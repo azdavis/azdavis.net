@@ -29,7 +29,7 @@ abstract class Sprite {
     }
 
     // return whether any part of this overlaps any part of s
-    public isTouching(s: Sprite): boolean {
+    public hasAnyInside(s: Sprite): boolean {
         return (
             this.encloses(s.x, s.y) ||
             this.encloses(s.x + s.w, s.y) ||

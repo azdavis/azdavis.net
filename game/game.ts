@@ -75,7 +75,7 @@ namespace Game {
             }
             enemies[i].moveTowards(player)
             Canvas.draw(enemies[i])
-            if (enemies[i].isTouching(player)) {
+            if (player.hasAnyInside(enemies[i])) {
                 enemies[i] = null
                 player.lives--
                 updateInfo()
@@ -89,7 +89,7 @@ namespace Game {
                 if (!player.bullets[j]) {
                     continue
                 }
-                if (enemies[i].isTouching(player.bullets[j])) {
+                if (enemies[i].hasAnyInside(player.bullets[j])) {
                     score += enemies[i].points
                     enemies[i] = player.bullets[j] = null
                     updateInfo()
