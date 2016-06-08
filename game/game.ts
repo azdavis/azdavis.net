@@ -67,10 +67,7 @@ namespace Game {
             }
         }
         if (Math.random() < 0.005) {
-            enemies.push(new Enemy(
-                Math.floor(Math.random() * Canvas.w),
-                Math.floor(Math.random() * Canvas.h)
-            ))
+            enemies.push(new Enemy())
         }
         for (i = 0; i < enemies.length; i++) {
             if (!enemies[i]) {
