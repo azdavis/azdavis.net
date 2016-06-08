@@ -1,7 +1,5 @@
 import Game from './game'
 
-const game = new Game()
-
 // the keys on the keyboard we care about, and their KeyboardEvent.which values
 const keys = {
     sp: 32,
@@ -16,18 +14,18 @@ const pressed = {}
 
 // bind keys to player shoot, movement, and game pause
 onkeydown = (e) => {
-    if (pressed[e.which] || !game.running) {
+    if (pressed[e.which] || !Game.running) {
         return
     }
     switch (e.which) {
     case keys.sp:
-        game.player.shoot()
-        game.updateInfo()
+        Game.player.shoot()
+        Game.updateInfo()
         break
-    case keys.lt: game.player.dirs.lt = true; break
-    case keys.up: game.player.dirs.up = true; break
-    case keys.rt: game.player.dirs.rt = true; break
-    case keys.dn: game.player.dirs.dn = true; break
+    case keys.lt: Game.player.dirs.lt = true; break
+    case keys.up: Game.player.dirs.up = true; break
+    case keys.rt: Game.player.dirs.rt = true; break
+    case keys.dn: Game.player.dirs.dn = true; break
     case keys.p:
         if (this.running) {
             this.stop()
@@ -43,14 +41,14 @@ onkeydown = (e) => {
 
 // prevent keys from being held
 onkeyup = (e) => {
-    if (!game.running) {
+    if (!Game.running) {
         return
     }
     switch (e.which) {
-    case keys.lt: game.player.dirs.lt = false; break
-    case keys.up: game.player.dirs.up = false; break
-    case keys.rt: game.player.dirs.rt = false; break
-    case keys.dn: game.player.dirs.dn = false; break
+    case keys.lt: Game.player.dirs.lt = false; break
+    case keys.up: Game.player.dirs.up = false; break
+    case keys.rt: Game.player.dirs.rt = false; break
+    case keys.dn: Game.player.dirs.dn = false; break
     case keys.sp:
     case keys.p:
         break
@@ -61,10 +59,10 @@ onkeyup = (e) => {
 }
 
 // resize the canvas when the window is resized
-onresize = () => game.canvas.resize()
+onresize = () => Game.canvas.resize()
 
 // run the game when the window is (re)focused
-onfocus = () => game.start()
+onfocus = () => Game.start()
 
 // stop the game when the window is tabbed out, and un-press all keys
 onblur = () => {
@@ -73,10 +71,10 @@ onblur = () => {
             pressed[k] = false
         }
     }
-    game.stop()
+    Game.stop()
 }
 
 // start the game if, on page load, the document has focus
 if (document.hasFocus()) {
-    game.start()
+    Game.start()
 }
