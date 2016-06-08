@@ -78,6 +78,15 @@ namespace Game {
             }
             enemies[i].moveTowards(player)
             Canvas.draw(enemies[i])
+            if (enemies[i].isTouching(player)) {
+                enemies[i] = null
+                player.lives--
+                updateInfo()
+                if (player.lives <= 0) {
+                    stop()
+                }
+                continue
+            }
             // O(n^2) is the bad
             for (j = 0; j < player.bullets.length; j++) {
                 if (!player.bullets[j]) {
