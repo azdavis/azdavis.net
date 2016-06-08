@@ -7,8 +7,10 @@ class Player extends Sprite {
     public speed = 4
     public fill = '#4b4'
     public bullets: Bullet[]
-    public lives = 3
-    public ammo = 10
+    public maxLives = 3
+    public maxAmmo = 10
+    public lives = this.maxLives
+    public ammo = this.maxAmmo
     public dirs = {
         lt: false,
         up: false,
@@ -22,8 +24,8 @@ class Player extends Sprite {
         super(0, 0)
     }
 
-    // if this is moving, make a new Bullet which moves in the direction of
-    // movement, otherwise, noop
+    // if this is moving and has ammo, make a new Bullet which moves in the
+    // direction of movement and decrement ammo, otherwise, noop
     public shoot(): void {
         if (this.ammo === 0 || this.i === 0 && this.j === 0) {
             return

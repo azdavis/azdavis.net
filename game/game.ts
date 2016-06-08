@@ -51,6 +51,7 @@ namespace Game {
     }
 
     // move, draw, and handle collisions for all sprites in this
+    let timesSinceReload = 0
     function loop(): void {
         Canvas.clear()
         let i: number
@@ -89,6 +90,12 @@ namespace Game {
                     break
                 }
             }
+        }
+        timesSinceReload++
+        if (timesSinceReload >= 200 && player.ammo < player.maxAmmo) {
+            timesSinceReload = 0
+            player.ammo++
+            updateInfo()
         }
         player.getIJ()
         Canvas.stronglyContain(player)
