@@ -32,14 +32,18 @@ class Player extends Sprite {
 
     public getIJ(): void {
         this.i = this.j = 0
-        if (this.dirs.lt)
+        if (this.dirs.lt) {
             this.i -= 1
-        if (this.dirs.up)
+        }
+        if (this.dirs.up) {
             this.j -= 1
-        if (this.dirs.rt)
+        }
+        if (this.dirs.rt) {
             this.i += 1
-        if (this.dirs.dn)
+        }
+        if (this.dirs.dn) {
             this.j += 1
+        }
     }
 }
 
