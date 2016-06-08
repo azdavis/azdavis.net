@@ -13,7 +13,7 @@ game/index.js: \
 	game/game.ts
 
 %.html: %.pug head.pug
-	pug -s -b . --doctype 'html' $<
+	pug -sb . --doctype 'html' $<
 
 %.css: %.styl
 	stylus -u 'autoprefixer-stylus' -c $< $(Q)
@@ -22,7 +22,7 @@ game/index.js: \
 	tsc --removeComments $<
 	browserify -o $@.js $@
 	mv $@.js $@
-	uglifyjs -cm --screw-ie8 --wrap -o $@ $@
+	uglifyjs --screw-ie8 --wrap -cmo $@ $@
 
 clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
