@@ -73,10 +73,10 @@ onblur = () => {
     if (!Game.started) {
         return
     }
+    Game.stop()
     for (let k in pressed) {
         if (pressed[k]) {
             pressed[k] = false
         }
     }
-    Game.stop()
 }
