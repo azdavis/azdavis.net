@@ -4,6 +4,7 @@ import Player from './player'
 
 namespace Game {
     export let running = false
+    export let started = false
     export const player = new Player()
     const info = <HTMLElement>document.querySelector('.info')
     let enemies: Enemy[]
@@ -16,7 +17,8 @@ namespace Game {
             return
         }
         loopID = setInterval(() => loop(), 10)
-        running = true
+        info.style.display = 'block'
+        running = started = true
     }
 
     // stop running loop
@@ -26,6 +28,7 @@ namespace Game {
         }
         clearInterval(loopID)
         setTimeout(Canvas.clear, 10)
+        info.style.display = ''
         player.i = player.j = 0
         running = false
     }
@@ -80,6 +83,7 @@ namespace Game {
                 player.lives--
                 updateInfo()
                 if (player.lives <= 0) {
+                    started = false
                     stop()
                 }
                 continue

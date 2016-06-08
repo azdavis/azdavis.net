@@ -1,6 +1,8 @@
 import Canvas from './canvas'
 import Game from './game'
 
+const modal = <HTMLElement>document.querySelector('.modal')
+
 // the keys on the keyboard we care about, and their KeyboardEvent.which values
 const keys = {
     sp: 32,
@@ -16,7 +18,12 @@ const pressed = {}
 
 // bind keys to player shoot, movement, and game pause
 onkeydown = (e) => {
-    if (pressed[e.which] || !Game.running) {
+    if (e.which === keys.p && !Game.started) {
+        modal.style.display = 'none'
+        Game.start()
+        return
+    }
+    if (pressed[e.which] || !Game.running || !Game.started) {
         return
     }
     switch (e.which) {
@@ -28,13 +35,6 @@ onkeydown = (e) => {
     case keys.up: Game.player.dirs.up = true; break
     case keys.rt: Game.player.dirs.rt = true; break
     case keys.dn: Game.player.dirs.dn = true; break
-    case keys.p:
-        if (Game.running) {
-            Game.stop()
-        } else {
-            Game.start()
-        }
-        break
     default:
         return
     }
@@ -43,7 +43,7 @@ onkeydown = (e) => {
 
 // prevent keys from being held
 onkeyup = (e) => {
-    if (!Game.running) {
+    if (!Game.started || !Game.running) {
         return
     }
     switch (e.which) {
@@ -64,19 +64,22 @@ onkeyup = (e) => {
 onresize = () => Canvas.resize()
 
 // run the game when the window is (re)focused
-onfocus = () => Game.start()
+onfocus = () => {
+    if (!Game.started) {
+        return
+    }
+    Game.start()
+}
 
 // stop the game when the window is tabbed out, and un-press all keys
 onblur = () => {
+    if (!Game.started) {
+        return
+    }
     for (let k in pressed) {
         if (pressed[k]) {
             pressed[k] = false
         }
     }
     Game.stop()
-}
-
-// start the game if, on page load, the document has focus
-if (document.hasFocus()) {
-    Game.start()
 }
