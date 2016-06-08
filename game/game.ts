@@ -53,6 +53,7 @@ namespace Game {
         info.innerHTML = ''
     }
 
+    // stop the game, show final stats
     function lose(): void {
         started = false
         stop()
