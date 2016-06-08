@@ -1,5 +1,5 @@
-import Sprite from './sprite'
 import Bullet from './bullet'
+import Sprite from './sprite'
 
 class Player extends Sprite {
     public w = 50

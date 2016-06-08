@@ -1,6 +1,6 @@
 import Canvas from './canvas'
-import Player from './player'
 import Enemy from './enemy'
+import Player from './player'
 
 namespace Game {
     export let running = false
