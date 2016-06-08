@@ -83,6 +83,7 @@ namespace Game {
                     continue
                 }
                 if (enemies[i].isTouching(player.bullets[j])) {
+                    score += enemies[i].points
                     enemies[i] = player.bullets[j] = null
                     updateInfo()
                     break

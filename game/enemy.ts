@@ -5,6 +5,7 @@ class Enemy extends Sprite {
     public h = 40
     public speed = 2
     public fill = '#b44'
+    public points = 50
 }
 
 export default Enemy
