@@ -8,6 +8,7 @@ class Player extends Sprite {
     public fill = '#4b4'
     public bullets: Bullet[]
     public lives = 3
+    public ammo = 10
     public dirs = {
         lt: false,
         up: false,
@@ -24,10 +25,11 @@ class Player extends Sprite {
     // if this is moving, make a new Bullet which moves in the direction of
     // movement, otherwise, noop
     public shoot(): void {
-        if (this.i === 0 && this.j === 0) {
+        if (this.ammo === 0 || this.i === 0 && this.j === 0) {
             return
         }
         this.bullets.push(new Bullet(this))
+        this.ammo--
     }
 
     public getIJ(): void {

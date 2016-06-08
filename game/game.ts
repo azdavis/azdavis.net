@@ -30,13 +30,13 @@ namespace Game {
         running = false
     }
 
-    // updates the info board with game score, player lives, and player bullets
+    // updates the info board with game score, player lives, and player ammo
     // information
     export function updateInfo(): void {
         info.innerHTML = [
             `score: ${score}`,
             `lives: ${player.lives}`,
-            `bullets: ${player.bullets.length}`,
+            `ammo: ${player.ammo}`,
         ].join('<br>')
     }
 
