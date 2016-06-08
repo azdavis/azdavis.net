@@ -51,8 +51,11 @@ html(lang='en')
         h2 COPYRIGHT
         .sec Copyright © 1998-2016 Ariel Davis. All rights reserved.
         h2 SEE ALSO
-        - const gh = 'github.com/azdavis'
-        .sec &lt;#[a(href= 'https://' + gh)= gh]&gt;
+        .sec
+            - const gh = 'github.com/azdavis'
+            p GitHub profile: &lt;#[a(href= 'https://' + gh)= gh]&gt;
+            - const ga = '/game'
+            p A simple keyboard game: &lt;#[a(href= ga)= ga]&gt;
         .three.bot
             div Ariel Davis v18.0.0
             div 2016-06-06
