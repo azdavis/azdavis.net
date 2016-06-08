@@ -18,10 +18,12 @@ class Player extends Sprite {
         dn: false,
     }
 
-    // put this somewhere where it doesn't matter, since x and y are set by the
+    // put this just outside of the canvas, since x and y are set later by the
     // canvas dimensions
     public constructor() {
         super(0, 0)
+        this.x -= this.w
+        this.y -= this.h
     }
 
     // if this is moving and has ammo, make a new Bullet which moves in the
