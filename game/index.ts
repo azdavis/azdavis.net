@@ -28,10 +28,10 @@ onkeydown = (e) => {
     case keys.rt: Game.player.dirs.rt = true; break
     case keys.dn: Game.player.dirs.dn = true; break
     case keys.p:
-        if (this.running) {
-            this.stop()
+        if (Game.running) {
+            Game.stop()
         } else {
-            this.start()
+            Game.start()
         }
         break
     default:
