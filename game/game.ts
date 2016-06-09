@@ -39,7 +39,7 @@ namespace Game {
         info.innerHTML = [
             `score: ${score}`,
             `lives: ${player.lives}`,
-            `ammo: ${player.ammo}`,
+            `ammo:  ${player.ammo}`,
         ].join('<br>')
     }
 
