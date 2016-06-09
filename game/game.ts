@@ -18,7 +18,7 @@ namespace Game {
         }
         loopID = setInterval(() => loop(), 10)
         info.style.display = 'block'
-        Canvas.elem.style.cursor = 'none'
+        Canvas.shouldShowCursor(false)
         running = playing = true
     }
 
@@ -30,7 +30,7 @@ namespace Game {
         clearInterval(loopID)
         setTimeout(Canvas.clear, 10)
         info.style.display = ''
-        Canvas.elem.style.cursor = ''
+        Canvas.shouldShowCursor(true)
         player.i = player.j = 0
         for (let i in Game.player.dirs) {
             if (Game.player.dirs[i]) {
