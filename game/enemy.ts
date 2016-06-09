@@ -6,7 +6,7 @@ class Enemy extends Sprite {
     public h = 40
     public speed = 2
     public fill = '#b44'
-    public points = 10
+    public points = 1
 
     // put this somewhere directly outside the Canvas
     public constructor() {
