@@ -15,7 +15,7 @@ const keys = {
 }
 
 // keeps track of which keys are pressed
-const pressed = {}
+let pressed = {}
 
 // bind keys to player shoot, movement, and game pause
 onkeydown = (e) => {
@@ -23,6 +23,7 @@ onkeydown = (e) => {
         modal.style.display = 'none'
         Game.reset()
         Game.start()
+        pressed = {}
         return
     }
     if (!Game.playing || !Game.running || pressed[e.which]) {
@@ -76,9 +77,5 @@ onblur = () => {
         return
     }
     Game.stop()
-    for (let i in pressed) {
-        if (pressed[i]) {
-            pressed[i] = false
-        }
-    }
+    pressed = {}
 }
