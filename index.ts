@@ -6,3 +6,5 @@ for (i = 0; i < rel.length; i++) {
         rel[i].innerHTML = rel[i].href.replace(http, '')
     }
 }
+
+document.querySelector('#now').innerHTML = '' + new Date().getFullYear()
