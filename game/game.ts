@@ -9,7 +9,9 @@ namespace Game {
     const info = <HTMLElement>document.querySelector('.info')
     let enemies: Enemy[]
     let loopID: number
-    let score = 0
+    let score: number
+    let timesSinceReload: number
+    let enemySpawnRate: number
 
     // start running loop every 2 ms
     export function start(): void {
@@ -52,12 +54,16 @@ namespace Game {
 
     // position the player in the middle of the canvas, remove all enemies and
     // player bullets, clear the info board
-    function reset(): void {
+    export function reset(): void {
+        player.reset()
         player.x = (Canvas.w - player.w) / 2
         player.y = (Canvas.h - player.h) / 2
         enemies = []
-        player.bullets = []
+        score = 0
+        timesSinceReload = 0
+        enemySpawnRate = 0.005
         info.innerHTML = ''
+        updateInfo()
     }
 
     // stop the game, show final stats
@@ -71,8 +77,6 @@ namespace Game {
     }
 
     // move, draw, and handle collisions for all sprites in this
-    let timesSinceReload = 0
-    let updateFreq = 0.005
     let i: number
     let j: number
     function loop(): void {
@@ -87,9 +91,9 @@ namespace Game {
                 player.bullets[i] = null
             }
         }
-        if (Math.random() < updateFreq) {
+        if (Math.random() < enemySpawnRate) {
             enemies.push(new Enemy())
-            updateFreq += 0.0001
+            enemySpawnRate += 0.0001
         }
         for (i = 0; i < enemies.length; i++) {
             if (!enemies[i]) {
@@ -130,9 +134,6 @@ namespace Game {
         player.move()
         Canvas.draw(player)
     }
-
-    reset()
-    updateInfo()
 }
 
 export default Game

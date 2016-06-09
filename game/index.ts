@@ -21,6 +21,7 @@ const pressed = {}
 onkeydown = (e) => {
     if (e.which === keys.p && !Game.playing) {
         modal.style.display = 'none'
+        Game.reset()
         Game.start()
         return
     }

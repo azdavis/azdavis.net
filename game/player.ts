@@ -9,8 +9,8 @@ class Player extends Sprite {
     public bullets: Bullet[]
     public maxLives = 3
     public maxAmmo = 5
-    public lives = this.maxLives
-    public ammo = this.maxAmmo
+    public lives: number
+    public ammo: number
     public dirs = {
         lt: false,
         up: false,
@@ -51,6 +51,13 @@ class Player extends Sprite {
         if (this.dirs.dn) {
             this.j += 1
         }
+    }
+
+    // reset some instance variables on this
+    public reset(): void {
+        this.bullets = []
+        this.lives = this.maxLives
+        this.ammo = this.maxAmmo
     }
 }
 
