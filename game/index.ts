@@ -88,7 +88,7 @@ onkeyup = (e) => {
 }
 
 // resize the canvas when the window is resized
-onresize = () => Canvas.resize()
+onresize = Canvas.resize
 
 // run the game when the window is (re)focused
 onfocus = () => {
