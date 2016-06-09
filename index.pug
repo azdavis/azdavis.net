@@ -58,6 +58,6 @@ html(lang='en')
             p A simple keyboard game: &lt;#[a(href= ga)= ga]&gt;
         .three.bot
             div Ariel Davis v18.0.0
-            div= new Date().toISOString()
+            div= new Date().toISOString().substring(0, 10)
             div ARIEL-DAVIS(1)
         script: include index.js
