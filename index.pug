@@ -52,11 +52,12 @@ html(lang='en')
         .sec Copyright © 1998-2016 Ariel Davis. All rights reserved.
         h2 SEE ALSO
         .sec
-            - const gh = 'github.com/azdavis'
-            p GitHub profile: &lt;#[a(href= 'https://' + gh)= gh]&gt;
+            - const gh = 'https://github.com/azdavis'
+            p GitHub profile: &lt;#[a(href= gh)]&gt;
             - const ga = '/game'
-            p A simple keyboard game: &lt;#[a(href= ga)= ga]&gt;
+            p A simple keyboard game: &lt;#[a(href= ga)]&gt;
         .three.bot
             div Ariel Davis v18.0.0
             div 2016-06-06
             div ARIEL-DAVIS(1)
+        script: include index.js
