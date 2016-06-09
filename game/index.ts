@@ -19,12 +19,12 @@ const pressed = {}
 
 // bind keys to player shoot, movement, and game pause
 onkeydown = (e) => {
-    if (e.which === keys.p && !Game.started) {
+    if (e.which === keys.p && !Game.playing) {
         modal.style.display = 'none'
         Game.start()
         return
     }
-    if (pressed[e.which] || !Game.running || !Game.started) {
+    if (pressed[e.which] || !Game.running || !Game.playing) {
         return
     }
     switch (e.which) {
@@ -43,7 +43,7 @@ onkeydown = (e) => {
 
 // prevent keys from being held
 onkeyup = (e) => {
-    if (!Game.started || !Game.running) {
+    if (!Game.playing || !Game.running) {
         return
     }
     switch (e.which) {
@@ -62,7 +62,7 @@ onresize = () => Canvas.resize()
 
 // run the game when the window is (re)focused
 onfocus = () => {
-    if (!Game.started) {
+    if (!Game.playing) {
         return
     }
     Game.start()
@@ -70,7 +70,7 @@ onfocus = () => {
 
 // stop the game when the window is tabbed out, and un-press all keys
 onblur = () => {
-    if (!Game.started) {
+    if (!Game.playing) {
         return
     }
     Game.stop()

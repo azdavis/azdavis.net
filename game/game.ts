@@ -4,7 +4,7 @@ import Player from './player'
 
 namespace Game {
     export let running = false
-    export let started = false
+    export let playing = false
     export const player = new Player()
     const info = <HTMLElement>document.querySelector('.info')
     let enemies: Enemy[]
@@ -18,7 +18,7 @@ namespace Game {
         }
         loopID = setInterval(() => loop(), 10)
         info.style.display = 'block'
-        running = started = true
+        running = playing = true
     }
 
     // stop running loop
@@ -55,7 +55,7 @@ namespace Game {
 
     // stop the game, show final stats
     function lose(): void {
-        started = false
+        playing = false
         stop()
         info.innerHTML += '<br>game over'
         info.style.display = 'block'
