@@ -11,6 +11,10 @@ const keys = {
     up: 38,
     rt: 39,
     dn: 40,
+    a: 65,
+    w: 87,
+    d: 68,
+    s: 83,
     p: 80,
 }
 
@@ -34,10 +38,22 @@ onkeydown = (e) => {
         Game.player.shoot()
         Game.updateInfo()
         break
-    case keys.lt: Game.player.dirs.lt = true; break
-    case keys.up: Game.player.dirs.up = true; break
-    case keys.rt: Game.player.dirs.rt = true; break
-    case keys.dn: Game.player.dirs.dn = true; break
+    case keys.lt:
+    case keys.a:
+        Game.player.dirs.lt = true
+        break
+    case keys.up:
+    case keys.w:
+        Game.player.dirs.up = true
+        break
+    case keys.rt:
+    case keys.d:
+        Game.player.dirs.rt = true
+        break
+    case keys.dn:
+    case keys.s:
+        Game.player.dirs.dn = true
+        break
     default: return
     }
     pressed[e.which] = true
@@ -49,10 +65,22 @@ onkeyup = (e) => {
         return
     }
     switch (e.which) {
-    case keys.lt: Game.player.dirs.lt = false; break
-    case keys.up: Game.player.dirs.up = false; break
-    case keys.rt: Game.player.dirs.rt = false; break
-    case keys.dn: Game.player.dirs.dn = false; break
+    case keys.lt:
+    case keys.a:
+        Game.player.dirs.lt = false
+        break
+    case keys.up:
+    case keys.w:
+        Game.player.dirs.up = false
+        break
+    case keys.rt:
+    case keys.d:
+        Game.player.dirs.rt = false
+        break
+    case keys.dn:
+    case keys.s:
+        Game.player.dirs.dn = false
+        break
     case keys.sp: break
     default: return
     }
