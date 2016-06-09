@@ -72,6 +72,7 @@ namespace Game {
 
     // move, draw, and handle collisions for all sprites in this
     let timesSinceReload = 0
+    let updateFreq = 0.005
     let i: number
     let j: number
     function loop(): void {
@@ -86,8 +87,9 @@ namespace Game {
                 player.bullets[i] = null
             }
         }
-        if (Math.random() < 0.005) {
+        if (Math.random() < updateFreq) {
             enemies.push(new Enemy())
+            updateFreq += 0.0001
         }
         for (i = 0; i < enemies.length; i++) {
             if (!enemies[i]) {
