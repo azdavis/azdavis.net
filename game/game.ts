@@ -62,12 +62,12 @@ namespace Game {
 
     // stop the game, show final stats
     function lose(): void {
-        playing = false
         stop()
         player.lives = 0
         updateInfo()
         info.innerHTML += '<br>game over'
         info.style.display = 'block'
+        playing = false
     }
 
     // move, draw, and handle collisions for all sprites in this
