@@ -1,28 +1,28 @@
 html(lang='en')
-    head
-        include /head.pug
-        title untitled game
-        style: include index.css
-    body
-        .modal
-            h1 untitled game
-            dl
-                dt objective
-                dd accrue points by eliminating enemies
-                dt ammo
-                dd reload over time; cap at 10
-                dt lives
-                dd start with 3; lose 1 per enemy touched
-                dt movement
-                dd press WSAD and/or ARROW keys
-                dt shooting
-                dd press SPACE key
-                dt pausing
-                dd tab out
-                dt resuming
-                dd tab in
-                dt starting
-                dd press P key
-        .info
-        canvas
-        script: include index.js
+  head
+    include /head.pug
+    title untitled game
+    style: include index.css
+  body
+    .modal
+      h1 untitled game
+      dl
+        dt objective
+        dd accrue points by eliminating enemies
+        dt ammo
+        dd reload over time; cap at 10
+        dt lives
+        dd start with 3; lose 1 per enemy touched
+        dt movement
+        dd press WSAD and/or ARROW keys
+        dt shooting
+        dd press SPACE key
+        dt pausing
+        dd tab out
+        dt resuming
+        dd tab in
+        dt starting
+        dd press P key
+    .info
+    canvas
+    script: include index.js

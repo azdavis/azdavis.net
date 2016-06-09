@@ -1,63 +1,62 @@
 html(lang='en')
-    head
-        include /head.pug
-        title man ariel-davis
-        style: include index.css
-    body
-        .three
-            div ARIEL-DAVIS(1)
-            div User Commands
-            div ARIEL-DAVIS(1)
-        h2 NAME
-        .sec ariel-davis - a guy with certain characteristics
-        h2 SYNOPSIS
-        .sec #[b ariel-davis] [option]... [arg]...
-        h2 DESCRIPTION
-        .sec
-            p.
-                Ariel Davis is a young man living in the United States. He
-                studies Computer Science™ at Carnegie Mellon®. He created this
-                website and is a fan of such symbols as ™, ®, and ©.
-            p.
-                Ariel spends most of his time browsing Hacker News™ and other
-                news websites. When he's not doing that, he may work on his
-                personal project du jour.
-            p.
-                Ariel enjoys activities like sportdisc (known to many as
-                Frisbee®) and copy-pasting from Stack Overflow™ (know to many
-                as programming). He is low-key attempting to learn 日本語 (known
-                to many as Japanese).
-        h2 OPTIONS
-        .sec
-            h3 -h, --help
-            .opt Display this help.
-            h3 -v, --version
-            .opt Display version information (current age in years).
-            h3 -q, --quiet
-            .opt Be quiet, only report errors. This is the default.
-            h3 -v, --verbose
-            .opt Be chatty. This can only be used in special cases.
-            h3 -f, --force
-            .opt Do not ask for confirmation.
-            h3 -i, --interactive
-            .opt Ask for confirmation more than usual.
-        h2 AUTHORS
-        .sec Written by David and Karen Davis.
-        h2 SAYING HELLO
-        .sec.
-            Send an email to
-            &lt;#[a(href='mailto:?subject=Hello') ariel.z.X@icloud.com]&gt;
-            (but replace X with his last name).
-        h2 COPYRIGHT
-        .sec Copyright © 1998-2016 Ariel Davis. All rights reserved.
-        h2 SEE ALSO
-        .sec
-            - const gh = 'https://github.com/azdavis'
-            p GitHub profile: &lt;#[a(href= gh)= gh]&gt;
-            - const ga = '/game'
-            p A simple keyboard game: &lt;#[a(href= ga)= ga]&gt;
-        .three.bot
-            div Ariel Davis v18.0.0
-            div= new Date().toISOString().substring(0, 10)
-            div ARIEL-DAVIS(1)
-        script: include index.js
+  head
+    include /head.pug
+    title man ariel-davis
+    style: include index.css
+  body
+    .three
+      div ARIEL-DAVIS(1)
+      div User Commands
+      div ARIEL-DAVIS(1)
+    h2 NAME
+    .sec ariel-davis - a guy with certain characteristics
+    h2 SYNOPSIS
+    .sec #[b ariel-davis] [option]... [arg]...
+    h2 DESCRIPTION
+    .sec
+      p.
+        Ariel Davis is a young man living in the United States. He studies
+        Computer Science™ at Carnegie Mellon®. He created this website and is a
+        fan of such symbols as ™, ®, and ©.
+      p.
+        Ariel spends most of his time browsing Hacker News™ and other news
+        websites. When he's not doing that, he may work on his personal project
+        du jour.
+      p.
+        Ariel enjoys activities like sportdisc (known to many as Frisbee®) and
+        copy-pasting from Stack Overflow™ (know to many as programming). He is
+        low-key attempting to learn 日本語 (known to many as Japanese).
+    h2 OPTIONS
+    .sec
+      h3 -h, --help
+      .opt Display this help.
+      h3 -v, --version
+      .opt Display version information (current age in years).
+      h3 -q, --quiet
+      .opt Be quiet, only report errors. This is the default.
+      h3 -v, --verbose
+      .opt Be chatty. This can only be used in special cases.
+      h3 -f, --force
+      .opt Do not ask for confirmation.
+      h3 -i, --interactive
+      .opt Ask for confirmation more than usual.
+    h2 AUTHORS
+    .sec Written by David and Karen Davis.
+    h2 SAYING HELLO
+    .sec.
+      Send an email to
+      &lt;#[a(href='mailto:?subject=Hello') ariel.z.X@icloud.com]&gt;
+      (but replace X with his last name).
+    h2 COPYRIGHT
+    .sec Copyright © 1998-2016 Ariel Davis. All rights reserved.
+    h2 SEE ALSO
+    .sec
+      - const gh = 'https://github.com/azdavis'
+      p GitHub profile: &lt;#[a(href= gh)= gh]&gt;
+      - const ga = '/game'
+      p A simple keyboard game: &lt;#[a(href= ga)= ga]&gt;
+    .three.bot
+      div Ariel Davis v18.0.0
+      div= new Date().toISOString().substring(0, 10)
+      div ARIEL-DAVIS(1)
+    script: include index.js
