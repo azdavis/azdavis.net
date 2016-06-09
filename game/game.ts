@@ -32,6 +32,11 @@ namespace Game {
         info.style.display = ''
         Canvas.elem.style.cursor = ''
         player.i = player.j = 0
+        for (let i in Game.player.dirs) {
+            if (Game.player.dirs[i]) {
+                Game.player.dirs[i] = false
+            }
+        }
         running = false
     }
 

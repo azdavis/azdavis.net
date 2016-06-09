@@ -75,15 +75,9 @@ onblur = () => {
         return
     }
     Game.stop()
-    let i
-    for (i in pressed) {
+    for (let i in pressed) {
         if (pressed[i]) {
             pressed[i] = false
-        }
-    }
-    for (i in Game.player.dirs) {
-        if (Game.player.dirs[i]) {
-            Game.player.dirs[i] = false
         }
     }
 }
