@@ -65,10 +65,10 @@ namespace Game {
 
     // move, draw, and handle collisions for all sprites in this
     let timesSinceReload = 0
+    let i: number
+    let j: number
     function loop(): void {
         Canvas.clear()
-        let i: number
-        let j: number
         for (i = 0; i < player.bullets.length; i++) {
             if (!player.bullets[i]) {
                 continue
