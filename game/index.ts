@@ -68,15 +68,22 @@ onfocus = () => {
     Game.start()
 }
 
-// stop the game when the window is tabbed out, and un-press all keys
+// stop the game when the window is tabbed out, un-press all keys, and un-
+// direct all directions
 onblur = () => {
     if (!Game.playing) {
         return
     }
     Game.stop()
-    for (let k in pressed) {
-        if (pressed[k]) {
-            pressed[k] = false
+    let i
+    for (i in pressed) {
+        if (pressed[i]) {
+            pressed[i] = false
+        }
+    }
+    for (i in Game.player.dirs) {
+        if (Game.player.dirs[i]) {
+            Game.player.dirs[i] = false
         }
     }
 }
