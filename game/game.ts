@@ -18,6 +18,7 @@ namespace Game {
         }
         loopID = setInterval(() => loop(), 10)
         info.style.display = 'block'
+        Canvas.elem.style.cursor = 'none'
         running = playing = true
     }
 
@@ -29,6 +30,7 @@ namespace Game {
         clearInterval(loopID)
         setTimeout(Canvas.clear, 10)
         info.style.display = ''
+        Canvas.elem.style.cursor = ''
         player.i = player.j = 0
         running = false
     }
