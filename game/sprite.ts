@@ -23,8 +23,8 @@ abstract class Sprite {
 
     // move this in the direction towards s
     public moveTowards(s: Sprite): void {
-        this.i = s.x - this.x
-        this.j = s.y - this.y
+        this.i = s.x - this.x + (s.w - this.w) / 2
+        this.j = s.y - this.y + (s.h - this.h) / 2
         this.move()
     }
 
