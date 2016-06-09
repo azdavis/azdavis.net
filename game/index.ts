@@ -24,7 +24,7 @@ onkeydown = (e) => {
         Game.start()
         return
     }
-    if (pressed[e.which] || !Game.running || !Game.playing) {
+    if (!Game.playing || !Game.running || pressed[e.which]) {
         return
     }
     switch (e.which) {
