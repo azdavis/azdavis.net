@@ -66,7 +66,7 @@ namespace Game {
         stop()
         player.lives = 0
         updateInfo()
-        info.innerHTML += '<br>game over'
+        info.innerHTML += '<br>game over; press P key to restart'
         info.style.display = 'block'
         playing = false
     }
