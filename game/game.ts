@@ -57,6 +57,8 @@ namespace Game {
     function lose(): void {
         playing = false
         stop()
+        player.lives = 0
+        updateInfo()
         info.innerHTML += '<br>game over'
         info.style.display = 'block'
     }
