@@ -53,11 +53,22 @@ class Player extends Sprite {
         }
     }
 
+    // reset all dirs to false
+    public stopMoving(): void {
+        for (let i in this.dirs) {
+            if (this.dirs[i]) {
+                this.dirs[i] = false
+            }
+        }
+        this.getIJ()
+    }
+
     // reset some instance variables on this
     public reset(): void {
         this.bullets = []
         this.lives = this.maxLives
         this.ammo = this.maxAmmo
+        this.stopMoving()
     }
 }
 

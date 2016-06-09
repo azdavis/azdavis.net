@@ -33,12 +33,7 @@ namespace Game {
         setTimeout(Canvas.clear, 10)
         info.style.display = ''
         Canvas.shouldShowCursor(true)
-        player.i = player.j = 0
-        for (let i in Game.player.dirs) {
-            if (Game.player.dirs[i]) {
-                Game.player.dirs[i] = false
-            }
-        }
+        player.stopMoving()
         running = false
     }
 
