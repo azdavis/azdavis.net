@@ -24,7 +24,7 @@ game/index.js: \
 		echo 'browserify -o $@ $@' && \
 		browserify -o $@.js $@ && \
 		mv $@.js $@;:
-	uglifyjs --screw-ie8 --wrap -cmo $@ $@
+	uglifyjs --screw-ie8 -cemo $@ $@
 
 clean:
 	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
