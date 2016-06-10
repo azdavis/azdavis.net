@@ -32,7 +32,7 @@ namespace Game {
             return
         }
         clearInterval(loopID)
-        setTimeout(Canvas.clear, 10)
+        setTimeout(Canvas.clear, 10) // necessary
         info.style.display = ''
         Canvas.shouldShowCursor(true)
         player.stopMoving()
