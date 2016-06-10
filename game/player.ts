@@ -55,7 +55,8 @@ class Player extends Sprite {
 
     // reset all dirs to false
     public stopMoving(): void {
-        for (let i in this.dirs) {
+        let i
+        for (i in this.dirs) {
             if (this.dirs[i]) {
                 this.dirs[i] = false
             }
