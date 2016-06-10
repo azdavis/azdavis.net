@@ -1,4 +1,4 @@
-Q = &> /dev/null
+Q = &>/dev/null
 
 all: 404.html index.html game/index.html
 404.html: 404.css
