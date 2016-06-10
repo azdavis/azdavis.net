@@ -59,6 +59,7 @@ namespace Game {
         score = 0
         timesSinceReload = 0
         enemySpawnRate = 0.005
+        info.style.fontSize = ''
         info.innerHTML = ''
         updateInfo()
     }
@@ -68,9 +69,12 @@ namespace Game {
         stop()
         player.lives = 0
         updateInfo()
-        info.innerHTML += '<br>game over; press P key to restart'
         info.style.display = 'block'
-        running = false
+        info.style.fontSize = '2em'
+        setTimeout(() => {
+            info.innerHTML += '<br>press P key to restart'
+            running = false
+        }, 500)
     }
 
     // move, draw, and handle collisions for all sprites in the game
