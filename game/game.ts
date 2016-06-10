@@ -3,7 +3,9 @@ import Enemy from './enemy'
 import Player from './player'
 
 namespace Game {
+    // whether the game is running (i.e., playing OR paused)
     export let running = false
+    // whether the game is actively being played
     export let playing = false
     export const player = new Player()
     const info = <HTMLElement>document.querySelector('.info')
@@ -13,20 +15,20 @@ namespace Game {
     let timesSinceReload: number
     let enemySpawnRate: number
 
-    // start running loop every 2 ms
+    // start playing loop every 2 ms
     export function start(): void {
-        if (running) {
+        if (playing) {
             return
         }
         loopID = setInterval(() => loop(), 10)
         info.style.display = 'block'
         Canvas.shouldShowCursor(false)
-        running = playing = true
+        playing = running = true
     }
 
-    // stop running loop
+    // stop playing loop
     export function stop(): void {
-        if (!running) {
+        if (!playing) {
             return
         }
         clearInterval(loopID)
@@ -34,11 +36,11 @@ namespace Game {
         info.style.display = ''
         Canvas.shouldShowCursor(true)
         player.stopMoving()
-        running = false
+        playing = false
     }
 
-    // updates the info board with game score, player lives, and player ammo
-    // information
+    // updates the info board with the game score, player lives, and player
+    // ammo information
     export function updateInfo(): void {
         info.innerHTML = [
             `score: ${score}`,
@@ -68,10 +70,10 @@ namespace Game {
         updateInfo()
         info.innerHTML += '<br>game over; press P key to restart'
         info.style.display = 'block'
-        playing = false
+        running = false
     }
 
-    // move, draw, and handle collisions for all sprites in this
+    // move, draw, and handle collisions for all sprites in the game
     let i: number
     let j: number
     function loop(): void {
