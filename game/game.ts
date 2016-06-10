@@ -68,13 +68,12 @@ namespace Game {
     function lose(): void {
         stop()
         player.lives = 0
-        updateInfo()
+        info.innerHTML = `score: ${score}`
         info.style.display = 'block'
-        info.style.fontSize = '2em'
         setTimeout(() => {
             info.innerHTML += '<br>press P key to restart'
             running = false
-        }, 500)
+        }, 1000)
     }
 
     // move, draw, and handle collisions for all sprites in the game
