@@ -20,7 +20,7 @@ game/index.js: \
 
 %.js: %.ts
 	tsc --removeComments $<
-	@grep -qE '= require\(' $@ && \
+	@grep -qE 'require\(' $@ && \
 		echo 'browserify -o $@ $@' && \
 		browserify -o $@.js $@ && \
 		mv $@.js $@;:
