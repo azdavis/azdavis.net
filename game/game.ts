@@ -20,7 +20,7 @@ namespace Game {
         if (playing) {
             return
         }
-        loopID = setInterval(() => loop(), 10)
+        loopID = setInterval(() => loop(), 16)
         info.style.display = 'block'
         Canvas.shouldShowCursor(false)
         playing = running = true

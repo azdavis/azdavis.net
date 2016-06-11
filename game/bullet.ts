@@ -3,7 +3,7 @@ import Sprite from './sprite'
 class Bullet extends Sprite {
     public w = 20
     public h = 20
-    public speed = 7
+    public speed = 10
     public fill = '#44b'
 
     // make this always move in the direction that s was going in when this was
