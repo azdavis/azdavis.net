@@ -16,6 +16,6 @@ a place for stuff
 - [pagespeed insights][pag]
 
 [npm]: https://www.npmjs.com
-[sur]: http://surge.sh
+[sur]: https://surge.sh/
 [w3v]: https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=http%3A%2F%2Fazdavis.xyz%2F
 [pag]: https://developers.google.com/speed/pagespeed/insights/?url=azdavis.xyz
