@@ -15,13 +15,37 @@ namespace Game {
     let timesSinceReload: number
     let enemySpawnRate: number
 
+    // begin the game, add a single enemy
+    export function begin(): void {
+        if (running) {
+            return
+        }
+        reset()
+        start()
+        setTimeout(() => { enemies.push(new Enemy()) }, 500)
+    }
+
+    // end the game, show final stats
+    function end(): void {
+        if (!running) {
+            return
+        }
+        stop()
+        player.lives = 0
+        info.innerHTML = `score: ${score}`
+        info.style.display = 'block'
+        setTimeout(() => {
+            info.innerHTML += '<br>(to restart, press P)'
+            running = false
+        }, 1000)
+    }
+
     // start playing loop every 2 ms
     export function start(): void {
         if (playing) {
             return
         }
         loopID = setInterval(loop, 16)
-        setTimeout(() => { enemies.push(new Enemy()) }, 500)
         info.style.display = 'block'
         Canvas.shouldShowCursor(false)
         playing = running = true
@@ -40,19 +64,9 @@ namespace Game {
         playing = false
     }
 
-    // updates the info board with the game score, player lives, and player
-    // ammo information
-    export function updateInfo(): void {
-        info.innerHTML = [
-            `score: ${score}`,
-            `lives: ${player.lives}`,
-            `ammo:  ${player.ammo}`,
-        ].join('<br>')
-    }
-
     // position the player in the middle of the canvas, remove all enemies and
     // player bullets, clear the info board
-    export function reset(): void {
+    function reset(): void {
         player.reset()
         player.x = (Canvas.w - player.w) / 2
         player.y = (Canvas.h - player.h) / 2
@@ -65,16 +79,14 @@ namespace Game {
         updateInfo()
     }
 
-    // stop the game, show final stats
-    function lose(): void {
-        stop()
-        player.lives = 0
-        info.innerHTML = `score: ${score}`
-        info.style.display = 'block'
-        setTimeout(() => {
-            info.innerHTML += '<br>(to restart, press P)'
-            running = false
-        }, 1000)
+    // updates the info board with the game score, player lives, and player
+    // ammo information
+    export function updateInfo(): void {
+        info.innerHTML = [
+            `score: ${score}`,
+            `lives: ${player.lives}`,
+            `ammo:  ${player.ammo}`,
+        ].join('<br>')
     }
 
     // move, draw, and handle collisions for all sprites in the game
@@ -107,7 +119,7 @@ namespace Game {
                 player.lives--
                 updateInfo()
                 if (player.lives <= 0) {
-                    lose()
+                    end()
                 }
                 continue
             }

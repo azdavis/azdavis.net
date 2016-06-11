@@ -25,8 +25,7 @@ let pressed = {}
 onkeydown = (e) => {
     if (e.which === keys.p && !Game.running) {
         modal.style.display = 'none'
-        Game.reset()
-        Game.start()
+        Game.begin()
         pressed = {}
         return
     }
