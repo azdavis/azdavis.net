@@ -1,7 +1,16 @@
 # azdavis.xyz
 
-- [w3 validator][1]
-- [pagespeed insights][2]
+a place for stuff
 
-[1]: https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=http%3A%2F%2Fazdavis.xyz%2F
-[2]: https://developers.google.com/speed/pagespeed/insights/?url=azdavis.xyz
+## building and deploying
+
+some global [npm][npm] packages must be installed. just `make install-npm`.
+
+## {con,per}formance
+
+- [w3 validator][w3v]
+- [pagespeed insights][pag]
+
+[npm]: https://www.npmjs.com
+[w3v]: https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=http%3A%2F%2Fazdavis.xyz%2F
+[pag]: https://developers.google.com/speed/pagespeed/insights/?url=azdavis.xyz
