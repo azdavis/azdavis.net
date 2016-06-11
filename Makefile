@@ -42,6 +42,7 @@ deploy:
 npm-i-g:
 	npm i -g \
 		autoprefixer-stylus \
+		browserify \
 		npm \
 		pug-cli \
 		stylus \
