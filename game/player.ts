@@ -37,7 +37,7 @@ class Player extends Sprite {
     }
 
     // get the i and j values for this, based on the values of dirs
-    public getIJ(): void {
+    public calcIJ(): void {
         this.i = this.j = 0
         if (this.dirs.lt) {
             this.i -= 1
@@ -61,7 +61,7 @@ class Player extends Sprite {
                 this.dirs[i] = false
             }
         }
-        this.getIJ()
+        this.calcIJ()
     }
 
     // reset some instance variables on this

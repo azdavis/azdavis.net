@@ -142,7 +142,7 @@ namespace Game {
             player.ammo++
             updateInfo()
         }
-        player.getIJ()
+        player.calcIJ()
         Canvas.stronglyContain(player)
         player.move()
         Canvas.draw(player)
