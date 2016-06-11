@@ -4,9 +4,10 @@ a place for stuff
 
 ## building and deploying
 
-some global [npm][npm] packages must be installed; just `make npm-i-g`
-
-if a deploy hangs on `surge`, you probably didn't `surge login` first
+1. `make npm-i-g` to install some global [npm][npm]
+2. `make` to build all html files and their dependencies
+3. `surge login` to prepare deployment
+4. `make deploy` to deploy
 
 ## {con,per}formance
 
