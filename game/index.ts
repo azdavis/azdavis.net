@@ -108,6 +108,9 @@ onblur = () => {
     pressed = {}
 }
 
+// show an error and undo everything if it's a mobile device (resetting all of
+// the 'on' stuff is, in this guy's opinion, actually nicer than wrapping
+// everything in a big if statement)
 if ('ontouchend' in window) {
     let kbd = <HTMLElement>document.querySelector('.kbd')
     kbd.style.display = 'block'
