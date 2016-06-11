@@ -21,6 +21,7 @@ namespace Game {
             return
         }
         loopID = setInterval(loop, 16)
+        setTimeout(() => { enemies.push(new Enemy()) }, 500)
         info.style.display = 'block'
         Canvas.shouldShowCursor(false)
         playing = running = true
