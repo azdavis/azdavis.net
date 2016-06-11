@@ -36,7 +36,7 @@ class Player extends Sprite {
         this.ammo--
     }
 
-    // get the i and j values for this, based on the values of dirs
+    // calculate the i and j values for this, based on the values of dirs
     public calcIJ(): void {
         this.i = this.j = 0
         if (this.dirs.lt) {
