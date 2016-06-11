@@ -6,6 +6,8 @@ a place for stuff
 
 some global [npm][npm] packages must be installed. just `make npm-i-g`.
 
+if a deploy hangs on `surge`, you probably didn't `surge login` first.
+
 ## {con,per}formance
 
 - [w3 validator][w3v]
