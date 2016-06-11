@@ -8,7 +8,7 @@ class Player extends Sprite {
     public fill = '#4b4'
     public bullets: Bullet[]
     public maxLives = 3
-    public maxAmmo = 10
+    public maxAmmo = 9
     public lives: number
     public ammo: number
     public dirs = {
