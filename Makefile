@@ -39,8 +39,8 @@ deploy:
 	@$(MAKE) all
 	surge . $(Q)
 
-install-npm:
-	npm install -g \
+npm-i-g:
+	npm i -g \
 		autoprefixer-stylus \
 		npm \
 		pug-cli \
@@ -50,4 +50,4 @@ install-npm:
 		typescript \
 		uglifyjs
 
-.PHONY: all clean test deploy install-npm
+.PHONY: all clean test deploy npm-i-g

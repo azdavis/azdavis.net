@@ -4,7 +4,7 @@ a place for stuff
 
 ## building and deploying
 
-some global [npm][npm] packages must be installed. just `make install-npm`.
+some global [npm][npm] packages must be installed. just `make npm-i-g`.
 
 ## {con,per}formance
 
