@@ -68,10 +68,10 @@ namespace Game {
     function lose(): void {
         stop()
         player.lives = 0
-        info.innerHTML = `final score: ${score}`
+        info.innerHTML = `score: ${score}`
         info.style.display = 'block'
         setTimeout(() => {
-            info.innerHTML += '<br>to restart:  press P'
+            info.innerHTML += '<br>(press P to restart)'
             running = false
         }, 1000)
     }
