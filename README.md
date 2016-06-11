@@ -4,7 +4,7 @@ a place for stuff
 
 ## building and deploying
 
-1. `make npm-i-g` to install some global [npm][npm]
+1. `make npm-i-g` to install some global [npm][npm] packages
 2. `make` to build all html files and their dependencies
 3. `surge login` to prepare deployment
 4. `make deploy` to deploy
