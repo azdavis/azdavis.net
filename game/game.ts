@@ -71,7 +71,7 @@ namespace Game {
         info.innerHTML = `score: ${score}`
         info.style.display = 'block'
         setTimeout(() => {
-            info.innerHTML += '<br>(press P to restart)'
+            info.innerHTML += '<br>(to restart, press P)'
             running = false
         }, 1000)
     }
