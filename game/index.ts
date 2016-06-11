@@ -107,3 +107,9 @@ onblur = () => {
     Game.stop()
     pressed = {}
 }
+
+if (innerWidth < 600) {
+    let kbd = <HTMLElement>document.querySelector('.kbd')
+    kbd.style.display = 'block'
+    onkeydown = onkeyup = onresize = onfocus = onblur = null
+}
