@@ -1,15 +1,35 @@
-(bug)
+(choose one of either BUG REPORT or FEATURE REQUEST)
 
-- description: ___
-- expected behavior: ___
-- actual behavior: ___
-- steps to reproduce: ___
-    1. ___
-- screenshot: ___
-- browser name and version: ___
-- os name and version: ___
+# BUG REPORT
 
-(enhancement)
+### description
 
-- description: ___
-- reason: ___
+___
+
+### behavior
+
+- expected: ___
+- actual: ___
+
+### steps to reproduce
+
+1. ___
+
+### screenshot
+
+___
+
+### environment name and version
+
+- browser: ___
+- os: ___
+
+# FEATURE REQUEST
+
+### description
+
+___
+
+### reason
+
+___
