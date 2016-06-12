@@ -1,4 +1,4 @@
-### bug report
+(bug report)
 
 - description: ___
 - expected behavior: ___
@@ -9,7 +9,7 @@
 - browser name and version: ___
 - os name and version: ___
 
-### feature request
+(feature request)
 
 - description: ___
 - reason: ___
