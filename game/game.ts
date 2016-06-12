@@ -20,6 +20,7 @@ namespace Game {
         if (running) {
             return
         }
+        running = true
         reset()
         start()
         setTimeout(() => { enemies.push(new Enemy()) }, 500)
@@ -30,13 +31,13 @@ namespace Game {
         if (!running) {
             return
         }
+        running = false
         stop()
         player.lives = 0
         info.innerHTML = `score: ${score}`
         info.style.display = 'block'
         setTimeout(() => {
             info.innerHTML += '<br>(to restart, press P)'
-            running = false
         }, 1000)
     }
 
@@ -45,10 +46,10 @@ namespace Game {
         if (playing) {
             return
         }
+        playing = true
         loopID = setInterval(loop, 16)
         info.style.display = 'block'
         Canvas.shouldShowCursor(false)
-        playing = running = true
     }
 
     // stop playing loop
@@ -56,12 +57,12 @@ namespace Game {
         if (!playing) {
             return
         }
+        playing = false
         clearInterval(loopID)
         setTimeout(Canvas.clear, 10) // necessary
         info.style.display = ''
         Canvas.shouldShowCursor(true)
         player.stopMoving()
-        playing = false
     }
 
     // position the player in the middle of the canvas, remove all enemies and
