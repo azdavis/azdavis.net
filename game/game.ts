@@ -107,6 +107,10 @@ namespace Game {
         if (Math.random() < enemySpawnRate) {
             enemies.push(new Enemy())
             enemySpawnRate += 0.0001
+            if (player.ammo < player.maxAmmo) {
+                player.ammo++
+                updateInfo()
+            }
         }
         for (i = 0; i < enemies.length; i++) {
             if (!enemies[i]) {
