@@ -4,32 +4,32 @@
 
 ### description
 
-___
+write_stuff_here
 
 ### behavior
 
-- expected: ___
-- actual: ___
+- expected: write_stuff_here
+- actual: write_stuff_here
 
 ### steps to reproduce
 
-1. ___
+1. write_stuff_here
 
 ### screenshot
 
-___
+write_stuff_here
 
 ### environment name and version
 
-- browser: ___
-- os: ___
+- browser: write_stuff_here
+- os: write_stuff_here
 
 # FEATURE REQUEST
 
 ### description
 
-___
+write_stuff_here
 
 ### reason
 
-___
+write_stuff_here
