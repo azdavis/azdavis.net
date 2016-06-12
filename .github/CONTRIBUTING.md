@@ -1,3 +1,3 @@
 # contributing
 
-1. don't be a dick.
+1. don't be a dick
