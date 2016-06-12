@@ -120,6 +120,7 @@ namespace Game {
                 updateInfo()
                 if (player.lives <= 0) {
                     end()
+                    return
                 }
                 continue
             }
