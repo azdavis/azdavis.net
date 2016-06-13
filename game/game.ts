@@ -47,7 +47,7 @@ namespace Game {
             return
         }
         playing = true
-        loopID = setInterval(loop, 16)
+        loopID = requestAnimationFrame(loop)
         info.style.display = 'block'
         Canvas.shouldShowCursor(false)
     }
@@ -58,8 +58,8 @@ namespace Game {
             return
         }
         playing = false
-        clearInterval(loopID)
-        setTimeout(Canvas.clear, 10) // necessary
+        cancelAnimationFrame(loopID)
+        Canvas.clear()
         info.style.display = ''
         Canvas.shouldShowCursor(true)
         player.stopMoving()
@@ -153,6 +153,7 @@ namespace Game {
         Canvas.stronglyContain(player)
         player.move()
         Canvas.draw(player)
+        loopID = requestAnimationFrame(loop)
     }
 }
 
