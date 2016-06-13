@@ -17,5 +17,5 @@ a place for stuff
 
 [npm]: https://www.npmjs.com
 [sur]: https://surge.sh/
-[w3v]: https://validator.w3.org/nu/?doc=azdavis.xyz
-[pag]: https://developers.google.com/speed/pagespeed/insights/?url=azdavis.xyz
+[w3v]: https://validator.w3.org/nu/?doc=http://azdavis.xyz
+[pag]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz
