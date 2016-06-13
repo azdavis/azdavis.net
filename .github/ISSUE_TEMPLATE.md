@@ -1,4 +1,4 @@
-(choose one of either BUG REPORT or FEATURE REQUEST)
+(choose one of either BUG REPORT or ENHANCEMENT REQUEST)
 
 # BUG REPORT
 
@@ -24,7 +24,7 @@
 - browser:
 - os:
 
-# FEATURE REQUEST
+# ENHANCEMENT REQUEST
 
 ### description
 
