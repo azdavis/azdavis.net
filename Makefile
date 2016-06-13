@@ -35,8 +35,8 @@ test:
 
 deploy:
 	git checkout -q master
-	git push -q origin master
 	@$(MAKE) all
+	git push -q origin master
 	surge . $(Q)
 
 npm-i-g:
