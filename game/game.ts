@@ -75,7 +75,6 @@ namespace Game {
         score = 0
         timesSinceReload = 0
         enemySpawnRate = 0.005
-        info.innerHTML = ''
         updateInfo()
     }
 
