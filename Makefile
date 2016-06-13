@@ -12,7 +12,7 @@ game/index.js: \
 	game/canvas.ts \
 	game/game.ts
 
-%.html: %.pug base/head.pug
+%.html: %.pug include/head.pug
 	pug -sb . --doctype 'html' $<
 
 %.css: %.styl
