@@ -1,9 +1,17 @@
 Q = &>/dev/null
 
-all: 404.html index.html game/index.html
-404.html: 404.css
-index.html: index.css index.js
-game/index.html: game/index.css game/index.js
+all: \
+	404.html \
+	index.html \
+	game/index.html
+404.html: \
+	404.css
+index.html: \
+	index.css \
+	index.js
+game/index.html: \
+	game/index.css \
+	game/index.js
 game/index.js: \
 	game/sprite.ts \
 	game/enemy.ts \
