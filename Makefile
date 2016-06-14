@@ -43,7 +43,6 @@ test:
 
 deploy:
 	git checkout -q master
-	@echo make
 	@$(MAKE)
 	git push -q origin master
 	surge . $(Q)
