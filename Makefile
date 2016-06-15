@@ -5,7 +5,8 @@ all: \
 	index.html \
 	lgw/index.html
 404.html: \
-	404.css
+	404.css \
+	404.js
 index.html: \
 	index.css \
 	index.js
