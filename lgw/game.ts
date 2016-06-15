@@ -21,7 +21,7 @@ namespace Game {
         running = true
         reset()
         start()
-        setTimeout(() => { enemies.push(new Enemy()) }, 500)
+        setTimeout(addEnemy, 500)
     }
 
     // end the game, show final stats
@@ -76,6 +76,15 @@ namespace Game {
         ].join("<br>")
     }
 
+    function addEnemy(): void {
+        enemies.push(new Enemy())
+        enemySpawnRate += 0.0001
+        if (player.ammo < player.maxAmmo) {
+            player.ammo++
+            updateInfo()
+        }
+    }
+
     // move, draw, and handle collisions for all sprites in the game
     function loop(): void {
         let i: number
@@ -97,12 +106,7 @@ namespace Game {
         timesSinceEnemy++
         if (Math.random() < enemySpawnRate || timesSinceEnemy >= 200) {
             timesSinceEnemy = 0
-            enemies.push(new Enemy())
-            enemySpawnRate += 0.0001
-            if (player.ammo < player.maxAmmo) {
-                player.ammo++
-                updateInfo()
-            }
+            addEnemy()
         }
 
         for (i = 0; i < enemies.length; i++) {
