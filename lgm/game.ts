@@ -81,6 +81,7 @@ namespace Game {
     let j: number
     function loop(): void {
         Canvas.clear()
+
         for (i = 0; i < player.bullets.length; i++) {
             if (!player.bullets[i]) {
                 continue
@@ -91,6 +92,7 @@ namespace Game {
                 player.bullets[i] = null
             }
         }
+
         timesSinceEnemy++
         if (Math.random() < enemySpawnRate || timesSinceEnemy >= 200) {
             timesSinceEnemy = 0
@@ -101,6 +103,7 @@ namespace Game {
                 updateInfo()
             }
         }
+
         for (i = 0; i < enemies.length; i++) {
             if (!enemies[i]) {
                 continue
@@ -130,6 +133,7 @@ namespace Game {
                 }
             }
         }
+
         if (player.ammo < player.maxAmmo) {
             timesSinceReload++
         }
@@ -142,6 +146,7 @@ namespace Game {
         Canvas.stronglyContain(player)
         player.move()
         Canvas.draw(player)
+
         loopID = requestAnimationFrame(loop)
     }
 }
