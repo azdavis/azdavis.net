@@ -3,22 +3,22 @@ Q = &>/dev/null
 all: \
 	404.html \
 	index.html \
-	lgm/index.html
+	lgw/index.html
 404.html: \
 	404.css
 index.html: \
 	index.css \
 	index.js
-lgm/index.html: \
-	lgm/index.css \
-	lgm/index.js
-lgm/index.js: \
-	lgm/sprite.ts \
-	lgm/enemy.ts \
-	lgm/player.ts \
-	lgm/bullet.ts \
-	lgm/canvas.ts \
-	lgm/game.ts
+lgw/index.html: \
+	lgw/index.css \
+	lgw/index.js
+lgw/index.js: \
+	lgw/sprite.ts \
+	lgw/enemy.ts \
+	lgw/player.ts \
+	lgw/bullet.ts \
+	lgw/canvas.ts \
+	lgw/game.ts
 
 %.html: %.pug include/head.pug
 	pug -sb . --doctype "html" $<
