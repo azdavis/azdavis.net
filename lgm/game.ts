@@ -13,6 +13,7 @@ namespace Game {
     let loopID: number
     let score: number
     let timesSinceReload: number
+    let timesSinceEnemy: number
     let enemySpawnRate: number
 
     // begin the game, add a single enemy
@@ -60,8 +61,7 @@ namespace Game {
         player.x = (Canvas.w - player.w) / 2
         player.y = (Canvas.h - player.h) / 2
         enemies = []
-        score = 0
-        timesSinceReload = 0
+        score = timesSinceReload = timesSinceEnemy = 0
         enemySpawnRate = 0.005
         updateInfo()
     }
@@ -91,7 +91,9 @@ namespace Game {
                 player.bullets[i] = null
             }
         }
-        if (Math.random() < enemySpawnRate) {
+        timesSinceEnemy++
+        if (Math.random() < enemySpawnRate || timesSinceEnemy >= 200) {
+            timesSinceEnemy = 0
             enemies.push(new Enemy())
             enemySpawnRate += 0.0001
             if (player.ammo < player.maxAmmo) {
