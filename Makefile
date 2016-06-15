@@ -21,24 +21,24 @@ lgm/index.js: \
 	lgm/game.ts
 
 %.html: %.pug include/head.pug
-	pug -sb . --doctype 'html' $<
+	pug -sb . --doctype "html" $<
 
 %.css: %.styl
-	stylus -u 'autoprefixer-stylus' -c $< $(Q)
+	stylus -u "autoprefixer-stylus" -c $< $(Q)
 
 %.js: %.ts
 	tsc --removeComments $<
-	@grep -qE 'require\(' $@ && \
-		echo 'browserify -o $@ $@' && \
+	@grep -qE "require\(" $@ && \
+		echo "browserify -o $@ $@" && \
 		browserify -o $@.js $@ && \
 		mv $@.js $@;:
 	uglifyjs --screw-ie8 -cemo $@ $@ $(Q)
 
 clean:
-	find . \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -delete
+	find . \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
 test:
-	@open -g 'http://localhost:8080'
+	@open -g "http://localhost:8080"
 	@ruby -run -e httpd $(Q)
 
 deploy:

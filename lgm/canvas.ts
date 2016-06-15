@@ -1,11 +1,11 @@
-import Sprite from './sprite'
+import Sprite from "./sprite"
 
 namespace Canvas {
     export let w: number
     export let h: number
     const ratio = devicePixelRatio || 1
-    const elem = <HTMLCanvasElement>document.querySelector('canvas')
-    const ctx = elem.getContext('2d')
+    const elem = <HTMLCanvasElement>document.querySelector("canvas")
+    const ctx = elem.getContext("2d")
 
     // resize the canvas to be the size of the window
     export function resize(): void {
@@ -13,8 +13,8 @@ namespace Canvas {
         h = innerHeight
         elem.width = w * ratio
         elem.height = h * ratio
-        elem.style.width = w + 'px'
-        elem.style.height = h + 'px'
+        elem.style.width = w + "px"
+        elem.style.height = h + "px"
         ctx.scale(ratio, ratio)
     }
 
@@ -55,7 +55,7 @@ namespace Canvas {
 
     // shows or hides the cursor
     export function shouldShowCursor(arg: boolean): void {
-        elem.style.cursor = arg ? '' : 'none'
+        elem.style.cursor = arg ? "" : "none"
     }
 
     resize()

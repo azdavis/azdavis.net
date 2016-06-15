@@ -1,8 +1,8 @@
-import Canvas from './canvas'
-import Game from './game'
+import Canvas from "./canvas"
+import Game from "./game"
 
 // the modal which contains instructions and is to be hidden when starting
-const modal = <HTMLElement>document.querySelector('.modal')
+const modal = <HTMLElement>document.querySelector(".modal")
 
 // the keys on the keyboard we care about, and their KeyboardEvent.which values
 const keys = {
@@ -24,7 +24,7 @@ let pressed = {}
 // bind keys to player shoot, movement, and game pause
 onkeydown = (e) => {
     if (e.which === keys.p && !Game.running) {
-        modal.style.display = 'none'
+        modal.style.display = "none"
         Game.begin()
         pressed = {}
         return
@@ -108,9 +108,9 @@ onblur = () => {
 }
 
 // show an error and undo everything if it's a mobile device (resetting all of
-// the 'on' stuff is, in this guy's opinion, actually nicer than wrapping
+// the "on" stuff is, in this guy's opinion, actually nicer than wrapping
 // everything in a big if statement)
-if ('ontouchend' in window) {
-    (<HTMLElement>document.querySelector('#kbd')).style.display = 'block'
+if ("ontouchend" in window) {
+    (<HTMLElement>document.querySelector("#kbd")).style.display = "block"
     onkeydown = onkeyup = onresize = onfocus = onblur = null
 }

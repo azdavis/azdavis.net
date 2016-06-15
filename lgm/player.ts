@@ -1,11 +1,11 @@
-import Bullet from './bullet'
-import Sprite from './sprite'
+import Bullet from "./bullet"
+import Sprite from "./sprite"
 
 class Player extends Sprite {
     public w = 50
     public h = 50
     public speed = 6
-    public fill = '#4b4'
+    public fill = "#4b4"
     public bullets: Bullet[]
     public maxLives = 3
     public maxAmmo = 9

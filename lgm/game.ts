@@ -1,6 +1,6 @@
-import Canvas from './canvas'
-import Enemy from './enemy'
-import Player from './player'
+import Canvas from "./canvas"
+import Enemy from "./enemy"
+import Player from "./player"
 
 namespace Game {
     // whether the game is running (i.e., playing OR paused)
@@ -8,7 +8,7 @@ namespace Game {
     // whether the game is actively being played
     export let playing = false
     export const player = new Player()
-    const info = <HTMLElement>document.querySelector('.info')
+    const info = <HTMLElement>document.querySelector(".info")
     let enemies: Enemy[]
     let loopID: number
     let score: number
@@ -30,9 +30,9 @@ namespace Game {
         stop()
         player.lives = 0
         info.innerHTML = `score: ${score}`
-        info.style.display = 'block'
+        info.style.display = "block"
         setTimeout(() => {
-            info.innerHTML += '<br>(to restart, press P)'
+            info.innerHTML += "<br>(to restart, press P)"
         }, 1000)
     }
 
@@ -40,7 +40,7 @@ namespace Game {
     export function start(): void {
         playing = true
         loopID = requestAnimationFrame(loop)
-        info.style.display = 'block'
+        info.style.display = "block"
         Canvas.shouldShowCursor(false)
     }
 
@@ -49,7 +49,7 @@ namespace Game {
         playing = false
         cancelAnimationFrame(loopID)
         Canvas.clear()
-        info.style.display = ''
+        info.style.display = ""
         Canvas.shouldShowCursor(true)
         player.stopMoving()
     }
@@ -73,7 +73,7 @@ namespace Game {
             `score: ${score}`,
             `lives: ${player.lives}`,
             `ammo:  ${player.ammo}`,
-        ].join('<br>')
+        ].join("<br>")
     }
 
     // move, draw, and handle collisions for all sprites in the game
