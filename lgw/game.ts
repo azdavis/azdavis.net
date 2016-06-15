@@ -9,12 +9,12 @@ namespace Game {
     export let playing = false
     export const player = new Player()
     const info = <HTMLElement>document.querySelector(".info")
-    let enemies: Enemy[]
     let loopID: number
     let score: number
-    let timesSinceReload: number
-    let timesSinceEnemy: number
+    let enemies: Enemy[]
     let enemySpawnRate: number
+    let timesSinceEnemy: number
+    let timesSinceReload: number
 
     // begin the game, add a single enemy
     export function begin(): void {
