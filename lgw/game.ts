@@ -73,6 +73,7 @@ namespace Game {
             `score: ${score}`,
             `lives: ${player.lives}`,
             `ammo:  ${player.ammo}`,
+            `TSE:   ${timesSinceEnemy}`,
         ].join("<br>")
     }
 
@@ -104,7 +105,11 @@ namespace Game {
         }
 
         timesSinceEnemy++
-        if (Math.random() < enemySpawnRate || timesSinceEnemy >= 200) {
+        updateInfo()
+        if (
+            timesSinceEnemy >= 50 && Math.random() < enemySpawnRate ||
+            timesSinceEnemy >= 200
+        ) {
             timesSinceEnemy = 0
             addEnemy()
         }
