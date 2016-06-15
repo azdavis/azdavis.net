@@ -57,9 +57,10 @@ html(lang="en")
       p A simple keyboard game: &lt;#[a(href= ga)= ga]&gt;
     .three.bot
       div Ariel Davis v0.0.0
-      - const now = new Date()
-      - const tzOff = now.getTimezoneOffset() * 60000
-      - const nowWithOff = new Date(1 * now - tzOff).toISOString()
+      -
+        const now = new Date()
+        const tzOff = now.getTimezoneOffset() * 60000
+        const nowWithOff = new Date(1 * now - tzOff).toISOString()
       div= nowWithOff.substring(0, 10)
       div ARIEL-DAVIS(1)
     script: include index.js
