@@ -89,9 +89,9 @@ onkeyup = (e) => {
 // resize the canvas when the window is resized
 onresize = Canvas.resize
 
-// run the game when the window is (re)focused
+// start the game when the window is (re)focused
 onfocus = () => {
-    if (!Game.running) {
+    if (!Game.running || Game.playing) {
         return
     }
     Game.start()
@@ -100,7 +100,7 @@ onfocus = () => {
 // stop the game when the window is tabbed out, un-press all keys, and un-
 // direct all directions
 onblur = () => {
-    if (!Game.running) {
+    if (!Game.running || !Game.playing) {
         return
     }
     Game.stop()

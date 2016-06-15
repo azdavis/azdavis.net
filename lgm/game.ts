@@ -17,9 +17,6 @@ namespace Game {
 
     // begin the game, add a single enemy
     export function begin(): void {
-        if (running) {
-            return
-        }
         running = true
         reset()
         start()
@@ -28,9 +25,6 @@ namespace Game {
 
     // end the game, show final stats
     function end(): void {
-        if (!running) {
-            return
-        }
         running = false
         stop()
         player.lives = 0
@@ -43,9 +37,6 @@ namespace Game {
 
     // start playing loop every 2 ms
     export function start(): void {
-        if (playing) {
-            return
-        }
         playing = true
         loopID = requestAnimationFrame(loop)
         info.style.display = 'block'
@@ -54,9 +45,6 @@ namespace Game {
 
     // stop playing loop
     export function stop(): void {
-        if (!playing) {
-            return
-        }
         playing = false
         cancelAnimationFrame(loopID)
         Canvas.clear()
