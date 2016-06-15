@@ -77,9 +77,10 @@ namespace Game {
     }
 
     // move, draw, and handle collisions for all sprites in the game
-    let i: number
-    let j: number
     function loop(): void {
+        let i: number
+        let j: number
+
         Canvas.clear()
 
         for (i = 0; i < player.bullets.length; i++) {
