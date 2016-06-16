@@ -107,7 +107,7 @@ onblur = () => {
     pressed = {}
 }
 
-// show an error if it's a mobile device
-if ("ontouchend" in window) {
-    (<HTMLElement>document.querySelector("#kbd")).style.display = "block"
-}
+// show an error or a "begin" message, depending on mobility of device
+(<HTMLElement>document.querySelector(
+    "ontouchend" in window ? "#kbd" : "#begin"
+)).style.display = "block"
