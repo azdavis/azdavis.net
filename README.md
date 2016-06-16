@@ -1,6 +1,6 @@
 # azdavis.xyz
 
-a place for stuff
+a place for stuff http://azdavis.xyz
 
 ## testing, building and deploying
 
