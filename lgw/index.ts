@@ -108,6 +108,10 @@ onblur = () => {
 }
 
 // show an error or a "begin" message, depending on mobility of device
-(<HTMLElement>document.querySelector(
-    "ontouchend" in window ? "#kbd" : "#begin"
-)).style.display = "block"
+const msg = <HTMLElement>document.querySelector("#msg")
+if ("ontouchend" in window) {
+    msg.innerHTML = "a physical keyboard is required"
+} else {
+    msg.innerHTML = "press P to begin"
+    msg.style.background = "#2a2"
+}
