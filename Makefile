@@ -24,7 +24,7 @@ lgw/index.js: \
 %.html: %.pug base/head.pug
 	pug -sb . --doctype "html" $<
 
-%.css: %.styl
+%.css: %.styl base/variables.styl
 	stylus -u "autoprefixer-stylus" -c $< $(Q)
 
 %.js: %.ts
