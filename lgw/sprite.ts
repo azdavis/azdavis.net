@@ -2,7 +2,7 @@ abstract class Sprite {
     public w: number
     public h: number
     public fill: string
-    public stroke = "#000"
+    public stroke = "#222"
     public i = 0
     public j = 0
     protected speed: number
