@@ -10,6 +10,7 @@ for (i = 0; i < rel.length; i++) {
 
 interface CSSStyleDeclaration {
     webkitFontSmoothing: string
+    MozOsxFontSmoothing: string
 }
 
 const now = <HTMLElement>document.querySelector("#now")
@@ -22,10 +23,12 @@ function doDateThings(): void {
     if (hr <= 5 || hr >= 18) {
         html.style.backgroundColor = "#222"
         html.style.color = "#ddd"
+        html.style.MozOsxFontSmoothing = "grayscale"
         html.style.webkitFontSmoothing = "antialiased"
     } else {
         html.style.backgroundColor =
             html.style.color =
+            html.style.MozOsxFontSmoothing =
             html.style.webkitFontSmoothing =
             ""
     }
