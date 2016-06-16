@@ -5,8 +5,8 @@ a place for stuff
 ## testing, building and deploying
 
 - `make npm-i-g` to install some global [npm][npm] packages
-- `make` to build all html files and their dependencies (usually css and/or js)
-- `make test` to start a web server and open your browser to localhost:8080
+- `make` to build all html files and their dependencies (css, js)
+- `make test` to start a server and open your browser to localhost:8080
 - `surge login` to prepare deployment to [surge][sur]
 - `make deploy` to deploy
 
