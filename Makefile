@@ -21,7 +21,7 @@ lgw/index.js: \
 	lgw/canvas.ts \
 	lgw/game.ts
 
-%.html: %.pug include/head.pug
+%.html: %.pug base/head.pug
 	pug -sb . --doctype "html" $<
 
 %.css: %.styl
