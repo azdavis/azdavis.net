@@ -113,5 +113,5 @@ if ("ontouchend" in window) {
     msg.innerHTML = "a physical keyboard is required"
 } else {
     msg.innerHTML = "press P to begin"
-    msg.style.background = "#2a2"
+    msg.className = "green"
 }
