@@ -8,11 +8,6 @@ for (i = 0; i < rel.length; i++) {
     }
 }
 
-interface CSSStyleDeclaration {
-    webkitFontSmoothing: string
-    MozOsxFontSmoothing: string
-}
-
 const now = <HTMLElement>document.querySelector("#now")
 const html = document.documentElement
 
@@ -20,18 +15,10 @@ function doDateThings(): void {
     const d = new Date()
     const hr = d.getHours()
     now.innerHTML = "" + d.getFullYear()
-    if (hr <= 5 || hr >= 18) {
-        html.style.backgroundColor = "#222"
-        html.style.color = "#ddd"
-        html.style.MozOsxFontSmoothing = "grayscale"
-        html.style.webkitFontSmoothing = "antialiased"
-    } else {
-        html.style.backgroundColor =
-            html.style.color =
-            html.style.MozOsxFontSmoothing =
-            html.style.webkitFontSmoothing =
-            ""
-    }
+    html.className =
+        5 < hr && hr < 18 ?
+        "" :
+        "dark"
 }
 
 doDateThings()
