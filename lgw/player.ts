@@ -11,6 +11,7 @@ class Player extends Sprite {
     public maxAmmo = 9
     public lives: number
     public ammo: number
+    public invincible: boolean
     public dirs = {
         lt: false,
         up: false,
@@ -69,7 +70,18 @@ class Player extends Sprite {
         this.bullets = []
         this.lives = this.maxLives
         this.ammo = this.maxAmmo
+        this.invincible = false
         this.stopMoving()
+    }
+
+    public loseLife(): void {
+        this.lives--
+        this.fill = "#bb4"
+        this.invincible = true
+        setTimeout(() => {
+            this.fill = "#4b4"
+            this.invincible = false
+        }, 1000)
     }
 }
 

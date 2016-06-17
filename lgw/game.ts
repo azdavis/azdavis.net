@@ -119,9 +119,9 @@ namespace Game {
             }
             enemies[i].moveTowards(player)
             Canvas.draw(enemies[i])
-            if (player.hasAnyInside(enemies[i])) {
+            if (!player.invincible && player.hasAnyInside(enemies[i])) {
                 enemies[i] = null
-                player.lives--
+                player.loseLife()
                 updateInfo()
                 if (player.lives <= 0) {
                     end()
