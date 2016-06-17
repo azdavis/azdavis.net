@@ -53,11 +53,6 @@ namespace Canvas {
         ctx.clearRect(0, 0, w, h)
     }
 
-    // shows or hides the cursor
-    export function shouldShowCursor(arg: boolean): void {
-        elem.style.cursor = arg ? "" : "none"
-    }
-
     resize()
 }
 

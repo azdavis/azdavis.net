@@ -9,6 +9,7 @@ namespace Game {
     export let playing = false
     export const player = new Player()
     const info = <HTMLElement>document.querySelector(".info")
+    const html = document.documentElement
     let loopID: number
     let score: number
     let enemies: Enemy[]
@@ -41,7 +42,7 @@ namespace Game {
         playing = true
         loopID = requestAnimationFrame(loop)
         info.style.display = "block"
-        Canvas.shouldShowCursor(false)
+        html.style.cursor = "none"
     }
 
     // stop playing loop
@@ -49,8 +50,9 @@ namespace Game {
         playing = false
         cancelAnimationFrame(loopID)
         Canvas.clear()
-        info.style.display = ""
-        Canvas.shouldShowCursor(true)
+        info.style.display =
+            html.style.cursor =
+            ""
         player.stopMoving()
     }
 
