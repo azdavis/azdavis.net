@@ -6,6 +6,7 @@ IFS=$'\n\t'
 server=
 end() {
     kill "$server"
+    echo "server and auto-make stopped."
 }
 trap end EXIT
 
