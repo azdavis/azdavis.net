@@ -13,6 +13,6 @@ trap end EXIT
 ruby -run -e httpd &> /dev/null &
 server="$!"
 open -g "http://localhost:8080"
-while make; do sleep 2; done
+while make||:; do sleep 2; done
 
 true
