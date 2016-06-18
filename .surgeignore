@@ -1,6 +1,7 @@
 z
 CNAME
 Makefile
+server
 *.md
 *.pug
 *.styl
