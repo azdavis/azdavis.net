@@ -22,4 +22,4 @@ function doDateThings(): void {
 }
 
 doDateThings()
-setInterval(doDateThings, 10000)
+setInterval(doDateThings, 30000)
