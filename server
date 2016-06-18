@@ -6,13 +6,13 @@ IFS=$'\n\t'
 server=
 end() {
     kill "$server"
-    echo "server and auto-make stopped."
+    echo -n " server and auto-make stopped."
 }
 trap end EXIT
 
 ruby -run -e httpd &> /dev/null &
 server="$!"
 open -g "http://localhost:8080"
-while make||:; do sleep 2; done
+while make||:; do echo -n "waiting..." $'\r' && sleep 2; done
 
 true
