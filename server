@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+server=
+end() {
+    kill "$server"
+}
+trap end EXIT INT
+
+ruby -run -e httpd &> /dev/null &
+server="$!"
+open -g "http://localhost:8080"
+while make; do sleep 2; done
+
+true

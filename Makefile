@@ -38,10 +38,6 @@ lgw/index.js: \
 clean:
 	find . \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
-test:
-	@open -g "http://localhost:8080"
-	@ruby -run -e httpd $(Q)
-
 deploy:
 	git checkout -q master
 	@$(MAKE)
@@ -60,4 +56,4 @@ npm-i-g:
 		typescript \
 		uglifyjs
 
-.PHONY: all clean test deploy npm-i-g
+.PHONY: all clean deploy npm-i-g
