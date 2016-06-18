@@ -7,7 +7,7 @@ server=
 end() {
     kill "$server"
 }
-trap end EXIT INT
+trap end EXIT
 
 ruby -run -e httpd &> /dev/null &
 server="$!"
