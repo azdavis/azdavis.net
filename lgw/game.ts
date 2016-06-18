@@ -148,7 +148,7 @@ namespace Game {
         if (player.ammo < player.maxAmmo) {
             timesSinceReload++
         }
-        if (timesSinceReload >= 200) {
+        if (timesSinceReload >= 400) {
             timesSinceReload = 0
             player.ammo++
             updateInfo()
