@@ -15,6 +15,7 @@ a place for stuff http://azdavis.xyz
     - opens your default browser to http://localhost:8080
     - runs `make` every 2 seconds (basically pseudo-filewatching)
 - `make deploy` does the following:
+    - ensure `git status` has no output
     - `git checkout` the master branch
     - `make` everything which is not up-to-date
     - `git push` master to origin

@@ -39,6 +39,7 @@ clean:
 	find . \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
 deploy:
+	test -z "$$(git status --porcelain)"
 	git checkout -q master
 	@$(MAKE)
 	git push -q origin master
