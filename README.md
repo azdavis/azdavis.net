@@ -16,17 +16,19 @@ a place for stuff http://azdavis.xyz
 
 ## testing, building and deploying
 
-- `make` builds all html files and their dependencies (css, js)
-- `./server` does the following:
-    - start a server on port 8080 with `ruby -e` (see [web-servers][web])
-    - `open` your default browser to http://localhost:8080
-    - use `entr` to re-`make` whenever files change
-- `make deploy` does the following:
-    - ensure `git status` has no output
-    - `git checkout` the master branch
-    - `make` everything which is not up-to-date
-    - `git push` master to origin
-    - `surge .` all built files, images, etc.
+- `make`
+    - compiles .ts to .js, .styl to .css, and .pug to .html
+    - concatenates compiled assets into one html file
+- `./server`
+    - starts a server on port 8080 with `ruby -e` (see [web-servers][web])
+    - `open`s your default browser to http://localhost:8080
+    - uses `entr` to re-`make` whenever files change
+- `make deploy`
+    - ensures `git status` has no output
+    - `git checkout`s the master branch
+    - `make`es everything which is not up-to-date
+    - `git push`es master to origin
+    - uses `surge .` all built files, images, etc.
 
 ## {con,per}formance
 
