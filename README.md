@@ -2,10 +2,17 @@
 
 a place for stuff http://azdavis.xyz
 
+## dependencies
+
+- [make][mak] (macOS: comes with CLT)
+- [npm][npm] (macOS: `brew install node`)
+- [entr][ent] (macOS: `brew install entr`)
+
 ## first-time setup
 
-- `make npm-i-g` installs some global [npm][npm] packages
+- `make npm-i-g` installs some global npm packages
 - `surge login` prepares deployment to [surge][sur]
+- `entr` runs arbitrary commands when files change
 
 ## testing, building and deploying
 
@@ -13,7 +20,7 @@ a place for stuff http://azdavis.xyz
 - `./server` does the following:
     - start a server on port 8080 with `ruby -e` (see [web-servers][web])
     - `open` your default browser to http://localhost:8080
-    - run `make` every 2 seconds (basically pseudo-filewatching)
+    - use `entr` to re-`make` whenever files change
 - `make deploy` does the following:
     - ensure `git status` has no output
     - `git checkout` the master branch
@@ -26,7 +33,9 @@ a place for stuff http://azdavis.xyz
 - [w3 validator][w3v]
 - [pagespeed insights][pag]
 
+[mak]: https://www.gnu.org/software/make
 [npm]: https://www.npmjs.com
+[ent]: http://entrproject.org
 [sur]: https://surge.sh
 [web]: https://gist.github.com/willurd/5720255
 [w3v]: https://validator.w3.org/nu/?doc=http://azdavis.xyz
