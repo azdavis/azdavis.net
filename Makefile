@@ -1,3 +1,4 @@
+SHELL = bash
 Q = &>/dev/null
 
 all: \
