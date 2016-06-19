@@ -4,7 +4,7 @@ a place for stuff http://azdavis.xyz
 
 ## dependencies (D:)
 
-- [make][mak] (macOS: comes with CLT)
+- [make][mak] (macOS: comes with Xcode or command line tools)
 - [npm][npm] (macOS: `brew install node`)
 - [entr][ent] (macOS: `brew install entr`)
 
