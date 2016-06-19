@@ -1,4 +1,4 @@
-SHELL = bash -euo pipefail
+SHELL = zsh -euo pipefail
 Q = &>/dev/null
 
 all: \
