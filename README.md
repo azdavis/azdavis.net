@@ -28,7 +28,7 @@ a place for stuff http://azdavis.xyz
     - `git checkout`s the master branch
     - `make`es everything which is not up-to-date
     - `git push`es master to origin
-    - uses `surge .` all built files, images, etc.
+    - uses `surge .` to upload all built files, images, etc.
 
 ## {con,per}formance
 
