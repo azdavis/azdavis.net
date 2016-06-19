@@ -20,7 +20,7 @@ a place for stuff http://azdavis.xyz
     - compiles .ts to .js, .styl to .css, and .pug to .html
     - concatenates compiled assets into one html file
 - `./server`
-    - starts a server on port 8080 with `ruby -e`
+    - starts a server on port 8080 with `static`
     - `open`s your default browser to http://localhost:8080
     - uses `entr` to re-`make` whenever files change
 - `make deploy`

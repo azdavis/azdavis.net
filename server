@@ -11,7 +11,7 @@ end() {
 }
 trap end INT
 
-ruby -run -e httpd &> /dev/null &
+static &> /dev/null &
 server="$!"
 sleep 1 && open -g "http://localhost:8080" &
 while true; do
