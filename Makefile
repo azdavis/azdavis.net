@@ -33,7 +33,7 @@ lgw/index.js: \
 	@grep -qE "require\(" $@ && \
 		echo "browserify -o $@ $@" && \
 		browserify -o $@.js $@ && \
-		mv $@.js $@;:
+		mv $@.js $@ || true
 	uglifyjs --screw-ie8 -cemo $@ $@ $(Q)
 
 clean:
