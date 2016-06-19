@@ -6,13 +6,14 @@ IFS=$'\n\t'
 server=
 end() {
     kill "$server"
-    echo -n " server and auto-make stopped."
+    echo " server stopped."
+    exit 0
 }
-trap end EXIT
+trap end INT
 
 ruby -run -e httpd &> /dev/null &
 server="$!"
-open -g "http://localhost:8080"
-while make || true; do echo -n "waiting..." $'\r' && sleep 2; done
-
-true
+sleep 1 && open -g "http://localhost:8080" &
+while true; do
+    find . -not -path "*.git*" | entr -d make || [[ "$?" == 2 ]]
+done
