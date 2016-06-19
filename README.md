@@ -20,7 +20,7 @@ a place for stuff http://azdavis.xyz
     - compiles .ts to .js, .styl to .css, and .pug to .html
     - concatenates compiled assets into one html file
 - `./server`
-    - starts a server on port 8080 with `ruby -e` (see [web-servers][web])
+    - starts a server on port 8080 with `ruby -e` ([how?][how])
     - `open`s your default browser to http://localhost:8080
     - uses `entr` to re-`make` whenever files change
 - `make deploy`
@@ -39,6 +39,6 @@ a place for stuff http://azdavis.xyz
 [npm]: https://www.npmjs.com
 [ent]: http://entrproject.org
 [sur]: https://surge.sh
-[web]: https://gist.github.com/willurd/5720255
+[how]: https://gist.github.com/willurd/5720255
 [w3v]: https://validator.w3.org/nu/?doc=http://azdavis.xyz
 [pag]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz
