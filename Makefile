@@ -52,7 +52,6 @@ npm-i-g:
 		autoprefixer-stylus \
 		browserify \
 		node-static \
-		npm \
 		pug-cli \
 		stylus \
 		surge \
