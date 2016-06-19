@@ -4,7 +4,6 @@ a place for stuff http://azdavis.xyz
 
 ## dependencies (D:)
 
-- [make][mak] (macOS: comes with Xcode or command line tools)
 - [npm][npm] (macOS: `brew install node`)
 - [entr][ent] (macOS: `brew install entr`)
 
@@ -35,7 +34,6 @@ a place for stuff http://azdavis.xyz
 - [w3 validator][w3v]
 - [pagespeed insights][pag]
 
-[mak]: https://www.gnu.org/software/make
 [npm]: https://www.npmjs.com
 [ent]: http://entrproject.org
 [sur]: https://surge.sh
