@@ -7,7 +7,6 @@ server=
 end() {
     kill "$server"
     echo " server stopped."
-    exit 0
 }
 trap end INT
 
