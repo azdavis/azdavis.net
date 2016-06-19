@@ -13,7 +13,7 @@ trap end INT
 
 static &> /dev/null &
 server="$!"
-sleep 1 && open -g "http://localhost:8080" &
+sleep 1 && open "http://localhost:8080" &
 while true; do
     find . -not -path "*.git*" | entr -d make || [[ "$?" == 2 ]]
 done
