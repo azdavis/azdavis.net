@@ -4,8 +4,8 @@ a place for stuff http://azdavis.xyz
 
 ## dependencies (D:)
 
-- [npm][npm] (macOS: `brew install node`)
-- [entr][ent] (macOS: `brew install entr`)
+- [npm][npm]
+- [entr][ent]
 
 ## first-time setup
 
