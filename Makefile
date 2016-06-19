@@ -30,10 +30,11 @@ lgw/index.js: \
 
 %.js: %.ts
 	tsc --removeComments $<
-	@grep -qE "require\(" $@ && \
-		echo "browserify -o $@ $@" && \
-		browserify -o $@.js $@ && \
-		mv $@.js $@ || true
+	@if grep -qE "require\(" $@; then \
+		echo "browserify -o $@ $@"; \
+		browserify -o $@.js $@; \
+		mv $@.js $@; \
+	fi
 	uglifyjs --screw-ie8 -cemo $@ $@ $(Q)
 
 clean:
