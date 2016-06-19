@@ -2,7 +2,7 @@
 
 a place for stuff http://azdavis.xyz
 
-## dependencies (D:)
+## dependencies
 
 - [npm][npm]
 - [entr][ent]
