@@ -2,7 +2,7 @@
 
 a place for stuff http://azdavis.xyz
 
-## dependencies
+## dependencies (D:)
 
 - [make][mak] (macOS: comes with CLT)
 - [npm][npm] (macOS: `brew install node`)
