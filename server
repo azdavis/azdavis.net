@@ -11,9 +11,12 @@ end() {
 }
 trap end INT
 
+$EDITOR .
+
 static &> /dev/null &
 server="$!"
 sleep 0.5 && open "http://localhost:8080" &
+
 while true; do
     find . -not -path "*.git*" | entr -cd make || [[ "$?" == 2 ]]
 done
