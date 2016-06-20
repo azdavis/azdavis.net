@@ -1,19 +1,13 @@
 SHELL = zsh -euo pipefail
 Q = &>/dev/null
 
+.PHONY: all clean deploy npm-i-g
+.PRECIOUS: %.css %.js
+
 all: \
 	404.html \
 	index.html \
 	lgw/index.html
-404.html: \
-	404.css \
-	404.js
-index.html: \
-	index.css \
-	index.js
-lgw/index.html: \
-	lgw/index.css \
-	lgw/index.js
 lgw/index.js: \
 	lgw/sprite.ts \
 	lgw/enemy.ts \
@@ -22,7 +16,7 @@ lgw/index.js: \
 	lgw/canvas.ts \
 	lgw/game.ts
 
-%.html: %.pug base/head.pug
+%.html: %.pug base/head.pug %.css %.js
 	pug -sb . --doctype "html" $<
 
 %.css: %.styl base/variables.styl
@@ -58,5 +52,3 @@ npm-i-g:
 		tslint \
 		typescript \
 		uglifyjs
-
-.PHONY: all clean deploy npm-i-g
