@@ -17,10 +17,10 @@ lgw/index.js: \
 	lgw/game.ts
 
 %.html: %.pug base/head.pug %.css %.js
-	pug -sb . --doctype "html" $<
+	pug -sb . --doctype html $<
 
 %.css: %.styl base/variables.styl
-	stylus -u "autoprefixer-stylus" -c $< $(Q)
+	stylus -u autoprefixer-stylus -c $< $(Q)
 
 %.js: %.ts
 	tsc --removeComments $<
