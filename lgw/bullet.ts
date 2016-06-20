@@ -11,8 +11,8 @@ class Bullet extends Sprite {
     // movement
     public constructor(s: Sprite) {
         super(s.x, s.y)
-        let dx = (s.w - this.w) / 2
-        let dy = (s.h - this.h) / 2
+        const dx = (s.w - this.w) / 2
+        const dy = (s.h - this.h) / 2
         if (s.i >= 0) {
             this.x += dx
         }
