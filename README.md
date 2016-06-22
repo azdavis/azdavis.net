@@ -26,7 +26,7 @@ a place for stuff http://azdavis.xyz
 - `make deploy`
     - ensures `git status` has no output
     - `git checkout`s the master branch
-    - `make`es everything which is not up-to-date
+    - `make`s everything which is not up-to-date
     - `git push`es master to origin
     - uses `surge .` to upload all built files, images, etc.
 
