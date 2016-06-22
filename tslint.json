@@ -25,6 +25,7 @@
             "static-before-instance",
             "variables-before-functions"
         ],
+        "no-angle-bracket-type-assertion": true,
         "no-arg": true,
         "no-bitwise": true,
         "no-console": [
