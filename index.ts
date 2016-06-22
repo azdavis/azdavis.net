@@ -1,4 +1,4 @@
-const rel = <NodeListOf<HTMLAnchorElement>>document.querySelectorAll("a")
+const rel = document.querySelectorAll("a") as NodeListOf<HTMLAnchorElement>
 const http = /https?:\/\//
 
 let i: number
@@ -8,7 +8,7 @@ for (i = 0; i < rel.length; i++) {
     }
 }
 
-const now = <HTMLElement>document.querySelector("#now")
+const now = document.querySelector("#now") as HTMLElement
 const html = document.documentElement
 
 function doDateThings(): void {

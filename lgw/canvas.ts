@@ -4,7 +4,7 @@ namespace Canvas {
     export let w: number
     export let h: number
     const ratio = devicePixelRatio || 1
-    const elem = <HTMLCanvasElement>document.querySelector("canvas")
+    const elem = document.querySelector("canvas") as HTMLCanvasElement
     const ctx = elem.getContext("2d")
 
     // resize the canvas to be the size of the window
