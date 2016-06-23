@@ -13,7 +13,7 @@ a place for stuff http://azdavis.xyz
 - `surge login` prepares deployment to [surge][sur]
 - `entr` runs arbitrary commands when files change
 
-## testing, building and deploying
+## useful commands
 
 - `make`
     - compiles .ts to .js, .styl to .css, and .pug to .html
