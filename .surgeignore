@@ -1,10 +1,10 @@
 CNAME
-Makefile
+makefile
 server
+*.css
+*.js
+*.json
 *.md
 *.pug
 *.styl
-*.css
 *.ts
-*.js
-*.json
