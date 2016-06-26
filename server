@@ -11,7 +11,7 @@ end() {
 }
 trap end INT
 
-$EDITOR .
+$EDITOR . &
 
 static &> /dev/null &
 server="$!"
