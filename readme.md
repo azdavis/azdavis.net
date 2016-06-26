@@ -17,7 +17,7 @@ a place for stuff http://azdavis.xyz
 
 - `make`
     - compiles .ts to .js, .styl to .css, and .pug to .html
-    - concatenates compiled assets into one html file
+    - concatenates compiled assets into one .html file
 - `./server`
     - opens `$EDITOR` to the current directory
     - starts a server on port 8080 with `static`
