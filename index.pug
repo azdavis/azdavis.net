@@ -4,9 +4,8 @@ html(lang="en")
     title man azdavis
     style: include index.css
   body
-    .three
+    .two
       div AZDAVIS(1)
-      div User Commands
       div AZDAVIS(1)
     h2 NAME
     .sec azdavis - a guy with certain characteristics
@@ -55,8 +54,7 @@ html(lang="en")
       - const gh = "https://github.com/azdavis"
       p GitHub profile: &lt;#[a(href= gh)= gh]&gt;
       p A simple keyboard game: &lt;#[a(href= "/lgw")= "/lgw"]&gt;
-    .three.bot
-      div azdavis v0.0.0
+    .two.bot
       -
         const now = new Date()
         const tzOff = now.getTimezoneOffset() * 60000
