@@ -1,4 +1,4 @@
-SHELL = zsh -euo pipefail
+SHELL = sh -euo pipefail
 Q = &>/dev/null
 
 .PHONY: all clean deploy npm-i-g
