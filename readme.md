@@ -4,6 +4,8 @@ a place for stuff http://azdavis.xyz
 
 ## dependencies
 
+- [git][git]
+- [make][mak]
 - [npm][npm]
 - [entr][ent]
 
@@ -35,6 +37,8 @@ a place for stuff http://azdavis.xyz
 - [w3 validator][w3v]
 - [pagespeed insights][pag]
 
+[git]: https://git-scm.com
+[mak]: https://www.gnu.org/software/make
 [npm]: https://www.npmjs.com
 [ent]: http://entrproject.org
 [sur]: https://surge.sh
