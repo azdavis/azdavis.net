@@ -25,7 +25,7 @@ a place for stuff http://azdavis.xyz
     - uses `entr` to re-`make` whenever files change
 - `make deploy`
     - ensures `git status` has no output
-    - `git checkout`s the master branch
+    - ensures the current git branch is master
     - `make`s everything which is not up-to-date
     - `git push`es master to origin
     - uses `surge .` to upload all built files, images, etc.
