@@ -18,6 +18,8 @@ lgw/index.js: \
 
 %.html: %.pug base/head.pug %.css %.js
 	pug -sb . --doctype html $<
+	@tr "\n" " " < $@ > $@.html
+	@mv $@.html $@
 
 %.css: %.styl base/variables.styl
 	stylus -u autoprefixer-stylus -c $< $(Q)
