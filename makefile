@@ -36,7 +36,7 @@ clean:
 
 deploy:
 	[[ -z "$$(git status --porcelain)" ]]
-	git checkout -q master
+	[[ "$$(git rev-parse --abbrev-ref @)" == master ]]
 	@$(MAKE)
 	git push -q origin master
 	surge . $(Q)
