@@ -1,30 +1,30 @@
 html(lang="en")
   head
     include /base/head.pug
-    title man ariel-davis
+    title man azdavis
     style: include index.css
   body
     .three
-      div ARIEL-DAVIS(1)
+      div AZDAVIS(1)
       div User Commands
-      div ARIEL-DAVIS(1)
+      div AZDAVIS(1)
     h2 NAME
-    .sec ariel-davis - a guy with certain characteristics
+    .sec azdavis - a guy with certain characteristics
     h2 SYNOPSIS
-    .sec #[b ariel-davis] [option]... [arg]...
+    .sec #[b azdavis] [option]... [arg]...
     h2 DESCRIPTION
     .sec
       p.
-        Ariel Davis is a guy living in the United States. He studies computer
+        azdavis is a guy living in the United States. He studies computer
         science at Carnegie Mellon®. He created this website and is a fan of
         such symbols as ™, ®, and ©.
       p.
-        Ariel spends most of his time browsing Hacker News™ and other news
+        azdavis spends most of his time browsing Hacker News™ and other news
         websites. When he's not doing that, he may work on his personal project
         du jour.
       p.
-        Ariel enjoys activities like tossing a flying disc (known to many as a
-        Frisbee®) and copy-pasting from Stack Overflow™ (know to many as
+        azdavis enjoys activities like tossing a flying disc (known to many as
+        a Frisbee®) and copy-pasting from Stack Overflow™ (know to many as
         programming). He is low-key attempting to learn 日本語 (known to many as
         Japanese).
     h2 OPTIONS
@@ -56,11 +56,11 @@ html(lang="en")
       p GitHub profile: &lt;#[a(href= gh)= gh]&gt;
       p A simple keyboard game: &lt;#[a(href= "/lgw")= "/lgw"]&gt;
     .three.bot
-      div Ariel Davis v0.0.0
+      div azdavis v0.0.0
       -
         const now = new Date()
         const tzOff = now.getTimezoneOffset() * 60000
         const nowWithOff = new Date(1 * now - tzOff).toISOString()
       div= nowWithOff.substring(0, 10)
-      div ARIEL-DAVIS(1)
+      div AZDAVIS(1)
     script: include index.js
