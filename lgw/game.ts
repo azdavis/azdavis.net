@@ -50,9 +50,7 @@ namespace Game {
         playing = false
         cancelAnimationFrame(loopID)
         Canvas.clear()
-        info.style.display =
-            html.style.cursor =
-            ""
+        info.style.display = html.style.cursor = ""
         player.stopMoving()
     }
 
