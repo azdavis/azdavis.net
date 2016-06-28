@@ -9,6 +9,12 @@ all: \
 	index.html \
 	cg/index.html \
 	lgw/index.html
+cg/index.js: \
+	cg/board.ts \
+	cg/canvas.ts \
+	cg/hex.ts \
+	cg/number_circle.ts \
+	cg/sprite.ts
 lgw/index.js: \
 	lgw/bullet.ts \
 	lgw/canvas.ts \
