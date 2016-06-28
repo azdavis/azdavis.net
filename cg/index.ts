@@ -1,1 +1,2 @@
-console.log("hello, catan")
+import Board from "./board"
+import Canvas from "./canvas"
