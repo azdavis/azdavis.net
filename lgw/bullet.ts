@@ -1,10 +1,11 @@
+import Canvas from "./canvas"
 import Sprite from "./sprite"
 
 class Bullet extends Sprite {
     public w = 20
     public h = 20
-    public speed = 10
-    public fill = "#44b"
+    protected fill = "#44b"
+    protected speed = 10
 
     // make this always move in the direction that s was going in when this was
     // made, and start it on the edge or corner of s facing the direction of
@@ -27,6 +28,17 @@ class Bullet extends Sprite {
         }
         this.i = s.i
         this.j = s.j
+    }
+
+
+    // return whether any part of this is inside the canvas
+    public isInBounds(): boolean {
+        return (
+            this.x >= 0 &&
+            this.x + this.w <= Canvas.w &&
+            this.y >= 0 &&
+            this.y + this.h <= Canvas.h
+        )
     }
 }
 

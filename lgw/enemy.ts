@@ -2,11 +2,11 @@ import Sprite from "./sprite"
 import Canvas from "./canvas"
 
 class Enemy extends Sprite {
+    public static points = 1
     public w = 40
     public h = 40
-    public speed = 3
-    public fill = "#b44"
-    public points = 1
+    protected fill = "#b44"
+    protected speed = 3
 
     // put this somewhere directly outside the Canvas
     public constructor() {
@@ -36,6 +36,13 @@ class Enemy extends Sprite {
             this.x = r2 * Canvas.w
             this.y = Canvas.h
         }
+    }
+
+    // move this in the direction towards s
+    public moveTowards(s: Sprite): void {
+        this.i = s.x - this.x + (s.w - this.w) / 2
+        this.j = s.y - this.y + (s.h - this.h) / 2
+        this.move()
     }
 }
 

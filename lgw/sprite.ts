@@ -1,10 +1,12 @@
+import Canvas from "./canvas"
+
 abstract class Sprite {
     public w: number
     public h: number
-    public fill: string
-    public stroke = "#222"
     public i = 0
     public j = 0
+    protected fill: string
+    protected stroke = "#222"
     protected speed: number
 
     // set x and y as the coordinates for this
@@ -21,11 +23,12 @@ abstract class Sprite {
         this.y += this.speed * this.j / h
     }
 
-    // move this in the direction towards s
-    public moveTowards(s: Sprite): void {
-        this.i = s.x - this.x + (s.w - this.w) / 2
-        this.j = s.y - this.y + (s.h - this.h) / 2
-        this.move()
+    // draw this on the canvas
+    public draw(): void {
+        Canvas.ctx.fillStyle = this.fill
+        Canvas.ctx.fillRect(this.x, this.y, this.w, this.h)
+        Canvas.ctx.strokeStyle = this.stroke
+        Canvas.ctx.strokeRect(this.x, this.y, this.w, this.h)
     }
 
     // return whether any part of this overlaps any part of s

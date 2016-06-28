@@ -97,8 +97,8 @@ namespace Game {
                 continue
             }
             player.bullets[i].move()
-            Canvas.draw(player.bullets[i])
-            if (!Canvas.weaklyContains(player.bullets[i])) {
+            player.bullets[i].draw()
+            if (!player.bullets[i].isInBounds()) {
                 player.bullets[i] = null
             }
         }
@@ -118,7 +118,7 @@ namespace Game {
                 continue
             }
             enemies[i].moveTowards(player)
-            Canvas.draw(enemies[i])
+            enemies[i].draw()
             if (!player.invincible && player.hasAnyInside(enemies[i])) {
                 enemies[i] = null
                 player.loseLife()
@@ -135,7 +135,7 @@ namespace Game {
                     continue
                 }
                 if (enemies[i].hasAnyInside(player.bullets[j])) {
-                    score += enemies[i].points
+                    score += Enemy.points
                     enemies[i] = player.bullets[j] = null
                     updateInfo()
                     break
@@ -151,10 +151,8 @@ namespace Game {
             player.ammo++
             updateInfo()
         }
-        player.calcIJ()
-        Canvas.stronglyContain(player)
         player.move()
-        Canvas.draw(player)
+        player.draw()
 
         loopID = requestAnimationFrame(loop)
     }
