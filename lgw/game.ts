@@ -25,18 +25,6 @@ namespace Game {
         setTimeout(addEnemy, 500)
     }
 
-    // end the game, show final stats
-    function end(): void {
-        running = false
-        stop()
-        player.lives = 0
-        info.innerHTML = `score: ${score}`
-        info.style.display = "block"
-        setTimeout(() => {
-            info.innerHTML += "<br>(to restart, press P)"
-        }, 1000)
-    }
-
     // start playing loop every 2 ms
     export function start(): void {
         playing = true
@@ -54,6 +42,28 @@ namespace Game {
         player.stopMoving()
     }
 
+    // updates the info board with the game score, player lives, and player
+    // ammo information
+    export function updateInfo(): void {
+        info.innerHTML = [
+            `score: ${score}`,
+            `lives: ${player.lives}`,
+            `ammo:  ${player.ammo}`,
+        ].join("<br>")
+    }
+
+    // end the game, show final stats
+    function end(): void {
+        running = false
+        stop()
+        player.lives = 0
+        info.innerHTML = `score: ${score}`
+        info.style.display = "block"
+        setTimeout(() => {
+            info.innerHTML += "<br>(to restart, press P)"
+        }, 1000)
+    }
+
     // position the player in the middle of the canvas, remove all enemies and
     // player bullets, clear the info board
     function reset(): void {
@@ -66,16 +76,7 @@ namespace Game {
         updateInfo()
     }
 
-    // updates the info board with the game score, player lives, and player
-    // ammo information
-    export function updateInfo(): void {
-        info.innerHTML = [
-            `score: ${score}`,
-            `lives: ${player.lives}`,
-            `ammo:  ${player.ammo}`,
-        ].join("<br>")
-    }
-
+    // add an enemy, reload, increase the spawn rate
     function addEnemy(): void {
         enemies.push(new Enemy())
         enemySpawnRate += 0.0001

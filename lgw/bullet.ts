@@ -30,7 +30,6 @@ class Bullet extends Sprite {
         this.j = s.j
     }
 
-
     // return whether any part of this is inside the canvas
     public isInBounds(): boolean {
         return (
