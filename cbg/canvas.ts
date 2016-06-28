@@ -11,8 +11,8 @@ namespace Canvas {
         h = innerHeight
         elem.width = w * ratio
         elem.height = h * ratio
-        elem.style.width = w + "px"
-        elem.style.height = h + "px"
+        elem.style.width = `${w}px`
+        elem.style.height = `${h}px`
         ctx.scale(ratio, ratio)
     }
 
