@@ -4,57 +4,65 @@ html(lang="en")
     title man azdavis
     style: include index.css
   body
-    .two
+    header.two
       div AZDAVIS(1)
       div AZDAVIS(1)
-    h2 NAME
-    .sec azdavis - a guy with certain characteristics
-    h2 SYNOPSIS
-    .sec #[b azdavis] [option]... [arg]...
-    h2 DESCRIPTION
-    .sec
-      p.
-        azdavis is a guy living in the United States. He studies computer
-        science at Carnegie Mellon®. He created this website and is a fan of
-        such symbols as ™, ®, and ©.
-      p.
-        azdavis spends most of his time browsing Hacker News™ and other news
-        websites. When he's not doing that, he may work on his personal project
-        du jour.
-      p.
-        azdavis enjoys activities like tossing a flying disc (known to many as
-        a Frisbee®) and copy-pasting from Stack Overflow™ (know to many as
-        programming). He is low-key attempting to learn 日本語 (known to many as
-        Japanese).
-    h2 OPTIONS
-    .sec
-      h3 -h, --help
-      .opt Display this help.
-      h3 -v, --version
-      .opt Display version information (current age in years).
-      h3 -q, --quiet
-      .opt Be quiet, only report errors. This is the default.
-      h3 -v, --verbose
-      .opt Be chatty. This can only be used in special cases.
-      h3 --english
-      .opt Use the native American English. This is the default.
-      h3 --japanese
-      .opt Use Japanese. This is extremely buggy.
-    h2 AUTHORS
-    .sec Written by David and Karen Davis.
-    h2 SAYING HELLO
-    .sec.
-      Email
-      &lt;#[a(href="mailto:?subject=Hello") ariel.z.X@icloud.com]&gt;
-      (replace X with davis).
-    h2 COPYRIGHT
-    .sec Copyright © #[span#now Now] Ariel Davis. All rights reserved.
-    h2 SEE ALSO
-    .sec
-      - const gh = "https://github.com/azdavis"
-      p GitHub profile: &lt;#[a(href= gh)= gh]&gt;
-      p A simple keyboard game: &lt;#[a(href= "/lgw")= "/lgw"]&gt;
-    .two.bot
+    section
+      h2 NAME
+      div azdavis - a guy with certain characteristics
+    section
+      h2 SYNOPSIS
+      div #[b azdavis] [option]... [arg]...
+    section
+      h2 DESCRIPTION
+      div
+        p.
+          azdavis is a guy living in the United States. He studies computer
+          science at Carnegie Mellon®. He created this website and is a fan of
+          such symbols as ™, ®, and ©.
+        p.
+          azdavis spends most of his time browsing Hacker News™ and other news
+          websites. When he's not doing that, he may work on his personal
+          project du jour.
+        p.
+          azdavis enjoys activities like tossing a flying disc (known to many
+          as a Frisbee®) and copy-pasting from Stack Overflow™ (know to many as
+          programming). He is low-key attempting to learn 日本語 (known to many
+          as Japanese).
+    section
+      h2 OPTIONS
+      div
+        h3 -h, --help
+        .opt Display this help.
+        h3 -v, --version
+        .opt Display version information (current age in years).
+        h3 -q, --quiet
+        .opt Be quiet, only report errors. This is the default.
+        h3 -v, --verbose
+        .opt Be chatty. This can only be used in special cases.
+        h3 --english
+        .opt Use the native American English. This is the default.
+        h3 --japanese
+        .opt Use Japanese. This is extremely buggy.
+    section
+      h2 AUTHORS
+      div Written by David and Karen Davis.
+    section
+      h2 SAYING HELLO
+      div.
+        Email
+        &lt;#[a(href="mailto:?subject=Hello") ariel.z.X@icloud.com]&gt;
+        (replace X with davis).
+    section
+      h2 COPYRIGHT
+      div Copyright © #[span#now Now] Ariel Davis. All rights reserved.
+    section
+      h2 SEE ALSO
+      div
+        - const gh = "https://github.com/azdavis"
+        p GitHub profile: &lt;#[a(href= gh)= gh]&gt;
+        p A simple keyboard game: &lt;#[a(href= "/lgw")= "/lgw"]&gt;
+    footer.two
       -
         const now = new Date()
         const tzOff = now.getTimezoneOffset() * 60000
