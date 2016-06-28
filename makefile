@@ -7,6 +7,7 @@ MAKEFLAGS += -s
 all: \
 	404.html \
 	index.html \
+	cg/index.html \
 	lgw/index.html
 lgw/index.js: \
 	lgw/bullet.ts \
