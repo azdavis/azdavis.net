@@ -7,14 +7,14 @@ MAKEFLAGS += -s
 all: \
 	404.html \
 	index.html \
-	cg/index.html \
+	cbg/index.html \
 	lgw/index.html
-cg/index.js: \
-	cg/board.ts \
-	cg/canvas.ts \
-	cg/hex.ts \
-	cg/number_circle.ts \
-	cg/sprite.ts
+cbg/index.js: \
+	cbg/board.ts \
+	cbg/canvas.ts \
+	cbg/hex_tile.ts \
+	cbg/number_label.ts \
+	cbg/sprite.ts
 lgw/index.js: \
 	lgw/bullet.ts \
 	lgw/canvas.ts \

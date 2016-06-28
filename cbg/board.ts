@@ -1,5 +1,5 @@
 import Canvas from "./canvas"
-import Hex from "./hex"
+import HexTile from "./hex_tile"
 
 namespace Board {}
 
