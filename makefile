@@ -9,12 +9,12 @@ all: \
 	index.html \
 	lgw/index.html
 lgw/index.js: \
-	lgw/sprite.ts \
-	lgw/enemy.ts \
-	lgw/player.ts \
 	lgw/bullet.ts \
 	lgw/canvas.ts \
-	lgw/game.ts
+	lgw/enemy.ts \
+	lgw/game.ts \
+	lgw/player.ts \
+	lgw/sprite.ts
 
 %.html: %.pug base/head.pug %.css %.js
 	pug -sb . --doctype html $<
