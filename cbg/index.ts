@@ -1,4 +1,12 @@
 import Board from "./board"
 import Canvas from "./canvas"
 
-onresize = Canvas.resize
+onresize = () => {
+    Canvas.resize()
+    Board.draw()
+}
+
+Canvas.elem.onclick = () => {
+    Board.generate()
+    Board.draw()
+}

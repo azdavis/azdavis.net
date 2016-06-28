@@ -1,11 +1,11 @@
 import Sprite from "./sprite"
 
 namespace Canvas {
+    export const elem = document.querySelector("canvas") as HTMLCanvasElement
+    export const ctx = elem.getContext("2d")
+    const ratio = devicePixelRatio || 1
     let w: number
     let h: number
-    const ratio = devicePixelRatio || 1
-    const elem = document.querySelector("canvas") as HTMLCanvasElement
-    const ctx = elem.getContext("2d")
 
     // resize the canvas to be the size of the window
     export function resize(): void {
