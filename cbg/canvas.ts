@@ -1,5 +1,3 @@
-import Sprite from "./sprite"
-
 namespace Canvas {
     export const elem = document.querySelector("canvas") as HTMLCanvasElement
     export const ctx = elem.getContext("2d")
