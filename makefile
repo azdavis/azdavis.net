@@ -12,6 +12,7 @@ all: \
 cbg/index.js: \
 	cbg/board.ts \
 	cbg/canvas.ts \
+	cbg/catan.ts \
 	cbg/hex_tile.ts \
 	cbg/number_label.ts \
 	cbg/sprite.ts
