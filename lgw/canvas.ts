@@ -1,6 +1,6 @@
 namespace Canvas {
-    const elem = document.querySelector("canvas") as HTMLCanvasElement
-    export const cx = elem.getContext("2d")
+    const el = document.querySelector("canvas") as HTMLCanvasElement
+    export const cx = el.getContext("2d")
     export let w: number
     export let h: number
     const ratio = devicePixelRatio || 1
@@ -9,10 +9,10 @@ namespace Canvas {
     export function resize(): void {
         w = innerWidth
         h = innerHeight
-        elem.width = w * ratio
-        elem.height = h * ratio
-        elem.style.width = `${w}px`
-        elem.style.height = `${h}px`
+        el.width = w * ratio
+        el.height = h * ratio
+        el.style.width = `${w}px`
+        el.style.height = `${h}px`
         cx.scale(ratio, ratio)
     }
 
