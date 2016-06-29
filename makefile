@@ -1,7 +1,7 @@
 SHELL := sh -euo pipefail
 Q := &>/dev/null
 
-.PHONY: all clean deploy npm-i-g
+.PHONY: all clean deploy git-ok npm-i-g
 .PRECIOUS: %.css %.js
 
 all: \
@@ -36,12 +36,13 @@ lgw/index.js: \
 clean:
 	find . \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
-deploy:
-	[[ -z "$$(git status --porcelain)" ]]
-	[[ "$$(git rev-parse --abbrev-ref @)" == master ]]
-	@$(MAKE)
+deploy: git-ok all
 	git push -q origin master
 	surge . $(Q)
+
+git-ok:
+	[[ -z "$$(git status --porcelain)" ]]
+	[[ "$$(git rev-parse --abbrev-ref @)" == master ]]
 
 npm-i-g:
 	npm i -g \
