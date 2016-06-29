@@ -15,6 +15,15 @@ namespace Catan {
         desert,
     }
 
+    export const resourceFills = {
+        brick: "#b52",
+        wood: "#573",
+        wheat: "#e93",
+        sheep: "#8b3",
+        ore: "#777",
+        desert: "#ca7",
+    }
+
     export const regular = {
         rows: [1, 2, 3, 2, 3, 2, 3, 2, 1],
         amts: {
