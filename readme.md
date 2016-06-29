@@ -13,7 +13,6 @@ a place for stuff http://azdavis.xyz
 
 - `make npm-i-g` installs some global npm packages
 - `surge login` prepares deployment to [surge][sur]
-- `entr` runs arbitrary commands when files change
 
 ## useful commands
 
