@@ -6,7 +6,5 @@ onresize = () => {
     Board.draw()
 }
 
-Canvas.elem.onclick = () => {
-    Board.generate()
-    Board.draw()
-}
+Canvas.elem.onclick = Board.drawNew
+Board.drawNew()
