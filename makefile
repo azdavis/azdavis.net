@@ -1,4 +1,5 @@
 SHELL := sh -euo pipefail
+MAKEFLAGS += -s
 
 .PHONY: all clean deploy git-ok npm-i-g
 .PRECIOUS: %.css %.js
@@ -16,17 +17,19 @@ lgw/index.js: \
 	lgw/sprite.ts
 
 %.html: %.pug base/head.pug %.css %.js
+	echo $@
 	pug -sb . --doctype html $<
-	@tr "\n" " " < $@ > $@.html
-	@mv $@.html $@
+	tr "\n" " " < $@ > $@.html
+	mv $@.html $@
 
 %.css: %.styl base/variables.styl
+	echo $@
 	stylus -u autoprefixer-stylus -c $< &> /dev/null
 
 %.js: %.ts
+	echo $@
 	tsc --removeComments $<
-	@if grep -qE "require\(" $@; then \
-		echo "browserify -o $@ $@"; \
+	if grep -qE "require\(" $@; then \
 		browserify -o $@.js $@; \
 		mv $@.js $@; \
 	fi
