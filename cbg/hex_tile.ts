@@ -12,6 +12,7 @@ class HexTile extends Sprite {
         super(0, 0)
     }
 
+    // draw a hexagon, centered at (this.x, this.y)
     protected draw(): void {
         const sideHalf = HexTile.side / 2
         const xOff = sideHalf * Math.sqrt(3)
