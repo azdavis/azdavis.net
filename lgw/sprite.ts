@@ -25,10 +25,10 @@ abstract class Sprite {
 
     // draw this on the canvas
     public draw(): void {
-        Canvas.ctx.fillStyle = this.fill
-        Canvas.ctx.fillRect(this.x, this.y, this.w, this.h)
-        Canvas.ctx.strokeStyle = this.stroke
-        Canvas.ctx.strokeRect(this.x, this.y, this.w, this.h)
+        Canvas.cx.fillStyle = this.fill
+        Canvas.cx.fillRect(this.x, this.y, this.w, this.h)
+        Canvas.cx.strokeStyle = this.stroke
+        Canvas.cx.strokeRect(this.x, this.y, this.w, this.h)
     }
 
     // return whether any part of this overlaps any part of s
