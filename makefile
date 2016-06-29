@@ -40,7 +40,7 @@ clean:
 
 deploy: git-ok all
 	git push -q origin master
-	surge . 2> /dev/null | grep size
+	surge . 2> /dev/null | grep size | sed -E "s/^$$(printf '\033')\[90m +//g"
 
 git-ok:
 	[[ -z "$$(git status --porcelain)" ]]
