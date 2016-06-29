@@ -105,7 +105,6 @@ namespace Game {
         }
 
         timesSinceEnemy++
-        updateInfo()
         if (
             timesSinceEnemy >= 20 && Math.random() < enemySpawnRate ||
             timesSinceEnemy >= 200
