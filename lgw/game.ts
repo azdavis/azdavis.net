@@ -119,7 +119,7 @@ namespace Game {
             }
             enemies[i].moveTowards(player)
             enemies[i].draw()
-            if (!player.invincible && player.hasAnyInside(enemies[i])) {
+            if (!player.invincible && player.overlaps(enemies[i])) {
                 enemies[i] = null
                 player.loseLife()
                 updateInfo()
@@ -134,7 +134,7 @@ namespace Game {
                 if (!player.bullets[j]) {
                     continue
                 }
-                if (enemies[i].hasAnyInside(player.bullets[j])) {
+                if (enemies[i].overlaps(player.bullets[j])) {
                     score += Enemy.points
                     enemies[i] = player.bullets[j] = null
                     updateInfo()
