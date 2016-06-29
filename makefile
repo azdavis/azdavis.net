@@ -1,5 +1,4 @@
 SHELL := sh -euo pipefail
-Q := &>/dev/null
 
 .PHONY: all clean deploy git-ok npm-i-g
 .PRECIOUS: %.css %.js
@@ -22,7 +21,7 @@ lgw/index.js: \
 	@mv $@.html $@
 
 %.css: %.styl base/variables.styl
-	stylus -u autoprefixer-stylus -c $< $(Q)
+	stylus -u autoprefixer-stylus -c $< &> /dev/null
 
 %.js: %.ts
 	tsc --removeComments $<
@@ -31,7 +30,7 @@ lgw/index.js: \
 		browserify -o $@.js $@; \
 		mv $@.js $@; \
 	fi
-	uglifyjs --screw-ie8 -cemo $@ $@ $(Q)
+	uglifyjs --screw-ie8 -cemo $@ $@ &> /dev/null
 
 clean:
 	find . \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
