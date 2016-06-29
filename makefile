@@ -37,7 +37,7 @@ clean:
 
 deploy: git-ok all
 	git push -q origin master
-	surge . $(Q)
+	surge . 2> /dev/null | grep size:
 
 git-ok:
 	[[ -z "$$(git status --porcelain)" ]]
