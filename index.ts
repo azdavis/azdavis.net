@@ -13,6 +13,6 @@ const d = new Date()
 const hr = d.getHours()
 
 now.innerHTML = String(d.getFullYear())
-if (5 < hr && hr < 18) {
+if (hr < 6 || hr > 17) {
     document.documentElement.className = "dark"
 }
