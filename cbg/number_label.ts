@@ -1,4 +1,5 @@
 import Canvas from "./canvas"
+import Catan from "./catan"
 import Sprite from "./sprite"
 
 class NumberLabel extends Sprite {
@@ -10,9 +11,9 @@ class NumberLabel extends Sprite {
     public constructor(private n: number) {
         super(0, 0)
         this.fill =
-            n === 6 || n === 8 ?
-            "#a22" :
-            "#222"
+            Catan.counters.frequent.indexOf(n) === -1 ?
+            "#222" :
+            "#a22"
     }
 
     // draw a circle with a number in the center
