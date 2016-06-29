@@ -9,17 +9,10 @@ for (i = 0; i < rel.length; i++) {
 }
 
 const now = document.querySelector("#now") as HTMLElement
-const html = document.documentElement
+const d = new Date()
+const hr = d.getHours()
 
-function doDateThings(): void {
-    const d = new Date()
-    const hr = d.getHours()
-    now.innerHTML = String(d.getFullYear())
-    html.className =
-        5 < hr && hr < 18 ?
-        "" :
-        "dark"
+now.innerHTML = String(d.getFullYear())
+if (5 < hr && hr < 18) {
+    document.documentElement.className = "dark"
 }
-
-doDateThings()
-setInterval(doDateThings, 30000)
