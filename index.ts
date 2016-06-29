@@ -14,7 +14,7 @@ const html = document.documentElement
 function doDateThings(): void {
     const d = new Date()
     const hr = d.getHours()
-    now.innerHTML = "" + d.getFullYear()
+    now.innerHTML = String(d.getFullYear())
     html.className =
         5 < hr && hr < 18 ?
         "" :
