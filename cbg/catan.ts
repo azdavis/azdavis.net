@@ -26,6 +26,19 @@ namespace Catan {
     }
 
     export const regular = {
+        /*
+
+            .      1
+          .   .    2
+        .   .   .  3
+          .   .    2
+        .   .   .  3
+          .   .    2
+        .   .   .  3
+          .   .    2
+            .      1
+
+         */
         rows: [1, 2, 3, 2, 3, 2, 3, 2, 1],
         amts: {
             resources: {
@@ -44,6 +57,22 @@ namespace Catan {
     }
 
     export const expansion = {
+        /*
+
+              .        1
+            .   .      2
+          .   .   .    3
+        .   .   .   .  4
+          .   .   .    3
+        .   .   .   .  4
+          .   .   .    3
+        .   .   .   .  4
+          .   .   .    3
+            .   .      2
+              .        1
+
+
+         */
         rows: [1, 2, 3, 4, 3, 4, 3, 4, 3, 2, 1],
         amts: {
             resources: {
