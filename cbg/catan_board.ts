@@ -27,7 +27,7 @@ namespace CatanBoard {
     }
 
     // generate the resources array, which is an array of string containing the
-    // correct number of each of the possible types of resource for this board
+    // correct number of each of the possible types of resource for the board
     function genResources(): void {
         resources = []
         // r: resource type (brick, wood...)
@@ -40,7 +40,7 @@ namespace CatanBoard {
     }
 
     // generate the counters array, which is an array of number containing the
-    // correct number of each of the possible number counters for this board
+    // correct number of each of the possible number counters for the board
     function genCounters(): void {
         counters = []
         // cCat: counter frequency category (low, notLow...)
