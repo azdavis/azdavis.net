@@ -1,7 +1,7 @@
 import Canvas from "./canvas"
 import HexTile from "./hex_tile"
 
-namespace Board {
+namespace CatanBoard {
     // draw the current board
     export function draw(): void {}
 
@@ -15,4 +15,4 @@ namespace Board {
     function generate(): void {}
 }
 
-export default Board
+export default CatanBoard

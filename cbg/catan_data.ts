@@ -1,4 +1,4 @@
-namespace Catan {
+namespace CatanData {
     export const counters = {
         infrequent: [2, 12],
         regular: [3, 4, 5, 9, 10, 11],

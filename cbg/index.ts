@@ -1,10 +1,10 @@
-import Board from "./board"
+import CatanBoard from "./board"
 import Canvas from "./canvas"
 
 onresize = () => {
     Canvas.resize()
-    Board.draw()
+    CatanBoard.draw()
 }
 
-Canvas.elem.onclick = Board.drawNew
-Board.drawNew()
+Canvas.elem.onclick = CatanBoard.drawNew
+CatanBoard.drawNew()
