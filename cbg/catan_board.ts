@@ -1,4 +1,5 @@
 import Canvas from "./canvas"
+import CatanData from "./catan_data"
 import HexTile from "./hex_tile"
 
 namespace CatanBoard {

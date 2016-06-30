@@ -91,4 +91,4 @@ namespace CatanData {
     }
 }
 
-export default Catan
+export default CatanData
