@@ -7,16 +7,8 @@ namespace CatanData {
     }
     counters.notInfrequent = counters.regular.concat(counters.frequent)
 
-    export const enum resources {
-        brick,
-        wood,
-        wheat,
-        sheep,
-        ore,
-        desert,
-    }
-
-    export const resourceFills = {
+    export const resources = {
+        types: 6,
         brick: "#b52",
         wood: "#573",
         wheat: "#e93",
