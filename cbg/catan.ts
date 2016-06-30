@@ -3,6 +3,7 @@ namespace Catan {
         infrequent: [2, 12],
         regular: [3, 4, 5, 9, 10, 11],
         frequent: [6, 8],
+        notInfrequent: [] as number[],
     }
     counters.notInfrequent = counters.regular.concat(counters.frequent)
 
