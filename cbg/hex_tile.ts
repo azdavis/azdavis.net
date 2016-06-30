@@ -3,6 +3,17 @@ import NumberLabel from "./number_label"
 import Sprite from "./sprite"
 
 class HexTile extends Sprite {
+    /*
+
+              |  .
+              |        .      side
+    halfSide  |              .
+              |                    .
+              |_________________________
+
+                        xLeg
+
+     */
     private static side = 30
     private static halfSide = HexTile.side / 2
     private static xLeg = HexTile.halfSide * Math.sqrt(3)
