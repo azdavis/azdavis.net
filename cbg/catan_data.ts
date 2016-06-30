@@ -1,23 +1,23 @@
 namespace CatanData {
-    export const counters = {
-        infrequent: [2, 12],
-        regular: [3, 4, 5, 9, 10, 11],
-        frequent: [6, 8],
-        notInfrequent: [] as number[],
+    export const defs = {
+        counters: {
+            low: [2, 12],              // low frequency
+            mid: [3, 4, 5, 9, 10, 11], // medium-level frequency
+            high: [6, 8],              // high frequency
+            notLow: [] as number[],    // mid + high
+        },
+        resources: {
+            brick: "#b52",
+            wood: "#573",
+            wheat: "#e93",
+            sheep: "#8b3",
+            ore: "#777",
+            desert: "#ca7",
+        },
     }
-    counters.notInfrequent = counters.regular.concat(counters.frequent)
+    defs.counters.notLow = defs.counters.mid.concat(defs.counters.high)
 
-    export const resources = {
-        types: 6,
-        brick: "#b52",
-        wood: "#573",
-        wheat: "#e93",
-        sheep: "#8b3",
-        ore: "#777",
-        desert: "#ca7",
-    }
-
-    export const regular = {
+    export const reg = {
         /*
 
             .      1
@@ -42,13 +42,13 @@ namespace CatanData {
                 desert: 1,
             },
             counters: {
-                infrequent: 1,
-                notInfrequent: 2,
+                low: 1,
+                notLow: 2,
             },
         },
     }
 
-    export const expansion = {
+    export const exp = {
         /*
 
               .        1
@@ -76,8 +76,8 @@ namespace CatanData {
                 desert: 2,
             },
             counters: {
-                infrequent: 2,
-                notInfrequent: 3,
+                low: 2,
+                notLow: 3,
             },
         },
     }
