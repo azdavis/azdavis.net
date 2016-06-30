@@ -10,9 +10,9 @@ all: \
 	cbg/index.html \
 	lgw/index.html
 cbg/index.js: \
-	cbg/board.ts \
 	cbg/canvas.ts \
-	cbg/catan.ts \
+	cbg/catan_board.ts \
+	cbg/catan_data.ts \
 	cbg/hex_tile.ts \
 	cbg/number_label.ts \
 	cbg/sprite.ts
