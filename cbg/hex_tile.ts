@@ -17,6 +17,10 @@ class HexTile extends Sprite {
     private static side = 30
     private static halfSide = HexTile.side / 2
     private static xLeg = HexTile.halfSide * Math.sqrt(3)
+    /* tslint:disable member-ordering */
+    public static w = HexTile.xLeg * 2
+    public static h = HexTile.side * 2
+    /* tslint:enable member-ordering */
     protected x: number
     protected y: number
     protected fill: string
