@@ -1,8 +1,7 @@
 const rel = document.querySelectorAll("a") as NodeListOf<HTMLAnchorElement>
 const http = /https?:\/\//
 
-let i: number
-for (i = 0; i < rel.length; i++) {
+for (let i = 0; i < rel.length; i++) {
     if (rel[i].href.match(http)) {
         rel[i].innerHTML = rel[i].href.replace(http, "")
     }

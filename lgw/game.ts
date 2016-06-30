@@ -88,12 +88,9 @@ namespace Game {
 
     // move, draw, and handle collisions for all sprites in the game
     function loop(): void {
-        let i: number
-        let j: number
-
         Canvas.clear()
 
-        for (i = 0; i < player.bullets.length; i++) {
+        for (let i = 0; i < player.bullets.length; i++) {
             if (!player.bullets[i]) {
                 continue
             }
@@ -113,7 +110,7 @@ namespace Game {
             addEnemy()
         }
 
-        for (i = 0; i < enemies.length; i++) {
+        for (let i = 0; i < enemies.length; i++) {
             if (!enemies[i]) {
                 continue
             }
@@ -130,7 +127,7 @@ namespace Game {
                 continue
             }
             // O(n^2) is the bad
-            for (j = 0; j < player.bullets.length; j++) {
+            for (let j = 0; j < player.bullets.length; j++) {
                 if (!player.bullets[j]) {
                     continue
                 }
