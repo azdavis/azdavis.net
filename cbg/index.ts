@@ -1,5 +1,5 @@
-import CatanBoard from "./catan_board"
 import Canvas from "./canvas"
+import CatanBoard from "./catan_board"
 
 onresize = () => {
     Canvas.resize()
