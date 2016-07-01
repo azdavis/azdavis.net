@@ -29,7 +29,7 @@ class HexTile extends Sprite {
     }
 
     // draw a hexagon tile, centered at (this.x, this.y), and its label
-    protected draw(): void {
+    public draw(): void {
         Canvas.ctx.fillStyle = this.fill
 
         Canvas.ctx.moveTo(this.x, this.y - HexTile.side)

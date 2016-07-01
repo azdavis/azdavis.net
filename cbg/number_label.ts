@@ -12,7 +12,7 @@ class NumberLabel extends Sprite {
     }
 
     // draw a circle with a number in the center
-    protected draw(): void {
+    public draw(): void {
         Canvas.ctx.arc(this.x, this.y, NumberLabel.radius, 0, 2 * Math.PI)
         Canvas.ctx.fillStyle = NumberLabel.backgroundFill
         Canvas.ctx.fill()
