@@ -25,11 +25,17 @@ class HexTile extends Sprite {
     // h: not actual height: used to pack hexagons in a tight grid
     public static h = HexTile.side * 1.5
     /* tslint:enable member-ordering */
-    protected x: number
-    protected y: number
 
-    public constructor(protected fill: string, private label: NumberLabel) {
-        super(0, 0)
+    public constructor(
+        protected x: number,
+        protected y: number,
+        protected fill: string,
+        private label: NumberLabel
+    ) {
+        super(x, y)
+        if (label != null) {
+            label.setCenter(this.x, this.y)
+        }
     }
 
     // draw a hexagon tile, centered at (this.x, this.y), and its label
