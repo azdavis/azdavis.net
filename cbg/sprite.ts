@@ -1,7 +1,6 @@
 abstract class Sprite {
     protected fill: string
-    public constructor(protected x: number, protected y: number) {}
-    public abstract draw(): void
+    public abstract draw(x: number, y: number): void
 }
 
 export default Sprite

@@ -26,35 +26,27 @@ class HexTile extends Sprite {
     public static h = HexTile.side * 1.5
     /* tslint:enable member-ordering */
 
-    public constructor(
-        protected x: number,
-        protected y: number,
-        protected fill: string,
-        private label: NumberLabel
-    ) {
-        super(x, y)
-        if (label != null) {
-            label.setCenter(this.x, this.y)
-        }
+    public constructor(protected fill: string, private label: NumberLabel) {
+        super()
     }
 
-    // draw a hexagon tile, centered at (this.x, this.y), and its label
-    public draw(): void {
+    // draw a hexagon tile, centered at (x, y), and its label
+    public draw(x: number, y: number): void {
         Canvas.ctx.fillStyle = this.fill
 
         Canvas.ctx.beginPath()
-        Canvas.ctx.moveTo(this.x, this.y - HexTile.side)
-        Canvas.ctx.lineTo(this.x + HexTile.xLeg, this.y - HexTile.halfSide)
-        Canvas.ctx.lineTo(this.x + HexTile.xLeg, this.y + HexTile.halfSide)
-        Canvas.ctx.lineTo(this.x, this.y + HexTile.side)
-        Canvas.ctx.lineTo(this.x - HexTile.xLeg, this.y + HexTile.halfSide)
-        Canvas.ctx.lineTo(this.x - HexTile.xLeg, this.y - HexTile.halfSide)
+        Canvas.ctx.moveTo(x, y - HexTile.side)
+        Canvas.ctx.lineTo(x + HexTile.xLeg, y - HexTile.halfSide)
+        Canvas.ctx.lineTo(x + HexTile.xLeg, y + HexTile.halfSide)
+        Canvas.ctx.lineTo(x, y + HexTile.side)
+        Canvas.ctx.lineTo(x - HexTile.xLeg, y + HexTile.halfSide)
+        Canvas.ctx.lineTo(x - HexTile.xLeg, y - HexTile.halfSide)
 
         Canvas.ctx.closePath()
         Canvas.ctx.fill()
 
         if (this.label != null) {
-            this.label.draw()
+            this.label.draw(x, y)
         }
     }
 }

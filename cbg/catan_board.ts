@@ -13,7 +13,14 @@ namespace CatanBoard {
         for (let i = 0; i < rows.length; i++) {
             // for each space in the row
             for (let j = 0; j < rows[i].length; j++) {
-                rows[i][j].draw()
+                // draw the tile at the x and y correctly based on where it is
+                // in its row and where its row is in all the rows
+                let dx = (rows[i].length - 1) / 2 - j
+                let dy = i - (rows.length - 1) / 2
+                rows[i][j].draw(
+                    Canvas.center.x + dx * HexTile.w,
+                    Canvas.center.y + dy * HexTile.h
+                )
             }
         }
     }
@@ -77,13 +84,8 @@ namespace CatanBoard {
                 tiles[t] = true
 
                 // set the space to a tile of the gotten type with the
-                // determined label, and set its x and y correctly based on
-                // where it is in its row and where its row is in all the rows.
-                let dx = (rows[i].length - 1) / 2 - j
-                let dy = i - (rows.length - 1) / 2
+                // determined label
                 rows[i][j] = new HexTile(
-                    Canvas.center.x + dx * HexTile.w,
-                    Canvas.center.y + dy * HexTile.h,
                     CatanData.fills.tiles[CatanData.tiles[t]],
                     label
                 )
