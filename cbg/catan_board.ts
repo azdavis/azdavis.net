@@ -48,14 +48,14 @@ namespace CatanBoard {
         const labels = rp(false, numLabels)
         const tiles = rp(false, numTiles)
 
-        let l: number
-        let t: number
-
-        // for each row...
+        // for each row
         for (let i = 0; i < rows.length; i++) {
-            // for each space in the row...
+            // for each space in the row
             for (let j = 0; j < rows[i].length; j++) {
-                // get a random label and tile type...
+                let l: number
+                let t: number
+
+                // get a random label and tile type
                 do { l = zeroTo(numLabels) } while (labels[l])
                 do { t = zeroTo(numTiles) } while (tiles[t])
                 labels[l] = tiles[t] = false
