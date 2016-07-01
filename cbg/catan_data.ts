@@ -20,7 +20,7 @@ namespace CatanData {
         tiles: {
             brick: "#b52",
             wood: "#573",
-            wheat: "#e93",
+            wheat: "#eb3",
             sheep: "#8b3",
             ore: "#777",
             desert: "#ca7",
