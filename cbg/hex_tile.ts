@@ -23,13 +23,12 @@ class HexTile extends Sprite {
     /* tslint:enable member-ordering */
     protected x: number
     protected y: number
-    protected fill: string
 
-    public constructor(private label: NumberLabel) {
+    public constructor(protected fill: string, private label: NumberLabel) {
         super(0, 0)
     }
 
-    // draw a hexagon, centered at (this.x, this.y)
+    // draw a hexagon tile, centered at (this.x, this.y), and its label
     protected draw(): void {
         Canvas.ctx.fillStyle = this.fill
 
@@ -43,6 +42,8 @@ class HexTile extends Sprite {
 
         Canvas.ctx.closePath()
         Canvas.ctx.fill()
+
+        this.label.draw()
     }
 }
 
