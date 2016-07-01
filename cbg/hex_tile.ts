@@ -5,11 +5,11 @@ import Sprite from "./sprite"
 class HexTile extends Sprite {
     /*
 
-              |  .
-              |        .      side
-    halfSide  |              .
-              |                    .
-              |_________________________
+              | .
+              |      .      side
+    halfSide  |           .
+              |                .
+              |___________________
 
                         xLeg
 
