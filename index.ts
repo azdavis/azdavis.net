@@ -1,9 +1,9 @@
-const rel = document.querySelectorAll("a") as NodeListOf<HTMLAnchorElement>
+const anchors = document.querySelectorAll("a") as NodeListOf<HTMLAnchorElement>
 const http = /https?:\/\//
 
-for (let i = 0; i < rel.length; i++) {
-    if (rel[i].href.match(http)) {
-        rel[i].innerHTML = rel[i].href.replace(http, "")
+for (let i = 0; i < anchors.length; i++) {
+    if (anchors[i].href.match(http)) {
+        anchors[i].innerHTML = anchors[i].href.replace(http, "")
     }
 }
 
