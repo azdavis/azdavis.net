@@ -59,7 +59,6 @@ namespace CatanBoard {
                 // get a random label and tile type
                 do { l = zeroTo(numLabels) } while (labels[l])
                 do { t = zeroTo(numTiles) } while (tiles[t])
-                console.log([l, t])
 
                 if (CatanData.tiles[t] === "desert") {
                     // if the tile is desert, it gets no label
@@ -71,11 +70,11 @@ namespace CatanBoard {
                         CatanData.labels[l]
                     )
                     // mark this label as being used
-                    labels[l] = false
+                    labels[l] = true
                 }
 
                 // mark this tile as being used
-                tiles[t] = false
+                tiles[t] = true
 
                 // set the space to a tile of the gotten type with the
                 // determined label, and set its x and y correctly based on
