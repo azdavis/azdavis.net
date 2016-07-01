@@ -13,6 +13,9 @@ class HexTile extends Sprite {
 
                         xLeg
 
+
+              . center of hexagon
+
      */
     private static side = 30
     private static halfSide = HexTile.side / 2
