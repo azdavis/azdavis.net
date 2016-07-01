@@ -53,7 +53,9 @@ class HexTile extends Sprite {
         Canvas.ctx.closePath()
         Canvas.ctx.fill()
 
-        this.label.draw()
+        if (this.label != null) {
+            this.label.draw()
+        }
     }
 }
 
