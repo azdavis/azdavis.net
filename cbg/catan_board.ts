@@ -27,7 +27,7 @@ namespace CatanBoard {
 
     // returns a random integer in the interval [0, h) (note that this will
     // never return h)
-    function randInt(h: number): number {
+    function zeroTo(h: number): number {
         return Math.floor(Math.random() * h)
     }
 
@@ -48,8 +48,8 @@ namespace CatanBoard {
             // for each space in the row...
             for (let j = 0; j < rows[i].length; j++) {
                 // get a random label and tile type...
-                do { l = randInt(numLabels) } while (labels[l])
-                do { t = randInt(numTiles) } while (tiles[t])
+                do { l = zeroTo(numLabels) } while (labels[l])
+                do { t = zeroTo(numTiles) } while (tiles[t])
                 labels[l] = tiles[t] = false
                 // set the space to a tile of the gotten type...
                 rows[i][j] = new HexTile(
