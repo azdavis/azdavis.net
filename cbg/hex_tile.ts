@@ -32,18 +32,18 @@ class HexTile extends Sprite {
 
     // draw a hexagon tile, centered at (x, y), and its label
     public draw(x: number, y: number): void {
-        Canvas.ctx.fillStyle = this.fill
+        Canvas.cx.fillStyle = this.fill
 
-        Canvas.ctx.beginPath()
-        Canvas.ctx.moveTo(x, y - HexTile.side)
-        Canvas.ctx.lineTo(x + HexTile.xLeg, y - HexTile.halfSide)
-        Canvas.ctx.lineTo(x + HexTile.xLeg, y + HexTile.halfSide)
-        Canvas.ctx.lineTo(x, y + HexTile.side)
-        Canvas.ctx.lineTo(x - HexTile.xLeg, y + HexTile.halfSide)
-        Canvas.ctx.lineTo(x - HexTile.xLeg, y - HexTile.halfSide)
+        Canvas.cx.beginPath()
+        Canvas.cx.moveTo(x, y - HexTile.side)
+        Canvas.cx.lineTo(x + HexTile.xLeg, y - HexTile.halfSide)
+        Canvas.cx.lineTo(x + HexTile.xLeg, y + HexTile.halfSide)
+        Canvas.cx.lineTo(x, y + HexTile.side)
+        Canvas.cx.lineTo(x - HexTile.xLeg, y + HexTile.halfSide)
+        Canvas.cx.lineTo(x - HexTile.xLeg, y - HexTile.halfSide)
 
-        Canvas.ctx.closePath()
-        Canvas.ctx.fill()
+        Canvas.cx.closePath()
+        Canvas.cx.fill()
 
         if (this.label != null) {
             this.label.draw(x, y)

@@ -1,6 +1,6 @@
 namespace Canvas {
     export const elem = document.querySelector("canvas") as HTMLCanvasElement
-    export const ctx = elem.getContext("2d")
+    export const cx = elem.getContext("2d")
     export const center = {x: 0, y: 0}
     const ratio = devicePixelRatio || 1
     let w: number
@@ -16,13 +16,13 @@ namespace Canvas {
         elem.height = h * ratio
         elem.style.width = `${w}px`
         elem.style.height = `${h}px`
-        ctx.scale(ratio, ratio)
+        cx.scale(ratio, ratio)
         clear()
     }
 
     // clear the entirety of the canvas
     function clear(): void {
-        ctx.clearRect(0, 0, w, h)
+        cx.clearRect(0, 0, w, h)
     }
 
     resize()
