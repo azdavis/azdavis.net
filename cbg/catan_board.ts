@@ -9,6 +9,7 @@ namespace CatanBoard {
 
     // draw the current board
     export function draw(): void {
+        Canvas.clear()
         // for each row
         for (let i = 0; i < rows.length; i++) {
             // for each space in the row
