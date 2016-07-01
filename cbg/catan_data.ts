@@ -1,12 +1,20 @@
+import rp from "./repeat_primitive"
+
 namespace CatanData {
-    export const defs = {
-        counters: {
-            low: [2, 12],              // low frequency
-            mid: [3, 4, 5, 9, 10, 11], // medium-level frequency
-            high: [6, 8],              // high frequency
-            notLow: [] as number[],    // mid + high
+    export const fills = {
+        labels: {
+            2: "#222",
+            3: "#222",
+            4: "#222",
+            5: "#222",
+            6: "#d22",
+            8: "#d22",
+            9: "#222",
+            10: "#222",
+            11: "#222",
+            12: "#222",
         },
-        resources: {
+        tiles: {
             brick: "#b52",
             wood: "#573",
             wheat: "#e93",
@@ -15,72 +23,30 @@ namespace CatanData {
             desert: "#ca7",
         },
     }
-    defs.counters.notLow = defs.counters.mid.concat(defs.counters.high)
 
-    export const reg = {
-        /*
+    export const rows = [1, 2, 3, 2, 3, 2, 3, 2, 1]
 
-            .      1
-          .   .    2
-        .   .   .  3
-          .   .    2
-        .   .   .  3
-          .   .    2
-        .   .   .  3
-          .   .    2
-            .      1
+    export const labels = [].concat(
+        rp(2, 1),
+        rp(3, 2),
+        rp(4, 2),
+        rp(5, 2),
+        rp(6, 2),
+        rp(8, 2),
+        rp(9, 2),
+        rp(10, 2),
+        rp(11, 2),
+        rp(12, 1)
+    )
 
-         */
-        rows: [1, 2, 3, 2, 3, 2, 3, 2, 1],
-        amts: {
-            resources: {
-                brick: 3,
-                wood: 4,
-                wheat: 4,
-                sheep: 4,
-                ore: 3,
-                desert: 1,
-            },
-            counters: {
-                low: 1,
-                notLow: 2,
-            },
-        },
-    }
-
-    export const exp = {
-        /*
-
-              .        1
-            .   .      2
-          .   .   .    3
-        .   .   .   .  4
-          .   .   .    3
-        .   .   .   .  4
-          .   .   .    3
-        .   .   .   .  4
-          .   .   .    3
-            .   .      2
-              .        1
-
-
-         */
-        rows: [1, 2, 3, 4, 3, 4, 3, 4, 3, 2, 1],
-        amts: {
-            resources: {
-                brick: 5,
-                wood: 6,
-                wheat: 6,
-                sheep: 6,
-                ore: 5,
-                desert: 2,
-            },
-            counters: {
-                low: 2,
-                notLow: 3,
-            },
-        },
-    }
+    export const tiles = [].concat(
+        rp("brick", 3),
+        rp("wood", 4),
+        rp("wheat", 4),
+        rp("sheep", 4),
+        rp("ore", 3),
+        rp("desert", 1)
+    )
 }
 
 export default CatanData
