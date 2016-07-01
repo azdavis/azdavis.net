@@ -8,6 +8,7 @@ class NumberLabel extends Sprite {
     protected y: number
 
     public constructor(protected fill: string, private n: number) {
+        // HexTile#constructor calls this.setCenter
         super(0, 0)
     }
 
@@ -18,6 +19,11 @@ class NumberLabel extends Sprite {
         Canvas.ctx.fill()
         Canvas.ctx.fillStyle = this.fill
         Canvas.ctx.fillText(String(this.n), this.x, this.y)
+    }
+
+    public setCenter(x: number, y: number): void {
+        this.x = x
+        this.y = y
     }
 }
 
