@@ -54,19 +54,39 @@ namespace CatanBoard {
             for (let j = 0; j < rows[i].length; j++) {
                 let l: number
                 let t: number
+                let label: NumberLabel
 
                 // get a random label and tile type
                 do { l = zeroTo(numLabels) } while (labels[l])
                 do { t = zeroTo(numTiles) } while (tiles[t])
-                labels[l] = tiles[t] = false
-                // set the space to a tile of the gotten type...
-                rows[i][j] = new HexTile(
-                    CatanData.fills.tiles[CatanData.tiles[t]],
-                    // with a label of the gotten number
-                    new NumberLabel(
+                console.log([l, t])
+
+                if (CatanData.tiles[t] === "desert") {
+                    // if the tile is desert, it gets no label
+                    label = null
+                } else {
+                    // else, it gets a label of the gotten number
+                    label = new NumberLabel(
                         CatanData.fills.labels[CatanData.labels[l]],
                         CatanData.labels[l]
                     )
+                    // mark this label as being used
+                    labels[l] = false
+                }
+
+                // mark this tile as being used
+                tiles[t] = false
+
+                // set the space to a tile of the gotten type with the
+                // determined label, and set its x and y correctly based on
+                // where it is in its row and where its row is in all the rows.
+                let dx = (rows[i].length - 1) / 2 - j
+                let dy = i - (rows.length - 1) / 2
+                rows[i][j] = new HexTile(
+                    Canvas.center.x + dx * HexTile.w,
+                    Canvas.center.y + dy * HexTile.h,
+                    CatanData.fills.tiles[CatanData.tiles[t]],
+                    label
                 )
             }
         }
