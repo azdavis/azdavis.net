@@ -22,7 +22,8 @@ class HexTile extends Sprite {
     private static xLeg = HexTile.halfSide * Math.sqrt(3)
     /* tslint:disable member-ordering */
     public static w = HexTile.xLeg * 2
-    public static h = HexTile.side * 2
+    // h: not actual height: used to pack hexagons in a tight grid
+    public static h = HexTile.side * 1.5
     /* tslint:enable member-ordering */
     protected x: number
     protected y: number
