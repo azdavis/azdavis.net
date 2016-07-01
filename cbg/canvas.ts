@@ -17,6 +17,12 @@ namespace Canvas {
         elem.style.width = `${w}px`
         elem.style.height = `${h}px`
         ctx.scale(ratio, ratio)
+        clear()
+    }
+
+    // clear the entirety of the canvas
+    function clear(): void {
+        ctx.clearRect(0, 0, w, h)
     }
 
     resize()
