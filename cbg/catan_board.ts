@@ -8,7 +8,15 @@ namespace CatanBoard {
     let rows: HexTile[][]
 
     // draw the current board
-    export function draw(): void {}
+    export function draw(): void {
+        // for each row
+        for (let i = 0; i < rows.length; i++) {
+            // for each space in the row
+            for (let j = 0; j < rows[i].length; j++) {
+                rows[i][j].draw()
+            }
+        }
+    }
 
     // generate and draw a new board
     export function drawNew(): void {
