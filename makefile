@@ -50,7 +50,7 @@ npm-i-g:
 	npm i -g \
 		autoprefixer-stylus \
 		browserify \
-		node-static \
+		http-server \
 		pug-cli \
 		stylus \
 		surge \

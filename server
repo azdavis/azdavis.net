@@ -13,7 +13,7 @@ trap end INT
 
 $EDITOR . &
 
-static &> /dev/null &
+http-server &> /dev/null &
 server="$!"
 sleep 0.5 && open "http://localhost:8080" &
 
