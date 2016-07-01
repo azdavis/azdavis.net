@@ -42,8 +42,8 @@ class HexTile extends Sprite {
     public draw(): void {
         Canvas.ctx.fillStyle = this.fill
 
-        Canvas.ctx.moveTo(this.x, this.y - HexTile.side)
         Canvas.ctx.beginPath()
+        Canvas.ctx.moveTo(this.x, this.y - HexTile.side)
         Canvas.ctx.lineTo(this.x + HexTile.xLeg, this.y - HexTile.halfSide)
         Canvas.ctx.lineTo(this.x + HexTile.xLeg, this.y + HexTile.halfSide)
         Canvas.ctx.lineTo(this.x, this.y + HexTile.side)
