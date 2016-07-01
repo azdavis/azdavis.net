@@ -11,7 +11,7 @@ namespace Canvas {
         w = innerWidth
         h = innerHeight
         center.x = w / 2
-        center.y = h / 2
+        center.y = h / 2.2
         elem.width = w * ratio
         elem.height = h * ratio
         elem.style.width = `${w}px`
