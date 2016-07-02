@@ -5,6 +5,7 @@ class NumberLabel extends Sprite {
     private static radius = 15
     private static backgroundFill = "#ddd"
     private static font = "16px Menlo, Consolas, 'Liberation Mono', monospace"
+
     private nStr: string
 
     public constructor(protected fill: string, private n: number) {

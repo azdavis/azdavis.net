@@ -3,8 +3,10 @@ import Canvas from "./canvas"
 
 class Enemy extends Sprite {
     public static points = 1
+
     public w = 40
     public h = 40
+
     protected fill = "#b44"
     protected speed = 3
 

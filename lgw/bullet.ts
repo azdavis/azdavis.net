@@ -4,6 +4,7 @@ import Sprite from "./sprite"
 class Bullet extends Sprite {
     public w = 20
     public h = 20
+
     protected fill = "#44b"
     protected speed = 10
 

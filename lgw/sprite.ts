@@ -3,8 +3,10 @@ import Canvas from "./canvas"
 abstract class Sprite {
     public w: number
     public h: number
+
     public i = 0
     public j = 0
+
     protected fill: string
     protected stroke = "#222"
     protected speed: number

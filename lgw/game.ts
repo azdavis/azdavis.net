@@ -7,9 +7,12 @@ namespace Game {
     export let running = false
     // whether the game is actively being played
     export let playing = false
+
     export const player = new Player()
+
     const info = document.querySelector("#info") as HTMLElement
     const html = document.documentElement
+
     let loopID: number
     let score: number
     let enemies: Enemy[]
