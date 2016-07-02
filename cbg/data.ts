@@ -18,7 +18,7 @@ namespace Data {
             11: black,
             12: black,
         },
-        // background fills (to simulate actual Catan tiles)
+        // background fills (to simulate actual tiles)
         tiles: {
             brick: "#b52",
             wood: "#573",
@@ -29,7 +29,7 @@ namespace Data {
         },
     }
 
-    // how many tiles are in each row on a Catan board
+    // how many tiles are in each row on a board
     export const rows = [1, 2, 3, 2, 3, 2, 3, 2, 1]
 
     // what circular number labels there are to choose from
