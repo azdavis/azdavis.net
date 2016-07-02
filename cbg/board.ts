@@ -7,21 +7,20 @@ import rp from "./repeat_primitive"
 namespace Board {
     let rows: HexTile[][]
 
-    // draw the current board
+    // draw the current board, by drawing each tile offset a certain amount
+    // from the center of the canvas, where that certain amount is based on the
+    // tile's position in its row, and the row's position in all the rows
     export function draw(): void {
         Canvas.clear()
         // for each row
         for (let i = 0; i < rows.length; i++) {
             // for each tile in the row
+            const dy = (i - (rows.length - 1) / 2) * HexTile.a * 1.1
             for (let j = 0; j < rows[i].length; j++) {
-                // draw the tile offset a certain amount from the center of the
-                // canvas, where that certain amount is based on the tile's
-                // position in its row, and the row's position in all the rows
-                let dx = (rows[i].length - 1) / 2 - j
-                let dy = i - (rows.length - 1) / 2
+                const dx = ((rows[i].length - 1) / 2 - j) * HexTile.c * 3.3
                 rows[i][j].draw(
-                    Canvas.center.x + dx * HexTile.c * 3.3,
-                    Canvas.center.y + dy * HexTile.a * 1.1
+                    Canvas.center.x + dx,
+                    Canvas.center.y + dy
                 )
             }
         }
