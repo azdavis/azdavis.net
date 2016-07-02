@@ -2,11 +2,13 @@ import Data from "./data"
 import HexTile from "./hex_tile"
 
 namespace Canvas {
-    export const el = document.querySelector("canvas") as HTMLCanvasElement
+    const el = document.querySelector("canvas") as HTMLCanvasElement
     export const cx = el.getContext("2d")
+
     const w = Data.tileScale * HexTile.c * 8
     const h = Data.tileScale * HexTile.a * 10
     export const center = {x: w / 2, y: h / 2}
+
     const msg = document.querySelector("#msg") as HTMLElement
     const container = document.querySelector("#container") as HTMLElement
     const pxRatio = devicePixelRatio || 1

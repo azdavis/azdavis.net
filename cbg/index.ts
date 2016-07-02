@@ -6,5 +6,5 @@ onresize = () => {
     Board.draw()
 }
 
-Canvas.el.onclick = Board.drawNew
+document.body.onclick = Board.drawNew
 Board.drawNew()
