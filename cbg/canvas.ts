@@ -31,7 +31,7 @@ namespace Canvas {
         cx.clearRect(0, 0, w, h)
     }
 
-    msg.innerHTML = `${"ontouchend" in window ? "tap" : "click"} anywhere`
+    msg.innerHTML = `${"ontouchend" in window ? "tap" : "click"} to regenerate`
     resize()
 }
 
