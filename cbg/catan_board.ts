@@ -64,25 +64,23 @@ namespace CatanBoard {
                 let t: number
                 let label: NumberLabel
 
-                // get a random label and tile type
-                do { l = zeroTo(numLabels) } while (labels[l])
+                // get a random tile type
                 do { t = zeroTo(numTiles) } while (tiles[t])
+                tiles[t] = true
 
                 if (CatanData.tiles[t] === "desert") {
                     // if the tile is desert, it gets no label
                     label = null
                 } else {
-                    // else, it gets a label of the gotten number
+                    // else, it gets a random label type
+                    do { l = zeroTo(numLabels) } while (labels[l])
+                    labels[l] = true
+
                     label = new NumberLabel(
                         CatanData.fills.labels[CatanData.labels[l]],
                         CatanData.labels[l]
                     )
-                    // mark this label as being used
-                    labels[l] = true
                 }
-
-                // mark this tile as being used
-                tiles[t] = true
 
                 // set the space to a tile of the gotten type with the
                 // determined label
