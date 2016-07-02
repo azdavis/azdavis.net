@@ -55,6 +55,7 @@ namespace Board {
     // fill the rows array by randomly assigning space to a HexTile with a
     // random background and a random label
     function fillRows(): void {
+        // start with everything false
         const labels = rp(false, Data.labels.length)
         const tiles = rp(false, Data.tiles.length)
 
