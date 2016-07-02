@@ -41,41 +41,37 @@ namespace Board {
         }
     }
 
-    // returns a random integer in the interval [0, h) (note that this will
-    // never return h)
-    function zeroTo(h: number): number {
-        return Math.floor(Math.random() * h)
+    // given an array of booleans, find an index of a `false`. set that index
+    // to `true` and return the index. WARNING: passing an array of all `true`
+    // will cause an infinite loop. also, it doesn't make any sense to pass a 0
+    // or 1 element array, so just don't.
+    function randIdx(ary: boolean[]): number {
+        let ret: number
+        do { ret = Math.floor(Math.random() * ary.length) } while (ary[ret])
+        ary[ret] = true
+        return ret
     }
 
     // fill the rows array by randomly assigning space to a HexTile with a
     // random background and a random label
     function fillRows(): void {
-        const numLabels = Data.labels.length
-        const numTiles = Data.tiles.length
-
-        const labels = rp(false, numLabels)
-        const tiles = rp(false, numTiles)
+        const labels = rp(false, Data.labels.length)
+        const tiles = rp(false, Data.tiles.length)
 
         // for each row
         for (let i = 0; i < rows.length; i++) {
             // for each space in the row
             for (let j = 0; j < rows[i].length; j++) {
-                let l: number
-                let t: number
                 let label: NumberLabel
 
                 // get a random tile type
-                do { t = zeroTo(numTiles) } while (tiles[t])
-                tiles[t] = true
-
+                let t = randIdx(tiles)
                 if (Data.tiles[t] === "desert") {
                     // if the tile is desert, it gets no label
                     label = null
                 } else {
                     // else, it gets a random label type
-                    do { l = zeroTo(numLabels) } while (labels[l])
-                    labels[l] = true
-
+                    let l = randIdx(labels)
                     label = new NumberLabel(
                         Data.fills.labels[Data.labels[l]],
                         Data.labels[l]
