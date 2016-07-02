@@ -11,6 +11,7 @@ namespace Canvas {
         w = innerWidth
         h = innerHeight
         center.x = w / 2
+        // because human eyes think the actual center is too low
         center.y = h / 2.2
         el.width = w * ratio
         el.height = h * ratio

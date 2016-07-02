@@ -12,10 +12,11 @@ namespace Board {
         Canvas.clear()
         // for each row
         for (let i = 0; i < rows.length; i++) {
-            // for each space in the row
+            // for each tile in the row
             for (let j = 0; j < rows[i].length; j++) {
-                // draw the tile at the x and y correctly based on where it is
-                // in its row and where its row is in all the rows
+                // draw the tile offset a certain amount from the center of the
+                // canvas, where that certain amount is based on the tile's
+                // position in its row, and the row's position in all the rows
                 let dx = (rows[i].length - 1) / 2 - j
                 let dy = i - (rows.length - 1) / 2
                 rows[i][j].draw(
@@ -41,10 +42,10 @@ namespace Board {
         }
     }
 
-    // given an array of booleans, find an index of a `false`. set that index
-    // to `true` and return the index. WARNING: passing an array of all `true`
-    // will cause an infinite loop. also, it doesn't make any sense to pass a 0
-    // or 1 element array, so just don't.
+    // given an array of booleans, find an index of a `false`. set the element
+    // at that index to `true` and return the index. WARNING: passing an array
+    // of all `true` will cause an infinite loop. also, it doesn't make any
+    // sense to pass a 0 or 1 length array, so just don't.
     function randIdx(ary: boolean[]): number {
         let ret: number
         do { ret = Math.floor(Math.random() * ary.length) } while (ary[ret])
