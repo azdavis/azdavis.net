@@ -6,9 +6,8 @@ class HexTile extends Sprite {
     /*
 
     this depicts the top one of the six equilateral triangles which fit inside
-    a hexagon. point O is the center of the hexagon.
-
-    the hexagon is (2 * c) wide and (2 * a) tall.
+    a hexagon. point O is the center of the hexagon. the hexagon is (2 * c)
+    wide and (2 * a) tall.
 
          |        c        |
          |   b    |    b   |
