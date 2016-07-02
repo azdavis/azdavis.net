@@ -2,10 +2,28 @@
 
 html
     background dark
+    -ms-text-size-adjust 100%
+    -webkit-text-size-adjust 100%
 
 body
     margin 0
 
 canvas
     display block
+
+button
+    appearance none
+    position absolute
+    bottom 0
+    left 0
+    width 100%
+    margin 0
+    padding 1ch
+    border 0
+    background #22d
+    color light
+    font bold 16px mono
     cursor pointer
+
+    &:active
+        background #00d

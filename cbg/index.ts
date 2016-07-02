@@ -1,10 +1,12 @@
 import Canvas from "./canvas"
 import CatanBoard from "./catan_board"
 
+const gen = document.querySelector("button") as HTMLElement
+
 onresize = () => {
     Canvas.resize()
     CatanBoard.draw()
 }
 
-Canvas.el.onclick = CatanBoard.drawNew
+gen.onclick = CatanBoard.drawNew
 CatanBoard.drawNew()
