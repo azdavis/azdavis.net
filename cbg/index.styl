@@ -1,5 +1,12 @@
 @import "/base/variables"
 
+*
+    box-sizing border-box
+
+html
+body
+    height 100%
+
 html
     background dark
     color light
@@ -13,15 +20,15 @@ body
 
 canvas
     display block
+    margin auto
     cursor pointer
     touch-action manipulation
     -webkit-tap-highlight-color #0000
 
+#container
+    display flex
+
 #msg
-    position absolute
-    z-index -9
-    top 0
-    left 0
-    width calc(100% - 2 * 1ch)
+    width 100%
     padding 1ch
     text-align center
