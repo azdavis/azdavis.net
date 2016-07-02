@@ -2,7 +2,7 @@ import Canvas from "./canvas"
 import Game from "./game"
 
 // the modal which contains instructions and is to be hidden when starting
-const modal = document.querySelector(".modal") as HTMLElement
+const modal = document.querySelector("#modal") as HTMLElement
 
 // the keys on the keyboard we care about, and their KeyboardEvent.which values
 const keys = {
