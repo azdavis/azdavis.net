@@ -5,6 +5,7 @@ namespace Canvas {
     const ratio = devicePixelRatio || 1
     let w: number
     let h: number
+    const msg = document.querySelector("#msg") as HTMLElement
 
     // resize the canvas to be the size of the window
     export function resize(): void {
@@ -25,6 +26,7 @@ namespace Canvas {
         cx.clearRect(0, 0, w, h)
     }
 
+    msg.innerHTML = `${"ontouchend" in window ? "tap" : "click"} anywhere`
     resize()
 }
 

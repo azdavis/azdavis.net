@@ -8,6 +8,3 @@ onresize = () => {
 
 Canvas.el.onclick = Board.drawNew
 Board.drawNew()
-
-const msg = document.querySelector("#msg") as HTMLElement
-msg.innerHTML = `${"ontouchend" in window ? "tap" : "click"} anywhere`
