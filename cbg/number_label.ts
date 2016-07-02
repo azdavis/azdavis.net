@@ -4,7 +4,7 @@ import Sprite from "./sprite"
 class NumberLabel extends Sprite {
     private static radius = 15
     private static backgroundFill = "#ddd"
-    private static font = "20px monospace"
+    private static font = "16px Menlo, Consolas, 'Liberation Mono', monospace"
     private nStr: string
 
     public constructor(protected fill: string, private n: number) {
@@ -24,7 +24,7 @@ class NumberLabel extends Sprite {
         Canvas.cx.font = NumberLabel.font
         Canvas.cx.fillText(
             this.nStr,
-            x - 5.5 * this.nStr.length,
+            x - 5 * this.nStr.length,
             y + 6
         )
     }
