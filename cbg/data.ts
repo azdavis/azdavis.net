@@ -1,20 +1,22 @@
 import rp from "./repeat_primitive"
 
 namespace Data {
+    const black = "#222"
+    const red = "#d22"
     // how stuff looks on the canvas
     export const fills = {
         // text fills (background is always whitish)
         labels: {
-            2: "#222",
-            3: "#222",
-            4: "#222",
-            5: "#222",
-            6: "#d22",
-            8: "#d22",
-            9: "#222",
-            10: "#222",
-            11: "#222",
-            12: "#222",
+            2: black,
+            3: black,
+            4: black,
+            5: black,
+            6: red,
+            8: red,
+            9: black,
+            10: black,
+            11: black,
+            12: black,
         },
         // background fills (to simulate actual Catan tiles)
         tiles: {
