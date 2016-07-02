@@ -6,5 +6,5 @@ onresize = () => {
     CatanBoard.draw()
 }
 
-Canvas.elem.onclick = CatanBoard.drawNew
+Canvas.el.onclick = CatanBoard.drawNew
 CatanBoard.drawNew()
