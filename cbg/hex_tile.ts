@@ -5,42 +5,45 @@ import Sprite from "./sprite"
 class HexTile extends Sprite {
     /*
 
-              | .
-              |      .      side
-    halfSide  |           .
-              |                .
-              |___________________
+    this depicts the top one of the six equilateral triangles which fit inside
+    c hexagon. point O is the center of the hexagon.
 
-                        xLeg
+    the hexagon is (2 * c) wide and (2 * a) tall.
 
-
-              . center of hexagon
+         |        c        |
+         |   b    |    b   |
+         ___________________
+     -   \        |        /   -
+          \       |       /
+           \      | <- a /
+            \     |     /
+         c   \    |    /   c
+              \   |   /
+               \  |  /
+                \ | /
+             -   \|/   -
+                  O
 
      */
-    private static side = 30
-    private static halfSide = HexTile.side / 2
-    private static xLeg = HexTile.halfSide * Math.sqrt(3)
-    /* tslint:disable member-ordering */
-    public static w = HexTile.xLeg * 2
-    // h: not actual height: used to pack hexagons in a tight grid
-    public static h = HexTile.side * 1.5
-    /* tslint:enable member-ordering */
+    public static c = 30
+    public static b = HexTile.c / 2
+    public static a = HexTile.b * Math.sqrt(3)
 
     public constructor(protected fill: string, private label: NumberLabel) {
         super()
     }
 
-    // draw a hexagon tile, centered at (x, y), and its label
+    // draw c hexagon tile, centered at (x, y), and its label, if it has one
     public draw(x: number, y: number): void {
         Canvas.cx.fillStyle = this.fill
-
         Canvas.cx.beginPath()
-        Canvas.cx.moveTo(x, y - HexTile.side)
-        Canvas.cx.lineTo(x + HexTile.xLeg, y - HexTile.halfSide)
-        Canvas.cx.lineTo(x + HexTile.xLeg, y + HexTile.halfSide)
-        Canvas.cx.lineTo(x, y + HexTile.side)
-        Canvas.cx.lineTo(x - HexTile.xLeg, y + HexTile.halfSide)
-        Canvas.cx.lineTo(x - HexTile.xLeg, y - HexTile.halfSide)
+
+        Canvas.cx.moveTo(x - HexTile.b, y - HexTile.a)
+        Canvas.cx.lineTo(x + HexTile.b, y - HexTile.a)
+        Canvas.cx.lineTo(x + HexTile.c, y)
+        Canvas.cx.lineTo(x + HexTile.b, y + HexTile.a)
+        Canvas.cx.lineTo(x - HexTile.b, y + HexTile.a)
+        Canvas.cx.lineTo(x - HexTile.c, y)
 
         Canvas.cx.closePath()
         Canvas.cx.fill()

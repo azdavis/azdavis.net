@@ -19,8 +19,8 @@ namespace CatanBoard {
                 let dx = (rows[i].length - 1) / 2 - j
                 let dy = i - (rows.length - 1) / 2
                 rows[i][j].draw(
-                    Canvas.center.x + dx * HexTile.w,
-                    Canvas.center.y + dy * HexTile.h
+                    Canvas.center.x + dx * HexTile.c * 3,
+                    Canvas.center.y + dy * HexTile.a
                 )
             }
         }
