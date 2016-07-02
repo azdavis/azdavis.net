@@ -1,6 +1,6 @@
 import rp from "./repeat_primitive"
 
-namespace CatanData {
+namespace Data {
     // how stuff looks on the canvas
     export const fills = {
         // text fills (background is always whitish)
@@ -55,4 +55,4 @@ namespace CatanData {
     )
 }
 
-export default CatanData
+export default Data

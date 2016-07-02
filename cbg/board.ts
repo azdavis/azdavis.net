@@ -1,10 +1,10 @@
 import Canvas from "./canvas"
-import CatanData from "./catan_data"
+import Data from "./data"
 import HexTile from "./hex_tile"
 import NumberLabel from "./number_label"
 import rp from "./repeat_primitive"
 
-namespace CatanBoard {
+namespace Board {
     let rows: HexTile[][]
 
     // draw the current board
@@ -35,9 +35,9 @@ namespace CatanBoard {
     // generate the rows array, which is an empty 2D array of HexTile of the
     // correct dimensions
     function genRows(): void {
-        rows = Array(CatanData.rows.length)
+        rows = Array(Data.rows.length)
         for (let i = 0; i < rows.length; i++) {
-            rows[i] = Array(CatanData.rows[i])
+            rows[i] = Array(Data.rows[i])
         }
     }
 
@@ -50,8 +50,8 @@ namespace CatanBoard {
     // fill the rows array by randomly assigning space to a HexTile with a
     // random background and a random label
     function fillRows(): void {
-        const numLabels = CatanData.labels.length
-        const numTiles = CatanData.tiles.length
+        const numLabels = Data.labels.length
+        const numTiles = Data.tiles.length
 
         const labels = rp(false, numLabels)
         const tiles = rp(false, numTiles)
@@ -68,7 +68,7 @@ namespace CatanBoard {
                 do { t = zeroTo(numTiles) } while (tiles[t])
                 tiles[t] = true
 
-                if (CatanData.tiles[t] === "desert") {
+                if (Data.tiles[t] === "desert") {
                     // if the tile is desert, it gets no label
                     label = null
                 } else {
@@ -77,15 +77,15 @@ namespace CatanBoard {
                     labels[l] = true
 
                     label = new NumberLabel(
-                        CatanData.fills.labels[CatanData.labels[l]],
-                        CatanData.labels[l]
+                        Data.fills.labels[Data.labels[l]],
+                        Data.labels[l]
                     )
                 }
 
                 // set the space to a tile of the gotten type with the
                 // determined label
                 rows[i][j] = new HexTile(
-                    CatanData.fills.tiles[CatanData.tiles[t]],
+                    Data.fills.tiles[Data.tiles[t]],
                     label
                 )
             }
@@ -99,4 +99,4 @@ namespace CatanBoard {
     }
 }
 
-export default CatanBoard
+export default Board

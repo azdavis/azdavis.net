@@ -1,13 +1,13 @@
+import Board from "./board"
 import Canvas from "./canvas"
-import CatanBoard from "./catan_board"
 
 onresize = () => {
     Canvas.resize()
-    CatanBoard.draw()
+    Board.draw()
 }
 
-Canvas.el.onclick = CatanBoard.drawNew
-CatanBoard.drawNew()
+Canvas.el.onclick = Board.drawNew
+Board.drawNew()
 
 const msg = document.querySelector("#msg") as HTMLElement
 msg.innerHTML = `${"ontouchend" in window ? "tap" : "click"} anywhere`
