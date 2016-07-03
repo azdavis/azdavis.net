@@ -15,6 +15,7 @@ namespace Canvas {
     let scale: number
     let containerH: number
 
+    // resize the canvas to be the size of the window
     export function resize(): void {
         containerH = innerHeight - parseInt(getComputedStyle(msg).height, 10)
         container.style.height = `${containerH}px`
