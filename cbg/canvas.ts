@@ -12,11 +12,14 @@ namespace Canvas {
     const msg = document.querySelector("#msg") as HTMLElement
     const container = document.querySelector("#container") as HTMLElement
     const pxRatio = devicePixelRatio || 1
+    const msgH = parseInt(getComputedStyle(msg).height, 10)
     let scale: number
     let containerH: number
 
     // resize the canvas to be the size of the window
     export function resize(): void {
+        containerH = innerHeight - msgH
+        container.style.height = `${containerH}px`
         scale = Math.min(innerWidth / w, containerH / h)
         el.width = scale * w * pxRatio
         el.height = scale * h * pxRatio
@@ -30,8 +33,6 @@ namespace Canvas {
         cx.clearRect(0, 0, w, h)
     }
 
-    containerH = innerHeight - parseInt(getComputedStyle(msg).height, 10)
-    container.style.height = `${containerH}px`
     msg.innerHTML = `${"ontouchend" in window ? "tap" : "click"} to regenerate`
     resize()
 }
