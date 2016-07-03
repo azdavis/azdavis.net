@@ -102,16 +102,12 @@ class Player extends Sprite {
     // in the canvas (if this is on the canvas boundary and is moving to leave
     // the canvas, reset this.i and/or this.j to 0)
     private stayInBounds(): void {
-        if (
-            this.x <= 0 && this.i <= 0 ||
-            this.x + this.w >= Canvas.w && this.i >= 0
-        ) {
+        if (this.x <= 0 && this.i <= 0
+         || this.x + this.w >= Canvas.w && this.i >= 0) {
             this.i = 0
         }
-        if (
-            this.y <= 0 && this.j <= 0 ||
-            this.y + this.h >= Canvas.h && this.j >= 0
-        ) {
+        if (this.y <= 0 && this.j <= 0
+         || this.y + this.h >= Canvas.h && this.j >= 0) {
             this.j = 0
         }
     }

@@ -34,9 +34,9 @@ namespace Canvas {
     }
 
     msg.innerHTML = (
-        "ontouchend" in window ?
-        "tap" :
-        "click"
+        "ontouchend" in window
+        ? "tap"
+        : "click"
     ) + " anywhere to regenerate"
     resize()
 }

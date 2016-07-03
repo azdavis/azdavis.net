@@ -14,16 +14,16 @@ namespace Board {
         Canvas.clear()
         // for each row
         for (let i = 0; i < rows.length; i++) {
-            const dy = Data.tileScale *
-                (i - (rows.length - 1) / 2) *
-                HexTile.a
+            const dy = Data.tileScale
+                     * (i - (rows.length - 1) / 2)
+                     * HexTile.a
 
             // for each tile in the row
             for (let j = 0; j < rows[i].length; j++) {
-                const dx = Data.tileScale *
-                    ((rows[i].length - 1) / 2 - j) *
-                    HexTile.c *
-                    3
+                const dx = Data.tileScale
+                         * ((rows[i].length - 1) / 2 - j)
+                         * HexTile.c
+                         * 3
 
                 rows[i][j].draw(
                     Canvas.center.x + dx,

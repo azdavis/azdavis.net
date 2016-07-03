@@ -33,12 +33,10 @@ class Bullet extends Sprite {
 
     // return whether any part of this is inside the canvas
     public isInBounds(): boolean {
-        return (
-            this.x >= 0 &&
-            this.x + this.w <= Canvas.w &&
-            this.y >= 0 &&
-            this.y + this.h <= Canvas.h
-        )
+        return this.x >= 0
+            && this.x + this.w <= Canvas.w
+            && this.y >= 0
+            && this.y + this.h <= Canvas.h
     }
 }
 

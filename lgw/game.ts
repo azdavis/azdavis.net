@@ -105,10 +105,8 @@ namespace Game {
         }
 
         timesSinceEnemy++
-        if (
-            timesSinceEnemy >= 20 && Math.random() < enemySpawnRate ||
-            timesSinceEnemy >= 200
-        ) {
+        if (timesSinceEnemy >= 20 && Math.random() < enemySpawnRate
+         || timesSinceEnemy >= 200) {
             timesSinceEnemy = 0
             addEnemy()
         }

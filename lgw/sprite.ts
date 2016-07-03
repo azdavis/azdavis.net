@@ -35,20 +35,16 @@ abstract class Sprite {
 
     // return whether any part of this overlaps any part of s
     public overlaps(s: Sprite): boolean {
-        return (
-            this.encloses(s.x, s.y) ||
-            this.encloses(s.x + s.w, s.y) ||
-            this.encloses(s.x, s.y + s.h) ||
-            this.encloses(s.x + s.w, s.y + s.h)
-        )
+        return this.encloses(s.x, s.y)
+            || this.encloses(s.x + s.w, s.y)
+            || this.encloses(s.x, s.y + s.h)
+            || this.encloses(s.x + s.w, s.y + s.h)
     }
 
     // return whether a point (x, y) is enclosed in this
     private encloses(x: number, y: number): boolean {
-        return (
-            this.x <= x && x <= this.x + this.w &&
-            this.y <= y && y <= this.y + this.h
-        )
+        return this.x <= x && x <= this.x + this.w
+            && this.y <= y && y <= this.y + this.h
     }
 }
 
