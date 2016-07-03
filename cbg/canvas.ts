@@ -33,10 +33,11 @@ namespace Canvas {
         cx.clearRect(0, 0, w, h)
     }
 
-    msg.innerHTML = "ontouchend" in window ?
+    msg.innerHTML = (
+        "ontouchend" in window ?
         "tap" :
-        "click" +
-        " anywhere to regenerate"
+        "click"
+    ) + " anywhere to regenerate"
     resize()
 }
 
