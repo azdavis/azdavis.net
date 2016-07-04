@@ -4,25 +4,7 @@ MAKEFLAGS += -s
 .PHONY: all clean deploy git-ok npm-i-g
 .PRECIOUS: %.css %.js
 
-all: \
-	404.html \
-	index.html \
-	cbg/index.html \
-	lgw/index.html
-cbg/index.js: \
-	cbg/board.ts \
-	cbg/canvas.ts \
-	cbg/data.ts \
-	cbg/hex_tile.ts \
-	cbg/number_label.ts \
-	cbg/sprite.ts
-lgw/index.js: \
-	lgw/bullet.ts \
-	lgw/canvas.ts \
-	lgw/enemy.ts \
-	lgw/game.ts \
-	lgw/player.ts \
-	lgw/sprite.ts
+include makefile.dep
 
 %.html: %.pug base/head.pug %.css %.js
 	echo $@
