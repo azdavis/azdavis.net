@@ -30,7 +30,7 @@ lgw/index.js: \
 	tr "\n" " " < $@ > $@.html
 	mv $@.html $@
 
-%.css: %.styl base/variables.styl
+%.css: %.styl base/constants.styl
 	echo $@
 	stylus -u autoprefixer-stylus -c $< &> /dev/null
 
