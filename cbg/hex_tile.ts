@@ -32,7 +32,7 @@ class HexTile extends Sprite {
         super()
     }
 
-    // draw c hexagon tile, centered at (x, y), and its label, if it has one
+    // draw a hexagon tile, centered at (x, y), and its label, if it has one
     public draw(x: number, y: number): void {
         Canvas.cx.fillStyle = this.fill
         Canvas.cx.beginPath()
