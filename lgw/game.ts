@@ -8,7 +8,7 @@ namespace Game {
     // whether the game is actively being played
     export let playing = false
 
-    export const player = new Player()
+    export const user = new Player()
 
     const info = document.querySelector("#info") as HTMLElement
     const html = document.documentElement
@@ -42,16 +42,16 @@ namespace Game {
         cancelAnimationFrame(loopID)
         Canvas.clear()
         info.style.display = html.style.cursor = ""
-        player.stopMoving()
+        user.stopMoving()
     }
 
-    // updates the info board with the game score, player lives, and player
-    // ammo information
+    // updates the info board with the game score, user lives, and user ammo
+    // information
     export function updateInfo(): void {
         info.innerHTML = [
             `score: ${score}`,
-            `lives: ${player.lives}`,
-            `ammo:  ${player.ammo}`,
+            `lives: ${user.lives}`,
+            `ammo:  ${user.ammo}`,
         ].join("<br>")
     }
 
@@ -59,7 +59,7 @@ namespace Game {
     function end(): void {
         running = false
         stop()
-        player.lives = 0
+        user.lives = 0
         info.innerHTML = `score: ${score}`
         info.style.display = "block"
         setTimeout(() => {
@@ -67,12 +67,12 @@ namespace Game {
         }, 1000)
     }
 
-    // position the player in the middle of the canvas, remove all enemies and
-    // player bullets, clear the info board
+    // position the user in the middle of the canvas, remove all enemies and
+    // user bullets, clear the info board
     function reset(): void {
-        player.reset()
-        player.x = (Canvas.w - player.w) / 2
-        player.y = (Canvas.h - player.h) / 2
+        user.reset()
+        user.x = (Canvas.w - user.w) / 2
+        user.y = (Canvas.h - user.h) / 2
         enemies = []
         score = timesSinceReload = timesSinceEnemy = 0
         enemySpawnRate = 0.005
@@ -83,8 +83,8 @@ namespace Game {
     function addEnemy(): void {
         enemies.push(new Enemy())
         enemySpawnRate += 0.0001
-        if (player.ammo < Player.maxAmmo) {
-            player.ammo++
+        if (user.ammo < Player.maxAmmo) {
+            user.ammo++
             updateInfo()
         }
     }
@@ -93,14 +93,14 @@ namespace Game {
     function loop(): void {
         Canvas.clear()
 
-        for (let i = 0; i < player.bullets.length; i++) {
-            if (!player.bullets[i]) {
+        for (let i = 0; i < user.bullets.length; i++) {
+            if (!user.bullets[i]) {
                 continue
             }
-            player.bullets[i].move()
-            player.bullets[i].draw()
-            if (!player.bullets[i].isInBounds()) {
-                player.bullets[i] = null
+            user.bullets[i].move()
+            user.bullets[i].draw()
+            if (!user.bullets[i].isInBounds()) {
+                user.bullets[i] = null
             }
         }
 
@@ -115,42 +115,42 @@ namespace Game {
             if (!enemies[i]) {
                 continue
             }
-            enemies[i].moveTowards(player)
+            enemies[i].moveTowards(user)
             enemies[i].draw()
-            if (!player.invincible && player.overlaps(enemies[i])) {
+            if (!user.invincible && user.overlaps(enemies[i])) {
                 enemies[i] = null
-                player.loseLife()
+                user.loseLife()
                 updateInfo()
-                if (player.lives <= 0) {
+                if (user.lives <= 0) {
                     end()
                     return
                 }
                 continue
             }
             // O(n^2) is the bad
-            for (let j = 0; j < player.bullets.length; j++) {
-                if (!player.bullets[j]) {
+            for (let j = 0; j < user.bullets.length; j++) {
+                if (!user.bullets[j]) {
                     continue
                 }
-                if (enemies[i].overlaps(player.bullets[j])) {
+                if (enemies[i].overlaps(user.bullets[j])) {
                     score += Enemy.points
-                    enemies[i] = player.bullets[j] = null
+                    enemies[i] = user.bullets[j] = null
                     updateInfo()
                     break
                 }
             }
         }
 
-        if (player.ammo < Player.maxAmmo) {
+        if (user.ammo < Player.maxAmmo) {
             timesSinceReload++
         }
         if (timesSinceReload >= 400) {
             timesSinceReload = 0
-            player.ammo++
+            user.ammo++
             updateInfo()
         }
-        player.move()
-        player.draw()
+        user.move()
+        user.draw()
 
         loopID = requestAnimationFrame(loop)
     }

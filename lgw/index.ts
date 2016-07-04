@@ -34,24 +34,24 @@ onkeydown = (e) => {
     }
     switch (e.which) {
     case keys.sp:
-        Game.player.shoot()
+        Game.user.shoot()
         Game.updateInfo()
         break
     case keys.lt:
     case keys.a:
-        Game.player.dirs.lt = true
+        Game.user.dirs.lt = true
         break
     case keys.up:
     case keys.w:
-        Game.player.dirs.up = true
+        Game.user.dirs.up = true
         break
     case keys.rt:
     case keys.d:
-        Game.player.dirs.rt = true
+        Game.user.dirs.rt = true
         break
     case keys.dn:
     case keys.s:
-        Game.player.dirs.dn = true
+        Game.user.dirs.dn = true
         break
     default: return
     }
@@ -66,19 +66,19 @@ onkeyup = (e) => {
     switch (e.which) {
     case keys.lt:
     case keys.a:
-        Game.player.dirs.lt = false
+        Game.user.dirs.lt = false
         break
     case keys.up:
     case keys.w:
-        Game.player.dirs.up = false
+        Game.user.dirs.up = false
         break
     case keys.rt:
     case keys.d:
-        Game.player.dirs.rt = false
+        Game.user.dirs.rt = false
         break
     case keys.dn:
     case keys.s:
-        Game.player.dirs.dn = false
+        Game.user.dirs.dn = false
         break
     case keys.sp: break
     default: return
