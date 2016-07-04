@@ -1,5 +1,6 @@
 import Canvas from "./canvas"
 import Game from "./game"
+import Player from "./player"
 
 // the modal which contains instructions and is to be hidden when starting
 const modal = document.querySelector("#modal") as HTMLElement
@@ -34,24 +35,24 @@ onkeydown = (e) => {
     }
     switch (e.which) {
     case keys.sp:
-        Game.user.shoot()
+        Player.shoot()
         Game.updateInfo()
         break
     case keys.lt:
     case keys.a:
-        Game.user.dirs.lt = true
+        Player.dirs.lt = true
         break
     case keys.up:
     case keys.w:
-        Game.user.dirs.up = true
+        Player.dirs.up = true
         break
     case keys.rt:
     case keys.d:
-        Game.user.dirs.rt = true
+        Player.dirs.rt = true
         break
     case keys.dn:
     case keys.s:
-        Game.user.dirs.dn = true
+        Player.dirs.dn = true
         break
     default: return
     }
@@ -66,19 +67,19 @@ onkeyup = (e) => {
     switch (e.which) {
     case keys.lt:
     case keys.a:
-        Game.user.dirs.lt = false
+        Player.dirs.lt = false
         break
     case keys.up:
     case keys.w:
-        Game.user.dirs.up = false
+        Player.dirs.up = false
         break
     case keys.rt:
     case keys.d:
-        Game.user.dirs.rt = false
+        Player.dirs.rt = false
         break
     case keys.dn:
     case keys.s:
-        Game.user.dirs.dn = false
+        Player.dirs.dn = false
         break
     case keys.sp: break
     default: return

@@ -2,7 +2,7 @@ import Bullet from "./bullet"
 import Canvas from "./canvas"
 import Sprite from "./sprite"
 
-class Player extends Sprite {
+class PlayerClass extends Sprite {
     private static maxAmmo = 9
     private static maxLives = 3
 
@@ -63,8 +63,8 @@ class Player extends Sprite {
     // reset some instance variables on this
     public reset(): void {
         this.bullets = []
-        this.lives = Player.maxLives
-        this.ammo = Player.maxAmmo
+        this.lives = PlayerClass.maxLives
+        this.ammo = PlayerClass.maxAmmo
         this.invincible = false
         this.stopMoving()
     }
@@ -82,7 +82,7 @@ class Player extends Sprite {
 
     // return whether this should reload
     public shouldReload(): boolean {
-        return this.ammo < Player.maxAmmo
+        return this.ammo < PlayerClass.maxAmmo
     }
 
     // calculate the i and j values for this, based on the values of dirs
@@ -118,4 +118,5 @@ class Player extends Sprite {
     }
 }
 
+const Player = new PlayerClass()
 export default Player
