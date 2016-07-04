@@ -3,13 +3,13 @@ import Canvas from "./canvas"
 import Sprite from "./sprite"
 
 class Player extends Sprite {
+    private static maxLives = 3
+    private static maxAmmo = 9
+
     public w = 50
     public h = 50
 
     public bullets: Bullet[]
-
-    public maxLives = 3
-    public maxAmmo = 9
     public lives: number
     public ammo: number
 
@@ -63,8 +63,8 @@ class Player extends Sprite {
     // reset some instance variables on this
     public reset(): void {
         this.bullets = []
-        this.lives = this.maxLives
-        this.ammo = this.maxAmmo
+        this.lives = Player.maxLives
+        this.ammo = Player.maxAmmo
         this.invincible = false
         this.stopMoving()
     }
