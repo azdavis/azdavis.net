@@ -15,14 +15,17 @@ class NumberLabel extends Sprite {
 
     // draw a circle with a number in the center
     public draw(x: number, y: number): void {
-        Canvas.cx.beginPath()
         Canvas.cx.fillStyle = NumberLabel.backgroundFill
+        Canvas.cx.beginPath()
+
         Canvas.cx.arc(x, y, NumberLabel.radius, 0, 2 * Math.PI)
+
         Canvas.cx.closePath()
         Canvas.cx.fill()
 
         Canvas.cx.fillStyle = this.fill
         Canvas.cx.font = NumberLabel.font
+
         Canvas.cx.fillText(
             this.nStr,
             x - 5 * this.nStr.length,
