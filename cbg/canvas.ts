@@ -11,8 +11,9 @@ namespace Canvas {
 
     const msg = document.querySelector("#msg") as HTMLElement
     const container = document.querySelector("#container") as HTMLElement
-    const pxRatio = devicePixelRatio || 1
     const msgH = parseInt(getComputedStyle(msg).height, 10)
+
+    const pxRatio = devicePixelRatio || 1
     let scale: number
     let containerH: number
 
