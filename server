@@ -11,8 +11,6 @@ end() {
 }
 trap end INT
 
-$EDITOR . &
-
 http-server &> /dev/null &
 server="$!"
 sleep 0.5 && open "http://localhost:8080" &
