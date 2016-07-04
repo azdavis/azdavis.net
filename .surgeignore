@@ -1,5 +1,6 @@
 cname
 makefile
+makefile.dep
 server
 *.css
 *.js
