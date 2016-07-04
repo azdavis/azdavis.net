@@ -92,7 +92,7 @@ namespace Game {
         Canvas.clear()
 
         for (let i = 0; i < Player.bullets.length; i++) {
-            if (!Player.bullets[i]) {
+            if (Player.bullets[i] === null) {
                 continue
             }
             Player.bullets[i].move()
@@ -110,7 +110,7 @@ namespace Game {
         }
 
         for (let i = 0; i < enemies.length; i++) {
-            if (!enemies[i]) {
+            if (enemies[i] === null) {
                 continue
             }
             enemies[i].moveTowards(Player)
