@@ -28,7 +28,7 @@ class NumberLabel extends Sprite {
 
         Canvas.cx.fillText(
             this.nStr,
-            x - 5 * this.nStr.length,
+            x - 4.6 * this.nStr.length,
             y + 6
         )
     }
