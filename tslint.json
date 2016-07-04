@@ -89,10 +89,7 @@
                 "multiline": "always"
             }
         ],
-        "triple-equals": [
-            true,
-            "allow-null-check"
-        ],
+        "triple-equals": true,
         "typedef": [
             true,
             "call-signature",
