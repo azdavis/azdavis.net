@@ -9,8 +9,8 @@ namespace Canvas {
     const h = Data.tileScale * HexTile.a * 10
     export const center = {x: w / 2, y: h / 2}
 
-    const msg = document.querySelector("#msg") as HTMLElement
     const container = document.querySelector("#container") as HTMLElement
+    const msg = document.querySelector("#msg") as HTMLElement
     const msgH = parseInt(getComputedStyle(msg).height, 10)
 
     const pxRatio = devicePixelRatio || 1
