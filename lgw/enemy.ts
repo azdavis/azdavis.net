@@ -1,5 +1,5 @@
-import Sprite from "./sprite"
 import Canvas from "./canvas"
+import Sprite from "./sprite"
 
 class Enemy extends Sprite {
     public static points = 1
