@@ -10,12 +10,12 @@ namespace Canvas {
     export const center = {x: w / 2, y: h / 2}
 
     const container = document.querySelector("#container") as HTMLElement
+    let containerH: number
     const msg = document.querySelector("#msg") as HTMLElement
     const msgH = parseInt(getComputedStyle(msg).height, 10)
 
     const pxRatio = devicePixelRatio || 1
     let scale: number
-    let containerH: number
 
     // resize the canvas to be as large as possible while still fitting
     // completely in its container
