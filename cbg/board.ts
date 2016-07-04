@@ -33,15 +33,16 @@ namespace Board {
         }
     }
 
-    // generate and draw a new board
+    // generate, fill, and draw a new board
     export function drawNew(): void {
         generate()
+        fill()
         draw()
     }
 
-    // generate the rows array, which is an empty 2D array of HexTile of the
-    // correct dimensions
-    function genRows(): void {
+    // generate an empty rows array, which is an empty 2D array of HexTile of
+    // the correct dimensions
+    function generate(): void {
         rows = Array(Data.rows.length)
         for (let i = 0; i < rows.length; i++) {
             rows[i] = Array(Data.rows[i])
@@ -59,9 +60,9 @@ namespace Board {
         return ret
     }
 
-    // fill the rows array by randomly assigning space to a HexTile with a
+    // fill an empty board by randomly assigning space to a HexTile with a
     // random background and a random label
-    function fillRows(): void {
+    function fill(): void {
         // start with everything false
         const labels = rp(false, Data.labels.length)
         const tiles = rp(false, Data.tiles.length)
@@ -94,12 +95,6 @@ namespace Board {
                 )
             }
         }
-    }
-
-    // generate a new board
-    function generate(): void {
-        genRows()
-        fillRows()
     }
 }
 
