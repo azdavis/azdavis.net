@@ -83,7 +83,7 @@ namespace Game {
     function addEnemy(): void {
         enemies.push(new Enemy())
         enemySpawnRate += 0.0001
-        if (user.ammo < Player.maxAmmo) {
+        if (user.shouldReload()) {
             user.ammo++
             updateInfo()
         }
@@ -141,7 +141,7 @@ namespace Game {
             }
         }
 
-        if (user.ammo < Player.maxAmmo) {
+        if (user.shouldReload()) {
             timesSinceReload++
         }
         if (timesSinceReload >= 400) {

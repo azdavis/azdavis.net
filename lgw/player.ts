@@ -3,7 +3,7 @@ import Canvas from "./canvas"
 import Sprite from "./sprite"
 
 class Player extends Sprite {
-    public static maxAmmo = 9
+    private static maxAmmo = 9
     private static maxLives = 3
 
     public w = 50
@@ -78,6 +78,11 @@ class Player extends Sprite {
             this.fill = "#4b4"
             this.invincible = false
         }, 1000)
+    }
+
+    // return whether this should reload
+    public shouldReload(): boolean {
+        return this.ammo < Player.maxAmmo
     }
 
     // calculate the i and j values for this, based on the values of dirs
