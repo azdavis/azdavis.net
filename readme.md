@@ -11,9 +11,10 @@ a place for stuff http://azdavis.xyz
 
 ## first-time setup
 
-- `make npm-i-g` installs some global npm packages
-- `make hooks` sets up some git hooks
-- `surge login` prepares deployment to [surge][sur]
+- `make setup`
+    - installs some global npm packages
+    - sets up some git hooks
+    - prepares deployment to [surge][sur] if surge is not set up
 
 ## useful commands
 
