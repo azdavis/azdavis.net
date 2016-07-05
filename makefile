@@ -1,7 +1,7 @@
 SHELL := sh -euo pipefail
 MAKEFLAGS += -s
 
-.PHONY: all clean deploy git-ok npm-i-g
+.PHONY: all clean deploy git-ok hooks npm-i-g
 .PRECIOUS: %.css %.js
 
 include makefile.dep
@@ -38,6 +38,11 @@ deploy: git-ok all
 git-ok:
 	[[ -z "$$(git status --porcelain)" ]]
 	[[ "$$(git rev-parse --abbrev-ref @)" == master ]]
+
+hooks:
+	mkdir -p .git/hooks
+	rm -f .git/hooks/*.sample
+	ln -s .hooks/* .git/hooks
 
 npm-i-g:
 	npm i -g \
