@@ -19,7 +19,9 @@ a place for stuff http://azdavis.xyz
 ## useful commands
 
 - `make`
-    - compiles .ts to .js, .styl to .css, and .pug to .html
+    - lints and compiles .ts to .js
+    - compiles .styl to .css
+    - compiles .pug to .html
     - concatenates compiled assets into one .html file
 - `./server`
     - starts a server on port 8080 with `static`
