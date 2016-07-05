@@ -42,7 +42,7 @@ git-ok:
 hooks:
 	mkdir -p .git/hooks
 	rm -f .git/hooks/*.sample
-	ln -s .hooks/* .git/hooks
+	for f in .hooks/*; do ln -s "../../$$f" .git/hooks; done
 
 npm-i-g:
 	npm i -g \
