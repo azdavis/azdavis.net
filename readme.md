@@ -14,7 +14,7 @@ a place for stuff http://azdavis.xyz
 - `make setup`
     - installs some global npm packages
     - sets up some git hooks
-    - prepares deployment to [surge][sur] if surge is not set up
+    - prepares deployment to [surge][sur]
 
 ## useful commands
 
