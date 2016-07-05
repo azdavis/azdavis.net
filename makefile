@@ -1,7 +1,7 @@
 SHELL := sh -euo pipefail
 MAKEFLAGS += -s
 
-.PHONY: all clean deploy git-ok hooks npm-i-g
+.PHONY: all clean deploy git-ok hooks npm-i-g setup surge
 .PRECIOUS: %.css %.js
 
 include makefile.dep
@@ -55,3 +55,8 @@ npm-i-g:
 		tslint \
 		typescript \
 		uglifyjs
+
+setup: hooks npm-i-g surge
+
+surge:
+	grep -q surge.sh ~/.netrc || surge login
