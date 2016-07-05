@@ -16,10 +16,13 @@ class Enemy extends Sprite {
         super(0, 0)
         this.x -= this.w
         this.y -= this.h
-        // then, decide from which side it will come
+
+        // then, decide from which side...
+        const r1 = Math.random()
+        // ...and where on the chosen side it will come
+        const r2 = Math.random()
+
         const total = 2 * (Canvas.w + Canvas.h)
-        const r1 = Math.random() // which side
-        const r2 = Math.random() // where on the chosen side
         const a = Canvas.h / total
         const b = a + Canvas.w / total
         const c = a + b
