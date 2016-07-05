@@ -12,6 +12,7 @@ a place for stuff http://azdavis.xyz
 ## first-time setup
 
 - `make npm-i-g` installs some global npm packages
+- `make hooks` sets up some git hooks
 - `surge login` prepares deployment to [surge][sur]
 
 ## useful commands
