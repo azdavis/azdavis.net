@@ -36,7 +36,7 @@ namespace Data {
     // how many tiles are in each row on a board
     export const rows = [1, 2, 3, 2, 3, 2, 3, 2, 1]
 
-    // the longest row
+    // the longest row (see `rows` above)
     export const longestRow = 3
 
     // what circular number labels there are to choose from
