@@ -15,7 +15,6 @@ namespace Canvas {
     const container = document.querySelector("#container") as HTMLElement
     let containerH: number
     const btns = document.querySelector("#btns") as HTMLElement
-    const btnsH = parseInt(getComputedStyle(btns).height, 10)
 
     const pxRatio = devicePixelRatio || 1
     let scale: number
@@ -23,7 +22,7 @@ namespace Canvas {
     // resize the canvas to be as large as possible while still fitting
     // completely in its container
     export function resize(): void {
-        containerH = innerHeight - btnsH
+        containerH = innerHeight - parseInt(getComputedStyle(btns).height, 10)
         container.style.height = `${containerH}px`
         scale = Math.min(innerWidth / w, containerH / h)
         el.width = scale * w * pxRatio
