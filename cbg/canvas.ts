@@ -4,9 +4,12 @@ import HexTile from "./hex_tile"
 namespace Canvas {
     const el = document.querySelector("canvas") as HTMLCanvasElement
     export const cx = el.getContext("2d")
-
-    const w = Data.tileScale * HexTile.c * 8
-    const h = Data.tileScale * HexTile.a * 10
+    const w = Data.tileScale
+            * HexTile.c
+            * (2 + (Data.longestRow - 1) * 3)
+    const h = Data.tileScale
+            * HexTile.a
+            * (Data.rows.length + 1)
     export const center = {x: w / 2, y: h / 2}
 
     const container = document.querySelector("#container") as HTMLElement
