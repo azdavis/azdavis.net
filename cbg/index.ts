@@ -6,5 +6,7 @@ onresize = () => {
     Board.draw()
 }
 
-document.body.onclick = Board.drawNew
+const gen = document.querySelector("#gen") as HTMLElement
+gen.onclick = Board.drawNew
+
 Board.drawNew()

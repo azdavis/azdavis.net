@@ -14,8 +14,8 @@ namespace Canvas {
 
     const container = document.querySelector("#container") as HTMLElement
     let containerH: number
-    const msg = document.querySelector("#msg") as HTMLElement
-    const msgH = parseInt(getComputedStyle(msg).height, 10)
+    const btns = document.querySelector("#btns") as HTMLElement
+    const btnsH = parseInt(getComputedStyle(btns).height, 10)
 
     const pxRatio = devicePixelRatio || 1
     let scale: number
@@ -23,7 +23,7 @@ namespace Canvas {
     // resize the canvas to be as large as possible while still fitting
     // completely in its container
     export function resize(): void {
-        containerH = innerHeight - msgH
+        containerH = innerHeight - btnsH
         container.style.height = `${containerH}px`
         scale = Math.min(innerWidth / w, containerH / h)
         el.width = scale * w * pxRatio
@@ -38,11 +38,6 @@ namespace Canvas {
         cx.clearRect(0, 0, w, h)
     }
 
-    msg.innerHTML = (
-        "ontouchend" in window
-        ? "tap"
-        : "click"
-    ) + " anywhere to regenerate"
     resize()
 }
 

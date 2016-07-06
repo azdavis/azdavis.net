@@ -17,15 +17,30 @@ html
 
 body
     margin 0
-    clickable()
 
 canvas
     display block
     margin auto
 
-#container
-    display flex
-
-#msg
+noscript div
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
     padding 1ch
     text-align center
+    background #d22
+    font-size 2em
+
+#btns
+    clickable()
+    div
+        padding 1em
+        text-align center
+
+#gen
+    background #4a4
+
+#container
+    display flex
