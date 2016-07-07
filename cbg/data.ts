@@ -58,6 +58,32 @@ namespace Data {
             rp("desert", 1)
         ),
     }
+
+    // a board for 5-6 players
+    export const exp = {
+        tilesPerRow: [1, 2, 3, 4, 3, 4, 3, 4, 3, 2, 1],
+        longestRow: 4,
+        possibleLabels: reg.possibleLabels.concat([
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12,
+        ]),
+        possibleTiles: reg.possibleTiles.concat(
+            rp("brick", 2),
+            rp("wood", 2),
+            rp("wheat", 2),
+            rp("sheep", 2),
+            rp("ore", 2),
+            rp("desert", 1)
+        ),
+    }
 }
 
 export default Data

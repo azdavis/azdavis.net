@@ -6,7 +6,16 @@ import rp from "./repeat_primitive"
 
 namespace Board {
     let rows: HexTile[][]
-    let type = "reg" // TODO: make this work better with the type system
+    let type: string // TODO: make this work better with the type system
+
+
+    // generate, fill, and draw a new board
+    export function drawNew(newType: string): void {
+        type = newType
+        generate()
+        fill()
+        draw()
+    }
 
     // draw the current board, by drawing each tile offset a certain amount
     // from the center of the canvas, where that certain amount is based on the
@@ -44,14 +53,6 @@ namespace Board {
             }
         }
     }
-
-    // generate, fill, and draw a new board
-    export function drawNew(): void {
-        generate()
-        fill()
-        draw()
-    }
-
     // generate an empty rows array, which is an empty 2D array of HexTile of
     // the correct dimensions
     function generate(): void {
