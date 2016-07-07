@@ -38,7 +38,7 @@ namespace Data {
         tilesPerRow: [1, 2, 3, 2, 3, 2, 3, 2, 1],
         longestRow: 3,
         possibleLabels: [].concat(
-            rp(2, 1),
+            [2],
             rp(3, 2),
             rp(4, 2),
             rp(5, 2),
@@ -47,7 +47,7 @@ namespace Data {
             rp(9, 2),
             rp(10, 2),
             rp(11, 2),
-            rp(12, 1)
+            [12]
         ),
         possibleTiles: [].concat(
             rp("brick", 3),
@@ -55,7 +55,7 @@ namespace Data {
             rp("wheat", 4),
             rp("sheep", 4),
             rp("ore", 3),
-            rp("desert", 1)
+            ["desert"]
         ),
     }
 
@@ -81,7 +81,7 @@ namespace Data {
             rp("wheat", 2),
             rp("sheep", 2),
             rp("ore", 2),
-            rp("desert", 1)
+            ["desert"]
         ),
     }
 }
