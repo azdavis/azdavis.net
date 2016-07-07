@@ -6,7 +6,7 @@ import rp from "./repeat_primitive"
 
 namespace Board {
     let rows: HexTile[][]
-    let type = "reg"
+    let type = "reg" // TODO: make this work better with the type system
 
     // draw the current board, by drawing each tile offset a certain amount
     // from the center of the canvas, where that certain amount is based on the
