@@ -24,15 +24,15 @@ a place for stuff http://azdavis.xyz
     - compiles .pug to .html
     - concatenates compiled assets into one .html file
 - `./server`
-    - starts a server on port 8080 with `static`
-    - `open`s your default browser to http://localhost:8080
-    - uses `entr` to re-`make` whenever files change
+    - starts a server on port 8080
+    - opens your default browser to http://localhost:8080
+    - re-`make`s whenever files change
 - `make deploy`
     - ensures the current `git status` is empty
     - ensures the current `git branch` is master
     - `make`s everything which is not up-to-date
     - `git push`es master to origin
-    - uses `surge` to upload all built files, images, etc.
+    - uploads all built files, images, etc.
 
 ## {con,per}formance
 
