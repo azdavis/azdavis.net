@@ -23,7 +23,7 @@ namespace Board {
         // get the width and height, based on what type of board is to be drawn
         const w = Data.tileScale
                 * HexTile.c
-                * (2 + (Data[type].longestRow - 1) * 3)
+                * (2 + (Data[type].maxTilesPerRow - 1) * 3)
         const h = Data.tileScale
                 * HexTile.a
                 * (Data[type].tilesPerRow.length + 1)

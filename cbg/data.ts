@@ -36,7 +36,7 @@ namespace Data {
     // a board for 3-4 players
     export const reg = {
         tilesPerRow: [1, 2, 3, 2, 3, 2, 3, 2, 1],
-        longestRow: 3,
+        maxTilesPerRow: 3,
         possibleLabels: [].concat(
             [2],
             rp(3, 2),
@@ -62,7 +62,7 @@ namespace Data {
     // a board for 5-6 players
     export const exp = {
         tilesPerRow: [1, 2, 3, 4, 3, 4, 3, 4, 3, 2, 1],
-        longestRow: 4,
+        maxTilesPerRow: 4,
         possibleLabels: reg.possibleLabels.concat([
             2, 3, 4, 5, 6, 8, 9, 10, 11, 12
         ]),
