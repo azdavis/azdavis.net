@@ -64,16 +64,7 @@ namespace Data {
         tilesPerRow: [1, 2, 3, 4, 3, 4, 3, 4, 3, 2, 1],
         longestRow: 4,
         possibleLabels: reg.possibleLabels.concat([
-            2,
-            3,
-            4,
-            5,
-            6,
-            8,
-            9,
-            10,
-            11,
-            12,
+            2, 3, 4, 5, 6, 8, 9, 10, 11, 12
         ]),
         possibleTiles: reg.possibleTiles.concat(
             rp("brick", 2),
