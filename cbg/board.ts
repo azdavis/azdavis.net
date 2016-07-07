@@ -8,7 +8,6 @@ namespace Board {
     let rows: HexTile[][]
     let type: string // TODO: make this work better with the type system
 
-
     // generate, fill, and draw a new board
     export function drawNew(newType: string): void {
         type = newType
@@ -53,6 +52,7 @@ namespace Board {
             }
         }
     }
+
     // generate an empty rows array, which is an empty 2D array of HexTile of
     // the correct dimensions
     function generate(): void {
