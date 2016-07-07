@@ -2,10 +2,14 @@ import Board from "./board"
 
 onresize = Board.draw
 
-const reg = document.querySelector("#reg") as HTMLElement
-reg.onclick = () => { Board.drawNew("reg") }
+function makeDrawer(type: string): void {
+    const el = document.querySelector(`#${type}`) as HTMLElement
+    el.onclick = () => {
+        Board.drawNew(type)
+    }
+}
 
-const exp = document.querySelector("#exp") as HTMLElement
-exp.onclick = () => { Board.drawNew("exp") }
+makeDrawer("reg")
+makeDrawer("exp")
 
 Board.drawNew("reg")
