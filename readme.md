@@ -26,12 +26,12 @@ a place for stuff http://azdavis.xyz
 - `./server`
     - starts a server on port 8080
     - opens your default browser to http://localhost:8080
-    - re-`make`s whenever files change
+    - re-makes whenever files change
 - `make deploy`
-    - ensures the current `git status` is empty
-    - ensures the current `git branch` is master
-    - `make`s everything which is not up-to-date
-    - `git push`es master to origin
+    - ensures the current git status is empty
+    - ensures the current git branch is master
+    - makes everything which is not up-to-date
+    - git pushes master to origin
     - uploads all built files, images, etc.
 
 ## {con,per}formance
