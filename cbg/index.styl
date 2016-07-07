@@ -33,13 +33,14 @@ noscript div
     important-text()
 
 #btns
+    gap = 1ch
     max-width 60ch
     margin 0 auto
-    padding 0.5ch
+    padding (gap / 2)
     div
         display inline-block
-        width calc(50% - 2ch)
-        margin 0.5ch
+        width "calc(50% - %s)" % gap
+        margin (gap / 2)
         padding 1em
         border-radius 1em
         background #44a
