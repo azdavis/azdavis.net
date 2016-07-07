@@ -18,7 +18,7 @@ namespace Board {
                 * (2 + (Data[type].longestRow - 1) * 3)
         const h = Data.tileScale
                 * HexTile.a
-                * (Data[type].rows.length + 1)
+                * (Data[type].tilesPerRow.length + 1)
 
         // resize the canvas (clearing it in the process)
         Canvas.resize(w, h)
@@ -55,9 +55,9 @@ namespace Board {
     // generate an empty rows array, which is an empty 2D array of HexTile of
     // the correct dimensions
     function generate(): void {
-        rows = Array(Data[type].rows.length)
+        rows = Array(Data[type].tilesPerRow.length)
         for (let i = 0; i < rows.length; i++) {
-            rows[i] = Array(Data[type].rows[i])
+            rows[i] = Array(Data[type].tilesPerRow[i])
         }
     }
 
@@ -76,8 +76,8 @@ namespace Board {
     // random background and a random label
     function fill(): void {
         // start with everything false
-        const labels = rp(false, Data[type].labels.length)
-        const tiles = rp(false, Data[type].tiles.length)
+        const labels = rp(false, Data[type].possibleLabels.length)
+        const tiles = rp(false, Data[type].possibleTiles.length)
 
         // for each row
         for (let i = 0; i < rows.length; i++) {
@@ -87,22 +87,22 @@ namespace Board {
 
                 // get a random tile type
                 let t = randIdx(tiles)
-                if (Data[type].tiles[t] === "desert") {
+                if (Data[type].possibleTiles[t] === "desert") {
                     // if the tile is desert, it gets no label
                     label = null
                 } else {
                     // else, it gets a random label type
                     let l = randIdx(labels)
                     label = new NumberLabel(
-                        Data.fills.labels[Data[type].labels[l]],
-                        Data[type].labels[l]
+                        Data.fills.labels[Data[type].possibleLabels[l]],
+                        Data[type].possibleLabels[l]
                     )
                 }
 
                 // set the space to a tile of the gotten type with the
                 // determined label
                 rows[i][j] = new HexTile(
-                    Data.fills.tiles[Data[type].tiles[t]],
+                    Data.fills.tiles[Data[type].possibleTiles[t]],
                     label
                 )
             }

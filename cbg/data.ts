@@ -35,9 +35,9 @@ namespace Data {
 
     // a board for 3-4 players
     export const reg = {
-        rows: [1, 2, 3, 2, 3, 2, 3, 2, 1],
+        tilesPerRow: [1, 2, 3, 2, 3, 2, 3, 2, 1],
         longestRow: 3,
-        labels: [].concat(
+        possibleLabels: [].concat(
             rp(2, 1),
             rp(3, 2),
             rp(4, 2),
@@ -49,7 +49,7 @@ namespace Data {
             rp(11, 2),
             rp(12, 1)
         ),
-        tiles: [].concat(
+        possibleTiles: [].concat(
             rp("brick", 3),
             rp("wood", 4),
             rp("wheat", 4),
