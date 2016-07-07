@@ -6,12 +6,23 @@ import rp from "./repeat_primitive"
 
 namespace Board {
     let rows: HexTile[][]
+    let type = "reg"
 
     // draw the current board, by drawing each tile offset a certain amount
     // from the center of the canvas, where that certain amount is based on the
     // tile's position in its row, and the row's position in all the rows
     export function draw(): void {
-        Canvas.clear()
+        // get the width and height, based on what type of board is to be drawn
+        const w = Data.tileScale
+                * HexTile.c
+                * (2 + (Data[type].longestRow - 1) * 3)
+        const h = Data.tileScale
+                * HexTile.a
+                * (Data[type].rows.length + 1)
+
+        // resize the canvas (clearing it in the process)
+        Canvas.resize(w, h)
+
         // for each row
         for (let i = 0; i < rows.length; i++) {
             const dy = Data.tileScale
@@ -25,9 +36,10 @@ namespace Board {
                          * HexTile.c
                          * 3
 
+                // draw each tile offset a bit from the center of the canvas
                 rows[i][j].draw(
-                    Canvas.center.x + dx,
-                    Canvas.center.y + dy
+                    w / 2 + dx,
+                    h / 2 + dy
                 )
             }
         }
@@ -43,9 +55,9 @@ namespace Board {
     // generate an empty rows array, which is an empty 2D array of HexTile of
     // the correct dimensions
     function generate(): void {
-        rows = Array(Data.rows.length)
+        rows = Array(Data[type].rows.length)
         for (let i = 0; i < rows.length; i++) {
-            rows[i] = Array(Data.rows[i])
+            rows[i] = Array(Data[type].rows[i])
         }
     }
 
@@ -64,8 +76,8 @@ namespace Board {
     // random background and a random label
     function fill(): void {
         // start with everything false
-        const labels = rp(false, Data.labels.length)
-        const tiles = rp(false, Data.tiles.length)
+        const labels = rp(false, Data[type].labels.length)
+        const tiles = rp(false, Data[type].tiles.length)
 
         // for each row
         for (let i = 0; i < rows.length; i++) {
@@ -75,22 +87,22 @@ namespace Board {
 
                 // get a random tile type
                 let t = randIdx(tiles)
-                if (Data.tiles[t] === "desert") {
+                if (Data[type].tiles[t] === "desert") {
                     // if the tile is desert, it gets no label
                     label = null
                 } else {
                     // else, it gets a random label type
                     let l = randIdx(labels)
                     label = new NumberLabel(
-                        Data.fills.labels[Data.labels[l]],
-                        Data.labels[l]
+                        Data.fills.labels[Data[type].labels[l]],
+                        Data[type].labels[l]
                     )
                 }
 
                 // set the space to a tile of the gotten type with the
                 // determined label
                 rows[i][j] = new HexTile(
-                    Data.fills.tiles[Data.tiles[t]],
+                    Data.fills.tiles[Data[type].tiles[t]],
                     label
                 )
             }

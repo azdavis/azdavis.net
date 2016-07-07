@@ -33,35 +33,31 @@ namespace Data {
         },
     }
 
-    // how many tiles are in each row on a board
-    export const rows = [1, 2, 3, 2, 3, 2, 3, 2, 1]
-
-    // the longest row (see `rows` above)
-    export const longestRow = 3
-
-    // what circular number labels there are to choose from
-    export const labels = [].concat(
-        rp(2, 1),
-        rp(3, 2),
-        rp(4, 2),
-        rp(5, 2),
-        rp(6, 2),
-        rp(8, 2),
-        rp(9, 2),
-        rp(10, 2),
-        rp(11, 2),
-        rp(12, 1)
-    )
-
-    // what hexagonal resource tiles there are to choose from
-    export const tiles = [].concat(
-        rp("brick", 3),
-        rp("wood", 4),
-        rp("wheat", 4),
-        rp("sheep", 4),
-        rp("ore", 3),
-        rp("desert", 1)
-    )
+    // a board for 3-4 players
+    export const reg = {
+        rows: [1, 2, 3, 2, 3, 2, 3, 2, 1],
+        longestRow: 3,
+        labels: [].concat(
+            rp(2, 1),
+            rp(3, 2),
+            rp(4, 2),
+            rp(5, 2),
+            rp(6, 2),
+            rp(8, 2),
+            rp(9, 2),
+            rp(10, 2),
+            rp(11, 2),
+            rp(12, 1)
+        ),
+        tiles: [].concat(
+            rp("brick", 3),
+            rp("wood", 4),
+            rp("wheat", 4),
+            rp("sheep", 4),
+            rp("ore", 3),
+            rp("desert", 1)
+        ),
+    }
 }
 
 export default Data

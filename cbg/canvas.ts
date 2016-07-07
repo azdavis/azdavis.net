@@ -4,13 +4,6 @@ import HexTile from "./hex_tile"
 namespace Canvas {
     const el = document.querySelector("canvas") as HTMLCanvasElement
     export const cx = el.getContext("2d")
-    const w = Data.tileScale
-            * HexTile.c
-            * (2 + (Data.longestRow - 1) * 3)
-    const h = Data.tileScale
-            * HexTile.a
-            * (Data.rows.length + 1)
-    export const center = {x: w / 2, y: h / 2}
 
     const container = document.querySelector("#container") as HTMLElement
     let containerH: number
@@ -19,9 +12,10 @@ namespace Canvas {
     const pxRatio = devicePixelRatio || 1
     let scale: number
 
-    // resize the canvas to be as large as possible while still fitting
-    // completely in its container
-    export function resize(): void {
+    // resize the canvas to the given w and h while still fitting completely in
+    // its container
+    export function resize(w: number, h: number): void {
+        cx.clearRect(0, 0, w, h)
         containerH = innerHeight - parseInt(getComputedStyle(btns).height, 10)
         container.style.height = `${containerH}px`
         scale = Math.min(innerWidth / w, containerH / h)
@@ -31,13 +25,6 @@ namespace Canvas {
         el.style.height = `${scale * h}px`
         cx.scale(scale * pxRatio, scale * pxRatio)
     }
-
-    // clear the entirety of the canvas
-    export function clear(): void {
-        cx.clearRect(0, 0, w, h)
-    }
-
-    resize()
 }
 
 export default Canvas
