@@ -59,4 +59,4 @@ npm-i-g:
 setup: hooks npm-i-g surge
 
 surge:
-	grep -q surge.sh ~/.netrc || surge login
+	if ! grep -q surge.sh ~/.netrc; then surge login; fi
