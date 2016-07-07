@@ -24,12 +24,12 @@ namespace Data {
         },
         // background fills (to simulate actual tiles)
         tiles: {
+            desert: "#ca7",
             brick: "#b52",
             wood: "#573",
             wheat: "#eb3",
             sheep: "#8b3",
             ore: "#777",
-            desert: "#ca7",
         },
     }
 
@@ -37,25 +37,24 @@ namespace Data {
     export const reg = {
         tilesPerRow: [1, 2, 3, 2, 3, 2, 3, 2, 1],
         maxTilesPerRow: 3,
-        possibleLabels: [].concat(
-            [2],
-            rp(3, 2),
-            rp(4, 2),
-            rp(5, 2),
-            rp(6, 2),
-            rp(8, 2),
-            rp(9, 2),
-            rp(10, 2),
-            rp(11, 2),
-            [12]
-        ),
-        possibleTiles: [].concat(
+        possibleLabels: [
+            2,
+            3, 3,
+            4, 4,
+            5, 5,
+            6, 6,
+            8, 8,
+            9, 9,
+            10, 10,
+            11, 11,
+            12,
+        ],
+        possibleTiles: ["desert"].concat(
             rp("brick", 3),
             rp("wood", 4),
             rp("wheat", 4),
             rp("sheep", 4),
-            rp("ore", 3),
-            ["desert"]
+            rp("ore", 3)
         ),
     }
 
@@ -67,12 +66,12 @@ namespace Data {
             2, 3, 4, 5, 6, 8, 9, 10, 11, 12
         ]),
         possibleTiles: reg.possibleTiles.concat(
+            ["desert"],
             rp("brick", 2),
             rp("wood", 2),
             rp("wheat", 2),
             rp("sheep", 2),
-            rp("ore", 2),
-            ["desert"]
+            rp("ore", 2)
         ),
     }
 }
