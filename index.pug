@@ -1,76 +1,78 @@
 html(lang="en")
-  head
-    include /base/head.pug
-    title man azdavis
-    style: include index.css
-  body
-    header.two
-      div AZDAVIS(1)
-      div AZDAVIS(1)
-    section
-      h2 NAME
-      div azdavis - a guy with certain characteristics
-    section
-      h2 SYNOPSIS
-      div #[b azdavis] [option]... [arg]...
-    section
-      h2 DESCRIPTION
-      div
-        p.
-          azdavis is a guy from the United States. He studies computer science
-          at Carnegie Mellon®. He created this website and is a fan of such
-          symbols as ™, ®, and ©.
-        p.
-          azdavis spends most of his time browsing Hacker News™ and other news
-          websites. When he's not doing that, he may work on his personal
-          project du jour.
-        p.
-          azdavis enjoys activities like tossing a Sportdisc™ (known to many as
-          a Frisbee®), playing Klaus Teuber's Catan® (known to many as Settlers
-          of Catan®), and copy-pasting from Stack Overflow™ (known to many as
-          programming). He is low-key attempting to learn 日本語 (known to many as
-          the Japanese language).
-    section
-      h2 OPTIONS
-      div
-        h3 -h, --help
-        .opt Display this help.
-        h3 -v, --version
-        .opt Display version information (current age in years).
-        h3 -q, --quiet
-        .opt Be quiet, only report errors. This is the default.
-        h3 -v, --verbose
-        .opt Be chatty. This can only be used in special cases.
-        h3 -l &lt;lang&gt;, --lang=&lt;lang&gt;
-        .opt.
-          Use the given language for communication, where &lt;lang&gt; is one
-          of en or ja, for English or Japanese, respectively. The
-          default is en. Using ja may result in poorly-constructed or
-          grammatically incorrect sentences. すみませんでした。
-    section
-      h2 AUTHORS
-      div Written by David and Karen Davis.
-    section
-      h2 SAYING HELLO
-      div.
-        Email
-        &lt;#[a(href="mailto:?subject=Hello") ariel.z.X@icloud.com]&gt;
-        (replace X with davis).
-    section
-      h2 COPYRIGHT
-      div Copyright © #[span#now Now] Ariel Davis. All rights reserved.
-    section
-      h2 SEE ALSO
-      div
-        - const gh = "https://github.com/azdavis"
-        p GitHub profile: &lt;#[a(href= gh)= gh]&gt;
-        p A simple keyboard game: &lt;#[a(href= "/lgw")= "/lgw"]&gt;
-        p A Catan® board generator: &lt;#[a(href= "/cbg")= "/cbg"]&gt;
-    footer.two
-      -
-        const now = new Date()
-        const tzOff = now.getTimezoneOffset() * 60000
-        const nowWithOff = new Date(1 * now - tzOff).toISOString()
-      div= nowWithOff.substring(0, 10)
-      div AZDAVIS(1)
-    script: include index.js
+    head
+        include /base/head.pug
+        title man azdavis
+        style: include index.css
+    body
+        header.two
+            div AZDAVIS(1)
+            div AZDAVIS(1)
+        section
+            h2 NAME
+            div azdavis - a guy with certain characteristics
+        section
+            h2 SYNOPSIS
+            div #[b azdavis] [option]... [arg]...
+        section
+            h2 DESCRIPTION
+            div
+                p.
+                    azdavis is a guy from the United States. He studies
+                    computer science at Carnegie Mellon®. He created this
+                    website and is a fan of such symbols as ™, ®, and ©.
+                p.
+                    azdavis spends most of his time browsing Hacker News™ and
+                    other news websites. When he's not doing that, he may work
+                    on his personal project du jour.
+                p.
+                    azdavis enjoys activities like tossing a Sportdisc™ (known
+                    to many as a Frisbee®), playing Klaus Teuber's Catan®
+                    (known to many as Settlers of Catan®), and copy-pasting
+                    from Stack Overflow™ (known to many as programming). He is
+                    low-key attempting to learn 日本語 (known to many as the
+                    Japanese language).
+        section
+            h2 OPTIONS
+            div
+                h3 -h, --help
+                .opt Display this help.
+                h3 -v, --version
+                .opt Display version information (current age in years).
+                h3 -q, --quiet
+                .opt Be quiet, only report errors. This is the default.
+                h3 -v, --verbose
+                .opt Be chatty. This can only be used in special cases.
+                h3 -l &lt;lang&gt;, --lang=&lt;lang&gt;
+                .opt.
+                    Use the given language for communication, where
+                    &lt;lang&gt; is one of en or ja, for English or Japanese,
+                    respectively. The default is en. Using ja may result in
+                    poorly-constructed or grammatically incorrect sentences.
+                    すみませんでした。
+        section
+            h2 AUTHORS
+            div Written by David and Karen Davis.
+        section
+            h2 SAYING HELLO
+            div.
+                Email
+                &lt;#[a(href="mailto:?subject=Hello") ariel.z.X@icloud.com]&gt;
+                (replace X with davis).
+        section
+            h2 COPYRIGHT
+            div Copyright © #[span#now Now] Ariel Davis. All rights reserved.
+        section
+            h2 SEE ALSO
+            div
+                - const gh = "https://github.com/azdavis"
+                p GitHub profile: &lt;#[a(href= gh)= gh]&gt;
+                p A simple keyboard game: &lt;#[a(href= "/lgw")= "/lgw"]&gt;
+                p A Catan® board generator: &lt;#[a(href= "/cbg")= "/cbg"]&gt;
+        footer.two
+            -
+                const now = new Date()
+                const tzOff = now.getTimezoneOffset() * 60000
+                const nowWithOff = new Date(1 * now - tzOff).toISOString()
+            div= nowWithOff.substring(0, 10)
+            div AZDAVIS(1)
+        script: include index.js

@@ -1,31 +1,31 @@
 html(lang="en")
-  head
-    include /base/head.pug
-    title lame geometry wars™
-    style: include index.css
-  body
-    #modal
-      h1 lame geometry wars™
-      #msg.red javascript is required
-      dl
-        dt objective
-        dd accrue points while retaining lives
-        dt score
-        dd start at 0; +1 per enemy shot
-        dt lives
-        dd start at 3; -1 per enemy touched
-        dt invincibility
-        dd player turns yellow; lasts for 1 second
-        dt ammo
-        dd cap at 9; +1 per enemy spawned or 400 frames
-        dt shooting
-        dd press SPACE; fire in direction of movement
-        dt movement
-        dd press WSAD or ARROWS
-        dt pausing or resuming
-        dd tab out or in
-        dt beginning or restarting
-        dd press P
-    #info
-    canvas
-    script: include index.js
+    head
+        include /base/head.pug
+        title lame geometry wars™
+        style: include index.css
+    body
+        #modal
+            h1 lame geometry wars™
+            #msg.red javascript is required
+            dl
+                dt objective
+                dd accrue points while retaining lives
+                dt score
+                dd start at 0; +1 per enemy shot
+                dt lives
+                dd start at 3; -1 per enemy touched
+                dt invincibility
+                dd player turns yellow; lasts for 1 second
+                dt ammo
+                dd cap at 9; +1 per enemy spawned or 400 frames
+                dt shooting
+                dd press SPACE; fire in direction of movement
+                dt movement
+                dd press WSAD or ARROWS
+                dt pausing or resuming
+                dd tab out or in
+                dt beginning or restarting
+                dd press P
+        #info
+        canvas
+        script: include index.js
