@@ -17,21 +17,9 @@ text-important()
     text-align center
 
 clickable()
-    highlight = #0002
     position relative
     cursor pointer
     touch-action manipulation
-    -webkit-tap-highlight-color highlight
-    &::after
-        content ""
-        display none
-        position absolute
-        top 0
-        left 0
-        width 100%
-        height 100%
-        border-radius inherit
-        background highlight
-    &:active::after
-        display block
-
+    -webkit-tap-highlight-color #0000
+    &:active
+        opacity 0.8
