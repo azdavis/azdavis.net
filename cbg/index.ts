@@ -13,3 +13,6 @@ makeDrawer("reg")
 makeDrawer("exp")
 
 Board.drawNew("reg")
+
+// HACK makes :active work on iOS
+document.body.ontouchend = "" as any
