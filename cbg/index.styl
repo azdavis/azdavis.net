@@ -35,20 +35,21 @@ noscript div
 
 #btns
     gap = 0.5ch
+    display flex
     max-width 60ch
-    margin 0 auto (gap * 2)
+    margin 0 auto (gap)
     div
-        display inline-block
-        width "calc(50% - %s)" % gap
+        flex-basis 100%
+        margin 0 (gap)
         padding 1em
         border-radius 1em
         background #44a
         text-important()
         clickable()
         &:first-child
-            margin-right gap
+            margin-left 0
         &:last-child
-            margin-left gap
+            margin-right 0
 
 #container
     display flex
