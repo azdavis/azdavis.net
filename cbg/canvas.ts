@@ -8,11 +8,6 @@ namespace Canvas {
     const btns = document.querySelector("#btns") as HTMLElement
     const pxRatio = devicePixelRatio || 1
 
-    // get the parseInt'd value of the `prop` of the computedStyle of `el`.
-    function cn(el: HTMLElement, prop: string): number {
-        return parseInt(getComputedStyle(el)[prop], 10)
-    }
-
     // resize the canvas to the given w and h while still fitting completely in
     // its container
     export function resize(w: number, h: number): void {
@@ -30,6 +25,11 @@ namespace Canvas {
         el.style.width = `${scale * w}px`
         el.style.height = `${scale * h}px`
         cx.scale(scale * pxRatio, scale * pxRatio)
+    }
+
+    // get the parseInt'd value of the `prop` of the computedStyle of `el`.
+    function cn(el: HTMLElement, prop: string): number {
+        return parseInt(getComputedStyle(el)[prop], 10)
     }
 }
 
