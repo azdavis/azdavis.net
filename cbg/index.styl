@@ -17,6 +17,7 @@ html
 
 body
     margin 0
+    padding 1ch
 
 canvas
     display block
@@ -33,19 +34,21 @@ noscript div
     text-important()
 
 #btns
-    gap = 1ch
+    gap = 0.5ch
     max-width 60ch
-    margin 0 auto
-    padding (gap / 2)
+    margin 0 auto (gap * 2)
     div
         display inline-block
         width "calc(50% - %s)" % gap
-        margin (gap / 2)
         padding 1em
         border-radius 1em
         background #44a
         text-important()
         clickable()
+        &:first-child
+            margin-right gap
+        &:last-child
+            margin-left gap
 
 #container
     display flex
