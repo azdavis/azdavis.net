@@ -8,15 +8,16 @@ namespace Canvas {
     const btns = document.querySelector("#btns") as HTMLElement
     const pxRatio = devicePixelRatio || 1
 
-    function css(el: HTMLElement, prop: string): number {
+    // get the parseInt'd value of the `prop` of the computedStyle of `el`.
+    function cn(el: HTMLElement, prop: string): number {
         return parseInt(getComputedStyle(el)[prop], 10)
     }
 
     // resize the canvas to the given w and h while still fitting completely in
     // its container
     export function resize(w: number, h: number): void {
-        const p = 2 * css(document.body, "padding")
-        const b = css(btns, "height") + css(btns, "marginBottom")
+        const p = 2 * cn(document.body, "padding")
+        const b = cn(btns, "height") + cn(btns, "marginBottom")
         const ch = innerHeight - p - b
         const cw = innerWidth - p
         const scale = Math.min(cw / w, ch / h)
