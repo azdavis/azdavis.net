@@ -11,7 +11,7 @@ namespace Canvas {
     // resize the canvas to the given w and h while still fitting completely in
     // its container
     export function resize(w: number, h: number): void {
-        const p = 2 * cn(document.body, "padding")
+        const p = 2 * cn(document.body, "paddingTop")
         const b = cn(btns, "height") + cn(btns, "marginBottom")
         const ch = innerHeight - p - b
         const cw = innerWidth - p
