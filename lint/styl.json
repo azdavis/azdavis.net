@@ -7,7 +7,7 @@
     "commentSpace": {"error": true, "expect": "always"},
     "cssLiteral": {"error": true, "expect": "never"},
     "depthLimit": {"error": true, "expect": 3},
-    "duplicates": true,
+    "duplicates": false,
     "efficient": {"error": true, "expect": "always"},
     "extendPref": {"error": true, "expect": "@extends"},
     "globalDupe": {"error": true, "expect": true},
