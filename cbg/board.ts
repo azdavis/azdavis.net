@@ -23,7 +23,7 @@ namespace Board {
         // get the width and height, based on what type of board is to be drawn
         const w = Data.tileScale
                 * HexTile.c
-                * (2 + (Data[type].maxTilesPerRow - 1) * 3)
+                * ((Data[type].maxTilesPerRow - 1) * 3 + 2)
         const h = Data.tileScale
                 * HexTile.a
                 * (Data[type].tilesPerRow.length + 1)
@@ -34,14 +34,14 @@ namespace Board {
         // for each row
         for (let i = 0; i < rows.length; i++) {
             const dy = Data.tileScale
-                     * (i - (rows.length - 1) / 2)
                      * HexTile.a
+                     * (i - (rows.length - 1) / 2)
 
             // for each tile in the row
             for (let j = 0; j < rows[i].length; j++) {
                 const dx = Data.tileScale
-                         * ((rows[i].length - 1) / 2 - j)
                          * HexTile.c
+                         * ((rows[i].length - 1) / 2 - j)
                          * 3
 
                 // draw each tile offset a bit from the center of the canvas
