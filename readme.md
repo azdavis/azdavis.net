@@ -2,7 +2,7 @@
 
 a place for stuff http://azdavis.xyz
 
-[![devDependency Status][ddm-img]][ddm-inf]
+[![devDependency Status][img]][inf]
 
 [img]: https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg
 [inf]: https://david-dm.org/azdavis/azdavis.xyz#info=devDependencies
