@@ -1,3 +1,5 @@
+hooks
+lint
 makefile
 makefile.dep
 server
