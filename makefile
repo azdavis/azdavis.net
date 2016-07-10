@@ -51,6 +51,7 @@ npm-i-g:
 		browserify \
 		http-server \
 		pug-cli \
+		stylint \
 		stylus \
 		surge \
 		tslint \
