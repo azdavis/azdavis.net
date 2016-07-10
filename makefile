@@ -7,20 +7,20 @@ MAKEFLAGS += -s
 
 include makefile.dep
 
-%.html: %.pug base/head.pug %.css %.js
+%.html: %.pug src/base/head.pug %.css %.js
 	echo $@
 	pug -sb . --doctype html $<
 	tr "\n" " " < $@ > $@.html
 	mv $@.html $@
 
-%.css: %.styl base/constants.styl
+%.css: %.styl src/base/const.styl
 	echo $@
-	stylint -c .lint/styl.json $?
+	stylint -c lint/styl.json $?
 	stylus -u autoprefixer-stylus -c $< &> /dev/null
 
 %.js: %.ts
 	echo $@
-	tslint -c .lint/ts.json $<
+	tslint -c lint/ts.json $<
 	tsc --removeComments $<
 	if grep -qE "require\(" $@; then \
 		browserify -o $@.js $@; \
@@ -29,15 +29,11 @@ include makefile.dep
 	uglifyjs --screw-ie8 -cemo $@ $@ &> /dev/null
 
 clean:
-	find . -not -path "*node_modules*" \( \
-		-name "*.html" \
-		-o -name "*.css" \
-		-o -name "*.js" \
-	\) -delete
+	find src \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
 deploy: git-ok all
 	git push -q origin master
-	surge -d azdavis.xyz -p . 2> /dev/null \
+	surge -d azdavis.xyz -p src 2> /dev/null \
 		| grep size \
 		| sed -E "s/^$$(printf "\033")\[90m +//g"
 
@@ -48,7 +44,7 @@ git-ok:
 hooks:
 	mkdir -p .git/hooks
 	rm -f .git/hooks/*.sample
-	for f in .hooks/*; do ln -s "../../$$f" .git/hooks; done
+	for f in hooks/*; do ln -s "../../$$f" .git/hooks; done
 
 npm-i:
 	npm i

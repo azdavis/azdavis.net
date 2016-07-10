@@ -1,19 +1,19 @@
 all: \
-    404.html \
-    index.html \
-    cbg/index.html \
-    lgw/index.html
-cbg/index.js: \
-    cbg/board.ts \
-    cbg/canvas.ts \
-    cbg/data.ts \
-    cbg/hex_tile.ts \
-    cbg/number_label.ts \
-    cbg/sprite.ts
-lgw/index.js: \
-    lgw/bullet.ts \
-    lgw/canvas.ts \
-    lgw/enemy.ts \
-    lgw/game.ts \
-    lgw/player.ts \
-    lgw/sprite.ts
+    src/404.html \
+    src/index.html \
+    src/cbg/index.html \
+    src/lgw/index.html
+src/cbg/index.js: \
+    src/cbg/board.ts \
+    src/cbg/canvas.ts \
+    src/cbg/data.ts \
+    src/cbg/hex_tile.ts \
+    src/cbg/number_label.ts \
+    src/cbg/sprite.ts
+src/lgw/index.js: \
+    src/lgw/bullet.ts \
+    src/lgw/canvas.ts \
+    src/lgw/enemy.ts \
+    src/lgw/game.ts \
+    src/lgw/player.ts \
+    src/lgw/sprite.ts

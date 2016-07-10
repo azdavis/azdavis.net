@@ -2,6 +2,7 @@
 
 set -euo pipefail
 IFS=$'\n\t'
+PATH="node_modules/.bin:$PATH"
 
 server=
 end() {
@@ -11,10 +12,13 @@ end() {
 }
 trap end INT
 
-http-server &> /dev/null &
+http-server src &> /dev/null &
 server="$!"
 sleep 0.5 && open "http://localhost:8080" &
 
 while true; do
-    find . -not -path "*.git*" | entr -cd make || [[ "$?" == 2 ]]
+    find . \
+        -not -path "*.git*" \
+        -a -not -path "*node_modules*" \
+        | entr -cd make || [[ "$?" == 2 ]]
 done
