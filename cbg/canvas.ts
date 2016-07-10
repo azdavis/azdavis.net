@@ -27,7 +27,7 @@ namespace Canvas {
         cx.scale(scale * pxRatio, scale * pxRatio)
     }
 
-    // get the parseInt'd value of the `prop` of the computedStyle of `el`.
+    // get the parseInt'd value of the `prop` of the computedStyle of `el`
     function cn(el: HTMLElement, prop: string): number {
         return parseInt(getComputedStyle(el)[prop], 10)
     }
