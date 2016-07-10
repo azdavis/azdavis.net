@@ -2,17 +2,15 @@
 
 a place for stuff http://azdavis.xyz
 
-## devDependencies
-
-- [git][git]
-- [make][mak]
-- [npm][npm]
-- [entr][ent]
-
 [![devDependency Status](https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg)](https://david-dm.org/azdavis/azdavis.xyz#info=devDependencies)
 
 ## first-time setup
 
+- make sure you have
+    - [git][git]
+    - [make][mak]
+    - [npm][npm]
+    - [entr][ent]
 - `make setup`
     - sets up some git hooks
     - installs some npm devDependencies
