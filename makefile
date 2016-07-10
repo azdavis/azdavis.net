@@ -29,7 +29,11 @@ include makefile.dep
 	uglifyjs --screw-ie8 -cemo $@ $@ &> /dev/null
 
 clean:
-	find . \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
+	find . -not -path "*node_modules*" \( \
+		-name "*.html" \
+		-o -name "*.css" \
+		-o -name "*.js" \
+	\) -delete
 
 deploy: git-ok all
 	git push -q origin master
