@@ -4,8 +4,8 @@ a place for stuff http://azdavis.xyz
 
 [![devDependency Status][ddm-img]][ddm-inf]
 
-[ddm-img]: https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg
-[ddm-inf]: https://david-dm.org/azdavis/azdavis.xyz#info=devDependencies
+[img]: https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg
+[inf]: https://david-dm.org/azdavis/azdavis.xyz#info=devDependencies
 
 ## first-time setup
 
@@ -18,6 +18,12 @@ a place for stuff http://azdavis.xyz
     - sets up some git hooks
     - installs some npm devDependencies
     - prepares deployment to [surge][sur]
+
+[git]: https://git-scm.com
+[mak]: https://www.gnu.org/software/make
+[npm]: https://www.npmjs.com
+[ent]: http://entrproject.org
+[sur]: https://surge.sh
 
 ## useful commands
 
@@ -42,10 +48,5 @@ a place for stuff http://azdavis.xyz
 - [w3 validator][w3v]
 - [pagespeed insights][pag]
 
-[git]: https://git-scm.com
-[mak]: https://www.gnu.org/software/make
-[npm]: https://www.npmjs.com
-[ent]: http://entrproject.org
-[sur]: https://surge.sh
 [w3v]: https://validator.w3.org/nu/?doc=http://azdavis.xyz
 [pag]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz
