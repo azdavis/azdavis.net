@@ -1,7 +1,7 @@
 SHELL := sh -euo pipefail
 MAKEFLAGS += -s
 
-.PHONY: all clean deploy git-ok hooks npm-i-g setup surge
+.PHONY: all clean deploy git-ok hooks npm-i setup surge
 .PRECIOUS: %.css %.js
 
 include makefile.dep
@@ -45,20 +45,10 @@ hooks:
 	rm -f .git/hooks/*.sample
 	for f in .hooks/*; do ln -s "../../$$f" .git/hooks; done
 
-npm-i-g:
-	npm i -g \
-		autoprefixer-stylus \
-		browserify \
-		http-server \
-		pug-cli \
-		stylint \
-		stylus \
-		surge \
-		tslint \
-		typescript \
-		uglifyjs
+npm-i:
+	npm i
 
-setup: hooks npm-i-g surge
+setup: hooks npm-i surge
 
 surge:
 	if ! grep -q surge.sh ~/.netrc; then surge login; fi
