@@ -25,6 +25,7 @@ class HexTile extends Sprite {
     public static b = HexTile.c / 2
     public static a = HexTile.b * Math.sqrt(3)
 
+    // set properties
     public constructor(protected fill: string, private label: NumberLabel) {
         super()
     }

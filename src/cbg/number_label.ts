@@ -6,11 +6,12 @@ class NumberLabel extends Sprite {
     private static backgroundFill = "#ddd"
     private static font = "16px Menlo, Consolas, 'Liberation Mono', monospace"
 
-    private nStr: string
+    private n: string
 
-    public constructor(protected fill: string, private n: number) {
+    // set properties
+    public constructor(protected fill: string, n: number) {
         super()
-        this.nStr = String(n)
+        this.n = String(n)
     }
 
     // draw a circle with a number in the center
@@ -27,8 +28,8 @@ class NumberLabel extends Sprite {
         Canvas.cx.font = NumberLabel.font
 
         Canvas.cx.fillText(
-            this.nStr,
-            x - 4.6 * this.nStr.length,
+            this.n,
+            x - 4.6 * this.n.length,
             y + 6
         )
     }
