@@ -14,12 +14,12 @@ include makefile.dep
 
 %.css: %.styl base/constants.styl
 	echo $@
-	stylint -c stylint.json $?
+	stylint -c .lint/styl.json $?
 	stylus -u autoprefixer-stylus -c $< &> /dev/null
 
 %.js: %.ts
 	echo $@
-	tslint $<
+	tslint -c .lint/ts.json $<
 	tsc --removeComments $<
 	if grep -qE "require\(" $@; then \
 		browserify -o $@.js $@; \
