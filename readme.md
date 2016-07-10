@@ -2,10 +2,6 @@
 
 a place for stuff http://azdavis.xyz
 
-## dependencies
-
-[![Dependency Status](https://david-dm.org/azdavis/azdavis.xyz.svg)](https://david-dm.org/azdavis/azdavis.xyz)
-
 ## devDependencies
 
 - [git][git]
