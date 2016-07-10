@@ -14,6 +14,7 @@ include makefile.dep
 
 %.css: %.styl base/constants.styl
 	echo $@
+	stylint -c stylint.json $?
 	stylus -u autoprefixer-stylus -c $< &> /dev/null
 
 %.js: %.ts

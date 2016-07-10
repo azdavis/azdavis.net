@@ -8,8 +8,8 @@ body
     height 100%
 
 html
-    background dark
-    color light
+    background $dark
+    color $light
     user-select none
     text-base(mono)
     text-smooth()
@@ -22,24 +22,24 @@ canvas
     display block
     margin auto
 
-noscript div
+noscript div // @stylint ignore
     position absolute
     top 0
     left 0
     width 100%
     height 100%
     padding 1ch
-    background dark
+    background $dark
     text-important()
 
 #btns
-    gap = 1ch
+    $gap = 1ch
     display flex
     max-width 60ch
-    margin 0 auto (gap)
+    margin 0 auto ($gap)
     div
         width 100%
-        margin 0 (gap / 2)
+        margin 0 ($gap / 2)
         padding 1em
         border-radius 1em
         background #44a

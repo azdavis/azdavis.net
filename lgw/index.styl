@@ -4,7 +4,7 @@
     box-sizing border-box
 
 html
-    background dark
+    background $dark
     text-base(mono)
 
 body
@@ -31,19 +31,19 @@ canvas
     margin 1em auto
     padding 1ch
     border-radius 1ch
-    background light
-    color dark
+    background $light
+    color $dark
 
 #info
     display none
     padding 1ch
-    color light
+    color $light
     white-space pre
     text-smooth()
 
 #msg
     padding 1ch
-    color light
+    color $light
     text-important()
 
 .red
@@ -52,9 +52,9 @@ canvas
 .green
     background #2a2
 
-@media only screen and (max-width phone)
+@media only screen and (max-width 600px)
     html
-        background light
+        background $light
     dd
         margin 0 0 1em 2ch
     #modal

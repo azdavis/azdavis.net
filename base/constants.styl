@@ -1,20 +1,21 @@
-dark = #222
-light = #ddd
-phone = 600px
+$dark = #222
+$light = #ddd
 
 text-base(type)
-    family = null
-    family = Menlo, Consolas, "Liberation Mono", monospace if type == mono
-    family = Georgia, serif if type == sf
-    family = sans-serif if type == ssf
-    error("bad type") if family == null
-    font 16px/1.3 family
+    $family = null
+    $family = Menlo, Consolas, "Liberation Mono", monospace if type == mono
+    $family = Georgia, serif if type == sf
+    $family = sans-serif if type == ssf
+    error("bad type") if $family == null
+    font 16px/1.3 $family
     -ms-text-size-adjust 100%
     -webkit-text-size-adjust 100%
 
 text-smooth()
+    // @stylint off
     -moz-osx-text-smooth grayscale
     -webkit-text-smooth antialiased
+    // @stylint on
 
 text-important()
     font-weight bold

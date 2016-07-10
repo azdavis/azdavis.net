@@ -4,13 +4,13 @@
     box-sizing border-box
 
 html
-    background light
-    color dark
+    background $light
+    color $dark
     text-base(mono)
 
 .dark
-    background dark
-    color light
+    background $dark
+    color $light
     text-smooth()
 
 body
@@ -28,15 +28,12 @@ footer
     margin 1.3em 0 0
 
 section div
-    margin 0 6ch 0
-
-h2
-h3
-    font-size 1em
+    margin 0 6ch
 
 h2
 h3
     margin 0
+    font-size 1em
 
 p
     margin 0 0 1.3em
@@ -58,8 +55,8 @@ a
 .opt
     margin 0 0 1.3em 4ch
 
-@media only screen and (max-width phone)
+@media only screen and (max-width 600px)
     section div
-        margin 0 3ch 0
+        margin 0 3ch
     .opt
         margin 0 0 1.3em 2ch
