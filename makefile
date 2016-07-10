@@ -1,3 +1,4 @@
+PATH := node_modules/.bin:$(PATH)
 SHELL := sh -euo pipefail
 MAKEFLAGS += -s
 
