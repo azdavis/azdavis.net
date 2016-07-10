@@ -4,7 +4,7 @@ a place for stuff http://azdavis.xyz
 
 ## dependencies
 
-- [![Dependency Status](https://david-dm.org/azdavis/azdavis.xyz.svg)](https://david-dm.org/azdavis/azdavis.xyz)
+[![Dependency Status](https://david-dm.org/azdavis/azdavis.xyz.svg)](https://david-dm.org/azdavis/azdavis.xyz)
 
 ## devDependencies
 
@@ -12,7 +12,8 @@ a place for stuff http://azdavis.xyz
 - [make][mak]
 - [npm][npm]
 - [entr][ent]
-- [![devDependency Status](https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg)](https://david-dm.org/azdavis/azdavis.xyz#info=devDependencies)
+
+[![devDependency Status](https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg)](https://david-dm.org/azdavis/azdavis.xyz#info=devDependencies)
 
 ## first-time setup
 
