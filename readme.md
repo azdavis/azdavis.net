@@ -4,10 +4,15 @@ a place for stuff http://azdavis.xyz
 
 ## dependencies
 
+- [![Dependency Status](https://david-dm.org/azdavis/azdavis.xyz.svg)](https://david-dm.org/azdavis/azdavis.xyz)
+
+## devDependencies
+
 - [git][git]
 - [make][mak]
 - [npm][npm]
 - [entr][ent]
+- [![devDependency Status](https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg)](https://david-dm.org/azdavis/azdavis.xyz#info=devDependencies)
 
 ## first-time setup
 
