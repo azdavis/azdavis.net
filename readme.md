@@ -12,8 +12,8 @@ a place for stuff http://azdavis.xyz
 ## first-time setup
 
 - `make setup`
-    - installs some global npm packages
     - sets up some git hooks
+    - installs some npm devDependencies
     - prepares deployment to [surge][sur]
 
 ## useful commands
