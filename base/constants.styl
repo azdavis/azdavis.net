@@ -2,7 +2,7 @@ dark = #222
 light = #ddd
 phone = 600px
 
-base-font(type)
+text-base(type)
     family = null
     family = Menlo, Consolas, "Liberation Mono", monospace if type == mono
     family = Georgia, serif if type == sf
@@ -12,9 +12,9 @@ base-font(type)
     -ms-text-size-adjust 100%
     -webkit-text-size-adjust 100%
 
-font-smoothing()
-    -moz-osx-font-smoothing grayscale
-    -webkit-font-smoothing antialiased
+text-smooth()
+    -moz-osx-text-smooth grayscale
+    -webkit-text-smooth antialiased
 
 text-important()
     font-weight bold
