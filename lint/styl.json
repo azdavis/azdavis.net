@@ -45,7 +45,7 @@
     ]},
     "stackedProperties": {"error": true, "expect": "never"},
     "trailingWhitespace": {"error": true, "expect": "never"},
-    "universal": false,
+    "universal": {"error": true, "expect": "never"},
     "valid": {"error": true, "expect": true},
     "zeroUnits": {"error": true, "expect": "never"},
     "zIndexNormalize": false
