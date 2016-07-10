@@ -2,7 +2,10 @@
 
 a place for stuff http://azdavis.xyz
 
-[![devDependency Status](https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg)](https://david-dm.org/azdavis/azdavis.xyz#info=devDependencies)
+[![devDependency Status][ddm-img]][ddm-inf]
+
+[ddm-img]: https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg
+[ddm-inf]: https://david-dm.org/azdavis/azdavis.xyz#info=devDependencies
 
 ## first-time setup
 
