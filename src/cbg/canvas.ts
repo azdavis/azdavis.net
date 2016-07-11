@@ -1,6 +1,3 @@
-import Data from "./data"
-import HexTile from "./hex_tile"
-
 namespace Canvas {
     const el = document.querySelector("canvas") as HTMLCanvasElement
     export const cx = el.getContext("2d")
@@ -27,9 +24,9 @@ namespace Canvas {
         cx.scale(scale * pxRatio, scale * pxRatio)
     }
 
-    // get the parseInt'd value of the `prop` of the computedStyle of `el`
-    function cn(el: HTMLElement, prop: string): number {
-        return parseInt(getComputedStyle(el)[prop], 10)
+    // get the parseInt'd value of the `prop` of the computedStyle of `cnEl`
+    function cn(cnEl: HTMLElement, prop: string): number {
+        return parseInt(getComputedStyle(cnEl)[prop], 10)
     }
 }
 
