@@ -4,16 +4,16 @@ all: \
     src/cbg/index.html \
     src/lgw/index.html
 src/cbg/index.js: \
-    src/cbg/board.ts \
-    src/cbg/canvas.ts \
-    src/cbg/data.ts \
-    src/cbg/hex_tile.ts \
-    src/cbg/number_label.ts \
-    src/cbg/sprite.ts
+    src/cbg/Board.ts \
+    src/cbg/Canvas.ts \
+    src/cbg/Data.ts \
+    src/cbg/HexTile.ts \
+    src/cbg/NumberLabel.ts \
+    src/cbg/Sprite.ts
 src/lgw/index.js: \
-    src/lgw/bullet.ts \
-    src/lgw/canvas.ts \
-    src/lgw/enemy.ts \
-    src/lgw/game.ts \
-    src/lgw/player.ts \
-    src/lgw/sprite.ts
+    src/lgw/Bullet.ts \
+    src/lgw/Canvas.ts \
+    src/lgw/Enemy.ts \
+    src/lgw/Game.ts \
+    src/lgw/Player.ts \
+    src/lgw/Sprite.ts
