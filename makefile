@@ -22,14 +22,14 @@ include makefile.dep
 	echo $@
 	tslint -c lint/ts.json $<
 	tsc --removeComments $<
-	if grep -qE "require\(" $@; then \
+	if grep -q require\( $@; then \
 		browserify -o $@.js $@; \
 		mv $@.js $@; \
 	fi
 	uglifyjs --screw-ie8 -cemo $@ $@ &> /dev/null
 
 clean:
-	find src \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
+	find src \( -name \*.html -o -name \*.css -o -name \*.js \) -delete
 
 deploy: git-ok all
 	git push -q origin master
@@ -44,7 +44,7 @@ git-ok:
 hooks:
 	mkdir -p .git/hooks
 	rm -f .git/hooks/*.sample
-	for f in hooks/*; do ln -s "../../$$f" .git/hooks; done
+	for f in hooks/*; do ln -s ../../$$f .git/hooks; done
 
 npm-i:
 	npm i
