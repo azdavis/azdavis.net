@@ -20,7 +20,7 @@ include makefile.dep
 
 %.js: %.ts
 	echo $@
-	tslint -c lint/ts.json $<
+	tslint -c lint/ts.json $?
 	tsc --removeComments $<
 	if grep -q require\( $@; then \
 		browserify -o $@.js $@; \
