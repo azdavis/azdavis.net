@@ -1,4 +1,4 @@
-namespace Canvas {
+module Canvas {
     const el = document.querySelector("canvas") as HTMLCanvasElement
     export const cx = el.getContext("2d")
 

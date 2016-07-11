@@ -2,7 +2,7 @@ import Canvas from "./canvas"
 import Enemy from "./enemy"
 import Player from "./player"
 
-namespace Game {
+module Game {
     // whether the game is running (i.e., playing OR paused)
     export let running = false
     // whether the game is actively being played

@@ -4,7 +4,7 @@ import HexTile from "./hex_tile"
 import NumberLabel from "./number_label"
 import rp from "./repeat_primitive"
 
-namespace Board {
+module Board {
     let rows: HexTile[][]
     let type: string // TODO make this work better with the type system
 

@@ -1,6 +1,6 @@
 import rp from "./repeat_primitive"
 
-namespace Data {
+module Data {
     // how big tiles are (this being 1 would mean tiles are right next to one
     // another; larger than 1 and the tiles have a gap between them)
     export const tileScale = 1.1
