@@ -1,5 +1,6 @@
 PATH := node_modules/.bin:$(PATH)
 SHELL := sh -euo pipefail
+Q ?= &> /dev/null
 MAKEFLAGS += -s
 
 .PHONY: all clean deploy git-ok hooks npm-i setup surge
@@ -16,7 +17,7 @@ include makefile.dep
 %.css: %.styl src/base/const.styl
 	echo $@
 	stylint -c lint/styl.json $?
-	stylus -u autoprefixer-stylus -c $< &> /dev/null
+	stylus -u autoprefixer-stylus -c $< $(Q)
 
 %.js: %.ts
 	echo $@
@@ -26,7 +27,7 @@ include makefile.dep
 		browserify -o $@.js $@; \
 		mv $@.js $@; \
 	fi
-	uglifyjs --screw-ie8 -cemo $@ $@ &> /dev/null
+	uglifyjs --screw-ie8 -cemo $@ $@ $(Q)
 
 clean:
 	find src \( -name \*.html -o -name \*.css -o -name \*.js \) -delete
