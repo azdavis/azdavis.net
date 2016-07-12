@@ -35,9 +35,9 @@ module Data {
 
     // a board for 3-4 players
     export const reg = {
-        tilesPerRow: [1, 2, 3, 2, 3, 2, 3, 2, 1],
-        maxTilesPerRow: 3,
-        possibleLabels: [
+        tilesInRow: [1, 2, 3, 2, 3, 2, 3, 2, 1],
+        maxTilesInRow: 3,
+        possLabels: [
             2,
             3, 3,
             4, 4,
@@ -49,7 +49,7 @@ module Data {
             11, 11,
             12,
         ],
-        possibleTiles: ["desert"].concat(
+        possTiles: ["desert"].concat(
             rp("brick", 3),
             rp("wood", 4),
             rp("wheat", 4),
@@ -60,12 +60,12 @@ module Data {
 
     // a board for 5-6 players
     export const exp = {
-        tilesPerRow: [1, 2, 3, 4, 3, 4, 3, 4, 3, 2, 1],
-        maxTilesPerRow: 4,
-        possibleLabels: reg.possibleLabels.concat([
+        tilesInRow: [1, 2, 3, 4, 3, 4, 3, 4, 3, 2, 1],
+        maxTilesInRow: 4,
+        possLabels: reg.possLabels.concat([
             2, 3, 4, 5, 6, 8, 9, 10, 11, 12,
         ]),
-        possibleTiles: reg.possibleTiles.concat(
+        possTiles: reg.possTiles.concat(
             ["desert"],
             rp("brick", 2),
             rp("wood", 2),
