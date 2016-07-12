@@ -42,13 +42,13 @@ html(lang="en")
                 .opt Be quiet, only report errors. This is the default.
                 h3 -v, --verbose
                 .opt Be chatty. This can only be used in special cases.
-                h3 -l &lt;code&gt;, --lang=&lt;code&gt;
+                h3 -l #[span.ang code], --lang=#[span.ang code]
                 .opt.
                     Use the given language for communication, where
-                    &lt;code&gt; is one of en or ja, for English or Japanese,
-                    respectively. The default is en. Using ja may result in
-                    poorly-constructed or grammatically incorrect sentences.
-                    #[span.ja すみませんでした。]
+                    #[span.ang code] is one of en or ja, for English or
+                    Japanese, respectively. The default is en. Using ja may
+                    result in poorly-constructed or grammatically incorrect
+                    sentences. #[span.ja すみませんでした。]
         section
             h2 AUTHORS
             div Written by David and Karen Davis.
@@ -56,7 +56,7 @@ html(lang="en")
             h2 SAYING HELLO
             div.
                 Email
-                &lt;#[a(href="mailto:?subject=Hello") ariel.z.X@icloud.com]&gt;
+                #[a(href="mailto:?subject=Hello") ariel.z.X@icloud.com]
                 (replace X with davis).
         section
             h2 COPYRIGHT
@@ -65,9 +65,9 @@ html(lang="en")
             h2 SEE ALSO
             div
                 - const gh = "https://github.com/azdavis"
-                p GitHub profile: &lt;#[a(href= gh)= gh]&gt;
-                p A simple keyboard game: &lt;#[a(href= "/lgw")= "/lgw"]&gt;
-                p A Catan® board generator: &lt;#[a(href= "/cbg")= "/cbg"]&gt;
+                p GitHub profile: #[a(href= gh)= gh]
+                p A simple keyboard game: #[a(href= "/lgw")= "/lgw"]
+                p A Catan® board generator: #[a(href= "/cbg")= "/cbg"]
         footer.two
             -
                 const now = new Date()
