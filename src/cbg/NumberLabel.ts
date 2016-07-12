@@ -4,7 +4,10 @@ import Sprite from "./Sprite"
 class NumberLabel extends Sprite {
     private static radius = 15
     private static backgroundFill = "#ddd"
-    private static font = "16px Menlo, Consolas, 'Liberation Mono', monospace"
+    private static font = (() => {
+        const b = getComputedStyle(document.body)
+        return `${b.fontSize} ${b.fontFamily}`
+    })()
 
     private n: string
 
