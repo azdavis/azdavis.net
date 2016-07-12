@@ -8,14 +8,13 @@
 $dark = #222
 $light = #ddd
 
+$mono = Menlo, Consolas, "Liberation Mono", monospace
+$sf = Georgia, serif
+$ssf = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
+
 // useful functions
 
-text-base(type)
-    $family = null
-    $family = Menlo, Consolas, "Liberation Mono", monospace if type == mono
-    $family = Georgia, serif if type == sf
-    $family = sans-serif if type == ssf
-    error("bad type") if $family == null
+text-base($family)
     font 16px/1.3 $family
     -ms-text-size-adjust 100%
     -webkit-text-size-adjust 100%
