@@ -16,7 +16,7 @@ const keys = {
     w: 87,
     d: 68,
     s: 83,
-    p: 80,
+    en: 13,
 }
 
 // keeps track of which keys are pressed
@@ -24,7 +24,7 @@ let pressed = {}
 
 // bind keys to player shoot, movement, and game pause
 onkeydown = (e) => {
-    if (e.which === keys.p && !Game.running) {
+    if (e.which === keys.en && !Game.running) {
         modal.style.display = "none"
         Game.begin()
         pressed = {}
@@ -113,6 +113,6 @@ const msg = document.querySelector("#msg") as HTMLElement
 if ("ontouchend" in window) {
     msg.innerHTML = "a physical keyboard is required"
 } else {
-    msg.innerHTML = "press P to begin"
+    msg.innerHTML = "press enter to begin"
     msg.className = "green"
 }

@@ -61,7 +61,7 @@ module Game {
         info.innerHTML = `score: ${score}`
         info.style.display = "block"
         setTimeout(() => {
-            info.innerHTML += "<br>(to restart, press P)"
+            info.innerHTML += "<br>(to restart, press enter)"
         }, 1000)
     }
 
