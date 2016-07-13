@@ -3,13 +3,17 @@ module Canvas {
     export const cx = el.getContext("2d")
     const container = document.querySelector("#container") as HTMLElement
     const btns = document.querySelector("#btns") as HTMLElement
+
     const pxRatio = devicePixelRatio || 1
+    const i = x => parseInt(x, 10)
 
     // resize the canvas to the given w and h while still fitting completely in
     // its container
     export function resize(w: number, h: number): void {
-        const p = 2 * cn(document.body, "paddingTop")
-        const b = cn(btns, "height") + cn(btns, "marginBottom")
+        const p = i(getComputedStyle(document.body).paddingTop)
+                + i(getComputedStyle(document.body).paddingBottom)
+        const b = i(getComputedStyle(btns).height)
+                + i(getComputedStyle(btns).marginBottom)
         const ch = innerHeight - p - b
         const cw = innerWidth - p
         const scale = Math.min(cw / w, ch / h)
@@ -22,11 +26,6 @@ module Canvas {
         el.style.width = `${scale * w}px`
         el.style.height = `${scale * h}px`
         cx.scale(scale * pxRatio, scale * pxRatio)
-    }
-
-    // get the parseInt'd value of the `prop` of the computedStyle of `cnEl`
-    function cn(cnEl: HTMLElement, prop: string): number {
-        return parseInt(getComputedStyle(cnEl)[prop], 10)
     }
 }
 
