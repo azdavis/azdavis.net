@@ -1,2 +1,2 @@
-const now = document.querySelector("#now") as HTMLElement
-now.innerHTML = String(new Date().getFullYear())
+(document.querySelector("#now") as HTMLElement).innerHTML =
+    String(new Date().getFullYear())
