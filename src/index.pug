@@ -4,8 +4,9 @@ html(lang="en")
         title man azdavis
         style: include index.css
     body
-        header.two
+        header.three
             div AZDAVIS(1)
+            div User Commands
             div AZDAVIS(1)
         section
             h2 NAME
@@ -69,11 +70,12 @@ html(lang="en")
                 p GitHub profile: #[a(href= gh)= gh]
                 p A simple keyboard game: #[a(href= "/lgw")= "/lgw"]
                 p A Catan® board generator: #[a(href= "/cbg")= "/cbg"]
-        footer.two
+        footer.three
             -
                 const now = new Date()
                 const tzOff = now.getTimezoneOffset() * 60000
                 const nowWithOff = new Date(1 * now - tzOff).toISOString()
+            div Ariel Davis
             div= nowWithOff.substring(0, 10)
             div AZDAVIS(1)
         script: include index.js

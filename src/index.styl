@@ -43,9 +43,11 @@ a
     &::after
         content ">"
 
-.two div
+.three div
     display inline-block
-    width 50%
+    width 33.3333%
+    &:nth-child(2)
+        text-align center
     &:last-child
         text-align right
 
@@ -58,5 +60,9 @@ a
 @media only screen and (max-width 600px)
     section div
         margin 0 3ch
+    .three div
+        width 50%
+        &:nth-child(2)
+            display none
     .opt
         margin 0 0 1.3em 2ch
