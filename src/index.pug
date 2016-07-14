@@ -66,10 +66,12 @@ html(lang="en")
         section
             h2 SEE ALSO
             div
-                - const gh = "https://github.com/azdavis"
-                p GitHub profile: #[a(href= gh)= gh]
-                p A simple keyboard game: #[a(href= "/lgw")= "/lgw"]
-                p A Catan® board generator: #[a(href= "/cbg")= "/cbg"]
+                mixin l(desc, href)
+                    p= `${desc}: `
+                        a(href= href)= href
+                +l("GitHub profile", "https://github.com/azdavis")
+                +l("A simple keyboard game", "/lgw")
+                +l("A Catan® board generator", "/cbg")
         footer.three
             -
                 const now = new Date()
