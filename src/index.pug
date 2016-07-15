@@ -1,3 +1,12 @@
+-
+    const now = new Date()
+    const nowYr = now.getFullYear()
+    const tzOff = now.getTimezoneOffset() * 60000
+    const nowStr =
+        new Date(1 * now - tzOff)
+        .toISOString()
+        .substring(0, 10)
+
 html(lang="en")
     head
         include /src/base/head.pug
@@ -61,7 +70,9 @@ html(lang="en")
                 (replace X with davis).
         section
             h2 COPYRIGHT
-            div Copyright © #[span#now Now] Ariel Davis. All rights reserved.
+            div.
+                Copyright © #[time(datetime= nowYr)= nowYr] Ariel Davis. All
+                rights reserved.
         section
             h2 SEE ALSO
             div
@@ -77,11 +88,7 @@ html(lang="en")
                 +l("A simple keyboard game", "/lgw")
                 +l("A Catan® board generator", "/cbg")
         footer.three
-            -
-                const now = new Date()
-                const tzOff = now.getTimezoneOffset() * 60000
-                const nowWithOff = new Date(1 * now - tzOff).toISOString()
             div Ariel Davis
-            div= nowWithOff.substring(0, 10)
+            div: time(datetime= nowStr)= nowStr
             div AZDAVIS(1)
         script: include index.js
