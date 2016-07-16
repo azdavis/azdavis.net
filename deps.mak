@@ -2,7 +2,8 @@ all: \
 	src/404.html \
 	src/index.html \
 	src/cbg/index.html \
-	src/lgw/index.html
+	src/lgw/index.html \
+	src/rut/index.html
 src/cbg/index.js: \
 	src/cbg/Board.ts \
 	src/cbg/Canvas.ts \
@@ -17,3 +18,6 @@ src/lgw/index.js: \
 	src/lgw/Game.ts \
 	src/lgw/Player.ts \
 	src/lgw/Sprite.ts
+src/rut/index.js: \
+	src/rut/Canvas.ts \
+	src/rut/Rut.ts
