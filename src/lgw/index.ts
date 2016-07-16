@@ -1,6 +1,6 @@
-import Canvas from "./canvas"
-import Game from "./game"
-import Player from "./player"
+import Canvas from "./Canvas"
+import Game from "./Game"
+import Player from "./Player"
 
 // the modal which contains instructions and is to be hidden when starting
 const modal = document.querySelector("#modal") as HTMLElement

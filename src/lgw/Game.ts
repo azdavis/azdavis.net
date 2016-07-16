@@ -1,6 +1,6 @@
-import Canvas from "./canvas"
-import Enemy from "./enemy"
-import Player from "./player"
+import Canvas from "./Canvas"
+import Enemy from "./Enemy"
+import Player from "./Player"
 
 module Game {
     // whether the game is running (i.e., playing OR paused)

@@ -1,4 +1,4 @@
-import Canvas from "./canvas"
+import Canvas from "./Canvas"
 
 abstract class Sprite {
     public w: number

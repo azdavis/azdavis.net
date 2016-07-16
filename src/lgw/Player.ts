@@ -1,6 +1,6 @@
-import Bullet from "./bullet"
-import Canvas from "./canvas"
-import Sprite from "./sprite"
+import Bullet from "./Bullet"
+import Canvas from "./Canvas"
+import Sprite from "./Sprite"
 
 class PlayerClass extends Sprite {
     private static maxAmmo = 9
