@@ -3,24 +3,18 @@ import Rut from "./Rut"
 
 onresize = Canvas.reset
 
-// background audio (Thor Kills the Destroyer) - this is probably copyright
-// infringement, but please do not sue - this website gets few to no hits
-// anyway
 const audio = new Audio()
 audio.loop = true
 
-// triumphant, confident central image
 const img = new Image()
 // HACK these dimensions are directly from the file
 const imgW = 219
 const imgH = 292
 let imgScale = 0.001
 
-// array of Ruts (max 50 on screen)
 const rs = []
 const rsMax = 50
 
-// main loop
 function loop(): void {
     Canvas.clear()
 
@@ -63,7 +57,6 @@ const tryStart = () => {
 
 img.onload = tryStart
 if ("ontouchend" in window) {
-    // if mobile, the user must tap to begin
     const mobile = document.querySelector("#mobile") as HTMLElement
     mobile.style.display = "block"
     document.body.ontouchend = () => {
@@ -74,6 +67,8 @@ if ("ontouchend" in window) {
     audio.oncanplaythrough = tryStart
 }
 
-// set these last, to make sure `on` functions get called
+// set these last, to make sure `on` functions get called. background audio is
+// Thor Kills the Destroyer - this is probably copyright infringement, but
+// please do not sue, since this website gets few to no hits anyway
 audio.src = "thor.mp3"
 img.src = "rut.png"

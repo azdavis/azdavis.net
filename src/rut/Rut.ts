@@ -8,12 +8,12 @@ class Rut {
     // the angle formed by a right triangle with legs w and h
     private static a = Math.atan(Rut.h / Rut.w)
 
-    public size: number // increases until out of bounds
-    public dx: number // randomly generated
-    public dy: number // randomly generated
-    private x: number // dependent upon size and dx
-    private y: number // dependent upon size and dy
-    private color: string // randomly generated
+    public size: number
+    public dx: number
+    public dy: number
+    private x: number
+    private y: number
+    private color: string
 
     public constructor() {
         this.reset()
