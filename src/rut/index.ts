@@ -3,18 +3,20 @@ import Rut from "./Rut"
 
 onresize = Canvas.reset
 
-// background audio
+// background audio (Thor Kills the Destroyer) - this is probably copyright
+// infringement, but please do not sue - this website gets few to no hits
+// anyway
 const audio = new Audio()
 audio.loop = true
 
-// center image
+// triumphant, confident central image
 const img = new Image()
 // HACK these dimensions are directly from the file
 const imgW = 219
 const imgH = 292
 let imgScale = 0.001
 
-// array of Ruts
+// array of Ruts (max 50 on screen)
 const rs = []
 const rsMax = 50
 

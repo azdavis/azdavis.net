@@ -2,16 +2,18 @@ import Canvas from "./Canvas"
 
 class Rut {
     private static text = "Rüt"
+    // the text sits in the middle of a (w x h) box
     private static w = 5
     private static h = 1
+    // the angle formed by a right triangle with legs w and h
     private static a = Math.atan(Rut.h / Rut.w)
 
-    public size: number
-    public dx: number
-    public dy: number
-    private x: number
-    private y: number
-    private color: string
+    public size: number // increases until out of bounds
+    public dx: number // randomly generated
+    public dy: number // randomly generated
+    private x: number // dependent upon size and dx
+    private y: number // dependent upon size and dy
+    private color: string // randomly generated
 
     public constructor() {
         this.reset()
