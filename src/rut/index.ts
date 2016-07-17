@@ -70,5 +70,5 @@ console.log([
     "background audio is Thor Kills the Destroyer",
     "including it on this site is likely copyright infringement",
     "however, I ask that you not sue me",
-    "this website gets few to no views anyway",
+    "this site gets few to no views anyway",
 ].join("\n"))
