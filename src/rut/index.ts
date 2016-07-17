@@ -67,8 +67,12 @@ if ("ontouchend" in window) {
     audio.oncanplaythrough = tryStart
 }
 
-// set these last, to make sure `on` functions get called. background audio is
-// Thor Kills the Destroyer - this is probably copyright infringement, but
-// please do not sue, since this website gets few to no hits anyway
 audio.src = "thor.mp3"
 img.src = "rut.png"
+
+console.log([
+    "background audio is Thor Kills the Destroyer",
+    "including it on this site is likely copyright infringement",
+    "however, I ask that you not sue me",
+    "this website gets few to no views anyway",
+].join("\n"))
