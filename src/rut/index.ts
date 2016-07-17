@@ -31,11 +31,7 @@ function loop(): void {
 
     imgScale += (imgScale * (1 - imgScale)) * 0.01
     Canvas.cx.drawImage(
-        img,
-        0,
-        0,
-        imgW,
-        imgH,
+        img, 0, 0, imgW, imgH,
         (Canvas.w - imgScale * imgW) / 2,
         (Canvas.h - imgScale * imgH) / 2,
         imgScale * imgW,
