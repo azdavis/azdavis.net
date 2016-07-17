@@ -12,7 +12,7 @@ const imgW = 219
 const imgH = 292
 let imgScale = 0.001
 
-const rs = []
+const rs: Rut[] = []
 const rsMax = 50
 
 function loop(): void {
