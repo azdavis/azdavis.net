@@ -6,7 +6,7 @@ MAKEFLAGS += -s
 .PHONY: all clean deploy git-ok hooks npm-i setup surge
 .PRECIOUS: %.css %.js
 
-include dep.mak
+include src/deps.mak
 
 %.html: %.pug src/base/head.pug %.css %.js
 	echo $@
