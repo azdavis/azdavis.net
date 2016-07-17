@@ -4,16 +4,19 @@ module Canvas {
 
     const pxRatio = devicePixelRatio || 1
 
-    let w: number
-    let h: number
-    export const center = {x: 0, y: 0}
+    export let w: number
+    export let h: number
+
+    export function reset(): void {
+        resize()
+        Canvas.cx.textAlign = "center"
+        Canvas.cx.textBaseline = "middle"
+    }
 
     // resize the canvas to be the size of the window
-    export function resize(): void {
+    function resize(): void {
         w = innerWidth
         h = innerHeight
-        center.x = w / 2
-        center.y = h / 2
         el.width = w * pxRatio
         el.height = h * pxRatio
         el.style.width = `${w}px`
@@ -26,7 +29,7 @@ module Canvas {
         cx.clearRect(0, 0, w, h)
     }
 
-    resize()
+    reset()
 }
 
 export default Canvas
