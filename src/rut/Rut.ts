@@ -50,7 +50,7 @@ class Rut {
     }
 
     public draw(): void {
-        Canvas.cx.font = `bold small-caps ${this.size}px serif`
+        Canvas.cx.font = `small-caps ${this.size}px serif`
         Canvas.cx.fillStyle = this.color
         Canvas.cx.fillText(Rut.text, this.x, this.y)
     }
