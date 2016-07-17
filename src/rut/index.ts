@@ -52,23 +52,27 @@ function loop(): void {
 }
 
 // HACK there's probably a better way to do this
-function start(): void {
-    audio.play()
-    requestAnimationFrame(loop)
+let loaded = 0
+const tryStart = () => {
+    loaded++
+    if (loaded >= 2) {
+        audio.play()
+        requestAnimationFrame(loop)
+    }
 }
 
-let tryStart = (() => {
-    let load = 0
-    return () => {
-        load++
-        if (load >= 2) {
-            start()
-        }
-    }
-})()
-
-audio.oncanplaythrough = tryStart
 img.onload = tryStart
+if ("ontouchend" in window) {
+    // if mobile, the user must tap to begin
+    const mobile = document.querySelector("#mobile") as HTMLElement
+    mobile.style.display = "block"
+    document.body.ontouchend = () => {
+        mobile.style.display = "none"
+        tryStart()
+    }
+} else {
+    audio.oncanplaythrough = tryStart
+}
 
 // set these last, to make sure `on` functions get called
 audio.src = "thor.mp3"
