@@ -7,13 +7,14 @@ onresize = Canvas.reset
 const audio = new Audio()
 audio.loop = true
 
-// HACK there's probably a better way to do this
 const progress = document.querySelector("#progress") as HTMLElement
 progress.style.display = "block"
 
 let load = 0
 const tryStart = () => {
     load++
+    // there must be exactly this many occurrences of tryStart being bound to
+    // an object's onload event handler
     if (load === 2) {
         document.body.style.cursor =
             progress.style.display =
