@@ -17,6 +17,9 @@ function loop(): void {
         rs.push(new RutText())
     }
 
+    RutImage.move()
+    RutImage.draw()
+
     for (let i = 0; i < rs.length; i++) {
         rs[i].move()
         rs[i].draw()
@@ -24,9 +27,6 @@ function loop(): void {
             rs[i].reset()
         }
     }
-
-    RutImage.move()
-    RutImage.draw()
 
     requestAnimationFrame(loop)
 }
