@@ -1,12 +1,12 @@
 import Canvas from "./Canvas"
 
-class Rut {
+class RutText {
     private static text = "Rüt"
     // the text sits in the middle of a (w x h) box
     private static w = 5
     private static h = 1
     // the angle formed by a right triangle with legs w and h
-    private static a = Math.atan(Rut.h / Rut.w)
+    private static a = Math.atan(RutText.h / RutText.w)
 
     public size: number
     public dx: number
@@ -24,18 +24,18 @@ class Rut {
         this.size = 1
 
         const a = Math.random() * 2 * Math.PI
-        if (0 <= a && a < Rut.a || 2 * Math.PI - Rut.a < a) {
-            this.dx = Rut.w
-            this.dy = Rut.w * Math.tan(a)
-        } else if (Rut.a <= a && a < Math.PI - Rut.a) {
-            this.dx = Rut.h / Math.tan(a)
-            this.dy = -Rut.h
-        } else if (Math.PI - Rut.a <= a && a < Math.PI + Rut.a) {
-            this.dx = -Rut.w
-            this.dy = Rut.w * Math.tan(a)
+        if (0 <= a && a < RutText.a || 2 * Math.PI - RutText.a < a) {
+            this.dx = RutText.w
+            this.dy = RutText.w * Math.tan(a)
+        } else if (RutText.a <= a && a < Math.PI - RutText.a) {
+            this.dx = RutText.h / Math.tan(a)
+            this.dy = -RutText.h
+        } else if (Math.PI - RutText.a <= a && a < Math.PI + RutText.a) {
+            this.dx = -RutText.w
+            this.dy = RutText.w * Math.tan(a)
         } else {
-            this.dx = -Rut.h / Math.tan(a)
-            this.dy = Rut.h
+            this.dx = -RutText.h / Math.tan(a)
+            this.dy = RutText.h
         }
 
         const s = 5 + Math.random() * 15
@@ -52,12 +52,12 @@ class Rut {
     public draw(): void {
         Canvas.cx.font = `small-caps ${this.size}px serif`
         Canvas.cx.fillStyle = this.color
-        Canvas.cx.fillText(Rut.text, this.x, this.y)
+        Canvas.cx.fillText(RutText.text, this.x, this.y)
     }
 
     public isOutOfBounds(): boolean {
-        const hw = Rut.w * this.size / 2
-        const hh = Rut.h * this.size / 2
+        const hw = RutText.w * this.size / 2
+        const hh = RutText.h * this.size / 2
         return this.x + hw < 0
             || this.x - hw > Canvas.w
             || this.y + hh < 0
@@ -70,4 +70,4 @@ class Rut {
     }
 }
 
-export default Rut
+export default RutText

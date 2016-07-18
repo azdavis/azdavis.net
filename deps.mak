@@ -20,4 +20,5 @@ src/lgw/index.js: \
 	src/lgw/Sprite.ts
 src/rut/index.js: \
 	src/rut/Canvas.ts \
-	src/rut/Rut.ts
+	src/rut/RutImage.ts \
+	src/rut/RutText.ts

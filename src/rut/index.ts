@@ -1,26 +1,22 @@
 import Canvas from "./Canvas"
-import Rut from "./Rut"
+import RutImage from "./RutImage"
+import RutText from "./RutText"
 
 onresize = Canvas.reset
 
 const audio = new Audio()
 audio.loop = true
 
-const img = new Image()
-// HACK these dimensions are directly from the file
-const imgW = 219
-const imgH = 292
-let imgScale = 0.001
-
-const rs: Rut[] = []
+const rs: RutText[] = []
 const rsMax = 50
 
 function loop(): void {
     Canvas.clear()
 
     if (Math.random() < 0.05 && rs.length < rsMax) {
-        rs.push(new Rut())
+        rs.push(new RutText())
     }
+
     for (let i = 0; i < rs.length; i++) {
         rs[i].move()
         rs[i].draw()
@@ -29,14 +25,8 @@ function loop(): void {
         }
     }
 
-    imgScale += (imgScale * (1 - imgScale)) * 0.01
-    Canvas.cx.drawImage(
-        img, 0, 0, imgW, imgH,
-        (Canvas.w - imgScale * imgW) / 2,
-        (Canvas.h - imgScale * imgH) / 2,
-        imgScale * imgW,
-        imgScale * imgH
-    )
+    RutImage.move()
+    RutImage.draw()
 
     requestAnimationFrame(loop)
 }
@@ -51,7 +41,7 @@ const tryStart = () => {
     }
 }
 
-img.onload = tryStart
+RutImage.el.onload = tryStart
 if ("ontouchend" in window) {
     const mobile = document.querySelector("#mobile") as HTMLElement
     mobile.style.display = "block"
@@ -63,8 +53,8 @@ if ("ontouchend" in window) {
     audio.oncanplaythrough = tryStart
 }
 
+RutImage.el.src = "rut.png"
 audio.src = "thor.mp3"
-img.src = "rut.png"
 
 console.log([
     "background audio is Thor Kills the Destroyer",
