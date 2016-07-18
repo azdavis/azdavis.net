@@ -18,9 +18,6 @@ function Loop(): void {
     for (let i = 0; i < rs.length; i++) {
         rs[i].move()
         rs[i].draw()
-        if (rs[i].isOutOfBounds()) {
-            rs[i].reset()
-        }
     }
 
     requestAnimationFrame(Loop)

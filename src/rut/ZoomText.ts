@@ -26,7 +26,22 @@ class ZoomText {
         this.reset()
     }
 
-    public reset(): void {
+    public move(): void {
+        this.size *= 1.01
+        this.getXY()
+        if (this.isOutOfBounds()) {
+            this.reset()
+        }
+    }
+
+    public draw(): void {
+        Canvas.cx.font =
+            `${ZoomText.font.variant} ${this.size}px ${ZoomText.font.family}`
+        Canvas.cx.fillStyle = this.color
+        Canvas.cx.fillText(ZoomText.text, this.x, this.y)
+    }
+
+    private reset(): void {
         this.color = `hsl(${Math.random() * 360}, 60%, 60%)`
         this.size = 1
 
@@ -52,19 +67,7 @@ class ZoomText {
         this.getXY()
     }
 
-    public move(): void {
-        this.size *= 1.01
-        this.getXY()
-    }
-
-    public draw(): void {
-        Canvas.cx.font =
-            `${ZoomText.font.variant} ${this.size}px ${ZoomText.font.family}`
-        Canvas.cx.fillStyle = this.color
-        Canvas.cx.fillText(ZoomText.text, this.x, this.y)
-    }
-
-    public isOutOfBounds(): boolean {
+    private isOutOfBounds(): boolean {
         const hw = ZoomText.w * this.size / 2
         const hh = ZoomText.h * this.size / 2
         return this.x + hw < 0
