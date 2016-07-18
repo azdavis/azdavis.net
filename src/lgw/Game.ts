@@ -9,7 +9,7 @@ module Game {
     export let playing = false
 
     const info = document.querySelector("#info") as HTMLElement
-    const html = document.documentElement
+    const bds = document.body.style
 
     let loopID: number
     let score: number
@@ -31,7 +31,7 @@ module Game {
         playing = true
         loopID = requestAnimationFrame(loop)
         info.style.display = "block"
-        html.style.cursor = "none"
+        bds.cursor = "none"
     }
 
     // stop playing loop
@@ -39,7 +39,7 @@ module Game {
         playing = false
         cancelAnimationFrame(loopID)
         Canvas.clear()
-        info.style.display = html.style.cursor = ""
+        info.style.display = bds.cursor = ""
         Player.stopMoving()
     }
 
