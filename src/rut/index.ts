@@ -23,14 +23,19 @@ const tryStart = () => {
     }
 }
 
-CenterImage.el.onload = tryStart
 if ("ontouchend" in window) {
-    // HACK we can't listen for oncanplaythrough when it's an iOS device
+    // HACK on iOS, audio/video resources only begin downloading after user
+    // interaction (but luckily, after such interaction, events like
+    // oncanplaythrough seem to work)
+    const loadText = progress.innerHTML
     progress.innerHTML = "Tap Anywhere"
-    document.body.ontouchend = tryStart
-} else {
-    audio.oncanplaythrough = tryStart
+    document.body.ontouchend = () => {
+        progress.innerHTML = loadText
+        audio.play()
+        audio.pause()
+    }
 }
+CenterImage.el.onload = audio.oncanplaythrough = tryStart
 
 CenterImage.el.src = "rut.png"
 audio.src = "thor.mp3"
