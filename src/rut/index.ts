@@ -32,11 +32,16 @@ function loop(): void {
 }
 
 // HACK there's probably a better way to do this
+const progress = document.querySelector("#progress") as HTMLElement
+progress.style.display = "block"
+
 let load = 0
 const tryStart = () => {
     load++
     if (load === 2) {
-        document.documentElement.style.cursor = "none"
+        document.body.style.cursor =
+            progress.style.display =
+            "none"
         audio.play()
         requestAnimationFrame(loop)
     }
@@ -44,13 +49,9 @@ const tryStart = () => {
 
 CenterImage.el.onload = tryStart
 if ("ontouchend" in window) {
-    const mobile = document.querySelector("#mobile") as HTMLElement
     audio.oncanplaythrough = () => {
-        mobile.style.display = "block"
-        document.body.ontouchend = () => {
-            mobile.style.display = "none"
-            tryStart()
-        }
+        progress.innerHTML = "Tap Anywhere"
+        document.body.ontouchend = tryStart
     }
 } else {
     audio.oncanplaythrough = tryStart
