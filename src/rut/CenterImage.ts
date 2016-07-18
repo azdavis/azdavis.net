@@ -8,7 +8,7 @@ module CenterImage {
     let size = 0.001
 
     export function move(): void {
-        size += (size * (1 - size)) * 0.01
+        size += size * (1 - size) * 0.01
     }
 
     export function draw(): void {
