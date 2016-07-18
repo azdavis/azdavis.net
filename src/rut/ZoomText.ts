@@ -31,17 +31,18 @@ class ZoomText {
         this.size = 1
 
         const a = Math.random() * 2 * Math.PI
+        const t = Math.tan(a)
         if (0 <= a && a < ZoomText.a || 2 * Math.PI - ZoomText.a < a) {
             this.dx = ZoomText.w
-            this.dy = ZoomText.w * Math.tan(a)
+            this.dy = ZoomText.w * t
         } else if (ZoomText.a <= a && a < Math.PI - ZoomText.a) {
-            this.dx = ZoomText.h / Math.tan(a)
+            this.dx = ZoomText.h / t
             this.dy = -ZoomText.h
         } else if (Math.PI - ZoomText.a <= a && a < Math.PI + ZoomText.a) {
             this.dx = -ZoomText.w
-            this.dy = ZoomText.w * Math.tan(a)
+            this.dy = ZoomText.w * t
         } else {
-            this.dx = -ZoomText.h / Math.tan(a)
+            this.dx = -ZoomText.h / t
             this.dy = ZoomText.h
         }
 
