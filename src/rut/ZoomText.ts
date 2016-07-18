@@ -61,7 +61,7 @@ class ZoomText {
             this.dy = ZoomText.h
         }
 
-        const s = 5 + Math.random() * 15
+        const s = 3 + Math.random() * 15
         this.dx *= s
         this.dy *= s
         this.getXY()
