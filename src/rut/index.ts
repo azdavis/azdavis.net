@@ -67,3 +67,8 @@ console.log([
     "however, I ask that you not sue me",
     "this site gets few to no views anyway",
 ].join("\n"))
+
+setInterval(() => {
+    // something is rotten in the state of Safari
+    console.log(audio.readyState)
+}, 2000)
