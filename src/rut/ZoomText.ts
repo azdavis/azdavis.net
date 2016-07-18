@@ -27,7 +27,7 @@ class ZoomText {
     }
 
     public move(): void {
-        this.size *= 1.01
+        this.size *= 1.02
         this.getXY()
         if (this.isOutOfBounds()) {
             this.reset()
