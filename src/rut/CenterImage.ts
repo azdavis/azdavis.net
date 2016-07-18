@@ -1,6 +1,6 @@
 import Canvas from "./Canvas"
 
-module RutImage {
+module CenterImage {
     export const el = new Image()
     // HACK these dimensions are directly from the file
     const w = 219
@@ -22,4 +22,4 @@ module RutImage {
     }
 }
 
-export default RutImage
+export default CenterImage

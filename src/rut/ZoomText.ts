@@ -1,12 +1,19 @@
 import Canvas from "./Canvas"
 
-class RutText {
+class ZoomText {
     private static text = "Rüt"
+    private static font = (() => {
+        const hs = getComputedStyle(document.documentElement)
+        return {
+            family: hs.fontFamily,
+            variant: hs.fontVariant,
+        }
+    })()
     // the text sits in the middle of a (w x h) box
     private static w = 5
     private static h = 1
     // the angle formed by a right triangle with legs w and h
-    private static a = Math.atan(RutText.h / RutText.w)
+    private static a = Math.atan(ZoomText.h / ZoomText.w)
 
     public size: number
     public dx: number
@@ -24,18 +31,18 @@ class RutText {
         this.size = 1
 
         const a = Math.random() * 2 * Math.PI
-        if (0 <= a && a < RutText.a || 2 * Math.PI - RutText.a < a) {
-            this.dx = RutText.w
-            this.dy = RutText.w * Math.tan(a)
-        } else if (RutText.a <= a && a < Math.PI - RutText.a) {
-            this.dx = RutText.h / Math.tan(a)
-            this.dy = -RutText.h
-        } else if (Math.PI - RutText.a <= a && a < Math.PI + RutText.a) {
-            this.dx = -RutText.w
-            this.dy = RutText.w * Math.tan(a)
+        if (0 <= a && a < ZoomText.a || 2 * Math.PI - ZoomText.a < a) {
+            this.dx = ZoomText.w
+            this.dy = ZoomText.w * Math.tan(a)
+        } else if (ZoomText.a <= a && a < Math.PI - ZoomText.a) {
+            this.dx = ZoomText.h / Math.tan(a)
+            this.dy = -ZoomText.h
+        } else if (Math.PI - ZoomText.a <= a && a < Math.PI + ZoomText.a) {
+            this.dx = -ZoomText.w
+            this.dy = ZoomText.w * Math.tan(a)
         } else {
-            this.dx = -RutText.h / Math.tan(a)
-            this.dy = RutText.h
+            this.dx = -ZoomText.h / Math.tan(a)
+            this.dy = ZoomText.h
         }
 
         const s = 5 + Math.random() * 15
@@ -50,14 +57,15 @@ class RutText {
     }
 
     public draw(): void {
-        Canvas.cx.font = `small-caps ${this.size}px serif`
+        Canvas.cx.font =
+            `${ZoomText.font.variant} ${this.size}px ${ZoomText.font.family}`
         Canvas.cx.fillStyle = this.color
-        Canvas.cx.fillText(RutText.text, this.x, this.y)
+        Canvas.cx.fillText(ZoomText.text, this.x, this.y)
     }
 
     public isOutOfBounds(): boolean {
-        const hw = RutText.w * this.size / 2
-        const hh = RutText.h * this.size / 2
+        const hw = ZoomText.w * this.size / 2
+        const hh = ZoomText.h * this.size / 2
         return this.x + hw < 0
             || this.x - hw > Canvas.w
             || this.y + hh < 0
@@ -70,4 +78,4 @@ class RutText {
     }
 }
 
-export default RutText
+export default ZoomText

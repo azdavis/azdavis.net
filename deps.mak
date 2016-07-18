@@ -20,5 +20,5 @@ src/lgw/index.js: \
 	src/lgw/Sprite.ts
 src/rut/index.js: \
 	src/rut/Canvas.ts \
-	src/rut/RutImage.ts \
-	src/rut/RutText.ts
+	src/rut/CenterImage.ts \
+	src/rut/ZoomText.ts

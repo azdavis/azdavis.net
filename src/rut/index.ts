@@ -1,24 +1,24 @@
 import Canvas from "./Canvas"
-import RutImage from "./RutImage"
-import RutText from "./RutText"
+import CenterImage from "./CenterImage"
+import ZoomText from "./ZoomText"
 
 onresize = Canvas.reset
 
 const audio = new Audio()
 audio.loop = true
 
-const rs: RutText[] = []
+const rs: ZoomText[] = []
 const rsMax = 50
 
 function loop(): void {
     Canvas.clear()
 
     if (Math.random() < 0.05 && rs.length < rsMax) {
-        rs.push(new RutText())
+        rs.push(new ZoomText())
     }
 
-    RutImage.move()
-    RutImage.draw()
+    CenterImage.move()
+    CenterImage.draw()
 
     for (let i = 0; i < rs.length; i++) {
         rs[i].move()
@@ -36,12 +36,13 @@ let load = 0
 const tryStart = () => {
     load++
     if (load === 2) {
+        document.documentElement.style.cursor = "none"
         audio.play()
         requestAnimationFrame(loop)
     }
 }
 
-RutImage.el.onload = tryStart
+CenterImage.el.onload = tryStart
 if ("ontouchend" in window) {
     const mobile = document.querySelector("#mobile") as HTMLElement
     mobile.style.display = "block"
@@ -53,7 +54,7 @@ if ("ontouchend" in window) {
     audio.oncanplaythrough = tryStart
 }
 
-RutImage.el.src = "rut.png"
+CenterImage.el.src = "rut.png"
 audio.src = "thor.mp3"
 
 console.log([
