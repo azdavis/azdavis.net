@@ -51,4 +51,4 @@ console.log([
 setInterval(() => {
     // something is rotten in the state of Safari
     console.log(audio.readyState)
-}, 2000)
+}, 5000)
