@@ -7,17 +7,17 @@ onresize = Canvas.reset
 const audio = new Audio()
 audio.loop = true
 
-const progress = document.querySelector("#progress") as HTMLElement
-progress.style.display = "block"
+const msg = document.querySelector("#msg") as HTMLElement
+const loadText = "Loading…"
 
-let load = 0
+let loaded = 0
 const tryStart = () => {
-    load++
+    loaded++
     // there must be exactly this many occurrences of tryStart being bound to
     // an object's onload event handler
-    if (load === 2) {
+    if (loaded === 2) {
         document.body.style.cursor =
-            progress.style.display =
+            msg.style.display =
             "none"
         audio.play()
         requestAnimationFrame(Loop)
@@ -28,16 +28,17 @@ if ("ontouchend" in window) {
     // HACK on iOS, audio/video resources only begin downloading after user
     // interaction (but luckily, after such interaction, events like
     // oncanplaythrough seem to work)
-    const loadText = progress.innerHTML
-    progress.innerHTML = "Tap Anywhere"
+    msg.innerHTML = "Tap Anywhere"
     document.body.ontouchend = () => {
-        progress.innerHTML = loadText
+        msg.innerHTML = loadText
         audio.play()
         audio.pause()
     }
+} else {
+    msg.innerHTML = loadText
 }
-CenterImage.el.onload = audio.oncanplaythrough = tryStart
 
+CenterImage.el.onload = audio.oncanplaythrough = tryStart
 CenterImage.el.src = "rut.png"
 audio.src = "thor.mp3"
 
