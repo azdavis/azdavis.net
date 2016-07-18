@@ -45,10 +45,12 @@ const tryStart = () => {
 CenterImage.el.onload = tryStart
 if ("ontouchend" in window) {
     const mobile = document.querySelector("#mobile") as HTMLElement
-    mobile.style.display = "block"
-    document.body.ontouchend = () => {
-        mobile.style.display = "none"
-        tryStart()
+    audio.oncanplaythrough = () => {
+        mobile.style.display = "block"
+        document.body.ontouchend = () => {
+            mobile.style.display = "none"
+            tryStart()
+        }
     }
 } else {
     audio.oncanplaythrough = tryStart
