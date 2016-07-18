@@ -8,8 +8,7 @@ module CenterImage {
     let size = 0.001
 
     export function move(): void {
-        // the logistic growth function is the solution to the differential
-        // equation
+        // the logistic function is the solution to the differential equation
         //
         //     df/dx = f(x)(1 - f(x))
         //
