@@ -25,10 +25,8 @@ const tryStart = () => {
 
 CenterImage.el.onload = tryStart
 if ("ontouchend" in window) {
-    audio.oncanplaythrough = () => {
-        progress.innerHTML = "Tap Anywhere"
-        document.body.ontouchend = tryStart
-    }
+    progress.innerHTML = "Tap Anywhere"
+    document.body.ontouchend = tryStart
 } else {
     audio.oncanplaythrough = tryStart
 }
