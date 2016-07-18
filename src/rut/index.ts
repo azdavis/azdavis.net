@@ -42,10 +42,10 @@ function loop(): void {
 }
 
 // HACK there's probably a better way to do this
-let loaded = 0
+let load = 0
 const tryStart = () => {
-    loaded++
-    if (loaded >= 2) {
+    load++
+    if (load === 2) {
         audio.play()
         requestAnimationFrame(loop)
     }
