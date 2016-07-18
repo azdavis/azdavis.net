@@ -3,10 +3,10 @@ import Canvas from "./Canvas"
 class ZoomText {
     private static text = "Rüt"
     private static font = (() => {
-        const hs = getComputedStyle(document.documentElement)
+        const bs = getComputedStyle(document.body)
         return {
-            family: hs.fontFamily,
-            variant: hs.fontVariant,
+            family: bs.fontFamily,
+            variant: bs.fontVariant,
         }
     })()
     // the text sits in the middle of a (w x h) box
