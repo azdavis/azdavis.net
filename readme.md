@@ -32,7 +32,7 @@ a place for stuff http://azdavis.xyz
     - compiles .styl to .css
     - compiles .pug to .html
     - concatenates compiled assets into one .html file
-- `./server`
+- `./test`
     - starts a server on port 8080
     - opens your default browser to http://localhost:8080
     - re-makes whenever files change
