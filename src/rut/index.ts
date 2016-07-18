@@ -25,6 +25,7 @@ const tryStart = () => {
 
 CenterImage.el.onload = tryStart
 if ("ontouchend" in window) {
+    // HACK we can't listen for oncanplaythrough when it's an iOS device
     progress.innerHTML = "Tap Anywhere"
     document.body.ontouchend = tryStart
 } else {
