@@ -21,4 +21,5 @@ src/lgw/index.js: \
 src/rut/index.js: \
 	src/rut/Canvas.ts \
 	src/rut/CenterImage.ts \
+	src/rut/Loop.ts \
 	src/rut/ZoomText.ts
