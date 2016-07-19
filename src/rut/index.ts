@@ -44,3 +44,14 @@ audio.src = "ride.mp3"
 CenterImage.el.src = "rut.png"
 
 console.log("Ride of the Valkyries https://youtu.be/7AlEvy0fJto")
+
+// HACK I kid you not, if this seemingly pointless line isn't here, Safari
+// doesn't start autoplaying on the initial page load the first time the page
+// is loaded (any other subsuquent loads work)
+//
+// macOS 10.11.5 (15F34)
+// Safari 9.1.1 (11601.6.17)
+
+// tslint:disable:no-empty
+setInterval(() => {}, 9000)
+// tslint:enable:no-empty
