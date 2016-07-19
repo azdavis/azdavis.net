@@ -7,6 +7,7 @@ onresize = Canvas.reset
 const audio = new Audio()
 audio.loop = true
 
+const html = document.documentElement
 const msg = document.querySelector("#msg") as HTMLElement
 const loadText = "Loading…"
 
@@ -16,9 +17,7 @@ const tryStart = () => {
     // there must be exactly this many occurrences of tryStart being bound to
     // an object's onload event handler
     if (loaded === 2) {
-        document.body.style.cursor =
-            msg.style.display =
-            "none"
+        html.style.cursor = msg.style.display = "none"
         audio.play()
         requestAnimationFrame(Loop)
     }
@@ -29,7 +28,7 @@ if ("ontouchend" in window) {
     // interaction (but luckily, after such interaction, events like
     // oncanplaythrough seem to work)
     msg.innerHTML = "Tap Anywhere"
-    document.body.ontouchend = () => {
+    html.ontouchend = () => {
         msg.innerHTML = loadText
         audio.play()
         audio.pause()
