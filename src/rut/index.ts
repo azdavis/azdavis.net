@@ -39,16 +39,11 @@ if ("ontouchend" in window) {
 }
 
 CenterImage.el.onload = audio.oncanplaythrough = tryStart
-CenterImage.el.src = "rut.png"
-audio.src = "thor.mp3"
 
-console.log([
-    "background audio is Thor Kills the Destroyer",
-    "see here: https://youtu.be/YGNCQUYeAQM",
-    "including it on this site is likely copyright infringement",
-    "however, I ask that you not sue me",
-    "this site gets few to no views anyway",
-].join("\n"))
+audio.src = "ride.mp3"
+CenterImage.el.src = "rut.png"
+
+console.log("Ride of the Valkyries https://youtu.be/7AlEvy0fJto")
 
 setInterval(() => {
     // something is rotten in the state of Safari
