@@ -16,5 +16,5 @@ Board.drawNew("reg")
 
 // HACK makes :active work on iOS
 // tslint:disable:no-empty
-document.body.ontouchend = () => {}
+document.documentElement.ontouchend = () => {}
 // tslint:enable:no-empty

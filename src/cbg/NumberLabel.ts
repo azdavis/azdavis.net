@@ -5,8 +5,8 @@ class NumberLabel extends Sprite {
     private static radius = 15
     private static backgroundFill = "#ddd"
     private static font = (() => {
-        const b = getComputedStyle(document.body)
-        return `${b.fontSize} ${b.fontFamily}`
+        const hs = getComputedStyle(document.documentElement)
+        return `${hs.fontSize} ${hs.fontFamily}`
     })()
 
     private n: string
