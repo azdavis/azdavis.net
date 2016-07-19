@@ -53,5 +53,5 @@ console.log("Ride of the Valkyries https://youtu.be/7AlEvy0fJto")
 // Safari 9.1.1 (11601.6.17)
 
 // tslint:disable:no-empty
-setInterval(() => {}, 9000)
+setTimeout(() => {}, 9000)
 // tslint:enable:no-empty
