@@ -19,5 +19,5 @@ sleep 0.5 && open "http://localhost:8080" &
 while true; do find . \
     -not -path "*.git*" \
     -a -not -path "*node_modules*" \
-    | entr -cd make || [[ "$?" == 2 ]]
+    | entr -d make || [[ "$?" == 2 ]]
 done
