@@ -44,8 +44,3 @@ audio.src = "ride.mp3"
 CenterImage.el.src = "rut.png"
 
 console.log("Ride of the Valkyries https://youtu.be/7AlEvy0fJto")
-
-setInterval(() => {
-    // something is rotten in the state of Safari
-    console.log(audio.readyState)
-}, 5000)
