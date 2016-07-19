@@ -7,6 +7,7 @@ module Canvas {
     export let w: number
     export let h: number
 
+    // resize this and set some text properties
     export function reset(): void {
         resize()
         Canvas.cx.textAlign = "center"

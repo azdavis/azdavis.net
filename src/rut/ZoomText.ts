@@ -22,18 +22,22 @@ class ZoomText {
     private y: number
     private color: string
 
+    // just reset
     public constructor() {
         this.reset()
     }
 
+    // increase size expontentially and calculate x and y based on the new
+    // size; then, if out of bounds, reset back to the center
     public move(): void {
         this.size *= 1.02
-        this.getXY()
+        this.calcXY()
         if (this.isOutOfBounds()) {
             this.reset()
         }
     }
 
+    // draw the text with this.font and this.color
     public draw(): void {
         Canvas.cx.font =
             `${ZoomText.font.variant} ${this.size}px ${ZoomText.font.family}`
@@ -41,6 +45,8 @@ class ZoomText {
         Canvas.cx.fillText(ZoomText.text, this.x, this.y)
     }
 
+    // set a random color, set size to almost nothing, and determine in what
+    // direction this moves and how quickly
     private reset(): void {
         this.color = `hsl(${Math.random() * 360}, 60%, 60%)`
         this.size = 1
@@ -64,9 +70,10 @@ class ZoomText {
         const s = 3 + Math.random() * 15
         this.dx *= s
         this.dy *= s
-        this.getXY()
+        this.calcXY()
     }
 
+    // return whether this is completely outside the canvas
     private isOutOfBounds(): boolean {
         const hw = ZoomText.w * this.size / 2
         const hh = ZoomText.h * this.size / 2
@@ -76,7 +83,9 @@ class ZoomText {
             || this.y - hh > Canvas.h
     }
 
-    private getXY(): void {
+    // calculate x and y based on the canvas's dimensions, this.size, and
+    // this.d{x,y}
+    private calcXY(): void {
         this.x = Canvas.w / 2 + this.size * this.dx
         this.y = Canvas.h / 2 + this.size * this.dy
     }

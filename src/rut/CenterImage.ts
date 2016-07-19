@@ -7,6 +7,7 @@ module CenterImage {
     const h = 292
     let size = 0.001
 
+    // resize this in a logistically-growing way
     export function move(): void {
         // the logistic function is the solution to the differential equation
         //
@@ -24,6 +25,7 @@ module CenterImage {
         size += size * (1 - size) * 0.008
     }
 
+    // draw this directly in the center
     export function draw(): void {
         Canvas.cx.drawImage(
             el, 0, 0, w, h,
