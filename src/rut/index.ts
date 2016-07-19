@@ -40,8 +40,8 @@ if ("ontouchend" in window) {
 
 CenterImage.el.onload = audio.oncanplaythrough = tryStart
 
-audio.src = "ride.mp3"
-CenterImage.el.src = "rut.png"
+audio.src = "a.mp3"
+CenterImage.el.src = "ci.png"
 
 console.log("Ride of the Valkyries https://youtu.be/7AlEvy0fJto")
 

@@ -4,7 +4,7 @@ module CenterImage {
     export const el = new Image()
     // HACK these dimensions are directly from a file
     const w = 214
-    const h = 285
+    const h = 282
     let size = 0.001
 
     // resize this in a logistically-growing way
@@ -22,7 +22,7 @@ module CenterImage {
         //
         //     f(x + dx) ≈ f(x) + df
         //
-        size += size * (1 - size) * 0.008
+        size += size * (1 - size) * 0.007
     }
 
     // draw this directly in the center
