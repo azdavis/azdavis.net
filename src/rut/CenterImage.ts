@@ -3,8 +3,8 @@ import Canvas from "./Canvas"
 module CenterImage {
     export const el = new Image()
     // HACK these dimensions are directly from a file
-    const w = 219
-    const h = 292
+    const w = 214
+    const h = 285
     let size = 0.001
 
     // resize this in a logistically-growing way
