@@ -3,7 +3,7 @@ import CenterImage from "./CenterImage"
 import ZoomText from "./ZoomText"
 
 const zt: ZoomText[] = []
-const ztMax = 50
+const ztMax = 70
 
 // clear the canvas, maybe add a new ZoomText if there aren't already enough,
 // draw the CenterImage, then draw all the ZoomText (possibly on top of
