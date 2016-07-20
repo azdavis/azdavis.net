@@ -1,6 +1,6 @@
 -
     const d = new Date()
-    const year = d.getFullYear()
+    const year = String(d.getFullYear())
     const iso =
         new Date(Number(d) - d.getTimezoneOffset() * 60000)
         .toISOString()
