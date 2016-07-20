@@ -83,6 +83,8 @@ binary:
 	for f in \
 	base/favicon.png \
 	base/touch-icon.png \
+	rut/a.mp3 \
+	rut/ci.png \
 	; do curl -fsSL "http://azdavis.xyz/$$f" > "src/$$f"; done
 
 surge:
