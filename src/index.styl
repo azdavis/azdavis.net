@@ -38,6 +38,8 @@ a
     &
     &:visited
         color inherit
+a
+.arg
     &::before
         content "<"
     &::after
@@ -53,6 +55,12 @@ a
 
 .desc
     margin 0 0 1.3em 4ch
+
+.opt::before
+    content "‑" // non-breaking hyphen
+
+.lopt::before
+    content "‑‑" // non-breaking hyphen
 
 @media only screen and (max-width 600px)
     section div

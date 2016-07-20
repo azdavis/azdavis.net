@@ -46,20 +46,23 @@ html(lang="en")
         section
             h2 OPTIONS
             div
-                h3 -h, --help
+                h3 #[span.opt h], #[span.lopt help]
                 .desc Display this help and exit.
-                h3 -v, --version
+                h3 #[span.opt v], #[span.lopt version]
                 .desc Display current age in years and exit.
-                h3 -q, --quiet
+                h3 #[span.opt q], #[span.lopt quiet]
                 .desc Be quiet, only report errors. This is the default.
-                h3 -v, --verbose
+                h3 #[span.opt v], #[span.lopt verbose]
                 .desc Be chatty. This can only be used in special cases.
-                h3 -l &lt;code&gt;, --lang=&lt;code&gt;
+                h3.
+                    #[span.opt l] #[span.arg code],
+                    #[span.lopt lang]=#[span.arg code]
                 .desc.
                     Use the given language for communication, where
-                    &lt;code&gt; is one of en or ja, for English or Japanese,
-                    respectively. The default is en. Using ja may result in
-                    poorly-constructed or grammatically incorrect sentences.
+                    #[span.arg code] is one of en or ja, for English or
+                    Japanese, respectively. The default is en. Using ja may
+                    result in poorly-constructed or grammatically incorrect
+                    sentences.
         section
             h2 COMMANDS
             div
@@ -73,14 +76,15 @@ html(lang="en")
                     With no arguments, launch a simple arrow-key game which
                     unintentionally bears some similarities to Bizarre
                     Creation's Geometry Wars, but is altogether more mediocre.
-                    With &#8209;&#8209;rules, show the rules for such a game.
+                    With #[span.lopt rules], show the rules for such a game.
                     See also #[+a("/lgw")].
                 h3 generate-catan-board
                 .desc.
                     Generate a valid Catan® board. The type of board, regular
                     or expansion, can be specified with
-                    &#8209;&#8209;type=&lt;type&gt;, where &lt;type&gt; is one
-                    of reg or exp. The default is reg. See also #[+a("/cbg")].
+                    #[span.lopt type]=#[span.arg type], where #[span.arg type]
+                    is one of reg or exp. The default is reg.
+                    See also #[+a("/cbg")].
         section
             h2 AUTHORS
             div Written by David and Karen Davis.
