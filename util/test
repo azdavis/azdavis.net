@@ -7,8 +7,8 @@ PATH="node_modules/.bin:$PATH"
 server=
 end() {
     kill "$server"
-    echo " server stopped."
-    exit 0
+    printf " server stopped."
+    exit
 }
 trap end INT
 
