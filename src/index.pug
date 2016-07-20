@@ -6,9 +6,10 @@
         new Date(1 * now - tzOff)
         .toISOString()
         .substring(0, 10)
-mixin a(h)
-    a(href= h)= h.replace(/https?:\/\//, "").replace(/^\//, "azdavis.xyz/")
+
 html(lang="en")
+    mixin a(h)
+        a(href= h)= h.replace(/https?:\/\//, "").replace(/^\//, "azdavis.xyz/")
     head
         include /src/base/head.pug
         title man azdavis
