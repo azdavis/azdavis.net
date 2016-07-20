@@ -11,11 +11,11 @@ html(lang="en")
     mixin a(h)
         a(href= h)= h.replace(/https?:\/\//, "").replace(/^\//, "azdavis.xyz/")
     mixin opt(t)
-        span= `‑${t}`
+        = `‑${t}`
     mixin lopt(t)
-        span= `‑-${t}`
+        = `‑-${t}`
     mixin arg(t)
-        span= `<${t}>`
+        = `<${t}>`
     head
         include /src/base/head.pug
         title man azdavis
