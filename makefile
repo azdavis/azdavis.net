@@ -35,18 +35,18 @@ clean:
 test:
 	server=; \
 	end() { \
-	    kill "$$server"; \
-	    printf " server stopped."; \
-	    exit; \
+		kill "$$server"; \
+		printf " server stopped."; \
+		exit; \
 	}; \
 	trap end INT; \
 	http-server src &> /dev/null & \
 	server="$$!"; \
 	sleep 0.5 && open "http://localhost:8080" & \
 	while true; do find . \
-	    -not -path "*.git*" \
-	    -a -not -path "*node_modules*" \
-	    | entr -d make || [[ "$?" == 2 ]]; \
+		-not -path "*.git*" \
+		-a -not -path "*node_modules*" \
+		| entr -d make || [[ "$?" == 2 ]]; \
 	done
 
 deploy: git-ok all upload
@@ -78,9 +78,7 @@ binary:
 	for f in \
 	base/favicon.png \
 	base/touch-icon.png \
-	; do \
-	    curl -fsSL "http://azdavis.xyz/$$f" > "src/$$f"; \
-	done
+	; do curl -fsSL "http://azdavis.xyz/$$f" > "src/$$f"; done
 
 surge:
 	if ! grep -q surge.sh ~/.netrc; then surge login; fi
