@@ -1,9 +1,8 @@
 -
-    const now = new Date()
-    const nowYr = now.getFullYear()
-    const tzOff = now.getTimezoneOffset() * 60000
-    const nowStr =
-        new Date(1 * now - tzOff)
+    const d = new Date()
+    const year = d.getFullYear()
+    const iso =
+        new Date(Number(d) - d.getTimezoneOffset() * 60000)
         .toISOString()
         .substring(0, 10)
 
@@ -104,10 +103,10 @@ html(lang="en")
         section
             h2 COPYRIGHT
             div.
-                Copyright © #[time(datetime= nowYr)= nowYr] Ariel Davis. All
+                Copyright © #[time(datetime= year)= year] Ariel Davis. All
                 rights reserved.
         footer.three
             div Ariel Davis
-            div: time(datetime= nowStr)= nowStr
+            div: time(datetime= iso)= iso
             div AZDAVIS(1)
         script: include index.js
