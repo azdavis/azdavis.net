@@ -3,7 +3,7 @@ SHELL := sh -euo pipefail
 Q ?= &> /dev/null
 MAKEFLAGS += -s
 
-.PHONY: all clean deploy git-ok hooks npm-i setup surge
+.PHONY: all clean deploy git-ok upload setup hooks npm-i surge test get-binary
 .PRECIOUS: %.css %.js
 
 include deps.mak
@@ -32,15 +32,19 @@ include deps.mak
 clean:
 	find src \( -name \*.html -o -name \*.css -o -name \*.js \) -delete
 
-deploy: git-ok all
+deploy: git-ok all upload
+
+git-ok:
+	[[ -z "$$(git status --porcelain)" ]]
+	[[ "$$(git rev-parse --abbrev-ref @)" == master ]]
+
+upload:
 	git push -q origin master
 	surge -d azdavis.xyz -p src 2> /dev/null \
 		| grep size \
 		| sed -E "s/^$$(printf "\033")\[90m +//g"
 
-git-ok:
-	[[ -z "$$(git status --porcelain)" ]]
-	[[ "$$(git rev-parse --abbrev-ref @)" == master ]]
+setup: hooks npm-i surge
 
 hooks:
 	mkdir -p .git/hooks
@@ -53,7 +57,11 @@ hooks:
 npm-i:
 	npm i
 
-setup: hooks npm-i surge
-
 surge:
 	if ! grep -q surge.sh ~/.netrc; then surge login; fi
+
+test:
+	"util/test"
+
+get-binary:
+	"util/get-binary"
