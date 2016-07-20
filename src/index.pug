@@ -10,9 +10,7 @@ html(lang="en")
     mixin a(h)
         a(href= h)= h.replace(/https?:\/\//, "").replace(/^\//, "azdavis.xyz/")
     mixin opt(t)
-        = `‑${t}`
-    mixin lopt(t)
-        = `‑‑${t}`
+        = `${t.length === 1 ? "‑" : "‑‑"}${t}`
     mixin arg(t)
         = `<${t}>`
     head
@@ -52,17 +50,17 @@ html(lang="en")
         section
             h2 OPTIONS
             div: dl
-                dt #[+opt("h")], #[+lopt("help")]
+                dt #[+opt("h")], #[+opt("help")]
                 dd Display this help and exit.
-                dt #[+opt("v")], #[+lopt("version")]
+                dt #[+opt("v")], #[+opt("version")]
                 dd Display current age in years and exit.
-                dt #[+opt("q")], #[+lopt("quiet")]
+                dt #[+opt("q")], #[+opt("quiet")]
                 dd Be quiet, only report errors. This is the default.
-                dt #[+opt("v")], #[+lopt("verbose")]
+                dt #[+opt("v")], #[+opt("verbose")]
                 dd Be chatty. This can only be used in special cases.
                 dt.
                     #[+opt("l")] #[+arg("code")],
-                    #[+lopt("lang")]=#[+arg("code")]
+                    #[+opt("lang")]=#[+arg("code")]
                 dd.
                     Use the given language for communication, where
                     #[+arg("code")] is one of en or ja, for English or
@@ -82,12 +80,12 @@ html(lang="en")
                     With no arguments, launch a simple arrow-key game which
                     unintentionally bears some similarities to Bizarre
                     Creation's Geometry Wars, but is altogether more mediocre.
-                    With #[+lopt("rules")], show the rules for such a game.
+                    With #[+opt("rules")], show the rules for such a game.
                     See also #[+a("/lgw")].
                 dt generate-catan-board
                 dd.
                     Generate a valid Catan® board. The type of board can be
-                    specified with #[+lopt("type")]=#[+arg("type")], where
+                    specified with #[+opt("type")]=#[+arg("type")], where
                     #[+arg("type")] is one of reg or exp, for regular or
                     expansion, respectively. The default is reg. See also
                     #[+a("/cbg")].
