@@ -66,10 +66,10 @@ setup: hooks npm binary surge
 hooks:
 	mkdir -p .git/hooks
 	rm -f .git/hooks/*.sample
-	for f in hooks/*; do \
-		[[ -h "$$f" ]] && rm "$$f"; \
-		ln -fs "../../$$f" .git/hooks; \
-	done
+	echo "make" > .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
+	echo "make clean" > .git/hooks/post-checkout
+	chmod +x .git/hooks/post-checkout
 
 npm:
 	npm i
