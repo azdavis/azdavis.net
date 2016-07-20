@@ -29,7 +29,7 @@ a place for stuff http://azdavis.xyz
 
 - `make`
     - lint and compiles .ts to .js
-    - compile .styl to .css
+    - lint and compile .styl to .css
     - compile .pug to .html
     - concatenate compiled assets into one .html file
 - `./test`
