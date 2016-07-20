@@ -23,8 +23,16 @@ footer
 section div
     margin 0 6ch
 
+dl
+    margin 0
+
+dt
+    font-weight bold
+
+dd
+    margin 0 0 1.3em 4ch
+
 h2
-h3
     margin 0
     font-size 1em
 
@@ -51,15 +59,12 @@ a
     &:last-child
         text-align right
 
-.desc
-    margin 0 0 1.3em 4ch
-
 @media only screen and (max-width 600px)
     section div
         margin 0 3ch
+    dd
+        margin 0 0 1.3em 2ch
     .three div
         width 50%
         &:nth-child(2)
             display none
-    .desc
-        margin 0 0 1.3em 2ch

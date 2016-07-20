@@ -52,19 +52,19 @@ html(lang="en")
                     (known to many as the act of programming).
         section
             h2 OPTIONS
-            div
-                h3 #[+opt("h")], #[+lopt("help")]
-                .desc Display this help and exit.
-                h3 #[+opt("v")], #[+lopt("version")]
-                .desc Display current age in years and exit.
-                h3 #[+opt("q")], #[+lopt("quiet")]
-                .desc Be quiet, only report errors. This is the default.
-                h3 #[+opt("v")], #[+lopt("verbose")]
-                .desc Be chatty. This can only be used in special cases.
-                h3.
+            div: dl
+                dt #[+opt("h")], #[+lopt("help")]
+                dd Display this help and exit.
+                dt #[+opt("v")], #[+lopt("version")]
+                dd Display current age in years and exit.
+                dt #[+opt("q")], #[+lopt("quiet")]
+                dd Be quiet, only report errors. This is the default.
+                dt #[+opt("v")], #[+lopt("verbose")]
+                dd Be chatty. This can only be used in special cases.
+                dt.
                     #[+opt("l")] #[+arg("code")],
                     #[+lopt("lang")]=#[+arg("code")]
-                .desc.
+                dd.
                     Use the given language for communication, where
                     #[+arg("code")] is one of en or ja, for English or
                     Japanese, respectively. The default is en. Using ja may
@@ -72,21 +72,21 @@ html(lang="en")
                     sentences.
         section
             h2 COMMANDS
-            div
-                h3 get-github-info
-                .desc.
+            div: dl
+                dt get-github-info
+                dd.
                     Show information about azdavis' public repositories and
                     contributions on GitHub®. This information is also viewable
                     at #[+a("https://github.com/azdavis")].
-                h3 play-lame-geometry-wars
-                .desc.
+                dt play-lame-geometry-wars
+                dd.
                     With no arguments, launch a simple arrow-key game which
                     unintentionally bears some similarities to Bizarre
                     Creation's Geometry Wars, but is altogether more mediocre.
                     With #[+lopt("rules")], show the rules for such a game.
                     See also #[+a("/lgw")].
-                h3 generate-catan-board
-                .desc.
+                dt generate-catan-board
+                dd.
                     Generate a valid Catan® board. The type of board, regular
                     or expansion, can be specified with
                     #[+lopt("type")]=#[+arg("type")], where #[+arg("type")]
