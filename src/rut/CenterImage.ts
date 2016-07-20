@@ -22,7 +22,7 @@ module CenterImage {
         //
         //     f(x + dx) ≈ f(x) + df
         //
-        size += size * (1 - size) * 0.007
+        size += size * (1 - size) * 0.0065
     }
 
     // draw this directly in the center

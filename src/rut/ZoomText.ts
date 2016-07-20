@@ -30,7 +30,7 @@ class ZoomText {
     // increase size expontentially and calculate x and y based on the new
     // size; then, if out of bounds, reset back to the center
     public move(): void {
-        this.size *= 1.02
+        this.size *= 1.03
         this.calcXY()
         if (this.isOutOfBounds()) {
             this.reset()
@@ -67,7 +67,7 @@ class ZoomText {
             this.dy = ZoomText.h
         }
 
-        const s = 3 + Math.random() * 15
+        const s = 4 + Math.random() * 16
         this.dx *= s
         this.dy *= s
         this.calcXY()
