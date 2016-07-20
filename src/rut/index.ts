@@ -47,10 +47,10 @@ console.log("Ride of the Valkyries https://youtu.be/7AlEvy0fJto")
 
 // HACK I kid you not, if this seemingly pointless line isn't here, Safari
 // doesn't start autoplaying on the initial page load the first time the page
-// is loaded (any other subsuquent loads work)
+// is loaded (any other subsequent loads work)
 //
-// macOS 10.11.5 (15F34)
-// Safari 9.1.1 (11601.6.17)
+// macOS 10.11.6 (15G31)
+// Safari 9.1.2 (11601.7.7)
 
 // tslint:disable:no-empty
 setTimeout(() => {}, 9000)
