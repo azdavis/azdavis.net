@@ -32,7 +32,7 @@ include deps.mak
 clean:
 	find src \( -name \*.html -o -name \*.css -o -name \*.js \) -delete
 
-test:
+test: all
 	server=; \
 	end() { \
 		kill "$$server"; \
@@ -46,7 +46,7 @@ test:
 	while true; do find . \
 		-not -path "*.git*" \
 		-a -not -path "*node_modules*" \
-		| entr -d make || [[ "$?" == 2 ]]; \
+		| entr -dp make || [[ "$?" == 2 ]]; \
 	done
 
 deploy: git-ok all upload
