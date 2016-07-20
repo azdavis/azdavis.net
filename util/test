@@ -2,7 +2,6 @@
 
 set -euo pipefail
 IFS=$'\n\t'
-PATH="node_modules/.bin:$PATH"
 
 server=
 end() {
