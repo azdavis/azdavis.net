@@ -3,7 +3,7 @@ SHELL := sh -euo pipefail
 Q ?= &> /dev/null
 MAKEFLAGS += -s
 
-.PHONY: all clean deploy git-ok upload setup hooks npm-i surge test get-binary
+.PHONY: all clean test deploy git-ok upload setup hooks npm-i get-binary surge
 .PRECIOUS: %.css %.js
 
 include deps.mak
@@ -31,6 +31,23 @@ include deps.mak
 
 clean:
 	find src \( -name \*.html -o -name \*.css -o -name \*.js \) -delete
+
+test:
+	server=; \
+	end() { \
+	    kill "$$server"; \
+	    printf " server stopped."; \
+	    exit; \
+	}; \
+	trap end INT; \
+	http-server src &> /dev/null & \
+	server="$$!"; \
+	sleep 0.5 && open "http://localhost:8080" & \
+	while true; do find . \
+	    -not -path "*.git*" \
+	    -a -not -path "*node_modules*" \
+	    | entr -d make || [[ "$?" == 2 ]]; \
+	done
 
 deploy: git-ok all upload
 
@@ -67,21 +84,3 @@ get-binary:
 
 surge:
 	if ! grep -q surge.sh ~/.netrc; then surge login; fi
-
-test:
-	server=; \
-	end() { \
-	    kill "$$server"; \
-	    printf " server stopped."; \
-	    exit; \
-	}; \
-	trap end INT; \
-	http-server src &> /dev/null & \
-	server="$$!"; \
-	sleep 0.5 && open "http://localhost:8080" & \
-	while true; do find . \
-	    -not -path "*.git*" \
-	    -a -not -path "*node_modules*" \
-	    | entr -d make || [[ "$?" == 2 ]]; \
-	done
-
