@@ -17,6 +17,7 @@ a place for stuff http://azdavis.xyz
 - `make setup`
     - set up some git hooks
     - install some npm devDependencies
+    - get some non-git-tracked binary files
     - prepare deployment to [surge][sur]
 
 [git]: https://git-scm.com
@@ -32,7 +33,7 @@ a place for stuff http://azdavis.xyz
     - lint and compile .styl to .css
     - compile .pug to .html
     - concatenate compiled assets into one .html file
-- `./test`
+- `make test`
     - start a server on port 8080
     - open your default browser to http://localhost:8080
     - re-make whenever files change
