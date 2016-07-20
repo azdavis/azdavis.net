@@ -25,7 +25,7 @@ let pressed = {}
 // bind keys to player shoot, movement, and game pause
 onkeydown = (e) => {
     if (e.which === keys.en && !Game.running) {
-        modal.style.display = "none"
+        modal.remove()
         Game.begin()
         pressed = {}
         return
