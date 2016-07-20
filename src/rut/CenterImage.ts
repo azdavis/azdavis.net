@@ -9,7 +9,11 @@ module CenterImage {
 
     // resize this in a logistically-growing way
     export function move(): void {
-        // the logistic function is the solution to the differential equation
+        // the standard logistic function
+        //
+        //     f(x) = 1 / (1 + e^-x)
+        //
+        // is the solution to the differential equation
         //
         //     df/dx = f(x)(1 - f(x))
         //
