@@ -17,7 +17,8 @@ const tryStart = () => {
     // there must be exactly this many occurrences of tryStart being bound to
     // an object's onload event handler
     if (loaded === 2) {
-        html.style.cursor = msg.style.display = "none"
+        html.style.cursor = "none"
+        msg.remove()
         audio.play()
         requestAnimationFrame(Loop)
     }
