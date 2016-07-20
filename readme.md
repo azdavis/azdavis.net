@@ -15,9 +15,9 @@ a place for stuff http://azdavis.xyz
     - [npm][npm]
     - [entr][ent]
 - `make setup`
-    - sets up some git hooks
-    - installs some npm devDependencies
-    - prepares deployment to [surge][sur]
+    - set up some git hooks
+    - install some npm devDependencies
+    - prepare deployment to [surge][sur]
 
 [git]: https://git-scm.com
 [mak]: https://www.gnu.org/software/make
@@ -28,20 +28,20 @@ a place for stuff http://azdavis.xyz
 ## useful commands
 
 - `make`
-    - lints and compiles .ts to .js
-    - compiles .styl to .css
-    - compiles .pug to .html
-    - concatenates compiled assets into one .html file
+    - lint and compiles .ts to .js
+    - compile .styl to .css
+    - compile .pug to .html
+    - concatenate compiled assets into one .html file
 - `./test`
-    - starts a server on port 8080
-    - opens your default browser to http://localhost:8080
-    - re-makes whenever files change
+    - start a server on port 8080
+    - open your default browser to http://localhost:8080
+    - re-make whenever files change
 - `make deploy`
-    - ensures the current git status is empty
-    - ensures the current git branch is master
-    - makes everything which is not up-to-date
-    - git pushes master to origin
-    - uploads all built files, images, etc.
+    - ensure the current git status is empty
+    - ensure the current git branch is master
+    - make everything which is not up-to-date
+    - git push master to origin
+    - upload all built files, images, etc.
 
 ## {con,per}formance
 
