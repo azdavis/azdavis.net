@@ -3,7 +3,7 @@ SHELL := sh -euo pipefail
 Q ?= &> /dev/null
 MAKEFLAGS += -s
 
-.PHONY: all clean test deploy git-ok upload setup hooks npm-i get-binary surge
+.PHONY: all clean test deploy git-ok upload setup hooks npm binary surge
 .PRECIOUS: %.css %.js
 
 include deps.mak
@@ -61,7 +61,7 @@ upload:
 		| grep size \
 		| sed -E "s/^$$(printf "\033")\[90m +//g"
 
-setup: hooks npm-i get-binary surge
+setup: hooks npm binary surge
 
 hooks:
 	mkdir -p .git/hooks
@@ -71,10 +71,10 @@ hooks:
 		ln -fs "../../$$f" .git/hooks; \
 	done
 
-npm-i:
+npm:
 	npm i
 
-get-binary:
+binary:
 	for f in \
 	base/favicon.png \
 	base/touch-icon.png \
