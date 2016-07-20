@@ -44,7 +44,7 @@ upload:
 		| grep size \
 		| sed -E "s/^$$(printf "\033")\[90m +//g"
 
-setup: hooks npm-i surge
+setup: hooks npm-i get-binary surge
 
 hooks:
 	mkdir -p .git/hooks
@@ -57,11 +57,11 @@ hooks:
 npm-i:
 	npm i
 
+get-binary:
+	"util/get-binary"
+
 surge:
 	if ! grep -q surge.sh ~/.netrc; then surge login; fi
 
 test:
 	"util/test"
-
-get-binary:
-	"util/get-binary"
