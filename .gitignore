@@ -1,7 +1,9 @@
 *.css
 *.html
+*.jpg
 *.js
 *.mp3
+*.png
 .DS_Store
 node_modules
 z
