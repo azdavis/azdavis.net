@@ -46,7 +46,7 @@ test: all
 	while true; do find . \
 		-not -path "*.git*" \
 		-a -not -path "*node_modules*" \
-		| entr -dp make || [[ "$?" == 2 ]]; \
+		| entr -dp $(MAKE) || [[ "$?" == 2 ]]; \
 	done
 
 deploy: git-ok all upload
