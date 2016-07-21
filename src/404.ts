@@ -1,6 +1,5 @@
-import $ from "./base/$"
-
-const s = $("#url")
+const s = document.createElement("div")
 const u = location.host + location.pathname
+s.id = "url"
 s.innerHTML = u
-s.style.display = "block"
+document.body.insertBefore(s, document.body.firstChild)

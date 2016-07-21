@@ -1,19 +1,23 @@
-import $ from "../base/$"
 import Board from "./Board"
+import Canvas from "./Canvas"
 
 onresize = Board.draw
 
 function makeDrawer(type: string): void {
-    const el = $(`#${type}`)
+    const el = document.createElement("div")
+    el.innerHTML = type
     el.onclick = () => {
         Board.drawNew(type)
     }
+    Canvas.btns.appendChild(el)
 }
 
-makeDrawer("reg")
-makeDrawer("exp")
+makeDrawer("regular")
+makeDrawer("expansion")
+document.body.appendChild(Canvas.btns)
+document.body.appendChild(Canvas.container)
 
-Board.drawNew("reg")
+Board.drawNew("regular")
 
 // HACK makes :active work on iOS
 // tslint:disable:no-empty

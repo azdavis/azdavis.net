@@ -1,10 +1,13 @@
-import $ from "../base/$"
-
 module Canvas {
-    const el = $("canvas") as HTMLCanvasElement
+    const el = document.createElement("canvas")
     export const cx = el.getContext("2d")
-    const container = $("#container")
-    const btns = $("#btns")
+
+    export const container = document.createElement("div")
+    container.id = "container"
+    container.appendChild(el)
+
+    export const btns = document.createElement("div")
+    btns.id = "btns"
 
     const pxRatio = devicePixelRatio || 1
     const i = x => parseInt(x, 10)
