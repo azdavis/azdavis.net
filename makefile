@@ -52,8 +52,10 @@ test: all
 deploy: git-ok all upload
 
 git-ok:
-	[[ -z "$$(git status --porcelain)" ]]
-	[[ "$$(git rev-parse --abbrev-ref @)" == master ]]
+	[[ -z "$$(git status --porcelain)" ]] \
+		|| echo "there are uncommitted changes" && exit 1
+	[[ "$$(git rev-parse --abbrev-ref @)" == master ]] \
+		|| echo "the current branch is not master" && exit 1
 
 upload:
 	git push -q origin master
