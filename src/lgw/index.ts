@@ -1,9 +1,10 @@
+import $ from "../base/$"
 import Canvas from "./Canvas"
 import Game from "./Game"
 import Player from "./Player"
 
 // the modal which contains instructions and is to be hidden when starting
-const modal = document.querySelector("#modal") as HTMLElement
+const modal = $("#modal")
 
 // the keys on the keyboard we care about, and their KeyboardEvent.which values
 const keys = {
@@ -109,7 +110,7 @@ onblur = () => {
 }
 
 // show an error or a "begin" message, depending on mobility of device
-const msg = document.querySelector("#msg") as HTMLElement
+const msg = $("#msg")
 if ("ontouchend" in window) {
     msg.innerHTML = "a physical keyboard is required"
 } else {

@@ -1,3 +1,4 @@
+import $ from "../base/$"
 import Canvas from "./Canvas"
 import Enemy from "./Enemy"
 import Player from "./Player"
@@ -8,7 +9,7 @@ module Game {
     // whether the game is actively being played
     export let playing = false
 
-    const info = document.querySelector("#info") as HTMLElement
+    const info = $("#info")
     const hs = document.documentElement.style
 
     let loopID: number

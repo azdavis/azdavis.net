@@ -1,5 +1,7 @@
+import $ from "../base/$"
+
 module Canvas {
-    const el = document.querySelector("canvas") as HTMLCanvasElement
+    const el = $("canvas") as HTMLCanvasElement
     export const cx = el.getContext("2d")
 
     export let w: number

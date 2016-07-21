@@ -1,9 +1,10 @@
+import $ from "../base/$"
 import Board from "./Board"
 
 onresize = Board.draw
 
 function makeDrawer(type: string): void {
-    const el = document.querySelector(`#${type}`) as HTMLElement
+    const el = $(`#${type}`)
     el.onclick = () => {
         Board.drawNew(type)
     }

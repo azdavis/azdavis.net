@@ -1,4 +1,6 @@
-const s = document.querySelector("#url") as HTMLElement
+import $ from "./base/$"
+
+const s = $("#url")
 const u = location.host + location.pathname
 s.innerHTML = u
 s.style.display = "block"
