@@ -38,11 +38,12 @@ a place for stuff http://azdavis.xyz
     - open your default browser to http://localhost:8080
     - re-make whenever files change
 - `make deploy`
-    - ensure the current git status is empty
+    - ensure there are no uncommitted changes
     - ensure the current git branch is master
     - make everything which is not up-to-date
     - git push master to origin
     - upload all built files, images, etc.
+    - report number of files and size of deploy
 
 ## {con,per}formance
 
