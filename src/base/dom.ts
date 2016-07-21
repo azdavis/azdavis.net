@@ -1,3 +1,7 @@
+function $(query: string): HTMLElement {
+    return document.querySelector(query) as HTMLElement
+}
+
 function mk(name: string): HTMLElement {
     return document.createElement(name)
 }
@@ -10,4 +14,4 @@ function prepend(el: HTMLElement, to: HTMLElement = document.body): void {
     to.insertBefore(el, to.firstChild)
 }
 
-export {mk, append, prepend}
+export {$, mk, append, prepend}

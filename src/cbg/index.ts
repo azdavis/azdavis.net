@@ -1,7 +1,8 @@
-import {mk, append} from "../base/dom"
+import {$, mk, append} from "../base/dom"
 import Board from "./Board"
 import Canvas from "./Canvas"
 
+$("#noscript").remove()
 onresize = Board.draw
 
 function makeDrawer(type: string): void {
