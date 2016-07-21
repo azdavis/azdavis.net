@@ -3,6 +3,7 @@ import CenterImage from "./CenterImage"
 import Loop from "./Loop"
 
 onresize = Canvas.reset
+document.body.appendChild(Canvas.el)
 
 const audio = new Audio()
 audio.loop = true
