@@ -7,12 +7,18 @@
         .substring(0, 10)
 
 html(lang="en")
-    mixin a(h)
-        a(href= h)= h.replace(/https?:\/\//, "").replace(/^\//, "azdavis.xyz/")
-    mixin opt(t)
-        = `${t.length === 1 ? "‑" : "‑‑"}${t}`
-    mixin arg(t)
-        = `<${t}>`
+    mixin a(href, text)
+        -
+            if (typeof text === "undefined") {
+                text = href
+                    .replace(/https?:\/\//, "")
+                    .replace(/^\//, "azdavis.xyz/")
+            }
+        | &lt;#[a(href= href)= text]&gt;
+    mixin opt(text)
+        = `${text.length === 1 ? "‑" : "‑‑"}${text}`
+    mixin arg(text)
+        = `<${text}>`
     head
         include /src/base/head.pug
         title man azdavis
@@ -96,7 +102,7 @@ html(lang="en")
             h2 SAYING HELLO
             div.
                 Email
-                #[a(href="mailto:?subject=Hello") ariel.z.X@icloud.com]
+                #[+a("mailto:?subject=Hello", "ariel.z.X@icloud.com")]
                 (replace X with davis).
         section
             h2 COPYRIGHT
