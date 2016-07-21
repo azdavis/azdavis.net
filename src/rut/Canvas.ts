@@ -10,8 +10,8 @@ module Canvas {
     // resize this and set some text properties
     export function reset(): void {
         resize()
-        Canvas.cx.textAlign = "center"
-        Canvas.cx.textBaseline = "middle"
+        cx.textAlign = "center"
+        cx.textBaseline = "middle"
     }
 
     // resize the canvas to be the size of the window
