@@ -16,7 +16,7 @@ a place for stuff http://azdavis.xyz
     - [entr][ent]
 - `make setup`
     - set up some git hooks
-    - install some npm devDependencies
+    - install some [npm devDependencies][inf]
     - get some non-git-tracked binary files
     - prepare deployment to [surge][sur]
 
