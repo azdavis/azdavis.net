@@ -1,4 +1,4 @@
-### issue(s) this closes
+### issue this closes
 
 
 
