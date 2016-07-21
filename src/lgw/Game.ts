@@ -9,8 +9,7 @@ module Game {
     // whether the game is actively being played
     export let playing = false
 
-    export const info = mk("div")
-    info.id = "info"
+    export const info = mk("#info")
 
     const hs = document.documentElement.style
 

@@ -4,12 +4,10 @@ module Canvas {
     const el = mk("canvas") as HTMLCanvasElement
     export const cx = el.getContext("2d")
 
-    export const container = mk("div")
-    container.id = "container"
+    export const container = mk("#container")
     container.appendChild(el)
 
-    export const btns = mk("div")
-    btns.id = "btns"
+    export const btns = mk("#btns")
 
     const pxRatio = devicePixelRatio || 1
     const i = x => parseInt(x, 10)
