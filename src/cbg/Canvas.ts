@@ -1,12 +1,14 @@
+import {mk} from "../base/dom"
+
 module Canvas {
-    const el = document.createElement("canvas")
+    const el = mk("canvas") as HTMLCanvasElement
     export const cx = el.getContext("2d")
 
-    export const container = document.createElement("div")
+    export const container = mk("div")
     container.id = "container"
     container.appendChild(el)
 
-    export const btns = document.createElement("div")
+    export const btns = mk("div")
     btns.id = "btns"
 
     const pxRatio = devicePixelRatio || 1

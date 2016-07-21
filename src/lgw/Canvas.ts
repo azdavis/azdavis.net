@@ -1,5 +1,7 @@
+import {mk} from "../base/dom"
+
 module Canvas {
-    export const el = document.createElement("canvas")
+    export const el = mk("canvas") as HTMLCanvasElement
     export const cx = el.getContext("2d")
 
     export let w: number

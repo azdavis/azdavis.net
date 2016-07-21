@@ -1,3 +1,4 @@
+import {mk} from "../base/dom"
 import Canvas from "./Canvas"
 import Enemy from "./Enemy"
 import Player from "./Player"
@@ -8,7 +9,7 @@ module Game {
     // whether the game is actively being played
     export let playing = false
 
-    export const info = document.createElement("div")
+    export const info = mk("div")
     info.id = "info"
 
     const hs = document.documentElement.style

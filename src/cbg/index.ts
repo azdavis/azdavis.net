@@ -1,21 +1,22 @@
+import {mk, append} from "../base/dom"
 import Board from "./Board"
 import Canvas from "./Canvas"
 
 onresize = Board.draw
 
 function makeDrawer(type: string): void {
-    const el = document.createElement("div")
+    const el = mk("div")
     el.innerHTML = type
     el.onclick = () => {
         Board.drawNew(type)
     }
-    Canvas.btns.appendChild(el)
+    append(el, Canvas.btns)
 }
 
 makeDrawer("regular")
 makeDrawer("expansion")
-document.body.appendChild(Canvas.btns)
-document.body.appendChild(Canvas.container)
+append(Canvas.btns)
+append(Canvas.container)
 
 Board.drawNew("regular")
 
