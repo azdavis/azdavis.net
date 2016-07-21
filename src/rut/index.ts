@@ -1,15 +1,16 @@
+import {$, append} from "../base/dom"
 import Canvas from "./Canvas"
 import CenterImage from "./CenterImage"
 import Loop from "./Loop"
 
 onresize = Canvas.reset
-document.body.appendChild(Canvas.el)
+append(Canvas.el)
 
 const audio = new Audio()
 audio.loop = true
 
 const html = document.documentElement
-const msg = document.querySelector("#msg") as HTMLElement
+const msg = $("#msg")
 const loadText = "Loading…"
 
 let loaded = 0
