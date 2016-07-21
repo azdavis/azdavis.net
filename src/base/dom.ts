@@ -3,13 +3,13 @@ function $(query: string): HTMLElement {
 }
 
 function mk(arg: string): HTMLElement {
-    const [name, id] = arg.split("#")
+    const [name, id = ""] = arg.split("#")
     const el = document.createElement(
-        name.length === 0
+        name === ""
         ? "div"
         : name
     )
-    if (typeof id !== "undefined") {
+    if (id !== "") {
         el.id = id
     }
     return el
