@@ -15,9 +15,12 @@ html(lang="en")
                     .replace(/^\//, "azdavis.xyz/")
             }
         | &lt;#[a(href= href)= text]&gt;
+    //- see http://docopt.org
+    //- an option
     mixin opt(text)
         = `${text.length === 1 ? "‑" : "‑‑"}${text}`
-    mixin arg(text)
+    //- a required thing
+    mixin req(text)
         = `<${text}>`
     head
         include /src/base/head.pug
@@ -33,7 +36,7 @@ html(lang="en")
             div azdavis - a guy with certain characteristics
         section
             h2 SYNOPSIS
-            div #[b azdavis] [option]... [command] [arg]...
+            div #[b azdavis] [option]... #[+req("command")] [arg]...
         section
             h2 DESCRIPTION
             div
@@ -65,11 +68,11 @@ html(lang="en")
                 dt #[+opt("v")], #[+opt("verbose")]
                 dd Be chatty. This can only be used in special cases.
                 dt.
-                    #[+opt("l")] #[+arg("code")],
-                    #[+opt("lang")]=#[+arg("code")]
+                    #[+opt("l")] #[+req("code")],
+                    #[+opt("lang")]=#[+req("code")]
                 dd.
                     Use the given language for communication, where
-                    #[+arg("code")] is one of en or ja, for English or
+                    #[+req("code")] is one of en or ja, for English or
                     Japanese, respectively. The default is en. Using ja may
                     result in poorly-constructed or grammatically incorrect
                     sentences.
@@ -91,8 +94,8 @@ html(lang="en")
                 dt generate-catan-board
                 dd.
                     Generate a valid Catan® board. The type of board can be
-                    specified with #[+opt("type")]=#[+arg("type")], where
-                    #[+arg("type")] is one of reg or exp, for regular or
+                    specified with #[+opt("type")]=#[+req("type")], where
+                    #[+req("type")] is one of reg or exp, for regular or
                     expansion, respectively. The default is reg. See also
                     #[+a("/cbg")].
         section
