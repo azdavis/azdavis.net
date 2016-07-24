@@ -1,6 +1,6 @@
-PATH := node_modules/.bin:$(PATH)
-SHELL := sh -euo pipefail
 MAKEFLAGS += -rRs
+SHELL := sh -euo pipefail
+PATH := node_modules/.bin:$(PATH)
 Q ?= &> /dev/null
 
 .PHONY: all clean test deploy git-ok upload setup hooks npm binary surge
