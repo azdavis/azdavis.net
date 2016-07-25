@@ -57,7 +57,7 @@ git-ok:
 		exit 1; \
 	}; \
 	[[ -z "$$(git status --porcelain)" ]] \
-		|| abort "there are uncommitted changes";
+		|| abort "there are uncommitted changes"; \
 	[[ "$$(git rev-parse --abbrev-ref @)" == master ]] \
 		|| abort "the current branch is not master"
 
