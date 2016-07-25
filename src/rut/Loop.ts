@@ -6,8 +6,7 @@ const zts: ZoomText[] = []
 const ztsMax = 70
 
 // clear the canvas, maybe add a new ZoomText if there aren't already enough,
-// draw the CenterImage, then draw all the ZoomText (possibly on top of
-// CenterImage)
+// draw all the ZoomText, then draw the CenterImage on top
 function Loop(): void {
     Canvas.clear()
 
