@@ -45,7 +45,7 @@ CenterImage.el.onload = audio.oncanplaythrough = tryStart
 audio.src = "a.mp3"
 CenterImage.el.src = "ci.png"
 
-console.log("Ride of the Valkyries https://youtu.be/7AlEvy0fJto")
+console.log("song: https://youtu.be/7AlEvy0fJto")
 
 // HACK I kid you not, if this seemingly pointless line isn't here, Safari
 // doesn't start autoplaying on the initial page load the first time the page
