@@ -15,11 +15,11 @@ class ZoomText {
     // the angle formed by a right triangle with legs w and h
     private static a = Math.atan(ZoomText.h / ZoomText.w)
 
-    public size: number
-    public dx: number
-    public dy: number
     private x: number
     private y: number
+    private dx: number
+    private dy: number
+    private size: number
     private color: string
 
     // just reset
