@@ -60,7 +60,7 @@ html(lang="en")
                 dt #[+opt("q")], #[+opt("quiet")]
                 dd Be quiet, only report errors. This is the default.
                 dt #[+opt("v")], #[+opt("verbose")]
-                dd Be chatty. This can only be used in special cases.
+                dd Be chatty.
                 dt.
                     #[+opt("l")] #[+req("code")],
                     #[span.nw #[+opt("lang")]=#[+req("code")]]
@@ -68,8 +68,7 @@ html(lang="en")
                     Use the given language for communication, where
                     #[+req("code")] is one of en or ja, for English or
                     Japanese, respectively. The default is en. Using ja may
-                    result in poorly-constructed or grammatically incorrect
-                    sentences.
+                    result in poor sentence quality.
         section
             h2 COMMANDS
             div: dl
@@ -83,8 +82,8 @@ html(lang="en")
                     With no arguments, launch a simple arrow-key game which
                     unintentionally bears some similarities to Bizarre
                     Creation's Geometry Wars, but is altogether more mediocre.
-                    With #[span.nw #[+opt("rules")]], show the rules for such a game.
-                    See also #[+a("/lgw")].
+                    With #[span.nw #[+opt("rules")]], show the rules for such a
+                    game. See also #[+a("/lgw")].
                 dt generate-catan-board
                 dd.
                     Generate a valid Catan® board. The type of board can be
@@ -95,12 +94,6 @@ html(lang="en")
         section
             h2 AUTHORS
             div Written by David and Karen Davis.
-        section
-            h2 SAYING HELLO
-            div.
-                Email
-                #[+a("mailto:?subject=Hello", "ariel.z.X@icloud.com")]
-                (replace X with davis).
         section
             h2 COPYRIGHT
             div.
