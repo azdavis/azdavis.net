@@ -18,7 +18,7 @@ html(lang="en")
     //- see http://docopt.org
     //- an option
     mixin opt(text)
-        = `${text.length === 1 ? "‑" : "‑‑"}${text}`
+        = `${text.length === 1 ? "-" : "--"}${text}`
     //- a required thing
     mixin req(text)
         = `<${text}>`
@@ -69,7 +69,7 @@ html(lang="en")
                 dd Be chatty. This can only be used in special cases.
                 dt.
                     #[+opt("l")] #[+req("code")],
-                    #[+opt("lang")]=#[+req("code")]
+                    #[span.nw #[+opt("lang")]=#[+req("code")]]
                 dd.
                     Use the given language for communication, where
                     #[+req("code")] is one of en or ja, for English or
@@ -89,13 +89,13 @@ html(lang="en")
                     With no arguments, launch a simple arrow-key game which
                     unintentionally bears some similarities to Bizarre
                     Creation's Geometry Wars, but is altogether more mediocre.
-                    With #[+opt("rules")], show the rules for such a game.
+                    With #[span.nw #[+opt("rules")]], show the rules for such a game.
                     See also #[+a("/lgw")].
                 dt generate-catan-board
                 dd.
                     Generate a valid Catan® board. The type of board can be
-                    specified with #[+opt("type")]=#[+req("type")], where
-                    #[+req("type")] is one of reg or exp, for regular or
+                    specified with #[span.nw #[+opt("type")]=#[+req("type")]],
+                    where #[+req("type")] is one of reg or exp, for regular or
                     expansion, respectively. The default is reg. See also
                     #[+a("/cbg")].
         section
