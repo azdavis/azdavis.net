@@ -5,8 +5,8 @@ class ZoomText {
     private static font = (() => {
         const hs = getComputedStyle(document.documentElement)
         return {
-            family: hs.fontFamily,
-            variant: hs.fontVariant,
+            f: hs.fontFamily,
+            v: hs.fontVariant,
         }
     })()
     // the text sits in the middle of a (w x h) box
@@ -39,8 +39,7 @@ class ZoomText {
 
     // draw the text with this.font and this.color
     public draw(): void {
-        Canvas.cx.font =
-            `${ZoomText.font.variant} ${this.size}px ${ZoomText.font.family}`
+        Canvas.cx.font = `${ZoomText.font.v} ${this.size}px ${ZoomText.font.f}`
         Canvas.cx.fillStyle = this.color
         Canvas.cx.fillText(ZoomText.text, this.x, this.y)
     }
