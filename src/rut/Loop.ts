@@ -15,9 +15,9 @@ function Loop(): void {
         zts.push(new ZoomText())
     }
 
-    for (let z of zts) {
-        z.move()
-        z.draw()
+    for (let i = 0; i < zts.length; i++) {
+        zts[i].move()
+        zts[i].draw()
     }
 
     CenterImage.move()
