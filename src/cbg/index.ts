@@ -1,4 +1,4 @@
-import {$, mk, append} from "../base/dom"
+import {$, div, append} from "../base/dom"
 import Board from "./Board"
 import Canvas from "./Canvas"
 
@@ -6,7 +6,7 @@ $("#noscript").remove()
 onresize = Board.draw
 
 function makeDrawer(type: string): void {
-    const el = mk("div")
+    const el = div()
     el.innerHTML = type
     el.onclick = () => {
         Board.drawNew(type)

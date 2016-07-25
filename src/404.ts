@@ -1,5 +1,5 @@
-import {mk, prepend} from "./base/dom"
+import {div, prepend} from "./base/dom"
 
-const s = mk("#url")
+const s = div("url")
 s.innerHTML = location.host + location.pathname
 prepend(s)

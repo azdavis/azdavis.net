@@ -2,13 +2,8 @@ function $(query: string): HTMLElement {
     return document.querySelector(query) as HTMLElement
 }
 
-function mk(arg: string): HTMLElement {
-    const [name, id = ""] = arg.split("#")
-    const el = document.createElement(
-        name === ""
-        ? "div"
-        : name
-    )
+function div(id: string = ""): HTMLDivElement {
+    const el = document.createElement("div")
     if (id !== "") {
         el.id = id
     }
@@ -23,4 +18,4 @@ function prepend(el: HTMLElement, to: HTMLElement = document.body): void {
     to.insertBefore(el, to.firstChild)
 }
 
-export {$, mk, append, prepend}
+export {$, div, append, prepend}
