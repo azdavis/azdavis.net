@@ -59,9 +59,7 @@ html(lang="en")
                 dd Be quiet, only report errors. This is the default.
                 dt #[+opt("v")], #[+opt("verbose")]
                 dd Be chatty.
-                dt.
-                    #[+opt("l")] #[+req("code")],
-                    #[span.nw #[+opt("lang")]=#[+req("code")]]
+                dt #[+opt("lang")]=#[+req("code")]
                 dd.
                     Use the given language for communication, where
                     #[+req("code")] is one of en or ja, for English or
