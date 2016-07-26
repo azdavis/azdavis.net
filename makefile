@@ -63,9 +63,11 @@ git-ok:
 
 upload:
 	git push -q origin master
+	mv src/404/index.html src/404.html
 	surge -d azdavis.xyz -p src 2> /dev/null \
 		| grep size \
 		| sed -E "s/^$$(printf "\033")\[90m +//g"
+	mv src/404.html src/404/index.html
 
 setup: hooks npm binary surge
 
