@@ -1,9 +1,6 @@
 all: \
-	src/404.html \
-	src/index.html \
-	src/cbg/index.html \
-	src/lgw/index.html \
-	src/rut/index.html
+	$(patsubst %.pug, %.html, \
+	$(shell find src -not -path "*base*" -name "*.pug"))
 src/cbg/index.js: \
 	src/cbg/Board.ts \
 	src/cbg/Canvas.ts \
