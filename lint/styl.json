@@ -15,7 +15,7 @@
     "indentPref": {"error": true, "expect": 4},
     "leadingZero": {"error": true, "expect": "always"},
     "mixed": {"error": true, "expect": 1},
-    "namingConvention": {"error": true, "expect": "lowercase-dash"},
+    "namingConvention": {"error": true, "expect": "lowercase_underscore"},
     "namingConventionStrict": {"error": true, "expect": true},
     "none": {"error": true, "expect": "never"},
     "noImportant": {"error": true, "expect": true},
