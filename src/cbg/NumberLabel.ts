@@ -19,21 +19,20 @@ class NumberLabel extends Sprite {
         this.n = String(n)
     }
 
+    public static setTextSettings(): void {
+        Canvas.cx.font = NumberLabel.style.font
+        Canvas.cx.textAlign = "center"
+        Canvas.cx.textBaseline = "middle"
+    }
+
     // draw a circle with a number in the center
     public draw(x: number, y: number): void {
         Canvas.cx.fillStyle = NumberLabel.style.fill
         Canvas.cx.beginPath()
-
         Canvas.cx.arc(x, y, NumberLabel.radius, 0, 2 * Math.PI)
-
         Canvas.cx.closePath()
         Canvas.cx.fill()
-
         Canvas.cx.fillStyle = this.fill
-        Canvas.cx.font = NumberLabel.style.font
-        Canvas.cx.textAlign = "center"
-        Canvas.cx.textBaseline = "middle"
-
         Canvas.cx.fillText(this.n, x, y)
     }
 }

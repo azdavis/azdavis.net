@@ -31,6 +31,9 @@ module Board {
         // resize the canvas (clearing it in the process)
         Canvas.resize(w, h)
 
+        // set canvas text settings common to all NumberLabels
+        NumberLabel.setTextSettings()
+
         // for each row
         for (let i = 0; i < rows.length; i++) {
             const dy = Data.tileScale
