@@ -32,10 +32,10 @@ html(lang="en")
                 dd Be quiet, only report errors. This is the default.
                 dt: code -v, --verbose
                 dd Be chatty.
-                dt: code --lang=&lt;code&gt;
+                dt: code --lang=&lt;lang&gt;
                 dd.
                     Use the given language for communication, where
-                    #[code &lt;code&gt;] is one of #[code en] or #[code ja],
+                    #[code &lt;lang&gt;] is one of #[code en] or #[code ja],
                     for English or Japanese, respectively. The default is
                     #[code en]. Using #[code ja] may result in poor sentence
                     quality.
@@ -51,10 +51,13 @@ html(lang="en")
                     Launch a simple arrow-key game which unintentionally bears
                     some similarities to Bizarre Creation's Geometry Wars, but
                     is altogether more mediocre.
-                dt: code: a(href="cbg") generate-catan-board
+                dt: code: a(href="cbg").
+                    generate-catan-board [#[span.nw --type=&lt;type&gt;]]
                 dd.
-                    Launch an interface for generating Catan® boards. The type
-                    of board, regular or expansion, can be specified.
+                    Generate a Catan® board. The type of board can be
+                    specified, where #[code &lt;type&gt;] is one of #[code reg]
+                    or #[code exp], for regular or expansion, respectively. The
+                    default is #[code reg].
                 dt: code: a(href="rut") congratulate-rut-birthday
                 dd.
                     If it is Sukrut Sonty's birthday, extend to him the
