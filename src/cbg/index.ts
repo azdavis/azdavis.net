@@ -1,4 +1,4 @@
-import {$, div, append} from "../base/dom"
+import {$, append, div} from "../base/dom"
 import Board from "./Board"
 import Canvas from "./Canvas"
 
