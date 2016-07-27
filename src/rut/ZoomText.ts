@@ -27,7 +27,7 @@ class ZoomText {
         this.reset()
     }
 
-    // increase size expontentially and calculate x and y based on the new
+    // increase size exponentially and calculate x and y based on the new
     // size; then, if out of bounds, reset back to the center
     public move(): void {
         this.size *= 1.03
