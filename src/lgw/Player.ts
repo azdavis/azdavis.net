@@ -40,7 +40,7 @@ class PlayerClass extends Sprite {
     }
 
     // if this is moving and has ammo, make a new Bullet which moves in the
-    // direction of movement and decrement ammo, otherwise, noop
+    // direction of movement and decrement ammo, otherwise, nop
     public shoot(): void {
         if (this.ammo === 0 || this.i === 0 && this.j === 0) {
             return
