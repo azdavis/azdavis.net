@@ -34,12 +34,15 @@ p
     margin 0 0 1em
 
 a
-a:visited
-    color inherit
-
-a:active
-a:hover
-    outline 0
+    color $link
+    text-decoration none
+    &:visited
+        color $link-visited
+    &:active
+    &:hover
+        outline 0
+    &:hover
+        text-decoration underline
 
 @media only screen and (max-width $phone)
     section div

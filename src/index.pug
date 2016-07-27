@@ -1,18 +1,4 @@
 html(lang="en")
-    mixin a(href, text)
-        -
-            if (typeof text === "undefined") {
-                text = href
-                    .replace(/https?:\/\//, "")
-                    .replace(/^\//, "azdavis.xyz/")
-            }
-        | &lt;#[a(href= href)= text]&gt;
-    //- an option
-    mixin opt(text)
-        = `${text.length === 1 ? "-" : "--"}${text}`
-    //- a required thing
-    mixin req(text)
-        = `<${text}>`
     head
         include /src/base/head.pug
         title man azdavis
@@ -23,7 +9,7 @@ html(lang="en")
             div azdavis - a guy with certain characteristics
         section
             h2 SYNOPSIS
-            div: code azdavis [option]... #[+req("command")] [arg]...
+            div: code azdavis [option]... &lt;command&gt; [arg]...
         section
             h2 DESCRIPTION
             div
@@ -38,43 +24,40 @@ html(lang="en")
         section
             h2 OPTIONS
             div: dl
-                dt: code #[+opt("help")]
+                dt: code --help
                 dd Display this help.
-                dt: code #[+opt("version")]
+                dt: code --version
                 dd Display current age.
-                dt: code #[+opt("q")], #[+opt("quiet")]
+                dt: code -q, --quiet
                 dd Be quiet, only report errors. This is the default.
-                dt: code #[+opt("v")], #[+opt("verbose")]
+                dt: code -v, --verbose
                 dd Be chatty.
-                dt: code #[+opt("lang")]=#[+req("code")]
+                dt: code --lang=&lt;code&gt;
                 dd.
                     Use the given language for communication, where
-                    #[+req("code")] is one of en or ja, for English or
-                    Japanese, respectively. The default is en. Using ja may
-                    result in poor sentence quality.
+                    &lt;code&gt; is one of en or ja, for English or Japanese,
+                    respectively. The default is en. Using ja may result in
+                    poor sentence quality.
         section
             h2 COMMANDS
             div: dl
-                dt: code get-github-info
+                dt: code: a(href="https://github.com/azdavis") get-github-info
                 dd.
                     Show information about azdavis' public repositories and
-                    contributions on GitHub®. This information is also viewable
-                    at #[+a("https://github.com/azdavis")].
-                dt: code lameify-geometry-wars
+                    contributions on GitHub®.
+                dt: code: a(href="/lgw") lameify-geometry-wars
                 dd.
                     Launch a simple arrow-key game which unintentionally bears
                     some similarities to Bizarre Creation's Geometry Wars, but
-                    is altogether more mediocre. See also #[+a("/lgw")].
-                dt: code generate-catan-board
+                    is altogether more mediocre.
+                dt: code: a(href="cbg") generate-catan-board
                 dd.
                     Launch an interface for generating Catan® boards. The type
-                    of board, regular or expansion, can be specified. See also
-                    #[+a("/cbg")].
-                dt: code congratulate-rut-birthday
+                    of board, regular or expansion, can be specified.
+                dt: code: a(href="rut") congratulate-rut-birthday
                 dd.
                     If it is Sukrut Sonty's birthday, extend to him the
-                    heartiest of congratulations. Otherwise, nop. See also
-                    #[+a("/rut")].
+                    heartiest of congratulations. Otherwise, nop.
         section
             h2 AUTHORS
             div Written by David and Karen Davis.
