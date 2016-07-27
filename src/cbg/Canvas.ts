@@ -1,7 +1,7 @@
-import {div} from "../base/dom"
+import {canvas, div} from "../base/dom"
 
 module Canvas {
-    const el = document.createElement("canvas")
+    const el = canvas()
     export const cx = el.getContext("2d")
 
     export const container = div("container")

@@ -1,5 +1,7 @@
+import {canvas} from "../base/dom"
+
 module Canvas {
-    export const el = document.createElement("canvas")
+    export const el = canvas()
     export const cx = el.getContext("2d")
 
     const pxRatio = devicePixelRatio || 1
