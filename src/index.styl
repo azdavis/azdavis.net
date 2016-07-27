@@ -1,15 +1,14 @@
 @import "/src/base/const"
 
 html
-    background $dark
-    color $light
-    font $fz/$lh $mono
-    text-smooth()
+    background $light
+    color $dark
+    font $fz/$lh $sf
 
 body
-    max-width 82ch
+    max-width 45em
     margin 0 auto
-    padding ($lh)em 1ch
+    padding 0.5em
 
 header
 section
@@ -18,10 +17,10 @@ footer
 
 section
 footer
-    margin ($lh)em 0 0
+    margin 1em 0 0
 
 section div
-    margin 0 6ch
+    margin 0 3em
 
 dl
     margin 0
@@ -30,14 +29,14 @@ dt
     font-weight bold
 
 dd
-    margin 0 0 ($lh)em 4ch
+    margin 0 0 1em 2em
 
 h2
     margin 0
     font-size 1em
 
 p
-    margin 0 0 ($lh)em
+    margin 0 0 1em
 
 a
 a:visited
@@ -60,9 +59,10 @@ a:hover
 
 @media only screen and (max-width $phone)
     section div
-        margin 0 3ch
+        margin-left 1.5em
+        margin-right 1.5em
     dd
-        margin 0 0 ($lh)em 2ch
+        margin-left 1em
     .three div
         width 50%
         &:nth-child(2)

@@ -3,7 +3,7 @@
 html
     background $dark
     user-select none
-    font $fz/$lh $mono
+    font $fz/$lh $ssf
 
 body
     margin 0
@@ -15,7 +15,7 @@ dt
     font-weight bold
 
 dd
-    margin 0 0 1em 4ch
+    margin 0 0 1em 2em
 
 canvas
     display block
@@ -25,23 +25,23 @@ canvas
     left 0
 
 #modal
-    max-width 55ch
-    margin 1em auto 0
-    padding 1ch
-    border-radius 1ch
+    max-width 30em
+    margin 3em auto 0
+    padding 0.5em
+    border-radius 0.5em
     background $light
     color $dark
     user-select auto
 
 #info
     display none
-    padding 1ch
+    padding 0.5em
     color $light
     white-space pre
     text-smooth()
 
 #msg
-    padding 1ch
+    padding 0.5em
     color $light
     font-weight bold
     text-align center
@@ -56,6 +56,6 @@ canvas
     html
         background $light
     dd
-        margin 0 0 1em 2ch
+        margin-left 1em
     #modal
-        margin 0 auto
+        margin-top 0
