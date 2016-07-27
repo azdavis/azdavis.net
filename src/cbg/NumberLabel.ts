@@ -2,7 +2,7 @@ import Canvas from "./Canvas"
 import Sprite from "./Sprite"
 
 class NumberLabel extends Sprite {
-    private static radius = 15
+    private static radius = 14
     private static style = (() => {
         const hs = getComputedStyle(document.documentElement)
         return {
