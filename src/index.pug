@@ -1,11 +1,3 @@
--
-    const d = new Date()
-    const year = String(d.getFullYear())
-    const iso =
-        new Date(d.getTime() - d.getTimezoneOffset() * 60000)
-        .toISOString()
-        .substring(0, 10)
-
 html(lang="en")
     mixin a(href, text)
         -
@@ -15,7 +7,6 @@ html(lang="en")
                     .replace(/^\//, "azdavis.xyz/")
             }
         | &lt;#[a(href= href)= text]&gt;
-    //- see http://docopt.org
     //- an option
     mixin opt(text)
         = `${text.length === 1 ? "-" : "--"}${text}`
@@ -27,16 +18,12 @@ html(lang="en")
         title man azdavis
         style: include index.css
     body
-        header.three
-            div AZDAVIS(1)
-            div User Commands
-            div AZDAVIS(1)
         section
             h2 NAME
             div azdavis - a guy with certain characteristics
         section
             h2 SYNOPSIS
-            div #[b azdavis] [option]... #[+req("command")] [arg]...
+            div: code azdavis [option]... #[+req("command")] [arg]...
         section
             h2 DESCRIPTION
             div
@@ -90,11 +77,8 @@ html(lang="en")
             div Written by David and Karen Davis.
         section
             h2 COPYRIGHT
+            - const year = String(new Date().getFullYear())
             div.
                 Copyright © #[time(datetime= year)= year] Ariel Davis. All
                 rights reserved.
-        footer.three
-            div Ariel Davis
-            div: time(datetime= iso)= iso
-            div AZDAVIS(1)
         script: include index.js

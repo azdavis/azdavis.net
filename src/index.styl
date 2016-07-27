@@ -7,33 +7,29 @@ html
 
 body
     max-width 45em
-    margin 0 auto
+    margin 1em auto
     padding 0.5em
-
-header
-section
-footer
-    display block
-
-section
-footer
-    margin 1em 0 0
-
-section div
-    margin 0 3em
-
-dl
-    margin 0
-
-dt
-    font-weight bold
-
-dd
-    margin 0 0 1em 2em
 
 h2
     margin 0
     font-size 1em
+
+section
+    display block
+    margin-bottom 1em
+    div
+        margin 0 3em
+
+dt
+code
+    font-family $mono
+    font-size 0.9em
+
+dl
+    margin 0
+
+dd
+    margin 0 0 1em 2em
 
 p
     margin 0 0 1em
@@ -46,14 +42,6 @@ a:active
 a:hover
     outline 0
 
-.three div
-    display inline-block
-    width 33.3333%
-    &:nth-child(2)
-        text-align center
-    &:last-child
-        text-align right
-
 .nw
     white-space nowrap
 
@@ -63,7 +51,3 @@ a:hover
         margin-right 1.5em
     dd
         margin-left 1em
-    .three div
-        width 50%
-        &:nth-child(2)
-            display none
