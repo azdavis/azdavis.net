@@ -35,6 +35,7 @@ if ("ontouchend" in window) {
         msg.innerHTML = loadText
         audio.play()
         audio.pause()
+        html.ontouchend = null
     }
 } else {
     msg.innerHTML = loadText
