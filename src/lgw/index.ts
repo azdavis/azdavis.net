@@ -114,7 +114,7 @@ const msg = $("#msg")
 if ("ontouchend" in window) {
     msg.innerHTML = "a physical keyboard is required"
 } else {
-    msg.innerHTML = "press enter to begin"
+    msg.innerHTML = "press ENTER to begin"
     msg.className = "green"
 }
 
