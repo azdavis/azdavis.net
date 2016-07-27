@@ -23,7 +23,7 @@ html(lang="en")
             div azdavis - a guy with certain characteristics
         section
             h2 SYNOPSIS
-            .code azdavis [option]... #[+req("command")] [arg]...
+            div: code azdavis [option]... #[+req("command")] [arg]...
         section
             h2 DESCRIPTION
             div
@@ -38,15 +38,15 @@ html(lang="en")
         section
             h2 OPTIONS
             div: dl
-                dt #[+opt("help")]
+                dt: code #[+opt("help")]
                 dd Display this help.
-                dt #[+opt("version")]
+                dt: code #[+opt("version")]
                 dd Display current age.
-                dt #[+opt("q")], #[+opt("quiet")]
+                dt: code #[+opt("q")], #[+opt("quiet")]
                 dd Be quiet, only report errors. This is the default.
-                dt #[+opt("v")], #[+opt("verbose")]
+                dt: code #[+opt("v")], #[+opt("verbose")]
                 dd Be chatty.
-                dt #[+opt("lang")]=#[+req("code")]
+                dt: code #[+opt("lang")]=#[+req("code")]
                 dd.
                     Use the given language for communication, where
                     #[+req("code")] is one of en or ja, for English or
@@ -55,17 +55,17 @@ html(lang="en")
         section
             h2 COMMANDS
             div: dl
-                dt get-github-info
+                dt: code get-github-info
                 dd.
                     Show information about azdavis' public repositories and
                     contributions on GitHub®. This information is also viewable
                     at #[+a("https://github.com/azdavis")].
-                dt lameify-geometry-wars
+                dt: code lameify-geometry-wars
                 dd.
                     Launch a simple arrow-key game which unintentionally bears
                     some similarities to Bizarre Creation's Geometry Wars, but
                     is altogether more mediocre. See also #[+a("/lgw")].
-                dt generate-catan-board
+                dt: code generate-catan-board
                 dd.
                     Launch an interface for generating Catan® boards. The type
                     of board, regular or expansion, can be specified. See also
