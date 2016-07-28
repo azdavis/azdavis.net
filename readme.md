@@ -9,7 +9,7 @@ a place for stuff http://azdavis.xyz
 
 ## first-time setup
 
-### make sure you have
+### install dependencies
 
 - [git][git]
 - [make][mak]
