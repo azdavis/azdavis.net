@@ -6,7 +6,12 @@ Q ?= &> /dev/null
 .PHONY: all clean test deploy git-ok upload setup hooks npm binary surge
 .PRECIOUS: %.css %.js
 
-include deps.mak
+all: \
+	$(patsubst %.pug, %.html, \
+	$(shell find src -not -path "*base*" -name "*.pug"))
+src/cbg/index.js: $(wildcard src/cbg/*.ts)
+src/lgw/index.js: $(wildcard src/lgw/*.ts)
+src/rut/index.js: $(wildcard src/rut/*.ts)
 
 %.html: %.pug src/base/head.pug %.css %.js
 	echo $@
