@@ -1,4 +1,4 @@
-import {$} from "../base/dom"
+import {$, append} from "../base/dom"
 import Canvas from "./Canvas"
 import Game from "./Game"
 import Player from "./Player"
@@ -118,5 +118,5 @@ if ("ontouchend" in window) {
     msg.className = "green"
 }
 
-document.body.appendChild(Game.info)
-document.body.appendChild(Canvas.el)
+append(Game.info)
+append(Canvas.el)
