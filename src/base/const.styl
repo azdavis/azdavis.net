@@ -14,12 +14,24 @@ $text_smooth()
     -moz-osx-font-smoothing grayscale
     -webkit-font-smoothing antialiased
 
-$clickable()
+$pressable()
+    position relative
     cursor pointer
     touch-action manipulation
     -webkit-tap-highlight-color transparent
-    &:active
-        opacity 0.8
+    &::before
+        $overlay = #0002
+        content ""
+        display none
+        position absolute
+        left 0
+        top 0
+        width 100%
+        height 100%
+        border-radius inherit
+        background $overlay
+    &:active::before
+        display block
 
 * // @stylint ignore
     box-sizing border-box
