@@ -30,23 +30,11 @@
         "truncate": true
     },
     "semicolons": {"error": true, "expect": "never"},
-    "sortOrder": {"error": true, "expect": [
-        "display",
-        "position",
-        "width",
-        "height",
-        "margin",
-        "padding",
-        "border",
-        "outline",
-        "background",
-        "color",
-        "font"
-    ]},
+    "sortOrder": false,
     "stackedProperties": {"error": true, "expect": "never"},
     "trailingWhitespace": {"error": true, "expect": "never"},
     "universal": {"error": true, "expect": "never"},
     "valid": {"error": true, "expect": true},
     "zeroUnits": {"error": true, "expect": "never"},
-    "zIndexNormalize": false
+    "zIndexNormalize": {"error": true, "expect": 5}
 }
