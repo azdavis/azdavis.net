@@ -7,7 +7,7 @@ class NumberLabel extends Sprite {
         const hs = getComputedStyle(document.documentElement)
         return {
             fill: hs.color,
-            font: `${hs.fontSize} ${hs.fontFamily}`,
+            font: `${hs.fontWeight} ${hs.fontSize} ${hs.fontFamily}`,
         }
     })()
 
