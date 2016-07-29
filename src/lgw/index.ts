@@ -112,9 +112,9 @@ onblur = () => {
 // show an error or a "begin" message, depending on mobility of device
 const msg = $("#msg")
 if ("ontouchend" in window) {
-    msg.innerHTML = "a physical keyboard is required"
+    msg.innerHTML = "A physical keyboard is required"
 } else {
-    msg.innerHTML = "press ENTER to begin"
+    msg.innerHTML = "Press <code>enter</code> to begin"
     msg.className = "green"
 }
 
