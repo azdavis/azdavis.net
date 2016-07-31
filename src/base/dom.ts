@@ -6,10 +6,6 @@ function append(el: HTMLElement, to: HTMLElement = document.body): void {
     to.appendChild(el)
 }
 
-function prepend(el: HTMLElement, to: HTMLElement = document.body): void {
-    to.insertBefore(el, to.firstChild)
-}
-
 function canvas(): HTMLCanvasElement {
     return document.createElement("canvas")
 }
@@ -22,4 +18,4 @@ function div(id: string = ""): HTMLDivElement {
     return el
 }
 
-export {$, append, prepend, canvas, div}
+export {$, append, canvas, div}
