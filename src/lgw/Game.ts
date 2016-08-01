@@ -93,14 +93,11 @@ module Game {
     function loop(): void {
         Canvas.clear()
 
-        for (let i = 0; i < Player.bullets.length; i++) {
-            if (Player.bullets[i] === null) {
-                continue
-            }
+        for (let i = Player.bullets.length - 1; i >= 0; i--) {
             Player.bullets[i].move()
             Player.bullets[i].draw()
             if (!Player.bullets[i].isInBounds()) {
-                Player.bullets[i] = null
+                Player.bullets.splice(i, 1)
             }
         }
 
@@ -111,14 +108,11 @@ module Game {
             addEnemy()
         }
 
-        for (let i = 0; i < enemies.length; i++) {
-            if (enemies[i] === null) {
-                continue
-            }
+        for (let i = enemies.length - 1; i >= 0; i--) {
             enemies[i].moveTowards(Player)
             enemies[i].draw()
             if (!Player.invincible && Player.overlaps(enemies[i])) {
-                enemies[i] = null
+                enemies.splice(i, 1)
                 Player.loseLife()
                 updateInfo()
                 if (Player.lives <= 0) {
@@ -128,13 +122,11 @@ module Game {
                 continue
             }
             // O(n^2) is the bad
-            for (let j = 0; j < Player.bullets.length; j++) {
-                if (!Player.bullets[j]) {
-                    continue
-                }
+            for (let j = Player.bullets.length - 1; j >= 0; j--) {
                 if (enemies[i].overlaps(Player.bullets[j])) {
                     score += Enemy.points
-                    enemies[i] = Player.bullets[j] = null
+                    enemies.splice(i, 1)
+                    Player.bullets.splice(j, 1)
                     updateInfo()
                     break
                 }
