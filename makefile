@@ -87,12 +87,12 @@ npm:
 	npm i
 
 binary:
-	for f in \
+	for x in \
 		base/favicon.png \
 		base/touch-icon.png \
 		rut/a.mp3 \
 		rut/ci.png \
-	; do curl -fsSL "http://azdavis.xyz/$$f" > "src/$$f"; done
+	; do echo "$$x"; curl -fL "http://azdavis.xyz/$$x" > "src/$$x"; done
 
 surge:
 	if ! grep -q surge.sh ~/.netrc; then surge login; fi
