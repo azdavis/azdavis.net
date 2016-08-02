@@ -1,17 +1,23 @@
 html(lang="en")
     head
         include /src/base/head.pug
-        title man azdavis
+        title.
+            man azdavis
         style: include index.css
     body
         section
-            h2 NAME
-            div azdavis - a guy with certain characteristics
+            h2.
+                NAME
+            div.
+                azdavis - a guy with certain characteristics
         section
-            h2 SYNOPSIS
-            div: code azdavis [option]... &lt;command&gt; [arg]...
+            h2.
+                SYNOPSIS
+            div: code.
+                azdavis [option]... &lt;command&gt; [arg]...
         section
-            h2 DESCRIPTION
+            h2.
+                DESCRIPTION
             div
                 p.
                     azdavis is a guy who studies computer science at Carnegie
@@ -22,13 +28,19 @@ html(lang="en")
                     these are tossing a Sportdisc™, playing Klaus Teuber's
                     Catan®, and copy-pasting from Stack Overflow™.
         section
-            h2 OPTIONS
+            h2.
+                OPTIONS
             div: dl
-                dt: code --help
-                dd Display this help.
-                dt: code --version
-                dd Display current age.
-                dt: code --lang=&lt;lang&gt;
+                dt: code.
+                    --help
+                dd.
+                    Display this help.
+                dt: code.
+                    --version
+                dd.
+                    Display current age.
+                dt: code.
+                    --lang=&lt;lang&gt;
                 dd.
                     Use the given language for communication, where
                     #[code &lt;lang&gt;] is one of #[code en] or #[code ja],
@@ -36,13 +48,16 @@ html(lang="en")
                     #[code en]. Using #[code ja] may result in poor sentence
                     quality.
         section
-            h2 COMMANDS
+            h2.
+                COMMANDS
             div: dl
-                dt: code: a(href="https://github.com/azdavis") get-github-info
+                dt: code: a(href="https://github.com/azdavis").
+                    get-github-info
                 dd.
                     Show information about azdavis' public repositories and
                     contributions on GitHub®.
-                dt: code: a(href="/lgw") lameify-geometry-wars
+                dt: code: a(href="/lgw").
+                    lameify-geometry-wars
                 dd.
                     Launch a simple arrow-key game which unintentionally bears
                     some similarities to Bizarre Creation's Geometry Wars, but
@@ -54,14 +69,19 @@ html(lang="en")
                     specified, where #[code &lt;type&gt;] is one of #[code reg]
                     or #[code exp], for regular or expansion, respectively. The
                     default is #[code reg].
-                dt: code: a(href="/rut") congratulate-rut-birthday
+                dt: code: a(href="/rut").
+                    congratulate-rut-birthday
                 dd.
                     If it is Sukrut Sonty's birthday, extend to him the
                     heartiest of congratulations. Otherwise, nop.
         section
-            h2 AUTHORS
-            div Written by David and Karen Davis.
+            h2.
+                AUTHORS
+            div.
+                Written by David and Karen Davis.
         section
-            h2 COPYRIGHT
-            div Copyright © 2016 Ariel Davis. All rights reserved.
+            h2.
+                COPYRIGHT
+            div.
+                Copyright © 2016 Ariel Davis. All rights reserved.
         script: include index.js
