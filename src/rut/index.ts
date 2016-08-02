@@ -3,6 +3,8 @@ import Canvas from "./Canvas"
 import CenterImage from "./CenterImage"
 import Loop from "./Loop"
 
+const mobile = "ontouchend" in window
+
 onresize = Canvas.reset
 append(Canvas.el)
 
@@ -26,7 +28,7 @@ const tryStart = () => {
     }
 }
 
-if ("ontouchend" in window) {
+if (mobile) {
     // HACK on iOS, audio/video resources only begin downloading after user
     // interaction (but luckily, after such interaction, events like
     // oncanplaythrough seem to work)

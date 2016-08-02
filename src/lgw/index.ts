@@ -3,6 +3,8 @@ import Canvas from "./Canvas"
 import Game from "./Game"
 import Player from "./Player"
 
+const mobile = "ontouchend" in window
+
 // the modal which contains instructions and is to be hidden when starting
 const modal = $("#modal")
 
@@ -111,7 +113,7 @@ onblur = () => {
 
 // show an error or a "begin" message, depending on mobility of device
 const msg = $("#msg")
-if ("ontouchend" in window) {
+if (mobile) {
     msg.innerHTML = "a physical keyboard is required"
 } else {
     msg.innerHTML = "press <code>enter</code> to begin"
