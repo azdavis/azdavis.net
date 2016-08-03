@@ -35,7 +35,7 @@ src/rut/index.js: $(wildcard src/rut/*.ts)
 	uglifyjs --screw-ie8 -cemo $@ $@ $(Q)
 
 clean:
-	find src \( -name \*.html -o -name \*.css -o -name \*.js \) -delete
+	find src \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
 test: all
 	server=; \
