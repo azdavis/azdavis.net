@@ -4,7 +4,7 @@ import Canvas from "./Canvas"
 
 const mobile = "ontouchend" in window
 
-$("#noscript").remove()
+$("#msg").remove()
 onresize = Board.draw
 
 function makeDrawer(type: string): void {
