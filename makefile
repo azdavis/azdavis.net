@@ -38,20 +38,13 @@ clean:
 	find src \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
 test: all
-	server=; \
-	end() { \
-		kill "$$server"; \
-		printf " server stopped."; \
-		exit; \
-	}; \
-	trap end INT; \
 	http-server src &> /dev/null & \
-	server="$$!"; \
+	trap "kill $$!; printf ' server stopped'; exit" INT; \
 	sleep 0.5 && open "http://localhost:8080" & \
 	while true; do find . \
 		-not -path "*.git*" \
 		-a -not -path "*node_modules*" \
-		| entr -dp $(MAKE) || [[ "$?" == 2 ]]; \
+		| entr -dp $(MAKE) || [[ $? == 2 ]]; \
 	done
 
 deploy: git-ok all upload
