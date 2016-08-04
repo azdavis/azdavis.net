@@ -5,7 +5,7 @@ a place for stuff http://azdavis.xyz
 [![devDependency Status][img]][inf]
 
 [img]: https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg
-[inf]: https://david-dm.org/azdavis/azdavis.xyz#info=devDependencies
+[inf]: https://david-dm.org/azdavis/azdavis.xyz?type=dev
 
 ## first-time setup
 
