@@ -19,7 +19,7 @@ $pressable()
     cursor pointer
     -webkit-tap-highlight-color transparent
     &::before
-        $overlay = #0002
+        $bg = #0002
         content ""
         display none
         position absolute
@@ -28,7 +28,7 @@ $pressable()
         width 100%
         height 100%
         border-radius inherit
-        background $overlay
+        background $bg
     &:active::before
         display block
 
