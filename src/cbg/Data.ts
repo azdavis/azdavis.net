@@ -5,8 +5,8 @@ module Data {
     // another; larger than 1 and the tiles have a gap between them)
     export const tileScale = 1.1
 
-    const black = "#222"
-    const red = "#d22"
+    const black = "#000"
+    const red = "#d00"
     // how stuff looks on the canvas
     export const fills = {
         // text fills (background is always whitish)
