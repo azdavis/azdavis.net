@@ -7,7 +7,7 @@ class Enemy extends Sprite {
     public w = 40
     public h = 40
 
-    protected fill = "#b44"
+    protected fill = "#A44"
     protected speed = 3
 
     // put this somewhere directly outside the Canvas

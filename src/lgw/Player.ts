@@ -22,7 +22,7 @@ class PlayerClass extends Sprite {
         dn: false,
     }
 
-    protected fill = "#4b4"
+    protected fill = "#4A4"
     protected speed = 6
 
     // put this just outside of the canvas, since x and y are set later by the
