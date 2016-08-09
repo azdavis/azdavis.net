@@ -33,7 +33,7 @@
     "sortOrder": false,
     "stackedProperties": {"error": true, "expect": "never"},
     "trailingWhitespace": {"error": true, "expect": "never"},
-    "universal": {"error": true, "expect": "never"},
+    "universal": false,
     "valid": {"error": true, "expect": true},
     "zeroUnits": {"error": true, "expect": "never"},
     "zIndexNormalize": {"error": true, "expect": 5}
