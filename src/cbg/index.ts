@@ -1,8 +1,7 @@
 import {$, append, div} from "../base/dom"
+import isMobile from "../base/isMobile"
 import Board from "./Board"
 import Canvas from "./Canvas"
-
-const mobile = "ontouchend" in window
 
 $("#msg").remove()
 onresize = Board.draw
@@ -13,7 +12,7 @@ function makeDrawer(type: string): void {
     function draw(): void {
         Board.drawNew(type)
     }
-    if (mobile) {
+    if (isMobile) {
         el.ontouchend = draw
     } else {
         el.onclick = draw
@@ -29,7 +28,7 @@ append(Canvas.container)
 Board.drawNew("regular")
 
 // HACK makes :active work on iOS
-if (mobile) {
+if (isMobile) {
     // tslint:disable:no-empty
     document.documentElement.ontouchend = () => {}
     // tslint:enable:no-empty
