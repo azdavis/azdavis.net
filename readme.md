@@ -1,6 +1,8 @@
 # azdavis.xyz
 
-a place for stuff http://azdavis.xyz
+[a place for stuff][1]
+
+[1]: http://azdavis.xyz
 
 [![devDependency Status][img]][inf]
 
