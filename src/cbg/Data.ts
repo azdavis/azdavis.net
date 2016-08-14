@@ -25,7 +25,7 @@ module Data {
         // background fills (to simulate actual tiles)
         tiles: {
             desert: "#CA7",
-            brick: "#B52",
+            brick: "#B53",
             wood: "#573",
             wheat: "#EB3",
             sheep: "#8B3",
