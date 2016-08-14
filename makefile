@@ -50,14 +50,8 @@ test: all
 deploy: git-ok all upload
 
 git-ok:
-	abort() { \
-		echo "$$1"; \
-		exit 1; \
-	}; \
-	[[ -z "$$(git status --porcelain)" ]] \
-		|| abort "there are uncommitted changes"; \
-	[[ "$$(git rev-parse --abbrev-ref @)" == master ]] \
-		|| abort "the current branch is not master"
+	[[ -z "$$(git status --porcelain)" ]]
+	[[ "$$(git rev-parse --abbrev-ref @)" == master ]]
 
 upload:
 	git push -q origin master
