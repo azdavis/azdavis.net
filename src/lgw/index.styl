@@ -1,7 +1,6 @@
 @import "/src/base/const"
 
 html
-    background $dark
     user-select none
     font $fz/$lh $sans
 
@@ -58,9 +57,11 @@ code
 .green
     background $green
 
-@media only screen and (max-width $phone)
+@media only screen and (min-width $phone)
     html
-        background initial
+        background $dark
+
+@media only screen and (max-width $phone)
     dd
         margin-left 1em
     #modal
