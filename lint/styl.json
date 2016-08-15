@@ -2,7 +2,7 @@
     "blocks": {"error": true, "expect": "never"},
     "brackets": {"error": true, "expect": "never"},
     "colons": {"error": true, "expect": "never"},
-    "colors": {"error": true, "expect": "always"},
+    "colors": false,
     "commaSpace": {"error": true, "expect": "always"},
     "commentSpace": {"error": true, "expect": "always"},
     "cssLiteral": {"error": true, "expect": "never"},
