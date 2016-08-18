@@ -6,7 +6,7 @@ module Data {
     export const tileScale = 1.1
 
     const black = "#000"
-    const red = "#D00"
+    const red = "#d00"
     // how stuff looks on the canvas
     export const fills = {
         // text fills (background is always whitish)
@@ -24,11 +24,11 @@ module Data {
         },
         // background fills (to simulate actual tiles)
         tiles: {
-            desert: "#CA7",
-            brick: "#B53",
+            desert: "#ca7",
+            brick: "#b53",
             wood: "#573",
-            wheat: "#EB3",
-            sheep: "#8B3",
+            wheat: "#eb3",
+            sheep: "#8b3",
             ore: "#777",
         },
     }

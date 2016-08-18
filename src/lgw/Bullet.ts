@@ -5,7 +5,7 @@ class Bullet extends Sprite {
     public w = 20
     public h = 20
 
-    protected fill = "#44A"
+    protected fill = "#44a"
     protected speed = 10
 
     // make this always move in the direction that s was going in when this was
