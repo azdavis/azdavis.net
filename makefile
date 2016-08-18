@@ -19,7 +19,7 @@ src/rut/index.js: $(wildcard src/rut/*.ts)
 	tr "\n" " " < $@ > $@.html
 	mv $@.html $@
 
-%.css: %.styl src/base/const.styl
+%.css: %.styl src/base/var.styl
 	echo $@
 	stylint -c lint/styl.json $?
 	BROWSERSLIST="> 0.1%" stylus -u autoprefixer-stylus -c $< $(Q)
