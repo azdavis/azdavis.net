@@ -37,14 +37,14 @@ src/rut/index.js: $(wildcard src/rut/*.ts)
 clean:
 	find src \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
-test: all
+test:
 	http-server src &> /dev/null & \
 	trap "kill $$!; printf ' server stopped'; exit" INT; \
 	sleep 0.5 && open "http://localhost:8080" & \
 	while true; do find . \
 		-not -path "*.git*" \
 		-a -not -path "*node_modules*" \
-		| entr -dp $(MAKE) || [[ $? == 2 ]]; \
+		| entr -d $(MAKE) || [[ $? == 2 ]]; \
 	done
 
 deploy: git-ok all upload
