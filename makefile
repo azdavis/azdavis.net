@@ -21,8 +21,6 @@ src/google827af1fbb442e5a9.html:
 %.html: %.pug src/base/head.pug %.css %.js
 	echo $@
 	pug -sb . --doctype html $<
-	tr "\n" " " < $@ > $@.html
-	mv $@.html $@
 
 %.css: %.styl src/base/var.styl
 	echo $@
