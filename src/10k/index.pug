@@ -1,10 +1,52 @@
+-
+    const amp = "https://www.ampproject.org"
+    const ins = "https://instantarticles.fb.com"
+    const woc = "http://idlewords.com/talks/website_obesity.htm"
+    const mw = "http://motherfuckingwebsite.com"
+    const bmw = "http://bettermotherfuckingwebsite.com"
+    const c5k = "http://www.the5k.org/about.php"
+    const c10k = "https://a-k-apart.com"
+
 html(lang="en")
     head
         include /src/base/head.pug
         title.
-            hello world
+            Avoiding website bloat
         style: include index.css
     body
-        div.
-            hello world
+        h1.
+            Avoiding website bloat
+        p.
+            As our devices get faster and better, and web standards and
+            technologies improve, so too do the websites we visit.
+        p.
+            …By some measures. Certainly, it has never before been possible to
+            create web experiences with such interactivity and depth. Yet,
+            websites have also never before been as bloated with distracting
+            ads, huge images, and invasive tracking scripts and cookies.
+        p.
+            Much has been said on this website obesity crisis. Major tech
+            companies have brought their proposed solutions
+            (#[a(href=amp) one], #[a(href=ins) two]) to the table. Designers
+            have expressed their frustration with "heavy" websites
+            (#[a(href=woc) one], #[a(href=mw) two], #[a(href=bmw) three]).
+            Competitions have been created to encourage the practice of
+            reducing website size as much as possible (#[a(href=c5k) one],
+            #[a(href=c10k) two]).
+        p.
+            How, then, can one craft a website, while making sure it is as
+            small as possible and loads as quickly as possible?
+        h2.
+            Minification
+        p.
+
+            Programming and markup languages allow whitespace characters like
+            the space and tab to be present in source files. Often, such
+            whitespace exists for the sole purpose of improving readability of
+            the source by humans, and carries no semantic value.
+        pre.
+            html {
+                color: #333;
+                font: 18px/1.5 Georgia, serif;
+            }
         script: include index.js
