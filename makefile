@@ -73,7 +73,7 @@ hooks:
 	rm -f .git/hooks/*.sample
 	echo "make" > .git/hooks/pre-commit
 	echo "make clean" > .git/hooks/post-checkout
-	chmod +x .git/hooks/pre-commit .git/hooks/post-checkout
+	chmod +x .git/hooks/*
 
 npm:
 	npm i
