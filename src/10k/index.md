@@ -82,7 +82,7 @@ compressed file.
 
 Some files like images and videos can be compressed lossily. Lossy compression
 algorithms remove unnecessary or less important data from files, creating a
-new, smaller file. In this case, data *is* lost, but [many][tpg] lossy
+new, smaller file. In this case, data is lost, but [many][tpg] lossy
 compression algorithms are quite good at only removing data whose absence a
 user wouldn't notice.
 
@@ -113,4 +113,40 @@ If, instead of the first HTML document requesting other documents, we just
 included the contents of those other documents in the first document, we could
 reduce the number of HTTP requests, causing the page to load faster.
 
-If `style.css` and `script.js` look like this:
+If `style.css` looks like this:
+
+    html {
+        color: #333;
+        font: 18px/1.5 Georgia, serif;
+    }
+
+And `script.js` looks like this:
+
+    console.log("How did this make it to production?")
+
+Then by inlining these files' contents,
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Hello</title>
+            <style>
+                html {
+                    color: #333;
+                    font: 18px/1.5 Georgia, serif;
+                }
+            </style>
+        </head>
+        <body>
+            <p>World</p>
+            <script>
+                console.log("How did this make it to production?")
+            </script>
+        </body>
+    </html>
+
+we can reduce the number of HTTP requests from 3 to 1.
+
+Note, however, that we should minify everything as well.
+
+    <!DOCTYPE html><html><head><title>Hello</title><style>html{color:#333;font:18px/1.5 Georgia,serif}</style></head><body><p>World</p><script>console.log("How did this make it to production?")</script></body></html>
