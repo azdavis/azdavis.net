@@ -108,5 +108,28 @@ html(lang="en")
             A HTML document can request other documents with #[code link href]
             or #[code script src].
         pre: code.
-            bar
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+                &lt;head&gt;
+                    &lt;title&gt;Hello&lt;/title&gt;
+                    &lt;link rel="stylesheet" href="style.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;p&gt;World&lt;/p&gt;
+                    &lt;script src="script.js"&gt;&lt;/script&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+        p.
+            The protocol by which HTML and other documents are transferred from
+            server to user is called HTTP. In HTTP 1, each new request for
+            another document takes a little extra time. Although this problem
+            is solved in HTTP 2, HTTP 1 is still widespread enough that we need
+            to worry about it.
+        p.
+            If, instead of the first HTML document requesting other documents,
+            we just included the contents of those other documents in the first
+            document, we could reduce the number of HTTP requests, causing the
+            page to load faster.
+        p.
+            If #[code style.css] and #[code script.js] look like this:
         script: include index.js
