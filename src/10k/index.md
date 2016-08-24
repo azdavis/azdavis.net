@@ -1,5 +1,3 @@
-# Avoiding website bloat
-
 As our devices get faster and better, and web standards and technologies
 improve, so too do the websites we visit.
 
