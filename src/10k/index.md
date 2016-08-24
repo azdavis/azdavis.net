@@ -8,19 +8,18 @@ scripts and cookies. Increased processing power is offset by ever-huger
 websites.
 
 Much has been said on this conundrum. Major tech companies have brought their
-proposed solutions ([AMP][], [Instant Articles][]) to the table. Designers have
-expressed their frustration with "heavy" websites ([Website Obesity Crisis][],
-[Motherfucking Website][], [Better Motherfucking Website][]). Competitions have
-been created to encourage the practice of reducing website size as much as
-possible ([The 5K][], [10K Apart][]).
+proposed solutions ([one][amp], [two][ins]) to the table. Designers have
+expressed their frustration with "heavy" websites ([one][woc], [two][mw],
+[three][bmw]). Competitions have been created to encourage the practice of
+reducing website size as much as possible ([one][5k], [two][10k]).
 
-[AMP]: https://www.ampproject.org
-[Instant Articles]: https://instantarticles.fb.com
-[Website Obesity Crisis]: http://idlewords.com/talks/website_obesity.htm
-[Motherfucking Website]: http://motherfuckingwebsite.com
-[Better Motherfucking Website]: http://bettermotherfuckingwebsite.com
-[The 5K]: http://www.the5k.org/about.php
-[10K Apart]: https://a-k-apart.com
+[amp]: https://www.ampproject.org
+[ins]: https://instantarticles.fb.com
+[woc]: http://idlewords.com/talks/website_obesity.htm
+[mw]: http://motherfuckingwebsite.com
+[bmw]: http://bettermotherfuckingwebsite.com
+[5k]: http://www.the5k.org/about.php
+[10k]: https://a-k-apart.com
 
 How, then, can one craft a website, while making sure it is as small as
 possible and loads as quickly as possible?
@@ -69,10 +68,10 @@ compression.
 In the specific case of lossless compression, again, no data is lost (hence the
 name). By applying a reverse transformation, we can get back the original file.
 
-[`gzip`][] is a program that uses an algorithm called [DEFLATE][] to
-compress files. Servers can be configured to automatically `gzip` source files
-and serve these compressed files to users, whose computers then decompress the
-compressed file.
+[`gzip`][] is a program that uses an algorithm called [DEFLATE][] to compress
+files. Servers can be configured to automatically `gzip` source files and serve
+these compressed files to users, whose computers then decompress the compressed
+file.
 
 [`gzip`]: http://www.gzip.org
 [DEFLATE]: https://en.wikipedia.org/wiki/DEFLATE
@@ -81,8 +80,8 @@ compressed file.
 
 Some files like images and videos can be compressed lossily. Lossy compression
 algorithms remove unnecessary or less important data from files, creating a
-new, smaller file. In this case, data is lost, but lossy
-compression algorithms ([TinyPNG][], [Lepton][]) are quite good at only removing data whose absence a
+new, smaller file. In this case, data is lost, but lossy compression algorithms
+([TinyPNG][], [Lepton][]) are quite good at only removing data whose absence a
 user wouldn't notice.
 
 [TinyPNG]: https://tinypng.com
