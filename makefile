@@ -3,22 +3,12 @@ SHELL := sh -euo pipefail
 PATH := node_modules/.bin:$(PATH)
 Q ?= &> /dev/null
 
+include deps.mak
+
 .PHONY: all clean test deploy git-ok upload setup hooks npm binary surge
 .PRECIOUS: %.css %.js
 
-all: \
-	src/google827af1fbb442e5a9.html \
-	$(patsubst %.pug, %.html, \
-	$(shell find src -not -path "*base*" -name "*.pug"))
-src/cbg/index.js: $(wildcard src/cbg/*.ts)
-src/lgw/index.js: $(wildcard src/lgw/*.ts)
-src/rut/index.js: $(wildcard src/rut/*.ts)
-
-src/google827af1fbb442e5a9.html:
-	printf "google-site-verification: google827af1fbb442e5a9.html" \
-		> src/google827af1fbb442e5a9.html
-
-%.html: %.pug src/base/head.pug %.css %.js
+%.html: %.pug src/base/head.pug %.css
 	echo $@
 	pug -sb . --doctype html $<
 
@@ -36,6 +26,10 @@ src/google827af1fbb442e5a9.html:
 		mv $@.js $@; \
 	fi
 	uglifyjs --screw-ie8 -cemo $@ $@ $(Q)
+
+src/google827af1fbb442e5a9.html:
+	printf "google-site-verification: google827af1fbb442e5a9.html" \
+		> src/google827af1fbb442e5a9.html
 
 clean:
 	find src \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
