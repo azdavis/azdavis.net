@@ -9,7 +9,7 @@ websites.
 
 Much has been said on this conundrum. Major tech companies have brought their
 proposed solutions ([one][amp], [two][ins]) to the table. Designers have
-expressed their frustration with "heavy" websites ([one][woc], [two][mw],
+expressed their frustration with overlarge websites ([one][woc], [two][mw],
 [three][bmw]). Competitions have been created to encourage the practice of
 reducing website size as much as possible ([one][5k], [two][10k]).
 
