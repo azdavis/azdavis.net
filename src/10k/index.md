@@ -148,3 +148,32 @@ we can reduce the number of HTTP requests from 3 to 1.
 Note, however, that we should minify everything as well.
 
     <!DOCTYPE html><html><head><title>Hello</title><style>html{color:#333;font:18px/1.5 Georgia,serif}</style></head><body><p>World</p><script>console.log("How did this make it to production?")</script></body></html>
+
+## Have less stuff
+
+No matter how much one compresses, certain types of large files will always
+contribute a big amount to a page size. For such resources, one should perform
+an exacting cost-basis analysis to decide whether to keep such resources or
+ditch them.
+
+For instance, does downloading 100KB of webfont help your site because you're
+able to choose the exact appearance of your text, or is the benefit given by
+custom fonts not worth the extra few hundred milliseconds of page load?
+Consider also the unsavory [flash of unstyled text][] as the webfont downloads.
+
+[flash of unstyled text]:  https://en.wikipedia.org/wiki/Flash_of_unstyled_content
+
+Does including a large hero image at the top of your page really increase user
+engagement, or does it simply serve to make load times longer and frustrate
+users as they are forced to scroll down to the beginning of the actual content?
+
+Are dozens of tracking scripts, analytics services, and advertisement providers
+really necessary, or can you get by with just one or two? Or none?
+
+## Use tooling
+
+Automated services can fetch your website, measure the time it took until first
+load, and provide feedback on how to improve the performance and accessibility
+of your site. [PageSpeed Insights][] is one such service.
+
+[PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz/10k
