@@ -68,11 +68,10 @@ compression.
 In the specific case of lossless compression, again, no data is lost (hence the
 name). By applying a reverse transformation, we can get back the original file.
 
-[`gzip`][] is a program that uses the [DEFLATE][] algorithm to compress files.
+`gzip` is a program that uses the [DEFLATE][] algorithm to compress files.
 Servers can be configured to automatically `gzip` source files and serve these
 compressed files to users, whose computers then decompress the compressed file.
 
-[`gzip`]: http://www.gzip.org
 [DEFLATE]: https://en.wikipedia.org/wiki/DEFLATE
 
 ### Lossy
