@@ -11,11 +11,19 @@ include deps.mak
 %.html: %.pug src/base/head.pug %.css
 	echo $@
 	pug -sb . --doctype html $<
+	html-minifier \
+		--collapse-whitespace \
+		--decode-entities \
+		--minify-css \
+		--minify-js \
+		--minify-urls \
+		-o $@.html $@
+	mv $@.html $@
 
 %.css: %.styl src/base/var.styl
 	echo $@
 	stylint -c lint/styl.json $?
-	BROWSERSLIST="> 0.1%" stylus -u autoprefixer-stylus -c $< $(Q)
+	BROWSERSLIST="> 0.1%" stylus -u autoprefixer-stylus $< $(Q)
 
 %.js: %.ts
 	echo $@
@@ -25,7 +33,6 @@ include deps.mak
 		browserify -o $@.js $@; \
 		mv $@.js $@; \
 	fi
-	uglifyjs --screw-ie8 -cemo $@ $@ $(Q)
 
 src/google827af1fbb442e5a9.html:
 	printf "google-site-verification: google827af1fbb442e5a9.html" \
