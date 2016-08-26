@@ -32,20 +32,24 @@ transformation is called minification.
 
 Consider this small CSS file:
 
-    html {
-        color: #333;
-        font: 18px/1.5 Georgia, serif;
-    }
+```css
+html {
+    color: #333;
+    font: 18px/1.5 Georgia, serif;
+}
 
-    body {
-        max-width: 40em;
-        margin: 0 auto;
-        padding: 10px;
-    }
+body {
+    max-width: 40em;
+    margin: 0 auto;
+    padding: 10px;
+}
+```
 
 With the use of a minifier, we can create a minified version of this file.
 
-    html{color:#333;font:18px/1.5 Georgia,serif}body{max-width:40em;margin:0 auto;padding:10px}
+```css
+html{color:#333;font:18px/1.5 Georgia,serif}body{max-width:40em;margin:0 auto;padding:10px}
+```
 
 The original file and the minified file instruct the computer to do exactly the
 same things. The original file is clearly superior for human programmers to
@@ -89,17 +93,19 @@ user wouldn't notice.
 
 A HTML document can request other documents with `link href` or `script src`.
 
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <title>Hello</title>
-            <link rel="stylesheet" href="style.css">
-        </head>
-        <body>
-            <p>World</p>
-            <script src="script.js"></script>
-        </body>
-    </html>
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <p>World</p>
+        <script src="script.js"></script>
+    </body>
+</html>
+```
 
 The protocol by which HTML and other documents are transferred from server to
 user is called [HTTP][]. In HTTP/1.1, each new request for another document
@@ -115,41 +121,49 @@ reduce the number of HTTP requests, causing the page to load faster.
 
 If `style.css` looks like this:
 
-    html {
-        color: #333;
-        font: 18px/1.5 Georgia, serif;
-    }
+```css
+html {
+    color: #333;
+    font: 18px/1.5 Georgia, serif;
+}
+```
 
 And `script.js` looks like this:
 
-    console.log("How did this make it to production?")
+```js
+console.log("How did this make it to production?")
+```
 
 Then by inlining these files' contents,
 
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <title>Hello</title>
-            <style>
-                html {
-                    color: #333;
-                    font: 18px/1.5 Georgia, serif;
-                }
-            </style>
-        </head>
-        <body>
-            <p>World</p>
-            <script>
-                console.log("How did this make it to production?")
-            </script>
-        </body>
-    </html>
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+        <style>
+            html {
+                color: #333;
+                font: 18px/1.5 Georgia, serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>World</p>
+        <script>
+            console.log("How did this make it to production?")
+        </script>
+    </body>
+</html>
+```
 
 we can reduce the number of HTTP requests from 3 to 1.
 
 Note, however, that we should minify everything as well.
 
-    <!DOCTYPE html><html><head><title>Hello</title><style>html{color:#333;font:18px/1.5 Georgia,serif}</style></head><body><p>World</p><script>console.log("How did this make it to production?")</script></body></html>
+```html
+<!DOCTYPE html><html><head><title>Hello</title><style>html{color:#333;font:18px/1.5 Georgia,serif}</style></head><body><p>World</p><script>console.log("How did this make it to production?")</script></body></html>
+```
 
 ## Have less stuff
 
