@@ -102,9 +102,12 @@ A HTML document can request other documents with `link href` or `script src`.
     </html>
 
 The protocol by which HTML and other documents are transferred from server to
-user is called HTTP. In HTTP 1, each new request for another document takes a
-little extra time. Although this problem is solved in HTTP 2, HTTP 1 is still
-widespread enough that we need to worry about it.
+user is called [HTTP][]. In HTTP/1.1, each new request for another document
+takes a little extra time. Although this problem is solved in [HTTP/2][],
+HTTP/1.1 is still widespread enough that we need to worry about it.
+
+[HTTP]: https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+[HTTP/2]: https://en.wikipedia.org/wiki/HTTP/2
 
 If, instead of the first HTML document requesting other documents, we just
 included the contents of those other documents in the first document, we could
