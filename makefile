@@ -17,6 +17,8 @@ include deps.mak
 		--minify-css \
 		--minify-js \
 		--minify-urls \
+		--remove-attribute-quotes \
+		--remove-redundant-attributes \
 		-o $@.html $@
 	mv $@.html $@
 
