@@ -1,12 +1,9 @@
-import {append, canvas, div} from "../base/dom"
+import {canvas, div} from "../base/dom"
 
 module Canvas {
-    const el = canvas()
+    export const el = canvas()
     export const cx = el.getContext("2d")
-
     export const container = div("container")
-    append(el, container)
-
     export const btns = div("btns")
 
     const pxRatio = devicePixelRatio || 1

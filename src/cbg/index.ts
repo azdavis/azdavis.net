@@ -23,6 +23,7 @@ function makeDrawer(type: string): void {
 makeDrawer("regular")
 makeDrawer("expansion")
 append(Canvas.btns)
+append(Canvas.el, Canvas.container)
 append(Canvas.container)
 
 Board.drawNew("regular")
