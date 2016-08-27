@@ -193,3 +193,12 @@ load, and provide feedback on how to improve the performance and accessibility
 of your site. [PageSpeed Insights][] is one such service.
 
 [PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz/10k
+
+---
+
+## About the author
+
+I'm Ariel Davis, a freshman computer science major at Carnegie Mellon. You
+probably shouldn't trust what I say. Learn more on [Keybase][].
+
+[Keybase]: https://keybase.io/azdavis
