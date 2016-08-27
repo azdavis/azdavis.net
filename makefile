@@ -30,7 +30,11 @@ include deps.mak
 %.js: %.ts
 	echo $@
 	tslint -c lint/ts.json $?
-	tsc --noEmitOnError --removeComments $<
+	tsc \
+		--forceConsistentCasingInFileNames \
+		--noEmitOnError \
+		--removeComments \
+		$<
 	if grep -q require\( $@; then \
 		browserify -o $@.js $@; \
 		mv $@.js $@; \
