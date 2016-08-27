@@ -1,35 +1,35 @@
 # azdavis.xyz
 
-[a place for stuff][1]
+[a place for stuff][]
 
-[1]: http://azdavis.xyz
+[a place for stuff]: http://azdavis.xyz
 
-[![devDependency Status][img]][inf]
+[![devDependency status][]][devDependency info]
 
-[img]: https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg
-[inf]: https://david-dm.org/azdavis/azdavis.xyz?type=dev
+[devDependency status]: https://david-dm.org/azdavis/azdavis.xyz/dev-status.svg
+[devDependency info]: https://david-dm.org/azdavis/azdavis.xyz?type=dev
 
 ## first-time setup
 
 ### install dependencies
 
-- [git][git]
-- [make][mak]
-- [npm][npm]
-- [entr][ent]
+- [git][]
+- [make][]
+- [npm][]
+- [entr][]
 
 ### `make setup`
 
 - set up some git hooks
-- install some [npm devDependencies][inf]
+- install some [npm devDependencies][devDependency info]
 - get some non-git-tracked binary files
-- prepare deployment to [surge][sur]
+- prepare deployment to [surge][]
 
 [git]: https://git-scm.com
-[mak]: https://www.gnu.org/software/make
+[make]: https://www.gnu.org/software/make
 [npm]: https://www.npmjs.com
-[ent]: http://entrproject.org
-[sur]: https://surge.sh
+[entr]: http://entrproject.org
+[surge]: https://surge.sh
 
 ## useful commands
 
@@ -57,8 +57,8 @@
 
 ## {con,per}formance
 
-- [w3 validator][w3v]
-- [pagespeed insights][pag]
+- [w3 validator][]
+- [pagespeed insights][]
 
-[w3v]: https://validator.w3.org/nu/?doc=http://azdavis.xyz
-[pag]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz
+[w3 validator]: https://validator.w3.org/nu/?doc=http://azdavis.xyz
+[pagespeed insights]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz
