@@ -12,11 +12,7 @@ function makeDrawer(type: string): void {
     function draw(): void {
         Board.drawNew(type)
     }
-    if (isMobile) {
-        el.ontouchend = draw
-    } else {
-        el.onclick = draw
-    }
+    el[isMobile ? "ontouchend" : "onclick"] = draw
     append(el, Canvas.btns)
 }
 
