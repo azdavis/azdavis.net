@@ -187,7 +187,9 @@ really necessary, or can you get by with just one or two? Or none?
 
 Automated services can fetch your website, measure the time it took until first
 load, and provide feedback on how to improve the performance and accessibility
-of your site. [PageSpeed Insights][] is one such service.
+of your site. [PageSpeed Insights][] is one such service. It's also worth
+paying attention to the browser developer tools, specifically the sections on
+performance and network requests.
 
 [PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz/10k
 
