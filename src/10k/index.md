@@ -184,16 +184,16 @@ performance and network requests.
 This site was put together with the help of `make` and a few `npm`
 devDependencies. It's written in [Pug][], [Stylus][], and [TypeScript][], which
 respectively compile to HTML, CSS, and JavaScript. I use Pug's `include`
-directive to inline the compiled (and [browserify][]'d if necessary) CSS and
-JavaScript, then run it through [html-minifier][] (which also minifies the
+directive to inline the compiled (and [Browserify][]'d if necessary) CSS and
+JavaScript, then run it through [an HTML minifier][] (which also minifies the
 included CSS and JavaScript). All of this is coordinated with a `makefile`; one
 can check it out on [GitHub][].
 
 [Pug]: http://pug.timothygu.me
 [Stylus]: http://stylus-lang.com
 [TypeScript]: https://www.typescriptlang.org
-[browserify]: http://browserify.org
-[html-minifier]: http://perfectionkills.com/experimenting-with-html-minifier
+[Browserify]: http://browserify.org
+[an HTML minifier]: http://perfectionkills.com/experimenting-with-html-minifier
 [GitHub]: https://github.com/azdavis/azdavis.xyz
 
 ---
