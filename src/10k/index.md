@@ -32,19 +32,15 @@ transformation is called minification.
 
 Consider this small CSS file:
 
-```css
-body {
-    max-width: 40em;
-    margin: 1em auto;
-    padding: 10px;
-}
-```
+    body {
+        max-width: 40em;
+        margin: 1em auto;
+        padding: 10px;
+    }
 
 With the use of a minifier, we can create a minified version of this file.
 
-```css
-body{max-width:40em;margin:1em auto;padding:10px}
-```
+    body{max-width:40em;margin:1em auto;padding:10px}
 
 The original file and the minified file instruct the computer to do exactly the
 same things. The original file is clearly superior for human programmers to
@@ -88,19 +84,17 @@ user wouldn't notice.
 
 A HTML document can request other documents with `link href` or `script src`.
 
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Hello</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <p>World</p>
-        <script src="script.js"></script>
-    </body>
-</html>
-```
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Hello</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <p>World</p>
+            <script src="script.js"></script>
+        </body>
+    </html>
 
 The protocol by which HTML and other documents are transferred from server to
 user is called [HTTP][]. In HTTP/1.1, each new request for another document
@@ -116,51 +110,43 @@ reduce the number of HTTP requests, causing the page to load faster.
 
 If `style.css` looks like this:
 
-```css
-body {
-    max-width: 40em;
-    margin: 1em auto;
-    padding: 10px;
-}
-```
+    body {
+        max-width: 40em;
+        margin: 1em auto;
+        padding: 10px;
+    }
 
 And `script.js` looks like this:
 
-```js
-console.log("The devtools are open!")
-```
+    console.log("The devtools are open!")
 
 Then by inlining these files' contents,
 
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Hello</title>
-        <style>
-            body {
-                max-width: 40em;
-                margin: 1em auto;
-                padding: 10px;
-            }
-        </style>
-    </head>
-    <body>
-        <p>World</p>
-        <script>
-            console.log("The devtools are open!")
-        </script>
-    </body>
-</html>
-```
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Hello</title>
+            <style>
+                body {
+                    max-width: 40em;
+                    margin: 1em auto;
+                    padding: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            <p>World</p>
+            <script>
+                console.log("The devtools are open!")
+            </script>
+        </body>
+    </html>
 
 we can reduce the number of HTTP requests from 3 to 1.
 
 Note, however, that we should minify everything as well.
 
-```html
-<!DOCTYPE html><html><head><title>Hello</title><style>body{max-width:40em;margin:1em auto;padding:10px}</style></head><body><p>World</p><script>console.log("The devtools are open!")</script></body></html>
-```
+    <!DOCTYPE html><html><head><title>Hello</title><style>body{max-width:40em;margin:1em auto;padding:10px}</style></head><body><p>World</p><script>console.log("The devtools are open!")</script></body></html>
 
 ## Have less stuff
 
