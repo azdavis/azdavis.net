@@ -70,8 +70,8 @@ upload:
 setup: hooks npm binary surge
 
 hooks:
-	mkdir -p .git/hooks
-	rm -f .git/hooks/*.sample
+	rm -rf .git/hooks
+	mkdir .git/hooks
 	echo "make" > .git/hooks/pre-commit
 	echo "make clean" > .git/hooks/post-checkout
 	chmod +x .git/hooks/*
