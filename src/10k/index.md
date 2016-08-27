@@ -127,7 +127,7 @@ body {
 And `script.js` looks like this:
 
 ```js
-console.log("Operation failed successfully")
+console.log("Open the devtools!")
 ```
 
 Then by inlining these files' contents,
@@ -148,7 +148,7 @@ Then by inlining these files' contents,
     <body>
         <p>World</p>
         <script>
-            console.log("Operation failed successfully")
+            console.log("Open the devtools!")
         </script>
     </body>
 </html>
@@ -159,7 +159,7 @@ we can reduce the number of HTTP requests from 3 to 1.
 Note, however, that we should minify everything as well.
 
 ```html
-<!DOCTYPE html><html><head><title>Hello</title><style>body{max-width:40em;margin:1em auto;padding:10px}</style></head><body><p>World</p><script>console.log("Operation failed successfully")</script></body></html>
+<!DOCTYPE html><html><head><title>Hello</title><style>body{max-width:40em;margin:1em auto;padding:10px}</style></head><body><p>World</p><script>console.log("Open the devtools!")</script></body></html>
 ```
 
 ## Have less stuff
