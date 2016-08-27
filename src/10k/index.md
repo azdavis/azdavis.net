@@ -33,14 +33,9 @@ transformation is called minification.
 Consider this small CSS file:
 
 ```css
-html {
-    color: #333;
-    font: 18px/1.5 Georgia, serif;
-}
-
 body {
     max-width: 40em;
-    margin: 0 auto;
+    margin: 1em auto;
     padding: 10px;
 }
 ```
@@ -48,7 +43,7 @@ body {
 With the use of a minifier, we can create a minified version of this file.
 
 ```css
-html{color:#333;font:18px/1.5 Georgia,serif}body{max-width:40em;margin:0 auto;padding:10px}
+body{max-width:40em;margin:1em auto;padding:10px}
 ```
 
 The original file and the minified file instruct the computer to do exactly the
@@ -122,16 +117,17 @@ reduce the number of HTTP requests, causing the page to load faster.
 If `style.css` looks like this:
 
 ```css
-html {
-    color: #333;
-    font: 18px/1.5 Georgia, serif;
+body {
+    max-width: 40em;
+    margin: 1em auto;
+    padding: 10px;
 }
 ```
 
 And `script.js` looks like this:
 
 ```js
-console.log("How did this make it to production?")
+console.log("Operation failed successfully")
 ```
 
 Then by inlining these files' contents,
@@ -142,16 +138,17 @@ Then by inlining these files' contents,
     <head>
         <title>Hello</title>
         <style>
-            html {
-                color: #333;
-                font: 18px/1.5 Georgia, serif;
+            body {
+                max-width: 40em;
+                margin: 1em auto;
+                padding: 10px;
             }
         </style>
     </head>
     <body>
         <p>World</p>
         <script>
-            console.log("How did this make it to production?")
+            console.log("Operation failed successfully")
         </script>
     </body>
 </html>
@@ -162,7 +159,7 @@ we can reduce the number of HTTP requests from 3 to 1.
 Note, however, that we should minify everything as well.
 
 ```html
-<!DOCTYPE html><html><head><title>Hello</title><style>html{color:#333;font:18px/1.5 Georgia,serif}</style></head><body><p>World</p><script>console.log("How did this make it to production?")</script></body></html>
+<!DOCTYPE html><html><head><title>Hello</title><style>body{max-width:40em;margin:1em auto;padding:10px}</style></head><body><p>World</p><script>console.log("Operation failed successfully")</script></body></html>
 ```
 
 ## Have less stuff
