@@ -6,7 +6,7 @@ import Canvas from "./Canvas"
 $("#msg").remove()
 onresize = Board.draw
 
-function makeDrawer(type: string): void {
+function mkDrawer(type: string): void {
     const el = div()
     el.innerHTML = type
     el[isMobile ? "ontouchend" : "onclick"] = () => {
@@ -15,8 +15,8 @@ function makeDrawer(type: string): void {
     append(el, Canvas.btns)
 }
 
-makeDrawer("regular")
-makeDrawer("expansion")
+mkDrawer("regular")
+mkDrawer("expansion")
 append(Canvas.btns)
 append(Canvas.el, Canvas.container)
 append(Canvas.container)
