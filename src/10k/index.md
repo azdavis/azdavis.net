@@ -197,7 +197,7 @@ performance and network requests.
 
 ## About the author
 
-I'm Ariel Davis, a freshman computer science major at Carnegie Mellon. You
-probably shouldn't trust what I say. Learn more on [Keybase][].
+I'm Ariel Davis, and I study computer science at Carnegie Mellon. You probably
+shouldn't trust what I say. Learn more on [Keybase][].
 
 [Keybase]: https://keybase.io/azdavis
