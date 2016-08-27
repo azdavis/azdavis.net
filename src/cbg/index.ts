@@ -9,10 +9,9 @@ onresize = Board.draw
 function makeDrawer(type: string): void {
     const el = div()
     el.innerHTML = type
-    function draw(): void {
+    el[isMobile ? "ontouchend" : "onclick"] = () => {
         Board.drawNew(type)
     }
-    el[isMobile ? "ontouchend" : "onclick"] = draw
     append(el, Canvas.btns)
 }
 
