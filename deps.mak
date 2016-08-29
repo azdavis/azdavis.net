@@ -10,7 +10,7 @@ src/cbg/index.js src/lgw/index.js src/rut/index.js: src/base/isMobile.ts
 src/index.css src/10k/index.css src/404/index.css: src/base/main-text.styl
 src/10k/index.css: src/base/pre.styl
 
-src/10k/index.html: src/10k/index.md
+src/10k/index.html: src/10k/index.md src/10k/index.js
 
 src/cbg/index.html: src/cbg/index.js
 src/cbg/index.js: $(wildcard src/cbg/*.ts)
