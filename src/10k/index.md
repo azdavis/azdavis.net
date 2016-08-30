@@ -186,7 +186,7 @@ devDependencies. It's written in [Pug][], [Stylus][], and [TypeScript][], which
 respectively compile to HTML, CSS, and JavaScript. I use Pug's `include`
 directive to inline the compiled (and [Browserify][]'d if necessary) CSS and
 JavaScript, then run it through [an HTML minifier][] (which also minifies the
-included CSS and JavaScript). All of this is coordinated with a `makefile`; one
+included CSS and JavaScript). All of this is coordinated with a makefile; one
 can check it out on [GitHub][].
 
 [Pug]: http://pug.timothygu.me
