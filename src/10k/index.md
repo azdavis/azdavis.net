@@ -148,6 +148,16 @@ Note, however, that we should minify everything as well.
 
     <!DOCTYPE html><html><head><title>Hello</title><style>body{max-width:40em;margin:1em auto;padding:10px}</style></head><body><p>World</p><script>console.log("The devtools are open!")</script></body></html>
 
+## Use tooling
+
+Automated services can fetch your website, measure the time it took until first
+load, and provide feedback on how to improve the performance and accessibility
+of your site. [PageSpeed Insights][] is one such service. It's also worth
+paying attention to the browser developer tools, specifically the sections on
+performance and network requests.
+
+[PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz/10k
+
 ## Have less stuff
 
 No matter how much one compresses, certain types of large files will always
@@ -168,16 +178,6 @@ users as they are forced to scroll down to the beginning of the actual content?
 
 Are dozens of tracking scripts, analytics services, and advertisement providers
 really necessary, or can you get by with just one or two? Or none?
-
-## Use tooling
-
-Automated services can fetch your website, measure the time it took until first
-load, and provide feedback on how to improve the performance and accessibility
-of your site. [PageSpeed Insights][] is one such service. It's also worth
-paying attention to the browser developer tools, specifically the sections on
-performance and network requests.
-
-[PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz/10k
 
 ## A case study
 
