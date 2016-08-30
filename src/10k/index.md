@@ -189,6 +189,8 @@ JavaScript, then run it through [an HTML minifier][] (which also minifies the
 included CSS and JavaScript). All of this is coordinated with a makefile; one
 can check it out on [GitHub][].
 
+<p id="load"></p>
+
 [Pug]: http://pug.timothygu.me
 [Stylus]: http://stylus-lang.com
 [TypeScript]: https://www.typescriptlang.org
