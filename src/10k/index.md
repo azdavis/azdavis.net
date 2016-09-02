@@ -176,7 +176,7 @@ performance and network requests.
 
 No matter how much one compresses, certain types of large files will always
 contribute a big amount to a page size. For such resources, one should perform
-an exacting cost-basis analysis to decide whether to keep such resources or
+an exacting cost-benefit analysis to decide whether to keep such resources or
 ditch them.
 
 For instance, does downloading 100KB of webfont help your site because you're
