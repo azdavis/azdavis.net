@@ -69,6 +69,20 @@ compressed files to users, whose computers then decompress the compressed file.
 
 [DEFLATE]: https://en.wikipedia.org/wiki/DEFLATE
 
+This page, for instance, is about 10000 bytes, but using `gzip` (that's the `z`
+in the `tar` command), its size is reduced to about 4000 bytes - less than half
+the size.
+
+    $ tar czf index.tar.gz index.html
+    $ stat -c %s index.html index.tar.gz
+    9730
+    4241
+
+Note that this example is purely illustrative - with a properly configured
+server, like [Surge][], this is done automatically.
+
+[Surge]: https://surge.sh
+
 ### Lossy
 
 Some files like images and videos can be compressed lossily. Lossy compression
