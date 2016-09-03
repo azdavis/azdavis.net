@@ -1,4 +1,6 @@
-azdavis@andrew.cmu.edu
+- [Email](azdavis@andrew.cmu.edu)
+- [Website](azdavis.xyz)
+- [GitHub](github.com/azdavis)
 
 ## Education
 
