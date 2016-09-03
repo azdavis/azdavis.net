@@ -1,22 +1,23 @@
-- [Email](azdavis@andrew.cmu.edu)
-- [Website](azdavis.xyz)
-- [GitHub](github.com/azdavis)
+- [Email](http://www.google.com/recaptcha/mailhide/d?k=01lKgXnqE6Va_tcIEkUUMMXA==&c=48E9bfineLrIePMFqmXJBEMUqOmSn2ToweAA0b2nyLA=)
+- [Website](/)
+- [GitHub](https://github.com/azdavis)
 
 ## Education
 
-- Summit Public Schools (???? - 2016)
-- Carnegie Mellon University (Computer Science) (2016 - )
+- 2016 - now: Carnegie Mellon University, computer science major
+- 2012 - 2016: Summit High School, 4.504 GPA
 
 ## Awards
 
-- National AP Scholar
-- AP Scholar with Distinction
-- Computer Science Award of Excellence
+- AP: National AP Scholar, AP Scholar with Distinction
+- Summit High School: Computer Science Award
 
 ## Activities
 
-- Northwestern University web dev program
-- Carnegie Mellon University Pre-College
+- 2015-2016: Summit High School community service club
+- 2015-2016: Summit High School computer club
+- 2015 summer: Carnegie Mellon University Pre-College program
+- 2014 summer: Northwestern University web dev program
 
 ## Skills
 
