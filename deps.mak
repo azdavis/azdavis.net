@@ -19,5 +19,7 @@ src/cbg/index.js: $(wildcard src/cbg/*.ts)
 src/lgw/index.html: src/lgw/index.js
 src/lgw/index.js: $(wildcard src/lgw/*.ts)
 
+src/resume/index.html: src/resume/index.md
+
 src/rut/index.html: src/rut/index.js
 src/rut/index.js: $(wildcard src/rut/*.ts)
