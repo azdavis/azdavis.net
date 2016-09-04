@@ -3,10 +3,49 @@
 @import "/src/base/a"
 @import "/src/base/h1-h2-h3"
 
+dl
+p
+    margin 0
+
+dt
+dd
+    display inline-block
+    vertical-align top
+
+dt
+    width 20%
+    font-style italic
+
+dd
+    width 80%
+    margin 0 0 0.5em
+
 .sep
     margin 0 0.5em
     &::after
         content "|"
 
-dt
-    font-weight bold
+@media only screen and (max-width $phone)
+    dt
+    dd
+        display block
+        width auto
+    dd
+        margin-left 20px
+
+@media print
+    html
+        font-size 16px
+    body
+        margin 0
+        padding 0
+    h1
+        font-size 1.75em
+    h2
+        margin 0.75em 0
+        font-size 1.25em
+    nav a
+        font-size 0
+        &::after
+            content attr(data-print)
+            font-size 1rem
