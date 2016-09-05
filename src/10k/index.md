@@ -217,6 +217,4 @@ can check it out on [GitHub][].
 ## About the author
 
 I'm Ariel Davis, and I study computer science at Carnegie Mellon. You probably
-shouldn't trust what I say. Learn more on [Keybase][].
-
-[Keybase]: https://keybase.io/azdavis
+shouldn't trust what I say. [Learn more](/).
