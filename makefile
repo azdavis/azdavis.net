@@ -49,7 +49,7 @@ clean:
 
 test:
 	http-server src &> /dev/null & \
-	trap "kill $$!; printf ' server stopped'; exit" INT; \
+	trap "kill $$!; exit" INT; \
 	sleep 0.5 && open "http://localhost:8080" & \
 	while true; do find . \
 		-not -path "*.git*" \
