@@ -9,6 +9,8 @@ src/index.css src/10k/index.css: \
 	src/base/code.styl
 src/cbg/index.js src/lgw/index.js src/rut/index.js: \
 	src/base/dom.ts
+src/10k/index.css src/404/index.css src/lgw/index.css src/resume/index.css: \
+	src/base/h1-h2-h3.styl
 src/10k/index.css: \
 	src/base/hr.styl
 src/cbg/index.js src/lgw/index.js src/rut/index.js: \
