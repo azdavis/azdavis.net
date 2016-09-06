@@ -50,7 +50,7 @@ clean:
 test:
 	http-server src &> /dev/null & \
 	trap "kill $$!; exit" INT; \
-	sleep 0.5 && open "http://localhost:8080" & \
+	open "http://localhost:8080" & \
 	while true; do find . \
 		-not -path "*.git*" \
 		-a -not -path "*node_modules*" \
@@ -75,7 +75,7 @@ setup: hooks npm binary surge
 
 hooks:
 	rm -rf .git/hooks
-	mkdir .git/hooks
+	mkdir -p .git/hooks
 	echo "make" > .git/hooks/pre-commit
 	echo "make clean" > .git/hooks/post-checkout
 	chmod +x .git/hooks/*
