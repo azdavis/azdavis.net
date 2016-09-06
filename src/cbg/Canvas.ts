@@ -1,8 +1,7 @@
 import {canvas, div} from "../base/dom"
 
 module Canvas {
-    export const el = canvas()
-    export const cx = el.getContext("2d") as CanvasRenderingContext2D
+    export const {el, cx} = canvas()
     export const container = div("container")
     export const btns = div("btns")
 

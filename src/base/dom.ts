@@ -6,8 +6,12 @@ function append(el: HTMLElement, to: HTMLElement = document.body): void {
     to.appendChild(el)
 }
 
-function canvas(): HTMLCanvasElement {
-    return document.createElement("canvas")
+function canvas(): {el: HTMLCanvasElement, cx: CanvasRenderingContext2D} {
+    const el = document.createElement("canvas")
+    return {
+        el,
+        cx: el.getContext("2d") as CanvasRenderingContext2D
+    }
 }
 
 function div(id: string = ""): HTMLDivElement {
