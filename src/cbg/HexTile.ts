@@ -26,7 +26,10 @@ class HexTile extends Sprite {
     public static a = HexTile.b * Math.sqrt(3)
 
     // set properties
-    public constructor(protected fill: string, private label: NumberLabel) {
+    public constructor(
+        protected fill: string,
+        private label: NumberLabel | null
+    ) {
         super()
     }
 

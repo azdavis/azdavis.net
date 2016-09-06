@@ -2,7 +2,7 @@ import {canvas} from "../base/dom"
 
 module Canvas {
     export const el = canvas()
-    export const cx = el.getContext("2d")
+    export const cx = el.getContext("2d") as CanvasRenderingContext2D
 
     const pxRatio = devicePixelRatio || 1
 

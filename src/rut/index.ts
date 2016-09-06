@@ -36,7 +36,7 @@ if (isMobile) {
         msg.innerHTML = loadText
         audio.play()
         audio.pause()
-        html.ontouchend = null
+        html.ontouchend = null as any
     }
 } else {
     msg.innerHTML = loadText

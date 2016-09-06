@@ -87,7 +87,7 @@ module Board {
         for (let i = 0; i < rows.length; i++) {
             // for each space in the row
             for (let j = 0; j < rows[i].length; j++) {
-                let label: NumberLabel
+                let label: NumberLabel | null
 
                 // get a random tile type
                 let t = randIdx(tiles)
