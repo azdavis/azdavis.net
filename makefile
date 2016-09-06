@@ -35,11 +35,10 @@ include deps.mak
 		--noEmitOnError \
 		--removeComments \
 		--strictNullChecks \
+		--target ES5 \
+		--module ES2015 \
 		$<
-	if grep -q require\( $@; then \
-		browserify -o $@.js $@; \
-		mv $@.js $@; \
-	fi
+	rollup -f iife -o $@ $@ $(Q)
 
 src/google827af1fbb442e5a9.html:
 	printf "google-site-verification: google827af1fbb442e5a9.html" \
