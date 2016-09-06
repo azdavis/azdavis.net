@@ -196,19 +196,26 @@ really necessary, or can you get by with just one or two? Or none?
 ## A case study
 
 This site was put together with the help of `make` and a few `npm`
-devDependencies. It's written in [Pug][], [Stylus][], and [TypeScript][], which
-respectively compile to HTML, CSS, and JavaScript. I use Pug's `include`
-directive to inline the compiled (and [Browserify][]'d if necessary) CSS and
-JavaScript, then run it through [an HTML minifier][] (which also minifies the
-included CSS and JavaScript). All of this is coordinated with a makefile; one
-can check it out on [GitHub][].
+devDependencies.
+
+1. The source is written in [Pug][], [Stylus][], and [TypeScript][], which
+   respectively compile to HTML, CSS, and JavaScript.
+2. Stylus automatically resolves `@import`s into one `index.css` file.
+3. I use [Rollup][] to resolve the TypeScript-compiled ES2015 modules into one
+   `index.js` file.
+4. Pug's `include` directive inlines *those* files into one `index.html` file.
+5. I run *that* through [an HTML minifier][] (which also minifies the
+   `include`d CSS and JavaScript).
+
+All of this is coordinated with a `makefile`; one can check it out on
+[GitHub][].
 
 <p id="load"></p>
 
 [Pug]: http://pug.timothygu.me
 [Stylus]: http://stylus-lang.com
 [TypeScript]: https://www.typescriptlang.org
-[Browserify]: http://browserify.org
+[Rollup]: http://rollupjs.org
 [an HTML minifier]: http://perfectionkills.com/experimenting-with-html-minifier
 [GitHub]: https://github.com/azdavis/azdavis.xyz
 
