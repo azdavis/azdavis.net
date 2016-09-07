@@ -79,7 +79,7 @@ the size.
     4241
 
 Note that this example is purely illustrative - with a properly configured
-server, like [Surge][], this is done automatically.
+hosting service, like [Surge][], this is done automatically.
 
 [Surge]: https://surge.sh
 
