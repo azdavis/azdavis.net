@@ -22,7 +22,7 @@ class Dot {
     public reset(): void {
         this.x = -Dot.dim
         this.y = Math.random() * (Canvas.h - Dot.dim)
-        this.speed = Math.random() * 4 + 4
+        this.speed = Math.random() * 5 + 5
     }
 
     // increase x by speed
