@@ -1,9 +1,7 @@
 import {canvas} from "../base/dom"
 
 module Canvas {
-    export const {el, cx} = canvas()
-
-    const pxRatio = devicePixelRatio || 1
+    export const {el, cx, pxRatio} = canvas()
 
     export let w: number
     export let h: number

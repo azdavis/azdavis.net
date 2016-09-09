@@ -1,11 +1,10 @@
 import {canvas, div} from "../base/dom"
 
 module Canvas {
-    export const {el, cx} = canvas()
+    export const {el, cx, pxRatio} = canvas()
     export const container = div("container")
     export const btns = div("btns")
 
-    const pxRatio = devicePixelRatio || 1
     const i = x => parseInt(x, 10)
     const g = getComputedStyle
 

@@ -1,12 +1,10 @@
 import {canvas} from "../base/dom"
 
 module Canvas {
-    export const {el, cx} = canvas()
+    export const {el, cx, pxRatio} = canvas()
 
     export let w: number
     export let h: number
-
-    const pxRatio = devicePixelRatio || 1
 
     // resize the canvas to be the size of the window
     export function resize(): void {
