@@ -84,14 +84,14 @@ A HTML document can request other documents with `link href` or `script src`.
 
     <!DOCTYPE html>
     <html>
-    <head>
-        <title>Hello</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <p>World</p>
-        <script src="script.js"></script>
-    </body>
+        <head>
+            <title>Hello</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <p>World</p>
+            <script src="script.js"></script>
+        </body>
     </html>
 
 The protocol by which HTML and other documents are transferred from server to
@@ -122,22 +122,22 @@ Then by inlining these files' contents,
 
     <!DOCTYPE html>
     <html>
-    <head>
-        <title>Hello</title>
-        <style>
-            body {
-                max-width: 40em;
-                margin: 1em auto;
-                padding: 10px;
-            }
-        </style>
-    </head>
-    <body>
-        <p>World</p>
-        <script>
-            console.log("The devtools are open!")
-        </script>
-    </body>
+        <head>
+            <title>Hello</title>
+            <style>
+                body {
+                    max-width: 40em;
+                    margin: 1em auto;
+                    padding: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            <p>World</p>
+            <script>
+                console.log("The devtools are open!")
+            </script>
+        </body>
     </html>
 
 we can reduce the number of HTTP requests from 3 to 1.
