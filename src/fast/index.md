@@ -43,13 +43,9 @@ With the use of a minifier, we can create a minified version of this file.
     body{max-width:40em;margin:1em auto;padding:10px}
 
 The original file and the minified file instruct the computer to do exactly the
-same things. The original file is clearly superior for human programmers to
-work with, but since the minified file is smaller, it should be served to
-users.
-
-Bear in mind that while we have reduced the size of this file, no meaning is
-lost. Then, one can view minification as a form of lossless compression.
-Speaking of which,
+same things - no data is lost. The original file is clearly superior for human
+programmers to work with, but since the minified file is smaller, it should be
+served to users.
 
 ## Compression
 
@@ -100,14 +96,14 @@ A HTML document can request other documents with `link href` or `script src`.
 
     <!DOCTYPE html>
     <html>
-        <head>
-            <title>Hello</title>
-            <link rel="stylesheet" href="style.css">
-        </head>
-        <body>
-            <p>World</p>
-            <script src="script.js"></script>
-        </body>
+    <head>
+        <title>Hello</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <p>World</p>
+        <script src="script.js"></script>
+    </body>
     </html>
 
 The protocol by which HTML and other documents are transferred from server to
@@ -138,29 +134,25 @@ Then by inlining these files' contents,
 
     <!DOCTYPE html>
     <html>
-        <head>
-            <title>Hello</title>
-            <style>
-                body {
-                    max-width: 40em;
-                    margin: 1em auto;
-                    padding: 10px;
-                }
-            </style>
-        </head>
-        <body>
-            <p>World</p>
-            <script>
-                console.log("The devtools are open!")
-            </script>
-        </body>
+    <head>
+        <title>Hello</title>
+        <style>
+            body {
+                max-width: 40em;
+                margin: 1em auto;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>World</p>
+        <script>
+            console.log("The devtools are open!")
+        </script>
+    </body>
     </html>
 
 we can reduce the number of HTTP requests from 3 to 1.
-
-Note, however, that we should minify everything as well.
-
-    <!DOCTYPE html><html><head><title>Hello</title><style>body{max-width:40em;margin:1em auto;padding:10px}</style></head><body><p>World</p><script>console.log("The devtools are open!")</script></body></html>
 
 ## Use tooling
 
@@ -203,8 +195,8 @@ devDependencies.
 2. Stylus automatically resolves `@import`s into one `index.css` file.
 3. I use [Rollup][] to resolve the TypeScript-compiled ES2015 modules into one
    `index.js` file.
-4. Pug's `include` directive inlines *those* files into one `index.html` file.
-5. I run *that* through [an HTML minifier][] (which also minifies the
+4. Pug's `include` directive inlines those files into one `index.html` file.
+5. That gets run through [an HTML minifier][] (which also minifies the
    `include`d CSS and JavaScript).
 
 All of this is coordinated with a `makefile`; one can check it out on
