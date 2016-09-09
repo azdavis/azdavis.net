@@ -201,5 +201,7 @@ All of this is coordinated with a `makefile`; one can check it out on
 
 ## About the author
 
-I'm Ariel Davis, and I study computer science at Carnegie Mellon. You probably
-shouldn't trust what I say. [Learn more](/).
+I'm [Ariel Davis][], and I study computer science at Carnegie Mellon. You
+probably shouldn't trust what I say.
+
+[Ariel Davis]: http://azdavis.xyz
