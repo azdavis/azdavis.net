@@ -36,5 +36,5 @@
     "universal": false,
     "valid": {"error": true, "expect": true},
     "zeroUnits": {"error": true, "expect": "never"},
-    "zIndexNormalize": {"error": true, "expect": 5}
+    "zIndexNormalize": {"error": true, "expect": 9}
 }
