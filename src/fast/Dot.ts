@@ -18,7 +18,7 @@ class Dot {
     }
 
     // put this directly on the left side of the canvas, at a random y with a
-    // random speed
+    // random speed and a size based on that speed
     public reset(): void {
         this.speed = Math.random() * 5 + 5
         this.size = this.speed * 0.7
