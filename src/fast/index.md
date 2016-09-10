@@ -184,8 +184,8 @@ devDependencies.
 3. [Rollup][] resolves the TypeScript-compiled ES2015 modules into one
    `index.js` file.
 4. Pug's `include` directive inlines those files into one `index.html` file.
-5. [An HTML minifier][], which also handles the inlined CSS and JavaScript,
-   makes the `index.html` file as small as possible.
+5. [HTML Minifier][], which also handles the inlined CSS and JavaScript, makes
+   the `index.html` file as small as possible.
 
 All of this is coordinated with a `makefile`; one can check it out on
 [GitHub][].
@@ -194,7 +194,7 @@ All of this is coordinated with a `makefile`; one can check it out on
 [Stylus]: http://stylus-lang.com
 [TypeScript]: https://www.typescriptlang.org
 [Rollup]: http://rollupjs.org
-[an HTML minifier]: http://perfectionkills.com/experimenting-with-html-minifier
+[HTML Minifier]: http://perfectionkills.com/experimenting-with-html-minifier
 [GitHub]: https://github.com/azdavis/azdavis.xyz
 
 ---
