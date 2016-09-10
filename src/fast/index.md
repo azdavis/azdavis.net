@@ -181,7 +181,7 @@ devDependencies.
 1. The source is written in [Pug][], [Stylus][], and [TypeScript][], which
    respectively compile to HTML, CSS, and JavaScript.
 2. Stylus automatically resolves `@import`s into one `index.css` file.
-3. I use [Rollup][] to resolve the TypeScript-compiled ES2015 modules into one
+3. [Rollup][] resolves the TypeScript-compiled ES2015 modules into one
    `index.js` file.
 4. Pug's `include` directive inlines those files into one `index.html` file.
 5. That gets run through [an HTML minifier][] (which also minifies the
