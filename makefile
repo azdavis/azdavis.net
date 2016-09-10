@@ -1,6 +1,5 @@
 MAKEFLAGS += -rRs
-SHELL := sh -euo pipefail
-PATH := node_modules/.bin:$(PATH)
+SHELL := PATH=node_modules/.bin:$(PATH) sh
 Q ?= &> /dev/null
 
 include deps.mak
