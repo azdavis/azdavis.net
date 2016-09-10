@@ -14,7 +14,7 @@ class Dot {
 
     // set some canvas things common to all Dots
     public static setUpDraw(): void {
-        Canvas.cx.fillStyle = "#ccc"
+        Canvas.cx.fillStyle = "#bbb"
     }
 
     // put this directly on the left side of the canvas, at a random y with a
