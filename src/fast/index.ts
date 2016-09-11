@@ -11,7 +11,6 @@ for (let i = 0; i < 30; i++) {
 // it, move it, and reset it if needed, then request another frame
 function anim(): void {
     Canvas.clear()
-    Dot.setUpDraw()
     for (const d of dots) {
         d.draw()
         d.move()

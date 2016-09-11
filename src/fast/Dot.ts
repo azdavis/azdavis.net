@@ -3,6 +3,7 @@ import Canvas from "./Canvas"
 class Dot {
     private speed: number
     private size: number
+    private color: string
     private x: number
     private y: number
 
@@ -12,16 +13,13 @@ class Dot {
         this.x = Math.random() * (Canvas.w - this.size)
     }
 
-    // set some canvas things common to all Dots
-    public static setUpDraw(): void {
-        Canvas.cx.fillStyle = "#bbb"
-    }
-
     // put this directly on the left side of the canvas, at a random y with a
-    // random speed and a size based on that speed
+    // random speed, size, and color
     public reset(): void {
-        this.speed = Math.random() * 5 + 5
-        this.size = this.speed * 0.7
+        const r1 = Math.random()
+        const r2 = Math.round(225 - r1 * 50)
+        this.speed = this.size = r1 * 6 + 3
+        this.color = `rgb(${r2},${r2},${r2})`
         this.x = -this.size
         this.y = Math.random() * (Canvas.h - this.size)
     }
@@ -33,6 +31,7 @@ class Dot {
 
     // draw a (dim x dim) box at (x, y)
     public draw(): void {
+        Canvas.cx.fillStyle = this.color
         Canvas.cx.fillRect(
             this.x,
             this.y,
