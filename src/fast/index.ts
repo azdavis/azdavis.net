@@ -7,7 +7,7 @@ for (let i = 0; i < 30; i++) {
     dots.push(new Dot())
 }
 
-// each frame: clear the canvas, set up dot drawing, then for each dot:  draw
+// each frame: clear the canvas, set up dot drawing, then for each dot: draw
 // it, move it, and reset it if needed, then request another frame
 function anim(): void {
     Canvas.clear()
