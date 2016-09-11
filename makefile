@@ -18,8 +18,7 @@ include deps.mak
 		--minify-urls \
 		--remove-attribute-quotes \
 		--remove-redundant-attributes \
-		-o $@.html $@
-	mv $@.html $@
+		-o $@.html $@; mv $@.html $@
 
 %.css: %.styl src/base/var.styl
 	echo $@
