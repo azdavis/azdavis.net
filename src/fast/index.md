@@ -150,7 +150,7 @@ of your site. [PageSpeed Insights][] is one such service. It's also worth
 paying attention to the browser developer tools, specifically the sections on
 performance and network requests.
 
-[PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz/10k
+[PageSpeed Insights]: https://developers.google.com/speed/pagespeed/insights/?url=http://azdavis.xyz/fast
 
 ## Have less stuff
 
