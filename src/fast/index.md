@@ -44,7 +44,7 @@ With the use of a minifier, we can create a minified version of this file.
 
 The original file and the minified file instruct the computer to do exactly the
 same things: no data is lost. The original file is clearly superior for human
-programmers to work with, but since the minified file is smaller, it should be
+authors to work with, but since the minified file is smaller, it should be
 served to users.
 
 ## Compression
