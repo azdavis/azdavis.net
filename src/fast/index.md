@@ -43,7 +43,7 @@ With the use of a minifier, we can create a minified version of this file.
     body{max-width:40em;margin:1em auto;padding:10px}
 
 The original file and the minified file instruct the computer to do exactly the
-same things - no data is lost. The original file is clearly superior for human
+same things: no data is lost. The original file is clearly superior for human
 programmers to work with, but since the minified file is smaller, it should be
 served to users.
 
