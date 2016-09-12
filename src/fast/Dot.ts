@@ -18,7 +18,8 @@ class Dot {
     public reset(): void {
         const r1 = Math.random()
         const r2 = Math.round(225 - r1 * 50)
-        this.speed = this.size = r1 * 6 + 3
+        this.speed = r1 * 6 + 3
+        this.size = r1 * 6 + 1
         this.color = `rgb(${r2},${r2},${r2})`
         this.x = -this.size
         this.y = Math.random() * (Canvas.h - this.size)
