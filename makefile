@@ -48,7 +48,7 @@ clean:
 test:
 	http-server src &> /dev/null & \
 	trap "kill $$!; exit" INT; \
-	open "http://localhost:8080" & \
+	open -g "http://localhost:8080" & \
 	while true; do find . \
 		-not -path "*.git*" \
 		-a -not -path "*node_modules*" \
