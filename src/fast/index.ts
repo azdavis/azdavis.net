@@ -1,3 +1,5 @@
+import {append} from "../base/dom"
+
 import Canvas from "./Canvas"
 import Dot from "./Dot"
 
@@ -21,4 +23,5 @@ function anim(): void {
     requestAnimationFrame(anim)
 }
 
+append(Canvas.el)
 requestAnimationFrame(anim)

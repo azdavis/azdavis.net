@@ -1,4 +1,4 @@
-import {canvas, append} from "../base/dom"
+import {canvas} from "../base/dom"
 
 module Canvas {
     export const {el, cx, pxRatio} = canvas()
@@ -26,7 +26,6 @@ module Canvas {
     resize()
     onresize = resize
     el.style.top = `${h1.offsetTop}px`
-    append(el)
 }
 
 export default Canvas
