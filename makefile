@@ -1,6 +1,6 @@
 MAKEFLAGS += -rRs
-SHELL := PATH=node_modules/.bin:$(PATH) sh
-Q ?= &> /dev/null
+SHELL = PATH=node_modules/.bin:$(PATH) sh
+Q = &> /dev/null
 
 include deps.mak
 
