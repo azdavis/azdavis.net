@@ -3,8 +3,8 @@ import Canvas from "./Canvas"
 import Sprite from "./Sprite"
 
 class PlayerClass extends Sprite {
-    private static maxAmmo = 9
-    private static maxLives = 3
+    private static readonly maxAmmo = 9
+    private static readonly maxLives = 3
 
     public w = 50
     public h = 50

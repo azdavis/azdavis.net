@@ -8,7 +8,7 @@ abstract class Sprite {
     public j = 0
 
     protected fill: string
-    protected stroke = "#333"
+    protected readonly stroke = "#333"
     protected speed: number
 
     // set x and y as the coordinates for this

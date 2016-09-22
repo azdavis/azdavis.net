@@ -2,13 +2,13 @@ import Canvas from "./Canvas"
 import Sprite from "./Sprite"
 
 class Enemy extends Sprite {
-    public static points = 1
+    public static readonly points = 1
 
     public w = 40
     public h = 40
 
-    protected fill = "#a44"
-    protected speed = 3
+    protected readonly fill = "#a44"
+    protected readonly speed = 3
 
     // put this somewhere directly outside the Canvas
     public constructor() {

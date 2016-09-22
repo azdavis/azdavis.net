@@ -21,9 +21,9 @@ class HexTile extends Sprite {
     //          -   \|/   -
     //               O
 
-    public static c = 30
-    public static b = HexTile.c / 2
-    public static a = HexTile.b * Math.sqrt(3)
+    public static readonly c = 30
+    public static readonly b = HexTile.c / 2
+    public static readonly a = HexTile.b * Math.sqrt(3)
 
     // set properties
     public constructor(

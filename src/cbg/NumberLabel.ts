@@ -2,8 +2,8 @@ import Canvas from "./Canvas"
 import Sprite from "./Sprite"
 
 class NumberLabel extends Sprite {
-    private static radius = 14
-    private static style = (() => {
+    private static readonly radius = 14
+    private static readonly style = (() => {
         const hs = getComputedStyle(document.documentElement)
         return {
             fill: hs.color,

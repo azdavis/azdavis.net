@@ -1,8 +1,8 @@
 import Canvas from "./Canvas"
 
 class ZoomText {
-    private static text = "Rüt"
-    private static font = (() => {
+    private static readonly text = "Rüt"
+    private static readonly font = (() => {
         const hs = getComputedStyle(document.documentElement)
         return {
             f: hs.fontFamily,
@@ -10,10 +10,10 @@ class ZoomText {
         }
     })()
     // the text sits in the middle of a (w x h) box
-    private static w = 5
-    private static h = 1
+    private static readonly w = 5
+    private static readonly h = 1
     // the angle formed by a right triangle with legs w and h
-    private static a = Math.atan(ZoomText.h / ZoomText.w)
+    private static readonly a = Math.atan(ZoomText.h / ZoomText.w)
 
     private x: number
     private y: number
