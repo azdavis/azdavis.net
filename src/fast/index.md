@@ -190,7 +190,7 @@ devDependencies.
 All of this is coordinated with a `makefile`; one can check it out on
 [GitHub][].
 
-[Pug]: http://pug.timothygu.me
+[Pug]: https://pugjs.org
 [Stylus]: http://stylus-lang.com
 [TypeScript]: https://www.typescriptlang.org
 [Rollup]: http://rollupjs.org
