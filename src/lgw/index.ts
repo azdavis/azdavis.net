@@ -25,7 +25,7 @@ const keys = {
 let pressed = {}
 
 // bind keys to player shoot, movement, and game pause
-onkeydown = (e) => {
+onkeydown = e => {
     if (e.which === keys.en && !Game.running) {
         modal.remove()
         Game.begin()
@@ -62,7 +62,7 @@ onkeydown = (e) => {
 }
 
 // prevent keys from being held
-onkeyup = (e) => {
+onkeyup = e => {
     if (!Game.running || !Game.playing) {
         return
     }
