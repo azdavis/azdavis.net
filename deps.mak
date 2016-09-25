@@ -10,13 +10,13 @@ src/index.css src/fast/index.css: \
 src/cbg/index.js src/fast/index.js src/lgw/index.js src/rut/index.js: \
 	src/base/ts/dom.ts
 src/404/index.css src/fast/index.css src/lgw/index.css src/resume/index.css: \
-	src/base/styl/h1-h2-h3.styl
+	src/base/styl/h1_h2_h3.styl
 src/fast/index.css: \
 	src/base/styl/hr.styl
 src/cbg/index.js src/lgw/index.js src/rut/index.js: \
 	src/base/ts/isMobile.ts
 src/index.css src/404/index.css src/fast/index.css src/resume/index.css: \
-	src/base/styl/main-text.styl
+	src/base/styl/main_text.styl
 src/fast/index.css: \
 	src/base/styl/pre.styl
 
