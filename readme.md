@@ -35,7 +35,7 @@
 
 ### `make`
 
-- lint and compiles .ts to .js
+- lint and compile .ts to .js
 - lint and compile .styl to .css
 - compile .pug to .html
 - concatenate compiled assets into one .html file
