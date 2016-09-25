@@ -52,14 +52,14 @@ test:
 	while true; do find . \
 		-not -path "*.git*" \
 		-a -not -path "*node_modules*" \
-		| entr -d $(MAKE) || [[ $$? == 2 ]]; \
+		| entr -d $(MAKE) || [ $$? == 2 ]; \
 	done
 
 deploy: git-ok all upload
 
 git-ok:
-	[[ -z "$$(git status --porcelain)" ]]
-	[[ "$$(git rev-parse --abbrev-ref @)" == master ]]
+	[ -z "$$(git status --porcelain)" ]
+	[ "$$(git rev-parse --abbrev-ref @)" == master ]
 
 upload:
 	git push -q origin master
