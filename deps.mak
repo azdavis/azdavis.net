@@ -14,7 +14,7 @@ src/404/index.css src/fast/index.css src/lgw/index.css src/resume/index.css: \
 src/fast/index.css: \
 	src/base/styl/hr.styl
 src/cbg/index.js src/lgw/index.js src/rut/index.js: \
-	src/base/ts/isMobile.ts
+	src/base/ts/is_mobile.ts
 src/index.css src/404/index.css src/fast/index.css src/resume/index.css: \
 	src/base/styl/main_text.styl
 src/fast/index.css: \

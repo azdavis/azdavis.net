@@ -1,8 +1,8 @@
 import {$, append} from "../base/ts/dom"
-import isMobile from "../base/ts/isMobile"
-import Canvas from "./Canvas"
-import Game from "./Game"
-import Player from "./Player"
+import isMobile from "../base/ts/is_mobile"
+import Canvas from "./canvas"
+import Game from "./game"
+import Player from "./player"
 
 // the modal which contains instructions and is to be hidden when starting
 const modal = $("#modal")

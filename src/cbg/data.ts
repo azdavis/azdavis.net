@@ -1,4 +1,4 @@
-import rp from "./RepeatPrimitive"
+import rp from "./repeat_primitive"
 
 module Data {
     // how big tiles are (this being 1 would mean tiles are right next to one

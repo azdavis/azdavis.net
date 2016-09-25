@@ -1,8 +1,8 @@
 import {$, append} from "../base/ts/dom"
-import isMobile from "../base/ts/isMobile"
-import Canvas from "./Canvas"
-import CenterImage from "./CenterImage"
-import Loop from "./Loop"
+import isMobile from "../base/ts/is_mobile"
+import Canvas from "./canvas"
+import CenterImage from "./center_image"
+import Loop from "./loop"
 
 onresize = Canvas.reset
 append(Canvas.el)

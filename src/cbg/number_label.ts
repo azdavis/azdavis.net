@@ -1,5 +1,5 @@
-import Canvas from "./Canvas"
-import Sprite from "./Sprite"
+import Canvas from "./canvas"
+import Sprite from "./sprite"
 
 class NumberLabel extends Sprite {
     private static readonly radius = 14

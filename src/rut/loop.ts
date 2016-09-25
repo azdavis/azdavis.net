@@ -1,6 +1,6 @@
-import Canvas from "./Canvas"
-import CenterImage from "./CenterImage"
-import ZoomText from "./ZoomText"
+import Canvas from "./canvas"
+import CenterImage from "./center_image"
+import ZoomText from "./zoom_text"
 
 const zts: ZoomText[] = []
 const ztsMax = 70

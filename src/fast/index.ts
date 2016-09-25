@@ -1,7 +1,7 @@
 import {append} from "../base/ts/dom"
 
-import Canvas from "./Canvas"
-import Dot from "./Dot"
+import Canvas from "./canvas"
+import Dot from "./dot"
 
 // 30 dots on screen, always
 const dots: Dot[] = []

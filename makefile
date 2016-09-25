@@ -84,7 +84,7 @@ npm:
 binary:
 	for x in \
 		base/favicon.png \
-		base/touch-icon.png \
+		base/touch_icon.png \
 		rut/a.mp3 \
 		rut/ci.png \
 	; do echo "$$x"; curl -fL "http://azdavis.xyz/$$x" > "src/$$x"; done

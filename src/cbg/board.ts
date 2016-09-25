@@ -1,8 +1,8 @@
-import Canvas from "./Canvas"
-import Data from "./Data"
-import HexTile from "./HexTile"
-import NumberLabel from "./NumberLabel"
-import rp from "./RepeatPrimitive"
+import Canvas from "./canvas"
+import Data from "./data"
+import HexTile from "./hex_tile"
+import NumberLabel from "./number_label"
+import rp from "./repeat_primitive"
 
 module Board {
     let rows: HexTile[][]

@@ -1,4 +1,4 @@
-import Canvas from "./Canvas"
+import Canvas from "./canvas"
 
 class Dot {
     private speed: number

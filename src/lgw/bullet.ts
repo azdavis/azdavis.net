@@ -1,5 +1,5 @@
-import Canvas from "./Canvas"
-import Sprite from "./Sprite"
+import Canvas from "./canvas"
+import Sprite from "./sprite"
 
 class Bullet extends Sprite {
     public w = 20

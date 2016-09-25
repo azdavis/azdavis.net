@@ -1,5 +1,5 @@
-import Canvas from "./Canvas"
-import Sprite from "./Sprite"
+import Canvas from "./canvas"
+import Sprite from "./sprite"
 
 class Enemy extends Sprite {
     public static readonly points = 1

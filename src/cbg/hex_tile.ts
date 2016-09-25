@@ -1,6 +1,6 @@
-import Canvas from "./Canvas"
-import NumberLabel from "./NumberLabel"
-import Sprite from "./Sprite"
+import Canvas from "./canvas"
+import NumberLabel from "./number_label"
+import Sprite from "./sprite"
 
 class HexTile extends Sprite {
     // this depicts the top one of the six equilateral triangles which fit

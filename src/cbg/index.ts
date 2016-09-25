@@ -1,7 +1,7 @@
 import {$, append, div} from "../base/ts/dom"
-import isMobile from "../base/ts/isMobile"
-import Board from "./Board"
-import Canvas from "./Canvas"
+import isMobile from "../base/ts/is_mobile"
+import Board from "./board"
+import Canvas from "./canvas"
 
 $("#msg").remove()
 onresize = Board.draw
