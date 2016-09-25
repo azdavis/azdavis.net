@@ -1,4 +1,4 @@
-import {div} from "../base/dom"
+import {div} from "../base/ts/dom"
 import Canvas from "./Canvas"
 import Enemy from "./Enemy"
 import Player from "./Player"

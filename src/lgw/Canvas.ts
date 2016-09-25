@@ -1,4 +1,4 @@
-import {canvas} from "../base/dom"
+import {canvas} from "../base/ts/dom"
 
 module Canvas {
     export const {el, cx, pxRatio} = canvas()

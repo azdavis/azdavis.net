@@ -4,21 +4,21 @@ all: \
 		$(shell find src -not -path "*base*" -name "*.pug"))
 
 src/index.css src/fast/index.css src/resume/index.css: \
-	src/base/a.styl
+	src/base/styl/a.styl
 src/index.css src/fast/index.css: \
-	src/base/code.styl
+	src/base/styl/code.styl
 src/cbg/index.js src/fast/index.js src/lgw/index.js src/rut/index.js: \
-	src/base/dom.ts
+	src/base/ts/dom.ts
 src/404/index.css src/fast/index.css src/lgw/index.css src/resume/index.css: \
-	src/base/h1-h2-h3.styl
+	src/base/styl/h1-h2-h3.styl
 src/fast/index.css: \
-	src/base/hr.styl
+	src/base/styl/hr.styl
 src/cbg/index.js src/lgw/index.js src/rut/index.js: \
-	src/base/isMobile.ts
+	src/base/ts/isMobile.ts
 src/index.css src/404/index.css src/fast/index.css src/resume/index.css: \
-	src/base/main-text.styl
+	src/base/styl/main-text.styl
 src/fast/index.css: \
-	src/base/pre.styl
+	src/base/styl/pre.styl
 
 src/fast/index.html: src/fast/index.md src/fast/index.js
 src/fast/index.js: $(wildcard src/fast/*.ts)

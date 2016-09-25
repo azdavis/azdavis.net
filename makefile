@@ -7,7 +7,7 @@ include deps.mak
 .PHONY: all clean test deploy git-ok upload setup hooks npm binary surge
 .PRECIOUS: %.css %.js
 
-%.html: %.pug src/base/head.pug %.css
+%.html: %.pug src/base/pug/head.pug %.css
 	echo $@
 	pug -sb . --doctype html $<
 	html-minifier \
@@ -20,7 +20,7 @@ include deps.mak
 		--remove-redundant-attributes \
 		-o $@.html $@; mv $@.html $@
 
-%.css: %.styl src/base/var.styl
+%.css: %.styl src/base/styl/var.styl
 	echo $@
 	stylint -c lint/styl.json $?
 	BROWSERSLIST="> 0.1%" stylus -u autoprefixer-stylus $< $(Q)

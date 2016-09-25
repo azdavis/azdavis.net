@@ -1,4 +1,4 @@
-import {append} from "../base/dom"
+import {append} from "../base/ts/dom"
 
 import Canvas from "./Canvas"
 import Dot from "./Dot"

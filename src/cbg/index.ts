@@ -1,5 +1,5 @@
-import {$, append, div} from "../base/dom"
-import isMobile from "../base/isMobile"
+import {$, append, div} from "../base/ts/dom"
+import isMobile from "../base/ts/isMobile"
 import Board from "./Board"
 import Canvas from "./Canvas"
 
