@@ -59,7 +59,7 @@ deploy: git-ok all upload
 
 git-ok:
 	[ -z "$$(git status --porcelain)" ]
-	[ "$$(git rev-parse --abbrev-ref @)" == master ]
+	[ "$$(git rev-parse --abbrev-ref @)" = master ]
 
 upload:
 	git push -q origin master
