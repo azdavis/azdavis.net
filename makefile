@@ -90,4 +90,4 @@ binary:
 	; do echo "$$x"; curl -fL "http://azdavis.xyz/$$x" > "src/$$x"; done
 
 surge:
-	if ! grep -q surge.sh ~/.netrc; then surge login; fi
+	grep -q surge.sh ~/.netrc || surge login
