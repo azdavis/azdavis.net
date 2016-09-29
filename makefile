@@ -2,7 +2,7 @@ MAKEFLAGS += -rRs
 SHELL = PATH=node_modules/.bin:$(PATH) sh
 Q = &> /dev/null
 
-include deps.mak
+include deps.mk
 
 .PHONY: all clean test deploy git-ok upload setup hooks npm binary surge
 .PRECIOUS: %.css %.js
