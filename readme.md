@@ -18,6 +18,11 @@
 - [npm][]
 - [entr][]
 
+[git]: https://git-scm.com
+[make]: https://www.gnu.org/software/make
+[npm]: https://www.npmjs.com
+[entr]: http://entrproject.org
+
 ### `make setup`
 
 - set up some git hooks
@@ -25,10 +30,6 @@
 - get some non-git-tracked binary files
 - prepare deployment to [surge][]
 
-[git]: https://git-scm.com
-[make]: https://www.gnu.org/software/make
-[npm]: https://www.npmjs.com
-[entr]: http://entrproject.org
 [surge]: https://surge.sh
 
 ## useful commands
