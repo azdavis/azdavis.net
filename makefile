@@ -87,7 +87,7 @@ binary:
 		touch_icon.png \
 		rut/a.mp3 \
 		rut/ci.png \
-	; do echo "$$x"; curl -fL "http://azdavis.xyz/$$x" > "src/$$x"; done
+	; do echo "src/$$x"; curl -fL "http://azdavis.xyz/$$x" > "src/$$x"; done
 
 surge:
 	grep -q "surge.sh" ~/.netrc || surge login
