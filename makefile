@@ -55,7 +55,7 @@ test:
 		| entr -d $(MAKE) || [ $$? == 2 ]; \
 	done
 
-deploy: git-ok all upload
+deploy: surge git-ok all upload
 
 git-ok:
 	[ -z "$$(git status --porcelain)" ]
