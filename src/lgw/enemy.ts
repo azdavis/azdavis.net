@@ -23,21 +23,17 @@ class Enemy extends Sprite {
         const r2 = Math.random()
 
         const total = 2 * (Canvas.w + Canvas.h)
-        const a = Canvas.h / total
-        const b = a + Canvas.w / total
-        const c = a + b
-        if (r1 < a) {
-            // left
+        const lt = Canvas.h / total
+        const up = lt + Canvas.w / total
+        const rt = lt + up
+        if (r1 < lt) {
             this.y += r2 * Canvas.h
-        } else if (r1 < b) {
-            // top
+        } else if (r1 < up) {
             this.x += r2 * Canvas.w
-        } else if (r1 < c) {
-            // right
+        } else if (r1 < rt) {
             this.x = Canvas.w
             this.y = r2 * Canvas.h
         } else {
-            // bottom
             this.x = r2 * Canvas.w
             this.y = Canvas.h
         }
