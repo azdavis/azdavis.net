@@ -24,6 +24,6 @@ upload:
 	surge -d azdavis.xyz -p src $(Q)
 	mv src/404.html src/404/index.html
 
-setup: .git/hooks node_modules $(BINARY) surge
+setup: .git/hooks/pre-commit node_modules $(BINARY) surge
 
 deploy: setup git-ok all upload

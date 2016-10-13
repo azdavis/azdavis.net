@@ -8,8 +8,7 @@ $(BINARY):
 node_modules:
 	npm i
 
-.git/hooks:
-	mkdir $@
-	echo "make" > $@/pre-commit
-	echo "make clean" > $@/post-checkout
-	chmod +x $@/*
+.git/hooks/pre-commit:
+	mkdir -p $(dir $@)
+	echo "make" > $@
+	chmod +x $@

@@ -33,7 +33,6 @@
 
     git clone https://github.com/azdavis/azdavis.xyz
     cd azdavis.xyz
-    rm -r .git/hooks
     make setup
 
 ## change
