@@ -21,9 +21,7 @@ surge:
 upload:
 	git push -q origin master
 	mv src/404/index.html src/404.html
-	surge -d azdavis.xyz -p src 2> /dev/null \
-		| grep size \
-		| sed -E "s/^$$(printf "\033")\[90m +//g"
+	surge -d azdavis.xyz -p src &> /dev/null
 	mv src/404.html src/404/index.html
 
 setup: .git/hooks node_modules $(BINARY) surge
