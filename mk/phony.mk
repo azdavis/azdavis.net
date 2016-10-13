@@ -2,7 +2,7 @@ clean:
 	find src \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
 test:
-	http-server src &> /dev/null & \
+	http-server src $(Q) & \
 	trap "kill $$!; exit" INT; \
 	open -g "http://localhost:8080" & \
 	while true; do find . \
@@ -21,7 +21,7 @@ surge:
 upload:
 	git push -q origin master
 	mv src/404/index.html src/404.html
-	surge -d azdavis.xyz -p src &> /dev/null
+	surge -d azdavis.xyz -p src $(Q)
 	mv src/404.html src/404/index.html
 
 setup: .git/hooks node_modules $(BINARY) surge
