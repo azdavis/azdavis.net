@@ -7,7 +7,7 @@ include deps.mk
 
 .PHONY: all clean test git-ok surge upload setup deploy
 
-.PRECIOUS: %.css %.js
+.PRECIOUS: %.html %.css %.js
 
 %.html: %.pug src/base/pug/head.pug %.css
 	pug -sb . --doctype html $<
