@@ -23,18 +23,18 @@
 
 ## set up
 
-    $ git clone https://github.com/azdavis/azdavis.xyz
-    $ cd azdavis.xyz
-    $ rm -r .git/hooks
-    $ make setup
+    git clone https://github.com/azdavis/azdavis.xyz
+    cd azdavis.xyz
+    rm -r .git/hooks
+    make setup
 
 ## change
 
-    $ make test &
-    $ $EDITOR <files>
-    $ git add <files>
-    $ git commit
-    $ make deploy
+    make test &
+    $EDITOR <files>
+    git add <files>
+    git commit
+    make deploy
 
 ## {con,per}formance
 
