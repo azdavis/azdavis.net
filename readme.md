@@ -39,6 +39,5 @@
 
     make test &
     $EDITOR <files>
-    git add <files>
-    git commit
+    git commit <files>
     make deploy
