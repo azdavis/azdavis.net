@@ -8,6 +8,6 @@ all: \
 	$(patsubst %.pug,%.html,$(shell find src ! -path "*base*" -name "*.pug"))
 
 include mk/deps.mk
-include mk/pat.mk
+include mk/precious.mk
 include mk/misc.mk
 include mk/phony.mk
