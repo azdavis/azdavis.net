@@ -14,7 +14,7 @@
 
 %.css: %.styl src/base/styl/var.styl
 	stylint -c lint/styl.json $?
-	BROWSERSLIST="> 0.1%" stylus -u autoprefixer-stylus $< $(Q)
+	stylus -u autoprefixer-stylus $< $(Q)
 
 %.js: %.ts
 	tslint -c lint/ts.json $?
