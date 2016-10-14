@@ -1,8 +1,3 @@
-all: \
-	src/google827af1fbb442e5a9.html \
-	$(patsubst %.pug, %.html, \
-		$(shell find src -not -path "*base*" -name "*.pug"))
-
 src/index.css src/fast/index.css src/resume/index.css: \
 	src/base/styl/a.styl
 src/index.css src/fast/index.css: \

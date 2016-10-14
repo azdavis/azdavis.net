@@ -1,3 +1,5 @@
+.PRECIOUS: %.html %.css %.js
+
 %.html: %.pug src/base/pug/head.pug %.css
 	pug -sb . --doctype html $<
 	html-minifier \
