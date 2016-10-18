@@ -1,9 +1,8 @@
-import {$, append, div} from "../base/ts/dom"
+import {append, div} from "../base/ts/dom"
 import isMobile from "../base/ts/is_mobile"
 import Board from "./board"
 import Canvas from "./canvas"
 
-$("#msg").remove()
 onresize = Board.draw
 
 function mkDrawer(type: string): void {
