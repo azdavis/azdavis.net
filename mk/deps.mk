@@ -2,18 +2,18 @@ src/index.css src/fast/index.css src/resume/index.css: \
 	src/base/styl/a.styl
 src/index.css src/fast/index.css: \
 	src/base/styl/code.styl
-src/cbg/index.js src/fast/index.js src/lgw/index.js src/rut/index.js: \
-	src/base/ts/dom.ts
 src/404/index.css src/fast/index.css src/lgw/index.css src/resume/index.css: \
 	src/base/styl/h1_h2_h3.styl
 src/fast/index.css: \
 	src/base/styl/hr.styl
-src/cbg/index.js src/lgw/index.js src/rut/index.js: \
-	src/base/ts/is_mobile.ts
 src/index.css src/404/index.css src/fast/index.css src/resume/index.css: \
 	src/base/styl/main_text.styl
 src/fast/index.css: \
 	src/base/styl/pre.styl
+src/cbg/index.js src/fast/index.js src/lgw/index.js src/rut/index.js: \
+	src/base/ts/dom.ts
+src/cbg/index.js src/lgw/index.js src/rut/index.js: \
+	src/base/ts/is_mobile.ts
 
 src/fast/index.html: src/fast/index.md src/fast/index.js
 src/fast/index.js: $(wildcard src/fast/*.ts)
