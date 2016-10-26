@@ -1,5 +1,7 @@
 src/index.css src/fast/index.css src/resume/index.css: \
 	src/base/styl/a.styl
+src/index.css src/fast/index.css src/resume/index.css: \
+	src/base/styl/a_dark.styl
 src/fast/index.css: \
 	src/base/styl/code.styl
 src/fast/index.css: \
