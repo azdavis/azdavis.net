@@ -24,21 +24,11 @@ src/cbg/index.js src/fast/index.js src/lgw/index.js src/rut/index.js: \
 	src/base/ts/dom.ts
 src/cbg/index.js src/lgw/index.js src/rut/index.js: \
 	src/base/ts/is_mobile.ts
-
-src/index.html: src/index.js
-
-src/404/index.html: src/404/index.js
-
-src/resume/index.html: src/resume/index.js
-
-src/fast/index.html: src/fast/index.md src/fast/index.js
-src/fast/index.js: $(wildcard src/fast/*.ts)
-
-src/cbg/index.html: src/cbg/index.js
-src/cbg/index.js: $(wildcard src/cbg/*.ts)
-
-src/lgw/index.html: src/lgw/index.js
-src/lgw/index.js: $(wildcard src/lgw/*.ts)
-
-src/rut/index.html: src/rut/index.js
-src/rut/index.js: $(wildcard src/rut/*.ts)
+src/fast/index.js: \
+	$(wildcard src/fast/*.ts)
+src/cbg/index.js: \
+	$(wildcard src/cbg/*.ts)
+src/lgw/index.js: \
+	$(wildcard src/lgw/*.ts)
+src/rut/index.js: \
+	$(wildcard src/rut/*.ts)

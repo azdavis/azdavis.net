@@ -1,6 +1,6 @@
 .PRECIOUS: %.html %.css %.js
 
-%.html: %.pug src/base/pug/head.pug %.css
+%.html: %.pug src/base/pug/head.pug %.css %.js
 	pug -sb . --doctype html $<
 	html-minifier \
 		--collapse-whitespace \
