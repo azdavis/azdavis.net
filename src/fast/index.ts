@@ -1,3 +1,4 @@
+import "../base/ts/dark"
 import {append} from "../base/ts/dom"
 
 import Canvas from "./canvas"
