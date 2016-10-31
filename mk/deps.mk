@@ -20,9 +20,9 @@ src/fast/index.css: \
 	src/base/styl/pre_dark.styl
 src/index.js src/404/index.js src/fast/index.js src/resume/index.js: \
 	src/base/ts/dark.ts
-src/cbg/index.js src/fast/index.js src/lgw/index.js src/rut/index.js: \
+src/cbg/index.js src/fast/index.js src/lgw/index.js: \
 	src/base/ts/dom.ts
-src/cbg/index.js src/lgw/index.js src/rut/index.js: \
+src/cbg/index.js src/lgw/index.js: \
 	src/base/ts/is_mobile.ts
 src/fast/index.js: \
 	$(wildcard src/fast/*.ts)
@@ -30,5 +30,3 @@ src/cbg/index.js: \
 	$(wildcard src/cbg/*.ts)
 src/lgw/index.js: \
 	$(wildcard src/lgw/*.ts)
-src/rut/index.js: \
-	$(wildcard src/rut/*.ts)
