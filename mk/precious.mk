@@ -1,6 +1,7 @@
 .PRECIOUS: %.html %.css %.js
 
 %.html: %.pug src/base/pug/head.pug %.css %.js
+	echo $@
 	pug -b . --doctype html $<
 	html-minifier \
 		--collapse-whitespace \
@@ -13,10 +14,12 @@
 		-o $@.html $@; mv $@.html $@
 
 %.css: %.styl src/base/styl/var.styl
+	echo $@
 	stylint -c lint/styl.json $?
 	stylus -u autoprefixer-stylus $<
 
 %.js: %.ts
+	echo $@
 	tslint -c lint/ts.json $?
 	tsc \
 		--forceConsistentCasingInFileNames \
