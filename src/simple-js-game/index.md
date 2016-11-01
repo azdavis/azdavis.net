@@ -29,14 +29,10 @@ taught how to do in this lab.
 Unzip [`starter.zip`](starter.zip) to yield:
 
     starter
-    ├── src
-    │   ├── favicon.png
-    │   ├── index.html
-    │   ├── script.js
-    │   └── style.css
-    ├── .gitignore
-    ├── license.md
-    └── readme.md
+    ├── favicon.png
+    ├── index.html
+    ├── script.js
+    └── style.css
 
 `script.js` is where we'll be doing all of our work.
 
