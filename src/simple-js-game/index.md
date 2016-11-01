@@ -1,6 +1,6 @@
 In this tutorial, we'll build a simple game using JS.
 
-## Prerequisites
+## Checking prerequisites
 
 You'll need the following things installed:
 
@@ -19,7 +19,7 @@ You'll need the following things installed:
 [emacs]: https://www.gnu.org/software/emacs
 [ed]: https://www.gnu.org/fun/jokes/ed-msg.en.html
 
-## Starter code
+## Getting starter code
 
 You need more than just JS to make a webpage. However, this tutoral focuses on
 only the JS component. Bearing that in mind, you'll want some starter code. The
@@ -38,7 +38,7 @@ starter
 
 `script.js` is where we'll be doing all of our work.
 
-## Sanity check
+## Checking sanity
 
 Before we proceed, we need to make sure everything is behaving as expected.
 
@@ -53,7 +53,7 @@ Before we proceed, we need to make sure everything is behaving as expected.
 Great! Now, we can finally start implementing this game. Note that the starter
 code also includes the game rules!
 
-## Close everything into one scope
+## Closing everything into one scope
 
 This step may seem a little arcane, but it's useful. We define a big function
 that we'll put everything into, then immediately call it. The fancy name for
@@ -75,7 +75,7 @@ browser and view, and even change, `important`.
 
 [iife]: http://benalman.com/news/2010/11/immediately-invoked-function-expression
 
-## Add strict mode
+## Adding strict mode
 
 This, too, may seem a little abstract, but it, too, is useful. We simply add
 the string `"use strict"` inside the IIFE, at the top.
@@ -93,7 +93,7 @@ want _less_ features? - but it's probably better this way.
 
 [strict]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 
-## Get access to some elements
+## Geting access to some elements
 
 There are some elements declared in the HTML document that we need to access
 and modify the properties of for our game to work. Take a look at `index.html`
@@ -118,7 +118,7 @@ var game = document.getElementById("game")
 It's clear, then, why `id`s must be unique: if two elements had the same `id`,
 `document.getElementById` wouldn't know which one to return.
 
-## Add some globals
+## Adding some globals
 
 Shudder! Global variables! Fortunately, some of them will never change, i.e.,
 they're actually global _constants_. Those aren't as bad, since it's really
@@ -147,7 +147,7 @@ constants, but, as you can see from the `var` right before each one, it's still
 technically a variable and could be reassigned. The burden is on us, then, to
 recognize the `UPPER_SNAKE_CASE` as a warning _not_ to do so.
 
-## Generate a new board
+## Generating a new board
 
 We need a function that, given a number of rows and columns, generates a new
 game board with that many rows and columns.
@@ -182,7 +182,7 @@ preconditions that must be satisfied _before_ we call the function, and
 `ENSURES` describes the postconditions that are guaranteed to be satisfied
 _after_ we call the function.
 
-## Try to change a tile
+## Trying to change a tile
 
 We need a function that, given a row and a column, tries to switch the tile to
 blue if it's green, or to green if it's blue.
@@ -217,7 +217,7 @@ if statement and you'll see why. We return without doing anything if the `r` or
 Why did we not require `r` and `c` to be valid with our `REQUIRES`? We're about
 to find out.
 
-## Try to change the board
+## Trying to change the board
 
 We need a function that, given a row and a column, tries to switch that tile to
 red, and the surrounding tiles to their colors.
@@ -251,7 +251,7 @@ site.
 Note that `tryChangeBoard` also returns whether or not it was able to change
 the board. As we'll see later, it turns out that's valuable information to us.
 
-## Try to end the game
+## Trying to end the game
 
 We need a function that tries to end the game.
 
@@ -286,7 +286,7 @@ get and set the contents in those elements.
 We'll see later how this all comes together, but can you think of a reason why
 we might want to set all of those things to the empty string?
 
-## Render a changed board
+## Rendering a changed board
 
 So far, we've pretty much only worked with our internal representation of the
 game: the `board`, a two-dimensional array. Only in the last part of the last
@@ -341,7 +341,7 @@ children.
 This part is probably the most confusing if you don't know HTML and CSS. Don't
 worry, we'll slog through.
 
-## Create an click event handler
+## Creating an click event handler
 
 We need a function that, given a row and column, returns _a function_ which
 when called, updates the game's internal state, then renders any changes.
@@ -370,7 +370,7 @@ to be called some number of milliseconds (1) from now.
 We'll register each function returned by this function on each tile's
 `.onclick` event handler (another DOM property).
 
-## Render a new board
+## Rendering a new board
 
 We need a function that renders a new board.
 
@@ -398,7 +398,7 @@ Note that we use `createOnclick(i, j)` for the tile at position (i, j). We can
 also roughly see how the DOM structure gets created like we said it would, with
 the double for loop.
 
-## Is a positive integer
+## Checking for positive-integeriness
 
 We need a helper function that, given a number, returns whether it's a positive
 integer.
@@ -414,7 +414,7 @@ function isPositiveInteger(x) {
 
 Why do we need such an oddly specific function? We're about to find out.
 
-## Try to start the game
+## Trying to start the game
 
 We're in the home stretch! We need a function that, given a number of rows and
 columns, tries to start the game with those dimensions.
@@ -452,7 +452,7 @@ yell at them. We also see the purpose of some of the constants defined way at
 the beginning: they make sure we only create board that can fit on the user's
 screen.
 
-## Handle submission of the form data
+## Handling submission of the form data
 
 When the user inputs the rows and columns with the controls, we need to prevent
 the default action (which is to reload the page), and then call `tryStartGame`
@@ -470,7 +470,7 @@ controls.onsubmit = function (e) {
 
 We're almost done! Just one little thing left…
 
-## Show the controls
+## Showing the controls
 
 The controls have been hidden the whole time! We hide them by default, so that
 if a user without JS comes to our page, we don't show them useless controls.
