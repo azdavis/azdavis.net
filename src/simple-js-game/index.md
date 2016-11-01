@@ -341,7 +341,7 @@ children.
 This part is probably the most confusing if you don't know HTML and CSS. Don't
 worry, we'll slog through.
 
-## Create an click event handling function
+## Create an click event handler
 
 We need a function that, given a row and column, returns _a function_ which
 when called, updates the game's internal state, then renders any changes.
@@ -363,6 +363,9 @@ function createOnclick(r, c) {
     }
 }
 ```
+
+Note the use of `setTimeout`, which schedules the given function (`tryEndGame`)
+to be called some number of milliseconds (1) from now.
 
 We'll register each function returned by this function on each tile's
 `.onclick` event handler (another DOM property).
