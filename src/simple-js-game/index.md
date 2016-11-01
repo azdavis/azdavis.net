@@ -203,3 +203,43 @@ Note also the `REQUIRES` and `ENSURES` we gave. `REQUIRES` describes the
 preconditions that must be satisfied _before_ we call the function, and
 `ENSURES` describes the postconditions that are guaranteed to be satisfied
 _after_ we call the function.
+
+## Try to change a tile
+
+We need a function that, given a row and a column, tries to switch the tile to
+blue if it's green, or to green if it's blue. We'll call it `tryChangeTile`.
+
+    @@ -45,5 +45,25 @@
+         greens++
+     }
+
+    +// tryChangeTile(r: number, c: number): void
+    +// REQUIRES: nothing.
+    +// ENSURES: if r or c is not a valid row or column of board then return, else
+    +// set the tile at row r and column c of board to its new color as defined by
+    +// the game rules. also update greens and blues to correspond.
+    +function tryChangeTile(r, c) {
+    +    if (r < 0 || r >= board.length || c < 0 || c >= board[r].length) {
+    +        return
+    +    }
+    +    if (board[r][c] === GREEN) {
+    +        board[r][c] = BLUE
+    +        greens--
+    +        blues++
+    +    } else if (board[r][c] === BLUE) {
+    +        board[r][c] = GREEN
+    +        blues--
+    +        greens++
+    +    }
+    +}
+    +
+     // end of the scope.
+     })()
+
+Notice how the function name has a prefix `try`. That's a signal to us that
+this function can "fail." Look carefully at the first if statement and you'll
+see why. We return without doing anything if the `r` or `c` given to use wasn't
+a valid row or column.
+
+Why did we not require `r` and `c` to be valid with our `REQUIRES`? We're about
+to find out.
