@@ -122,9 +122,9 @@ It's clear, then, why `id`s must be unique: if two elements had the same `id`,
 
 Shudder! Global variables! Fortunately, some of them will never change, i.e.,
 they're actually global _constants_. Those aren't as bad, since it's really
-_changing_ global variables one should worry about, since it's hard to know the
-state of your program at any given point when you have lots of stuff changing
-at once.
+_changing_ global variables one should worry about. That's because it's hard to
+know the state of your program at any given point when you have lots of stuff
+changing at once.
 
 ```js
 // some constants (warning: hard-coded in other files like style.css).
@@ -144,7 +144,7 @@ var blues
 
 By convention, one writes variable names in `UPPER_SNAKE_CASE` when they're
 constants, but, as you can see from the `var` right before each one, it's still
-technically a variable and could be reassigned. The burden is on us, then to
+technically a variable and could be reassigned. The burden is on us, then, to
 recognize the `UPPER_SNAKE_CASE` as a warning _not_ to do so.
 
 ## Generate a new board
