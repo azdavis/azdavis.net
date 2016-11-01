@@ -315,7 +315,7 @@ worry, we'll slog through.
 ## Create an click event handling function
 
 We need a function that, given a row and column, returns _a function_ which
-when called, updates the games internal state, then renders any changes.
+when called, updates the game's internal state, then renders any changes.
 
     // createOnclick(r: number, c: number): (): void
     // REQUIRES: 0 <= r < number of rows and 0 <= c < number of columns.
