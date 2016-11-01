@@ -243,3 +243,42 @@ a valid row or column.
 
 Why did we not require `r` and `c` to be valid with our `REQUIRES`? We're about
 to find out.
+
+## Try to change the board
+
+We need a function that, given a row and a column, tries to switch that tile to
+red, and the surrounding tiles to their colors. We'll call it `tryChangeBoard`.
+
+    @@ -65,5 +65,23 @@
+         }
+     }
+
+    +// tryChangeBoard(r: number, c: number): boolean
+    +// REQUIRES: 0 <= r < number of rows and 0 <= c < number of columns.
+    +// ENSURES: if the tile at row r and column c of board is not GREEN then return
+    +// false, else set it to RED and update surrounding tiles as defined by the
+    +// rules and return true. also update greens and blues to correspond.
+    +function tryChangeBoard(r, c) {
+    +    if (board[r][c] !== GREEN) {
+    +        return false
+    +    }
+    +    board[r][c] = RED
+    +    greens--
+    +    tryChangeTile(r + 1, c)
+    +    tryChangeTile(r - 1, c)
+    +    tryChangeTile(r, c + 1)
+    +    tryChangeTile(r, c - 1)
+    +    return true
+    +}
+    +
+     // end of the scope.
+     })()
+
+We now see why we didn't require `r` and `c` to be valid in `tryChangeTile`.
+It's because it's just easier to call `tryChangeTile` with each possible
+coordinate for a neighboring tile, and let `tryChangeTile` figure out if it was
+a valid tile or not, instead of having repetitive if-statements at the call
+site.
+
+Note that `tryChangeBoard` also returns whether or not it was able to change
+the board. As we'll see later, it turns out that's valuable information to us.
