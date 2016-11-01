@@ -282,3 +282,39 @@ site.
 
 Note that `tryChangeBoard` also returns whether or not it was able to change
 the board. As we'll see later, it turns out that's valuable information to us.
+
+## Try to end the game
+
+We need a function that tries to end the game. We'll call it `tryEndGame`.
+
+    @@ -83,5 +83,22 @@
+         return true
+     }
+
+    +// tryEndGame(): void
+    +// REQUIRES: nothing.
+    +// ENSURES: if greens !== 0 then return, else if blues === 0 then show a win
+    +// message, else show a lose message. then show the game-start controls and
+    +// hide the board.
+    +function tryEndGame() {
+    +    if (greens !== 0) {
+    +        return
+    +    }
+    +    if (blues === 0) {
+    +        alert("yay! you won!")
+    +    } else {
+    +        alert("darn. you lost.")
+    +    }
+    +    intro.style.display = game.style.display = rows.value = cols.value = ""
+    +}
+    +
+     // end of the scope.
+     })()
+
+Note the last line, with all the `.style.display` and `.value`. `.style` is a
+property of all DOM elements, which allows us to apply CSS styles to elements
+from JS. `.value` is a property only on `<input>` elements, which allows use to
+get and set the contents in those elements.
+
+We'll see later how this all comes together, but can you think of a reason why
+we might want to set all of those things to the empty string?
