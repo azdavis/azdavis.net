@@ -48,7 +48,8 @@ Before we proceed, we need to make sure everything is behaving as expected.
 5.  Delete the `alert(1)` from `script.js`, and reload `index.html`. This time,
     there should be no alert.
 
-Great! Now, we can finally start implementing this game.
+Great! Now, we can finally start implementing this game. Note that the starter
+code also includes the game rules!
 
 ## Close everything into one scope
 
