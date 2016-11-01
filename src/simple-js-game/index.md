@@ -427,3 +427,14 @@ with the input the user gave.
     }
 
 We're almost done! Just one little thing left...
+
+## Show the controls
+
+The controls have been hidden the whole time! We hide them by default, so that
+if a user without JS comes to our page, we don't show them useless controls.
+But at this point, we do want to show them, so that the user can play the game.
+
+    // show the controls.
+    controls.style.display = "block"
+
+And on that note, the game is finished!
