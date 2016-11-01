@@ -49,3 +49,24 @@ Before we proceed, we need to make sure everything's behaving as expected.
     there should be no alert.
 
 Great! Now, we can finally start implementing this game.
+
+## Close everything into one scope
+
+This step may seem a little arcane, but it's useful. We define a big function
+that we'll put everything into, then immediately call it. The fancy name for
+this "big function" is and _immediately-invoked functional expression_ or IIFE.
+
+    @@ -0,0 +1,5 @@
+    +// seal all the vars and functions into a contained scope.
+    +(function () {
+    +
+    +// end of the scope.
+    +})()
+
+What's the point of this? One reason is that if you didn't, and you had some
+`var important = "thing"`, a user could open up the devtools in their browser
+and view, and even change `important`.
+
+[Read more about IIFEs.][1]
+
+[1]: http://benalman.com/news/2010/11/immediately-invoked-function-expression
