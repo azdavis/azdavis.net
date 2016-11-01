@@ -160,8 +160,8 @@ recognize the `UPPER_SNAKE_CASE` as a warning _not_ to do so.
 
 ## Generate a new board
 
-We need a function that generates a new game board, given a number of rows and
-columns. Let's call it `genNewBoard`.
+We need a function that, given a number of rows and columns, generates a new
+game board with that many rows and columns. We'll call it `genNewBoard`.
 
     @@ -25,5 +25,25 @@
      var greens
