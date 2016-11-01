@@ -93,3 +93,33 @@ want _less_ features? - but it's probably better this way.
 [Read more about strict mode.][2]
 
 [2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+
+## Get access to some elements
+
+There are some elements declared in the HTML document that we need to access
+and modify the properties of for our game to work. Take a look at `index.html`
+with your text editor and notice a few things have `id="..."` - those are the
+ones we want. Important note: no two elements can have the same `id`. We'll
+shortly see why.
+
+We use the `getElementById` method of `document`, a global variable available
+to us that represents the current document (surprise). `getElementById` takes a
+string - the ID of the element we want - and returns an element, or `null` if
+no element could be found.
+
+    @@ -4,5 +4,12 @@
+     // enable strict mode.
+     "use strict"
+
+    +// some elements declared in the HTML document.
+    +var intro = document.getElementById("intro")
+    +var controls = document.getElementById("controls")
+    +var rows = document.getElementById("rows")
+    +var cols = document.getElementById("cols")
+    +var game = document.getElementById("game")
+    +
+     // end of the scope.
+     })()
+
+It's clear, then, why `id`s must be unique: if two elements had the same `id`,
+`document.getElementById` wouldn't know which one to return.
