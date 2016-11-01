@@ -28,11 +28,13 @@ this tutoral.
 
 Unzip [`starter.zip`](starter.zip) to yield:
 
-    starter
-    ├── favicon.png
-    ├── index.html
-    ├── script.js
-    └── style.css
+```
+starter
+├── favicon.png
+├── index.html
+├── script.js
+└── style.css
+```
 
 `script.js` is where we'll be doing all of our work.
 
@@ -57,11 +59,13 @@ This step may seem a little arcane, but it's useful. We define a big function
 that we'll put everything into, then immediately call it. The fancy name for
 this "big function" is and _immediately-invoked functional expression_ or IIFE.
 
-    // seal all the vars and functions into a contained scope.
-    (function () {
+```js
+// seal all the vars and functions into a contained scope.
+(function () {
 
-    // end of the scope.
-    })()
+// end of the scope.
+})()
+```
 
 What's the point of this? One reason is that if you didn't, and you had some
 `var important = "thing"`, a user could open up the developer tools in their
@@ -76,8 +80,10 @@ browser and view, and even change, `important`.
 This, too, may seem a little abstract, but it, too, is useful. We simply add
 the string `"use strict"` inside the IIFE, at the top.
 
-    // enable strict mode.
-    "use strict"
+```js
+// enable strict mode.
+"use strict"
+```
 
 Why? Roughly, it prevents some common mistakes and make unavailable to us some
 dangerous language features. This may sound bad - why, one might ask, would we
@@ -100,12 +106,14 @@ to us that represents the current document (surprise). `getElementById` takes a
 string - the ID of the element we want - and returns an element, or `null` if
 no element could be found.
 
-    // some elements declared in the HTML document.
-    var intro = document.getElementById("intro")
-    var controls = document.getElementById("controls")
-    var rows = document.getElementById("rows")
-    var cols = document.getElementById("cols")
-    var game = document.getElementById("game")
+```js
+// some elements declared in the HTML document.
+var intro = document.getElementById("intro")
+var controls = document.getElementById("controls")
+var rows = document.getElementById("rows")
+var cols = document.getElementById("cols")
+var game = document.getElementById("game")
+```
 
 It's clear, then, why `id`s must be unique: if two elements had the same `id`,
 `document.getElementById` wouldn't know which one to return.
@@ -118,19 +126,21 @@ _changing_ global variables one should worry about, since it's hard to know the
 state of your program at any given point when you have lots of stuff changing
 at once.
 
-    // some constants (warning: hard-coded in other files like style.css).
-    var RED = "r"
-    var GREEN = "g"
-    var BLUE = "b"
-    var TILE_WIDTH = 56
-    var BODY_PADDING = 20
+```js
+// some constants (warning: hard-coded in other files like style.css).
+var RED = "r"
+var GREEN = "g"
+var BLUE = "b"
+var TILE_WIDTH = 56
+var BODY_PADDING = 20
 
-    // the board (a 2d array of RED, GREEN, and BLUE).
-    var board
+// the board (a 2d array of RED, GREEN, and BLUE).
+var board
 
-    // the number of GREENs and BLUEs in the board.
-    var greens
-    var blues
+// the number of GREENs and BLUEs in the board.
+var greens
+var blues
+```
 
 By convention, one writes variable names in `UPPER_SNAKE_CASE` when they're
 constants, but, as you can see from the `var` right before each one, it's still
@@ -142,25 +152,27 @@ recognize the `UPPER_SNAKE_CASE` as a warning _not_ to do so.
 We need a function that, given a number of rows and columns, generates a new
 game board with that many rows and columns.
 
-    // genNewBoard(r: number, c: number): void
-    // REQUIRES: r > 0 and c > 0.
-    // ENSURES: set board to a new 2d array with r rows and c columns, with all
-    // elements BLUE except the top-left which is GREEN. also update greens and
-    // blues to correspond.
-    function genNewBoard(r, c) {
-        board = []
-        greens = blues = 0
-        for (var i = 0; i < r; i++) {
-            board[i] = []
-            for (var j = 0; j < c; j++) {
-                board[i][j] = BLUE
-                blues++
-            }
+```js
+// genNewBoard(r: number, c: number): void
+// REQUIRES: r > 0 and c > 0.
+// ENSURES: set board to a new 2d array with r rows and c columns, with all
+// elements BLUE except the top-left which is GREEN. also update greens and
+// blues to correspond.
+function genNewBoard(r, c) {
+    board = []
+    greens = blues = 0
+    for (var i = 0; i < r; i++) {
+        board[i] = []
+        for (var j = 0; j < c; j++) {
+            board[i][j] = BLUE
+            blues++
         }
-        board[0][0] = GREEN
-        blues--
-        greens++
     }
+    board[0][0] = GREEN
+    blues--
+    greens++
+}
+```
 
 Note the type signature we gave the function. We read it as "`genNewBoard` is a
 function that takes two `number` parameters and returns `void`".
@@ -175,25 +187,27 @@ _after_ we call the function.
 We need a function that, given a row and a column, tries to switch the tile to
 blue if it's green, or to green if it's blue.
 
-    // tryChangeTile(r: number, c: number): void
-    // REQUIRES: nothing.
-    // ENSURES: if r or c is not a valid row or column of board then return, else
-    // set the tile at row r and column c of board to its new color as defined by
-    // the game rules. also update greens and blues to correspond.
-    function tryChangeTile(r, c) {
-        if (r < 0 || r >= board.length || c < 0 || c >= board[r].length) {
-            return
-        }
-        if (board[r][c] === GREEN) {
-            board[r][c] = BLUE
-            greens--
-            blues++
-        } else if (board[r][c] === BLUE) {
-            board[r][c] = GREEN
-            blues--
-            greens++
-        }
+```js
+// tryChangeTile(r: number, c: number): void
+// REQUIRES: nothing.
+// ENSURES: if r or c is not a valid row or column of board then return, else
+// set the tile at row r and column c of board to its new color as defined by
+// the game rules. also update greens and blues to correspond.
+function tryChangeTile(r, c) {
+    if (r < 0 || r >= board.length || c < 0 || c >= board[r].length) {
+        return
     }
+    if (board[r][c] === GREEN) {
+        board[r][c] = BLUE
+        greens--
+        blues++
+    } else if (board[r][c] === BLUE) {
+        board[r][c] = GREEN
+        blues--
+        greens++
+    }
+}
+```
 
 Notice how the function name has a prefix `try`. That's a signal to us that
 this function can "fail." Look carefully at the first if statement and you'll
@@ -208,23 +222,25 @@ to find out.
 We need a function that, given a row and a column, tries to switch that tile to
 red, and the surrounding tiles to their colors.
 
-    // tryChangeBoard(r: number, c: number): boolean
-    // REQUIRES: 0 <= r < number of rows and 0 <= c < number of columns.
-    // ENSURES: if the tile at row r and column c of board is not GREEN then return
-    // false, else set it to RED and update surrounding tiles as defined by the
-    // rules and return true. also update greens and blues to correspond.
-    function tryChangeBoard(r, c) {
-        if (board[r][c] !== GREEN) {
-            return false
-        }
-        board[r][c] = RED
-        greens--
-        tryChangeTile(r + 1, c)
-        tryChangeTile(r - 1, c)
-        tryChangeTile(r, c + 1)
-        tryChangeTile(r, c - 1)
-        return true
+```js
+// tryChangeBoard(r: number, c: number): boolean
+// REQUIRES: 0 <= r < number of rows and 0 <= c < number of columns.
+// ENSURES: if the tile at row r and column c of board is not GREEN then return
+// false, else set it to RED and update surrounding tiles as defined by the
+// rules and return true. also update greens and blues to correspond.
+function tryChangeBoard(r, c) {
+    if (board[r][c] !== GREEN) {
+        return false
     }
+    board[r][c] = RED
+    greens--
+    tryChangeTile(r + 1, c)
+    tryChangeTile(r - 1, c)
+    tryChangeTile(r, c + 1)
+    tryChangeTile(r, c - 1)
+    return true
+}
+```
 
 We now see why we didn't require `r` and `c` to be valid in `tryChangeTile`.
 It's because it's just easier to call `tryChangeTile` with each possible
@@ -239,22 +255,24 @@ the board. As we'll see later, it turns out that's valuable information to us.
 
 We need a function that tries to end the game.
 
-    // tryEndGame(): void
-    // REQUIRES: nothing.
-    // ENSURES: if greens !== 0 then return, else if blues === 0 then show a win
-    // message, else show a lose message. then show the game-start controls and
-    // hide the board.
-    function tryEndGame() {
-        if (greens !== 0) {
-            return
-        }
-        if (blues === 0) {
-            alert("yay! you won!")
-        } else {
-            alert("darn. you lost.")
-        }
-        intro.style.display = game.style.display = rows.value = cols.value = ""
+```js
+// tryEndGame(): void
+// REQUIRES: nothing.
+// ENSURES: if greens !== 0 then return, else if blues === 0 then show a win
+// message, else show a lose message. then show the game-start controls and
+// hide the board.
+function tryEndGame() {
+    if (greens !== 0) {
+        return
     }
+    if (blues === 0) {
+        alert("yay! you won!")
+    } else {
+        alert("darn. you lost.")
+    }
+    intro.style.display = game.style.display = rows.value = cols.value = ""
+}
+```
 
 Note the last line, with all the `.style.display` and `.value`. `.style` is a
 property of all DOM elements, which allows us to apply CSS styles to elements
@@ -274,16 +292,18 @@ Now, however, we need some functions which render the board to the user. The
 first of these, strangely enough, assumes we already have some DOM
 representation of the board that looks something like this:
 
-    <game>
-        <row>
-            <tile></tile>
-            <tile></tile>
-        </div>
-        <row>
-            <tile></tile>
-            <tile></tile>
-        </div>
-    </game>
+```
+<game>
+    <row>
+        <tile></tile>
+        <tile></tile>
+    </div>
+    <row>
+        <tile></tile>
+        <tile></tile>
+    </div>
+</game>
+```
 
 This is just pseudocode, but the actual DOM representation will look a least a
 bit like that. Except all the elements will be `<div>`s with various `class`es
@@ -291,17 +311,19 @@ tacked on them, since you can't make custom elements in HTML yet.
 
 Anyway, we need a function that renders a changed board.
 
-    // renderChangeBoard(): void
-    // REQUIRES: nothing.
-    // ENSURES: update the DOM representation of board with the latest information
-    // from board.
-    function renderChangeBoard() {
-        for (var i = 0; i < board.length; i++) {
-            for (var j = 0; j < board[i].length; j++) {
-                game.children[i].children[j].className = board[i][j]
-            }
+```js
+// renderChangeBoard(): void
+// REQUIRES: nothing.
+// ENSURES: update the DOM representation of board with the latest information
+// from board.
+function renderChangeBoard() {
+    for (var i = 0; i < board.length; i++) {
+        for (var j = 0; j < board[i].length; j++) {
+            game.children[i].children[j].className = board[i][j]
         }
     }
+}
+```
 
 We'll call this function after we update the state `board` internally and we
 want to render those updates to the user.
@@ -318,21 +340,23 @@ worry, we'll slog through.
 We need a function that, given a row and column, returns _a function_ which
 when called, updates the game's internal state, then renders any changes.
 
-    // createOnclick(r: number, c: number): (): void
-    // REQUIRES: 0 <= r < number of rows and 0 <= c < number of columns.
-    // ENSURES: return a function suitable to register on the click event for the
-    // DOM representation of the tile at row r and column c of board. this function
-    // changes the board at row r and column c, then renders the changes and ends
-    // the game if necessary.
-    function createOnclick(r, c) {
-        return function () {
-            if (!tryChangeBoard(r, c)) {
-                return
-            }
-            renderChangeBoard()
-            setTimeout(tryEndGame, 1)
+```js
+// createOnclick(r: number, c: number): (): void
+// REQUIRES: 0 <= r < number of rows and 0 <= c < number of columns.
+// ENSURES: return a function suitable to register on the click event for the
+// DOM representation of the tile at row r and column c of board. this function
+// changes the board at row r and column c, then renders the changes and ends
+// the game if necessary.
+function createOnclick(r, c) {
+    return function () {
+        if (!tryChangeBoard(r, c)) {
+            return
         }
+        renderChangeBoard()
+        setTimeout(tryEndGame, 1)
     }
+}
+```
 
 We'll register each function returned by this function on each tile's
 `.onclick` event handler (another DOM property).
@@ -341,23 +365,25 @@ We'll register each function returned by this function on each tile's
 
 We need a function that renders a new board.
 
-    // renderNewBoard(): void
-    // REQUIRES: nothing.
-    // ENSURES: create a new DOM representation of board.
-    function renderNewBoard() {
-        game.innerHTML = ""
-        for (var i = 0; i < board.length; i++) {
-            var row = document.createElement("div")
-            row.className = "row"
-            for (var j = 0; j < board[i].length; j++) {
-                var tile = document.createElement("div")
-                tile.className = board[i][j]
-                tile.onclick = createOnclick(i, j)
-                row.appendChild(tile)
-            }
-            game.appendChild(row)
+```js
+// renderNewBoard(): void
+// REQUIRES: nothing.
+// ENSURES: create a new DOM representation of board.
+function renderNewBoard() {
+    game.innerHTML = ""
+    for (var i = 0; i < board.length; i++) {
+        var row = document.createElement("div")
+        row.className = "row"
+        for (var j = 0; j < board[i].length; j++) {
+            var tile = document.createElement("div")
+            tile.className = board[i][j]
+            tile.onclick = createOnclick(i, j)
+            row.appendChild(tile)
         }
+        game.appendChild(row)
     }
+}
+```
 
 Note that we use `createOnclick(i, j)` for the tile at position (i, j). We can
 also roughly see how the DOM structure gets created like we said it would, with
@@ -368,12 +394,14 @@ the double for loop.
 We need a helper function that, given a number, returns whether it's a positive
 integer.
 
-    // isPositiveInteger(x: number): boolean
-    // REQUIRES: nothing.
-    // ENSURES: return whether x is a positive integer.
-    function isPositiveInteger(x) {
-        return !isNaN(x) && x > 0 && Math.floor(x) === x
-    }
+```js
+// isPositiveInteger(x: number): boolean
+// REQUIRES: nothing.
+// ENSURES: return whether x is a positive integer.
+function isPositiveInteger(x) {
+    return !isNaN(x) && x > 0 && Math.floor(x) === x
+}
+```
 
 Why do we need such an oddly specific function? We're about to find out.
 
@@ -382,31 +410,33 @@ Why do we need such an oddly specific function? We're about to find out.
 We're in the home stretch! We need a function that, given a number of rows and
 columns, tries to start the game with those dimensions.
 
-    // tryStartGame(r: number, c: number): void
-    // REQUIRES: nothing.
-    // ENSURES: if valid r and c were provided then create a new board with those
-    // dimensions and start the game, else show various error messages based on how
-    // the dimensions were not valid.
-    function tryStartGame(r, c) {
-        if (!isPositiveInteger(r) || !isPositiveInteger(c)) {
-            alert("give positive integers!")
-            return
-        } else if (
-            r * TILE_WIDTH > (innerHeight - BODY_PADDING) ||
-            c * TILE_WIDTH > (innerWidth - BODY_PADDING)
-        ) {
-            alert("".concat(
-                "a ", r, " x ", c, " board can't fit on the screen!\ntry a ",
-                Math.floor((innerHeight - BODY_PADDING) / TILE_WIDTH), " x ",
-                Math.floor((innerWidth - BODY_PADDING) / TILE_WIDTH), " board."
-            ))
-            return
-        }
-        intro.style.display = "none"
-        game.style.display = "block"
-        genNewBoard(r, c)
-        renderNewBoard()
+```js
+// tryStartGame(r: number, c: number): void
+// REQUIRES: nothing.
+// ENSURES: if valid r and c were provided then create a new board with those
+// dimensions and start the game, else show various error messages based on how
+// the dimensions were not valid.
+function tryStartGame(r, c) {
+    if (!isPositiveInteger(r) || !isPositiveInteger(c)) {
+        alert("give positive integers!")
+        return
+    } else if (
+        r * TILE_WIDTH > (innerHeight - BODY_PADDING) ||
+        c * TILE_WIDTH > (innerWidth - BODY_PADDING)
+    ) {
+        alert("".concat(
+            "a ", r, " x ", c, " board can't fit on the screen!\ntry a ",
+            Math.floor((innerHeight - BODY_PADDING) / TILE_WIDTH), " x ",
+            Math.floor((innerWidth - BODY_PADDING) / TILE_WIDTH), " board."
+        ))
+        return
     }
+    intro.style.display = "none"
+    game.style.display = "block"
+    genNewBoard(r, c)
+    renderNewBoard()
+}
+```
 
 We now see why `isPositiveInteger` is useful: if the user gives bad input, we
 yell at them. We also see the purpose of some of the constants defined way at
@@ -419,13 +449,15 @@ When the user inputs the rows and columns with the controls, we need to prevent
 the default action (which is to reload the page), and then call `tryStartGame`
 with the input the user gave.
 
-    // when the form holding the inputs for the number of rows and columns is
-    // submitted, prevent the default action (which is to reload the page), then
-    // start the game.
-    controls.onsubmit = function (e) {
-        e.preventDefault()
-        tryStartGame(Number(rows.value), Number(cols.value))
-    }
+```js
+// when the form holding the inputs for the number of rows and columns is
+// submitted, prevent the default action (which is to reload the page), then
+// start the game.
+controls.onsubmit = function (e) {
+    e.preventDefault()
+    tryStartGame(Number(rows.value), Number(cols.value))
+}
+```
 
 We're almost done! Just one little thing left…
 
@@ -435,8 +467,10 @@ The controls have been hidden the whole time! We hide them by default, so that
 if a user without JS comes to our page, we don't show them useless controls.
 But at this point, we do want to show them, so that the user can play the game.
 
-    // show the controls.
-    controls.style.display = "block"
+```js
+// show the controls.
+controls.style.display = "block"
+```
 
 And on that note, the game is finished!
 
