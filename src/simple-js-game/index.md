@@ -39,3 +39,17 @@ Unzip [`starter.zip`](starter.zip) to yield:
     └── readme.md
 
 `script.js` is where we'll be doing all of our work.
+
+## Sanity check
+
+Before we proceed, we need to make sure everything's behaving as expected.
+
+1. Open `script.js` in your text editor. It should be empty.
+2. Open `index.html` in your browser. It should look very nice, but try
+   pressing Play: nothing happens.
+3. In `script.js`, add the following code: `alert(1)`.
+4. Reload `index.html` in your browser. You should get an alert that says `1`.
+5. Delete the `alert(1)` from `script.js`, and reload `index.html`. This time,
+   there should be no alert.
+
+Great! Now, we can finally start implementing this game.
