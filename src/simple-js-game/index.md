@@ -91,9 +91,9 @@ want _less_ features? - but it's probably better this way.
 
 There are some elements declared in the HTML document that we need to access
 and modify the properties of for our game to work. Take a look at `index.html`
-with your text editor and notice a few things have `id="…"` - those are the
-ones we want. Important note: no two elements can have the same `id`. We'll
-shortly see why.
+with your text editor and notice a few things have a property called `id` -
+those are the ones we want. Important note: no two elements can have the same
+`id`. We'll shortly see why.
 
 We use the `getElementById` method of `document`, a global variable available
 to us that represents the current document (surprise). `getElementById` takes a
