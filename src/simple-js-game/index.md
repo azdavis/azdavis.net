@@ -161,14 +161,8 @@ game board with that many rows and columns. We'll call it `genNewBoard`.
         greens++
     }
 
-Note the type signature we gave the function. We read
-
-    genNewBoard(r: number, c: number): void
-
-as
-
-> `genNewBoard` is a function that takes two `number` parameters and returns
-> `void`.
+Note the type signature we gave the function. We read it as "`genNewBoard` is a
+function that takes two `number` parameters and returns `void`".
 
 Note also the `REQUIRES` and `ENSURES` we gave. `REQUIRES` describes the
 preconditions that must be satisfied _before_ we call the function, and
