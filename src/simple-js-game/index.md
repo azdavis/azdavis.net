@@ -341,7 +341,7 @@ children.
 This part is probably the most confusing if you don't know HTML and CSS. Don't
 worry, we'll slog through.
 
-## Creating an click event handler
+## Creating a click event handler
 
 We need a function that, given a row and column, returns _a function_ which
 when called, updates the game's internal state, then renders any changes.
