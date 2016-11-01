@@ -24,6 +24,8 @@ src/cbg/index.js src/fast/index.js src/lgw/index.js: \
 	src/base/ts/dom.ts
 src/cbg/index.js src/lgw/index.js: \
 	src/base/ts/is_mobile.ts
+src/fast/index.html: \
+	src/fast/index.md
 src/fast/index.js: \
 	$(wildcard src/fast/*.ts)
 src/cbg/index.js: \
