@@ -57,7 +57,7 @@ code also includes the game rules!
 
 This step may seem a little arcane, but it's useful. We define a big function
 that we'll put everything into, then immediately call it. The fancy name for
-this "big function" is and _immediately-invoked functional expression_ or IIFE.
+this "big function" is an _immediately-invoked functional expression_, or IIFE.
 
 ```js
 // seal all the vars and functions into a contained scope.
