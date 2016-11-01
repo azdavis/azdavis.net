@@ -9,6 +9,13 @@
 @import "/src/base/styl/pre"
 @import "/src/base/styl/pre_dark"
 
+body
+    counter-reset h2
+
+h2::before
+    counter-increment h2
+    content counter(h2) ". "
+
 .keyword
 .operator
     color #a33
