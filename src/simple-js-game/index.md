@@ -123,3 +123,37 @@ no element could be found.
 
 It's clear, then, why `id`s must be unique: if two elements had the same `id`,
 `document.getElementById` wouldn't know which one to return.
+
+## Add some globals
+
+Shudder! Global variables! Fortunately, some of them will never change, i.e.,
+they're actually global _constants_. Those aren't as bad, since it's really
+_changing_ global variables one should worry about, since it's hard to know the
+state of your program at any given point when you have lots of stuff changing
+at once.
+
+    @@ -11,5 +11,19 @@
+     var cols = document.getElementById("cols")
+     var game = document.getElementById("game")
+
+    +// some constants (warning: hard-coded in other files like style.css).
+    +var RED = "r"
+    +var GREEN = "g"
+    +var BLUE = "b"
+    +var TILE_WIDTH = 56
+    +var BODY_PADDING = 20
+    +
+    +// the board (a 2d array of RED, GREEN, and BLUE).
+    +var board
+    +
+    +// the number of GREENs and BLUEs in the board.
+    +var greens
+    +var blues
+    +
+     // end of the scope.
+     })()
+
+By convention, one writes variable names in `UPPER_SNAKE_CASE` when they're
+constants, but, as you can see from the `var` right before each one, it's still
+technically a variable and could be reassigned. The burden is on us, then to
+recognize the `UPPER_SNAKE_CASE` as a warning _not_ to do so.
