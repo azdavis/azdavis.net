@@ -18,3 +18,24 @@ You'll need the following things installed:
 [vim]: http://www.vim.org
 [emacs]: https://www.gnu.org/software/emacs
 [ed]: https://www.gnu.org/fun/jokes/ed-msg.en.html
+
+## Starter code
+
+You need more than just JavaScript to make a webpage. However, this lab focuses
+on only the JavaScript component. Bearing that in mind, you'll want some
+starter code. The starter code takes care of all the stuff you aren't being
+taught how to do in this lab.
+
+Unzip [`starter.zip`](starter.zip) to yield:
+
+    starter
+    ├── src
+    │   ├── favicon.png
+    │   ├── index.html
+    │   ├── script.js
+    │   └── style.css
+    ├── .gitignore
+    ├── license.md
+    └── readme.md
+
+`script.js` is where we'll be doing all of our work.
