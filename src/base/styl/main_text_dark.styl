@@ -1,5 +1,6 @@
-.dark
-    background $dark
-    color #ddd
-    -mos-osx-font-smoothing grayscale
-    -webkit-font-smoothing antialiased
+@media not print
+    .dark
+        background $dark
+        color #ddd
+        -mos-osx-font-smoothing grayscale // @stylint ignore
+        -webkit-font-smoothing antialiased
