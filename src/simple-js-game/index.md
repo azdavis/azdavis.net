@@ -335,3 +335,29 @@ when called, updates the games internal state, then renders any changes.
 
 We'll register each function returned by this function on each tile's
 `.onclick` event handler (another DOM property).
+
+## Render a new board
+
+We need a function that renders a new board.
+
+    // renderNewBoard(): void
+    // REQUIRES: nothing.
+    // ENSURES: create a new DOM representation of board.
+    function renderNewBoard() {
+        game.innerHTML = ""
+        for (var i = 0; i < board.length; i++) {
+            var row = document.createElement("div")
+            row.className = "row"
+            for (var j = 0; j < board[i].length; j++) {
+                var tile = document.createElement("div")
+                tile.className = board[i][j]
+                tile.onclick = createOnclick(i, j)
+                row.appendChild(tile)
+            }
+            game.appendChild(row)
+        }
+    }
+
+Note that we use `createOnclick(i, j)` for the tile at position (i, j). We can
+also roughly see how the DOM structure gets created like we said it would, with
+the double for loop.
