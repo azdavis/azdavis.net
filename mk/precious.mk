@@ -1,7 +1,7 @@
 .PRECIOUS: %.html %.css %.js
 
 %.html: %.pug src/base/pug/head.pug %.css %.js
-	pug -sb . --doctype html $<
+	pug -b . --doctype html $<
 	html-minifier \
 		--collapse-whitespace \
 		--decode-entities \
@@ -14,7 +14,7 @@
 
 %.css: %.styl src/base/styl/var.styl
 	stylint -c lint/styl.json $?
-	stylus -u autoprefixer-stylus $< $(Q)
+	stylus -u autoprefixer-stylus $<
 
 %.js: %.ts
 	tslint -c lint/ts.json $?
@@ -26,4 +26,4 @@
 		--target ES5 \
 		--module ES2015 \
 		$<
-	rollup -f iife -o $@ $@ $(Q)
+	rollup -f iife -o $@ $@
