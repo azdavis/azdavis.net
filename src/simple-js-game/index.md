@@ -70,3 +70,26 @@ and view, and even change `important`.
 [Read more about IIFEs.][1]
 
 [1]: http://benalman.com/news/2010/11/immediately-invoked-function-expression
+
+## Add strict mode
+
+This, too, may seem a little abstract, but it, too, is useful. We simply add
+the string `"use strict"` inside the IIFE, at the top.
+
+    @@ -1,5 +1,8 @@
+     // seal all the vars and functions into a contained scope.
+     (function () {
+
+    +// enable strict mode.
+    +"use strict"
+    +
+     // end of the scope.
+     })()
+
+Why? Roughly, it prevents some common mistakes and make unavailable to us some
+dangerous language features. This may sound bad - why, one might ask, would we
+want _less_ features? - but it's probably better this way.
+
+[Read more about strict mode.][2]
+
+[2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
