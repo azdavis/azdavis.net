@@ -439,3 +439,8 @@ But at this point, we do want to show them, so that the user can play the game.
     controls.style.display = "block"
 
 And on that note, the game is finished!
+
+[The finished code][], and a [demo][].
+
+[The finished code]: https://github.com/azdavis/simple-js-game
+[demo]: http://simple-js-game.surge.sh
