@@ -411,3 +411,19 @@ We now see why `isPositiveInteger` is useful: if the user gives bad input, we
 yell at them. We also see the purpose of some of the constants defined way at
 the beginning: they make sure we only create board that can fit on the user's
 screen.
+
+## Handle submission of the form data
+
+When the user inputs the rows and columns with the controls, we need to prevent
+the default action (which is to reload the page), and then call `tryStartGame`
+with the input the user gave.
+
+    // when the form holding the inputs for the number of rows and columns is
+    // submitted, prevent the default action (which is to reload the page), then
+    // start the game.
+    controls.onsubmit = function (e) {
+        e.preventDefault()
+        tryStartGame(Number(rows.value), Number(cols.value))
+    }
+
+We're almost done! Just one little thing left...
