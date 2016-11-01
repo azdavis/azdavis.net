@@ -38,7 +38,7 @@ Unzip [`starter.zip`](starter.zip) to yield:
 
 ## Sanity check
 
-Before we proceed, we need to make sure everything's behaving as expected.
+Before we proceed, we need to make sure everything is behaving as expected.
 
 1.  Open `script.js` in your text editor. It should be empty.
 2.  Open `index.html` in your browser. It should look very nice, but try
@@ -64,8 +64,8 @@ this "big function" is and _immediately-invoked functional expression_ or IIFE.
     +})()
 
 What's the point of this? One reason is that if you didn't, and you had some
-`var important = "thing"`, a user could open up the devtools in their browser
-and view, and even change `important`.
+`var important = "thing"`, a user could open up the developer tools in their
+browser and view, and even change, `important`.
 
 [Read more about IIFEs.][1]
 
