@@ -209,10 +209,10 @@ function tryChangeTile(r, c) {
 }
 ```
 
-Notice how the function name has a prefix `try`. That's a signal to us that
-this function can "fail." Look carefully at the first if statement and you'll
-see why. We return without doing anything if the `r` or `c` given to use wasn't
-a valid row or column.
+Notice how the function name has the prefix `try`. That's a naming convention
+we've adopted to signal this function can "fail." Look carefully at the first
+if statement and you'll see why. We return without doing anything if the `r` or
+`c` given to use wasn't a valid row or column.
 
 Why did we not require `r` and `c` to be valid with our `REQUIRES`? We're about
 to find out.
