@@ -4,9 +4,9 @@ In this tutorial, we'll build a simple game using JS.
 
 You'll need the following things installed:
 
--   A browser ([Chrome][], [Firefox][], [Edge][], [Safari][])
+-   A browser ([Chrome][], [Firefox][], [Edge][], [Safari][]…)
 -   A text editor ([Sublime Text][], [Atom][], [Nodepad++][NodepadPP], [vim][],
-    [emacs][], [ed][]...)
+    [emacs][], [ed][]…)
 
 [Chrome]: https://www.google.com/chrome
 [Firefox]: https://www.mozilla.org/en-US/firefox/products
@@ -91,7 +91,7 @@ want _less_ features? - but it's probably better this way.
 
 There are some elements declared in the HTML document that we need to access
 and modify the properties of for our game to work. Take a look at `index.html`
-with your text editor and notice a few things have `id="..."` - those are the
+with your text editor and notice a few things have `id="…"` - those are the
 ones we want. Important note: no two elements can have the same `id`. We'll
 shortly see why.
 
@@ -427,7 +427,7 @@ with the input the user gave.
         tryStartGame(Number(rows.value), Number(cols.value))
     }
 
-We're almost done! Just one little thing left...
+We're almost done! Just one little thing left…
 
 ## Show the controls
 
