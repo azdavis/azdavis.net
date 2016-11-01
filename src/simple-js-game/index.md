@@ -268,3 +268,53 @@ get and set the contents in those elements.
 
 We'll see later how this all comes together, but can you think of a reason why
 we might want to set all of those things to the empty string?
+
+## Render a changed board
+
+So far, we've pretty much only worked with our internal representation of the
+game: the `board`, a two-dimensional array. Only in the last part of the last
+example did we start to interact with the page itself.
+
+Now, however, we need some functions which render the board to the user. The
+first of these, strangely enough, assumes we already have some DOM
+representation of the board that looks something like this:
+
+    <game>
+        <row>
+            <tile></tile>
+            <tile></tile>
+        </div>
+        <row>
+            <tile></tile>
+            <tile></tile>
+        </div>
+    </game>
+
+This is just pseudocode, but the actual DOM representation will look a least a
+bit like that. Except all the elements will be `<div>`s with various `class`es
+tacked on them, since you can't make custom elements in HTML yet.
+
+Anyway, we need a function that renders a changed board. We'll call it
+`renderChangeBoard`.
+
+    // renderChangeBoard(): void
+    // REQUIRES: nothing.
+    // ENSURES: update the DOM representation of board with the latest information
+    // from board.
+    function renderChangeBoard() {
+        for (var i = 0; i < board.length; i++) {
+            for (var j = 0; j < board[i].length; j++) {
+                game.children[i].children[j].className = board[i][j]
+            }
+        }
+    }
+
+We'll call this function after we update the state `board` internally and we
+want to render those updates to the user.
+
+We use the `.children` property to get access to an array (actually, a
+NodeList, but we can still subscript with `[]` as we'd expect) of an element's
+children.
+
+This part is probably the most confusing if you don't know HTML and CSS. Don't
+worry, we'll slog through.
