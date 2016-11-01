@@ -157,3 +157,49 @@ By convention, one writes variable names in `UPPER_SNAKE_CASE` when they're
 constants, but, as you can see from the `var` right before each one, it's still
 technically a variable and could be reassigned. The burden is on us, then to
 recognize the `UPPER_SNAKE_CASE` as a warning _not_ to do so.
+
+## Generate a new board
+
+We need a function that generates a new game board, given a number of rows and
+columns. Let's call it `genNewBoard`.
+
+    @@ -25,5 +25,25 @@
+     var greens
+     var blues
+
+    +// genNewBoard(r: number, c: number): void
+    +// REQUIRES: r > 0 and c > 0.
+    +// ENSURES: set board to a new 2d array with r rows and c columns, with all
+    +// elements BLUE except the top-left which is GREEN. also update greens and
+    +// blues to correspond.
+    +function genNewBoard(r, c) {
+    +    board = []
+    +    greens = blues = 0
+    +    for (var i = 0; i < r; i++) {
+    +        board[i] = []
+    +        for (var j = 0; j < c; j++) {
+    +            board[i][j] = BLUE
+    +            blues++
+    +        }
+    +    }
+    +    board[0][0] = GREEN
+    +    blues--
+    +    greens++
+    +}
+    +
+     // end of the scope.
+     })()
+
+Note the type signature we gave the function. We read
+
+    genNewBoard(r: number, c: number): void
+
+as
+
+> `genNewBoard` is a function that takes two `number` parameters and returns
+> `void`.
+
+Note also the `REQUIRES` and `ENSURES` we gave. `REQUIRES` describes the
+preconditions that must be satisfied _before_ we call the function, and
+`ENSURES` describes the postconditions that are guaranteed to be satisfied
+_after_ we call the function.
