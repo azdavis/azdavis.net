@@ -71,9 +71,9 @@ What's the point of this? One reason is that if you didn't, and you had some
 `var important = "thing"`, a user could open up the developer tools in their
 browser and view, and even change, `important`.
 
-[Read more about IIFEs.][1]
+[Read more about IIFEs.][iife]
 
-[1]: http://benalman.com/news/2010/11/immediately-invoked-function-expression
+[iife]: http://benalman.com/news/2010/11/immediately-invoked-function-expression
 
 ## Add strict mode
 
@@ -89,9 +89,9 @@ Why? Roughly, it prevents some common mistakes and make unavailable to us some
 dangerous language features. This may sound bad - why, one might ask, would we
 want _less_ features? - but it's probably better this way.
 
-[Read more about strict mode.][2]
+[Read more about strict mode.][strict]
 
-[2]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+[strict]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 
 ## Get access to some elements
 
