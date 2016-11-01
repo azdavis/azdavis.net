@@ -279,6 +279,10 @@ property of all DOM elements, which allows us to apply CSS styles to elements
 from JS. `.value` is a property only on `<input>` elements, which allows use to
 get and set the contents in those elements.
 
+[Read more about the DOM.][dom]
+
+[dom]: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
+
 We'll see later how this all comes together, but can you think of a reason why
 we might want to set all of those things to the empty string?
 
