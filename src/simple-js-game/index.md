@@ -312,3 +312,27 @@ children.
 
 This part is probably the most confusing if you don't know HTML and CSS. Don't
 worry, we'll slog through.
+
+## Create an click event handling function
+
+We need a function that, given a row and column, returns _a function_ which
+when called, updates the games internal state, then renders any changes.
+
+    // createOnclick(r: number, c: number): (): void
+    // REQUIRES: 0 <= r < number of rows and 0 <= c < number of columns.
+    // ENSURES: return a function suitable to register on the click event for the
+    // DOM representation of the tile at row r and column c of board. this function
+    // changes the board at row r and column c, then renders the changes and ends
+    // the game if necessary.
+    function createOnclick(r, c) {
+        return function () {
+            if (!tryChangeBoard(r, c)) {
+                return
+            }
+            renderChangeBoard()
+            setTimeout(tryEndGame, 1)
+        }
+    }
+
+We'll register each function returned by this function on each tile's
+`.onclick` event handler (another DOM property).
