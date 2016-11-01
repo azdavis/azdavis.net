@@ -361,3 +361,17 @@ We need a function that renders a new board.
 Note that we use `createOnclick(i, j)` for the tile at position (i, j). We can
 also roughly see how the DOM structure gets created like we said it would, with
 the double for loop.
+
+## Is a positive integer
+
+We need a helper function that, given a number, returns whether it's a positive
+integer.
+
+    // isPositiveInteger(x: number): boolean
+    // REQUIRES: nothing.
+    // ENSURES: return whether x is a positive integer.
+    function isPositiveInteger(x) {
+        return !isNaN(x) && x > 0 && Math.floor(x) === x
+    }
+
+Why do we need such an oddly specific function? We're about to find out.
