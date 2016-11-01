@@ -307,7 +307,9 @@ representation of the board that looks something like this:
 
 This is just pseudocode, but the actual DOM representation will look a least a
 bit like that. Except all the elements will be `<div>`s with various `class`es
-tacked on them, since you can't make custom elements in HTML yet.
+tacked on them, since you can't make custom elements in HTML [yet][custom].
+
+[custom]: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements
 
 Anyway, we need a function that renders a changed board.
 
