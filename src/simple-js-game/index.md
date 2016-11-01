@@ -375,3 +375,39 @@ integer.
     }
 
 Why do we need such an oddly specific function? We're about to find out.
+
+## Try to start the game
+
+We're in the home stretch! We need a function that, given a number of rows and
+columns, tries to start the game with those dimensions.
+
+    // tryStartGame(r: number, c: number): void
+    // REQUIRES: nothing.
+    // ENSURES: if valid r and c were provided then create a new board with those
+    // dimensions and start the game, else show various error messages based on how
+    // the dimensions were not valid.
+    function tryStartGame(r, c) {
+        if (!isPositiveInteger(r) || !isPositiveInteger(c)) {
+            alert("give positive integers!")
+            return
+        } else if (
+            r * TILE_WIDTH > (innerHeight - BODY_PADDING) ||
+            c * TILE_WIDTH > (innerWidth - BODY_PADDING)
+        ) {
+            alert("".concat(
+                "a ", r, " x ", c, " board can't fit on the screen!\ntry a ",
+                Math.floor((innerHeight - BODY_PADDING) / TILE_WIDTH), " x ",
+                Math.floor((innerWidth - BODY_PADDING) / TILE_WIDTH), " board."
+            ))
+            return
+        }
+        intro.style.display = "none"
+        game.style.display = "block"
+        genNewBoard(r, c)
+        renderNewBoard()
+    }
+
+We now see why `isPositiveInteger` is useful: if the user gives bad input, we
+yell at them. We also see the purpose of some of the constants defined way at
+the beginning: they make sure we only create board that can fit on the user's
+screen.
