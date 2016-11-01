@@ -56,12 +56,11 @@ This step may seem a little arcane, but it's useful. We define a big function
 that we'll put everything into, then immediately call it. The fancy name for
 this "big function" is and _immediately-invoked functional expression_ or IIFE.
 
-    @@ -0,0 +1,5 @@
-    +// seal all the vars and functions into a contained scope.
-    +(function () {
-    +
-    +// end of the scope.
-    +})()
+    // seal all the vars and functions into a contained scope.
+    (function () {
+
+    // end of the scope.
+    })()
 
 What's the point of this? One reason is that if you didn't, and you had some
 `var important = "thing"`, a user could open up the developer tools in their
@@ -76,15 +75,8 @@ browser and view, and even change, `important`.
 This, too, may seem a little abstract, but it, too, is useful. We simply add
 the string `"use strict"` inside the IIFE, at the top.
 
-    @@ -1,5 +1,8 @@
-     // seal all the vars and functions into a contained scope.
-     (function () {
-
-    +// enable strict mode.
-    +"use strict"
-    +
-     // end of the scope.
-     })()
+    // enable strict mode.
+    "use strict"
 
 Why? Roughly, it prevents some common mistakes and make unavailable to us some
 dangerous language features. This may sound bad - why, one might ask, would we
@@ -107,19 +99,12 @@ to us that represents the current document (surprise). `getElementById` takes a
 string - the ID of the element we want - and returns an element, or `null` if
 no element could be found.
 
-    @@ -4,5 +4,12 @@
-     // enable strict mode.
-     "use strict"
-
-    +// some elements declared in the HTML document.
-    +var intro = document.getElementById("intro")
-    +var controls = document.getElementById("controls")
-    +var rows = document.getElementById("rows")
-    +var cols = document.getElementById("cols")
-    +var game = document.getElementById("game")
-    +
-     // end of the scope.
-     })()
+    // some elements declared in the HTML document.
+    var intro = document.getElementById("intro")
+    var controls = document.getElementById("controls")
+    var rows = document.getElementById("rows")
+    var cols = document.getElementById("cols")
+    var game = document.getElementById("game")
 
 It's clear, then, why `id`s must be unique: if two elements had the same `id`,
 `document.getElementById` wouldn't know which one to return.
@@ -132,26 +117,19 @@ _changing_ global variables one should worry about, since it's hard to know the
 state of your program at any given point when you have lots of stuff changing
 at once.
 
-    @@ -11,5 +11,19 @@
-     var cols = document.getElementById("cols")
-     var game = document.getElementById("game")
+    // some constants (warning: hard-coded in other files like style.css).
+    var RED = "r"
+    var GREEN = "g"
+    var BLUE = "b"
+    var TILE_WIDTH = 56
+    var BODY_PADDING = 20
 
-    +// some constants (warning: hard-coded in other files like style.css).
-    +var RED = "r"
-    +var GREEN = "g"
-    +var BLUE = "b"
-    +var TILE_WIDTH = 56
-    +var BODY_PADDING = 20
-    +
-    +// the board (a 2d array of RED, GREEN, and BLUE).
-    +var board
-    +
-    +// the number of GREENs and BLUEs in the board.
-    +var greens
-    +var blues
-    +
-     // end of the scope.
-     })()
+    // the board (a 2d array of RED, GREEN, and BLUE).
+    var board
+
+    // the number of GREENs and BLUEs in the board.
+    var greens
+    var blues
 
 By convention, one writes variable names in `UPPER_SNAKE_CASE` when they're
 constants, but, as you can see from the `var` right before each one, it's still
@@ -163,32 +141,25 @@ recognize the `UPPER_SNAKE_CASE` as a warning _not_ to do so.
 We need a function that, given a number of rows and columns, generates a new
 game board with that many rows and columns. We'll call it `genNewBoard`.
 
-    @@ -25,5 +25,25 @@
-     var greens
-     var blues
-
-    +// genNewBoard(r: number, c: number): void
-    +// REQUIRES: r > 0 and c > 0.
-    +// ENSURES: set board to a new 2d array with r rows and c columns, with all
-    +// elements BLUE except the top-left which is GREEN. also update greens and
-    +// blues to correspond.
-    +function genNewBoard(r, c) {
-    +    board = []
-    +    greens = blues = 0
-    +    for (var i = 0; i < r; i++) {
-    +        board[i] = []
-    +        for (var j = 0; j < c; j++) {
-    +            board[i][j] = BLUE
-    +            blues++
-    +        }
-    +    }
-    +    board[0][0] = GREEN
-    +    blues--
-    +    greens++
-    +}
-    +
-     // end of the scope.
-     })()
+    // genNewBoard(r: number, c: number): void
+    // REQUIRES: r > 0 and c > 0.
+    // ENSURES: set board to a new 2d array with r rows and c columns, with all
+    // elements BLUE except the top-left which is GREEN. also update greens and
+    // blues to correspond.
+    function genNewBoard(r, c) {
+        board = []
+        greens = blues = 0
+        for (var i = 0; i < r; i++) {
+            board[i] = []
+            for (var j = 0; j < c; j++) {
+                board[i][j] = BLUE
+                blues++
+            }
+        }
+        board[0][0] = GREEN
+        blues--
+        greens++
+    }
 
 Note the type signature we gave the function. We read
 
@@ -209,32 +180,25 @@ _after_ we call the function.
 We need a function that, given a row and a column, tries to switch the tile to
 blue if it's green, or to green if it's blue. We'll call it `tryChangeTile`.
 
-    @@ -45,5 +45,25 @@
-         greens++
-     }
-
-    +// tryChangeTile(r: number, c: number): void
-    +// REQUIRES: nothing.
-    +// ENSURES: if r or c is not a valid row or column of board then return, else
-    +// set the tile at row r and column c of board to its new color as defined by
-    +// the game rules. also update greens and blues to correspond.
-    +function tryChangeTile(r, c) {
-    +    if (r < 0 || r >= board.length || c < 0 || c >= board[r].length) {
-    +        return
-    +    }
-    +    if (board[r][c] === GREEN) {
-    +        board[r][c] = BLUE
-    +        greens--
-    +        blues++
-    +    } else if (board[r][c] === BLUE) {
-    +        board[r][c] = GREEN
-    +        blues--
-    +        greens++
-    +    }
-    +}
-    +
-     // end of the scope.
-     })()
+    // tryChangeTile(r: number, c: number): void
+    // REQUIRES: nothing.
+    // ENSURES: if r or c is not a valid row or column of board then return, else
+    // set the tile at row r and column c of board to its new color as defined by
+    // the game rules. also update greens and blues to correspond.
+    function tryChangeTile(r, c) {
+        if (r < 0 || r >= board.length || c < 0 || c >= board[r].length) {
+            return
+        }
+        if (board[r][c] === GREEN) {
+            board[r][c] = BLUE
+            greens--
+            blues++
+        } else if (board[r][c] === BLUE) {
+            board[r][c] = GREEN
+            blues--
+            greens++
+        }
+    }
 
 Notice how the function name has a prefix `try`. That's a signal to us that
 this function can "fail." Look carefully at the first if statement and you'll
@@ -249,30 +213,23 @@ to find out.
 We need a function that, given a row and a column, tries to switch that tile to
 red, and the surrounding tiles to their colors. We'll call it `tryChangeBoard`.
 
-    @@ -65,5 +65,23 @@
-         }
-     }
-
-    +// tryChangeBoard(r: number, c: number): boolean
-    +// REQUIRES: 0 <= r < number of rows and 0 <= c < number of columns.
-    +// ENSURES: if the tile at row r and column c of board is not GREEN then return
-    +// false, else set it to RED and update surrounding tiles as defined by the
-    +// rules and return true. also update greens and blues to correspond.
-    +function tryChangeBoard(r, c) {
-    +    if (board[r][c] !== GREEN) {
-    +        return false
-    +    }
-    +    board[r][c] = RED
-    +    greens--
-    +    tryChangeTile(r + 1, c)
-    +    tryChangeTile(r - 1, c)
-    +    tryChangeTile(r, c + 1)
-    +    tryChangeTile(r, c - 1)
-    +    return true
-    +}
-    +
-     // end of the scope.
-     })()
+    // tryChangeBoard(r: number, c: number): boolean
+    // REQUIRES: 0 <= r < number of rows and 0 <= c < number of columns.
+    // ENSURES: if the tile at row r and column c of board is not GREEN then return
+    // false, else set it to RED and update surrounding tiles as defined by the
+    // rules and return true. also update greens and blues to correspond.
+    function tryChangeBoard(r, c) {
+        if (board[r][c] !== GREEN) {
+            return false
+        }
+        board[r][c] = RED
+        greens--
+        tryChangeTile(r + 1, c)
+        tryChangeTile(r - 1, c)
+        tryChangeTile(r, c + 1)
+        tryChangeTile(r, c - 1)
+        return true
+    }
 
 We now see why we didn't require `r` and `c` to be valid in `tryChangeTile`.
 It's because it's just easier to call `tryChangeTile` with each possible
@@ -287,29 +244,22 @@ the board. As we'll see later, it turns out that's valuable information to us.
 
 We need a function that tries to end the game. We'll call it `tryEndGame`.
 
-    @@ -83,5 +83,22 @@
-         return true
-     }
-
-    +// tryEndGame(): void
-    +// REQUIRES: nothing.
-    +// ENSURES: if greens !== 0 then return, else if blues === 0 then show a win
-    +// message, else show a lose message. then show the game-start controls and
-    +// hide the board.
-    +function tryEndGame() {
-    +    if (greens !== 0) {
-    +        return
-    +    }
-    +    if (blues === 0) {
-    +        alert("yay! you won!")
-    +    } else {
-    +        alert("darn. you lost.")
-    +    }
-    +    intro.style.display = game.style.display = rows.value = cols.value = ""
-    +}
-    +
-     // end of the scope.
-     })()
+    // tryEndGame(): void
+    // REQUIRES: nothing.
+    // ENSURES: if greens !== 0 then return, else if blues === 0 then show a win
+    // message, else show a lose message. then show the game-start controls and
+    // hide the board.
+    function tryEndGame() {
+        if (greens !== 0) {
+            return
+        }
+        if (blues === 0) {
+            alert("yay! you won!")
+        } else {
+            alert("darn. you lost.")
+        }
+        intro.style.display = game.style.display = rows.value = cols.value = ""
+    }
 
 Note the last line, with all the `.style.display` and `.value`. `.style` is a
 property of all DOM elements, which allows us to apply CSS styles to elements
