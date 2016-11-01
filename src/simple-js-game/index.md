@@ -139,7 +139,7 @@ recognize the `UPPER_SNAKE_CASE` as a warning _not_ to do so.
 ## Generate a new board
 
 We need a function that, given a number of rows and columns, generates a new
-game board with that many rows and columns. We'll call it `genNewBoard`.
+game board with that many rows and columns.
 
     // genNewBoard(r: number, c: number): void
     // REQUIRES: r > 0 and c > 0.
@@ -172,7 +172,7 @@ _after_ we call the function.
 ## Try to change a tile
 
 We need a function that, given a row and a column, tries to switch the tile to
-blue if it's green, or to green if it's blue. We'll call it `tryChangeTile`.
+blue if it's green, or to green if it's blue.
 
     // tryChangeTile(r: number, c: number): void
     // REQUIRES: nothing.
@@ -205,7 +205,7 @@ to find out.
 ## Try to change the board
 
 We need a function that, given a row and a column, tries to switch that tile to
-red, and the surrounding tiles to their colors. We'll call it `tryChangeBoard`.
+red, and the surrounding tiles to their colors.
 
     // tryChangeBoard(r: number, c: number): boolean
     // REQUIRES: 0 <= r < number of rows and 0 <= c < number of columns.
@@ -236,7 +236,7 @@ the board. As we'll see later, it turns out that's valuable information to us.
 
 ## Try to end the game
 
-We need a function that tries to end the game. We'll call it `tryEndGame`.
+We need a function that tries to end the game.
 
     // tryEndGame(): void
     // REQUIRES: nothing.
@@ -288,8 +288,7 @@ This is just pseudocode, but the actual DOM representation will look a least a
 bit like that. Except all the elements will be `<div>`s with various `class`es
 tacked on them, since you can't make custom elements in HTML yet.
 
-Anyway, we need a function that renders a changed board. We'll call it
-`renderChangeBoard`.
+Anyway, we need a function that renders a changed board.
 
     // renderChangeBoard(): void
     // REQUIRES: nothing.
