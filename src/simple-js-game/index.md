@@ -1,4 +1,4 @@
-In this tutorial, we'll build a simple game using JavaScript.
+In this tutorial, we'll build a simple game using JS.
 
 ## Prerequisites
 
@@ -21,10 +21,10 @@ You'll need the following things installed:
 
 ## Starter code
 
-You need more than just JavaScript to make a webpage. However, this lab focuses
-on only the JavaScript component. Bearing that in mind, you'll want some
-starter code. The starter code takes care of all the stuff you aren't being
-taught how to do in this lab.
+You need more than just JS to make a webpage. However, this lab focuses on only
+the JS component. Bearing that in mind, you'll want some starter code. The
+starter code takes care of all the stuff you aren't being taught how to do in
+this lab.
 
 Unzip [`starter.zip`](starter.zip) to yield:
 
