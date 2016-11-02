@@ -165,7 +165,7 @@ function genNewBoard(r, c) {
         }
     }
     board[0][0] = GREEN
-    blues =  r * c - 1
+    blues = r * c - 1
     greens = 1
 }
 ```
