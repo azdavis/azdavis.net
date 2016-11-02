@@ -158,17 +158,15 @@ game board with that many rows and columns.
 // blues to correspond.
 function genNewBoard(r, c) {
     board = []
-    greens = blues = 0
     for (var i = 0; i < r; i++) {
         board[i] = []
         for (var j = 0; j < c; j++) {
             board[i][j] = BLUE
-            blues++
         }
     }
     board[0][0] = GREEN
-    blues--
-    greens++
+    blues =  r * c - 1
+    greens = 1
 }
 ```
 
