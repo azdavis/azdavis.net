@@ -422,12 +422,13 @@ columns, tries to start the game with those dimensions.
 // dimensions and start the game, else show various error messages based on how
 // the dimensions were not valid.
 function tryStartGame(r, c) {
-    var maxR = Math.floor((innerHeight - BODY_PADDING) / TILE_WIDTH)
-    var maxC = Math.floor((innerWidth - BODY_PADDING) / TILE_WIDTH)
     if (!isPositiveInteger(r) || !isPositiveInteger(c)) {
         alert("give positive integers!")
         return
-    } else if (r > maxR || c > maxC) {
+    }
+    var maxR = Math.floor((innerHeight - BODY_PADDING) / TILE_WIDTH)
+    var maxC = Math.floor((innerWidth - BODY_PADDING) / TILE_WIDTH)
+    if (r > maxR || c > maxC) {
         alert("".concat(
             "a ", r, " x ", c, " board can't fit on the screen!\ntry a ",
             maxR, " x ", maxC, " board."
