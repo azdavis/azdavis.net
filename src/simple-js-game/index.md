@@ -481,4 +481,4 @@ And on that note, the game is finished!
 [The finished code][], and [a demo][].
 
 [The finished code]: https://github.com/azdavis/simple-js-game
-[demo]: http://simple-js-game.surge.sh
+[a demo]: http://simple-js-game.surge.sh
