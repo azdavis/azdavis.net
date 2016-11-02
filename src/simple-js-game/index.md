@@ -412,8 +412,8 @@ Why do we need such an oddly specific function? We're about to find out.
 
 ## Trying to start the game
 
-We're in the home stretch! We need a function that, given a number of rows and
-columns, tries to start the game with those dimensions.
+We're almost done! We need a function that, given a number of rows and columns,
+tries to start the game with those dimensions.
 
 ```js
 // tryStartGame(r: number, c: number): void
@@ -463,7 +463,7 @@ controls.onsubmit = function (e) {
 }
 ```
 
-We're almost done! Just one little thing left…
+Now there's just one little thing left…
 
 ## Showing the controls
 
