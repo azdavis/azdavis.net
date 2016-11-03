@@ -20,7 +20,7 @@ abstract class Sprite {
         if (this.i === 0 && this.j === 0) {
             return
         }
-        const h = Math.sqrt(Math.pow(this.i, 2) + Math.pow(this.j, 2))
+        const h = Math.sqrt(this.i ** 2 + this.j ** 2)
         this.x += this.speed * this.i / h
         this.y += this.speed * this.j / h
     }
