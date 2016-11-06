@@ -24,8 +24,6 @@ src/cbg/index.js src/fast/index.js src/lgw/index.js: \
 	src/base/ts/dom.ts
 src/cbg/index.js src/lgw/index.js: \
 	src/base/ts/is_mobile.ts
-src/simple-js-game/index.html: \
-	src/simple-js-game/index.md
 src/fast/index.html: \
 	src/fast/index.md
 src/fast/index.js: \
