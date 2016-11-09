@@ -5,7 +5,7 @@ module Canvas {
     export let w = 0
     export let h = 0
 
-    const h1 = document.querySelector("h1")
+    const h1 = document.querySelector("h1") as HTMLElement
 
     // make width = window width and height = h1 computed height, then rescale
     export function resize(): void {
