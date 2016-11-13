@@ -1,10 +1,4 @@
-function setDark(): void {
-    const hr = new Date().getHours()
-    document.documentElement.className
-        = hr < 6 || 17 < hr
-        ? "dark"
-        : ""
+const hr = new Date().getHours()
+if (hr < 6 || 17 < hr) {
+    document.documentElement.className = "dark"
 }
-
-setDark()
-setInterval(setDark, 10000)
