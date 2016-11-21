@@ -1,11 +1,11 @@
-@import "/src/base/styl/var"
-@import "/src/base/styl/main_text_dark"
-@import "/src/base/styl/a"
-@import "/src/base/styl/a_dark"
+@import "./base/a"
+
+*
+    box-sizing border-box
 
 html
-    color $dark
-    font medium/$lh $mono
+    color #222
+    font medium/1.5 Input, Menlo, Consolas, "Liberation Mono", monospace
 
 body
     max-width 800px
@@ -30,9 +30,16 @@ p
     display block
     margin 0 3em 1em
 
-@media only screen and (max-width $phone)
+@media only screen and (max-width 600px)
     .sec
         margin-left 1.5em
         margin-right 1.5em
     dd
         margin-left 1em
+
+@media not print
+    .dark
+        background #222
+        color #ddd
+        -moz-osx-font-smoothing grayscale
+        -webkit-font-smoothing antialiased

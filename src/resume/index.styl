@@ -1,9 +1,26 @@
-@import "/src/base/styl/var"
-@import "/src/base/styl/main_text"
-@import "/src/base/styl/main_text_dark"
-@import "/src/base/styl/a"
-@import "/src/base/styl/a_dark"
-@import "/src/base/styl/h1_h2_h3"
+@import "../base/a"
+
+*
+    box-sizing border-box
+
+html
+    color #222
+    font large/1.5 Palatino, Georgia, serif
+
+body
+    max-width 800px
+    margin 1em auto
+    padding 10px
+
+
+h1
+    margin 0.67em 0
+    font-size 2em
+
+h1
+h2
+h3
+    line-height (1.5 - 0.2)
 
 p
 dl
@@ -32,7 +49,7 @@ dd
 .print
     display none
 
-@media only screen and (max-width $phone)
+@media only screen and (max-width 600px)
     dt
     dd
         display block
@@ -43,7 +60,7 @@ dd
 @media only print
     html
         font-size small
-        color $dark
+        color #222
     body
         max-width none
         margin 0
@@ -62,3 +79,10 @@ dd
             content attr(data-print)
             font-size 1rem
             color inherit
+
+@media not print
+    .dark
+        background #222
+        color #ddd
+        -moz-osx-font-smoothing grayscale
+        -webkit-font-smoothing antialiased

@@ -1,6 +1,6 @@
 html(lang="en")
     head
-        include /src/base/pug/head.pug
+        include ./base/head.pug
         title man azdavis
         style: include index.css
     body
@@ -31,8 +31,6 @@ html(lang="en")
         dl.sec
             dt: a(href="/resume") view-accomplishments
             dd Browse azdavis' resume.
-            dt: a(href="/lgw") lameify-geometry-wars
-            dd Launch a simple arrow-key game.
         h2 PROFILES
         dl.sec
             dt: a(href="https://github.com/azdavis") GitHub

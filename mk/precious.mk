@@ -1,6 +1,6 @@
 .PRECIOUS: %.html %.css %.js
 
-%.html: %.pug src/base/pug/head.pug %.css %.js
+%.html: %.pug src/base/head.pug %.css %.js
 	echo $@
 	pug -b . --doctype html $<
 	html-minifier \
@@ -13,7 +13,7 @@
 		--remove-redundant-attributes \
 		-o $@.html $@; mv $@.html $@
 
-%.css: %.styl src/base/styl/var.styl
+%.css: %.styl
 	echo $@
 	stylus -u autoprefixer-stylus $<
 

@@ -1,1 +1,1 @@
-import "./base/ts/dark"
+import "./base/dark"
