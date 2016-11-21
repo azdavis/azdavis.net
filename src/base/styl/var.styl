@@ -15,29 +15,11 @@ $fz_mono = 0.85em
 $lh = 1.5
 
 $serif = Palatino, Georgia, serif
-$sans = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
 $mono = Input, Menlo, Consolas, "Liberation Mono", monospace
 
 $text_smooth()
     -moz-osx-font-smoothing grayscale
     -webkit-font-smoothing antialiased
-
-$pressable()
-    position relative
-    cursor pointer
-    -webkit-tap-highlight-color transparent
-    &::before
-        content ""
-        display none
-        position absolute
-        left 0
-        top 0
-        width 100%
-        height 100%
-        border-radius inherit
-        background #0003
-    &:active::before
-        display block
 
 *
     box-sizing border-box
