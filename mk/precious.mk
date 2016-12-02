@@ -2,7 +2,7 @@
 
 %.html: %.pug src/base/head.pug %.css %.js
 	echo $@
-	pug -b . --doctype html $<
+	pug -sb . --doctype html $<
 	html-minifier \
 		--collapse-whitespace \
 		--decode-entities \
@@ -15,7 +15,7 @@
 
 %.css: %.styl src/base/box_sizing.styl
 	echo $@
-	stylus -u autoprefixer-stylus $<
+	stylus -u autoprefixer-stylus $< > /dev/null
 
 %.js: %.ts src/base/dark.ts
 	echo $@
