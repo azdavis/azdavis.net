@@ -22,7 +22,9 @@ surge:
 
 upload:
 	git push origin master
+	mv src/404/index.html src/404.html
 	surge -d azdavis.xyz -p src
+	mv src/404.html src/404/index.html
 
 setup: .git/hooks/pre-commit node_modules $(BINARY) surge
 
