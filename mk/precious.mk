@@ -17,7 +17,7 @@
 	echo $@
 	stylus -u autoprefixer-stylus $<
 
-%.js: %.ts
+%.js: %.ts src/base/dark.ts
 	echo $@
 	tsc \
 		--forceConsistentCasingInFileNames \
