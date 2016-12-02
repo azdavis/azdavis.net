@@ -13,7 +13,7 @@
 		--remove-redundant-attributes \
 		-o $@.html $@; mv $@.html $@
 
-%.css: %.styl
+%.css: %.styl src/base/box_sizing.styl
 	echo $@
 	stylus -u autoprefixer-stylus $<
 
