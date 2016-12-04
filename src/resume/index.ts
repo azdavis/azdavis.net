@@ -1,10 +1,10 @@
 import "../base/dark"
 
 const els = [
-    document.querySelector("#email") as HTMLAnchorElement
-  , document.querySelector("#tel") as HTMLAnchorElement
-  , document.querySelector("#gh") as HTMLAnchorElement
-]
+    "email"
+  , "tel"
+  , "gh"
+].map(x => document.querySelector(`#${x}`) as HTMLAnchorElement)
 
 const data = [
     "dWRlLnVtYy53ZXJkbmFAc2l2YWR6YQ=="
