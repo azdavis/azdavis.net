@@ -1,12 +1,3 @@
--
-    const email = "".concat(
-        "http://www.google.com/recaptcha/mailhide/d",
-        "?k=01lKgXnqE6Va_tcIEkUUMMXA==",
-        "&c=48E9bfineLrIePMFqmXJBEMUqOmSn2ToweAA0b2nyLA="
-    )
-    const tel = "908-514-1006"
-    const gh = "github.com/azdavis"
-
 html(lang="en")
     head
         include ../base/head.pug
@@ -15,14 +6,14 @@ html(lang="en")
     body
         h1 Ariel Davis
         .contact
-            a(href=email data-print="azdavis@andrew") Email
+            a#email Email
             span.sep
-            a(href=`tel:${tel}` data-print=tel) Telephone
+            a#tel Telephone
             span.sep
             span.print
                 span(data-print="azdavis.xyz")
                 span.sep
-            a(href=`https://${gh}` data-print=gh) GitHub
+            a#gh GitHub
         h2 Objective
         p.
             To take the fullest advantage of research opportunities,
