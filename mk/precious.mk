@@ -2,7 +2,7 @@
 
 %.html: %.pug src/base/head.pug %.css %.js
 	echo $@
-	pug -sb . --doctype html $<
+	pug -s --doctype html $<
 	html-minifier \
 		--collapse-whitespace \
 		--decode-entities \
