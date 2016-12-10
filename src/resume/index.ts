@@ -11,8 +11,8 @@ function a(x: string): HTMLAnchorElement {
 const email = de("dWRlLnVtYy53ZXJkbmFAc2l2YWR6YQ==")
 const gh = de("c2l2YWR6YS9tb2MuYnVodGln")
 const toDo = [
-    {el: a("email"), href: email, print: `mailto:${email}`}
-  , {el: a("gh"), href: gh, print: `https://${gh}`}
+    {el: a("email"), print: email, href: `mailto:${email}`}
+  , {el: a("gh"), print: gh, href: `https://${gh}`}
 ]
 
 setTimeout(() => {
