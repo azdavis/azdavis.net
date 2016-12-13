@@ -1,0 +1,19 @@
+@import "../base/var"
+
+html
+    color $dark
+    font medium/1.5 $mono
+
+body
+    margin 0
+
+noscript div
+    padding 10px
+    font-weight bold
+    text-align center
+
+@media not print
+    .dark
+        background $dark
+        color $light
+        $text_smooth()
