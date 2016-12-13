@@ -14,7 +14,7 @@
 		-o $@.html $@
 	mv $@.html $@
 
-%.css: %.styl src/base/box_sizing.styl
+%.css: %.styl src/base/var.styl
 	echo $@
 	stylus -u autoprefixer-stylus $< > /dev/null
 
