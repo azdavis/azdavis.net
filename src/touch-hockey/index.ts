@@ -1,3 +1,4 @@
 import "../base/dark"
+import Canvas from "./canvas"
 
-console.log("hello")
+console.log(Canvas)
