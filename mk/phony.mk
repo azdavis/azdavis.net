@@ -8,7 +8,7 @@ clean:
 	find src \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
 test:
-	http-server src > /dev/null & \
+	http-server src | grep http & \
 	trap "kill $$!; exit" INT; \
 	open -g "http://localhost:8080" & \
 	while true; do find src | entr -d $(MAKE) || [ $$? -eq 2 ]; done
