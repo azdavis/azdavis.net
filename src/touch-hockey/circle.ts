@@ -13,11 +13,10 @@ class Circle {
     speed: number
     color: string
 
-    constructor(x, y, color) {
+    constructor(x: number, y: number, color: string) {
         this.x = x
         this.y = y
-        this.angle = 0
-        this.speed = 0
+        this.stop()
         this.color = color
     }
 
@@ -36,6 +35,11 @@ class Circle {
         this.y = y
         this.angle = angle(dx, dy)
         this.speed = distance(dx, dy)
+    }
+
+    stop(): void {
+        this.angle = 0
+        this.speed = 0
     }
 
     overlaps(other: Circle): boolean {
