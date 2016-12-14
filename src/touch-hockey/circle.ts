@@ -45,6 +45,10 @@ class Circle {
     overlaps(other: Circle): boolean {
         return distance(other.x - this.x, other.y - this.y) < radius2
     }
+
+    contains(x: number, y: number): boolean {
+        return distance(x - this.x, y - this.y) < radius
+    }
 }
 
 export default Circle
