@@ -4,22 +4,26 @@ import ControlledCircle from "./controlled_circle"
 
 const startOffset = 100
 
+const z = () => 0
+const w = () => Canvas.dim.width
+const h2 = () => Canvas.dim.height / 2
+
 const top = new ControlledCircle(
     Canvas.dim.width / 2
   , startOffset
-  , () => 0
-  , () => Canvas.dim.width
-  , () => 0
-  , () => Canvas.dim.height / 2
+  , z
+  , w
+  , z
+  , h2
   , "#d77"
 )
 
 const bot = new ControlledCircle(
     Canvas.dim.width / 2
   , Canvas.dim.height - startOffset
-  , () => 0
-  , () => Canvas.dim.width
-  , () => Canvas.dim.height / 2
+  , z
+  , w
+  , h2
   , () => Canvas.dim.height
   , "#77d"
 )
