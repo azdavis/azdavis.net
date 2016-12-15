@@ -41,17 +41,17 @@ function start(id: string, x: number, y: number): void {
 }
 
 function maintain(id: string, x: number, y: number): void {
-    if (top.lastTouchID === id) {
+    if (id === top.lastTouchID) {
         top.moveTo(x, y)
-    } else if (bot.lastTouchID === id) {
+    } else if (id === bot.lastTouchID) {
         bot.moveTo(x, y)
     }
 }
 
 function stop(id: string, x: number, y: number): void {
-    if (top.lastTouchID === id) {
+    if (id === top.lastTouchID) {
         top.stop()
-    } else if (bot.lastTouchID === id) {
+    } else if (id === bot.lastTouchID) {
         bot.stop()
     }
 }
