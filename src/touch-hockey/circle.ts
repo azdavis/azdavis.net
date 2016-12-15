@@ -1,5 +1,4 @@
 import angle from "./angle"
-import Bounded from "./bounded"
 import Canvas from "./canvas"
 import distance from "./distance"
 import keepInBounds from "./keep_in_bounds"
@@ -8,7 +7,7 @@ import tau from "./tau"
 const radius = 50
 const radius2 = radius * 2
 
-class Circle implements Bounded {
+class Circle {
     x: number
     y: number
     xmin: () => number
