@@ -15,11 +15,10 @@ function render(): void {
 function start(id: string, x: number, y: number): void {
     if (top.contains(x, y)) {
         top.lastTouchID = id
-        top.moveTo(x, Math.min(y, Canvas.dim.height / 2))
     } else if (bot.contains(x, y)) {
         bot.lastTouchID = id
-        bot.moveTo(x, Math.max(y, Canvas.dim.height / 2))
     }
+    maintain(id, x, y)
 }
 
 function maintain(id: string, x: number, y: number): void {
