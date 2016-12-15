@@ -67,9 +67,13 @@ function all(
     }
 }
 
+const msg = document.querySelector("#msg") as HTMLElement
 if ("ontouchend" in window) {
+    msg.remove()
     ontouchstart = all(start)
     ontouchmove = all(maintain)
     ontouchend = ontouchcancel = all(stop)
     requestAnimationFrame(render)
+} else {
+    msg.innerHTML = "A touchscreen is required"
 }
