@@ -9,15 +9,15 @@ const radius2 = radius * 2
 class Circle {
     x: number
     y: number
+    color: string
     angle: number
     speed: number
-    color: string
 
     constructor(x: number, y: number, color: string) {
         this.x = x
         this.y = y
-        this.stop()
         this.color = color
+        this.stop()
     }
 
     draw(): void {
