@@ -4,12 +4,11 @@ import distance from "./distance"
 import keepInBounds from "./keep_in_bounds"
 import tau from "./tau"
 
-const radius = 50
-const radius2 = radius * 2
-
 class Circle {
     x: number
     y: number
+    radius: number
+    diameter: number
     xmin: () => number
     xmax: () => number
     ymin: () => number
@@ -21,6 +20,7 @@ class Circle {
     constructor(
         x: number
       , y: number
+      , radius: number
       , lt: () => number
       , rt: () => number
       , up: () => number
@@ -29,10 +29,12 @@ class Circle {
     ) {
         this.x = x
         this.y = y
-        this.xmin = () => lt() + radius
-        this.xmax = () => rt() - radius
-        this.ymin = () => up() + radius
-        this.ymax = () => dn() - radius
+        this.radius = radius
+        this.diameter = radius * 2
+        this.xmin = () => lt() + this.radius
+        this.xmax = () => rt() - this.radius
+        this.ymin = () => up() + this.radius
+        this.ymax = () => dn() - this.radius
         this.color = color
         this.stop()
     }
@@ -40,7 +42,7 @@ class Circle {
     draw(): void {
         Canvas.cx.fillStyle = this.color
         Canvas.cx.beginPath()
-        Canvas.cx.arc(this.x, this.y, radius, 0, tau)
+        Canvas.cx.arc(this.x, this.y, this.radius, 0, tau)
         Canvas.cx.closePath()
         Canvas.cx.fill()
     }
@@ -62,11 +64,11 @@ class Circle {
     }
 
     overlaps(other: Circle): boolean {
-        return distance(other.x - this.x, other.y - this.y) < radius2
+        return distance(other.x - this.x, other.y - this.y) < this.diameter
     }
 
     contains(x: number, y: number): boolean {
-        return distance(x - this.x, y - this.y) < radius
+        return distance(x - this.x, y - this.y) < this.radius
     }
 }
 
