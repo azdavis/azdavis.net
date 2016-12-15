@@ -2,9 +2,11 @@ import "../base/dark"
 import Canvas from "./canvas"
 import ControlledCircle from "./controlled_circle"
 
+const startOffset = 100
+
 const top = new ControlledCircle(
     Canvas.dim.width / 2
-  , 100
+  , startOffset
   , () => 0
   , () => Canvas.dim.width
   , () => 0
@@ -14,7 +16,7 @@ const top = new ControlledCircle(
 
 const bot = new ControlledCircle(
     Canvas.dim.width / 2
-  , Canvas.dim.height - 100
+  , Canvas.dim.height - startOffset
   , () => 0
   , () => Canvas.dim.width
   , () => Canvas.dim.height / 2
