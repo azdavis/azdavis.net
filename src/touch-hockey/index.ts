@@ -2,8 +2,25 @@ import "../base/dark"
 import Canvas from "./canvas"
 import ControlledCircle from "./controlled_circle"
 
-const top = new ControlledCircle(Canvas.dim.width / 2, 100, "#d77")
-const bot = new ControlledCircle(Canvas.dim.width / 2, Canvas.dim.height - 100, "#77d")
+const top = new ControlledCircle(
+    Canvas.dim.width / 2
+  , 100
+  , () => 0
+  , () => Canvas.dim.width
+  , () => 0
+  , () => Canvas.dim.height / 2
+  , "#d77"
+)
+
+const bot = new ControlledCircle(
+    Canvas.dim.width / 2
+  , Canvas.dim.height - 100
+  , () => 0
+  , () => Canvas.dim.width
+  , () => Canvas.dim.height / 2
+  , () => Canvas.dim.height
+  , "#77d"
+)
 
 function render(): void {
     Canvas.clear()
@@ -23,9 +40,9 @@ function start(id: string, x: number, y: number): void {
 
 function maintain(id: string, x: number, y: number): void {
     if (top.lastTouchID === id) {
-        top.moveTo(x, Math.min(y, Canvas.dim.height / 2))
+        top.moveTo(x, y)
     } else if (bot.lastTouchID === id) {
-        bot.moveTo(x, Math.max(y, Canvas.dim.height / 2))
+        bot.moveTo(x, y)
     }
 }
 
