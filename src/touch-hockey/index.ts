@@ -6,7 +6,7 @@ const startOffset = 100
 
 const z = () => 0
 const w = () => Canvas.dim.width
-const h2 = () => Canvas.dim.height / 2
+const hHalf = () => Canvas.dim.height / 2
 
 const top = new ControlledCircle(
     Canvas.dim.width / 2
@@ -15,7 +15,7 @@ const top = new ControlledCircle(
   , z
   , w
   , z
-  , h2
+  , hHalf
   , "#d77"
 )
 
@@ -25,7 +25,7 @@ const bot = new ControlledCircle(
   , 50
   , z
   , w
-  , h2
+  , hHalf
   , () => Canvas.dim.height
   , "#77d"
 )
