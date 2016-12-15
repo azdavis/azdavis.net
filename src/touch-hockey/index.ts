@@ -1,5 +1,6 @@
 import "../base/dark"
 import Canvas from "./canvas"
+import Circle from "./circle"
 import ControlledCircle from "./controlled_circle"
 
 const startOffset = 100
@@ -31,8 +32,20 @@ const bot = new ControlledCircle(
   , "#77d"
 )
 
+const puck = new Circle(
+    Canvas.dim.width / 2
+  , Canvas.dim.height / 2
+  , 40
+  , z
+  , w
+  , z
+  , h
+  , "#777"
+)
+
 function render(): void {
     Canvas.clear()
+    puck.draw()
     top.draw()
     bot.draw()
     requestAnimationFrame(render)
