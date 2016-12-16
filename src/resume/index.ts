@@ -16,8 +16,8 @@ const toDo = [
 ]
 
 setTimeout(() => {
-    toDo.forEach(x => {
-        x.el.href = x.href
-        x.el.setAttribute("data-print", x.print)
-    })
+    for (const {el, print, href} of toDo) {
+        el.href = href
+        el.setAttribute("data-print", print)
+    }
 }, 200)
