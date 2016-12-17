@@ -1,7 +1,7 @@
 import Circle from "./circle"
 
 class ControlledCircle extends Circle {
-    lastTouchID: string
+    public lastTouchID: string
 }
 
 export default ControlledCircle

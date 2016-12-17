@@ -5,19 +5,19 @@ import keepInBounds from "./keep_in_bounds"
 import tau from "./tau"
 
 class Circle {
-    x: number
-    y: number
-    radius: number
-    diameter: number
-    xmin: () => number
-    xmax: () => number
-    ymin: () => number
-    ymax: () => number
-    color: string
-    angle: number
-    speed: number
+    private x: number
+    private y: number
+    private radius: number
+    private diameter: number
+    private xmin: () => number
+    private xmax: () => number
+    private ymin: () => number
+    private ymax: () => number
+    private color: string
+    private angle: number
+    private speed: number
 
-    constructor(
+    public constructor(
         x: number
       , y: number
       , radius: number
@@ -39,7 +39,7 @@ class Circle {
         this.stop()
     }
 
-    draw(): void {
+    public draw(): void {
         Canvas.cx.fillStyle = this.color
         Canvas.cx.beginPath()
         Canvas.cx.arc(this.x, this.y, this.radius, 0, tau)
@@ -47,7 +47,7 @@ class Circle {
         Canvas.cx.fill()
     }
 
-    moveTo(x: number, y: number): void {
+    public moveTo(x: number, y: number): void {
         const boundedX = keepInBounds(this.xmin(), x, this.xmax())
         const boundedY = keepInBounds(this.ymin(), y, this.ymax())
         const dx = boundedX - this.x
@@ -58,16 +58,16 @@ class Circle {
         this.speed = distance(dx, dy)
     }
 
-    stop(): void {
+    public stop(): void {
         this.angle = 0
         this.speed = 0
     }
 
-    overlaps(other: Circle): boolean {
+    public overlaps(other: Circle): boolean {
         return distance(other.x - this.x, other.y - this.y) < this.diameter
     }
 
-    contains(x: number, y: number): boolean {
+    public contains(x: number, y: number): boolean {
         return distance(x - this.x, y - this.y) < this.radius
     }
 }
