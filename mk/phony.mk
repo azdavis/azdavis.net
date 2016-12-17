@@ -18,7 +18,7 @@ git-ok:
 	[ "$$(git rev-parse --abbrev-ref @)" = master ]
 
 surge:
-	grep -q "surge.sh" ~/.netrc || surge login
+	grep -q "surge.sh" "$$HOME/.netrc" || surge login
 
 upload:
 	git push origin master
