@@ -56,15 +56,15 @@ function touchStart(id: string, x: number, y: number): void {
             ? bot
             : null
     if (guy !== null) {
-        guy.lastTouchID = id
+        guy.controlWith(id)
     }
     touchMaintain(id, x, y)
 }
 
 function touchMaintain(id: string, x: number, y: number): void {
-    let guy = id === top.lastTouchID
+    let guy = top.isControlledBy(id)
             ? top
-            : id === bot.lastTouchID
+            : bot.isControlledBy(id)
             ? bot
             : null
     if (guy !== null) {
@@ -73,9 +73,9 @@ function touchMaintain(id: string, x: number, y: number): void {
 }
 
 function touchStop(id: string, x: number, y: number): void {
-    let guy = id === top.lastTouchID
+    let guy = top.isControlledBy(id)
             ? top
-            : id === bot.lastTouchID
+            : bot.isControlledBy(id)
             ? bot
             : null
     if (guy !== null) {
