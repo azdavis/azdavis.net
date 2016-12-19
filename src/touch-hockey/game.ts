@@ -50,27 +50,36 @@ function render(): void {
 }
 
 function touchStart(id: string, x: number, y: number): void {
-    if (top.contains(x, y)) {
-        top.lastTouchID = id
-    } else if (bot.contains(x, y)) {
-        bot.lastTouchID = id
+    let guy = top.contains(x, y)
+            ? top
+            : bot.contains(x, y)
+            ? bot
+            : null
+    if (guy !== null) {
+        guy.lastTouchID = id
     }
     touchMaintain(id, x, y)
 }
 
 function touchMaintain(id: string, x: number, y: number): void {
-    if (id === top.lastTouchID) {
-        top.moveTo(x, y)
-    } else if (id === bot.lastTouchID) {
-        bot.moveTo(x, y)
+    let guy = id === top.lastTouchID
+            ? top
+            : id === bot.lastTouchID
+            ? bot
+            : null
+    if (guy !== null) {
+        guy.moveTo(x, y)
     }
 }
 
 function touchStop(id: string, x: number, y: number): void {
-    if (id === top.lastTouchID) {
-        top.stop()
-    } else if (id === bot.lastTouchID) {
-        bot.stop()
+    let guy = id === top.lastTouchID
+            ? top
+            : id === bot.lastTouchID
+            ? bot
+            : null
+    if (guy !== null) {
+        guy.stop()
     }
 }
 
