@@ -50,30 +50,30 @@ function render(): void {
 }
 
 function touchStart(id: string, x: number, y: number): void {
-    let guy = top.contains(x, y) ? top
-            : bot.contains(x, y) ? bot
-            : null
-    if (guy !== null) {
-        guy.controlWith(id)
+    let p = top.contains(x, y) ? top
+          : bot.contains(x, y) ? bot
+          : null
+    if (p !== null) {
+        p.controlWith(id)
     }
     touchMaintain(id, x, y)
 }
 
 function touchMaintain(id: string, x: number, y: number): void {
-    let guy = top.isControlledBy(id) ? top
-            : bot.isControlledBy(id) ? bot
-            : null
-    if (guy !== null) {
-        guy.moveTo(x, y)
+    let p = top.isControlledBy(id) ? top
+          : bot.isControlledBy(id) ? bot
+          : null
+    if (p !== null) {
+        p.moveTo(x, y)
     }
 }
 
 function touchStop(id: string, x: number, y: number): void {
-    let guy = top.isControlledBy(id) ? top
-            : bot.isControlledBy(id) ? bot
-            : null
-    if (guy !== null) {
-        guy.stop()
+    let p = top.isControlledBy(id) ? top
+          : bot.isControlledBy(id) ? bot
+          : null
+    if (p !== null) {
+        p.stop()
     }
 }
 
