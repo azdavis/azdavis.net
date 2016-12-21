@@ -23,7 +23,7 @@ class AutomaticCircle extends Circle {
         }
     }
 
-    collide(other: Circle): void {
+    collideWith(other: Circle): void {
         const phi = angle(other.y - this.y, other.x - this.x)
         const a = other.speed * Math.cos(other.angle - phi)
         const b = this.speed * Math.sin(this.angle - phi)
