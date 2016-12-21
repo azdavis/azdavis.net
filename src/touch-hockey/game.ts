@@ -1,5 +1,5 @@
 import Canvas from "./canvas"
-import Circle from "./circle"
+import AutomaticCircle from "./automatic_circle"
 import ControlledCircle from "./controlled_circle"
 
 const startOffset = 100
@@ -30,7 +30,7 @@ const bot = new ControlledCircle(
   , "#77d"
 )
 
-const puck = new Circle(
+const puck = new AutomaticCircle(
     Canvas.dim.width / 2
   , Canvas.dim.height / 2
   , 40
