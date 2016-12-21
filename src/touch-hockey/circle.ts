@@ -1,7 +1,5 @@
-import angle from "./angle"
 import Canvas from "./canvas"
 import distance from "./distance"
-import keepInBounds from "./keep_in_bounds"
 import tau from "./tau"
 
 class Circle {
@@ -45,17 +43,6 @@ class Circle {
         Canvas.cx.arc(this.x, this.y, this.radius, 0, tau)
         Canvas.cx.closePath()
         Canvas.cx.fill()
-    }
-
-    public moveTo(x: number, y: number): void {
-        const boundedX = keepInBounds(this.xmin(), x, this.xmax())
-        const boundedY = keepInBounds(this.ymin(), y, this.ymax())
-        const dx = boundedX - this.x
-        const dy = boundedY - this.y
-        this.x = boundedX
-        this.y = boundedY
-        this.angle = angle(dx, dy)
-        this.speed = distance(dx, dy)
     }
 
     public stop(): void {
