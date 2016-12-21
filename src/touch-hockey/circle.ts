@@ -3,16 +3,16 @@ import distance from "./distance"
 import tau from "./tau"
 
 class Circle {
-    private x: number
-    private y: number
-    private radius: number
-    private xmin: () => number
-    private xmax: () => number
-    private ymin: () => number
-    private ymax: () => number
-    private color: string
-    private angle: number
-    private speed: number
+    protected x: number
+    protected y: number
+    protected radius: number
+    protected xmin: () => number
+    protected xmax: () => number
+    protected ymin: () => number
+    protected ymax: () => number
+    protected color: string
+    protected angle: number
+    protected speed: number
 
     public constructor(
         x: number

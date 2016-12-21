@@ -4,7 +4,7 @@ import distance from "./distance"
 import keepInBounds from "./keep_in_bounds"
 
 class ControlledCircle extends Circle {
-    private id: string
+    protected id: string
 
     public controlWith(id: string): void {
         this.id = id
