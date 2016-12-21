@@ -6,7 +6,6 @@ class Circle {
     private x: number
     private y: number
     private radius: number
-    private diameter: number
     private xmin: () => number
     private xmax: () => number
     private ymin: () => number
@@ -28,7 +27,6 @@ class Circle {
         this.x = x
         this.y = y
         this.radius = radius
-        this.diameter = radius * 2
         this.xmin = () => lt() + this.radius
         this.xmax = () => rt() - this.radius
         this.ymin = () => up() + this.radius
@@ -51,11 +49,13 @@ class Circle {
     }
 
     public overlaps(other: Circle): boolean {
-        return distance(other.x - this.x, other.y - this.y) < this.diameter
+        return distance(other.x - this.x, other.y - this.y)
+             < other.radius + this.radius
     }
 
     public contains(x: number, y: number): boolean {
-        return distance(x - this.x, y - this.y) < this.radius
+        return distance(x - this.x, y - this.y)
+             < this.radius
     }
 }
 
