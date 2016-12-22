@@ -8,9 +8,9 @@ clean:
 	find src \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
 
 test:
-	http-server src | grep http & \
+	http-server -p 8888 src | grep http & \
 	trap "kill $$!; exit" INT; \
-	open -g "http://localhost:8080" & \
+	open -g "http://localhost:8888" & \
 	while true; do find src | entr -d $(MAKE) || [ $$? -eq 2 ]; done
 
 git-ok:
