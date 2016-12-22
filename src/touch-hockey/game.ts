@@ -6,10 +6,10 @@ const startOffset = 100
 const z = () => 0
 const w = () => Canvas.dim.width
 const h = () => Canvas.dim.height
-const hHalf = () => Canvas.dim.height / 2
+const hHalf = () => h() / 2
 
 const top = new ControlledCircle(
-    Canvas.dim.width / 2
+    w() / 2
   , startOffset
   , 50
   , z
@@ -20,8 +20,8 @@ const top = new ControlledCircle(
 )
 
 const bot = new ControlledCircle(
-    Canvas.dim.width / 2
-  , Canvas.dim.height - startOffset
+    w() / 2
+  , h() - startOffset
   , 50
   , z
   , w
@@ -31,8 +31,8 @@ const bot = new ControlledCircle(
 )
 
 const puck = new AutomaticCircle(
-    Canvas.dim.width / 2
-  , Canvas.dim.height / 2
+    w() / 2
+  , hHalf()
   , 40
   , z
   , w
