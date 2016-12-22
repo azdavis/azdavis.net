@@ -6,21 +6,23 @@ import tau from "./tau"
 
 class AutomaticCircle extends Circle {
     move(): void {
-        this.x = keepInBounds(
+        const xnew = keepInBounds(
             this.xmin()
           , this.x + this.speed * Math.cos(this.angle)
           , this.xmax()
         )
-        this.y = keepInBounds(
+        const ynew = keepInBounds(
             this.ymin()
           , this.y + this.speed * Math.sin(this.angle)
           , this.ymax()
         )
-        if (this.x === this.xmin() || this.x === this.xmax()) {
+        if (xnew === this.xmin() || xnew === this.xmax()) {
             this.angle = tau / 2 - this.angle
-        } else if (this.y === this.ymin() || this.y === this.ymax()) {
+        } else if (ynew === this.ymin() || ynew === this.ymax()) {
             this.angle = -this.angle
         }
+        this.x = xnew
+        this.y = ynew
     }
 
     collideWith(other: Circle): void {
