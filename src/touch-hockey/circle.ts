@@ -5,7 +5,7 @@ import tau from "./tau"
 class Circle {
     x: number
     y: number
-    radius: number
+    radius: () => number
     xmin: () => number
     xmax: () => number
     ymin: () => number
@@ -17,7 +17,7 @@ class Circle {
     constructor(
         x: number
       , y: number
-      , radius: number
+      , radius: () => number
       , xmin: () => number
       , xmax: () => number
       , ymin: () => number
@@ -38,7 +38,7 @@ class Circle {
     draw(): void {
         Canvas.cx.fillStyle = this.color
         Canvas.cx.beginPath()
-        Canvas.cx.arc(this.x, this.y, this.radius, 0, tau)
+        Canvas.cx.arc(this.x, this.y, this.radius(), 0, tau)
         Canvas.cx.closePath()
         Canvas.cx.fill()
     }
@@ -50,12 +50,12 @@ class Circle {
 
     overlaps(other: Circle): boolean {
         return distance(other.x - this.x, other.y - this.y)
-             < other.radius + this.radius
+             < other.radius() + this.radius()
     }
 
     contains(x: number, y: number): boolean {
         return distance(x - this.x, y - this.y)
-             < this.radius
+             < this.radius()
     }
 }
 
