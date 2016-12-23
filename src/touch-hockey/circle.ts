@@ -18,19 +18,19 @@ class Circle {
         x: number
       , y: number
       , radius: () => number
-      , xmin: () => number
-      , xmax: () => number
-      , ymin: () => number
-      , ymax: () => number
+      , lt: () => number
+      , rt: () => number
+      , up: () => number
+      , dn: () => number
       , color: string
     ) {
         this.x = x
         this.y = y
         this.radius = radius
-        this.xmin = xmin
-        this.xmax = xmax
-        this.ymin = ymin
-        this.ymax = ymax
+        this.xmin = () => lt() + radius()
+        this.xmax = () => rt() - radius()
+        this.ymin = () => up() + radius()
+        this.ymax = () => dn() - radius()
         this.color = color
         this.stop()
     }
