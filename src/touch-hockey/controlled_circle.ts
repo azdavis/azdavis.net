@@ -4,14 +4,14 @@ import distance from "./distance"
 import keepInBounds from "./keep_in_bounds"
 
 class ControlledCircle extends Circle {
-    id: string
+    controllerID: string
 
-    controlWith(id: string): void {
-        this.id = id
+    controlWith(controllerID: string): void {
+        this.controllerID = controllerID
     }
 
-    isControlledBy(id: string): boolean {
-        return this.id === id
+    isControlledBy(controllerID: string): boolean {
+        return this.controllerID === controllerID
     }
 
     moveTo(x: number, y: number): void {
