@@ -2,36 +2,48 @@ import Canvas from "./canvas"
 import AutomaticCircle from "./automatic_circle"
 import ControlledCircle from "./controlled_circle"
 
+const zero = () => 0
+const width = () => Canvas.dim.width
+const height = () => Canvas.dim.height
+const widthHalf = () => width() / 2
+const heightHalf = () => height() / 2
+const playerRadius = () => width() * 0.2
+const puckRadius = () => width() * 0.1
+
 const top = new ControlledCircle(
-    0
-  , 0
-  , 0
-  , () => 0
-  , () => 0
-  , () => 0
-  , () => 0
+    widthHalf()
+  , playerRadius() * 2
+  , playerRadius
+  , zero
+  , width
+  , zero
+  , heightHalf
   , "#d77"
 )
 
 const bot = new ControlledCircle(
-    0
-  , 0
-  , 0
-  , () => 0
-  , () => 0
-  , () => 0
-  , () => 0
+    widthHalf()
+  , height() - playerRadius() * 2
+  , playerRadius
+  , zero
+  , width
+  , heightHalf
+  , height
   , "#77d"
 )
 
 const puck = new AutomaticCircle(
-    0
-  , 0
-  , 0
-  , () => 0
-  , () => 0
-  , () => 0
-  , () => 0
+    widthHalf()
+  , heightHalf()
+  , puckRadius
+  , zero
+  , width
+  , () => widthHalf() - playerRadius() + puckRadius() <= puck.x
+       && puck.x <= widthHalf() + playerRadius() - puckRadius()
+        ? -height() : zero()
+  , () => widthHalf() - playerRadius() + puckRadius() <= puck.x
+       && puck.x <= widthHalf() + playerRadius() - puckRadius()
+        ? height() * 2 : height()
   , "#777"
 )
 
