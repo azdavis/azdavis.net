@@ -15,14 +15,6 @@ class ControlledCircle extends Circle {
     }
 
     moveTo(x: number, y: number): void {
-        const xnew = keepInBounds(this.xmin(), x, this.xmax())
-        const ynew = keepInBounds(this.ymin(), y, this.ymax())
-        const dx = xnew - this.x
-        const dy = ynew - this.y
-        this.x = xnew
-        this.y = ynew
-        this.angle = angle(dx, dy)
-        this.speed = distance(dx, dy)
     }
 }
 

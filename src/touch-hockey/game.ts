@@ -2,42 +2,36 @@ import Canvas from "./canvas"
 import AutomaticCircle from "./automatic_circle"
 import ControlledCircle from "./controlled_circle"
 
-const startOffset = 100
-const z = () => 0
-const w = () => Canvas.dim.width
-const h = () => Canvas.dim.height
-const hHalf = () => h() / 2
-
 const top = new ControlledCircle(
-    w() / 2
-  , startOffset
-  , 50
-  , z
-  , w
-  , z
-  , hHalf
+    0
+  , 0
+  , 0
+  , () => 0
+  , () => 0
+  , () => 0
+  , () => 0
   , "#d77"
 )
 
 const bot = new ControlledCircle(
-    w() / 2
-  , h() - startOffset
-  , 50
-  , z
-  , w
-  , hHalf
-  , h
+    0
+  , 0
+  , 0
+  , () => 0
+  , () => 0
+  , () => 0
+  , () => 0
   , "#77d"
 )
 
 const puck = new AutomaticCircle(
-    w() / 2
-  , hHalf()
-  , 40
-  , z
-  , w
-  , z
-  , h
+    0
+  , 0
+  , 0
+  , () => 0
+  , () => 0
+  , () => 0
+  , () => 0
   , "#777"
 )
 
