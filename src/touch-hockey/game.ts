@@ -1,4 +1,5 @@
 import Canvas from "./canvas"
+import score from "./score"
 import AutomaticCircle from "./automatic_circle"
 import ControlledCircle from "./controlled_circle"
 
@@ -54,6 +55,7 @@ const puck = new AutomaticCircle(
 
 function render(): void {
     Canvas.clear()
+    score.draw()
     puck.draw()
     top.draw()
     bot.draw()
@@ -63,6 +65,14 @@ function render(): void {
     if (puck.overlaps(bot)) {
         puck.collideWith(bot)
     }
+    if (nearGoal(puck.x)) {
+        if (puck.y < zero()) {
+            score.incTop()
+            puck.reset()
+        } else if (puck.y > height()) {
+            score.incBot()
+            puck.reset()
+        }
     }
     puck.move()
     requestAnimationFrame(render)
