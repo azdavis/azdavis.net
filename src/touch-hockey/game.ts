@@ -57,11 +57,12 @@ function render(): void {
     puck.draw()
     top.draw()
     bot.draw()
-    let p = top.overlaps(puck) ? top
-          : bot.overlaps(puck) ? bot
-          : null
-    if (p !== null) {
-        puck.collideWith(p)
+    if (puck.overlaps(top)) {
+        puck.collideWith(top)
+    }
+    if (puck.overlaps(bot)) {
+        puck.collideWith(bot)
+    }
     }
     puck.move()
     requestAnimationFrame(render)

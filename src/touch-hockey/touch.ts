@@ -2,30 +2,27 @@ import Canvas from "./canvas"
 import Game from "./game"
 
 function start(id: string, x: number, y: number): void {
-    let p = Game.top.contains(x, y) ? Game.top
-          : Game.bot.contains(x, y) ? Game.bot
-          : null
-    if (p !== null) {
-        p.controlWith(id)
+    if (Game.top.contains(x, y)) {
+        Game.top.controlWith(id)
+    } else if (Game.bot.contains(x, y)) {
+        Game.bot.controlWith(id)
     }
     maintain(id, x, y)
 }
 
 function maintain(id: string, x: number, y: number): void {
-    let p = Game.top.isControlledBy(id) ? Game.top
-          : Game.bot.isControlledBy(id) ? Game.bot
-          : null
-    if (p !== null) {
-        p.moveTo(x, y)
+    if (Game.top.isControlledBy(id)) {
+        Game.top.moveTo(x, y)
+    } else if (Game.bot.isControlledBy(id)) {
+        Game.bot.moveTo(x, y)
     }
 }
 
 function stop(id: string, x: number, y: number): void {
-    let p = Game.top.isControlledBy(id) ? Game.top
-          : Game.bot.isControlledBy(id) ? Game.bot
-          : null
-    if (p !== null) {
-        p.stop()
+    if (Game.top.isControlledBy(id)) {
+        Game.top.stop()
+    } else if (Game.bot.isControlledBy(id)) {
+        Game.bot.stop()
     }
 }
 
