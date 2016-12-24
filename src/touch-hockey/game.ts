@@ -7,8 +7,8 @@ const width = () => Canvas.dim.width
 const height = () => Canvas.dim.height
 const widthHalf = () => width() / 2
 const heightHalf = () => height() / 2
-const playerRadius = () => width() * 0.2
-const puckRadius = () => width() * 0.1
+const playerRadius = () => width() * 0.08
+const puckRadius = () => width() * 0.05
 
 const top = new ControlledCircle(
     widthHalf()
