@@ -53,10 +53,18 @@ const puck = new AutomaticCircle(
   , "#777"
 )
 
+function drawGoals(): void {
+    Canvas.cx.fillStyle = top.color
+    Canvas.cx.fillRect(goalLt(), zero(), goalWidthHalf() * 2, 10)
+    Canvas.cx.fillStyle = bot.color
+    Canvas.cx.fillRect(goalLt(), height() - 10, goalWidthHalf() * 2, height())
+}
+
 function render(): void {
     Canvas.clear()
     score.draw()
     puck.draw()
+    drawGoals()
     top.draw()
     bot.draw()
     if (puck.overlaps(top)) {
