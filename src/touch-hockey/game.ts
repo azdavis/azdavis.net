@@ -3,10 +3,12 @@ import AutomaticCircle from "./automatic_circle"
 import ControlledCircle from "./controlled_circle"
 
 const zero = () => 0
+
 const width = () => Canvas.dim.width
 const height = () => Canvas.dim.height
 const widthHalf = () => width() / 2
 const heightHalf = () => height() / 2
+
 const playerRadius = () => width() * 0.08
 const puckRadius = () => width() * 0.05
 
