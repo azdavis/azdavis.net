@@ -28,8 +28,4 @@ function incBot(): void {
     bot++
 }
 
-function reset(): void {
-    top = bot = 0
-}
-
-export default {draw, incTop, incBot, reset}
+export default {draw, incTop, incBot}
