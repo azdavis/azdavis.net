@@ -23,6 +23,10 @@ class AutomaticCircle extends Circle {
     }
 
     collideWith(other: ControlledCircle): void {
+        // hacky fix
+        if (this.speed === 0 && other.speed === 0) {
+            this.speed = 1
+        }
         const phi = angle(this.x - other.x, this.y - other.y)
         const dx = other.speed * Math.cos(other.angle - phi)
                  - this.speed * Math.cos(this.angle - phi)
