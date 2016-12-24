@@ -5,6 +5,8 @@ import tau from "./tau"
 class Circle {
     x: number
     y: number
+    xorig: number
+    yorig: number
     radius: () => number
     xmin: () => number
     xmax: () => number
@@ -24,8 +26,8 @@ class Circle {
       , dn: () => number
       , color: string
     ) {
-        this.x = x
-        this.y = y
+        this.x = this.xorig = x
+        this.y = this.yorig = y
         this.radius = radius
         this.xmin = () => lt() + radius()
         this.xmax = () => rt() - radius()
@@ -46,6 +48,12 @@ class Circle {
     stop(): void {
         this.angle = 0
         this.speed = 0
+    }
+
+    reset(): void {
+        this.x = this.xorig
+        this.y = this.yorig
+        this.stop()
     }
 
     overlaps(other: Circle): boolean {
