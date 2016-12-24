@@ -15,7 +15,7 @@ const puckRadius = () => width() * 0.05
 
 const goalWidthHalf = () => playerRadius() * 3 - puckRadius()
 const goalWidth = () => goalWidthHalf() * 2
-const goalHeight = 5
+const goalHeight = () => height() * 0.005
 const goalLt = () => widthHalf() - goalWidthHalf()
 const goalRt = () => widthHalf() + goalWidthHalf()
 const nearGoal = x => goalLt() <= x && x <= goalRt()
@@ -57,9 +57,9 @@ const puck = new AutomaticCircle(
 
 function drawGoals(): void {
     Canvas.cx.fillStyle = top.color
-    Canvas.cx.fillRect(goalLt(), zero(), goalWidth(), goalHeight)
+    Canvas.cx.fillRect(goalLt(), zero(), goalWidth(), goalHeight())
     Canvas.cx.fillStyle = bot.color
-    Canvas.cx.fillRect(goalLt(), height() - goalHeight, goalWidth(), height())
+    Canvas.cx.fillRect(goalLt(), height() - goalHeight(), goalWidth(), height())
 }
 
 function render(): void {
