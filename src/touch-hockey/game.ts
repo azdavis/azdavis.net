@@ -12,9 +12,16 @@ const heightHalf = () => height() / 2
 const playerRadius = () => width() * 0.08
 const puckRadius = () => width() * 0.05
 
+const goalWidthHalf = () => 2 * playerRadius() - puckRadius()
+const goalLt = () => widthHalf() - goalWidthHalf()
+const goalRt = () => widthHalf() + goalWidthHalf()
+const nearGoal = x => goalLt() <= x && x <= goalRt()
+
+const playerOffset = playerRadius() * 2
+
 const top = new ControlledCircle(
     widthHalf()
-  , playerRadius() * 2
+  , playerOffset
   , playerRadius
   , zero
   , width
@@ -25,7 +32,7 @@ const top = new ControlledCircle(
 
 const bot = new ControlledCircle(
     widthHalf()
-  , height() - playerRadius() * 2
+  , height() - playerOffset
   , playerRadius
   , zero
   , width
@@ -40,12 +47,8 @@ const puck = new AutomaticCircle(
   , puckRadius
   , zero
   , width
-  , () => widthHalf() - playerRadius() + puckRadius() <= puck.x
-       && puck.x <= widthHalf() + playerRadius() - puckRadius()
-        ? -height() : zero()
-  , () => widthHalf() - playerRadius() + puckRadius() <= puck.x
-       && puck.x <= widthHalf() + playerRadius() - puckRadius()
-        ? height() * 2 : height()
+  , () => nearGoal(puck.x) ? -height() : zero()
+  , () => nearGoal(puck.x) ? height() * 2 : height()
   , "#777"
 )
 
