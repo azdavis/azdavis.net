@@ -13,7 +13,7 @@ const heightHalf = () => height() / 2
 const playerRadius = () => width() * 0.08
 const puckRadius = () => width() * 0.05
 
-const goalWidthHalf = () => 2 * playerRadius() - puckRadius()
+const goalWidthHalf = () => playerRadius() * 3 - puckRadius()
 const goalLt = () => widthHalf() - goalWidthHalf()
 const goalRt = () => widthHalf() + goalWidthHalf()
 const nearGoal = x => goalLt() <= x && x <= goalRt()
