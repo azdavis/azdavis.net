@@ -56,9 +56,9 @@ const puck = new AutomaticCircle(
 )
 
 function drawGoals(): void {
-    Canvas.cx.fillStyle = top.color
-    Canvas.cx.fillRect(goalLt(), zero(), goalWidth(), goalHeight())
     Canvas.cx.fillStyle = bot.color
+    Canvas.cx.fillRect(goalLt(), zero(), goalWidth(), goalHeight())
+    Canvas.cx.fillStyle = top.color
     Canvas.cx.fillRect(goalLt(), height() - goalHeight(), goalWidth(), height())
 }
 
@@ -77,10 +77,10 @@ function render(): void {
     }
     if (nearGoal(puck.x)) {
         if (puck.y < zero()) {
-            score.incTop()
+            score.incBot()
             puck.reset()
         } else if (puck.y > height()) {
-            score.incBot()
+            score.incTop()
             puck.reset()
         }
     }
