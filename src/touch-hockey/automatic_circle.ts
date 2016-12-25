@@ -7,7 +7,7 @@ import tau from "./tau"
 
 class AutomaticCircle extends Circle {
     move(): void {
-        this.speed *= 0.99
+        this.speed *= 0.992
         const dx = this.speed * Math.cos(this.angle)
         const dy = this.speed * Math.sin(this.angle)
         const newx = keepInBounds(this.xmin(), this.x + dx, this.xmax())
