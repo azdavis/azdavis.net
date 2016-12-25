@@ -27,11 +27,11 @@ class AutomaticCircle extends Circle {
         const dx = other.speed * Math.cos(other.angle - phi)
                  - this.speed * Math.cos(this.angle - phi)
         const dy = this.speed * Math.sin(this.angle - phi)
+        const radii = this.radius() + other.radius()
+        this.x = other.x + radii * Math.cos(phi)
+        this.y = other.y + radii * Math.sin(phi)
         this.speed = distance(dx, dy)
         this.angle = phi + angle(dx, dy)
-        while (this.overlaps(other)) {
-            this.move()
-        }
     }
 }
 
