@@ -1,11 +1,11 @@
 import "../base/dark"
 import Game from "./game"
-import Touch from "./touch"
+import Touches from "./touches"
 
 const msg = document.querySelector("#msg") as HTMLElement
 if ("ontouchend" in window) {
     msg.remove()
-    Touch.setup()
+    Touches.setup()
     requestAnimationFrame(Game.render)
 } else {
     msg.innerHTML = "A touchscreen is required"
