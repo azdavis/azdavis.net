@@ -8,7 +8,7 @@
       , "html-minifier": "^3.1.0"
       , "http-server": "^0.9.0"
       , "pug-cli": "^1.0.0-alpha6"
-      , "rollup": "^0.37.0"
+      , "rollup": "^0.38.0"
       , "stylus": "^0.54.0"
       , "surge": "^0.18.0"
       , "typescript": "^2.1.0"
