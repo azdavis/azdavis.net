@@ -23,36 +23,36 @@ const nearGoal = x => goalLt() <= x && x <= goalRt()
 const playerOffset = playerRadius() * 2
 
 const top = new ControlledCircle(
-    widthHalf()
-  , playerOffset
-  , zero
-  , width
-  , zero
-  , heightHalf
-  , playerRadius
-  , "#d77"
+    /* x      */ widthHalf()
+  , /* y      */ playerOffset
+  , /* lt     */ zero
+  , /* rt     */ width
+  , /* up     */ zero
+  , /* dn     */ heightHalf
+  , /* radius */ playerRadius
+  , /* color  */ "#d77"
 )
 
 const bot = new ControlledCircle(
-    widthHalf()
-  , height() - playerOffset
-  , zero
-  , width
-  , heightHalf
-  , height
-  , playerRadius
-  , "#77d"
+    /* x      */ widthHalf()
+  , /* y      */ height() - playerOffset
+  , /* lt     */ zero
+  , /* rt     */ width
+  , /* up     */ heightHalf
+  , /* dn     */ height
+  , /* radius */ playerRadius
+  , /* color  */ "#77d"
 )
 
 const puck = new AutomaticCircle(
-    widthHalf()
-  , heightHalf()
-  , zero
-  , width
-  , () => nearGoal(puck.x) ? -height() : zero()
-  , () => nearGoal(puck.x) ? height() * 2 : height()
-  , puckRadius
-  , "#777"
+    /* x      */ widthHalf()
+  , /* y      */ heightHalf()
+  , /* lt     */ zero
+  , /* rt     */ width
+  , /* up     */ () => nearGoal(puck.x) ? -height() : zero()
+  , /* dn     */ () => nearGoal(puck.x) ? height() * 2 : height()
+  , /* radius */ puckRadius
+  , /* color  */ "#777"
 )
 
 function drawGoals(): void {
