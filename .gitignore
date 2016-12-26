@@ -2,6 +2,7 @@
 *.html
 *.jpg
 *.js
+*.manifest
 *.png
 *.zip
 .DS_Store
