@@ -1,8 +1,8 @@
-*.zip
 *.css
 *.html
 *.jpg
 *.js
 *.png
+*.zip
 .DS_Store
 node_modules
