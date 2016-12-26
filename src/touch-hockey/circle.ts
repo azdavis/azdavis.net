@@ -7,11 +7,11 @@ class Circle {
     y: number
     xorig: number
     yorig: number
-    radius: () => number
     xmin: () => number
     xmax: () => number
     ymin: () => number
     ymax: () => number
+    radius: () => number
     color: string
     angle: number
     speed: number
@@ -19,11 +19,11 @@ class Circle {
     constructor(
         x: number
       , y: number
-      , radius: () => number
       , lt: () => number
       , rt: () => number
       , up: () => number
       , dn: () => number
+      , radius: () => number
       , color: string
     ) {
         this.x = this.xorig = x

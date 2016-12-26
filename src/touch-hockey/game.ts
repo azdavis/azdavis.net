@@ -25,33 +25,33 @@ const playerOffset = playerRadius() * 2
 const top = new ControlledCircle(
     widthHalf()
   , playerOffset
-  , playerRadius
   , zero
   , width
   , zero
   , heightHalf
+  , playerRadius
   , "#d77"
 )
 
 const bot = new ControlledCircle(
     widthHalf()
   , height() - playerOffset
-  , playerRadius
   , zero
   , width
   , heightHalf
   , height
+  , playerRadius
   , "#77d"
 )
 
 const puck = new AutomaticCircle(
     widthHalf()
   , heightHalf()
-  , puckRadius
   , zero
   , width
   , () => nearGoal(puck.x) ? -height() : zero()
   , () => nearGoal(puck.x) ? height() * 2 : height()
+  , puckRadius
   , "#777"
 )
 
