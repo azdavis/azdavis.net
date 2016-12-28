@@ -69,12 +69,8 @@ function render(): void {
     drawGoals()
     top.draw()
     bot.draw()
-    if (puck.overlaps(top)) {
-        puck.collideWith(top)
-    }
-    if (puck.overlaps(bot)) {
-        puck.collideWith(bot)
-    }
+    puck.collideWith(top)
+    puck.collideWith(bot)
     if (nearGoal(puck.x)) {
         if (puck.y < zero()) {
             score.incBot()

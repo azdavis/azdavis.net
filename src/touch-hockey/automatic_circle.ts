@@ -23,6 +23,9 @@ class AutomaticCircle extends Circle {
     }
 
     collideWith(other: ControlledCircle): void {
+        if (!this.overlaps(other)) {
+            return
+        }
         const phi = angle(this.x - other.x, this.y - other.y)
         const dx = other.speed * Math.cos(other.angle - phi)
                  - this.speed * Math.cos(this.angle - phi)
