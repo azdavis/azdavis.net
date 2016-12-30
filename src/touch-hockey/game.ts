@@ -71,6 +71,7 @@ function render(): void {
     bot.draw()
     puck.collideWith(top)
     puck.collideWith(bot)
+    puck.move()
     if (nearGoal(puck.x)) {
         if (puck.y < zero()) {
             score.incBot()
@@ -80,7 +81,6 @@ function render(): void {
             puck.reset()
         }
     }
-    puck.move()
     requestAnimationFrame(render)
 }
 
