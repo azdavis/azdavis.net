@@ -1,7 +1,7 @@
-import Canvas from "./canvas"
-import score from "./score"
 import AutomaticCircle from "./automatic_circle"
+import Canvas from "./canvas"
 import ControlledCircle from "./controlled_circle"
+import score from "./score"
 
 const zero = () => 0
 
