@@ -5,15 +5,15 @@ let top = 0
 let bot = 0
 
 const font = `4em ${getComputedStyle(document.documentElement).fontFamily}`
-const center = "center"
-const middle = "middle"
+const textAlign = "center"
+const textBaseline = "middle"
 const offset = 100
 
 function draw(): void {
     const heightHalf = Canvas.dim.height / 2
     Canvas.cx.font = font
-    Canvas.cx.textAlign = center
-    Canvas.cx.textBaseline = middle
+    Canvas.cx.textAlign = textAlign
+    Canvas.cx.textBaseline = textBaseline
     Canvas.cx.fillStyle = Game.top.color
     Canvas.cx.fillText(String(top), offset, heightHalf)
     Canvas.cx.fillStyle = Game.bot.color
