@@ -65,12 +65,8 @@ dd
     a
     a:visited
         color inherit
-    [data-print]
-        font-size 0
-        &::after
-            content attr(data-print)
-            font-size 1rem
-            color inherit
+    [data-print]::after
+        content " (" attr(data-print) ")"
 
 @media not print
     .dark
