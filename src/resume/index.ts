@@ -20,4 +20,4 @@ setTimeout(() => {
         el.href = href
         el.setAttribute("data-print", print)
     }
-}, 200)
+}, 500)
