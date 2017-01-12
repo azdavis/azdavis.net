@@ -1,23 +1,14 @@
 import "../base/dark"
 
-function de(x: string): string {
-    return atob(x).split("").reverse().join("")
-}
-
-function a(x: string): HTMLAnchorElement {
-    return document.querySelector(`#${x}`) as HTMLAnchorElement
-}
-
-const email = de("dWRlLnVtYy53ZXJkbmFAc2l2YWR6YQ==")
-const gh = de("c2l2YWR6YS9tb2MuYnVodGln")
-const toDo = [
-    {el: a("email"), print: email, href: `mailto:${email}`}
-  , {el: a("gh"), print: gh, href: `https://${gh}`}
-]
+const $ = x => document.querySelector(x)
+const $$ = x => document.querySelectorAll(x)
+const decode = x => atob(x).split("").reverse().join("")
+const printable = x => x.match(/(mailto:|https?:\/\/)(.+[^\/]).*/)[2]
 
 setTimeout(() => {
-    for (const {el, print, href} of toDo) {
-        el.href = href
-        el.setAttribute("data-print", print)
+    $("#email").href = decode("dWRlLnVtYy53ZXJkbmFAc2l2YWR6YTpvdGxpYW0K")
+    $("#gh").href = decode("c2l2YWR6YS9tb2MuYnVodGlnLy86c3B0dGgK")
+    for (const x of $$("a")) {
+        x.setAttribute("data-print", printable(x.href))
     }
 }, 500)
