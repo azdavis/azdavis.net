@@ -18,7 +18,7 @@
         "type": "git"
       , "url": "https://github.com/azdavis/azdavis.xyz.git"
     }
-  , "author": "Ariel Davis"
+  , "author": "Ariel Davis <ariel.z.davis@icloud.com>"
   , "license": "ISC"
   , "bugs": {
         "url": "https://github.com/azdavis/azdavis.xyz/issues"
