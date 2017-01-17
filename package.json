@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/azdavis/azdavis.xyz.git"
+    "url": "git+https://github.com/azdavis/azdavis.xyz.git"
   },
   "author": "Ariel Davis <ariel.z.davis@icloud.com>",
   "license": "ISC",
