@@ -1,27 +1,27 @@
 {
-    "name": "azdavis.xyz"
-  , "version": "0.0.0"
-  , "description": "a place for stuff"
-  , "private": true
-  , "dependencies": {}
-  , "devDependencies": {
-        "autoprefixer-stylus": "^0.11.0"
-      , "html-minifier": "^3.1.0"
-      , "http-server": "^0.9.0"
-      , "pug-cli": "^1.0.0-alpha6"
-      , "rollup": "^0.39.0"
-      , "stylus": "^0.54.0"
-      , "surge": "^0.18.0"
-      , "typescript": "^2.1.0"
-    }
-  , "repository": {
-        "type": "git"
-      , "url": "https://github.com/azdavis/azdavis.xyz.git"
-    }
-  , "author": "Ariel Davis <ariel.z.davis@icloud.com>"
-  , "license": "ISC"
-  , "bugs": {
-        "url": "https://github.com/azdavis/azdavis.xyz/issues"
-    }
-  , "homepage": "http://azdavis.xyz"
+  "name": "azdavis.xyz",
+  "version": "0.0.0",
+  "description": "a place for stuff",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.11.0",
+    "html-minifier": "^3.1.0",
+    "http-server": "^0.9.0",
+    "pug-cli": "^1.0.0-alpha6",
+    "rollup": "^0.39.0",
+    "stylus": "^0.54.0",
+    "surge": "^0.18.0",
+    "typescript": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azdavis/azdavis.xyz.git"
+  },
+  "author": "Ariel Davis <ariel.z.davis@icloud.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azdavis/azdavis.xyz/issues"
+  },
+  "homepage": "http://azdavis.xyz"
 }
