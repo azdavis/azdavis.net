@@ -1,7 +1,7 @@
 import angle from "./angle"
 import Circle from "./circle"
 import distance from "./distance"
-import keepInBounds from "./keep_in_bounds"
+import keepInBounds from "./keep-in-bounds"
 
 class ControlledCircle extends Circle {
     controllerID: string
