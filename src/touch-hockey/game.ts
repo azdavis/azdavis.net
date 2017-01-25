@@ -18,7 +18,7 @@ const goalWidth = () => goalWidthHalf() * 2
 const goalHeight = () => height() * 0.005
 const goalLt = () => widthHalf() - goalWidthHalf()
 const goalRt = () => widthHalf() + goalWidthHalf()
-const nearGoal = x => goalLt() <= x && x <= goalRt()
+const nearGoal = (x: number) => goalLt() <= x && x <= goalRt()
 
 const playerOffset = playerRadius() * 2
 
@@ -44,7 +44,7 @@ const bot = new ControlledCircle(
   , /* color  */ "#77d"
 )
 
-const puck = new AutomaticCircle(
+const puck: AutomaticCircle = new AutomaticCircle(
     /* x      */ widthHalf()
   , /* y      */ heightHalf()
   , /* lt     */ zero

@@ -18,7 +18,7 @@ function maintain(id: string, x: number, y: number): void {
     }
 }
 
-function stop(id: string, x: number, y: number): void {
+function stop(id: string): void {
     if (Game.top.isControlledBy(id)) {
         Game.top.stop()
     } else if (Game.bot.isControlledBy(id)) {

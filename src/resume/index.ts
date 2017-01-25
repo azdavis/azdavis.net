@@ -1,9 +1,13 @@
 import "../base/dark"
 
-const $ = x => document.querySelector(x)
-const $$ = x => document.querySelectorAll(x)
-const decode = x => atob(x).split("").reverse().join("")
-const printable = x => x.match(/(mailto:|https?:\/\/)(.+[^\/]).*/)[2]
+const $ = (x: string): any =>
+    document.querySelector(x) as any
+const $$ = (x: string): any =>
+    document.querySelectorAll(x) as any
+const decode = (x: string): string =>
+    atob(x).split("").reverse().join("")
+const printable = (x: string): string =>
+    (x.match(/(mailto:|https?:\/\/)(.+[^\/]).*/) as any)[2]
 
 setTimeout(() => {
     $("#email").href = decode("dWRlLnVtYy53ZXJkbmFAc2l2YWR6YTpvdGxpYW0K")

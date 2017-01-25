@@ -22,6 +22,12 @@
 	tsc \
 		--forceConsistentCasingInFileNames \
 		--noEmitOnError \
+		--noFallthroughCasesInSwitch \
+		--noImplicitAny \
+		--noImplicitReturns \
+		--noImplicitThis \
+		--noUnusedLocals \
+		--noUnusedParameters \
 		--removeComments \
 		--strictNullChecks \
 		--target ES5 \
