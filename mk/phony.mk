@@ -14,7 +14,7 @@ test:
 	while true; do find src | entr -d $(MAKE) || [ $$? -eq 2 ]; done
 
 git-ok:
-	[ -z "$$(git status --porcelain)" ]
+	[ "$$(git status -u --porcelain | wc -l)" -eq 0 ]
 	[ "$$(git rev-parse --abbrev-ref @)" = master ]
 
 surge:
