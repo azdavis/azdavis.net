@@ -1,1 +1,3 @@
-console.log("hello catan-gen")
+import RegularBoard from "./regular-board"
+
+console.log(RegularBoard)
