@@ -1,6 +1,6 @@
+import BorderTile from "./border-tile"
 import Graph from "./graph"
 import ResourceTile from "./resource-tile"
-import BorderTile from "./border-tile"
 
 const size = 37
 const ary = []
