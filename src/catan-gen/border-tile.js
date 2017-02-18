@@ -7,7 +7,7 @@ class BorderTile extends Tile {
     }
 
     draw(x, y, r) {
-        super(x, y, r)
+        super.draw(x, y, r)
         if (this.port === null) {
             return
         }
