@@ -12,6 +12,7 @@ const printable = (x: string): string =>
 setTimeout(() => {
     $("#email").href = decode("dWRlLnVtYy53ZXJkbmFAc2l2YWR6YTpvdGxpYW0K")
     $("#gh").href = decode("c2l2YWR6YS9tb2MuYnVodGlnLy86c3B0dGgK")
+    $("#tel").href = decode("NjAwMS00MTUtODA5Cg==")
     for (const x of $$("a")) {
         x.setAttribute("data-print", printable(x.href))
     }
