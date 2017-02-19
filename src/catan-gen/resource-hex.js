@@ -8,7 +8,7 @@ class ResourceHex {
     }
 
     draw(x, y, r) {
-        Canvas.drawCircle(x, y, r, ResourceColors[this.type])
+        Canvas.drawHex(x, y, r, ResourceColors[this.type])
         if (this.numberCircle !== null) {
             this.numberCircle.draw(x, y, r / 2)
         }
