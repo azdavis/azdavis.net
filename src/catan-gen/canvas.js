@@ -13,7 +13,7 @@ function clear() {
 
 function drawHex(x, y, r, fill) {
     const rOver2 = r / 2
-    const rRoot3Over2 = r * 0.866025404
+    const rRoot3Over2 = r * 0.866025404 // sqrt(3) / 2
     cx.fillStyle = fill
     cx.beginPath()
     cx.moveTo(x - rRoot3Over2, y - rOver2)
