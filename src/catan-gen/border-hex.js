@@ -1,5 +1,4 @@
 import Canvas from "./canvas"
-import Tau from "./tau"
 
 class BorderHex {
     constructor(portCircle) {

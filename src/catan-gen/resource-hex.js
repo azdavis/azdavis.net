@@ -1,5 +1,5 @@
 import Canvas from "./canvas"
-import NumberCircle from "./number-circle"
+import ResourceColors from "./resource-colors"
 
 class ResourceHex {
     constructor(type, numberCircle) {

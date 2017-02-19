@@ -1,6 +1,6 @@
-import BorderTile from "./border-tile"
+import BorderTile from "./border-hex"
 import Graph from "./graph"
-import ResourceTile from "./resource-tile"
+import ResourceTile from "./resource-hex"
 
 const size = 37
 const array = []
