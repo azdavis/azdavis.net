@@ -29,6 +29,6 @@ class NumberCicle {
     }
 
     fillStyle() {
-        return this.number === 6 || this.number === 8 ? "#d22" : "#222"
+        return this.dots() === 5 ? "#d22" : "#222"
     }
 }
