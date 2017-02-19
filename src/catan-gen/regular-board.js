@@ -76,7 +76,7 @@ const edges = [
 ]
 
 for (let i = 0; i < size; i++) {
-    graph.nodes[i].edges.concat(edges[i].map(j => ary[j]))
+    graph.nodes[i].edges.push(...edges[i].map(j => array[j]))
 }
 
 export default {size, array, graph}
