@@ -2,12 +2,12 @@ import Canvas from "./canvas"
 import ResourceColors from "./resource-colors"
 
 class PortCircle {
-    constructor(type) {
-        this.type = type
+    constructor(resource) {
+        this.resource = resource
     }
 
     draw(x, y, r) {
-        Canvas.drawCircle(x, y, r, ResourceColors[this.type])
+        Canvas.drawCircle(x, y, r, ResourceColors[this.resource])
     }
 }
 
