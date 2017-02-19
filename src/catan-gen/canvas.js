@@ -1,10 +1,10 @@
 const el = document.createElement("canvas")
 const cx = el.getContext("2d")
-const dim = {width: 0, height: 0, scale: devicePixelRatio || 1}
+const scale = devicePixelRatio || 1
 
 function resize() {
-    el.width = dim.width = innerWidth * dim.scale
-    el.height = dim.height = innerHeight * dim.scale
+    el.width = innerWidth * scale
+    el.height = innerHeight * scale
     cx.textAlign = "center"
     cx.textBaseline = "middle"
 }
@@ -40,4 +40,4 @@ function drawCircle(x, y, r, fill) {
 resize()
 document.body.appendChild(el)
 
-export default {cx, dim, clear, drawHex, drawCircle}
+export default {el, cx, clear, drawHex, drawCircle}

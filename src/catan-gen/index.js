@@ -1,11 +1,11 @@
 import Canvas from "./canvas"
 import RegularBoard from "./regular-board"
 
-const x = () => Canvas.dim.width / 2
-const y = () => Canvas.dim.height / 2
+const x = () => Canvas.el.width / 2
+const y = () => Canvas.el.height / 2
 const r = () =>
     // 20 / 21 / sqrt(3)
-    Math.min(Canvas.dim.width / 2, Canvas.dim.height * 0.549857399) - 20
+    Math.min(Canvas.el.width / 2, Canvas.el.height * 0.549857399) - 20
 
 onresize = () => {
     Canvas.resize()
