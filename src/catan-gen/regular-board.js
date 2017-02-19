@@ -79,6 +79,21 @@ for (let i = 0; i < size; i++) {
     graph.nodes[i].edges.push(...edges[i].map(j => array[j]))
 }
 
+const resourceAmounts = {
+    desert: 1,
+    brick: 3,
+    wood: 4,
+    wheat: 4,
+    sheep: 4,
+    ore: 3
+}
+function generate() {
+    const x = Object.assign({}, resourceAmounts)
+    for (let i = 0; i < size; i++) {
+        console.log(array[i])
+    }
+}
+
 const offsets = [
     /* 00 */ [0, 0],
     /* 01 */ [-1, -1],
@@ -129,4 +144,4 @@ function draw(x, y, r) {
     }
 }
 
-export default {size, array, graph, draw}
+export default {size, array, graph, generate, draw}
