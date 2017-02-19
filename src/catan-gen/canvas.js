@@ -38,7 +38,6 @@ function drawCircle(x, y, r, fill) {
 }
 
 resize()
-onresize = resize
 document.body.appendChild(el)
 
 export default {cx, dim, clear, drawHex, drawCircle}

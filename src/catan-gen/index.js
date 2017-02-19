@@ -7,9 +7,17 @@ const r = () =>
     // 20 / 21 / sqrt(3)
     Math.min(Canvas.dim.width / 2, Canvas.dim.height * 0.549857399) - 20
 
-function render() {
+onresize = () => {
+    Canvas.resize()
     Canvas.clear()
     RegularBoard.draw(x(), y(), r())
-    setTimeout(render, 1000)
 }
+
+function render() {
+    Canvas.clear()
+    RegularBoard.generate()
+    RegularBoard.draw(x(), y(), r())
+}
+
 render()
+onclick = render
