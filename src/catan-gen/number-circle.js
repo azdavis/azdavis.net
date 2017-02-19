@@ -6,8 +6,6 @@ class NumberCicle {
     }
 
     draw(x, y, r) {
-        Canvas.cx.textAlign = "center"
-        Canvas.cx.textBaseline = "middle"
         Canvas.drawCircle(x, y, r, "#ddd")
         Canvas.cx.font = this.font()
         Canvas.cx.fillStyle = this.fillStyle()

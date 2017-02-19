@@ -5,6 +5,8 @@ const dim = {width: 0, height: 0, scale: devicePixelRatio || 1}
 function resize() {
     el.width = dim.width = innerWidth * dim.scale
     el.height = dim.height = innerHeight * dim.scale
+    cx.textAlign = "center"
+    cx.textBaseline = "middle"
 }
 
 function clear() {
