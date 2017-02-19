@@ -1,8 +1,6 @@
 import Canvas from "./canvas"
 import RegularBoard from "./regular-board"
 
-console.log(RegularBoard)
-
 const x = () => Canvas.dim.width / 2
 const y = () => Canvas.dim.height / 2
 const r = () =>
