@@ -25,13 +25,7 @@ class NumberCicle {
     }
 
     fontSize() {
-        switch (this.number) {
-        case 2: case 12: return 0.5
-        case 3: case 11: return 0.75
-        case 4: case 10: return 1
-        case 5: case 9: return 1.25
-        case 6: case 8: return 1.5
-        }
+        return (this.dots() - 1) * 0.25 + 0.5
     }
 
     font() {
