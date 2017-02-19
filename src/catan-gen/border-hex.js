@@ -7,6 +7,7 @@ class BorderHex {
     }
 
     draw(x, y, r) {
+        Canvas.drawHex(x, y, r, "#22d")
         if (this.portCircle === null) {
             return
         }
