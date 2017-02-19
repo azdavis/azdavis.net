@@ -1,23 +1,18 @@
 import Canvas from "./canvas"
+import NumberCircle from "./number-circle"
 
 class ResourceHex {
     constructor() {
-        this.number = null
+        this.numberCircle = null
+        this.type = null
     }
 
     draw(x, y, r) {
-        super.draw(x, y, r)
-        if (this.number === null) {
+        Canvas.drawCircle(x, y, r, ResourceColors[this.type])
+        if (this.numberCircle === null) {
             return
         }
-        Canvas.cx.fillStyle = "#ddd"
-        Canvas.cx.beginPath()
-        Canvas.cx.arc(x, y, r / 2, 0, Tau)
-        Canvas.cx.closePath()
-        Canvas.cx.fill()
-        Canvas.cx.fillStyle =
-            this.number === 6 || this.number === 8 ? "#d22" : "222"
-        Canvas.cx.fillText(x, y, String(this.number))
+        tihs.numberCircle.draw()
     }
 }
 
