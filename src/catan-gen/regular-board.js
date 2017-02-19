@@ -2,14 +2,17 @@ import BorderHex from "./border-hex"
 import Graph from "./graph"
 import ResourceHex from "./resource-hex"
 
-const size = 37
+const resourceHexAmt = 19
+const borderHexAmt = 18
+const size = resourceHexAmt + borderHexAmt
 const array = []
 const graph = new Graph()
 
-// 00-18 are the resource tiles
-// 19-36 are the border tiles
 for (let i = 0; i < size; i++) {
-    const t = i < 19 ? new ResourceHex("ore", null) : new BorderHex(null)
+    const t =
+        i < resourceHexAmt
+        ? new ResourceHex("ore", null)
+        : new BorderHex(null)
     array.push(t)
     graph.add(t)
 }
