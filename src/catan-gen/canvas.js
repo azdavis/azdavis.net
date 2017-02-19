@@ -40,4 +40,4 @@ function drawCircle(x, y, r, fill) {
 resize()
 document.body.appendChild(el)
 
-export default {el, cx, clear, drawHex, drawCircle}
+export default {el, cx, resize, clear, drawHex, drawCircle}
