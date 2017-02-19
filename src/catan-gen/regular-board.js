@@ -91,7 +91,7 @@ const resourceAmounts = {
     ore: 3
 }
 function generate() {
-    const x = Object.assign({}, resourceAmounts)
+    const thisResourceAmounts = Object.assign({}, resourceAmounts)
     for (let i = 0; i < size; i++) {
         console.log(array[i])
     }
