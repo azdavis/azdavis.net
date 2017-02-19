@@ -2,9 +2,9 @@ import Canvas from "./canvas"
 import NumberCircle from "./number-circle"
 
 class ResourceHex {
-    constructor() {
-        this.numberCircle = null
-        this.type = null
+    constructor(type, numberCircle) {
+        this.type = type
+        this.numberCircle = numberCircle
     }
 
     draw(x, y, r) {

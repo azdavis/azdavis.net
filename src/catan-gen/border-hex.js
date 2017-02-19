@@ -2,8 +2,8 @@ import Canvas from "./canvas"
 import Tau from "./tau"
 
 class BorderHex {
-    constructor() {
-        this.portCircle = null
+    constructor(portCircle) {
+        this.portCircle = portCircle
     }
 
     draw(x, y, r) {
