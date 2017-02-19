@@ -5,7 +5,7 @@ class NumberCicle {
         this.number = number
     }
 
-    draw(x, y) {
+    draw(x, y, r) {
         Canvas.cx.textAlign = "center"
         Canvas.cx.textBaseline = "middle"
         Canvas.drawCircle(x, y, r, "#ddd")

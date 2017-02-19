@@ -12,7 +12,7 @@ class ResourceHex {
         if (this.numberCircle === null) {
             return
         }
-        tihs.numberCircle.draw()
+        tihs.numberCircle.draw(x, y, r / 2)
     }
 }
 

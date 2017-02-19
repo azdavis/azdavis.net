@@ -11,7 +11,7 @@ class BorderHex {
         if (this.portCircle === null) {
             return
         }
-        this.portCircle.draw()
+        this.portCircle.draw(x, y, r / 2)
     }
 }
 
