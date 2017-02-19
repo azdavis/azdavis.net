@@ -24,12 +24,8 @@ class NumberCicle {
         }
     }
 
-    fontSize() {
-        return (this.dots() - 1) * 0.25 + 0.5
-    }
-
     font() {
-        return `${this.fontSize()}em sans-serif`
+        return `${(this.dots() - 1) * 0.25 + 0.5}em sans-serif`
     }
 
     fillStyle() {
