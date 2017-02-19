@@ -17,11 +17,11 @@ function drawHex(x, y, r, fill) {
     cx.fillStyle = fill
     cx.moveTo(x - rRoot3Over2, y - rOver2)
     cx.beginPath()
-    cx.moveTo(x, y - r)
-    cx.moveTo(x + rRoot3Over2, y - rOver2)
-    cx.moveTo(x + rRoot3Over2, y + rOver2)
-    cx.moveTo(x, y + r)
-    cx.moveTo(x - rRoot3Over2, y + rOver2)
+    cx.lineTo(x, y - r)
+    cx.lineTo(x + rRoot3Over2, y - rOver2)
+    cx.lineTo(x + rRoot3Over2, y + rOver2)
+    cx.lineTo(x, y + r)
+    cx.lineTo(x - rRoot3Over2, y + rOver2)
     cx.closePath()
     cx.fill()
 }
