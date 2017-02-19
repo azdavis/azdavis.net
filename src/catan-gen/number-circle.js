@@ -1,8 +1,8 @@
 import Canvas from "./canvas"
 
 class NumberCicle {
-    constructor(num) {
-        this.num = num
+    constructor(number) {
+        this.number = number
     }
 
     draw(x, y) {
@@ -11,11 +11,11 @@ class NumberCicle {
         Canvas.drawCircle(x, y, r, "#ddd")
         Canvas.cx.font = this.font()
         Canvas.cx.fillStyle = this.fillStyle()
-        Canvas.cx.fillText(String(this.num), x, y)
+        Canvas.cx.fillText(String(this.number), x, y)
     }
 
     fontSize() {
-        switch (this.num) {
+        switch (this.number) {
         case 2: case 12: return 0.5
         case 3: case 11: return 0.75
         case 4: case 10: return 1
@@ -29,6 +29,6 @@ class NumberCicle {
     }
 
     fillStyle() {
-        return this.num === 6 || this.num === 8 ? "#d22" : "#222"
+        return this.number === 6 || this.number === 8 ? "#d22" : "#222"
     }
 }

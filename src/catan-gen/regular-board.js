@@ -3,14 +3,14 @@ import Graph from "./graph"
 import ResourceTile from "./resource-tile"
 
 const size = 37
-const ary = []
+const array = []
 const graph = new Graph()
 
 // 00-18 are the resource tiles
 // 19-36 are the border tiles
 for (let i = 0; i < size; i++) {
     const t = i < 19 ? new ResourceTile() : new BorderTile()
-    ary.push(t)
+    array.push(t)
     graph.add(t)
 }
 
@@ -79,4 +79,4 @@ for (let i = 0; i < size; i++) {
     graph.nodes[i].edges.concat(edges[i].map(j => ary[j]))
 }
 
-export default {size, ary, graph}
+export default {size, array, graph}
