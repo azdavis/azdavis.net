@@ -1,10 +1,7 @@
 import Canvas from "./canvas"
-import Tau from "./tau"
-import Tile from "./tile"
 
-class ResourceTile extends Tile {
+class ResourceHex {
     constructor() {
-        super()
         this.number = null
     }
 
@@ -24,4 +21,4 @@ class ResourceTile extends Tile {
     }
 }
 
-export default ResourceTile
+export default ResourceHex

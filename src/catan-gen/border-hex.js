@@ -1,15 +1,12 @@
 import Canvas from "./canvas"
 import Tau from "./tau"
-import Tile from "./tile"
 
-class BorderTile extends Tile {
+class BorderHex {
     constructor() {
-        super()
         this.port = null
     }
 
     draw(x, y, r) {
-        super.draw(x, y, r)
         if (this.port === null) {
             return
         }
@@ -21,4 +18,4 @@ class BorderTile extends Tile {
     }
 }
 
-export default BorderTile
+export default BorderHex
