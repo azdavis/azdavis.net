@@ -144,4 +144,4 @@ function draw(x, y, r) {
     }
 }
 
-export default {size, array, graph, generate, draw}
+export default {generate, draw}
