@@ -15,8 +15,8 @@ function drawHex(x, y, r, fill) {
     const rOver2 = r / 2
     const rRoot3Over2 = r * 0.866025404
     cx.fillStyle = fill
-    cx.moveTo(x - rRoot3Over2, y - rOver2)
     cx.beginPath()
+    cx.moveTo(x - rRoot3Over2, y - rOver2)
     cx.lineTo(x, y - r)
     cx.lineTo(x + rRoot3Over2, y - rOver2)
     cx.lineTo(x + rRoot3Over2, y + rOver2)
