@@ -9,7 +9,7 @@ const graph = new Graph()
 // 00-18 are the resource tiles
 // 19-36 are the border tiles
 for (let i = 0; i < size; i++) {
-    const t = i < 19 ? new ResourceHex() : new BorderHex()
+    const t = i < 19 ? new ResourceHex(null, null) : new BorderHex(null)
     array.push(t)
     graph.add(t)
 }
