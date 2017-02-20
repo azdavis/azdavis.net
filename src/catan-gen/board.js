@@ -15,11 +15,11 @@ function sumObject(x) {
 }
 
 class Board {
-    constructor({resourceHexAmts, numberAmts, borderHexAmts, edges, offsets}) {
-        this.resourceHexAmts = resourceHexAmts
+    constructor({resourceAmts, numberAmts, portAmts, edges, offsets}) {
+        this.resourceAmts = resourceAmts
         this.numberAmts = numberAmts
-        this.numResourceHex = sumObject(resourceHexAmts)
-        this.numBorderHex = sumObject(borderHexAmts)
+        this.numResourceHex = sumObject(resourceAmts)
+        this.numBorderHex = sumObject(portAmts)
         this.offsets = offsets
         this.size = this.numResourceHex + this.numBorderHex
         this.array = []
@@ -79,7 +79,7 @@ class Board {
     }
 
     setResources() {
-        const remaining = Object.assign({}, this.resourceHexAmts)
+        const remaining = Object.assign({}, this.resourceAmts)
         for (let i = 0; i < this.numResourceHex; i++) {
             if (!this.setResource(this.array[i], remaining)) {
                 return false
@@ -153,7 +153,7 @@ class Board {
     }
 
     setPorts() {
-        const remaining = Object.assign({}, this.borderHexAmts)
+        const remaining = Object.assign({}, this.portAmts)
         for (let i = this.numResourceHex; i < this.size; i++) {
             if (!this.setPort(this.array[i], remaining)) {
                 return false

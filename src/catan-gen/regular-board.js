@@ -23,7 +23,7 @@ import Board from "./board"
 //
 
 export default new Board({
-    resourceHexAmts: {
+    resourceAmts: {
         desert: 1,
         brick: 3,
         wood: 4,
@@ -43,7 +43,7 @@ export default new Board({
         11: 2,
         12: 1,
     },
-    borderHexAmts: {
+    portAmts: {
         none: 9,
         normal: 4,
         brick: 1,
