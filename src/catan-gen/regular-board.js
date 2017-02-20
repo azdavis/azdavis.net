@@ -160,6 +160,12 @@ function weightedRandom(x, sum) {
     throw new Error("no")
 }
 
+
+function nearby(x) {
+    const p = Object.getPrototypeOf(x)
+    return graph.find(x).edges.filter(y => Object.getPrototypeOf(y) === p)
+}
+
 const resourceAmts = {
     desert: 1,
     brick: 3,
@@ -167,11 +173,6 @@ const resourceAmts = {
     wheat: 4,
     sheep: 4,
     ore: 3
-}
-
-function nearby(x) {
-    const p = Object.getPrototypeOf(x)
-    return graph.find(x).edges.filter(y => Object.getPrototypeOf(y) === p)
 }
 const toR = x => x.resource
 function generateResourceTile(x, rs) {
