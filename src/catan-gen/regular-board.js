@@ -137,6 +137,7 @@ function draw(x, y, r) {
 function reset() {
     for (let i = 0; i < resourceHexAmt; i++) {
         array[i].resource = null
+        array[i].numberCircle = null
     }
     for (let i = resourceHexAmt; i < size; i++) {
         array[i].portCircle = null
