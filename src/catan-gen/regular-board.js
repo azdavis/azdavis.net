@@ -168,11 +168,11 @@ const resourceAmts = {
     ore: 3
 }
 
+const toR = x => x.resource
 function nearby(x) {
     const p = Object.getPrototypeOf(x)
     return graph.find(x).edges.filter(y => Object.getPrototypeOf(y) === p)
 }
-const toR = x => x.resource
 function generateResourceTile(i, ras) {
     const nearbyHs = nearby(array[i])
     const nearbyRs = nearbyHs.map(toR)
