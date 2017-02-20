@@ -30,3 +30,5 @@ class NumberCicle {
         return this.dots() === 5 ? "#d22" : "#222"
     }
 }
+
+export default NumberCicle
