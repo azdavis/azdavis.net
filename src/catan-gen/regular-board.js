@@ -135,16 +135,6 @@ function draw(x, y, r) {
     }
 }
 
-function reset() {
-    for (let i = 0; i < resourceHexAmt; i++) {
-        array[i].resource = null
-        array[i].number = null
-    }
-    for (let i = resourceHexAmt; i < size; i++) {
-        array[i].port = null
-    }
-}
-
 function weightedRandom(x, sum) {
     const cutoffs = {}
     let prevWeight = 0
@@ -256,10 +246,30 @@ function generateResourceTiles() {
     return true
 }
 
+function resetResources() {
+    for (let i = 0; i < resourceHexAmt; i++) {
+        array[i].resource = null
+    }
+}
+
+function resetNumbers() {
+    for (let i = 0; i < resourceHexAmt; i++) {
+        array[i].number = null
+    }
+}
+
+function resetPorts() {
+    for (let i = resourceHexAmt; i < size; i++) {
+        array[i].port = null
+    }
+}
+
 function generate() {
     // gross, but guarenteed to work
     do {
-        reset()
+        resetResources()
+        resetNumbers()
+        resetPorts()
     } while (!generateResourceTiles())
 }
 
