@@ -4,6 +4,8 @@ import NumberDots from "./number-dots"
 import ResourceHex from "./resource-hex"
 import weightedRandom from "./weighted-random"
 
+// helpers not associated with class data
+
 const toResource = x => x.resource
 const toDots = x => x.number === null ? 0 : NumberDots[x.number]
 function sumObject(x) {
@@ -14,7 +16,12 @@ function sumObject(x) {
     return ret
 }
 
+// the class
+
 class Board {
+
+    // setup
+
     constructor({resourceAmts, numberAmts, portAmts, edges, offsets}) {
         this.resourceAmts = resourceAmts
         this.numberAmts = numberAmts
@@ -42,6 +49,8 @@ class Board {
         }
     }
 
+    // draw
+
     draw(x, y, r) {
         const xOff = r / 7
         const yOff = xOff * 1.732050808 // 3 / sqrt(3)
@@ -51,6 +60,8 @@ class Board {
             this.array[i].draw(x + off[0] * xOff, y + off[1] * yOff, hexR)
         }
     }
+
+    // setting resources
 
     nearby(x) {
         const p = Object.getPrototypeOf(x)
@@ -93,6 +104,8 @@ class Board {
             this.array[i].resource = null
         }
     }
+
+    // setting numbers
 
     maxDots(x) {
         const ns = this.nearby(x)
@@ -148,6 +161,8 @@ class Board {
         }
     }
 
+    // setting ports
+
     setPort(x, remaining) {
         return true
     }
@@ -167,6 +182,8 @@ class Board {
             this.array[i].port = null
         }
     }
+
+    // generating
 
     generate() {
         // gross, but guarenteed to work
