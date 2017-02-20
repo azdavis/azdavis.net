@@ -60,13 +60,13 @@ class Board {
             .filter(y => Object.getPrototypeOf(y) === p)
     }
 
-    setResource(x, rs) {
+    setResource(x, remaining) {
         const nearbyRs = this.nearby(x).map(toResource)
         const okRs = {}
         let sum = 0
-        for (const r in rs) {
+        for (const r in remaining) {
             if (nearbyRs.indexOf(r) === -1) {
-                sum += okRs[r] = rs[r]
+                sum += okRs[r] = remaining[r]
             }
         }
         if (sum === 0) {
@@ -74,14 +74,14 @@ class Board {
         }
         const r = weightedRandom(okRs, sum)
         x.resource = r
-        rs[r]--
+        remaining[r]--
         return true
     }
 
     setResources() {
-        const rs = Object.assign({}, this.resourceHexAmts)
+        const remaining = Object.assign({}, this.resourceHexAmts)
         for (let i = 0; i < this.numResourceHex; i++) {
-            if (!this.setResource(this.array[i], rs)) {
+            if (!this.setResource(this.array[i], remaining)) {
                 return false
             }
         }
@@ -105,16 +105,16 @@ class Board {
         return 11 - max
     }
 
-    setNumber(x, ns) {
+    setNumber(x, remaining) {
         if (x.resource === "desert") {
             return true
         }
         const okNs = {}
         let sum = 0
         const md = this.maxDots(x)
-        for (const n in ns) {
+        for (const n in remaining) {
             if (NumberDots[n] <= md) {
-                sum += okNs[n] = ns[n]
+                sum += okNs[n] = remaining[n]
             }
         }
         if (sum === 0) {
@@ -122,14 +122,14 @@ class Board {
         }
         const n = weightedRandom(okNs, sum)
         x.number = Number(n)
-        ns[n]--
+        remaining[n]--
         return true
     }
 
     setNumbers() {
-        const ns = Object.assign({}, this.numberAmts)
+        const remaining = Object.assign({}, this.numberAmts)
         for (let i = 0; i < this.numResourceHex; i++) {
-            if (!this.setNumber(this.array[i], ns)) {
+            if (!this.setNumber(this.array[i], remaining)) {
                 return false
             }
         }
