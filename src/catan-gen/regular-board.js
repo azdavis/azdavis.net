@@ -169,10 +169,13 @@ const resourceAmts = {
 }
 const resourceTypes = Object.keys(resourceAmts)
 
-const isRH = x => x instanceof ResourceHex
+function nearby(x) {
+    const p = Object.getPrototypeOf(x)
+    return graph.find(x).edges.filter(y => Object.getPrototypeOf(y) === p)
+}
 const toR = x => x.resource
 function generateResourceTile(i, amts) {
-    const nearbyHs = graph.find(array[i]).edges.filter(isRH)
+    const nearbyHs = nearby(array[i])
     const nearbyRs = nearbyHs.map(toR)
     const okTs = resourceTypes.filter(x => !nearbyRs.includes(x))
     const okAmts = {}
