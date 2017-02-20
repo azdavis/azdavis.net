@@ -169,11 +169,12 @@ const resourceAmts = {
 }
 const resourceTypes = Object.keys(resourceAmts)
 
-const isR = x => x instanceof ResourceHex
+const isRH = x => x instanceof ResourceHex
 const toR = x => x.resource
 function generateResourceTile(i, amts) {
-    const nearbyHs = graph.nodes[i].edges.filter(isR).map(toR)
-    const okTs = resourceTypes.filter(x => !nearbyHs.includes(x))
+    const nearbyHs = graph.nodes[i].edges.filter(isRH)
+    const nearbyRs = nearbyHs.map(toR)
+    const okTs = resourceTypes.filter(x => !nearbyRs.includes(x))
     const okAmts = {}
     let sum = 0
     for (const t of okTs) {
