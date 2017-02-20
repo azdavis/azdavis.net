@@ -1,5 +1,6 @@
 import BorderHex from "./border-hex"
 import Graph from "./graph"
+import NumberDots from "./number-dots"
 import ResourceHex from "./resource-hex"
 
 const resourceHexAmt = 19
@@ -175,7 +176,7 @@ const resourceAmts = {
     ore: 3
 }
 const toR = x => x.resource
-function generateResourceTile(x, rs) {
+function setR(x, rs) {
     const nearbyRs = nearby(x).map(toR)
     const okRs = {}
     let sum = 0
@@ -193,10 +194,62 @@ function generateResourceTile(x, rs) {
     return true
 }
 
+const numberAmts = {
+    2: 1,
+    3: 2,
+    4: 2,
+    5: 2,
+    6: 2,
+    8: 2,
+    9: 2,
+    10: 2,
+    11: 2,
+    12: 1,
+}
+const toDots = x => x.number === null ? 0 : NumberDots[x.number]
+function maxDots(x) {
+    const ns = nearby(x)
+    let max = 0
+    for (let i = 0; i < ns.length; i++) {
+        for (let j = i + 1; j < ns.length; j++) {
+            if (nearby(ns[i]).indexOf(ns[j]) === -1) {
+                continue
+            }
+            const get = toDots(ns[i]) + toDots(ns[j])
+            if (get > max) {
+                max = get
+            }
+        }
+    }
+    return 11 - max
+}
+function setN(x, ns) {
+    const okNs = {}
+    let sum = 0
+    const md = maxDots(x)
+    for (const n in ns) {
+        if (NumberDots[n] <= md) {
+            sum += okNs[n] = ns[n]
+        }
+    }
+    if (sum === 0) {
+        return false
+    }
+    const n = weightedRandom(okNs, sum)
+    x.number = Number(n)
+    ns[n]--
+    return true
+}
+
+function generateResourceTile(x, rs, ns) {
+    return setR(x, rs) && (x.resource === "desert" || setN(x, ns))
+}
+
 function generateResourceTiles() {
     const rs = Object.assign({}, resourceAmts)
+    const ns = Object.assign({}, numberAmts)
     for (let i = 0; i < resourceHexAmt; i++) {
-        if (!generateResourceTile(array[i], rs)) {
+        if (!generateResourceTile(array[i], rs, ns)) {
             return false
         }
     }
