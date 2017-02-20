@@ -136,10 +136,6 @@ class Board {
         return true
     }
 
-    generateResourceTiles() {
-        return this.setResources() && this.setNumbers()
-    }
-
     resetResources() {
         for (let i = 0; i < this.numResourceHex; i++) {
             this.array[i].resource = null
@@ -162,9 +158,10 @@ class Board {
         // gross, but guarenteed to work
         do {
             this.resetResources()
+        } while (!this.setResources())
+        do {
             this.resetNumbers()
-            this.resetPorts()
-        } while (!this.generateResourceTiles())
+        } while (!this.setNumbers())
     }
 }
 
