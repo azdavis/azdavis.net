@@ -204,9 +204,10 @@ function generateResourceTiles() {
 }
 
 function generate() {
-    reset()
     // gross, but guarenteed to work
-    while (!generateResourceTiles()) {}
+    do {
+        reset()
+    } while (!generateResourceTiles())
 }
 
 export default {draw, generate}
