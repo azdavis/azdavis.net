@@ -7,7 +7,7 @@ class NumberCicle {
 
     draw(x, y, r) {
         Canvas.drawCircle(x, y, r, "#ddd")
-        Canvas.cx.font = this.font()
+        Canvas.cx.font = this.font(r)
         Canvas.cx.fillStyle = this.fillStyle()
         Canvas.cx.fillText(String(this.number), x, y)
     }
@@ -22,8 +22,8 @@ class NumberCicle {
         }
     }
 
-    font() {
-        return `${(this.dots() - 1) * 0.25 + 0.5}em sans-serif`
+    font(r) {
+        return `${r / 15}em sans-serif`
     }
 
     fillStyle() {
