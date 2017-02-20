@@ -178,9 +178,9 @@ function generateResourceTile(x, rs) {
     const nearbyRs = nearby(x).map(toR)
     const okRs = {}
     let sum = 0
-    for (const t in rs) {
-        if (nearbyRs.indexOf(t) === -1) {
-            sum += okRs[t] = rs[t]
+    for (const r in rs) {
+        if (nearbyRs.indexOf(r) === -1) {
+            sum += okRs[r] = rs[r]
         }
     }
     if (sum === 0) {
