@@ -143,17 +143,6 @@ function reset() {
     }
 }
 
-const resourceAmts = {
-    desert: 1,
-    brick: 3,
-    wood: 4,
-    wheat: 4,
-    sheep: 4,
-    ore: 3
-}
-const resourceTypes = Object.keys(resourceAmts)
-const isR = x => x instanceof ResourceHex
-const toR = x => x.resource
 function weightedRandom(x, sum) {
     const cutoffs = {}
     let prevWeight = 0
@@ -169,6 +158,19 @@ function weightedRandom(x, sum) {
     }
     throw new Error("no")
 }
+
+const resourceAmts = {
+    desert: 1,
+    brick: 3,
+    wood: 4,
+    wheat: 4,
+    sheep: 4,
+    ore: 3
+}
+const resourceTypes = Object.keys(resourceAmts)
+
+const isR = x => x instanceof ResourceHex
+const toR = x => x.resource
 function generateResourceTile(i, amts) {
     const nearbyHs = graph.nodes[i].edges.filter(isR).map(toR)
     const okTs = resourceTypes.filter(x => !nearbyHs.includes(x))
