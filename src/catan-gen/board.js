@@ -88,6 +88,12 @@ class Board {
         return true
     }
 
+    resetResources() {
+        for (let i = 0; i < this.numResourceHex; i++) {
+            this.array[i].resource = null
+        }
+    }
+
     maxDots(x) {
         const ns = this.nearby(x)
         let max = 0
@@ -134,12 +140,6 @@ class Board {
             }
         }
         return true
-    }
-
-    resetResources() {
-        for (let i = 0; i < this.numResourceHex; i++) {
-            this.array[i].resource = null
-        }
     }
 
     resetNumbers() {
