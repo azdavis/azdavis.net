@@ -167,7 +167,6 @@ const resourceAmts = {
     sheep: 4,
     ore: 3
 }
-const resourceTypes = Object.keys(resourceAmts)
 
 function nearby(x) {
     const p = Object.getPrototypeOf(x)
@@ -177,10 +176,12 @@ const toR = x => x.resource
 function generateResourceTile(i, ras) {
     const nearbyHs = nearby(array[i])
     const nearbyRs = nearbyHs.map(toR)
-    const okTs = resourceTypes.filter(x => !nearbyRs.includes(x))
     const okRAs = {}
     let sum = 0
-    for (const t of okTs) {
+    for (const t in ras) {
+        if (nearbyRs.indexOf(t) !== -1) {
+            continue
+        }
         sum += okRAs[t] = ras[t]
     }
     if (sum === 0) {
