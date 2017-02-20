@@ -175,8 +175,7 @@ function nearby(x) {
 }
 const toR = x => x.resource
 function generateResourceTile(x, rs) {
-    const nearbyHs = nearby(x)
-    const nearbyRs = nearbyHs.map(toR)
+    const nearbyRs = nearby(x).map(toR)
     const okRs = {}
     let sum = 0
     for (const t in rs) {
