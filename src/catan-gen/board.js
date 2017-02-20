@@ -15,21 +15,21 @@ function sumObject(x) {
 }
 
 class Board {
-    constructor({resourceAmts, numberAmts, edges, offsets, borderHexAmt}) {
-        this.resourceAmts = resourceAmts
+    constructor({resourceHexAmts, numberAmts, borderHexAmts, edges, offsets}) {
+        this.resourceHexAmts = resourceHexAmts
         this.numberAmts = numberAmts
+        this.numResourceHex = sumObject(resourceHexAmts)
+        this.numBorderHex = sumObject(borderHexAmts)
         this.offsets = offsets
-        this.borderHexAmt = borderHexAmt
-        this.resourceHexAmt = sumObject(resourceAmts)
-        this.size = edges.length
+        this.size = this.numResourceHex + this.numBorderHex
         this.array = []
         this.graph = new Graph()
-        for (let i = 0; i < this.resourceHexAmt; i++) {
+        for (let i = 0; i < this.numResourceHex; i++) {
             const t = new ResourceHex(null, null)
             this.array.push(t)
             this.graph.add(t)
         }
-        for (let i = this.resourceHexAmt; i < this.size; i++) {
+        for (let i = this.numResourceHex; i < this.size; i++) {
             const t = new BorderHex(null)
             this.array.push(t)
             this.graph.add(t)
@@ -79,8 +79,8 @@ class Board {
     }
 
     setResources() {
-        const rs = Object.assign({}, this.resourceAmts)
-        for (let i = 0; i < this.resourceHexAmt; i++) {
+        const rs = Object.assign({}, this.resourceHexAmts)
+        for (let i = 0; i < this.numResourceHex; i++) {
             if (!this.setResource(this.array[i], rs)) {
                 return false
             }
@@ -128,7 +128,7 @@ class Board {
 
     setNumbers() {
         const ns = Object.assign({}, this.numberAmts)
-        for (let i = 0; i < this.resourceHexAmt; i++) {
+        for (let i = 0; i < this.numResourceHex; i++) {
             if (!this.setNumber(this.array[i], ns)) {
                 return false
             }
@@ -141,19 +141,19 @@ class Board {
     }
 
     resetResources() {
-        for (let i = 0; i < this.resourceHexAmt; i++) {
+        for (let i = 0; i < this.numResourceHex; i++) {
             this.array[i].resource = null
         }
     }
 
     resetNumbers() {
-        for (let i = 0; i < this.resourceHexAmt; i++) {
+        for (let i = 0; i < this.numResourceHex; i++) {
             this.array[i].number = null
         }
     }
 
     resetPorts() {
-        for (let i = this.resourceHexAmt; i < this.size; i++) {
+        for (let i = this.numResourceHex; i < this.size; i++) {
             this.array[i].port = null
         }
     }
