@@ -2,7 +2,6 @@ import BorderHex from "./border-hex"
 import Graph from "./graph"
 import NumberDots from "./number-dots"
 import ResourceHex from "./resource-hex"
-import weightedRandom from "./weighted-random"
 
 // helpers not associated with class data
 
@@ -14,6 +13,21 @@ function sumObject(x) {
         ret += x[p]
     }
     return ret
+}
+function weightedRandom(x, sum) {
+    const cutoffs = {}
+    let prevWeight = 0
+    for (const p in x) {
+        cutoffs[p] = x[p] / sum + prevWeight
+        prevWeight = cutoffs[p]
+    }
+    const rand = Math.random()
+    for (const p in cutoffs) {
+        if (rand <= cutoffs[p]) {
+            return p
+        }
+    }
+    throw new Error("no")
 }
 
 // the class
