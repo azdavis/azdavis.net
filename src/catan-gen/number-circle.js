@@ -7,8 +7,8 @@ class NumberCicle {
 
     draw(x, y, r) {
         Canvas.drawCircle(x, y, r, "#ddd")
-        Canvas.cx.font = this.font(r)
-        Canvas.cx.fillStyle = this.fillStyle()
+        Canvas.cx.font = `${r / 15}em sans-serif`
+        Canvas.cx.fillStyle = this.dots() === 5 ? "#d22" : "#222"
         Canvas.cx.fillText(String(this.number), x, y)
     }
 
@@ -20,14 +20,6 @@ class NumberCicle {
         case 5: case 9: return 4
         case 6: case 8: return 5
         }
-    }
-
-    font(r) {
-        return `${r / 15}em sans-serif`
-    }
-
-    fillStyle() {
-        return this.dots() === 5 ? "#d22" : "#222"
     }
 }
 
