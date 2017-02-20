@@ -180,10 +180,9 @@ function generateResourceTile(x, ras) {
     const okRAs = {}
     let sum = 0
     for (const t in ras) {
-        if (nearbyRs.indexOf(t) !== -1) {
-            continue
+        if (nearbyRs.indexOf(t) === -1) {
+            sum += okRAs[t] = ras[t]
         }
-        sum += okRAs[t] = ras[t]
     }
     if (sum === 0) {
         return false
