@@ -2,6 +2,7 @@ import BorderHex from "./border-hex"
 import Graph from "./graph"
 import NumberDots from "./number-dots"
 import ResourceHex from "./resource-hex"
+import weightedRandom from "./weighted-random"
 
 const resourceHexAmt = 19
 const borderHexAmt = 18
@@ -134,23 +135,6 @@ function draw(x, y, r) {
         array[i].draw(x + off[0] * xOff, y + off[1] * yOff, hexR)
     }
 }
-
-function weightedRandom(x, sum) {
-    const cutoffs = {}
-    let prevWeight = 0
-    for (const p in x) {
-        cutoffs[p] = x[p] / sum + prevWeight
-        prevWeight = cutoffs[p]
-    }
-    const rand = Math.random()
-    for (const p in cutoffs) {
-        if (rand <= cutoffs[p]) {
-            return p
-        }
-    }
-    throw new Error("no")
-}
-
 
 function nearby(x) {
     const p = Object.getPrototypeOf(x)
