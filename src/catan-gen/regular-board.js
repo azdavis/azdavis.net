@@ -174,28 +174,28 @@ function nearby(x) {
     return graph.find(x).edges.filter(y => Object.getPrototypeOf(y) === p)
 }
 const toR = x => x.resource
-function generateResourceTile(i, amts) {
+function generateResourceTile(i, ras) {
     const nearbyHs = nearby(array[i])
     const nearbyRs = nearbyHs.map(toR)
     const okTs = resourceTypes.filter(x => !nearbyRs.includes(x))
-    const okAmts = {}
+    const okRAs = {}
     let sum = 0
     for (const t of okTs) {
-        sum += okAmts[t] = amts[t]
+        sum += okRAs[t] = ras[t]
     }
     if (sum === 0) {
         return false
     }
-    const r = weightedRandom(okAmts, sum)
+    const r = weightedRandom(okRAs, sum)
     array[i].resource = r
-    amts[r]--
+    ras[r]--
     return true
 }
 
 function generateResourceTiles() {
-    const amts = Object.assign({}, resourceAmts)
+    const ras = Object.assign({}, resourceAmts)
     for (let i = 0; i < resourceHexAmt; i++) {
-        if (!generateResourceTile(i, amts)) {
+        if (!generateResourceTile(i, ras)) {
             return false
         }
     }
