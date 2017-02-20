@@ -148,6 +148,20 @@ class Board {
         }
     }
 
+    setPort(x, remaining) {
+        return true
+    }
+
+    setPorts() {
+        const remaining = Object.assign({}, this.borderHexAmts)
+        for (let i = this.numResourceHex; i < this.size; i++) {
+            if (!this.setPort(this.array[i], remaining)) {
+                return false
+            }
+        }
+        return true
+    }
+
     resetPorts() {
         for (let i = this.numResourceHex; i < this.size; i++) {
             this.array[i].port = null
@@ -162,6 +176,9 @@ class Board {
         do {
             this.resetNumbers()
         } while (!this.setNumbers())
+        do {
+            this.resetPorts()
+        } while (!this.setPorts())
     }
 }
 
