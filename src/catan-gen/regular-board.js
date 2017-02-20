@@ -1,25 +1,4 @@
-import BorderHex from "./border-hex"
-import Graph from "./graph"
-import NumberDots from "./number-dots"
-import ResourceHex from "./resource-hex"
-import weightedRandom from "./weighted-random"
-
-const resourceHexAmt = 19
-const borderHexAmt = 18
-const size = resourceHexAmt + borderHexAmt
-const array = []
-const graph = new Graph()
-
-for (let i = 0; i < resourceHexAmt; i++) {
-    const t = new ResourceHex(null, null)
-    array.push(t)
-    graph.add(t)
-}
-for (let i = resourceHexAmt; i < size; i++) {
-    const t = new BorderHex(null)
-    array.push(t)
-    graph.add(t)
-}
+import Board from "./board"
 
 //
 //                21      22      23      24
@@ -42,231 +21,105 @@ for (let i = resourceHexAmt; i < size; i++) {
 //
 //                33      32      31      30
 //
-const edges = [
-    /* 00 */ [1, 2, 3, 4, 5, 6],
-    /* 01 */ [8, 9, 2, 0, 6, 7],
-    /* 02 */ [9, 10, 11, 3, 0, 1],
-    /* 03 */ [2, 11, 12, 13, 4, 0],
-    /* 04 */ [0, 3, 13, 14, 15, 5],
-    /* 05 */ [6, 0, 4, 15, 16, 17],
-    /* 06 */ [7, 1, 0, 5, 17, 18],
-    /* 07 */ [20, 8, 1, 6, 18, 19],
-    /* 08 */ [21, 22, 9, 1, 7, 20],
-    /* 09 */ [22, 23, 10, 2, 1, 8],
-    /* 10 */ [23, 24, 25, 11, 2, 9],
-    /* 11 */ [10, 25, 26, 12, 3, 2],
-    /* 12 */ [11, 26, 27, 28, 13, 3],
-    /* 13 */ [3, 12, 28, 29, 14, 4],
-    /* 14 */ [4, 13, 29, 30, 31, 15],
-    /* 15 */ [5, 4, 14, 31, 32, 16],
-    /* 16 */ [17, 5, 15, 32, 33, 34],
-    /* 17 */ [18, 6, 5, 16, 34, 35],
-    /* 18 */ [19, 7, 6, 17, 35, 36],
-    /* 19 */ [20, 7, 18, 36],
-    /* 20 */ [21, 8, 7, 19],
-    /* 21 */ [22, 8, 20],
-    /* 22 */ [23, 9, 8, 21],
-    /* 23 */ [24, 10, 9, 22],
-    /* 24 */ [25, 10, 23],
-    /* 25 */ [24, 26, 11, 10],
-    /* 26 */ [25, 27, 12, 11],
-    /* 27 */ [26, 28, 12],
-    /* 28 */ [12, 27, 29, 13],
-    /* 29 */ [13, 28, 30, 14],
-    /* 30 */ [14, 29, 31],
-    /* 31 */ [15, 14, 30, 32],
-    /* 32 */ [16, 15, 31, 33],
-    /* 33 */ [34, 16, 32],
-    /* 34 */ [35, 17, 16, 33],
-    /* 35 */ [36, 18, 17, 34],
-    /* 36 */ [19, 18, 35]
-]
 
-for (let i = 0; i < size; i++) {
-    graph.find(array[i]).edges.push(...edges[i].map(j => array[j]))
-}
-
-const offsets = [
-    /* 00 */ [0, 0],
-    /* 01 */ [-1, -1],
-    /* 02 */ [1, -1],
-    /* 03 */ [2, 0],
-    /* 04 */ [1, 1],
-    /* 05 */ [-1, 1],
-    /* 06 */ [-2, 0],
-    /* 07 */ [-3, -1],
-    /* 08 */ [-2, -2],
-    /* 09 */ [0, -2],
-    /* 10 */ [2, -2],
-    /* 11 */ [3, -1],
-    /* 12 */ [4, 0],
-    /* 13 */ [3, 1],
-    /* 14 */ [2, 2],
-    /* 15 */ [0, 2],
-    /* 16 */ [-2, 2],
-    /* 17 */ [-3, 1],
-    /* 18 */ [-4, 0],
-    /* 19 */ [-5, 1],
-    /* 20 */ [-4, 2],
-    /* 21 */ [-3, 3],
-    /* 22 */ [-1, 3],
-    /* 23 */ [1, 3],
-    /* 24 */ [3, 3],
-    /* 25 */ [4, 2],
-    /* 26 */ [5, 1],
-    /* 27 */ [6, 0],
-    /* 28 */ [5, -1],
-    /* 29 */ [4, -2],
-    /* 30 */ [3, -3],
-    /* 31 */ [1, -3],
-    /* 32 */ [-1, -3],
-    /* 33 */ [-3, -3],
-    /* 34 */ [-4, -2],
-    /* 35 */ [-5, -1],
-    /* 36 */ [-6, 0]
-]
-
-function draw(x, y, r) {
-    const xOff = r / 7
-    const yOff = xOff * 1.732050808 // 3 / sqrt(3)
-    const hexR = yOff / 1.5 - 1
-    for (let i = 0; i < size; i++) {
-        const off = offsets[i]
-        array[i].draw(x + off[0] * xOff, y + off[1] * yOff, hexR)
-    }
-}
-
-function nearby(x) {
-    const p = Object.getPrototypeOf(x)
-    return graph.find(x).edges.filter(y => Object.getPrototypeOf(y) === p)
-}
-
-const resourceAmts = {
-    desert: 1,
-    brick: 3,
-    wood: 4,
-    wheat: 4,
-    sheep: 4,
-    ore: 3
-}
-const toResource = x => x.resource
-function setResource(x, rs) {
-    const nearbyRs = nearby(x).map(toResource)
-    const okRs = {}
-    let sum = 0
-    for (const r in rs) {
-        if (nearbyRs.indexOf(r) === -1) {
-            sum += okRs[r] = rs[r]
-        }
-    }
-    if (sum === 0) {
-        return false
-    }
-    const r = weightedRandom(okRs, sum)
-    x.resource = r
-    rs[r]--
-    return true
-}
-
-const numberAmts = {
-    2: 1,
-    3: 2,
-    4: 2,
-    5: 2,
-    6: 2,
-    8: 2,
-    9: 2,
-    10: 2,
-    11: 2,
-    12: 1,
-}
-const toDots = x => x.number === null ? 0 : NumberDots[x.number]
-function maxDots(x) {
-    const ns = nearby(x)
-    let max = 0
-    for (let i = 0; i < ns.length; i++) {
-        for (let j = i + 1; j < ns.length; j++) {
-            if (nearby(ns[i]).indexOf(ns[j]) === -1) {
-                continue
-            }
-            const get = toDots(ns[i]) + toDots(ns[j])
-            if (get > max) {
-                max = get
-            }
-        }
-    }
-    return 11 - max
-}
-function setNumber(x, ns) {
-    if (x.resource === "desert") {
-        return true
-    }
-    const okNs = {}
-    let sum = 0
-    const md = maxDots(x)
-    for (const n in ns) {
-        if (NumberDots[n] <= md) {
-            sum += okNs[n] = ns[n]
-        }
-    }
-    if (sum === 0) {
-        return false
-    }
-    const n = weightedRandom(okNs, sum)
-    x.number = Number(n)
-    ns[n]--
-    return true
-}
-
-function setResources() {
-    const rs = Object.assign({}, resourceAmts)
-    for (let i = 0; i < resourceHexAmt; i++) {
-        if (!setResource(array[i], rs)) {
-            return false
-        }
-    }
-    return true
-}
-
-function setNumbers() {
-    const ns = Object.assign({}, numberAmts)
-    for (let i = 0; i < resourceHexAmt; i++) {
-        if (!setNumber(array[i], ns)) {
-            return false
-        }
-    }
-    return true
-}
-
-function generateResourceTiles() {
-    return setResources() && setNumbers()
-}
-
-function resetResources() {
-    for (let i = 0; i < resourceHexAmt; i++) {
-        array[i].resource = null
-    }
-}
-
-function resetNumbers() {
-    for (let i = 0; i < resourceHexAmt; i++) {
-        array[i].number = null
-    }
-}
-
-function resetPorts() {
-    for (let i = resourceHexAmt; i < size; i++) {
-        array[i].port = null
-    }
-}
-
-function generate() {
-    // gross, but guarenteed to work
-    do {
-        resetResources()
-        resetNumbers()
-        resetPorts()
-    } while (!generateResourceTiles())
-}
-
-export default {draw, generate}
+export default new Board({
+    resourceAmts: {
+        desert: 1,
+        brick: 3,
+        wood: 4,
+        wheat: 4,
+        sheep: 4,
+        ore: 3
+    },
+    numberAmts: {
+        2: 1,
+        3: 2,
+        4: 2,
+        5: 2,
+        6: 2,
+        8: 2,
+        9: 2,
+        10: 2,
+        11: 2,
+        12: 1,
+    },
+    edges: [
+        /* 00 */ [1, 2, 3, 4, 5, 6],
+        /* 01 */ [8, 9, 2, 0, 6, 7],
+        /* 02 */ [9, 10, 11, 3, 0, 1],
+        /* 03 */ [2, 11, 12, 13, 4, 0],
+        /* 04 */ [0, 3, 13, 14, 15, 5],
+        /* 05 */ [6, 0, 4, 15, 16, 17],
+        /* 06 */ [7, 1, 0, 5, 17, 18],
+        /* 07 */ [20, 8, 1, 6, 18, 19],
+        /* 08 */ [21, 22, 9, 1, 7, 20],
+        /* 09 */ [22, 23, 10, 2, 1, 8],
+        /* 10 */ [23, 24, 25, 11, 2, 9],
+        /* 11 */ [10, 25, 26, 12, 3, 2],
+        /* 12 */ [11, 26, 27, 28, 13, 3],
+        /* 13 */ [3, 12, 28, 29, 14, 4],
+        /* 14 */ [4, 13, 29, 30, 31, 15],
+        /* 15 */ [5, 4, 14, 31, 32, 16],
+        /* 16 */ [17, 5, 15, 32, 33, 34],
+        /* 17 */ [18, 6, 5, 16, 34, 35],
+        /* 18 */ [19, 7, 6, 17, 35, 36],
+        /* 19 */ [20, 7, 18, 36],
+        /* 20 */ [21, 8, 7, 19],
+        /* 21 */ [22, 8, 20],
+        /* 22 */ [23, 9, 8, 21],
+        /* 23 */ [24, 10, 9, 22],
+        /* 24 */ [25, 10, 23],
+        /* 25 */ [24, 26, 11, 10],
+        /* 26 */ [25, 27, 12, 11],
+        /* 27 */ [26, 28, 12],
+        /* 28 */ [12, 27, 29, 13],
+        /* 29 */ [13, 28, 30, 14],
+        /* 30 */ [14, 29, 31],
+        /* 31 */ [15, 14, 30, 32],
+        /* 32 */ [16, 15, 31, 33],
+        /* 33 */ [34, 16, 32],
+        /* 34 */ [35, 17, 16, 33],
+        /* 35 */ [36, 18, 17, 34],
+        /* 36 */ [19, 18, 35]
+    ],
+    offsets: [
+        /* 00 */ [0, 0],
+        /* 01 */ [-1, -1],
+        /* 02 */ [1, -1],
+        /* 03 */ [2, 0],
+        /* 04 */ [1, 1],
+        /* 05 */ [-1, 1],
+        /* 06 */ [-2, 0],
+        /* 07 */ [-3, -1],
+        /* 08 */ [-2, -2],
+        /* 09 */ [0, -2],
+        /* 10 */ [2, -2],
+        /* 11 */ [3, -1],
+        /* 12 */ [4, 0],
+        /* 13 */ [3, 1],
+        /* 14 */ [2, 2],
+        /* 15 */ [0, 2],
+        /* 16 */ [-2, 2],
+        /* 17 */ [-3, 1],
+        /* 18 */ [-4, 0],
+        /* 19 */ [-5, 1],
+        /* 20 */ [-4, 2],
+        /* 21 */ [-3, 3],
+        /* 22 */ [-1, 3],
+        /* 23 */ [1, 3],
+        /* 24 */ [3, 3],
+        /* 25 */ [4, 2],
+        /* 26 */ [5, 1],
+        /* 27 */ [6, 0],
+        /* 28 */ [5, -1],
+        /* 29 */ [4, -2],
+        /* 30 */ [3, -3],
+        /* 31 */ [1, -3],
+        /* 32 */ [-1, -3],
+        /* 33 */ [-3, -3],
+        /* 34 */ [-4, -2],
+        /* 35 */ [-5, -1],
+        /* 36 */ [-6, 0]
+    ],
+    borderHexAmt: 18
+})
