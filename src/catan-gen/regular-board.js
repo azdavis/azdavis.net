@@ -231,19 +231,28 @@ function setNumber(x, ns) {
     return true
 }
 
-function generateResourceTile(x, rs, ns) {
-    return setResource(x, rs) && (x.resource === "desert" || setNumber(x, ns))
-}
-
-function generateResourceTiles() {
+function setResources() {
     const rs = Object.assign({}, resourceAmts)
-    const ns = Object.assign({}, numberAmts)
     for (let i = 0; i < resourceHexAmt; i++) {
-        if (!generateResourceTile(array[i], rs, ns)) {
+        if (!setResource(array[i], rs)) {
             return false
         }
     }
     return true
+}
+
+function setNumbers() {
+    const ns = Object.assign({}, numberAmts)
+    for (let i = 0; i < resourceHexAmt; i++) {
+        if (!setNumber(array[i], ns)) {
+            return false
+        }
+    }
+    return true
+}
+
+function generateResourceTiles() {
+    return setResources() && setNumbers()
 }
 
 function resetResources() {
