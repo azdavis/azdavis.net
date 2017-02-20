@@ -214,6 +214,9 @@ function maxDots(x) {
     return 11 - max
 }
 function setNumber(x, ns) {
+    if (x.resource === "desert") {
+        return true
+    }
     const okNs = {}
     let sum = 0
     const md = maxDots(x)
