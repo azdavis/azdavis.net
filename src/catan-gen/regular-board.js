@@ -22,7 +22,7 @@ import Board from "./board"
 //                33      32      31      30
 //
 
-export default new Board({
+const RegularBoard = new Board({
     resourceAmts: {
         desert: 1,
         brick: 3,
@@ -131,3 +131,5 @@ export default new Board({
         /* 36 */ [-6, 0]
     ]
 })
+
+export default RegularBoard
