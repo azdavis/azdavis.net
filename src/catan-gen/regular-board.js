@@ -81,7 +81,7 @@ const edges = [
 ]
 
 for (let i = 0; i < size; i++) {
-    graph.nodes[i].edges.push(...edges[i].map(j => array[j]))
+    graph.find(array[i]).edges.push(...edges[i].map(j => array[j]))
 }
 
 const offsets = [
@@ -172,7 +172,7 @@ const resourceTypes = Object.keys(resourceAmts)
 const isRH = x => x instanceof ResourceHex
 const toR = x => x.resource
 function generateResourceTile(i, amts) {
-    const nearbyHs = graph.nodes[i].edges.filter(isRH)
+    const nearbyHs = graph.find(array[i]).edges.filter(isRH)
     const nearbyRs = nearbyHs.map(toR)
     const okTs = resourceTypes.filter(x => !nearbyRs.includes(x))
     const okAmts = {}
