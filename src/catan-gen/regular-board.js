@@ -8,11 +8,13 @@ const size = resourceHexAmt + borderHexAmt
 const array = []
 const graph = new Graph()
 
-for (let i = 0; i < size; i++) {
-    const t =
-        i < resourceHexAmt
-        ? new ResourceHex("ore", null)
-        : new BorderHex(null)
+for (let i = 0; i < resourceHexAmt; i++) {
+    const t = new ResourceHex(null, null)
+    array.push(t)
+    graph.add(t)
+}
+for (let i = resourceHexAmt; i < size; i++) {
+    const t = new BorderHex(null)
     array.push(t)
     graph.add(t)
 }
