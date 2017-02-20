@@ -84,21 +84,6 @@ for (let i = 0; i < size; i++) {
     graph.nodes[i].edges.push(...edges[i].map(j => array[j]))
 }
 
-const resourceAmounts = {
-    desert: 1,
-    brick: 3,
-    wood: 4,
-    wheat: 4,
-    sheep: 4,
-    ore: 3
-}
-function generate() {
-    const thisResourceAmounts = Object.assign({}, resourceAmounts)
-    for (let i = 0; i < size; i++) {
-        console.log(array[i])
-    }
-}
-
 const offsets = [
     /* 00 */ [0, 0],
     /* 01 */ [-1, -1],
@@ -149,4 +134,72 @@ function draw(x, y, r) {
     }
 }
 
-export default {generate, draw}
+function reset() {
+    for (let i = 0; i < resourceHexAmt; i++) {
+        array[i].resource = null
+    }
+    for (let i = resourceHexAmt; i < size; i++) {
+        array[i].portCircle = null
+    }
+}
+
+const resourceAmts = {
+    desert: 1,
+    brick: 3,
+    wood: 4,
+    wheat: 4,
+    sheep: 4,
+    ore: 3
+}
+const resourceTypes = Object.keys(resourceAmts)
+const isR = x => x instanceof ResourceHex
+const toR = x => x.resource
+function weightedRandom(x, sum) {
+    const cutoffs = {}
+    let prevWeight = 0
+    for (const p in x) {
+        cutoffs[p] = x[p] / sum + prevWeight
+        prevWeight = cutoffs[p]
+    }
+    const rand = Math.random()
+    for (const p in cutoffs) {
+        if (rand <= cutoffs[p]) {
+            return p
+        }
+    }
+    throw new Error("no")
+}
+function generateResourceTile(i, amts) {
+    const nearbyHs = graph.nodes[i].edges.filter(isR).map(toR)
+    const okTs = resourceTypes.filter(x => !nearbyHs.includes(x))
+    const okAmts = {}
+    let sum = 0
+    for (const t of okTs) {
+        sum += okAmts[t] = amts[t]
+    }
+    if (sum === 0) {
+        return false
+    }
+    const r = weightedRandom(okAmts, sum)
+    array[i].resource = r
+    amts[r]--
+    return true
+}
+
+function generateResourceTiles() {
+    const amts = Object.assign({}, resourceAmts)
+    for (let i = 0; i < resourceHexAmt; i++) {
+        if (!generateResourceTile(i, amts)) {
+            return false
+        }
+    }
+    return true
+}
+
+function generate() {
+    reset()
+    // gross, but guarenteed to work
+    while (!generateResourceTiles()) {}
+}
+
+export default {draw, generate}
