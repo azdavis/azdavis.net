@@ -165,9 +165,9 @@ const resourceAmts = {
     sheep: 4,
     ore: 3
 }
-const toR = x => x.resource
-function setR(x, rs) {
-    const nearbyRs = nearby(x).map(toR)
+const toResource = x => x.resource
+function setResource(x, rs) {
+    const nearbyRs = nearby(x).map(toResource)
     const okRs = {}
     let sum = 0
     for (const r in rs) {
@@ -213,7 +213,7 @@ function maxDots(x) {
     }
     return 11 - max
 }
-function setN(x, ns) {
+function setNumber(x, ns) {
     const okNs = {}
     let sum = 0
     const md = maxDots(x)
@@ -232,7 +232,7 @@ function setN(x, ns) {
 }
 
 function generateResourceTile(x, rs, ns) {
-    return setR(x, rs) && (x.resource === "desert" || setN(x, ns))
+    return setResource(x, rs) && (x.resource === "desert" || setNumber(x, ns))
 }
 
 function generateResourceTiles() {
