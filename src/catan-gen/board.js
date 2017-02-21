@@ -39,6 +39,7 @@ class Board {
     constructor({resourceAmts, numberAmts, portAmts, edges, offsets}) {
         this.resourceAmts = resourceAmts
         this.numberAmts = numberAmts
+        this.portAmts = portAmts
         this.numResourceHex = sumObject(resourceAmts)
         this.numBorderHex = sumObject(portAmts)
         this.offsets = offsets
