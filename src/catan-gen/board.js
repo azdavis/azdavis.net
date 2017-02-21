@@ -6,6 +6,7 @@ import ResourceHex from "./resource-hex"
 // helpers not associated with class data
 
 const toResource = x => x.resource
+const hasPort = x => x.port !== null
 const toDots = x => x.number === null ? 0 : NumberDots[x.number]
 function sumObject(x) {
     let ret = 0
@@ -186,6 +187,12 @@ class Board {
     // setting ports
 
     setPort(x, remaining) {
+        if (this.nearby(x).some(hasPort)) {
+            return true
+        }
+        const p = weightedRandom(remaining, sumObject(remaining))
+        x.port = p
+        remaining[p]--
         return true
     }
 
