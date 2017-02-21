@@ -16,7 +16,7 @@ class BorderHex {
 
     portColor() {
         return this.port in ResourceColors
-            ? ResourceColors[this.resource]
+            ? ResourceColors[this.port]
             : "#ddd"
     }
 }
