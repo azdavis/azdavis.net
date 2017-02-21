@@ -44,7 +44,6 @@ const RegularBoard = new Board({
         12: 1,
     },
     portAmts: {
-        none: 9,
         normal: 4,
         brick: 1,
         wood: 1,
@@ -52,6 +51,7 @@ const RegularBoard = new Board({
         sheep: 1,
         ore: 1
     },
+    numNonPort: 9,
     edges: [
         /* 00 */ [1, 2, 3, 4, 5, 6],
         /* 01 */ [8, 9, 2, 0, 6, 7],
