@@ -37,7 +37,16 @@ function drawCircle(x, y, r, fill) {
     cx.fill()
 }
 
+const hs = getComputedStyle(document.documentElement)
+const fontWeight = hs.fontWeight
+const fontFamily = hs.fontFamily
+function drawText(msg, x, y, color, font) {
+    cx.fillStyle = color
+    cx.font = `${fontWeight} ${font}em ${fontFamily}`
+    cx.fillText(msg, x, y)
+}
+
 resize()
 document.body.appendChild(el)
 
-export default {el, cx, resize, clear, drawHex, drawCircle}
+export default {el, cx, resize, clear, drawHex, drawCircle, drawText}

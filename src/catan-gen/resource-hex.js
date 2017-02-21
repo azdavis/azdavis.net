@@ -17,9 +17,13 @@ class ResourceHex {
         const dotR = r / 40
         const dotMid = (dots - 1) / 2
         Canvas.drawCircle(x, y, r / 2.5, "#ddd")
-        Canvas.cx.font = `${r / 35}em sans-serif`
-        Canvas.cx.fillStyle = dots === 5 ? "#d22" : "#222"
-        Canvas.cx.fillText(String(this.number), x, y - dotR)
+        Canvas.drawText(
+            String(this.number),
+            x,
+            y - dotR,
+            dots === 5 ? "#d22" : "#222",
+            r / 35
+        )
         for (let i = 0; i < dots; i++) {
             Canvas.drawCircle(x + (i - dotMid) * dotR * 3, y + r / 4.5, dotR)
         }
