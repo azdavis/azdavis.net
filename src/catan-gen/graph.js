@@ -1,14 +1,14 @@
 class Graph {
     constructor() {
-        this.nodes = []
+        this.vertices = []
     }
 
     add(value) {
-        this.nodes.push({value, edges: []})
+        this.vertices.push({value, edges: []})
     }
 
     find(value) {
-        return this.nodes.find(x => x.value === value)
+        return this.vertices.find(x => x.value === value)
     }
 }
 
