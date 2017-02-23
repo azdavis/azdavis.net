@@ -48,12 +48,14 @@ class Board {
         this.resourceAmts = resourceAmts
         this.numberAmts = numberAmts
         this.portAmts = portAmts
+        this.offsets = offsets
+
         this.numResourceHex = sumObject(resourceAmts)
         this.numBorderHex = sumObject(portAmts) + numNonPort
-        this.offsets = offsets
         this.size = this.numResourceHex + this.numBorderHex
         this.array = []
         this.graph = new Graph()
+
         for (let i = 0; i < this.numResourceHex; i++) {
             const t = new ResourceHex(null, null)
             this.array.push(t)
