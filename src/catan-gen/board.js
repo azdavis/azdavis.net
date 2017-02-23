@@ -130,7 +130,7 @@ class Board {
 
     // setting numbers
 
-    maxDots(x) {
+    maxDots(x, resourceDots) {
         const ns = this.nearby(x)
         let intersectionMax = 0
         for (let i = 0; i < ns.length; i++) {
@@ -144,16 +144,16 @@ class Board {
                 }
             }
         }
-        return 11 - intersectionMax
+        return Math.min(11 - intersectionMax, 14 - resourceDots[x.resource])
     }
 
-    setNumber(x, remaining) {
+    setNumber(x, remaining, resourceDots) {
         if (x.resource === "desert") {
             return true
         }
         const okNs = {}
         let sum = 0
-        const md = this.maxDots(x)
+        const md = this.maxDots(x, resourceDots)
         for (const n in remaining) {
             if (NumberDots[n] <= md) {
                 sum += okNs[n] = remaining[n]
@@ -165,13 +165,21 @@ class Board {
         const n = weightedRandom(okNs, sum)
         x.number = Number(n)
         remaining[n]--
+        resourceDots[x.resource] += NumberDots[n]
         return true
     }
 
     setNumbers() {
         const remaining = Object.assign({}, this.numberAmts)
+        const resourceDots = {
+            brick: 0,
+            wood: 0,
+            wheat: 0,
+            sheep: 0,
+            ore: 0
+        }
         for (let i = 0; i < this.numResourceHex; i++) {
-            if (!this.setNumber(this.array[i], remaining)) {
+            if (!this.setNumber(this.array[i], remaining, resourceDots)) {
                 return false
             }
         }
