@@ -132,19 +132,19 @@ class Board {
 
     maxDots(x) {
         const ns = this.nearby(x)
-        let max = 0
+        let intersectionMax = 0
         for (let i = 0; i < ns.length; i++) {
             for (let j = i + 1; j < ns.length; j++) {
                 if (this.nearby(ns[i]).indexOf(ns[j]) === -1) {
                     continue
                 }
                 const get = toDots(ns[i]) + toDots(ns[j])
-                if (get > max) {
-                    max = get
+                if (get > intersectionMax) {
+                    intersectionMax = get
                 }
             }
         }
-        return 11 - max
+        return 11 - intersectionMax
     }
 
     setNumber(x, remaining) {
