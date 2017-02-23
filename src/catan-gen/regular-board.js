@@ -129,7 +129,9 @@ const RegularBoard = new Board({
         /* 34 */ [-4, -2],
         /* 35 */ [-5, -1],
         /* 36 */ [-6, 0]
-    ]
+    ],
+    maxDotsPerIntersection: 11,
+    maxDotsPerResource: 14
 })
 
 export default RegularBoard

@@ -43,12 +43,16 @@ class Board {
         portAmts,
         numNonPort,
         edges,
-        offsets
+        offsets,
+        maxDotsPerIntersection,
+        maxDotsPerResource
     }) {
         this.resourceAmts = resourceAmts
         this.numberAmts = numberAmts
         this.portAmts = portAmts
         this.offsets = offsets
+        this.maxDotsPerIntersection = maxDotsPerIntersection
+        this.maxDotsPerResource = maxDotsPerResource
 
         this.numResourceHex = sumObject(resourceAmts)
         this.numBorderHex = sumObject(portAmts) + numNonPort
@@ -146,7 +150,10 @@ class Board {
                 }
             }
         }
-        return Math.min(11 - intersectionMax, 14 - resourceDots[x.resource])
+        return Math.min(
+            this.maxDotsPerIntersection - intersectionMax,
+            this.maxDotsPerResource - resourceDots[x.resource]
+        )
     }
 
     setNumber(x, remaining, resourceDots) {
