@@ -94,15 +94,8 @@ class Board {
 
     // setting resources
 
-    nearby(x) {
-        return this.graph
-            .find(x)
-            .edges
-            .filter(sameType(x))
-    }
-
     setResource(x, remaining) {
-        const nearbyRs = this.nearby(x).map(toResource)
+        const nearbyRs = this.graph.nearby(x).filter(sameType(x)).map(toResource)
         const okRs = {}
         let sum = 0
         for (const r in remaining) {
@@ -138,11 +131,11 @@ class Board {
     // setting numbers
 
     maxDots(x, resourceDots) {
-        const ns = this.nearby(x)
+        const ns = this.graph.nearby(x).filter(sameType(x))
         let intersectionMax = 0
         for (let i = 0; i < ns.length; i++) {
             for (let j = i + 1; j < ns.length; j++) {
-                if (this.nearby(ns[i]).indexOf(ns[j]) === -1) {
+                if (this.graph.nearby(ns[i]).filter(sameType(x)).indexOf(ns[j]) === -1) {
                     continue
                 }
                 const get = toDots(ns[i]) + toDots(ns[j])
@@ -205,7 +198,7 @@ class Board {
     // setting ports
 
     setPort(x, remaining) {
-        if (this.nearby(x).some(hasPort)) {
+        if (this.graph.nearby(x).filter(sameType(x)).some(hasPort)) {
             return true
         }
         const p = weightedRandom(remaining, sumObject(remaining))
