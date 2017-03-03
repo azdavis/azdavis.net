@@ -135,7 +135,7 @@ class Board {
         let intersectionMax = 0
         for (let i = 0; i < ns.length; i++) {
             for (let j = i + 1; j < ns.length; j++) {
-                if (this.graph.nearby(ns[i]).filter(sameType(x)).indexOf(ns[j]) === -1) {
+                if (this.graph.nearby(ns[i]).indexOf(ns[j]) === -1) {
                     continue
                 }
                 const get = toDots(ns[i]) + toDots(ns[j])
