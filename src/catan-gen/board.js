@@ -30,8 +30,8 @@ function weightedRandom(x, sum) {
     }
     throw new Error("no")
 }
-const sameType = x => y =>
-    Object.getPrototypeOf(x) === Object.getPrototypeOf(y)
+const isResourceHex = x => x instanceof ResourceHex
+const isBorderHex = x => x instanceof BorderHex
 
 // the class
 
@@ -95,7 +95,7 @@ class Board {
     // setting resources
 
     setResource(x, remaining) {
-        const nearbyRs = this.graph.nearby(x).filter(sameType(x)).map(toResource)
+        const nearbyRs = this.graph.nearby(x).filter(isResourceHex).map(toResource)
         const okRs = {}
         let sum = 0
         for (const r in remaining) {
@@ -131,7 +131,7 @@ class Board {
     // setting numbers
 
     maxDots(x, resourceDots) {
-        const ns = this.graph.nearby(x).filter(sameType(x))
+        const ns = this.graph.nearby(x).filter(isResourceHex)
         let intersectionMax = 0
         for (let i = 0; i < ns.length; i++) {
             for (let j = i + 1; j < ns.length; j++) {
@@ -198,7 +198,7 @@ class Board {
     // setting ports
 
     setPort(x, remaining) {
-        if (this.graph.nearby(x).filter(sameType(x)).some(hasPort)) {
+        if (this.graph.nearby(x).filter(isBorderHex).some(hasPort)) {
             return true
         }
         const p = weightedRandom(remaining, sumObject(remaining))
