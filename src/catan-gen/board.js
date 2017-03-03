@@ -30,6 +30,8 @@ function weightedRandom(x, sum) {
     }
     throw new Error("no")
 }
+const sameType = x => y =>
+    Object.getPrototypeOf(x) === Object.getPrototypeOf(y)
 
 // the class
 
@@ -93,11 +95,10 @@ class Board {
     // setting resources
 
     nearby(x) {
-        const p = Object.getPrototypeOf(x)
         return this.graph
             .find(x)
             .edges
-            .filter(y => Object.getPrototypeOf(y) === p)
+            .filter(sameType(x))
     }
 
     setResource(x, remaining) {
