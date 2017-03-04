@@ -1,9 +1,9 @@
-@import "./base/var"
-@import "./base/a"
+*
+    box-sizing border-box
 
 html
-    color $dark
-    font medium/1.5 $mono
+    color #222
+    font medium/1.5 Input, Menlo, Consolas, monospace
 
 body
     max-width 800px
@@ -24,6 +24,16 @@ dd
 p
     margin 0 0 1em
 
+a
+    text-decoration none
+    &
+    &:visited
+        color #06c
+    &:active
+    &:hover
+        outline 0
+        text-decoration underline
+
 .sec
     display block
     margin 0 3em 1em
@@ -37,6 +47,10 @@ p
 
 @media not print
     .dark
-        background $dark
-        color $light
-        $text_smooth()
+        background #222
+        color #ddd
+        -moz-osx-font-smoothing grayscale
+        -webkit-font-smoothing antialiased
+        a
+        a:visited
+            color #5bd

@@ -1,9 +1,9 @@
-@import "../base/var"
-@import "../base/a"
+*
+    box-sizing border-box
 
 html
-    color $dark
-    font large/1.5 $serif
+    color #222
+    font large/1.5 Palatino, Georgia, serif
 
 body
     max-width 800px
@@ -37,6 +37,16 @@ dd
     padding-left 1em
     text-indent -1em
 
+a
+    text-decoration none
+    &
+    &:visited
+        color #06c
+    &:active
+    &:hover
+        outline 0
+        text-decoration underline
+
 .sep
     margin 0 0.5em
     &::after
@@ -53,7 +63,7 @@ dd
 @media only print
     html
         font-size small
-        color $dark
+        color #222
     body
         max-width none
         margin 0
@@ -70,6 +80,10 @@ dd
 
 @media not print
     .dark
-        background $dark
-        color $light
-        $text_smooth()
+        background #222
+        color #ddd
+        -moz-osx-font-smoothing grayscale
+        -webkit-font-smoothing antialiased
+        a
+        a:visited
+            color #5bd
