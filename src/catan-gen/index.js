@@ -21,6 +21,7 @@ function render() {
 
 render()
 if ("ontouchend" in window) {
+    ontouchmove = e => e.preventDefault()
     ontouchend = render
 } else {
     onclick = render
