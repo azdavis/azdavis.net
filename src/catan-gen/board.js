@@ -73,10 +73,9 @@ class Board {
             this.graph.add(t)
         }
         for (let i = 0; i < this.size; i++) {
-            this.graph
-                .find(this.array[i])
-                .edges
-                .push(...edges[i].map(j => this.array[j]))
+            this.graph.nearby(this.array[i]).push(
+                ...edges[i].map(j => this.array[j])
+            )
         }
     }
 
