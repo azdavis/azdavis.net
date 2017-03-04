@@ -22,7 +22,7 @@ class AutomaticCircle extends Circle {
         this.y = newy
     }
 
-    collideWith(other: ControlledCircle) {
+    collideWith(other) {
         if (!this.overlaps(other)) {
             return
         }

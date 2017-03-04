@@ -43,7 +43,7 @@ class Circle {
         this.stop()
     }
 
-    overlaps(other: Circle) {
+    overlaps(other) {
         return distance(other.x - this.x, other.y - this.y)
              < other.radius() + this.radius()
     }
