@@ -197,10 +197,22 @@ class Board {
     // setting ports
 
     setPort(x, remaining) {
-        if (this.graph.nearby(x).filter(isBorderHex).some(hasPort)) {
+        const ns = this.graph.nearby(x)
+        if (ns.filter(isBorderHex).some(hasPort)) {
             return true
         }
-        const p = weightedRandom(remaining, sumObject(remaining))
+        const nearbyRs = ns.filter(isResourceHex).map(toResource)
+        const okPs = {}
+        let sum = 0
+        for (const p in remaining) {
+            if (nearbyRs.indexOf(p) === -1) {
+                sum += okPs[p] = remaining[p]
+            }
+        }
+        if (sum === 0) {
+            return false
+        }
+        const p = weightedRandom(okPs, sum)
         x.port = p
         remaining[p]--
         return true
