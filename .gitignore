@@ -1,8 +1,8 @@
+*.c.js
 *.css
 *.html
 *.jpg
 *.manifest
-*.min.js
 *.png
 *.zip
 .DS_Store
