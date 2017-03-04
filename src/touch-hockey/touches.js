@@ -29,7 +29,8 @@ function stop(id) {
 function all(f) {
     return e => {
         e.preventDefault()
-        for (const {identifier, pageX, pageY} of e.changedTouches) {
+        for (let i = 0; i < e.changedTouches.length; i++) {
+            const {identifier, pageX, pageY} = e.changedTouches[i]
             f(identifier, pageX * Canvas.dim.scale, pageY * Canvas.dim.scale)
         }
     }
