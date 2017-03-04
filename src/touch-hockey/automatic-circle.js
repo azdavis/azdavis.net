@@ -6,7 +6,7 @@ import keepInBounds from "./keep-in-bounds"
 import tau from "./tau"
 
 class AutomaticCircle extends Circle {
-    move(): void {
+    move() {
         this.speed *= 0.992
         const dx = this.speed * Math.cos(this.angle)
         const dy = this.speed * Math.sin(this.angle)
@@ -22,7 +22,7 @@ class AutomaticCircle extends Circle {
         this.y = newy
     }
 
-    collideWith(other: ControlledCircle): void {
+    collideWith(other: ControlledCircle) {
         if (!this.overlaps(other)) {
             return
         }

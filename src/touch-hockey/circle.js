@@ -3,28 +3,15 @@ import distance from "./distance"
 import tau from "./tau"
 
 class Circle {
-    x: number
-    y: number
-    xorig: number
-    yorig: number
-    xmin: () => number
-    xmax: () => number
-    ymin: () => number
-    ymax: () => number
-    radius: () => number
-    color: string
-    angle: number
-    speed: number
-
     constructor(
-        x: number
-      , y: number
-      , lt: () => number
-      , rt: () => number
-      , up: () => number
-      , dn: () => number
-      , radius: () => number
-      , color: string
+        x
+      , y
+      , lt
+      , rt
+      , up
+      , dn
+      , radius
+      , color
     ) {
         this.x = this.xorig = x
         this.y = this.yorig = y
@@ -37,7 +24,7 @@ class Circle {
         this.stop()
     }
 
-    draw(): void {
+    draw() {
         Canvas.cx.fillStyle = this.color
         Canvas.cx.beginPath()
         Canvas.cx.arc(this.x, this.y, this.radius(), 0, tau)
@@ -45,23 +32,23 @@ class Circle {
         Canvas.cx.fill()
     }
 
-    stop(): void {
+    stop() {
         this.angle = 0
         this.speed = 0
     }
 
-    reset(): void {
+    reset() {
         this.x = this.xorig
         this.y = this.yorig
         this.stop()
     }
 
-    overlaps(other: Circle): boolean {
+    overlaps(other: Circle) {
         return distance(other.x - this.x, other.y - this.y)
              < other.radius() + this.radius()
     }
 
-    contains(x: number, y: number): boolean {
+    contains(x, y) {
         return distance(x - this.x, y - this.y)
              < this.radius()
     }

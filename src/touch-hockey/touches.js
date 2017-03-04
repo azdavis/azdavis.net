@@ -1,7 +1,7 @@
 import Canvas from "./canvas"
 import Game from "./game"
 
-function start(id: string, x: number, y: number): void {
+function start(id, x, y) {
     if (Game.top.contains(x, y)) {
         Game.top.controlWith(id)
     } else if (Game.bot.contains(x, y)) {
@@ -10,7 +10,7 @@ function start(id: string, x: number, y: number): void {
     maintain(id, x, y)
 }
 
-function maintain(id: string, x: number, y: number): void {
+function maintain(id, x, y) {
     if (Game.top.isControlledBy(id)) {
         Game.top.moveTo(x, y)
     } else if (Game.bot.isControlledBy(id)) {
@@ -18,7 +18,7 @@ function maintain(id: string, x: number, y: number): void {
     }
 }
 
-function stop(id: string): void {
+function stop(id) {
     if (Game.top.isControlledBy(id)) {
         Game.top.stop()
     } else if (Game.bot.isControlledBy(id)) {
@@ -26,18 +26,16 @@ function stop(id: string): void {
     }
 }
 
-function all(
-    f: (id: string, x: number, y: number) => void
-): (e: TouchEvent) => void {
+function all(f) {
     return e => {
         e.preventDefault()
-        for (const {identifier, pageX, pageY} of e.changedTouches as any) {
+        for (const {identifier, pageX, pageY} of e.changedTouches) {
             f(identifier, pageX * Canvas.dim.scale, pageY * Canvas.dim.scale)
         }
     }
 }
 
-function setup(): void {
+function setup() {
     ontouchstart = all(start)
     ontouchmove = all(maintain)
     ontouchend = ontouchcancel = all(stop)

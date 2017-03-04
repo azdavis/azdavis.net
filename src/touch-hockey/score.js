@@ -9,7 +9,7 @@ const textAlign = "center"
 const textBaseline = "middle"
 const offset = 100
 
-function draw(): void {
+function draw() {
     const heightHalf = Canvas.dim.height / 2
     Canvas.cx.font = font
     Canvas.cx.textAlign = textAlign
@@ -20,11 +20,11 @@ function draw(): void {
     Canvas.cx.fillText(String(bot), Canvas.dim.width - offset, heightHalf)
 }
 
-function incTop(): void {
+function incTop() {
     top++
 }
 
-function incBot(): void {
+function incBot() {
     bot++
 }
 

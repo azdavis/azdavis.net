@@ -1,4 +1,4 @@
-function distance(dx: number, dy: number): number {
+function distance(dx, dy) {
     return Math.sqrt(dx**2 + dy**2)
 }
 

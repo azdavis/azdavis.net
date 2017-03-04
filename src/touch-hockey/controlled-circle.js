@@ -4,17 +4,15 @@ import distance from "./distance"
 import keepInBounds from "./keep-in-bounds"
 
 class ControlledCircle extends Circle {
-    controllerID: string
-
-    controlWith(controllerID: string): void {
+    controlWith(controllerID) {
         this.controllerID = controllerID
     }
 
-    isControlledBy(controllerID: string): boolean {
+    isControlledBy(controllerID) {
         return this.controllerID === controllerID
     }
 
-    moveTo(x: number, y: number): void {
+    moveTo(x, y) {
         const newx = keepInBounds(this.xmin(), x, this.xmax())
         const newy = keepInBounds(this.ymin(), y, this.ymax())
         const dx = newx - this.x
