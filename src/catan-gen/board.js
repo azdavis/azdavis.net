@@ -94,7 +94,8 @@ class Board {
     // setting resources
 
     setResource(x, remaining) {
-        const nearbyRs = this.graph.nearby(x).filter(isResourceHex).map(toResource)
+        const nearbyRs =
+            this.graph.nearby(x).filter(isResourceHex).map(toResource)
         const okRs = {}
         let sum = 0
         for (const r in remaining) {
