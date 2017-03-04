@@ -33,4 +33,4 @@
 		--target ES5 \
 		--module ES2015 \
 		$<
-	rollup -f iife -o $@ $@ &> /dev/null
+	rollup -f iife -o $@ $@ > /dev/null 2>&1
