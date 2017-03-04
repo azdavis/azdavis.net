@@ -20,4 +20,8 @@ function render() {
 }
 
 render()
-onclick = render
+if ("ontouchend" in window) {
+    ontouchend = render
+} else {
+    onclick = render
+}
