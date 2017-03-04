@@ -5,20 +5,24 @@ all: \
 	$(patsubst %.pug,%.html,$(shell find src ! -path "*base*" -name "*.pug"))
 
 clean:
-	find src \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -delete
+	find src "(" -name "*.html" -o -name "*.css" -o -name "*.c.js" ")" -delete
 
 test:
-	http-server -p 8888 src | grep http & \
-	trap "kill $$!; exit" INT; \
-	open -g "http://localhost:8888" & \
-	while true; do find src | entr -d $(MAKE) || [ $$? -eq 2 ]; done
+	http-server -p 8888 src | grep http &\
+	trap "kill $$!; exit" INT ;\
+	open -g "http://localhost:8888" &\
+	while true; do \
+		find src | entr -d $(MAKE) || [ $$? -eq 2 ] ;\
+	done
 
 git-ok:
 	[ "$$(git status -u --porcelain | wc -l)" -eq 0 ]
 	[ "$$(git rev-parse --abbrev-ref @)" = master ]
 
 surge:
-	grep -q "surge.sh" "$$HOME/.netrc" || surge login
+	if ! grep -q "surge.sh" "$$HOME/.netrc"; then \
+		surge login ;\
+	fi
 
 upload:
 	git push origin master
