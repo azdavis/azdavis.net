@@ -40,9 +40,9 @@ function drawCircle(x, y, r, fill) {
 const hs = getComputedStyle(document.documentElement)
 const fontWeight = hs.fontWeight
 const fontFamily = hs.fontFamily
-function drawText(msg, x, y, color, font) {
+function drawText(msg, x, y, color, fontSize) {
     cx.fillStyle = color
-    cx.font = `${fontWeight} ${font}em ${fontFamily}`
+    cx.font = `${fontWeight} ${fontSize}em ${fontFamily}`
     cx.fillText(msg, x, y)
 }
 
