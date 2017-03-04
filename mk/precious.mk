@@ -14,7 +14,7 @@
 		-o $@.html $@ ;\
 	mv $@.html $@
 
-%.css: %.styl src/base/var.styl
+%.css: %.styl
 	echo $@
 	stylus -u autoprefixer-stylus $< > /dev/null
 
