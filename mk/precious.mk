@@ -22,4 +22,4 @@
 	echo $@
 	here="$$PWD" ;\
 	cd $(dir $@) ;\
-	rollup -c "$$here/rollup.config.js" > /dev/null 2>&1
+	rollup -c "$$here/rollup.config.js"
