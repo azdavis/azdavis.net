@@ -1,6 +1,14 @@
 import Canvas from "./canvas"
 import Game from "./game"
 
+function maintain(id, x, y) {
+    if (Game.top.isControlledBy(id)) {
+        Game.top.moveTo(x, y)
+    } else if (Game.bot.isControlledBy(id)) {
+        Game.bot.moveTo(x, y)
+    }
+}
+
 function start(id, x, y) {
     if (Game.top.contains(x, y)) {
         Game.top.controlWith(id)
@@ -8,14 +16,6 @@ function start(id, x, y) {
         Game.bot.controlWith(id)
     }
     maintain(id, x, y)
-}
-
-function maintain(id, x, y) {
-    if (Game.top.isControlledBy(id)) {
-        Game.top.moveTo(x, y)
-    } else if (Game.bot.isControlledBy(id)) {
-        Game.bot.moveTo(x, y)
-    }
 }
 
 function stop(id) {

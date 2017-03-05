@@ -1,6 +1,5 @@
 import angle from "./angle"
 import Circle from "./circle"
-import ControlledCircle from "./circle"
 import distance from "./distance"
 import keepInBounds from "./keep-in-bounds"
 import tau from "./tau"
