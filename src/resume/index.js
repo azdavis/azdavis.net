@@ -1,4 +1,4 @@
-import "../base/dark"
+import "../_base/dark"
 
 const decode = x => atob(x).split("").reverse().join("")
 const printable = x => x.match(/(mailto:|https?:\/\/|tel:)(.+[^\/]).*/)[2]

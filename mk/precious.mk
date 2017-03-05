@@ -1,6 +1,6 @@
 .PRECIOUS: %.html %.css %.c.js
 
-%.html: %.pug src/base/head.pug %.css %.c.js
+%.html: %.pug src/_base/head.pug %.css %.c.js
 	echo $@
 	pug -s --doctype html $<
 	html-minifier \
@@ -18,7 +18,7 @@
 	echo $@
 	stylus -u autoprefixer-stylus $< > /dev/null
 
-%.c.js: %.js src/base/dark.js
+%.c.js: %.js src/_base/dark.js
 	echo $@
 	here="$$PWD" ;\
 	cd $(dir $@) ;\
