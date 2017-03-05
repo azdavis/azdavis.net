@@ -25,9 +25,11 @@ surge:
 	fi
 
 upload:
-	git push origin master
+	git push -q origin master
 	mv src/404/index.html src/404.html
-	surge -d azdavis.xyz -p src
+	surge -d azdavis.xyz -p src 2> /dev/null \
+		| grep size \
+		| sed -E "s/$$(printf '\e\[90m +size: \e\[39m')//g"
 	mv src/404.html src/404/index.html
 
 setup: \
