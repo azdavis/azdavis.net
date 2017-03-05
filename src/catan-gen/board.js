@@ -93,7 +93,7 @@ class Board {
 
     // setting resources
 
-    setResource(x, remaining) {
+    trySetResource(x, remaining) {
         const nearbyRs =
             this.graph.nearby(x).filter(isResourceHex).map(toResource)
         const okRs = {}
@@ -112,10 +112,10 @@ class Board {
         return true
     }
 
-    setResources() {
+    trySetResources() {
         const remaining = Object.assign({}, this.resourceAmts)
         for (let i = 0; i < this.numResourceHex; i++) {
-            if (!this.setResource(this.array[i], remaining)) {
+            if (!this.trySetResource(this.array[i], remaining)) {
                 return false
             }
         }
@@ -150,7 +150,7 @@ class Board {
         )
     }
 
-    setNumber(x, remaining, resourceDots) {
+    trySetNumber(x, remaining, resourceDots) {
         if (x.resource === "desert") {
             return true
         }
@@ -172,7 +172,7 @@ class Board {
         return true
     }
 
-    setNumbers() {
+    trySetNumbers() {
         const remaining = Object.assign({}, this.numberAmts)
         const resourceDots = {
             brick: 0,
@@ -182,7 +182,7 @@ class Board {
             ore: 0
         }
         for (let i = 0; i < this.numResourceHex; i++) {
-            if (!this.setNumber(this.array[i], remaining, resourceDots)) {
+            if (!this.trySetNumber(this.array[i], remaining, resourceDots)) {
                 return false
             }
         }
@@ -197,7 +197,7 @@ class Board {
 
     // setting ports
 
-    setPort(x, remaining) {
+    trySetPort(x, remaining) {
         const ns = this.graph.nearby(x)
         if (ns.filter(isBorderHex).some(hasPort)) {
             return true
@@ -219,10 +219,10 @@ class Board {
         return true
     }
 
-    setPorts() {
+    trySetPorts() {
         const remaining = Object.assign({}, this.portAmts)
         for (let i = this.numResourceHex; i < this.size; i++) {
-            if (!this.setPort(this.array[i], remaining)) {
+            if (!this.trySetPort(this.array[i], remaining)) {
                 return false
             }
         }
@@ -241,13 +241,13 @@ class Board {
         // gross, but guarenteed to work
         do {
             this.resetResources()
-        } while (!this.setResources())
+        } while (!this.trySetResources())
         do {
             this.resetNumbers()
-        } while (!this.setNumbers())
+        } while (!this.trySetNumbers())
         do {
             this.resetPorts()
-        } while (!this.setPorts())
+        } while (!this.trySetPorts())
     }
 }
 
