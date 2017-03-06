@@ -20,6 +20,4 @@
 
 %.c.js: %.js src/_base/dark.js
 	echo $@
-	here="$$PWD" ;\
-	cd $(dir $@) ;\
-	rollup -c "$$here/rollup.config.js"
+	rollup -c --environment "path:$(dir $@)"
