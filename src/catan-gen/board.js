@@ -85,6 +85,7 @@ class Board {
         const xOff = r / 7
         // 3 / sqrt(3) = 1.732050808
         const yOff = xOff * 1.732050808
+        // minus a bit, to allow a gap between hexes
         const hexR = yOff / 1.5 - 1
         for (let i = 0; i < this.size; i++) {
             const off = this.offsets[i]
