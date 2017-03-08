@@ -50,4 +50,4 @@ function drawText(msg, x, y, color, fontSize) {
 resize()
 document.body.appendChild(el)
 
-export default {el, cx, resize, clear, drawHex, drawCircle, drawText}
+export default {el, resize, clear, drawHex, drawCircle, drawText}
