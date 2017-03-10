@@ -1,13 +1,5 @@
 const el = document.createElement("canvas")
 const cx = el.getContext("2d")
-const scale = devicePixelRatio || 1
-
-function resize() {
-    el.width = innerWidth * scale
-    el.height = innerHeight * scale
-    cx.textAlign = "center"
-    cx.textBaseline = "middle"
-}
 
 function clear() {
     cx.clearRect(0, 0, el.width, el.height)
@@ -47,7 +39,6 @@ function drawText(msg, x, y, color, fontSize) {
     cx.fillText(msg, x, y)
 }
 
-resize()
 document.body.appendChild(el)
 
-export default {el, resize, clear, drawHex, drawCircle, drawText}
+export default {el, cx, clear, drawHex, drawCircle, drawText}

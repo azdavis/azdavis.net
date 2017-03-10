@@ -81,15 +81,19 @@ class Board {
 
     // draw
 
-    draw(x, y, r) {
-        const xOff = r / 7
+    draw() {
+        const xOff = this.r / 7
         // 3 / sqrt(3) = 1.732050808
         const yOff = xOff * 1.732050808
         // minus a bit, to allow a gap between hexes
         const hexR = yOff / 1.5 - 2
         for (let i = 0; i < this.size; i++) {
             const off = this.offsets[i]
-            this.array[i].draw(x + off[0] * xOff, y + off[1] * yOff, hexR)
+            this.array[i].draw(
+                this.x + off[0] * xOff,
+                this.y + off[1] * yOff,
+                hexR
+            )
         }
     }
 

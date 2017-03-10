@@ -2,22 +2,28 @@ import "../_base/dark"
 import Canvas from "./canvas"
 import RegularBoard from "./regular-board"
 
-const x = () => Canvas.el.width / 2
-const y = () => Canvas.el.height / 2
-const r = () =>
-    // 20 / 21 / sqrt(3)
-    Math.min(Canvas.el.width / 2, Canvas.el.height * 0.549857399) - 20
-
-onresize = () => {
-    Canvas.resize()
-    Canvas.clear()
-    RegularBoard.draw(x(), y(), r())
+const scale = devicePixelRatio || 1
+function resize() {
+    const w = innerWidth * scale
+    const h = innerHeight * scale
+    Canvas.el.width = w
+    Canvas.el.height = h
+    Canvas.cx.textAlign = "center"
+    Canvas.cx.textBaseline = "middle"
+    RegularBoard.x = w / 2
+    RegularBoard.y = h / 2
+    // 20 / 21 / sqrt(3) = 0.549857399
+    // minus a bit, to allow a gap between the board edge and the height
+    RegularBoard.r = Math.min(w / 2, h * 0.549857399) - 20
+    RegularBoard.draw()
 }
+resize()
+onresize = resize
 
 function render() {
     Canvas.clear()
     RegularBoard.generate()
-    RegularBoard.draw(x(), y(), r())
+    RegularBoard.draw()
 }
 
 render()
