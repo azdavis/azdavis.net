@@ -27,12 +27,11 @@ function stop(id) {
 }
 
 const all = f => e => {
-    e.preventDefault()
     for (let i = 0; i < e.changedTouches.length; i++) {
         const {identifier, pageX, pageY} = e.changedTouches[i]
         f(identifier, pageX * Canvas.dim.scale, pageY * Canvas.dim.scale)
     }
-
+    return false
 }
 
 function setup() {
