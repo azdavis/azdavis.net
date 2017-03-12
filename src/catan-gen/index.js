@@ -6,8 +6,8 @@ const scale = devicePixelRatio || 1
 function resize() {
     const w = innerWidth * scale
     const h = innerHeight * scale
-    Canvas.el.width = w
-    Canvas.el.height = h
+    Canvas.cx.canvas.width = w
+    Canvas.cx.canvas.height = h
     Canvas.cx.textAlign = "center"
     Canvas.cx.textBaseline = "middle"
     RegularBoard.x = w / 2

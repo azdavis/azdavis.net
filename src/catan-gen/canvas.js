@@ -41,4 +41,4 @@ function drawText(msg, x, y, color, fontSize) {
 
 document.body.appendChild(el)
 
-export default {el, cx, clear, drawHex, drawCircle, drawText}
+export default {cx, clear, drawHex, drawCircle, drawText}

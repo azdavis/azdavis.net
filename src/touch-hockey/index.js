@@ -4,8 +4,12 @@ import Game from "./game"
 import Touches from "./touches"
 
 function resize() {
-    Canvas.dim.width = Canvas.el.width = innerWidth * Canvas.dim.scale
-    Canvas.dim.height = Canvas.el.height = innerHeight * Canvas.dim.scale
+    Canvas.dim.width =
+        Canvas.cx.canvas.width =
+        innerWidth * Canvas.dim.scale
+    Canvas.dim.height =
+        Canvas.cx.canvas.height =
+        innerHeight * Canvas.dim.scale
 }
 
 resize()
