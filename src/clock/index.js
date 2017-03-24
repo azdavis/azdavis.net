@@ -2,7 +2,7 @@ const clock = document.getElementById("clock")
 clock.style.display = "block"
 
 function resize() {
-    const dim = Math.min(innerWidth, innerHeight, 600) - 40
+    const dim = Math.min(innerWidth, innerHeight) - 40
     clock.style.width = clock.style.height = `${dim}px`
     // 8 rows of text
     // 1.3 line-height
