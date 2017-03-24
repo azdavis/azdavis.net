@@ -1,0 +1,36 @@
+*
+    box-sizing border-box
+
+html
+    font medium Input, Menlo, Consolas, "Liberation Mono", monospace
+    color #222
+    overflow hidden
+
+body
+    margin 0
+
+noscript div
+    padding 10px
+    text-align center
+
+#clock
+    display none
+    position absolute
+
+.row
+    display flex
+    justify-content space-between
+    line-height 1.3
+    *
+        transition color 0.5s
+    :not(.on)
+        color #eee
+
+@media not print
+    .dark
+        background #222
+        color #ddd
+        -moz-osx-font-smoothing grayscale
+        -webkit-font-smoothing antialiased
+        .row :not(.on)
+            color #555
