@@ -18,7 +18,9 @@ onresize = resize
 const els = {}
 "it ha te qu tw fi mi to pa h1 h3 h2 h4 h5 h6 h7 h8 h9 h10 h11 h0 oc"
     .split(" ")
-    .forEach(x => els[x] = document.getElementById(x))
+    .forEach(x => {
+        els[x] = document.getElementById(x)
+    })
 
 function getIdsFor(date) {
     const h = date.getHours() % 12
@@ -57,9 +59,13 @@ function tick() {
     const now = new Date()
     const hr = now.getHours()
     document.documentElement.className = hr < 6 || 17 < hr ? "dark" : ""
-    on.forEach(x => els[x].className = "")
+    on.forEach(x => {
+        els[x].className = ""
+    })
     on = getIdsFor(now)
-    on.forEach(x => els[x].className = "on")
+    on.forEach(x => {
+        els[x].className = "on"
+    })
 }
 tick()
 setInterval(tick, 1000)
