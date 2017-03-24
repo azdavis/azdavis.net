@@ -1,5 +1,3 @@
-import "../_base/dark"
-
 const clock = document.getElementById("clock")
 clock.style.display = "block"
 
@@ -56,9 +54,12 @@ function getIdsFor(date) {
 
 let on = []
 function tick() {
+    const now = new Date()
+    const hr = now.getHours()
+    document.documentElement.className = hr < 6 || 17 < hr ? "dark" : ""
     on.forEach(x => els[x].className = "")
-    on = getIdsFor(new Date())
+    on = getIdsFor(now)
     on.forEach(x => els[x].className = "on")
 }
-setTimeout(tick, 500)
+tick()
 setInterval(tick, 1000)
