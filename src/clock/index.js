@@ -1,15 +1,15 @@
-const clock = document.getElementById("clock")
-clock.style.display = "block"
+const clockStyle = document.getElementById("clock").style
+clockStyle.display = "block"
 
 function resize() {
     const dim = Math.min(innerWidth, innerHeight) - 40
-    clock.style.width = clock.style.height = `${dim}px`
+    clockStyle.width = clockStyle.height = `${dim}px`
     // 8 rows of text
     // 1.3 line-height
     // 8 * 1.3 = 10.4
-    clock.style.fontSize = `${dim / 10.4}px`
-    clock.style.left = `${(innerWidth - dim) / 2}px`
-    clock.style.top = `${(innerHeight - dim) / 2}px`
+    clockStyle.fontSize = `${dim / 10.4}px`
+    clockStyle.left = `${(innerWidth - dim) / 2}px`
+    clockStyle.top = `${(innerHeight - dim) / 2}px`
 }
 
 resize()
