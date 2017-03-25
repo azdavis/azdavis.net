@@ -24,7 +24,7 @@ const els = {}
 
 function getIdsFor(date) {
     const m = date.getMinutes() + Math.round(date.getSeconds() / 60)
-    let h = date.getHours() % 12
+    let h = date.getHours()
     if (m >= 58) {
         h++
     }
