@@ -22,7 +22,7 @@ test:
 	")" | entr -d $(MAKE) || [ $$? -eq 2 ]; done
 
 git-ok:
-	[ "$$(git status -u --porcelain | wc -l)" -eq 0 ]
+	! git status -unormal --porcelain | grep -q .
 	[ "$$(git rev-parse --abbrev-ref @)" = master ]
 
 surge:
