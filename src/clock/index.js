@@ -24,11 +24,7 @@ const els = {}
 
 function getIdsFor(date) {
     const m = date.getMinutes() + Math.round(date.getSeconds() / 60)
-    let h = date.getHours()
-    if (m >= 58) {
-        h++
-    }
-    h %= 12
+    const h = (date.getHours() + Math.round(m / 60)) % 12
     let ret = `it h${h} `
     if (m >= 58 || m < 3) {
         ret += "oc"
