@@ -5,7 +5,7 @@ src/google827af1fbb442e5a9.html:
 
 $(BINARY):
 	echo $@
-	curl -fL "http://azdavis.xyz/$(patsubst src/%,%,$@)" > $@
+	curl -fL "https://azdavis.xyz/$(patsubst src/%,%,$@)" > $@
 
 node_modules:
 	echo $@
