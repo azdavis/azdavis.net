@@ -67,7 +67,8 @@ function tick() {
         els[x].className = "on"
     })
 }
-setInterval(tick, 500)
+tick()
+setInterval(tick, 1000)
 
 if ("ontouchend" in window) {
     ontouchmove = () => false
