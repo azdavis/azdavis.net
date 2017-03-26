@@ -6,5 +6,6 @@
 *.png
 *.zip
 .DS_Store
+.netlify
 node_modules
 npm-debug.log

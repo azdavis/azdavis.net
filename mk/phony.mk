@@ -1,4 +1,4 @@
-.PHONY: all clean test git-ok surge upload setup deploy
+.PHONY: all clean test git-ok upload setup deploy
 
 all: \
 	src/google827af1fbb442e5a9.html \
@@ -26,21 +26,13 @@ git-ok:
 	! git status -unormal --porcelain | grep -q .
 	[ "$$(git rev-parse --abbrev-ref @)" = master ]
 
-surge:
-	if ! grep -q "surge.sh" "$$HOME/.netrc"; then \
-		surge login ;\
-	fi
-
 upload:
 	git push -q origin master
 	mv src/404/index.html src/404.html
-	surge -d azdavis.xyz -p src \
-		2> /dev/null \
-		| grep size \
-		| sed -E "s/$$(printf '\e\[90m +size: \e\[39m')//g"
+	netlify deploy
 	mv src/404.html src/404/index.html
 
 setup: \
-	.git/hooks/pre-commit .git/hooks/post-checkout node_modules $(BINARY) surge
+	.git/hooks/pre-commit .git/hooks/post-checkout node_modules $(BINARY)
 
 deploy: setup git-ok all upload
