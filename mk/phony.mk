@@ -2,10 +2,11 @@
 
 all: \
 	src/google827af1fbb442e5a9.html \
-	$(patsubst %.pug,%.html,$(shell find src ! -path "*_base*" -name "*.pug"))
+	$(patsubst %.pug,%.manifest,$(shell find src ! -path "*_base*" -name "*.pug"))
 
 clean:
 	find src "(" \
+		-name "*.manifest" -o \
 		-name "*.html" -o \
 		-name "*.css" -o \
 		-name "*.c.js" \
