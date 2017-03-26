@@ -29,7 +29,7 @@ git-ok:
 upload:
 	git push -q origin master
 	mv src/404/index.html src/404.html
-	netlify deploy
+	netlify deploy > /dev/null
 	mv src/404.html src/404/index.html
 
 setup: \
