@@ -25,5 +25,5 @@
 %.manifest: %.html
 	echo $@
 	echo "CACHE MANIFEST" > $@
-	printf '# %s\n' "$$(date +%s)" >> $@
+	printf '#%s\n' "$$(date +%s)" >> $@
 	echo $(notdir $<) >> $@
