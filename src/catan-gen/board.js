@@ -28,7 +28,7 @@ function weightedRandom(x, sum) {
             return p
         }
     }
-    throw new Error("no")
+    throw new Error()
 }
 const isResourceHex = x => x instanceof ResourceHex
 const isBorderHex = x => x instanceof BorderHex
