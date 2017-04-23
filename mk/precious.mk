@@ -1,4 +1,4 @@
-.PRECIOUS: %.html %.css %.c.js %.manifest
+.PRECIOUS: %.html %.css %.c.js
 
 %.html: %.pug src/_base/head.pug %.css %.c.js
 	echo $@
@@ -21,9 +21,3 @@
 %.c.js: %.js src/_base/dark.js
 	echo $@
 	rollup -c --environment "path:$(dir $@)"
-
-%.manifest: %.html
-	echo $@
-	echo "CACHE MANIFEST" > $@
-	printf '#%s\n' "$$(date +%s)" >> $@
-	echo $(notdir $<) >> $@
