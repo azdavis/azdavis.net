@@ -1,6 +1,7 @@
 .PHONY: all clean test git-ok netlify upload setup deploy
 
 all: \
+	setup \
 	src/google827af1fbb442e5a9.html \
 	$(patsubst %.pug,%.html,$(shell find src ! -path "*_base*" -name "*.pug"))
 
@@ -11,7 +12,7 @@ clean:
 		-name "*.c.js" \
 	")" -delete
 
-test:
+test: all
 	printf '%s:8888\n' "$$(curl -fsSL ifconfig.co)" ;\
 	http-server src -p 8888 -s &\
 	trap exit INT ;\
