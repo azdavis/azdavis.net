@@ -6,21 +6,21 @@ all: \
 	$(patsubst %.pug,%.html,$(shell find src ! -path "*_base*" -name "*.pug"))
 
 clean:
-	find src "(" \
-		-name "*.html" -o \
-		-name "*.css" -o \
-		-name "*.c.js" \
-	")" -delete
+	find src \( \
+		-name '*.html' -o \
+		-name '*.css' -o \
+		-name '*.c.js' \
+	\) -delete
 
 test: all
 	printf '%s:8888\n' "$$(curl -fsSL ifconfig.co)" ;\
 	http-server src -p 8888 -s &\
 	trap exit INT ;\
-	while true; do find src "(" \
-		-not -name "*.html" -a \
-		-not -name "*.css" -a \
-		-not -name "*.c.js" \
-	")" | entr -d $(MAKE) || [ $$? -eq 2 ]; done
+	while true; do find src \( \
+		-not -name '*.html' -a \
+		-not -name '*.css' -a \
+		-not -name '*.c.js' \
+	\) | entr -cd $(MAKE) || [ $$? -eq 2 ]; done
 
 git-ok:
 	! git status -unormal --porcelain | grep -q .
