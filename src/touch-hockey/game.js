@@ -63,7 +63,7 @@ function drawGoals() {
 }
 
 function render() {
-    Canvas.cx.clearRect(0, 0, Canvas.dim.width, Canvas.dim.height)
+    Canvas.clear()
     score.draw()
     puck.draw()
     drawGoals()
