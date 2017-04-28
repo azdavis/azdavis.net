@@ -20,7 +20,7 @@ test: all
 		-not -name '*.html' -a \
 		-not -name '*.css' -a \
 		-not -name '*.c.js' \
-	\) | entr -cd $(MAKE) || [ $$? -eq 2 ]; done
+	\) | entr -pd $(MAKE) || [ $$? -eq 2 ]; done
 
 git-ok:
 	! git status -unormal --porcelain | grep -q .
