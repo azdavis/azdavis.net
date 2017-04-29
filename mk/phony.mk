@@ -44,4 +44,4 @@ setup: \
 	$(BINARY) \
 	netlify
 
-deploy: setup git-ok all upload
+deploy: git-ok all upload
