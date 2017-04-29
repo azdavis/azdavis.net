@@ -10,22 +10,22 @@ const textBaseline = "middle"
 const offset = 100
 
 function draw() {
-    const heightHalf = Canvas.dim.height / 2
-    Canvas.cx.font = font
-    Canvas.cx.textAlign = textAlign
-    Canvas.cx.textBaseline = textBaseline
-    Canvas.cx.fillStyle = Game.top.color
-    Canvas.cx.fillText(String(top), offset, heightHalf)
-    Canvas.cx.fillStyle = Game.bot.color
-    Canvas.cx.fillText(String(bot), Canvas.dim.width - offset, heightHalf)
+	const heightHalf = Canvas.dim.height / 2
+	Canvas.cx.font = font
+	Canvas.cx.textAlign = textAlign
+	Canvas.cx.textBaseline = textBaseline
+	Canvas.cx.fillStyle = Game.top.color
+	Canvas.cx.fillText(String(top), offset, heightHalf)
+	Canvas.cx.fillStyle = Game.bot.color
+	Canvas.cx.fillText(String(bot), Canvas.dim.width - offset, heightHalf)
 }
 
 function incTop() {
-    top++
+	top++
 }
 
 function incBot() {
-    bot++
+	bot++
 }
 
 export default {draw, incTop, incBot}
