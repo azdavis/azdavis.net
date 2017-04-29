@@ -12,7 +12,7 @@ clean:
 		-name '*.c.js' \
 	\) -delete
 
-test: all
+test:
 	echo "$$(curl -fsSL https://ifconfig.co):8888" ;\
 	http-server src -p 8888 -s &\
 	trap exit INT ;\
@@ -20,7 +20,7 @@ test: all
 		-not -name '*.html' -a \
 		-not -name '*.css' -a \
 		-not -name '*.c.js' \
-	\) | entr -pd $(MAKE) || [ $$? -eq 2 ]; done
+	\) | entr -d $(MAKE) || [ $$? -eq 2 ]; done
 
 git-ok:
 	! git status -unormal --porcelain | grep -q .
