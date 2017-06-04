@@ -22,7 +22,7 @@
 		"http-server": "^0.10.0",
 		"netlify-cli": "^1.2.2",
 		"pug-cli": "^1.0.0-alpha6",
-		"rollup": "^0.41.0",
+		"rollup": "^0.42.0",
 		"rollup-plugin-babel": "^2.7.1",
 		"rollup-plugin-eslint": "^3.0.0",
 		"stylus": "^0.54.0"
