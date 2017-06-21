@@ -13,9 +13,9 @@ clean:
 	\) -delete
 
 test:
-	echo "http://$$(curl -fsSL https://ifconfig.co):8888" ;\
+	echo "http://$$(curl -fsSL https://ifconfig.co):8888"; \
 	http-server src -p 8888 -s &\
-	trap exit INT ;\
+	trap exit INT; \
 	while true; do find src \( \
 		-not -name '*.html' -a \
 		-not -name '*.css' -a \
@@ -28,7 +28,7 @@ git-ok:
 
 netlify:
 	if ! [ -e "$$HOME/.netlify/config" ]; then \
-		netlify open ;\
+		netlify open; \
 	fi
 
 upload:
