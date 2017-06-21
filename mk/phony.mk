@@ -13,7 +13,7 @@ clean:
 	\) -delete
 
 test:
-	echo "$$(curl -fsSL https://ifconfig.co):8888" ;\
+	echo "http://$$(curl -fsSL https://ifconfig.co):8888" ;\
 	http-server src -p 8888 -s &\
 	trap exit INT ;\
 	while true; do find src \( \
