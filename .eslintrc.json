@@ -21,14 +21,14 @@
 		"no-undefined": "error",
 		"no-use-before-define": "error",
 		"no-useless-return": "error",
+		"no-var": "error",
 		"quotes": ["error", "double"],
 		"semi": ["error", "never"],
 		"space-before-blocks": ["error", "always"],
 		"space-before-function-paren": ["error", "never"],
 		"space-in-parens": ["error", "never"],
 		"space-infix-ops": "error",
-		"space-unary-ops": ["error", {"words": true, "nonwords": false}],
-		"no-var": "error"
+		"space-unary-ops": ["error", {"words": true, "nonwords": false}]
 	},
 	"globals": {
 		"onclick": true,
