@@ -1,5 +1,4 @@
-The ISC License
-===============
+# The ISC License
 
 Copyright 2016-2017 Ariel Davis.
 
