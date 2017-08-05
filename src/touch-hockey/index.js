@@ -1,4 +1,4 @@
-import "../_base/dark"
+import "/_base/dark"
 import Game from "./game"
 import Touches from "./touches"
 
