@@ -1,8 +1,7 @@
 .PRECIOUS: build/%.css build/%.js
 
 build/%.html: src/%.pug src/_base/head.pug build/%.css build/%.js
-	echo $@
-	mkdir -p $(dir $<)
+	echo $@ && mkdir -p $(dir $<)
 	pug -sb src --doctype html $<
 	html-minifier \
 		--collapse-whitespace \
@@ -16,11 +15,9 @@ build/%.html: src/%.pug src/_base/head.pug build/%.css build/%.js
 	mv $@.html $@
 
 build/%.css: src/%.styl
-	echo $@
-	mkdir -p $(dir $<)
+	echo $@ && mkdir -p $(dir $<)
 	stylus -u autoprefixer-stylus $< > /dev/null
 
 build/%.js: src/%.js src/_base/dark.js
-	echo $@
-	mkdir -p $(dir $<)
+	echo $@ && mkdir -p $(dir $<)
 	rollup -c --environment "path:$(dir $@)"
