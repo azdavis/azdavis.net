@@ -1,11 +1,12 @@
-src/google827af1fbb442e5a9.html:
+build/google827af1fbb442e5a9.html:
 	echo $@
-	printf "google-site-verification: google827af1fbb442e5a9.html" \
-		> src/google827af1fbb442e5a9.html
+	mkdir -p $(dir $@)
+	printf "google-site-verification: google827af1fbb442e5a9.html" > $@
 
 $(BINARY):
 	echo $@
-	curl -fLo $@ "https://azdavis.xyz/$(patsubst src/%,%,$@)"
+	mkdir -p $(dir $@)
+	curl -fLo $@ "https://azdavis.xyz/$(patsubst build/%,%,$@)"
 
 node_modules:
 	echo $@
