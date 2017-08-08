@@ -20,4 +20,4 @@ build/%.css: src/%.styl
 
 build/%.js: src/%.js src/_base/dark.js
 	echo $@ && mkdir -p $(dir $<)
-	rollup -c --environment "path:$(dir $@)"
+	rollup -c --environment "entry:$<,dest:$@"
