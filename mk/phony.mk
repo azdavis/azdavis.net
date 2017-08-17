@@ -33,9 +33,9 @@ netlify:
 	fi
 
 upload:
-	git push -q origin master
+	git push origin master
 	mv src/404/index.html src/404.html
-	netlify deploy > /dev/null
+	netlify deploy
 	mv src/404.html src/404/index.html
 
 setup: \
