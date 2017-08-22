@@ -1,11 +1,4 @@
-*.c.js
-*.css
-*.html
-*.jpg
-*.manifest
-*.png
-*.zip
 .DS_Store
 .netlify
+build
 node_modules
-npm-debug.log
