@@ -1,5 +1,3 @@
-.PHONY: all clean test git-ok netlify upload setup deploy
-
 all: \
 	setup \
 	build/google827af1fbb442e5a9.html \

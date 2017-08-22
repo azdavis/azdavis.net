@@ -1,5 +1,3 @@
-.PRECIOUS: build/%.css build/%.js
-
 build/%.html: src/%.pug src/_base/head.pug build/%.css build/%.js
 	echo $@ && mkdir -p $(dir $<)
 	pug -sb . --doctype html $<
