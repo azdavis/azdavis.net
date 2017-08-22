@@ -1,4 +1,4 @@
-SHELL = PATH=$(PWD)/node_modules/.bin:$(PATH) sh
+N = $(PWD)/node_modules/.bin/
 
 .SILENT:
 .SUFFIXES:
