@@ -1,5 +1,8 @@
 all: \
 	setup \
+	build/favicon.png \
+	build/touch-icon.png \
+	build/keybase.txt \
 	build/google827af1fbb442e5a9.html \
 	$(patsubst src/%.pug,build/%.html,$(shell find src ! -path "*_base*" -name "*.pug"))
 
@@ -33,7 +36,6 @@ setup: \
 	.git/hooks/pre-commit \
 	.git/hooks/post-checkout \
 	node_modules \
-	$(BINARY) \
 	netlify
 
 deploy: git-ok all upload
