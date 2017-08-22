@@ -1,7 +1,7 @@
 html(lang="en")
 	head
 		include /src/_base/head.pug
-		style: include ./index.css
+		style: include /build/clock/index.css
 		title clock
 	body
 		noscript: div JavaScript is required
@@ -36,4 +36,4 @@ html(lang="en")
 			.row
 				#h0 TWELVE
 				#oc O'CLOCK
-		script: include ./index.c.js
+		script: include /build/clock/index.js
