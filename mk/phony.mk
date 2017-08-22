@@ -23,13 +23,13 @@ git-ok:
 
 netlify:
 	if ! [ -e "$$HOME/.netlify/config" ]; then \
-		netlify open; \
+		$(N)netlify open; \
 	fi
 
 upload:
 	git push origin master
 	mv build/404/index.html build/404.html
-	netlify deploy
+	$(N)netlify deploy
 	mv build/404.html build/404/index.html
 
 setup: \
