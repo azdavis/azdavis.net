@@ -1,1 +1,1 @@
-import "/_base/dark"
+import "/src/_base/dark"

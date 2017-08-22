@@ -2,7 +2,7 @@
 
 build/%.html: src/%.pug src/_base/head.pug build/%.css build/%.js
 	echo $@ && mkdir -p $(dir $<)
-	pug -sb src --doctype html $<
+	pug -sb . --doctype html $<
 	html-minifier \
 		--collapse-whitespace \
 		--decode-entities \

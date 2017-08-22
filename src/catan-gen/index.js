@@ -1,4 +1,4 @@
-import "/_base/dark"
+import "/src/_base/dark"
 import Canvas from "./canvas"
 import RegularBoard from "./regular-board"
 
