@@ -4,7 +4,7 @@ build/google827af1fbb442e5a9.html:
 
 $(BINARY):
 	echo $@ && mkdir -p $(dir $@)
-	curl -fLo $@ "https://azdavis.xyz/$(patsubst build/%,%,$@)"
+	curl -fsSLo $@ "https://azdavis.xyz/$(patsubst build/%,%,$@)"
 
 node_modules:
 	echo $@
