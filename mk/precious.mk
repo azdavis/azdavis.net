@@ -9,7 +9,7 @@ build/%.html: src/%.pug src/_base/head.pug build/%.css build/%.js
 		--minify-urls \
 		--remove-attribute-quotes \
 		--remove-redundant-attributes \
-		-o $@.html $@; \
+		-o $@.html $@ && \
 	mv $@.html $@
 
 build/%.css: src/%.styl
