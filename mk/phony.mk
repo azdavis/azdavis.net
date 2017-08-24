@@ -12,7 +12,7 @@ clean:
 test:
 	echo "http://localhost:8888" && \
 	echo "http://$$(curl -fsSL https://ifconfig.co):8888" && \
-	http-server src -p 8888 -s & \
+	http-server build -p 8888 -s & \
 	$(MAKE) && \
 	trap exit INT && \
 	while true; do find src | entr -d $(MAKE) || [ $$? -eq 2 ]; done
