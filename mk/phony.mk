@@ -15,7 +15,7 @@ test:
 	$(N)http-server build -p 8888 -s & \
 	$(MAKE) && \
 	trap exit INT && \
-	fswatch -o src | xargs -I {} $(MAKE)
+	find src | entr $(MAKE)
 
 git-ok:
 	! git status -unormal --porcelain | grep -q .
