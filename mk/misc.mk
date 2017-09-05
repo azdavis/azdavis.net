@@ -10,8 +10,3 @@ node_modules:
 	echo $@ && mkdir -p $(dir $@)
 	echo "make" > $@
 	chmod +x $@
-
-.git/hooks/post-checkout:
-	echo $@ && mkdir -p $(dir $@)
-	echo "make clean" > $@
-	chmod +x $@

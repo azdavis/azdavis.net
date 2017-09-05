@@ -9,5 +9,4 @@ N = $(PWD)/node_modules/.bin/
 	build/%.js \
 	build/% \
 	node_modules \
-	.git/hooks/pre-commit \
-	.git/hooks/post-checkout
+	.git/hooks/pre-commit

@@ -34,7 +34,6 @@ upload:
 
 setup: \
 	.git/hooks/pre-commit \
-	.git/hooks/post-checkout \
 	node_modules \
 	netlify
 
