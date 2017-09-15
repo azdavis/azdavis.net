@@ -9,12 +9,13 @@ const todo = {
 }
 const links = document.querySelectorAll("a")
 
-setTimeout(() => {
-	for (const x in todo) {
-		document.getElementById(x).href = decode(todo[x])
+for (let i = 0; i < links.length; i++) {
+	const x = links[i]
+	x.setAttribute("data-print", printable(x.href))
+}
+for (const x in todo) {
+	document.getElementById(x).onclick = e => {
+		e.preventDefault()
+		location.assign(decode(todo[x]))
 	}
-	for (let i = 0; i < links.length; i++) {
-		const x = links[i]
-		x.setAttribute("data-print", printable(x.href))
-	}
-}, 500)
+}
