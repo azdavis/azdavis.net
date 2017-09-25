@@ -14,8 +14,11 @@ for (let i = 0; i < links.length; i++) {
 	x.setAttribute("data-print", printable(x.href))
 }
 for (const x in todo) {
-	document.getElementById(x).onclick = e => {
+	const el = document.getElementById(x)
+	const href = decode(todo[x])
+	el.setAttribute("data-print", printable(href))
+	el.onclick = e => {
 		e.preventDefault()
-		location.assign(decode(todo[x]))
+		location.assign(href)
 	}
 }
