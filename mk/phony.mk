@@ -10,10 +10,7 @@ clean:
 	rm -rf build
 
 test:
-	echo "http://localhost:8888" && \
-	echo "http://$$(curl -fsSL https://ifconfig.co):8888" && \
 	$(N)http-server build -p 8888 -s & \
-	$(MAKE) && \
 	trap exit INT && \
 	find src | entr $(MAKE)
 
