@@ -1,4 +1,4 @@
-build/%.html: src/%.pug src/_base/head.pug build/%.css build/%.js
+build/%.html: src/%.pug src/_base/head.pug build/%.css
 	echo $@ && mkdir -p $(dir $@)
 	$(N)pug -sb . --doctype html -o $(dir $@) $<
 	$(N)html-minifier \
