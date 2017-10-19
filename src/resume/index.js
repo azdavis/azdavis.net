@@ -1,5 +1,3 @@
-import "/src/_base/dark"
-
 const printable = x => x.match(/(mailto:|https?:\/\/|tel:)(.+[^\/])/)[2]
 const links = document.querySelectorAll("a")
 
