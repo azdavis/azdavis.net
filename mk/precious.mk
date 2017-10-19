@@ -16,6 +16,6 @@ build/%.css: src/%.styl
 	echo $@ && mkdir -p $(dir $@)
 	$(N)stylus -u autoprefixer-stylus -o $(dir $@) $< > /dev/null
 
-build/%.js: src/%.js src/_base/dark.js
+build/%.js: src/%.js
 	echo $@ && mkdir -p $(dir $@)
 	$(N)rollup -c --environment "entry:$<,dest:$@"
