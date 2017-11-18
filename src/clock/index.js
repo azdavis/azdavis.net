@@ -57,8 +57,6 @@ function getIdsFor(date) {
 let on = []
 function tick() {
 	const now = new Date()
-	const hr = now.getHours()
-	document.documentElement.className = hr < 6 || 17 < hr ? "dark" : ""
 	on.forEach(x => {
 		els[x].className = ""
 	})
