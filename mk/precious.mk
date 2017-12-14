@@ -18,4 +18,4 @@ build/%.css: src/%.styl
 
 build/%.js: src/%.js
 	echo $@ && mkdir -p $(dir $@)
-	$(N)rollup -c --environment "entry:$<,dest:$@"
+	$(N)rollup -c --environment "input:$<,outputFile:$@"
