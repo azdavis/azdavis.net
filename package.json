@@ -15,16 +15,17 @@
 	"homepage": "https://azdavis.xyz",
 	"devDependencies": {
 		"autoprefixer-stylus": "^0.14.0",
+		"babel-core": "^6.26.0",
 		"babel-plugin-external-helpers": "^6.22.0",
 		"babel-preset-env": "^1.6.0",
 		"html-minifier": "^3.5.0",
 		"http-server": "^0.10.0",
-		"netlify-cli": "^1.2.2",
+		"netlify-cli": "^1.2.0",
 		"pug-cli": "^1.0.0-alpha6",
-		"rollup": "^0.43.0",
-		"rollup-plugin-babel": "^2.7.1",
+		"rollup": "^0.52.0",
+		"rollup-plugin-babel": "^3.0.0",
 		"rollup-plugin-eslint": "^4.0.0",
-		"rollup-plugin-root-import": "^0.2.2",
+		"rollup-plugin-root-import": "^0.2.0",
 		"stylus": "^0.54.0"
 	}
 }
