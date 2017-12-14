@@ -14,8 +14,8 @@ build/%.html: src/%.pug src/_base/head.pug build/%.css
 
 build/%.css: src/%.styl
 	echo $@ && mkdir -p $(dir $@)
-	$(N)stylus -u autoprefixer-stylus -o $(dir $@) $< > /dev/null
+	$(N)stylus -u autoprefixer-stylus -o $(dir $@) $< $(Q)
 
 build/%.js: src/%.js
 	echo $@ && mkdir -p $(dir $@)
-	$(N)rollup -c --environment "input:$<,outputFile:$@"
+	$(N)rollup -c --environment "input:$<,outputFile:$@" $(Q)
