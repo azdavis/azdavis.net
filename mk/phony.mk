@@ -10,7 +10,7 @@ clean:
 	rm -rf build
 
 test:
-	$(N)http-server build -p 8888 -s & \
+	serve -s build & \
 	trap exit INT && \
 	find src | entr $(MAKE)
 
