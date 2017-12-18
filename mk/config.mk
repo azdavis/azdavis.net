@@ -2,7 +2,7 @@ N = $(PWD)/node_modules/.bin/
 
 .SILENT:
 .SUFFIXES:
-.PHONY: all clean test git-ok netlify upload setup deploy
+.PHONY: all clean start git-ok netlify upload setup deploy
 .PRECIOUS: \
 	build/%.html \
 	build/%.css \

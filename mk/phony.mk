@@ -9,7 +9,7 @@ all: \
 clean:
 	rm -rf build
 
-test:
+start:
 	serve -s build & \
 	trap exit INT && \
 	find src | entr $(MAKE)
