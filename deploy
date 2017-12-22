@@ -1,0 +1,4 @@
+#!/bin/sh -eu
+
+git push origin master
+netlify deploy
