@@ -1,5 +1,2 @@
 .DS_Store
 .netlify
-build
-node_modules
-tk-src
