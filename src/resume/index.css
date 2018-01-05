@@ -53,12 +53,12 @@ dd {
 }
 
 a {
+	color: #14c;
 	text-decoration: none;
 }
 
-a,
 a:visited {
-	color: #06c;
+	color: #609;
 }
 
 a:active,
