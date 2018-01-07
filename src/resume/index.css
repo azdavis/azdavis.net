@@ -38,6 +38,7 @@ dd {
 	display: inline-block;
 	vertical-align: top;
 	font-size: 1rem;
+	margin: 0 0 0.5em;
 }
 
 dt {
@@ -47,7 +48,6 @@ dt {
 
 dd {
 	width: 80%;
-	margin: 0 0 0.5em;
 	padding-left: 1em;
 	text-indent: -1em;
 }
@@ -80,6 +80,10 @@ a:hover {
 	dd {
 		display: block;
 		width: auto;
+	}
+
+	dt {
+		margin: 0;
 	}
 
 	dd {
