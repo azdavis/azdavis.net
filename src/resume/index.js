@@ -1,4 +1,4 @@
-var anchors = document.querySelectorAll("a")
+var anchors = document.querySelectorAll("[data-print]")
 var i
 
 var rmRes = [/^https?:\/\//, /^tel:/, /^mailto:/]
