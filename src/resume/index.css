@@ -116,4 +116,8 @@ a:hover {
 	a {
 		color: inherit;
 	}
+
+	[data-print]::after {
+		content: ": " attr(data-print);
+	}
 }
