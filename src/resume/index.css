@@ -113,7 +113,8 @@ a:hover {
 		margin: 0.25em 0;
 	}
 
-	a {
+	a,
+	a:visited {
 		color: inherit;
 	}
 
