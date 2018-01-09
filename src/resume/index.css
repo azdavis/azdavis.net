@@ -112,4 +112,8 @@ a:hover {
 	h3 {
 		margin: 0.25em 0;
 	}
+
+	a {
+		color: inherit;
+	}
 }
