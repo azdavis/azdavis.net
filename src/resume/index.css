@@ -76,6 +76,10 @@ a:hover {
 }
 
 @media only screen and (max-width: 600px) {
+	html {
+		font-size: medium;
+	}
+
 	dt,
 	dd {
 		display: block;
@@ -107,11 +111,5 @@ a:hover {
 	h2,
 	h3 {
 		margin: 0.5em 0 0.25em;
-	}
-}
-
-@media only screen and (max-width: 600px) {
-	html {
-		font-size: medium;
 	}
 }
