@@ -5,7 +5,7 @@
 html {
 	background: #eee;
 	color: #222;
-	font: medium/1.5 Input, Menlo, Consolas, "Liberation Mono", monospace;
+	font: 16px/1.5 Input, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 body {
@@ -53,7 +53,7 @@ a:hover {
 
 @media only screen and (max-width: 600px) {
 	html {
-		font-size: small;
+		font-size: 14px;
 	}
 
 	.sec {

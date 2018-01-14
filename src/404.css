@@ -5,7 +5,7 @@
 html {
 	background: #eee;
 	color: #222;
-	font: large/1.5 -apple-system, BlinkMacSystemFont, Ubuntu, Roboto, sans-serif;
+	font: 18px/1.5 -apple-system, BlinkMacSystemFont, Ubuntu, Roboto, sans-serif;
 }
 
 body {
@@ -22,6 +22,6 @@ h1 {
 
 @media only screen and (max-width: 600px) {
 	html {
-		font-size: medium;
+		font-size: 16px;
 	}
 }
