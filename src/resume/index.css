@@ -113,7 +113,7 @@ a:hover {
 
 	a,
 	a:visited {
-		color: inherit;
+		border: 0;
 	}
 
 	[data-print] {
