@@ -56,13 +56,13 @@ a,
 a:visited {
 	color: inherit;
 	text-decoration: none;
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid #777;
 }
 
 a:active,
 a:hover {
 	outline: 0;
-	border-bottom-color: currentColor;
+	color: #777;
 }
 
 .sep {
