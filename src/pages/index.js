@@ -6,7 +6,7 @@ const IndexPage = () => <div>
 	<h1>NAME</h1>
 	<div className="sec">azdavis - a fella</div>
 	<h2>SYNOPSIS</h2>
-	<div className="sec">azdavis <a href="resume">--show-resume</a></div>
+	<div className="sec">azdavis <Link to="resume">--show-resume</Link></div>
 	<h2>DESCRIPTION</h2>
 	<div className="sec">
 		azdavis is pursuing a major in computer science, with a minor in
