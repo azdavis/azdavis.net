@@ -119,3 +119,5 @@ const ResumePage = () => <div>
 		<dd>Git, GitHub, Make, Shell, POSIX</dd>
 	</dl>
 </div>
+
+export default ResumePage
