@@ -1,68 +1,47 @@
-p,
-dl {
+.Dl {
 	margin: 0;
-}
-
-dl {
 	font-size: 0;
 }
 
-dt,
-dd {
+.Dt,
+.Dd {
 	display: inline-block;
 	vertical-align: top;
 	font-size: 1rem;
 	margin: 0 0 0.5em;
 }
 
-dt {
+.Dt {
 	width: 20%;
 	font-style: italic;
 }
 
-dd {
+.Dd {
 	width: 80%;
 	padding-left: 1em;
 	text-indent: -1em;
 }
 
-.sep {
+.Sep {
 	margin: 0 0.5em;
 }
 
-.sep::after {
+.Sep::after {
 	content: "-";
 }
 
 @media only screen and (max-width: 600px) {
-	dt,
-	dd {
+	.Dt,
+	.Dd {
 		display: block;
 		width: auto;
 	}
 
-	dt {
+	.Dt {
 		margin: 0;
 	}
 
-	dd {
+	.Dd {
 		margin-left: 1.5em;
-	}
-}
-
-@media only print {
-	h1,
-	h2,
-	h3 {
-		margin: 0.25em 0;
-	}
-
-	[data-print] {
-		font-size: 0;
-	}
-
-	[data-print]::after {
-		content: attr(data-print);
-		font-size: 1rem;
 	}
 }

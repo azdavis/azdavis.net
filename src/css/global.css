@@ -49,4 +49,13 @@ a:hover {
 	a:visited {
 		border: 0;
 	}
+
+	[data-print] {
+		font-size: 0;
+	}
+
+	[data-print]::after {
+		content: attr(data-print);
+		font-size: 1rem;
+	}
 }
