@@ -21,7 +21,7 @@ const Dd = ({children}) =>
 const Dt = ({children}) =>
 	<dt className={css.Dt}>{children}</dt>
 
-export default () => <div>
+export default () => <div className={css.Root}>
 	<Helmet title="man azdavis"/>
 	<MainTitle>NAME</MainTitle>
 	<SecContent>azdavis - a fella</SecContent>

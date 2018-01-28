@@ -1,0 +1,9 @@
+.Root {
+	font: 18px/1.5 -apple-system, BlinkMacSystemFont, Ubuntu, Roboto, sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+	.Root {
+		font-size: 16px;
+	}
+}

@@ -1,3 +1,7 @@
+.Root {
+	font: 18px/1.5 -apple-system, BlinkMacSystemFont, Ubuntu, Roboto, sans-serif;
+}
+
 .Dl {
 	margin: 0;
 	font-size: 0;
@@ -31,6 +35,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+	.Root {
+		font-size: 16px;
+	}
+
 	.Dt,
 	.Dd {
 		display: block;
@@ -43,5 +51,11 @@
 
 	.Dd {
 		margin-left: 1.5em;
+	}
+}
+
+@media only print {
+	.Root {
+		font-size: 12px;
 	}
 }

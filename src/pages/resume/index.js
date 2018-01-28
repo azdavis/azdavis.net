@@ -15,7 +15,7 @@ const Dd = ({children}) =>
 const Dt = ({children}) =>
 	<dt className={css.Dt}>{children}</dt>
 
-export default () => <div>
+export default () => <div className={css.Root}>
 	<Helmet title="Ariel Davis"/>
 	<h1>Ariel Davis</h1>
 	<div>

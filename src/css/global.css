@@ -5,7 +5,6 @@
 html {
 	background: #eee;
 	color: #222;
-	font: 16px/1.5 Input, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 body {
@@ -29,18 +28,7 @@ a:hover {
 	color: #888;
 }
 
-@media only screen and (max-width: 600px) {
-	html {
-		font-size: 14px;
-	}
-}
-
 @media only print {
-	html {
-		font-size: 10px;
-		line-height: 1.2;
-	}
-
 	body {
 		max-width: none;
 		margin: 0;

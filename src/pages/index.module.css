@@ -1,3 +1,7 @@
+.Root {
+	font: 16px/1.5 Input, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
 .MainTitle,
 .SecTitle {
 	margin: 0;
@@ -17,6 +21,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+	.Root {
+		font-size: 14px;
+	}
+
 	.Dd {
 		margin-left: 1em;
 	}
