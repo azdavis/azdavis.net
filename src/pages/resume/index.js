@@ -2,7 +2,7 @@ import React from "react"
 import Link from "gatsby-link"
 import "./index.css"
 
-const ResumePage = () => <div>
+export default () => <div>
 	<h1>Ariel Davis</h1>
 	<div>
 		<a data-print="azdavis@andrew.cmu.edu" href="mailto:azdavis@andrew.cmu.edu">Email</a>
@@ -119,5 +119,3 @@ const ResumePage = () => <div>
 		<dd>Git, GitHub, Make, Shell, POSIX</dd>
 	</dl>
 </div>
-
-export default ResumePage

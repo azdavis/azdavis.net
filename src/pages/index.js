@@ -2,7 +2,7 @@ import React from "react"
 import Link from "gatsby-link"
 import "./index.css"
 
-const IndexPage = () => <div>
+export default () => <div>
 	<h1>NAME</h1>
 	<div className="sec">azdavis - a fella</div>
 	<h2>SYNOPSIS</h2>
@@ -28,5 +28,3 @@ const IndexPage = () => <div>
 	<h2>COPYRIGHT</h2>
 	<div className="sec">Copyright 1998 Ariel Davis.</div>
 </div>
-
-export default IndexPage
