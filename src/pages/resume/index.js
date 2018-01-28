@@ -3,6 +3,12 @@ import Link from "gatsby-link"
 import Helmet from "react-helmet"
 import css from "./index.module.css"
 
+const MainTitle = ({children}) =>
+	<h1 className={css.MainTitle}>{children}</h1>
+
+const SecTitle = ({children}) =>
+	<h2 className={css.SecTitle}>{children}</h2>
+
 const Sep = () =>
 	<span className={css.Sep}></span>
 
@@ -32,7 +38,7 @@ const frontendDev =
 
 export default () => <div className={css.Root}>
 	<Helmet title="Ariel Davis"/>
-	<h1>Ariel Davis</h1>
+	<MainTitle>Ariel Davis</MainTitle>
 	<div>
 		<Link
 			data-print="azdavis@andrew.cmu.edu"
@@ -57,7 +63,7 @@ export default () => <div className={css.Root}>
 			GitHub
 		</Link>
 	</div>
-	<h2>Education</h2>
+	<SecTitle>Education</SecTitle>
 	<Dl>
 		<Dt>May 2020</Dt>
 		<Dd>
@@ -71,7 +77,7 @@ export default () => <div className={css.Root}>
 			<div>Summa Cum Laude</div>
 		</Dd>
 	</Dl>
-	<h2>Selected Coursework</h2>
+	<SecTitle>Selected Coursework</SecTitle>
 	<Dl>
 		<Dt>Spring 2018</Dt>
 		<Dd>
@@ -103,7 +109,7 @@ export default () => <div className={css.Root}>
 			<div>21-127: Concepts of Mathematics</div>
 		</Dd>
 	</Dl>
-	<h2>Activities</h2>
+	<SecTitle>Activities</SecTitle>
 	<Dl>
 		<Dt>Spring 2018</Dt>
 		<Dd>TA: 15-150</Dd>
@@ -131,7 +137,7 @@ export default () => <div className={css.Root}>
 			HTML, CSS
 		</Dd>
 	</Dl>
-	<h2>Achievements</h2>
+	<SecTitle>Achievements</SecTitle>
 	<Dl>
 		<Dt>Fall 2016</Dt>
 		<Dd>Dean's List</Dd>
@@ -146,7 +152,7 @@ export default () => <div className={css.Root}>
 			<div>AP Scholar with Distinction</div>
 		</Dd>
 	</Dl>
-	<h2>Skills</h2>
+	<SecTitle>Skills</SecTitle>
 	<Dl>
 		<Dt>Languages</Dt>
 		<Dd>JavaScript, Haskell, Standard ML, Idris, Ruby, C</Dd>
