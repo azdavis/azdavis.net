@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "gatsby-link"
+import Helmet from "react-helmet"
 import css from "./index.module.css"
 
 const Sep = () =>
@@ -15,6 +16,7 @@ const Dt = ({children}) =>
 	<dt className={css.Dt}>{children}</dt>
 
 export default () => <div>
+	<Helmet title="Ariel Davis"/>
 	<h1>Ariel Davis</h1>
 	<div>
 		<a data-print="azdavis@andrew.cmu.edu" href="mailto:azdavis@andrew.cmu.edu">Email</a>
