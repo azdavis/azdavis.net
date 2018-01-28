@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"build": "gatsby build",
-		"dev": "gatsby develop",
+		"start": "gatsby develop",
 		"serve": "gatsby serve"
 	},
 	"dependencies": {
