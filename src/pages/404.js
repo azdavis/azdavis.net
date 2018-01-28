@@ -1,5 +1,5 @@
 import React from "react"
-import "./404.css"
+import "../css/global.css"
 
 export default () => <div>
 	<h1>404 Not Found</h1>
