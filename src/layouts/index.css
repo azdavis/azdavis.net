@@ -5,7 +5,7 @@
 html {
 	background: #eee;
 	color: #222;
-	font: 16px/1.5 Input, Menlo, Consolas, "Liberation Mono", monospace;
+	font: 18px/1.5 -apple-system, BlinkMacSystemFont, Ubuntu, Roboto, sans-serif;
 }
 
 body {
@@ -14,10 +14,14 @@ body {
 	padding: 10px;
 }
 
+h1 {
+	margin: 0.67em 0;
+	font-size: 2em;
+}
+
 h1,
 h2 {
-	margin: 0;
-	font-size: 1em;
+	line-height: 1.3;
 }
 
 a,
@@ -35,6 +39,6 @@ a:hover {
 
 @media only screen and (max-width: 600px) {
 	html {
-		font-size: 14px;
+		font-size: 16px;
 	}
 }
