@@ -5,11 +5,11 @@ const ResumePage = () => <div>
 	<h1>Ariel Davis</h1>
 	<div>
 		<a data-print="azdavis@andrew.cmu.edu" href="mailto:azdavis@andrew.cmu.edu">Email</a>
-		<span class="sep"></span>
+		<span className="sep"></span>
 		<a data-print="1-908-514-1006" href="tel:1-908-514-1006">Phone</a>
-		<span class="sep"></span>
+		<span className="sep"></span>
 		<Link data-print="azdavis.xyz" to="/">Website</Link>
-		<span class="sep"></span>
+		<span className="sep"></span>
 		<a data-print="github.com/azdavis" href="https://github.com/azdavis">GitHub</a>
 	</div>
 	<h2>Education</h2>
