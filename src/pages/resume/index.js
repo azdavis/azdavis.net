@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="icon" href="/favicon.png">
-	<link rel="stylesheet" href="index.css">
-	<title>Ariel Davis</title>
-</head>
-<body>
+import React from "react"
+import "./index.css"
+
+const ResumePage = () => <div>
 	<h1>Ariel Davis</h1>
 	<div>
 		<a data-print="azdavis@andrew.cmu.edu" href="mailto:azdavis@andrew.cmu.edu">Email</a>
 		<span class="sep"></span>
 		<a data-print="1-908-514-1006" href="tel:1-908-514-1006">Phone</a>
 		<span class="sep"></span>
-		<a data-print="azdavis.xyz" href="/">Website</a>
+		<Link data-print="azdavis.xyz" to="/">Website</Link>
 		<span class="sep"></span>
 		<a data-print="github.com/azdavis" href="https://github.com/azdavis">GitHub</a>
 	</div>
@@ -123,5 +117,4 @@
 		<dt>Tools</dt>
 		<dd>Git, GitHub, Make, Shell, POSIX</dd>
 	</dl>
-</body>
-</html>
+</div>
