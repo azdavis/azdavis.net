@@ -57,6 +57,11 @@
 @media only print {
 	.Root {
 		font-size: 12px;
-		line-height: 1;
+		line-height: 1.2;
+	}
+
+	.MainTitle,
+	.SecTitle {
+		margin: 0 0.25em;
 	}
 }
