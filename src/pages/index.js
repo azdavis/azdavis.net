@@ -1,30 +1,48 @@
 import React from "react"
 import Link from "gatsby-link"
-import "./index.css"
+import css from "./index.module.css"
+
+const MainTitle = ({children}) =>
+	<h1 className={css.MainTitle}>{children}</h1>
+
+const SecTitle = ({children}) =>
+	<h2 className={css.SecTitle}>{children}</h2>
+
+const SecContent = ({children}) =>
+	<div className={css.SecContent}>{children}</div>
+
+const Dl = ({children}) =>
+	<dl className={css.Dl}>{children}</dl>
+
+const Dd = ({children}) =>
+	<dd className={css.Dd}>{children}</dd>
+
+const Dt = ({children}) =>
+	<dt className={css.Dt}>{children}</dt>
 
 export default () => <div>
-	<h1>NAME</h1>
-	<div className="sec">azdavis - a fella</div>
-	<h2>SYNOPSIS</h2>
-	<div className="sec">azdavis <Link to="resume">--show-resume</Link></div>
-	<h2>DESCRIPTION</h2>
-	<div className="sec">
+	<MainTitle>NAME</MainTitle>
+	<SecContent>azdavis - a fella</SecContent>
+	<SecTitle>SYNOPSIS</SecTitle>
+	<SecContent>azdavis <Link to="resume">--show-resume</Link></SecContent>
+	<SecTitle>DESCRIPTION</SecTitle>
+	<SecContent>
 		azdavis is pursuing a major in computer science, with a minor in
 		Japanese studies, from Carnegie Mellon University.
-	</div>
-	<h2>PROFILES</h2>
-	<dl className="sec">
-		<dt><a href="https://github.com/azdavis">GitHub</a></dt>
-		<dd>A server for git remotes.</dd>
-		<dt><a href="https://www.reddit.com/user/azdavis">Reddit</a></dt>
-		<dd>A place for people to discuss things.</dd>
-		<dt><a href="https://news.ycombinator.com/user?id=azdavis">Hacker News</a></dt>
-		<dd>A place for hackers to discuss things.</dd>
-		<dt><a href="https://keybase.io/azdavis">Keybase</a></dt>
-		<dd>A place for verification of profile ownership.</dd>
-	</dl>
-	<h2>AUTHORS</h2>
-	<div className="sec">Written by David and Karen Davis.</div>
-	<h2>COPYRIGHT</h2>
-	<div className="sec">Copyright 1998 Ariel Davis.</div>
+	</SecContent>
+	<SecTitle>PROFILES</SecTitle>
+	<SecContent><Dl>
+		<Dt><a href="https://github.com/azdavis">GitHub</a></Dt>
+		<Dd>A server for git remotes.</Dd>
+		<Dt><a href="https://www.reddit.com/user/azdavis">Reddit</a></Dt>
+		<Dd>A place for people to discuss things.</Dd>
+		<Dt><a href="https://news.ycombinator.com/user?id=azdavis">Hacker News</a></Dt>
+		<Dd>A place for hackers to discuss things.</Dd>
+		<Dt><a href="https://keybase.io/azdavis">Keybase</a></Dt>
+		<Dd>A place for verification of profile ownership.</Dd>
+	</Dl></SecContent>
+	<SecTitle>AUTHORS</SecTitle>
+	<SecContent>Written by David and Karen Davis.</SecContent>
+	<SecTitle>COPYRIGHT</SecTitle>
+	<SecContent>Copyright 1998 Ariel Davis.</SecContent>
 </div>

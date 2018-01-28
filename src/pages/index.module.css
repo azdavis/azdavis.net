@@ -1,31 +1,27 @@
-h1,
-h2 {
+.MainTitle,
+.SecTitle {
 	margin: 0;
 	font-size: 1em;
 }
 
-dl {
+.Dl {
 	margin: 0;
 }
 
-dd {
+.Dd {
 	margin: 0 0 1em 2em;
 }
 
-p {
-	margin: 0 0 1em;
-}
-
-.sec {
+.SecContent {
 	margin: 0 3em 1em;
 }
 
 @media only screen and (max-width: 600px) {
-	dd {
+	.Dd {
 		margin-left: 1em;
 	}
 
-	.sec {
+	.SecContent {
 		margin-left: 1.5em;
 		margin-right: 1.5em;
 	}
