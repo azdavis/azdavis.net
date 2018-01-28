@@ -1,0 +1,15 @@
+{
+	"name": "azdavis.xyz",
+	"version": "0.1.0",
+	"description": "a place for stuff",
+	"private": true,
+	"author": "Ariel Davis <ariel.z.davis@icloud.com>",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/azdavis/azdavis.xyz.git"
+	},
+	"scripts": {},
+	"dependencies": {},
+	"devDependencies": {}
+}
