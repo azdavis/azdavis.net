@@ -22,39 +22,39 @@ const Dt = ({children}) =>
 	<dt className={css.Dt}>{children}</dt>
 
 const mlWebapp =
-	<Link to="https://github.com/jerryyu8/tartanhacks-2017">
+	<a href="https://github.com/jerryyu8/tartanhacks-2017">
 		machine learning webapp
-	</Link>
+	</a>
 
 const cvPosterSim =
-	<Link to="https://github.com/mrama/Hack-CMU-2016">
+	<a href="https://github.com/mrama/Hack-CMU-2016">
 		computer vision poster simulator
-	</Link>
+	</a>
 
 const frontendDev =
-	<Link to="https://scottylabs.org/wdw/frontend">
+	<a href="https://scottylabs.org/wdw/frontend">
 		frontend development
-	</Link>
+	</a>
 
 export default () => <div className={css.Root}>
 	<Helmet title="Ariel Davis"/>
 	<MainTitle>Ariel Davis</MainTitle>
 	<div>
-		<Link
+		<a
 			className={css.Print}
 			data-print="azdavis@andrew.cmu.edu"
-			to="mailto:azdavis@andrew.cmu.edu"
+			href="mailto:azdavis@andrew.cmu.edu"
 		>
 			Email
-		</Link>
+		</a>
 		<Sep/>
-		<Link
+		<a
 			className={css.Print}
 			data-print="1-908-514-1006"
-			to="tel:1-908-514-1006"
+			href="tel:1-908-514-1006"
 		>
 			Phone
-		</Link>
+		</a>
 		<Sep/>
 		<Link
 			className={css.Print}
@@ -64,13 +64,13 @@ export default () => <div className={css.Root}>
 			Website
 		</Link>
 		<Sep/>
-		<Link
+		<a
 			className={css.Print}
 			data-print="github.com/azdavis"
-			to="https://github.com/azdavis"
+			href="https://github.com/azdavis"
 		>
 			GitHub
-		</Link>
+		</a>
 	</div>
 	<SecTitle>Education</SecTitle>
 	<Dl>
