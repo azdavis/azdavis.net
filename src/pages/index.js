@@ -37,11 +37,11 @@ export default () => <div className={css.Root}>
 		<Dt><a href="https://github.com/azdavis">GitHub</a></Dt>
 		<Dd>A server for git remotes.</Dd>
 		<Dt><a href="https://www.reddit.com/user/azdavis">Reddit</a></Dt>
-		<Dd>A place for people href discuss things.</Dd>
+		<Dd>A place for people to discuss things.</Dd>
 		<Dt><a href="https://news.ycombinator.com/user?id=azdavis">
 			Hacker News
 		</a></Dt>
-		<Dd>A place for hackers href discuss things.</Dd>
+		<Dd>A place for hackers to discuss things.</Dd>
 		<Dt><a href="https://keybase.io/azdavis">Keybase</a></Dt>
 		<Dd>A place for verification of profile ownership.</Dd>
 	</Dl></SecContent>
