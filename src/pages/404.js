@@ -1,4 +1,5 @@
 import React from "react"
+import "./404.css"
 
 const NotFoundPage = () =>
 	<div>
