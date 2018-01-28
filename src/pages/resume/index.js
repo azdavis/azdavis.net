@@ -34,13 +34,28 @@ export default () => <div className={css.Root}>
 	<Helmet title="Ariel Davis"/>
 	<h1>Ariel Davis</h1>
 	<div>
-		<a data-print="azdavis@andrew.cmu.edu" href="mailto:azdavis@andrew.cmu.edu">Email</a>
+		<a
+			data-print="azdavis@andrew.cmu.edu"
+			href="mailto:azdavis@andrew.cmu.edu"
+		>
+			Email
+		</a>
 		<Sep/>
-		<a data-print="1-908-514-1006" href="tel:1-908-514-1006">Phone</a>
+		<a
+			data-print="1-908-514-1006"
+			href="tel:1-908-514-1006"
+		>
+			Phone
+		</a>
 		<Sep/>
 		<Link data-print="azdavis.xyz" to="/">Website</Link>
 		<Sep/>
-		<a data-print="github.com/azdavis" href="https://github.com/azdavis">GitHub</a>
+		<a
+			data-print="github.com/azdavis"
+			href="https://github.com/azdavis"
+		>
+			GitHub
+		</a>
 	</div>
 	<h2>Education</h2>
 	<Dl>

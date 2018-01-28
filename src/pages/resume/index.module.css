@@ -57,5 +57,6 @@
 @media only print {
 	.Root {
 		font-size: 12px;
+		line-height: 1;
 	}
 }
