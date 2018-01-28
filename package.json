@@ -11,5 +11,7 @@
 	},
 	"scripts": {},
 	"dependencies": {},
-	"devDependencies": {}
+	"devDependencies": {
+		"gatsby-cli": "^1.1.32"
+	}
 }
