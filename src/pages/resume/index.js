@@ -81,7 +81,9 @@ export default () => <div className={css.Root}>
 	<Dl>
 		<Dt>Spring 2018</Dt>
 		<Dd>
-			<div>15-210: Parallel and Sequential Data Structures and Algorithms</div>
+			<div>
+				15-210: Parallel and Sequential Data Structures and Algorithms
+			</div>
 			<div>15-418: Parallel Computer Architecture and Programming</div>
 			<div>82-272: Intermediate Japanese II</div>
 		</Dd>
