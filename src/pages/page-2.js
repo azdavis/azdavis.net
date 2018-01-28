@@ -3,8 +3,7 @@ import Link from "gatsby-link"
 
 const SecondPage = () =>
 	<div>
-		<h1>hello second page</h1>
-		<Link to="/">home page</Link>
+		<h2>hello second page</h2>
 	</div>
 
 export default SecondPage
