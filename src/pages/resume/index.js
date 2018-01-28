@@ -16,46 +16,46 @@ const Dt = ({children}) =>
 	<dt className={css.Dt}>{children}</dt>
 
 const mlWebapp =
-	<a href="https://github.com/jerryyu8/tartanhacks-2017">
+	<Link to="https://github.com/jerryyu8/tartanhacks-2017">
 		machine learning webapp
-	</a>
+	</Link>
 
 const cvPosterSim =
-	<a href="https://github.com/mrama/Hack-CMU-2016">
+	<Link to="https://github.com/mrama/Hack-CMU-2016">
 		computer vision poster simulator
-	</a>
+	</Link>
 
 const frontendDev =
-	<a href="https://scottylabs.org/wdw/frontend">
+	<Link to="https://scottylabs.org/wdw/frontend">
 		frontend development
-	</a>
+	</Link>
 
 export default () => <div className={css.Root}>
 	<Helmet title="Ariel Davis"/>
 	<h1>Ariel Davis</h1>
 	<div>
-		<a
+		<Link
 			data-print="azdavis@andrew.cmu.edu"
-			href="mailto:azdavis@andrew.cmu.edu"
+			to="mailto:azdavis@andrew.cmu.edu"
 		>
 			Email
-		</a>
+		</Link>
 		<Sep/>
-		<a
+		<Link
 			data-print="1-908-514-1006"
-			href="tel:1-908-514-1006"
+			to="tel:1-908-514-1006"
 		>
 			Phone
-		</a>
+		</Link>
 		<Sep/>
 		<Link data-print="azdavis.xyz" to="/">Website</Link>
 		<Sep/>
-		<a
+		<Link
 			data-print="github.com/azdavis"
-			href="https://github.com/azdavis"
+			to="https://github.com/azdavis"
 		>
 			GitHub
-		</a>
+		</Link>
 	</div>
 	<h2>Education</h2>
 	<Dl>

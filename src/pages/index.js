@@ -34,13 +34,15 @@ export default () => <div className={css.Root}>
 	</SecContent>
 	<SecTitle>PROFILES</SecTitle>
 	<SecContent><Dl>
-		<Dt><a href="https://github.com/azdavis">GitHub</a></Dt>
+		<Dt><Link to="https://github.com/azdavis">GitHub</Link></Dt>
 		<Dd>A server for git remotes.</Dd>
-		<Dt><a href="https://www.reddit.com/user/azdavis">Reddit</a></Dt>
+		<Dt><Link to="https://www.reddit.com/user/azdavis">Reddit</Link></Dt>
 		<Dd>A place for people to discuss things.</Dd>
-		<Dt><a href="https://news.ycombinator.com/user?id=azdavis">Hacker News</a></Dt>
+		<Dt><Link to="https://news.ycombinator.com/user?id=azdavis">
+			Hacker News
+		</Link></Dt>
 		<Dd>A place for hackers to discuss things.</Dd>
-		<Dt><a href="https://keybase.io/azdavis">Keybase</a></Dt>
+		<Dt><Link to="https://keybase.io/azdavis">Keybase</Link></Dt>
 		<Dd>A place for verification of profile ownership.</Dd>
 	</Dl></SecContent>
 	<SecTitle>AUTHORS</SecTitle>
