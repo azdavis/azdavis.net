@@ -11,7 +11,8 @@
 	},
 	"scripts": {
 		"build": "gatsby build",
-		"dev": "gatsby develop"
+		"dev": "gatsby develop",
+		"serve": "gatsby serve"
 	},
 	"dependencies": {
 		"gatsby": "^1.9.158",
