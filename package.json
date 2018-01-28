@@ -9,8 +9,16 @@
 		"type": "git",
 		"url": "https://github.com/azdavis/azdavis.xyz.git"
 	},
-	"scripts": {},
-	"dependencies": {},
+	"scripts": {
+		"build": "gatsby build",
+		"develop": "gatsby develop"
+	},
+	"dependencies": {
+		"gatsby": "^1.9.158",
+		"gatsby-link": "^1.6.34",
+		"gatsby-plugin-react-helmet": "^2.0.3",
+		"react-helmet": "^5.2.0"
+	},
 	"devDependencies": {
 		"gatsby-cli": "^1.1.32"
 	}
