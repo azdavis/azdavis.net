@@ -81,18 +81,18 @@ export default () => <div>
 		<Dd>TA: 15-150</Dd>
 		<Dt>Spring 2017</Dt>
 		<Dd>
-			TartanHacks: helped to create a
-			<a href="https://github.com/jerryyu8/tartanhacks-2017">machine learning webapp</a>
+			TartanHacks: helped to create
+			a <a href="https://github.com/jerryyu8/tartanhacks-2017">machine learning webapp</a>
 		</Dd>
 		<Dt>Fall 2016</Dt>
 		<Dd>
 			<div>
-				HackCMU: helped to create a
-				<a href="https://github.com/mrama/Hack-CMU-2016">computer vision poster simulator</a>
+				HackCMU: helped to create
+				a <a href="https://github.com/mrama/Hack-CMU-2016">computer vision poster simulator</a>
 			</div>
 			<div>
-				ScottyLabs: gave a talk on basic
-				<a href="https://scottylabs.org/wdw/frontend">frontend development</a>
+				ScottyLabs: gave a talk on
+				basic <a href="https://scottylabs.org/wdw/frontend">frontend development</a>
 			</div>
 		</Dd>
 		<Dt>Summer 2015</Dt>
