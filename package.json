@@ -11,8 +11,8 @@
 	},
 	"scripts": {
 		"build": "gatsby build",
-		"deploy": "netlify deploy",
-		"serve": "gatsby serve",
+		"deploy": "npm run build && netlify deploy",
+		"serve": "npm run build && gatsby serve",
 		"start": "gatsby develop"
 	},
 	"dependencies": {
