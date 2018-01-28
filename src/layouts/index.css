@@ -38,13 +38,4 @@ a:hover {
 	a {
 		border: 0;
 	}
-
-	[data-print] {
-		font-size: 0;
-	}
-
-	[data-print]::after {
-		content: attr(data-print);
-		font-size: 1rem;
-	}
 }

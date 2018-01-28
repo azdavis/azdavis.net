@@ -41,6 +41,7 @@ export default () => <div className={css.Root}>
 	<MainTitle>Ariel Davis</MainTitle>
 	<div>
 		<Link
+			className="Print"
 			data-print="azdavis@andrew.cmu.edu"
 			to="mailto:azdavis@andrew.cmu.edu"
 		>
@@ -48,15 +49,23 @@ export default () => <div className={css.Root}>
 		</Link>
 		<Sep/>
 		<Link
+			className="Print"
 			data-print="1-908-514-1006"
 			to="tel:1-908-514-1006"
 		>
 			Phone
 		</Link>
 		<Sep/>
-		<Link data-print="azdavis.xyz" to="/">Website</Link>
+		<Link
+			className="Print"
+			data-print="azdavis.xyz"
+			to="/"
+		>
+			Website
+		</Link>
 		<Sep/>
 		<Link
+			className="Print"
 			data-print="github.com/azdavis"
 			to="https://github.com/azdavis"
 		>

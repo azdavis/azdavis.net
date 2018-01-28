@@ -4,14 +4,12 @@
 
 .Dl {
 	margin: 0;
-	font-size: 0;
 }
 
 .Dt,
 .Dd {
 	display: inline-block;
 	vertical-align: top;
-	font-size: 1rem;
 	margin: 0 0 0.5em;
 }
 
@@ -63,5 +61,14 @@
 	.MainTitle,
 	.SecTitle {
 		margin: 0 0.25em;
+	}
+
+	.Print {
+		font-size: 0;
+	}
+
+	.Print::after {
+		content: attr(data-print);
+		font-size: 12px;
 	}
 }
