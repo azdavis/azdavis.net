@@ -58,7 +58,10 @@
 		line-height: 1.2;
 	}
 
-	.MainTitle,
+	.MainTitle {
+		margin: 0 0 0.1em;
+	}
+
 	.SecTitle {
 		margin: 0.1em 0;
 	}
