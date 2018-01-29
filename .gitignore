@@ -1,9 +1,7 @@
 .cache
 .DS_Store
 .netlify
-checkers
 deploy
 node_modules
 public
 thoughts.txt
-tic-tac-toe
