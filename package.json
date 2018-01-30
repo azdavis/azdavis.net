@@ -22,7 +22,8 @@
 		"gatsby-remark-prismjs": "^1.2.12",
 		"gatsby-source-filesystem": "^1.5.16",
 		"gatsby-transformer-remark": "^1.7.30",
-		"react-helmet": "^5.2.0"
+		"react-helmet": "^5.2.0",
+		"timeago.js": "^3.0.2"
 	},
 	"devDependencies": {
 		"gatsby-cli": "^1.1.32",
