@@ -18,6 +18,43 @@ code {
 	font-family: Menlo, Consolas, monospace;
 }
 
+pre {
+	background: #e8e8e8;
+	padding: 10px;
+	border-radius: 5px;
+	tab-size: 4;
+	overflow-x: scroll;
+}
+
+.token.tag,
+.token.selector,
+.token.operator,
+.token.deleted,
+.token.keyword {
+	color: #822;
+}
+
+.token.inserted,
+.token.attr-name {
+	color: #282;
+}
+
+.token.regex,
+.token.boolean,
+.token.number {
+	color: #228;
+}
+
+.token.coord {
+	color: #288;
+}
+
+.token.attr-value,
+.token.string,
+.token.char {
+	color: #882;
+}
+
 a {
 	text-decoration: none;
 	border-bottom: 1px solid #888;
