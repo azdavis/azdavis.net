@@ -5,12 +5,17 @@
 html {
 	background: #eee;
 	color: #222;
+	font: 16px/1.5 Verdana, sans-serif;
 }
 
 body {
 	max-width: 800px;
 	margin: 0 auto;
 	padding: 10px;
+}
+
+code {
+	font-family: Menlo, Consolas, monospace;
 }
 
 a {
@@ -28,7 +33,19 @@ a:hover {
 	color: #888;
 }
 
+@media only screen and (max-width: 600px) {
+	html {
+		font-size: 14px;
+	}
+}
+
 @media only print {
+	html {
+		color: #000;
+		font-size: 14px;
+		line-height: 1.2;
+	}
+
 	body {
 		max-width: none;
 		margin: 0;

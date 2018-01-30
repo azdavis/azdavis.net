@@ -36,7 +36,7 @@ const frontendDev =
 		frontend development
 	</a>
 
-export default () => <div className={css.Root}>
+export default () => <div>
 	<Helmet title="Ariel Davis"/>
 	<MainTitle>Ariel Davis</MainTitle>
 	<div>

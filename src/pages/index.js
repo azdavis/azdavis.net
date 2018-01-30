@@ -21,12 +21,14 @@ const Dd = ({children}) =>
 const Dt = ({children}) =>
 	<dt className={css.Dt}>{children}</dt>
 
-export default () => <div className={css.Root}>
+export default () => <div>
 	<Helmet title="man azdavis"/>
 	<MainTitle>NAME</MainTitle>
 	<SecContent>azdavis - a fella</SecContent>
 	<SecTitle>SYNOPSIS</SecTitle>
-	<SecContent>azdavis <Link to="resume">--show-resume</Link></SecContent>
+	<SecContent><code>
+		azdavis <Link to="resume">--show-resume</Link>
+	</code></SecContent>
 	<SecTitle>DESCRIPTION</SecTitle>
 	<SecContent>
 		azdavis is pursuing a major in computer science, with a minor in
