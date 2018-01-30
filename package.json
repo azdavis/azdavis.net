@@ -22,7 +22,6 @@
 		"gatsby-remark-prismjs": "^1.2.12",
 		"gatsby-source-filesystem": "^1.5.16",
 		"gatsby-transformer-remark": "^1.7.30",
-		"normalize.css": "^7.0.0",
 		"react-helmet": "^5.2.0"
 	},
 	"devDependencies": {
