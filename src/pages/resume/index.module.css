@@ -20,12 +20,9 @@
 	text-indent: -1em;
 }
 
-.Sep {
-	margin: 0 0.5em;
-}
-
-.Sep::after {
+.SepAfter:not(:last-child)::after {
 	content: "-";
+	margin: 0 0.5em 0;
 }
 
 @media only screen and (max-width: 600px) {

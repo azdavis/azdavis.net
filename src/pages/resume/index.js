@@ -9,9 +9,6 @@ const MainTitle = ({children}) =>
 const SecTitle = ({children}) =>
 	<h2 className={css.SecTitle}>{children}</h2>
 
-const Sep = () =>
-	<span className={css.Sep}></span>
-
 const Dl = ({children}) =>
 	<dl className={css.Dl}>{children}</dl>
 
@@ -36,41 +33,48 @@ const frontendDev =
 		frontend development
 	</a>
 
+const InfoA = ({children, href, print}) =>
+	<span className={css.SepAfter}>
+		<a className={css.Print} data-print={print} href={href}>
+			{children}
+		</a>
+	</span>
+
+const InfoLink = ({children, to, print}) =>
+	<span className={css.SepAfter}>
+		<Link className={css.Print} data-print={print} to={to}>
+			{children}
+		</Link>
+	</span>
+
 export default () => <div>
 	<Helmet title="Ariel Davis"/>
 	<MainTitle>Ariel Davis</MainTitle>
 	<div>
-		<a
-			className={css.Print}
-			data-print="azdavis@andrew.cmu.edu"
+		<InfoA
 			href="mailto:azdavis@andrew.cmu.edu"
+			print="azdavis@andrew.cmu.edu"
 		>
 			Email
-		</a>
-		<Sep/>
-		<a
-			className={css.Print}
-			data-print="1-908-514-1006"
+		</InfoA>
+		<InfoA
+			print="1-908-514-1006"
 			href="tel:1-908-514-1006"
 		>
 			Phone
-		</a>
-		<Sep/>
-		<Link
-			className={css.Print}
+		</InfoA>
+		<InfoLink
 			data-print="azdavis.xyz"
 			to="/"
 		>
 			Website
-		</Link>
-		<Sep/>
-		<a
-			className={css.Print}
-			data-print="github.com/azdavis"
+		</InfoLink>
+		<InfoA
+			print="github.com/azdavis"
 			href="https://github.com/azdavis"
 		>
 			GitHub
-		</a>
+		</InfoA>
 	</div>
 	<SecTitle>Education</SecTitle>
 	<Dl>
