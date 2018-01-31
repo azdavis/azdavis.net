@@ -47,8 +47,8 @@ const InfoLink = ({children, to, print}) =>
 		</Link>
 	</span>
 
-export default () => <div>
-	<Helmet title="Ariel Davis"/>
+export default ({data: {site}}) => <div>
+	<Helmet title={`Resume - ${site.siteMetadata.title}`}/>
 	<MainTitle>Ariel Davis</MainTitle>
 	<div>
 		<InfoA
@@ -177,3 +177,13 @@ export default () => <div>
 		<Dd>Git, GitHub, Make, Shell, POSIX</Dd>
 	</Dl>
 </div>
+
+export const pageQuery = graphql`
+	query Resume {
+		site {
+			siteMetadata {
+				title
+			}
+		}
+	}
+`
