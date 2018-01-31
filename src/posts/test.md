@@ -1,7 +1,7 @@
 ---
-path: "/posts/test"
-date: "2018-01-29"
 title: "test"
+path: "/posts/test"
+date: "2018-01-31T00:02:29-05:00"
 ---
 
 what up fellas.
