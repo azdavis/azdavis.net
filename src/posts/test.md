@@ -1,6 +1,6 @@
 ---
 title: test
-path: /posts/test
+path: /posts/test/
 date: 2018-01-31T00:02:29-05:00
 ---
 
