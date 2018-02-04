@@ -6,7 +6,7 @@ import timeago from "timeago.js"
 const now = timeago()
 export default ({data: {site, markdownRemark: {frontmatter, html}}}) => <div>
 	<Helmet title={`${frontmatter.title} - ${site.siteMetadata.title}`}/>
-	<Link to="/">azdavis.xyz</Link>
+	<Link to="/posts">posts</Link>
 	<h1>{frontmatter.title}</h1>
 	<time dateTime={frontmatter.date}>{now.format(frontmatter.date)}</time>
 	<div dangerouslySetInnerHTML={{__html: html}}/>

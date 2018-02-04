@@ -12,7 +12,7 @@ const PostLink = ({id, frontmatter}) => <li key={id}>
 
 export default ({data: {site, allMarkdownRemark: {edges}}}) => <div>
 	<Helmet title={`Posts - ${site.siteMetadata.title}`}/>
-	<Link to="/">azdavis.xyz</Link>
+	<Link to="/">home</Link>
 	<h1>Posts</h1>
 	<ul>
 		{edges.map(edge => PostLink(edge.node))}
