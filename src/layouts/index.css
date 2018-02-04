@@ -29,6 +29,11 @@ a:hover {
 	color: #888;
 }
 
+ul,
+ol {
+	padding-left: 20px;
+}
+
 code {
 	font-family: Menlo, Consolas, monospace;
 }
