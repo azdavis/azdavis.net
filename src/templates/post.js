@@ -4,10 +4,7 @@ import Link from "gatsby-link"
 import timeago from "timeago.js"
 
 const now = timeago()
-export default ({data: {
-	markdownRemark: {frontmatter, html},
-	site,
-}}) => <div>
+export default ({data: {site, markdownRemark: {frontmatter, html}}}) => <div>
 	<Helmet title={`${frontmatter.title} - ${site.siteMetadata.title}`}/>
 	<Link to="/">home</Link>
 	<h1>{frontmatter.title}</h1>
