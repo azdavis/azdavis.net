@@ -27,7 +27,9 @@ export default () => <div>
 	<SecContent>azdavis - a fella</SecContent>
 	<SecTitle>SYNOPSIS</SecTitle>
 	<SecContent><code>
-		azdavis <Link to="resume">--show-resume</Link>
+		azdavis (
+			<Link to="resume">resume</Link> | <Link to="posts">posts</Link>
+		)
 	</code></SecContent>
 	<SecTitle>DESCRIPTION</SecTitle>
 	<SecContent>
