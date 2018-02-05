@@ -3,9 +3,11 @@
 }
 
 html {
-	background: #eee;
-	color: #222;
+	background: #222;
+	color: #eee;
 	font: 16px/1.5 Verdana, sans-serif;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -17,7 +19,7 @@ body {
 a {
 	text-decoration: none;
 	padding-bottom: 1px;
-	border-bottom: 1px solid #888;
+	border-bottom: 1px solid #aaa;
 }
 
 a,
@@ -27,7 +29,7 @@ a:visited {
 
 a:active,
 a:hover {
-	color: #888;
+	color: #aaa;
 }
 
 ul,
@@ -40,7 +42,7 @@ code {
 }
 
 pre {
-	background: #e8e8e8;
+	background: #2a2a2a;
 	padding: 10px;
 	border-radius: 5px;
 	tab-size: 4;
@@ -52,28 +54,28 @@ pre {
 .token.operator,
 .token.deleted,
 .token.keyword {
-	color: #822;
+	color: #daa;
 }
 
 .token.inserted,
 .token.attr-name {
-	color: #282;
+	color: #ada;
 }
 
 .token.regex,
 .token.boolean,
 .token.number {
-	color: #228;
+	color: #aad;
 }
 
 .token.coord {
-	color: #288;
+	color: #add;
 }
 
 .token.attr-value,
 .token.string,
 .token.char {
-	color: #882;
+	color: #dda;
 }
 
 @media only screen and (max-width: 600px) {
@@ -87,6 +89,8 @@ pre {
 		color: #000;
 		font-size: 14px;
 		line-height: 1.2;
+		-moz-osx-font-smoothing: auto;
+		-webkit-font-smoothing: subpixel-antialiased;
 	}
 
 	body {
