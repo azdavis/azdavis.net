@@ -22,7 +22,6 @@ exports.createPages = ({boundActionCreators: {createPage}, graphql}) =>
 			createPage({
 				path: node.frontmatter.path,
 				component: post,
-				context: {},
 			})
 		}
 	})
