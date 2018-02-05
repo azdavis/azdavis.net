@@ -22,7 +22,9 @@ export default () => <div>
 	<SecTitle>SYNOPSIS</SecTitle>
 	<SecContent><code>
 		azdavis (
-			<Link to="resume">resume</Link> | <Link to="posts">posts</Link>
+			<Link to="resume/">resume</Link> {"| "}
+			<Link to="posts/">posts</Link> {"| "}
+			<Link to="projects/">projects</Link>
 		)
 	</code></SecContent>
 	<SecTitle>DESCRIPTION</SecTitle>
