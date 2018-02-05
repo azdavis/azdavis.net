@@ -12,14 +12,8 @@ const SecTitle = ({children}) =>
 const SecContent = ({children}) =>
 	<div className={css.SecContent}>{children}</div>
 
-const Dl = ({children}) =>
-	<dl className={css.Dl}>{children}</dl>
-
 const Dd = ({children}) =>
 	<dd className={css.Dd}>{children}</dd>
-
-const Dt = ({children}) =>
-	<dt className={css.Dt}>{children}</dt>
 
 export default () => <div>
 	<Helmet title="man azdavis"/>
@@ -37,18 +31,18 @@ export default () => <div>
 		Japanese studies, from Carnegie Mellon University.
 	</SecContent>
 	<SecTitle>PROFILES</SecTitle>
-	<SecContent><Dl>
-		<Dt><a href="https://github.com/azdavis">GitHub</a></Dt>
+	<SecContent><dl>
+		<dt><a href="https://github.com/azdavis">GitHub</a></dt>
 		<Dd>A server for git remotes.</Dd>
-		<Dt><a href="https://www.reddit.com/user/azdavis">Reddit</a></Dt>
+		<dt><a href="https://www.reddit.com/user/azdavis">Reddit</a></dt>
 		<Dd>A place for people to discuss things.</Dd>
-		<Dt><a href="https://news.ycombinator.com/user?id=azdavis">
+		<dt><a href="https://news.ycombinator.com/user?id=azdavis">
 			Hacker News
-		</a></Dt>
+		</a></dt>
 		<Dd>A place for hackers to discuss things.</Dd>
-		<Dt><a href="https://keybase.io/azdavis">Keybase</a></Dt>
+		<dt><a href="https://keybase.io/azdavis">Keybase</a></dt>
 		<Dd>A place for verification of profile ownership.</Dd>
-	</Dl></SecContent>
+	</dl></SecContent>
 	<SecTitle>AUTHORS</SecTitle>
 	<SecContent>Written by David and Karen Davis.</SecContent>
 	<SecTitle>COPYRIGHT</SecTitle>

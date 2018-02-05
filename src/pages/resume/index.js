@@ -9,9 +9,6 @@ const MainTitle = ({children}) =>
 const SecTitle = ({children}) =>
 	<h2 className={css.SecTitle}>{children}</h2>
 
-const Dl = ({children}) =>
-	<dl className={css.Dl}>{children}</dl>
-
 const Dd = ({children}) =>
 	<dd className={css.Dd}>{children}</dd>
 
@@ -77,7 +74,7 @@ export default ({data: {site}}) => <div>
 		</InfoA>
 	</div>
 	<SecTitle>Education</SecTitle>
-	<Dl>
+	<dl>
 		<Dt>May 2020</Dt>
 		<Dd>
 			<div>Carnegie Mellon University - Pittsburgh, PA</div>
@@ -89,9 +86,9 @@ export default ({data: {site}}) => <div>
 			<div>Summit High School - Summit, NJ</div>
 			<div>Summa Cum Laude</div>
 		</Dd>
-	</Dl>
+	</dl>
 	<SecTitle>Selected Coursework</SecTitle>
-	<Dl>
+	<dl>
 		<Dt>Spring 2018</Dt>
 		<Dd>
 			<div>
@@ -123,9 +120,9 @@ export default ({data: {site}}) => <div>
 			<div>15-122: Principles of Imperative Computation</div>
 			<div>21-127: Concepts of Mathematics</div>
 		</Dd>
-	</Dl>
+	</dl>
 	<SecTitle>Activities</SecTitle>
-	<Dl>
+	<dl>
 		<Dt>Spring 2018</Dt>
 		<Dd>TA: 15-150</Dd>
 		<Dt>Fall 2017</Dt>
@@ -151,9 +148,9 @@ export default ({data: {site}}) => <div>
 			Northwestern University Center for Talent Development: learned
 			HTML, CSS
 		</Dd>
-	</Dl>
+	</dl>
 	<SecTitle>Achievements</SecTitle>
-	<Dl>
+	<dl>
 		<Dt>Fall 2016</Dt>
 		<Dd>Dean's List</Dd>
 		<Dt>Spring 2017</Dt>
@@ -166,16 +163,16 @@ export default ({data: {site}}) => <div>
 			<div>National AP Scholar</div>
 			<div>AP Scholar with Distinction</div>
 		</Dd>
-	</Dl>
+	</dl>
 	<SecTitle>Skills</SecTitle>
-	<Dl>
+	<dl>
 		<Dt>Languages</Dt>
 		<Dd>JavaScript, Haskell, Standard ML, Idris, Ruby, C</Dd>
 		<Dt>Markup</Dt>
 		<Dd>HTML, CSS, LaTeX, Markdown</Dd>
 		<Dt>Tools</Dt>
 		<Dd>Git, GitHub, Make, Shell, POSIX</Dd>
-	</Dl>
+	</dl>
 </div>
 
 export const pageQuery = graphql`

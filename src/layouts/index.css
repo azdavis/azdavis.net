@@ -37,6 +37,10 @@ ol {
 	padding-left: 20px;
 }
 
+dl {
+	margin: 0;
+}
+
 code {
 	font-family: Menlo, Consolas, monospace;
 }
