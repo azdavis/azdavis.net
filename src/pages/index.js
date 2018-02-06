@@ -12,9 +12,6 @@ const SecTitle = ({children}) =>
 const SecContent = ({children}) =>
 	<div className={css.SecContent}>{children}</div>
 
-const Dd = ({children}) =>
-	<dd className={css.Dd}>{children}</dd>
-
 export default () => <div>
 	<Helmet title="man azdavis"/>
 	<MainTitle>NAME</MainTitle>
@@ -35,15 +32,15 @@ export default () => <div>
 	<SecTitle>PROFILES</SecTitle>
 	<SecContent><dl>
 		<dt><a href="https://github.com/azdavis">GitHub</a></dt>
-		<Dd>A server for git remotes.</Dd>
+		<dd>A server for git remotes.</dd>
 		<dt><a href="https://www.reddit.com/user/azdavis">Reddit</a></dt>
-		<Dd>A place for people to discuss things.</Dd>
+		<dd>A place for people to discuss things.</dd>
 		<dt><a href="https://news.ycombinator.com/user?id=azdavis">
 			Hacker News
 		</a></dt>
-		<Dd>A place for hackers to discuss things.</Dd>
+		<dd>A place for hackers to discuss things.</dd>
 		<dt><a href="https://keybase.io/azdavis">Keybase</a></dt>
-		<Dd>A place for verification of profile ownership.</Dd>
+		<dd>A place for verification of profile ownership.</dd>
 	</dl></SecContent>
 	<SecTitle>AUTHORS</SecTitle>
 	<SecContent>Written by David and Karen Davis.</SecContent>

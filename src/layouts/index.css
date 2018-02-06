@@ -41,6 +41,10 @@ dl {
 	margin: 0;
 }
 
+dd {
+	margin: 0 0 1em 2em;
+}
+
 code {
 	font-family: Menlo, Consolas, monospace;
 }
@@ -85,6 +89,10 @@ pre {
 @media only screen and (max-width: 600px) {
 	html {
 		font-size: 14px;
+	}
+
+	dd {
+		margin-left: 1em;
 	}
 }
 
