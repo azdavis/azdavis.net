@@ -9,11 +9,11 @@ const MainTitle = ({children}) =>
 const SecTitle = ({children}) =>
 	<h2 className={css.SecTitle}>{children}</h2>
 
-const Dd = ({children}) =>
-	<dd className={css.Dd}>{children}</dd>
+const Defn = ({children}) =>
+	<div className={css.Defn}>{children}</div>
 
-const Dt = ({children}) =>
-	<dt className={css.Dt}>{children}</dt>
+const Term = ({children}) =>
+	<div className={css.Term}>{children}</div>
 
 const mlWebapp =
 	<a href="https://github.com/jerryyu8/tartanhacks-2017">
@@ -74,105 +74,95 @@ export default ({data: {site}}) => <div>
 		</InfoA>
 	</div>
 	<SecTitle>Education</SecTitle>
-	<dl>
-		<Dt>May 2020</Dt>
-		<Dd>
-			<div>Carnegie Mellon University - Pittsburgh, PA</div>
-			<div>B.S in Computer Science, Minor in Japanese Studies</div>
-			<div>GPA 4.0</div>
-		</Dd>
-		<Dt>June 2016</Dt>
-		<Dd>
-			<div>Summit High School - Summit, NJ</div>
-			<div>Summa Cum Laude</div>
-		</Dd>
-	</dl>
+	<Term>May 2020</Term>
+	<Defn>
+		<div>Carnegie Mellon University - Pittsburgh, PA</div>
+		<div>B.S in Computer Science, Minor in Japanese Studies</div>
+		<div>GPA 4.0</div>
+	</Defn>
+	<Term>June 2016</Term>
+	<Defn>
+		<div>Summit High School - Summit, NJ</div>
+		<div>Summa Cum Laude</div>
+	</Defn>
 	<SecTitle>Selected Coursework</SecTitle>
-	<dl>
-		<Dt>Spring 2018</Dt>
-		<Dd>
-			<div>
-				15-210: Parallel and Sequential Data Structures and Algorithms
-			</div>
-			<div>15-418: Parallel Computer Architecture and Programming</div>
-			<div>82-272: Intermediate Japanese II</div>
-		</Dd>
-		<Dt>Fall 2017</Dt>
-		<Dd>
-			<div>15-213: Introduction to Computer Systems</div>
-			<div>82-271: Intermediate Japanese I</div>
-			<div>82-273: Introduction to Japanese Language and Culture</div>
-		</Dd>
-		<Dt>Summer 2017</Dt>
-		<Dd>82-172: Elementary Japanese II</Dd>
-		<Dt>Spring 2017</Dt>
-		<Dd>
-			<div>15-251: Great Theoretical Ideas in Computer Science</div>
-			<div>82-171: Elementary Japanese I</div>
-		</Dd>
-		<Dt>Fall 2016</Dt>
-		<Dd>
-			<div>15-131: Great Practical Ideas in Computer Science</div>
-			<div>15-150: Principles of Functional Programming</div>
-		</Dd>
-		<Dt>Summer 2015</Dt>
-		<Dd>
-			<div>15-122: Principles of Imperative Computation</div>
-			<div>21-127: Concepts of Mathematics</div>
-		</Dd>
-	</dl>
+	<Term>Spring 2018</Term>
+	<Defn>
+		<div>
+			15-210: Parallel and Sequential Data Structures and Algorithms
+		</div>
+		<div>15-418: Parallel Computer Architecture and Programming</div>
+		<div>82-272: Intermediate Japanese II</div>
+	</Defn>
+	<Term>Fall 2017</Term>
+	<Defn>
+		<div>15-213: Introduction to Computer Systems</div>
+		<div>82-271: Intermediate Japanese I</div>
+		<div>82-273: Introduction to Japanese Language and Culture</div>
+	</Defn>
+	<Term>Summer 2017</Term>
+	<Defn>82-172: Elementary Japanese II</Defn>
+	<Term>Spring 2017</Term>
+	<Defn>
+		<div>15-251: Great Theoretical Ideas in Computer Science</div>
+		<div>82-171: Elementary Japanese I</div>
+	</Defn>
+	<Term>Fall 2016</Term>
+	<Defn>
+		<div>15-131: Great Practical Ideas in Computer Science</div>
+		<div>15-150: Principles of Functional Programming</div>
+	</Defn>
+	<Term>Summer 2015</Term>
+	<Defn>
+		<div>15-122: Principles of Imperative Computation</div>
+		<div>21-127: Concepts of Mathematics</div>
+	</Defn>
 	<SecTitle>Activities</SecTitle>
-	<dl>
-		<Dt>Spring 2018</Dt>
-		<Dd>TA: 15-150</Dd>
-		<Dt>Fall 2017</Dt>
-		<Dd>TA: 15-131, 15-150</Dd>
-		<Dt>Summer 2017</Dt>
-		<Dd>TA: 15-150</Dd>
-		<Dt>Spring 2017</Dt>
-		<Dd>
-			TartanHacks: helped to create a {mlWebapp}
-		</Dd>
-		<Dt>Fall 2016</Dt>
-		<Dd>
-			<div>HackCMU: helped to create a {cvPosterSim}</div>
-			<div>ScottyLabs: gave a talk on basic {frontendDev}</div>
-		</Dd>
-		<Dt>Summer 2015</Dt>
-		<Dd>
-			Carnegie Mellon University Pre-College: took compressed-form CMU
-			classes
-		</Dd>
-		<Dt>Summer 2014</Dt>
-		<Dd>
-			Northwestern University Center for Talent Development: learned
-			HTML, CSS
-		</Dd>
-	</dl>
+	<Term>Spring 2018</Term>
+	<Defn>TA: 15-150</Defn>
+	<Term>Fall 2017</Term>
+	<Defn>TA: 15-131, 15-150</Defn>
+	<Term>Summer 2017</Term>
+	<Defn>TA: 15-150</Defn>
+	<Term>Spring 2017</Term>
+	<Defn>
+		TartanHacks: helped to create a {mlWebapp}
+	</Defn>
+	<Term>Fall 2016</Term>
+	<Defn>
+		<div>HackCMU: helped to create a {cvPosterSim}</div>
+		<div>ScottyLabs: gave a talk on basic {frontendDev}</div>
+	</Defn>
+	<Term>Summer 2015</Term>
+	<Defn>
+		Carnegie Mellon University Pre-College: took compressed-form CMU
+		classes
+	</Defn>
+	<Term>Summer 2014</Term>
+	<Defn>
+		Northwestern University Center for Talent Development: learned
+		HTML, CSS
+	</Defn>
 	<SecTitle>Achievements</SecTitle>
-	<dl>
-		<Dt>Fall 2016</Dt>
-		<Dd>Dean's List</Dd>
-		<Dt>Spring 2017</Dt>
-		<Dd>Dean's List</Dd>
-		<Dt>Fall 2017</Dt>
-		<Dd>Dean's List</Dd>
-		<Dt>2016</Dt>
-		<Dd>
-			<div>Summit High School Computer Science Award of Excellence</div>
-			<div>National AP Scholar</div>
-			<div>AP Scholar with Distinction</div>
-		</Dd>
-	</dl>
+	<Term>Fall 2016</Term>
+	<Defn>Dean's List</Defn>
+	<Term>Spring 2017</Term>
+	<Defn>Dean's List</Defn>
+	<Term>Fall 2017</Term>
+	<Defn>Dean's List</Defn>
+	<Term>2016</Term>
+	<Defn>
+		<div>Summit High School Computer Science Award of Excellence</div>
+		<div>National AP Scholar</div>
+		<div>AP Scholar with Distinction</div>
+	</Defn>
 	<SecTitle>Skills</SecTitle>
-	<dl>
-		<Dt>Languages</Dt>
-		<Dd>JavaScript, Haskell, Standard ML, Idris, Ruby, C</Dd>
-		<Dt>Markup</Dt>
-		<Dd>HTML, CSS, LaTeX, Markdown</Dd>
-		<Dt>Tools</Dt>
-		<Dd>Git, GitHub, Make, Shell, POSIX</Dd>
-	</dl>
+	<Term>Languages</Term>
+	<Defn>JavaScript, Haskell, Standard ML, Idris, Ruby, C</Defn>
+	<Term>Markup</Term>
+	<Defn>HTML, CSS, LaTeX, Markdown</Defn>
+	<Term>Tools</Term>
+	<Defn>Git, GitHub, Make, Shell, POSIX</Defn>
 </div>
 
 export const pageQuery = graphql`

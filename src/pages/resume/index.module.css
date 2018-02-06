@@ -1,16 +1,16 @@
-.Dt,
-.Dd {
+.Term,
+.Defn {
 	display: inline-block;
 	vertical-align: top;
 	margin: 0 0 0.5em;
 }
 
-.Dt {
+.Term {
 	width: 20%;
 	font-style: italic;
 }
 
-.Dd {
+.Defn {
 	width: 80%;
 	padding-left: 1em;
 	text-indent: -1em;
@@ -22,17 +22,17 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.Dt,
-	.Dd {
+	.Term,
+	.Defn {
 		display: block;
 		width: auto;
 	}
 
-	.Dt {
+	.Term {
 		margin: 0;
 	}
 
-	.Dd {
+	.Defn {
 		margin-left: 1.5em;
 	}
 }
