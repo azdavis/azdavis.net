@@ -49,8 +49,8 @@ export default ({data: {site}}) => <div>
 	<MainTitle>Ariel Davis</MainTitle>
 	<div>
 		<InfoA
-			href="mailto:azdavis@andrew.cmu.edu"
-			print="azdavis@andrew.cmu.edu"
+			href="mailto:ariel.z.davis@icloud.com"
+			print="ariel.z.davis@icloud.com"
 		>
 			Email
 		</InfoA>
