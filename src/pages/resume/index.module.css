@@ -38,11 +38,11 @@
 }
 
 @media only print {
-	.MainTitle {
+	.H1 {
 		margin: 0 0 0.1em;
 	}
 
-	.SecTitle {
+	.H2 {
 		margin: 0.1em 0;
 	}
 

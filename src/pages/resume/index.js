@@ -3,11 +3,11 @@ import Helmet from "react-helmet"
 import Link from "gatsby-link"
 import css from "./index.module.css"
 
-const MainTitle = ({children}) =>
-	<h1 className={css.MainTitle}>{children}</h1>
+const H1 = ({children}) =>
+	<h1 className={css.H1}>{children}</h1>
 
-const SecTitle = ({children}) =>
-	<h2 className={css.SecTitle}>{children}</h2>
+const H2 = ({children}) =>
+	<h2 className={css.H2}>{children}</h2>
 
 const Defn = ({children}) =>
 	<div className={css.Defn}>{children}</div>
@@ -46,7 +46,7 @@ const InfoLink = ({children, to, print}) =>
 
 export default ({data: {site}}) => <div>
 	<Helmet title={`Resume - ${site.siteMetadata.title}`}/>
-	<MainTitle>Ariel Davis</MainTitle>
+	<H1>Ariel Davis</H1>
 	<div>
 		<InfoA
 			href="mailto:ariel.z.davis@icloud.com"
@@ -73,7 +73,7 @@ export default ({data: {site}}) => <div>
 			GitHub
 		</InfoA>
 	</div>
-	<SecTitle>Education</SecTitle>
+	<H2>Education</H2>
 	<Term>May 2020</Term>
 	<Defn>
 		<div>Carnegie Mellon University - Pittsburgh, PA</div>
@@ -85,7 +85,7 @@ export default ({data: {site}}) => <div>
 		<div>Summit High School - Summit, NJ</div>
 		<div>Summa Cum Laude</div>
 	</Defn>
-	<SecTitle>Selected Coursework</SecTitle>
+	<H2>Selected Coursework</H2>
 	<Term>Spring 2018</Term>
 	<Defn>
 		<div>
@@ -117,7 +117,7 @@ export default ({data: {site}}) => <div>
 		<div>15-122: Principles of Imperative Computation</div>
 		<div>21-127: Concepts of Mathematics</div>
 	</Defn>
-	<SecTitle>Activities</SecTitle>
+	<H2>Activities</H2>
 	<Term>Spring 2018</Term>
 	<Defn>TA: 15-150</Defn>
 	<Term>Fall 2017</Term>
@@ -143,7 +143,7 @@ export default ({data: {site}}) => <div>
 		Northwestern University Center for Talent Development: learned
 		HTML, CSS
 	</Defn>
-	<SecTitle>Achievements</SecTitle>
+	<H2>Achievements</H2>
 	<Term>Fall 2016</Term>
 	<Defn>Dean's List</Defn>
 	<Term>Spring 2017</Term>
@@ -156,7 +156,7 @@ export default ({data: {site}}) => <div>
 		<div>National AP Scholar</div>
 		<div>AP Scholar with Distinction</div>
 	</Defn>
-	<SecTitle>Skills</SecTitle>
+	<H2>Skills</H2>
 	<Term>Languages</Term>
 	<Defn>JavaScript, Haskell, Standard ML, Idris, Ruby, C</Defn>
 	<Term>Markup</Term>
