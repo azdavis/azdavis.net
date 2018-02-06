@@ -61,7 +61,7 @@ export default ({data: {site}}) => <div>
 			Phone
 		</InfoA>
 		<InfoLink
-			data-print="azdavis.xyz"
+			print="azdavis.xyz"
 			to="/"
 		>
 			Website
