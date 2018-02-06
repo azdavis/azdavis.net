@@ -6,10 +6,12 @@ export default ({data: {site}}) => <div>
 	<Helmet title={`Projects - ${site.siteMetadata.title}`}/>
 	<Link to="/">Home</Link>
 	<h1>Projects</h1>
-	<ul>
-		<li><a href="/tic-tac-toe/">Tic-Tac-Toe</a></li>
-		<li><a href="/checkers/">Checkers</a></li>
-	</ul>
+	<dl>
+		<dt><a href="/tic-tac-toe/">Tic-Tac-Toe</a></dt>
+		<dd>A simple game.</dd>
+		<dt><a href="/checkers/">Checkers</a></dt>
+		<dd>A more complicated game.</dd>
+	</dl>
 </div>
 
 export const pageQuery = graphql`
