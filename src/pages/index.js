@@ -18,17 +18,24 @@ export default () => <div>
 	<Div>azdavis - a fella</Div>
 	<H2>SYNOPSIS</H2>
 	<Div><code>
-		azdavis (
-			<Link to="resume/">resume</Link> {"| "}
-			<Link to="posts/">posts</Link> {"| "}
-			<Link to="projects/">projects</Link>
-		)
+		azdavis &lt;command&gt;
 	</code></Div>
 	<H2>DESCRIPTION</H2>
 	<Div>
 		azdavis is pursuing a major in computer science, with a minor in
 		Japanese studies, from Carnegie Mellon University.
 	</Div>
+	<H2>COMMANDS</H2>
+	<Div><dl>
+		<dt><Link to="/posts/">Posts</Link></dt>
+		<dd>An assortment of thoughts.</dd>
+		<dt><Link to="/profiles/">Profiles</Link></dt>
+		<dd>A collection of accounts.</dd>
+		<dt><Link to="/projects/">Projects</Link></dt>
+		<dd>An assemblage of works.</dd>
+		<dt><Link to="/resume/">Resume</Link></dt>
+		<dd>A discussion of qualifications.</dd>
+	</dl></Div>
 	<H2>AUTHORS</H2>
 	<Div>Written by David and Karen Davis.</Div>
 	<H2>COPYRIGHT</H2>
