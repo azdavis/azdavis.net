@@ -2,7 +2,6 @@
 .DS_Store
 .netlify
 deploy
-new-post
 node_modules
 public
 thoughts.txt
