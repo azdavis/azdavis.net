@@ -1,7 +1,10 @@
-#!/bin/sh -eu
+#!/bin/sh
+
+IFS=
+set -efu
 
 panic() {
-	echo "$1" >&2
+	echo $1 >&2
 	exit 1
 }
 
@@ -9,14 +12,14 @@ if [ $# -ne 1 ]; then
 	panic "usage: $0 <post-name>"
 fi
 
-datetime="$(TZ=UTC date '+%Y-%m-%dT%H:%M:%S-00:00')"
-date="$(printf '%s' "$datetime" | sed 's#T.*##' | tr -- - /)"
+datetime=$(TZ=UTC date '+%Y-%m-%dT%H:%M:%S-00:00')
+date=$(printf '%s' $datetime | sed 's#T.*##' | tr -- - /)
 
-dst_dir="src/posts/$date"
-dst_file="$dst_dir/$1.md"
+dst_dir=src/posts/$date
+dst_file=$dst_dir/$1.md
 
-mkdir -p "$dst_dir"
-cat <<EOF > "$dst_file"
+mkdir -p $dst_dir
+cat <<EOF > $dst_file
 ---
 title: $1
 path: /posts/$date/$1/
@@ -25,4 +28,4 @@ date: $datetime
 
 content
 EOF
-echo "$dst_file"
+echo $dst_file
