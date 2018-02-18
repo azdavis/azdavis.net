@@ -1,32 +1,32 @@
 {
-	"name": "azdavis.xyz",
-	"version": "0.1.0",
-	"description": "a place for stuff",
-	"private": true,
-	"author": "Ariel Davis <ariel.z.davis@icloud.com>",
-	"license": "ISC",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/azdavis/azdavis.xyz.git"
-	},
-	"scripts": {
-		"build": "gatsby build",
-		"deploy": "netlify deploy",
-		"serve": "gatsby serve",
-		"start": "gatsby develop"
-	},
-	"dependencies": {
-		"gatsby": "^1.9.183",
-		"gatsby-link": "^1.6.36",
-		"gatsby-plugin-react-helmet": "^2.0.3",
-		"gatsby-remark-prismjs": "^1.2.12",
-		"gatsby-source-filesystem": "^1.5.18",
-		"gatsby-transformer-remark": "^1.7.30",
-		"react-helmet": "^5.2.0",
-		"timeago.js": "^3.0.2"
-	},
-	"devDependencies": {
-		"gatsby-cli": "^1.1.37",
-		"netlify-cli": "^1.2.2"
-	}
+    "name": "azdavis.xyz",
+    "version": "0.1.0",
+    "description": "a place for stuff",
+    "private": true,
+    "author": "Ariel Davis <ariel.z.davis@icloud.com>",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/azdavis/azdavis.xyz.git"
+    },
+    "scripts": {
+        "build": "gatsby build",
+        "deploy": "netlify deploy",
+        "serve": "gatsby serve",
+        "start": "gatsby develop"
+    },
+    "dependencies": {
+        "gatsby": "^1.9.183",
+        "gatsby-link": "^1.6.36",
+        "gatsby-plugin-react-helmet": "^2.0.3",
+        "gatsby-remark-prismjs": "^1.2.12",
+        "gatsby-source-filesystem": "^1.5.18",
+        "gatsby-transformer-remark": "^1.7.30",
+        "react-helmet": "^5.2.0",
+        "timeago.js": "^3.0.2"
+    },
+    "devDependencies": {
+        "gatsby-cli": "^1.1.37",
+        "netlify-cli": "^1.2.2"
+    }
 }

@@ -1,60 +1,60 @@
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-	background: #333;
-	color: #eee;
-	font: 16px/1.5 Verdana, sans-serif;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
+    background: #333;
+    color: #eee;
+    font: 16px/1.5 Verdana, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-	max-width: 700px;
-	margin: 0 auto;
-	padding: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 a {
-	text-decoration: none;
-	padding-bottom: 1px;
-	border-bottom: 1px solid #aaa;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #aaa;
 }
 
 a,
 a:visited {
-	color: inherit;
+    color: inherit;
 }
 
 a:active,
 a:hover {
-	color: #aaa;
+    color: #aaa;
 }
 
 ul,
 ol {
-	padding-left: 20px;
+    padding-left: 20px;
 }
 
 dl {
-	margin: 0;
+    margin: 0;
 }
 
 dd {
-	margin: 0 0 1em 2em;
+    margin: 0 0 1em 2em;
 }
 
 code {
-	font-family: Menlo, Consolas, monospace;
+    font-family: Menlo, Consolas, monospace;
 }
 
 pre {
-	background: #2a2a2a;
-	padding: 10px;
-	border-radius: 5px;
-	tab-size: 4;
-	overflow-x: scroll;
+    background: #2a2a2a;
+    padding: 10px;
+    border-radius: 5px;
+    tab-size: 4;
+    overflow-x: scroll;
 }
 
 .token.tag,
@@ -62,56 +62,56 @@ pre {
 .token.operator,
 .token.deleted,
 .token.keyword {
-	color: #daa;
+    color: #daa;
 }
 
 .token.inserted,
 .token.attr-name {
-	color: #ada;
+    color: #ada;
 }
 
 .token.regex,
 .token.boolean,
 .token.number {
-	color: #aad;
+    color: #aad;
 }
 
 .token.coord {
-	color: #add;
+    color: #add;
 }
 
 .token.attr-value,
 .token.string,
 .token.char {
-	color: #dda;
+    color: #dda;
 }
 
 @media only screen and (max-width: 600px) {
-	html {
-		font-size: 14px;
-	}
+    html {
+        font-size: 14px;
+    }
 
-	dd {
-		margin-left: 1em;
-	}
+    dd {
+        margin-left: 1em;
+    }
 }
 
 @media only print {
-	html {
-		color: #000;
-		font-size: 14px;
-		line-height: 1.2;
-		-moz-osx-font-smoothing: auto;
-		-webkit-font-smoothing: subpixel-antialiased;
-	}
+    html {
+        color: #000;
+        font-size: 14px;
+        line-height: 1.2;
+        -moz-osx-font-smoothing: auto;
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
 
-	body {
-		max-width: none;
-		margin: 0;
-		padding: 0;
-	}
+    body {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
 
-	a {
-		border: 0;
-	}
+    a {
+        border: 0;
+    }
 }

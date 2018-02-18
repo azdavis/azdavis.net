@@ -1,16 +1,16 @@
 .H1,
 .H2 {
-	margin: 0;
-	font-size: 1em;
+    margin: 0;
+    font-size: 1em;
 }
 
 .Div {
-	margin: 0 3em 1em;
+    margin: 0 3em 1em;
 }
 
 @media only screen and (max-width: 600px) {
-	.Div {
-		margin-left: 1.5em;
-		margin-right: 1.5em;
-	}
+    .Div {
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+    }
 }

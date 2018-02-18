@@ -1,57 +1,57 @@
 .Term,
 .Defn {
-	display: inline-block;
-	vertical-align: top;
-	margin: 0 0 0.5em;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0.5em;
 }
 
 .Term {
-	width: 20%;
-	font-style: italic;
+    width: 20%;
+    font-style: italic;
 }
 
 .Defn {
-	width: 80%;
-	padding-left: 1em;
-	text-indent: -1em;
+    width: 80%;
+    padding-left: 1em;
+    text-indent: -1em;
 }
 
 .SepAfter:not(:last-child)::after {
-	content: "-";
-	margin: 0 0.5em 0;
+    content: "-";
+    margin: 0 0.5em 0;
 }
 
 @media only screen and (max-width: 600px) {
-	.Term,
-	.Defn {
-		display: block;
-		width: auto;
-	}
+    .Term,
+    .Defn {
+        display: block;
+        width: auto;
+    }
 
-	.Term {
-		margin: 0;
-	}
+    .Term {
+        margin: 0;
+    }
 
-	.Defn {
-		margin-left: 1.5em;
-	}
+    .Defn {
+        margin-left: 1.5em;
+    }
 }
 
 @media only print {
-	.H1 {
-		margin: 0 0 0.1em;
-	}
+    .H1 {
+        margin: 0 0 0.1em;
+    }
 
-	.H2 {
-		margin: 0.1em 0;
-	}
+    .H2 {
+        margin: 0.1em 0;
+    }
 
-	.Print {
-		font-size: 0;
-	}
+    .Print {
+        font-size: 0;
+    }
 
-	.Print::after {
-		content: attr(data-print);
-		font-size: 1rem;
-	}
+    .Print::after {
+        content: attr(data-print);
+        font-size: 1rem;
+    }
 }
