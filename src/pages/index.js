@@ -27,13 +27,13 @@ export default () => <div>
     </Div>
     <H2>COMMANDS</H2>
     <Div><dl>
-        <dt><Link to="/posts/">Posts</Link></dt>
+        <dt><Link to="/posts/"><code>posts</code></Link></dt>
         <dd>An assortment of thoughts.</dd>
-        <dt><Link to="/profiles/">Profiles</Link></dt>
+        <dt><Link to="/profiles/"><code>profiles</code></Link></dt>
         <dd>A collection of accounts.</dd>
-        <dt><Link to="/projects/">Projects</Link></dt>
+        <dt><Link to="/projects/"><code>projects</code></Link></dt>
         <dd>An assemblage of works.</dd>
-        <dt><Link to="/resume/">Resume</Link></dt>
+        <dt><Link to="/resume/"><code>resume</code></Link></dt>
         <dd>A discussion of qualifications.</dd>
     </dl></Div>
     <H2>AUTHORS</H2>
