@@ -15,7 +15,7 @@ exports.createPages = ({boundActionCreators: {createPage}, graphql}) =>
             }
         }
     }`).then(result => {
-        if (result.errors) {
+        if (result.errors !== undefined) {
             return Promise.reject(result.errors)
         }
         for (const {node} of result.data.allMarkdownRemark.edges) {
