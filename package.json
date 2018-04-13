@@ -16,17 +16,17 @@
         "start": "gatsby develop"
     },
     "dependencies": {
-        "gatsby": "^1.9.231",
-        "gatsby-link": "^1.6.39",
-        "gatsby-plugin-react-helmet": "^2.0.7",
-        "gatsby-remark-prismjs": "^1.2.17",
-        "gatsby-source-filesystem": "^1.5.27",
-        "gatsby-transformer-remark": "^1.7.36",
+        "gatsby": "^1.9.248",
+        "gatsby-link": "^1.6.40",
+        "gatsby-plugin-react-helmet": "^2.0.10",
+        "gatsby-remark-prismjs": "^1.2.24",
+        "gatsby-source-filesystem": "^1.5.29",
+        "gatsby-transformer-remark": "^1.7.39",
         "react-helmet": "^5.2.0",
         "timeago.js": "^3.0.2"
     },
     "devDependencies": {
-        "gatsby-cli": "^1.1.45",
+        "gatsby-cli": "^1.1.50",
         "netlify-cli": "^1.2.2"
     }
 }
