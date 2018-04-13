@@ -3,7 +3,7 @@
 }
 
 html {
-    background: #eee;
+    background-color: #eee;
     color: #222;
     font: 16px/1.5 Verdana, sans-serif;
 }
@@ -48,7 +48,7 @@ code {
 }
 
 pre {
-    background: #e8e8e8;
+    background-color: #e8e8e8;
     padding: 10px;
     border-radius: 5px;
     tab-size: 4;
