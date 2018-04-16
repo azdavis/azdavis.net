@@ -5,7 +5,6 @@ import "./index.css"
 export default ({children}) => <div>
     <Helmet>
         <html lang="en"/>
-        <link rel="icon" href="/favicon.png"/>
     </Helmet>
     {children()}
 </div>
