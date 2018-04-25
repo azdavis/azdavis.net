@@ -143,19 +143,6 @@ export default ({data: {site}}) => <div>
         Northwestern University Center for Talent Development: learned
         HTML, CSS
     </Defn>
-    <H2>Achievements</H2>
-    <Term>Fall 2016</Term>
-    <Defn>Dean's List</Defn>
-    <Term>Spring 2017</Term>
-    <Defn>Dean's List</Defn>
-    <Term>Fall 2017</Term>
-    <Defn>Dean's List</Defn>
-    <Term>2016</Term>
-    <Defn>
-        <div>Summit High School Computer Science Award of Excellence</div>
-        <div>National AP Scholar</div>
-        <div>AP Scholar with Distinction</div>
-    </Defn>
     <H2>Skills</H2>
     <Term>Languages</Term>
     <Defn>JavaScript, Haskell, Standard ML, Idris, Ruby, C</Defn>
