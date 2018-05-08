@@ -1,8 +1,8 @@
 # azdavis.xyz
 
-a place for stuff
+A place for stuff
 
-built with [gatsby][g], deployed with [netlify][n]
+Built with [gatsby][g], deployed with [netlify][n]
 
 [g]: https://www.gatsbyjs.org
 [n]: https://www.netlify.com
