@@ -78,7 +78,7 @@ export default ({data: {site}}) => <div>
     <Defn>
         <div>Carnegie Mellon University - Pittsburgh, PA</div>
         <div>B.S in Computer Science, Minor in Japanese Studies</div>
-        <div>GPA 4.0</div>
+        <div>GPA ~3.9</div>
     </Defn>
     <Term>June 2016</Term>
     <Defn>
