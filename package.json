@@ -11,7 +11,7 @@
     },
     "scripts": {
         "build": "gatsby build",
-        "deploy": "netlify deploy",
+        "deploy": "netlifyctl deploy -b public",
         "serve": "gatsby serve",
         "start": "gatsby develop"
     },
@@ -27,7 +27,6 @@
         "timeago.js": "^3.0.2"
     },
     "devDependencies": {
-        "gatsby-cli": "^1.1.50",
-        "netlify-cli": "^1.2.2"
+        "gatsby-cli": "^1.1.50"
     }
 }

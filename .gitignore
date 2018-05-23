@@ -1,8 +1,8 @@
 .cache
 .DS_Store
-.netlify
 deploy
 img
+netlify.toml
 node_modules
 public
 thoughts.md
