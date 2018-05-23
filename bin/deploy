@@ -1,0 +1,35 @@
+#!/bin/sh
+
+set -efux
+IFS=
+
+panic() {
+	echo $1 >&2
+	exit 1
+}
+
+if [ $# -ne 0 ]; then
+	panic "usage: $0"
+fi
+
+here=$PWD
+deploy_dir=public
+
+rm -rf $deploy_dir
+npm run build
+
+for x in ../tic-tac-toe ../checkers; do
+	cd $x
+	rm -rf build
+    if ! [ -d node_modules ]; then
+        rm -rf node_modules
+        npm i
+    fi
+	npm run build
+	git push origin master
+	cd $here
+	mv $x/build $deploy_dir/$(basename $x)
+done
+
+git push origin master
+npm run deploy

@@ -1,6 +1,5 @@
 .cache
 .DS_Store
-deploy
 img
 netlify.toml
 node_modules
