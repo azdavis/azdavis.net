@@ -10,8 +10,8 @@ process usually looks something like this:
 
 ```
 $ git checkout -b BRANCH
-$ <edit, compile, test>
-$ git commit
+Switched to a new branch 'BRANCH'
+$ <edit, compile, test, commit>
 $ git push
 fatal: The current branch BRANCH has no upstream branch.
 To push the current branch and set the remote as upstream, use
@@ -30,8 +30,8 @@ Enter: `git new-branch`.
 
 ```
 $ git new-branch BRANCH
-$ <edit, compile, test>
-$ git commit
+Switched to a new branch 'BRANCH'
+$ <edit, compile, test, commit>
 $ git push
 ```
 
