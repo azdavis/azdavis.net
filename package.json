@@ -11,7 +11,7 @@
     },
     "scripts": {
         "build": "gatsby build",
-        "deploy": "netlifyctl deploy -b public",
+        "deploy": "netlifyctl deploy -P public",
         "serve": "gatsby serve",
         "start": "gatsby develop"
     },
