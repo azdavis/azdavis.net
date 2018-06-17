@@ -35,15 +35,26 @@ $ <edit, compile, test, commit>
 $ git push
 ```
 
-To use `git new-branch`, just put this in your `~/.gitconfig`:
+To use `git new-branch`, just drop an executable named `git-new-branch` in your
+`$PATH`:
 
-```
-[alias]
-	new-branch = "!f() { \
-		git checkout -b $1 && \
-		git config branch.$1.remote origin && \
-		git config branch.$1.merge refs/heads/$1; \
-	}; f"
+```shell
+#!/bin/sh
+
+set -efu
+IFS=
+
+if [ $# -ne 1 ]; then
+    echo "usage: $(basename $0) <branch>" >&2
+	exit 1
+fi
+
+git rev-parse
+
+branch=$1
+git checkout -b $branch
+git config branch.$branch.remote origin
+git config branch.$branch.merge refs/heads/$branch
 ```
 
 Here's [my gitconfig][], as an example.
@@ -52,18 +63,22 @@ This is great. It's actually doubly great, because now you can do things like
 add a certain prefix to all your branch names automatically. This is encouraged
 when working on [Stripe][] internal repositories.
 
-```
-[alias]
-	new-branch = "!f() { \
-		git checkout -b $LOGNAME/$1 && \
-		git config branch.$LOGNAME/$1.remote origin && \
-		git config branch.$LOGNAME/$1.merge refs/heads/$LOGNAME/$1; \
-	}; f"
+```diff
+--- a/git-new-branch
++++ b/git-new-branch
+@@ -10,7 +10,7 @@ fi
+
+ git rev-parse
+
+-branch=$1
++branch=$LOGNAME/$1
+ git checkout -b $branch
+ git config branch.$branch.remote origin
+ git config branch.$branch.merge refs/heads/$branch
 ```
 
 Side note: `$LOGNAME` is [POSIX][] for `$USER`.
 
 [git]: https://git-scm.com
-[my gitconfig]: https://github.com/azdavis/dotfiles/blob/master/home/gitconfig
 [Stripe]: https://stripe.com
 [POSIX]: http://pubs.opengroup.org/onlinepubs/9699919799/
