@@ -38,7 +38,7 @@ $ git push
 To use `git new-branch`, just drop an executable named `git-new-branch` in your
 `$PATH`:
 
-```shell
+```bash
 #!/bin/sh
 
 set -efu
