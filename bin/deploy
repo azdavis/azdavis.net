@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -efux
+set -efu
 IFS=
 
 panic() {
@@ -11,6 +11,15 @@ panic() {
 if [ $# -ne 0 ]; then
 	panic "usage: $0"
 fi
+
+url=https://github.com/azdavis/azdavis.xyz.git
+if ! git rev-parse 2>/dev/null \
+|| [ $(git config remote.origin.url) != $url ]; then
+	panic "you must run this from inside a clone of $url"
+fi
+
+here=$(git rev-parse --show-toplevel)
+cd $here
 
 here=$PWD
 deploy_dir=public
