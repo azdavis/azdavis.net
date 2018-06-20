@@ -57,8 +57,6 @@ git config branch.$branch.remote origin
 git config branch.$branch.merge refs/heads/$branch
 ```
 
-Here's [my gitconfig][], as an example.
-
 This is great. It's actually doubly great, because now you can do things like
 add a certain prefix to all your branch names automatically. This is encouraged
 when working on [Stripe][] internal repositories.
