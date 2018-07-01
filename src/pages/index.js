@@ -12,6 +12,9 @@ const H2 = ({children}) =>
 const Div = ({children}) =>
     <div className={css.Div}>{children}</div>
 
+const Dl = ({children}) =>
+    <dl className={css.Dl}>{children}</dl>
+
 export default () => <div>
     <Helmet title="man azdavis"/>
     <H1>NAME</H1>
@@ -26,7 +29,7 @@ export default () => <div>
         Japanese studies, from Carnegie Mellon University.
     </Div>
     <H2>COMMANDS</H2>
-    <Div><dl>
+    <Div><Dl>
         <dt><Link to="/posts/"><code>posts</code></Link></dt>
         <dd>An assortment of thoughts.</dd>
         <dt><Link to="/profiles/"><code>profiles</code></Link></dt>
@@ -35,7 +38,7 @@ export default () => <div>
         <dd>An assemblage of works.</dd>
         <dt><Link to="/resume/"><code>resume</code></Link></dt>
         <dd>A discussion of qualifications.</dd>
-    </dl></Div>
+    </Dl></Div>
     <H2>AUTHORS</H2>
     <Div>Written by David and Karen Davis.</Div>
     <H2>COPYRIGHT</H2>
