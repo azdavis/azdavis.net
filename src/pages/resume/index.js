@@ -145,7 +145,7 @@ export default ({data: {site}}) => <div>
     </Defn>
     <H2>Skills</H2>
     <Term>Languages</Term>
-    <Defn>JavaScript, Haskell, Standard ML, Idris, Ruby, C</Defn>
+    <Defn>JavaScript, Standard ML, Rust, Ruby, C</Defn>
     <Term>Markup</Term>
     <Defn>HTML, CSS, LaTeX, Markdown</Defn>
     <Term>Tools</Term>
