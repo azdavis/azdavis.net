@@ -1,0 +1,25 @@
+{
+    "overrides": [
+      {
+        "files": "*.css",
+        "options": {
+          "parser": "css"
+        }
+      },
+      {
+        "files": "*.json",
+        "options": {
+          "parser": "json"
+        }
+      },
+      {
+        "files": "*.js",
+        "options": {
+          "arrowParens": "always",
+          "bracketSpacing": false,
+          "trailingComma": "all",
+          "parser": "babylon"
+        }
+      }
+    ]
+  }
