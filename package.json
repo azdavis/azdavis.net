@@ -10,6 +10,7 @@
     "url": "https://github.com/azdavis/azdavis.xyz.git"
   },
   "scripts": {
+    "clean": "rm -rf .cache public",
     "prettier":
       "prettier --write .prettierrc.json package.json *.js src/*.{js,css,md} src/**/*.{js,css,md}",
 
