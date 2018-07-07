@@ -10,9 +10,9 @@ care about being updated.
 
 To alleviate this, you can:
 
-1. Prefix the branches that you work on with some prefix (perhaps your
-   username), followed by a slash.
-2. Tell git to only fetch those branches in `.git/config`.
+1.  Prefix the branches that you work on with some prefix (perhaps your
+    username), followed by a slash.
+2.  Tell git to only fetch those branches in `.git/config`.
 
 ```
 [remote "origin"]

@@ -11,7 +11,7 @@
   },
   "scripts": {
     "prettier":
-      "prettier --write package.json *.js src/*.{js,css} src/**/*.{js,css}",
+      "prettier --write .prettierrc.json package.json *.js src/*.{js,css,md} src/**/*.{js,css,md}",
 
     "build": "gatsby build",
     "deploy": "netlifyctl deploy -P public",
