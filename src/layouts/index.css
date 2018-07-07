@@ -14,20 +14,9 @@ body {
     padding: 0.5em;
 }
 
-a {
-    text-decoration: none;
-    padding-bottom: 0.1em;
-    border-bottom: 0.1em solid #888;
-}
-
 a,
 a:visited {
     color: inherit;
-}
-
-a:active,
-a:hover {
-    color: #888;
 }
 
 code {
@@ -87,9 +76,5 @@ pre {
         max-width: none;
         margin: 0;
         padding: 0;
-    }
-
-    a {
-        border: 0;
     }
 }
