@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -efu
+IFS=
+
+root=$(git rev-parse --show-toplevel)
+
+cd $root
+npm run --silent prettier >/dev/null
