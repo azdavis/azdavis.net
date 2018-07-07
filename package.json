@@ -10,6 +10,9 @@
     "url": "https://github.com/azdavis/azdavis.xyz.git"
   },
   "scripts": {
+    "prettier":
+      "prettier --write package.json *.js src/*.{js,css} src/**/*.{js,css}",
+
     "build": "gatsby build",
     "deploy": "netlifyctl deploy -P public",
     "serve": "gatsby serve",

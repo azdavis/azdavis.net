@@ -9,15 +9,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/posts`,
         name: "markdown-pages",
-      }
+      },
     },
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: [
-          "gatsby-remark-prismjs",
-        ],
+        plugins: ["gatsby-remark-prismjs"],
       },
     },
   ],
-}
+};
