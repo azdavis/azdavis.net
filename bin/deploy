@@ -30,10 +30,10 @@ npm run build
 for x in ../tic-tac-toe ../checkers; do
 	cd $x
 	rm -rf build
-    if ! [ -d node_modules ]; then
-        rm -rf node_modules
-        npm i
-    fi
+  if ! [ -d node_modules ]; then
+    rm -rf node_modules
+    npm i
+  fi
 	npm run build
 	git push origin master
 	cd $here

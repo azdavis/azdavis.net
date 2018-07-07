@@ -16,8 +16,8 @@ To alleviate this, you can:
 
 ```
 [remote "origin"]
-    url = https://github.com/azdavis/azdavis.xyz.git
-    fetch = +refs/heads/azdavis/*:refs/remotes/origin/azdavis/*
+  url = https://github.com/azdavis/azdavis.xyz.git
+  fetch = +refs/heads/azdavis/*:refs/remotes/origin/azdavis/*
 ```
 
 If you want to fetch other branches (like `master`), you can specify those
@@ -25,7 +25,7 @@ with another `fetch = ...` line.
 
 ```
 [remote "origin"]
-    url = https://github.com/azdavis/azdavis.xyz.git
-    fetch = +refs/heads/azdavis/*:refs/remotes/origin/azdavis/*
-    fetch = +refs/heads/master:refs/remotes/origin/master
+  url = https://github.com/azdavis/azdavis.xyz.git
+  fetch = +refs/heads/azdavis/*:refs/remotes/origin/azdavis/*
+  fetch = +refs/heads/master:refs/remotes/origin/master
 ```

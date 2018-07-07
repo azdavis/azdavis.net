@@ -1,34 +1,34 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    color: #222;
-    font-family: Verdana, sans-serif;
-    line-height: 1.5;
+  color: #222;
+  font-family: Verdana, sans-serif;
+  line-height: 1.5;
 }
 
 body {
-    max-width: 70ch;
-    margin: 0 auto;
-    padding: 0.5em;
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 0.5em;
 }
 
 a,
 a:visited {
-    color: inherit;
+  color: inherit;
 }
 
 code {
-    font-family: Menlo, Consolas, monospace;
+  font-family: Menlo, Consolas, monospace;
 }
 
 pre {
-    background-color: #f8f8f8;
-    padding: 1em;
-    border-radius: 0.5em;
-    tab-size: 4;
-    overflow-x: scroll;
+  background-color: #f8f8f8;
+  padding: 1em;
+  border-radius: 0.5em;
+  tab-size: 4;
+  overflow-x: scroll;
 }
 
 .token.tag,
@@ -36,45 +36,45 @@ pre {
 .token.operator,
 .token.deleted,
 .token.keyword {
-    color: #822;
+  color: #822;
 }
 
 .token.inserted,
 .token.attr-name {
-    color: #282;
+  color: #282;
 }
 
 .token.regex,
 .token.boolean,
 .token.number {
-    color: #228;
+  color: #228;
 }
 
 .token.coord {
-    color: #288;
+  color: #288;
 }
 
 .token.attr-value,
 .token.string,
 .token.char {
-    color: #882;
+  color: #882;
 }
 
 @media only screen and (max-width: 600px) {
-    html {
-        font-size: 14px;
-    }
+  html {
+    font-size: 14px;
+  }
 }
 
 @media only print {
-    html {
-        font-size: 14px;
-        line-height: 1.2;
-    }
+  html {
+    font-size: 14px;
+    line-height: 1.2;
+  }
 
-    body {
-        max-width: none;
-        margin: 0;
-        padding: 0;
-    }
+  body {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
 }

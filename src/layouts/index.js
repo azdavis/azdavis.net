@@ -3,8 +3,8 @@ import Helmet from "react-helmet"
 import "./index.css"
 
 export default ({children}) => <div>
-    <Helmet>
-        <html lang="en"/>
-    </Helmet>
-    {children()}
+  <Helmet>
+    <html lang="en"/>
+  </Helmet>
+  {children()}
 </div>
