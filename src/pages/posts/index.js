@@ -1,23 +1,32 @@
-import React from "react"
-import Helmet from "react-helmet"
-import Link from "gatsby-link"
-import timeago from "timeago.js"
+import React from "react";
+import Helmet from "react-helmet";
+import Link from "gatsby-link";
+import timeago from "timeago.js";
 
-const now = timeago()
-const PostLink = ({id, frontmatter}) => <li key={id}>
-  <Link to={frontmatter.path}>{frontmatter.title}</Link>
-  {" "}
-  (<time dateTime={frontmatter.date}>{now.format(frontmatter.date)}</time>)
-</li>
+const now = timeago();
+const PostLink = ({id, frontmatter}) => (
+  <li key={id}>
+    <Link to={frontmatter.path}>{frontmatter.title}</Link> (<time
+      dateTime={frontmatter.date}
+    >
+      {now.format(frontmatter.date)}
+    </time>)
+  </li>
+);
 
-export default ({data: {site, allMarkdownRemark: {edges}}}) => <div>
-  <Helmet title={`Posts - ${site.siteMetadata.title}`}/>
-  <Link to="/">Home</Link>
-  <h1>Posts</h1>
-  <ul>
-    {edges.map(edge => PostLink(edge.node))}
-  </ul>
-</div>
+export default ({
+  data: {
+    site,
+    allMarkdownRemark: {edges},
+  },
+}) => (
+  <div>
+    <Helmet title={`Posts - ${site.siteMetadata.title}`} />
+    <Link to="/">Home</Link>
+    <h1>Posts</h1>
+    <ul>{edges.map((edge) => PostLink(edge.node))}</ul>
+  </div>
+);
 
 export const pageQuery = graphql`
   query Posts {
@@ -39,4 +48,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
