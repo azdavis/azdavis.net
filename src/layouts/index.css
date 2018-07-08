@@ -59,22 +59,3 @@ pre {
 .token.char {
   color: #882;
 }
-
-@media only screen and (max-width: 600px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media only print {
-  html {
-    font-size: 14px;
-    line-height: 1.2;
-  }
-
-  body {
-    max-width: none;
-    margin: 0;
-    padding: 0;
-  }
-}

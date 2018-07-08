@@ -11,10 +11,3 @@
 .Dl {
   margin: 0;
 }
-
-@media only screen and (max-width: 600px) {
-  .Div {
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-  }
-}
