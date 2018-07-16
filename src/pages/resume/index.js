@@ -107,6 +107,8 @@ export default ({data: {site}}) => (
       <div>21-127: Concepts of Mathematics</div>
     </Defn>
     <H2>Activities</H2>
+    <Term>Summer 2018</Term>
+    <Defn>Internship: Stripe</Defn>
     <Term>Spring 2018</Term>
     <Defn>TA: 15-150</Defn>
     <Term>Fall 2017</Term>
