@@ -58,3 +58,14 @@ pre {
 .token.char {
   color: #882;
 }
+
+@media only print {
+  html {
+    font-size: 12px;
+  }
+
+  body {
+    max-width: none;
+    margin: 0;
+  }
+}
