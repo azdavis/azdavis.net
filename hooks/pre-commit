@@ -1,9 +1,8 @@
 #!/bin/sh
 
-set -efu
-IFS=
+set -eu
 
-root=$(git rev-parse --show-toplevel)
+root="$(git rev-parse --show-toplevel)"
 
-cd $root
-npm run --silent prettier >/dev/null
+cd "$root"
+npm run --silent prettier
