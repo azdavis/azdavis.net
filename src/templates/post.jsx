@@ -5,6 +5,9 @@ import timeago from "timeago.js";
 
 const now = timeago();
 
+const RelativeTime = ({date}) =>
+  <time dateTime={date}>{now.format(date)}</time>
+
 export default ({
   data: {
     site,
@@ -15,7 +18,7 @@ export default ({
     <Helmet title={`${frontmatter.title} - ${site.siteMetadata.title}`} />
     <Link to="/posts/">Posts</Link>
     <h1>{frontmatter.title}</h1>
-    (<time dateTime={frontmatter.date}>{now.format(frontmatter.date)}</time>)
+    (<RelativeTime date={frontmatter.date} />)
     <div dangerouslySetInnerHTML={{__html: html}} />
   </div>
 );
