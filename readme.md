@@ -2,13 +2,15 @@
 
 A place for stuff
 
-Built with [Gatsby][g], deployed with [Netlify][n]
+## Setup
+
+Clone, then run `./bin/setup` to install git hooks and deps.
+
+## Tech
+
+- Built with [Gatsby][g]
+- Deployed with [Netlify][n] via [netlifyctl][nc]
 
 [g]: https://www.gatsbyjs.org
 [n]: https://www.netlify.com
-
-## Deploy
-
-Netlify deprecated its node CLI, so I use [netlifyctl][nc] instead now.
-
 [nc]: https://github.com/netlify/netlifyctl
