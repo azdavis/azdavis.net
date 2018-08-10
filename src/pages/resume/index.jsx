@@ -8,9 +8,9 @@ const links = {
   frontendDev: "https://scottylabs.org/wdw/frontend",
 };
 
-export default ({data: {site}}) => (
+export default ({data}) => (
   <div>
-    <Helmet title={`Resume - ${site.siteMetadata.title}`} />
+    <Helmet title={`Resume - ${data.site.siteMetadata.title}`} />
     <h1>Ariel Davis</h1>
     <dl>
       <dt>Email</dt>

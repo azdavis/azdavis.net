@@ -2,9 +2,9 @@ import React from "react";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
 
-export default ({data: {site}}) => (
+export default ({data}) => (
   <div>
-    <Helmet title={`Profiles - ${site.siteMetadata.title}`} />
+    <Helmet title={`Profiles - ${data.site.siteMetadata.title}`} />
     <Link to="/">Home</Link>
     <h1>Profiles</h1>
     <dl>

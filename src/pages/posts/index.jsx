@@ -2,13 +2,11 @@ import React from "react";
 import Helmet from "react-helmet";
 import Link from "gatsby-link";
 
-const PostLink = ({id, frontmatter}) => (
-  <li>
-    <Link to={frontmatter.path}>{frontmatter.title}</Link>
+const mkPostLink = ({node}) => (
+  <li key={node.id}>
+    <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
   </li>
 );
-
-const mkPostLink = ({node}) => <PostLink key={node.id} {...node} />;
 
 export default ({
   data: {
