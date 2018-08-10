@@ -8,9 +8,12 @@ const now = timeago();
 const RelativeTime = ({date}) =>
   <time dateTime={date}>{now.format(date)}</time>
 
+const mkPageTitle = (data) =>
+  `${data.markdownRemark.frontmatter.title} - ${data.site.siteMetadata.title}`
+
 export default ({data}) => (
   <div>
-    <Helmet title={`${data.markdownRemark.frontmatter.title} - ${data.site.siteMetadata.title}`} />
+    <Helmet title={mkPageTitle(data)} />
     <Link to="/posts/">Posts</Link>
     <h1>{data.markdownRemark.frontmatter.title}</h1>
     (<RelativeTime date={data.markdownRemark.frontmatter.date} />)
