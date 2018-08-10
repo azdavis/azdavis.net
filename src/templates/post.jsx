@@ -8,18 +8,13 @@ const now = timeago();
 const RelativeTime = ({date}) =>
   <time dateTime={date}>{now.format(date)}</time>
 
-export default ({
-  data: {
-    site,
-    markdownRemark,
-  },
-}) => (
+export default ({data}) => (
   <div>
-    <Helmet title={`${markdownRemark.frontmatter.title} - ${site.siteMetadata.title}`} />
+    <Helmet title={`${data.markdownRemark.frontmatter.title} - ${data.site.siteMetadata.title}`} />
     <Link to="/posts/">Posts</Link>
-    <h1>{markdownRemark.frontmatter.title}</h1>
-    (<RelativeTime date={markdownRemark.frontmatter.date} />)
-    <div dangerouslySetInnerHTML={{__html: markdownRemark.html}} />
+    <h1>{data.markdownRemark.frontmatter.title}</h1>
+    (<RelativeTime date={data.markdownRemark.frontmatter.date} />)
+    <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
   </div>
 );
 
