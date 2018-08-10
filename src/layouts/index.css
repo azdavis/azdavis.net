@@ -19,6 +19,10 @@ a:visited {
   color: inherit;
 }
 
+dd {
+  margin-left: 4ch;
+}
+
 code {
   font-family: Input, Menlo, Consolas, monospace;
 }
@@ -67,5 +71,11 @@ pre {
   body {
     max-width: none;
     margin: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  dd {
+    margin-left: 2ch;
   }
 }
