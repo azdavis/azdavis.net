@@ -98,13 +98,11 @@ export default ({data: {site}}) => (
     </Defn>
     <H2>Activities</H2>
     <Term>Summer 2018</Term>
-    <Defn>Internship: Stripe</Defn>
+    <Defn>Internship at Stripe: improved upon an internal CodePen-like tool</Defn>
     <Term>Spring 2018</Term>
-    <Defn>TA: 15-150</Defn>
     <Term>Fall 2017</Term>
-    <Defn>TA: 15-131, 15-150</Defn>
     <Term>Summer 2017</Term>
-    <Defn>TA: 15-150</Defn>
+    <Defn>TA for an introductory functional programming class</Defn>
     <Term>Spring 2017</Term>
     <Defn>TartanHacks: helped to create a {mlWebapp}</Defn>
     <Term>Fall 2016</Term>
