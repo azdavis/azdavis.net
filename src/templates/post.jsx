@@ -11,15 +11,15 @@ const RelativeTime = ({date}) =>
 export default ({
   data: {
     site,
-    markdownRemark: {frontmatter, html},
+    markdownRemark,
   },
 }) => (
   <div>
-    <Helmet title={`${frontmatter.title} - ${site.siteMetadata.title}`} />
+    <Helmet title={`${markdownRemark.frontmatter.title} - ${site.siteMetadata.title}`} />
     <Link to="/posts/">Posts</Link>
-    <h1>{frontmatter.title}</h1>
-    (<RelativeTime date={frontmatter.date} />)
-    <div dangerouslySetInnerHTML={{__html: html}} />
+    <h1>{markdownRemark.frontmatter.title}</h1>
+    (<RelativeTime date={markdownRemark.frontmatter.date} />)
+    <div dangerouslySetInnerHTML={{__html: markdownRemark.html}} />
   </div>
 );
 
