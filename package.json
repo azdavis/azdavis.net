@@ -11,7 +11,7 @@
   },
   "scripts": {
     "clean": "rm -rf .cache public",
-    "prettier": "prettier --loglevel warn --write .prettierrc.json *.js src/*.{js,css,md} src/**/*.{js,css,md}",
+    "prettier": "prettier --loglevel warn --write .prettierrc.json *.{js,jsx,css,md} src/*.{js,jsx,css,md} src/**/*.{js,jsx,css,md}",
     "build": "gatsby build",
     "deploy": "netlifyctl deploy -P public",
     "serve": "gatsby serve",

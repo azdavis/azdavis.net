@@ -1,6 +1,12 @@
 {
   "overrides": [
     {
+      "files": "*.code-workspace",
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
       "files": "*.css",
       "options": {
         "parser": "css"
@@ -14,6 +20,15 @@
     },
     {
       "files": "*.js",
+      "options": {
+        "arrowParens": "always",
+        "bracketSpacing": false,
+        "trailingComma": "all",
+        "parser": "babylon"
+      }
+    },
+    {
+      "files": "*.jsx",
       "options": {
         "arrowParens": "always",
         "bracketSpacing": false,
