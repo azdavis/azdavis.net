@@ -11,6 +11,9 @@ if [ "$#" -ne 1 ]; then
   panic "usage: $0 <post-name>"
 fi
 
+root="$(git rev-parse --show-toplevel)"
+cd "$root"
+
 datetime="$(TZ=UTC date '+%Y-%m-%dT%H:%M:%S-00:00')"
 date="$(printf '%s' $datetime | sed 's#T.*##' | tr -- - /)"
 

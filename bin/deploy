@@ -2,24 +2,10 @@
 
 set -eu
 
-panic() {
-	echo "$1" >&2
-	exit 1
-}
-
-if [ "$#" -ne 0 ]; then
-	panic "usage: $0"
-fi
-
-git rev-parse
-
-url="https://github.com/azdavis/azdavis.xyz.git"
-if [ "$(git config remote.origin.url)" != "$url" ]; then
-	panic "you must run this from inside a clone of $url"
-fi
-
 here="$(git rev-parse --show-toplevel)"
 cd "$here"
+
+./bin/check
 
 deploy_dir="public"
 rm -rf "$deploy_dir"
@@ -38,5 +24,5 @@ for x in ../tic-tac-toe ../checkers; do
 	mv "$x/build" "$deploy_dir/$(basename "$x")"
 done
 
-git push origin master
+git push --no-verify origin master
 npm run deploy
