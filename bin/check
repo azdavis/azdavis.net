@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -eu
+
+panic() {
+  echo "$1" >&2
+  exit 1
+}
+
+root="$(git rev-parse --show-toplevel)"
+cd "$root"
+
+if git status --porcelain -unormal | grep .; then
+  panic "there are uncommitted changes"
+fi
+
+npm run --silent prettier
+if git status --porcelain -unormal | grep .; then
+  panic "some files were reformatted"
+fi

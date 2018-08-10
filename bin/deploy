@@ -1,34 +1,32 @@
 #!/bin/sh
 
-set -efu
-IFS=
+set -eu
 
 panic() {
-	echo $1 >&2
+	echo "$1" >&2
 	exit 1
 }
 
-if [ $# -ne 0 ]; then
+if [ "$#" -ne 0 ]; then
 	panic "usage: $0"
 fi
 
-url=https://github.com/azdavis/azdavis.xyz.git
-if ! git rev-parse 2>/dev/null \
-|| [ $(git config remote.origin.url) != $url ]; then
+git rev-parse
+
+url="https://github.com/azdavis/azdavis.xyz.git"
+if [ "$(git config remote.origin.url)" != "$url" ]; then
 	panic "you must run this from inside a clone of $url"
 fi
 
-here=$(git rev-parse --show-toplevel)
-cd $here
+here="$(git rev-parse --show-toplevel)"
+cd "$here"
 
-here=$PWD
-deploy_dir=public
-
-rm -rf $deploy_dir
+deploy_dir="public"
+rm -rf "$deploy_dir"
 npm run build
 
 for x in ../tic-tac-toe ../checkers; do
-	cd $x
+	cd "$x"
 	rm -rf build
   if ! [ -d node_modules ]; then
     rm -rf node_modules
@@ -36,8 +34,8 @@ for x in ../tic-tac-toe ../checkers; do
   fi
 	npm run build
 	git push origin master
-	cd $here
-	mv $x/build $deploy_dir/$(basename $x)
+	cd "$here"
+	mv "$x/build" "$deploy_dir/$(basename "$x")"
 done
 
 git push origin master

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -eu
+
+root="$(git rev-parse --show-toplevel)"
+cd "$root"
+
+mkdir -p .git/hooks
+rm -f .git/hooks/pre-push
+ln -s ../../bin/check .git/hooks/pre-push
+
+npm install
+npm run build
