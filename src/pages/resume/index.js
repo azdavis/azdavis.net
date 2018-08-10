@@ -77,6 +77,13 @@ export default ({data: {site}}) => (
       <div>Summa Cum Laude</div>
     </Defn>
     <H2>Selected Coursework</H2>
+    <Term>Fall 2018</Term>
+    <Defn>
+      <div>15-312: Foundations of Programming Languages</div>
+      <div>15-440: Distributed Systems</div>
+      <div>82-371: Advanced Japanese I</div>
+      <div>82-373: Structure of the Japanese Language</div>
+    </Defn>
     <Term>Spring 2018</Term>
     <Defn>
       <div>15-210: Parallel and Sequential Data Structures and Algorithms</div>
@@ -88,23 +95,6 @@ export default ({data: {site}}) => (
       <div>15-213: Introduction to Computer Systems</div>
       <div>82-271: Intermediate Japanese I</div>
       <div>82-273: Introduction to Japanese Language and Culture</div>
-    </Defn>
-    <Term>Summer 2017</Term>
-    <Defn>82-172: Elementary Japanese II</Defn>
-    <Term>Spring 2017</Term>
-    <Defn>
-      <div>15-251: Great Theoretical Ideas in Computer Science</div>
-      <div>82-171: Elementary Japanese I</div>
-    </Defn>
-    <Term>Fall 2016</Term>
-    <Defn>
-      <div>15-131: Great Practical Ideas in Computer Science</div>
-      <div>15-150: Principles of Functional Programming</div>
-    </Defn>
-    <Term>Summer 2015</Term>
-    <Defn>
-      <div>15-122: Principles of Imperative Computation</div>
-      <div>21-127: Concepts of Mathematics</div>
     </Defn>
     <H2>Activities</H2>
     <Term>Summer 2018</Term>
