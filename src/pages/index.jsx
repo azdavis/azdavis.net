@@ -1,33 +1,35 @@
 import React from "react";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
-import css from "./index.module.css";
+import "./index.css";
 
-const H1 = ({children}) => <h1 className={css.H1}>{children}</h1>;
+const Heading = ({children}) => <h1 className="Heading">{children}</h1>;
 
-const H2 = ({children}) => <h2 className={css.H2}>{children}</h2>;
+const Subheading = ({children}) => <h2 className="Subheading">{children}</h2>;
 
-const Div = ({children}) => <div className={css.Div}>{children}</div>;
+const Section = ({children}) => (
+  <section className="Section">{children}</section>
+);
 
-const Dl = ({children}) => <dl className={css.Dl}>{children}</dl>;
+const DescList = ({children}) => <dl className="DescList">{children}</dl>;
 
 export default () => (
   <div>
     <Helmet title="man azdavis" />
-    <H1>NAME</H1>
-    <Div>azdavis - a fella</Div>
-    <H2>SYNOPSIS</H2>
-    <Div>
+    <Heading>NAME</Heading>
+    <Section>azdavis - a fella</Section>
+    <Subheading>SYNOPSIS</Subheading>
+    <Section>
       <code>azdavis &lt;command&gt;</code>
-    </Div>
-    <H2>DESCRIPTION</H2>
-    <Div>
+    </Section>
+    <Subheading>DESCRIPTION</Subheading>
+    <Section>
       azdavis is pursuing a major in computer science, with a minor in Japanese
       studies, from Carnegie Mellon University.
-    </Div>
-    <H2>COMMANDS</H2>
-    <Div>
-      <Dl>
+    </Section>
+    <Subheading>COMMANDS</Subheading>
+    <Section>
+      <DescList>
         <dt>
           <Link to="/posts/">
             <code>posts</code>
@@ -52,11 +54,11 @@ export default () => (
           </Link>
         </dt>
         <dd>A discussion of qualifications.</dd>
-      </Dl>
-    </Div>
-    <H2>AUTHORS</H2>
-    <Div>Written by David and Karen Davis.</Div>
-    <H2>COPYRIGHT</H2>
-    <Div>Copyright 1998 Ariel Davis.</Div>
+      </DescList>
+    </Section>
+    <Subheading>AUTHORS</Subheading>
+    <Section>Written by David and Karen Davis.</Section>
+    <Subheading>COPYRIGHT</Subheading>
+    <Section>Copyright 1998 Ariel Davis.</Section>
   </div>
 );

@@ -4,6 +4,7 @@ import Link from "gatsby-link";
 import timeago from "timeago.js";
 
 const now = timeago();
+
 export default ({
   data: {
     site,
@@ -14,7 +15,7 @@ export default ({
     <Helmet title={`${frontmatter.title} - ${site.siteMetadata.title}`} />
     <Link to="/posts/">Posts</Link>
     <h1>{frontmatter.title}</h1>
-    <time dateTime={frontmatter.date}>({now.format(frontmatter.date)})</time>
+    (<time dateTime={frontmatter.date}>{now.format(frontmatter.date)}</time>)
     <div dangerouslySetInnerHTML={{__html: html}} />
   </div>
 );

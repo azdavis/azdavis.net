@@ -1,13 +1,13 @@
-.H1,
-.H2 {
+.Heading,
+.Subheading {
   margin: 0;
   font-size: 1em;
 }
 
-.Div {
+.Section {
   margin: 0 3em 1em;
 }
 
-.Dl {
+.DescList {
   margin: 0;
 }
