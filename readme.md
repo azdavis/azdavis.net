@@ -4,7 +4,7 @@ A place for stuff
 
 ## Setup
 
-Clone, then run `./bin/setup` to install git hooks and deps.
+After cloning, run `./bin/setup` to set up git hooks, install deps, and build.
 
 ## Tech
 
