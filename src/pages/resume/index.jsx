@@ -88,14 +88,6 @@ export default ({data}) => (
           <a href={links.frontendDev}>frontend development</a>
         </div>
       </dd>
-      <dt>Summer 2015</dt>
-      <dd>
-        Carnegie Mellon University Pre-College: took compressed-form CMU classes
-      </dd>
-      <dt>Summer 2014</dt>
-      <dd>
-        Northwestern University Center for Talent Development: learned HTML, CSS
-      </dd>
       <h2>Skills</h2>
       <dt>Languages</dt>
       <dd>JavaScript, Standard ML, Rust, Ruby, C</dd>
