@@ -4,7 +4,8 @@ A place for stuff
 
 ## Setup
 
-After cloning, run `./bin/setup` to set up git hooks, install deps, and build.
+After cloning, run `./bin/setup` to set up hooks for `git`, install dependencies
+using `npm`, and build.
 
 ## Tech
 
