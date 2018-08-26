@@ -6,6 +6,7 @@ export default ({children}) => (
   <div>
     <Helmet>
       <html lang="en" />
+      <meta name="referrer" content="no-referrer" />
       <link rel="icon" href="/favicon.png" />
     </Helmet>
     {children()}
