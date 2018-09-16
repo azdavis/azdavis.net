@@ -79,7 +79,7 @@ export default ({data}) => (
       </dd>
       <h2>Skills</h2>
       <dt>Languages</dt>
-      <dd>Standard ML, TypeScript, Rust, C, others</dd>
+      <dd>TypeScript, Rust, Standard ML, Go, C, others</dd>
       <dt>Markup</dt>
       <dd>HTML, CSS, LaTeX, Markdown</dd>
       <dt>Tools</dt>
