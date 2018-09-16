@@ -4,8 +4,6 @@ import Link from "gatsby-link";
 
 const links = {
   mlWebapp: "https://github.com/jerryyu8/tartanhacks-2017",
-  cvPoster: "https://github.com/mrama/Hack-CMU-2016",
-  frontendDev: "https://scottylabs.org/wdw/frontend",
 };
 
 export default ({data}) => (
