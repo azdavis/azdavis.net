@@ -74,6 +74,10 @@ pre {
     max-width: none;
     margin: 0;
   }
+
+  h1 {
+    margin-top: 0;
+  }
 }
 
 @media only screen and (max-width: 600px) {
