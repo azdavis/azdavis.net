@@ -10,20 +10,20 @@ export default ({data}) => (
   <div>
     <Helmet title={`Resume - ${data.site.siteMetadata.title}`} />
     <h1>Ariel Davis</h1>
-    <dl>
-      <dt>Email</dt>
-      <dd>
+    <div>
+      <div>
+        Email:{" "}
         <a href="mailto:ariel.z.davis@icloud.com">ariel.z.davis@icloud.com</a>
-      </dd>
-      <dt>Website</dt>
-      <dd>
+      </div>
+      <div>
+        Website:{" "}
         <Link to="/">azdavis.xyz</Link>
-      </dd>
-      <dt>GitHub</dt>
-      <dd>
+      </div>
+      <div>
+        GitHub:{" "}
         <a href="https://github.com/azdavis">azdavis</a>
-      </dd>
-    </dl>
+      </div>
+    </div>
     <h2>Education</h2>
     <dl>
       <dt>May 2020</dt>
