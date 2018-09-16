@@ -34,6 +34,7 @@ pre {
   overflow-x: scroll;
 }
 
+/*
 .token.tag,
 .token.selector,
 .token.operator,
@@ -62,6 +63,7 @@ pre {
 .token.char {
   color: #882;
 }
+ */
 
 @media only print {
   html {
