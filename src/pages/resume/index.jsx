@@ -77,17 +77,6 @@ export default ({data}) => (
         TartanHacks: helped to create a{" "}
         <a href={links.mlWebapp}>machine learning webapp</a>
       </dd>
-      <dt>Fall 2016</dt>
-      <dd>
-        <div>
-          HackCMU: helped to create a{" "}
-          <a href={links.cvPoster}>computer vision poster simulator</a>
-        </div>
-        <div>
-          ScottyLabs: gave a talk on basic{" "}
-          <a href={links.frontendDev}>frontend development</a>
-        </div>
-      </dd>
       <h2>Skills</h2>
       <dt>Languages</dt>
       <dd>Standard ML, TypeScript, Rust, C, others</dd>
