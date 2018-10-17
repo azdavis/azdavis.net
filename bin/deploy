@@ -1,26 +1,6 @@
 #!/bin/sh
 
 set -eu
-
-here="$(git rev-parse --show-toplevel)"
-cd "$here"
-
-deploy_dir="build"
-rm -rf "$deploy_dir"
-cp -R src "$deploy_dir"
-
-for x in ../tic-tac-toe ../checkers; do
-	cd "$x"
-	rm -rf build
-  if ! [ -d node_modules ]; then
-    rm -rf node_modules
-    npm i
-  fi
-	npm run build
-	git push origin master
-	cd "$here"
-	mv "$x/build" "$deploy_dir/$(basename "$x")"
-done
-
+cd "$(git rev-parse --show-toplevel)"
 git push origin master
-netlifyctl deploy -P "$deploy_dir"
+netlifyctl deploy -P src
