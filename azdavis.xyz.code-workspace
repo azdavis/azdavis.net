@@ -3,10 +3,5 @@
     {
       "path": "."
     }
-  ],
-  "settings": {
-    "files.exclude": {
-      "build": true,
-    }
-  }
+  ]
 }
