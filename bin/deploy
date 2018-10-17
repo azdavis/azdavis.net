@@ -22,5 +22,5 @@ for x in ../tic-tac-toe ../checkers; do
 	mv "$x/build" "$deploy_dir/$(basename "$x")"
 done
 
-git push --no-verify origin master
+git push origin master
 netlifyctl deploy -P "$deploy_dir"
