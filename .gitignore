@@ -1,7 +1,5 @@
-.cache
 .DS_Store
+build
 img
 netlify.toml
-node_modules
-public
 thoughts.md
