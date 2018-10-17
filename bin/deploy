@@ -5,11 +5,9 @@ set -eu
 here="$(git rev-parse --show-toplevel)"
 cd "$here"
 
-./bin/check
-
-deploy_dir="public"
+deploy_dir="build"
 rm -rf "$deploy_dir"
-npm run build
+cp -R src "$deploy_dir"
 
 for x in ../tic-tac-toe ../checkers; do
 	cd "$x"
@@ -25,4 +23,4 @@ for x in ../tic-tac-toe ../checkers; do
 done
 
 git push --no-verify origin master
-npm run deploy
+netlifyctl deploy -P "$deploy_dir"

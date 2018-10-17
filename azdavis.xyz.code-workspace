@@ -6,17 +6,7 @@
   ],
   "settings": {
     "files.exclude": {
-      "public": true,
-      ".cache": true
-    },
-    "[javascript]": {
-      "editor.formatOnSave": true
-    },
-    "[javascriptreact]": {
-      "editor.formatOnSave": true
-    },
-    "[jsonc]": {
-      "editor.formatOnSave": true
+      "build": true,
     }
   }
 }

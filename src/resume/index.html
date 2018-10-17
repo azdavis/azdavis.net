@@ -1,26 +1,23 @@
-import React from "react";
-import Helmet from "react-helmet";
-import Link from "gatsby-link";
-
-const links = {
-  mlWebapp: "https://github.com/jerryyu8/tartanhacks-2017",
-};
-
-export default ({data}) => (
-  <div>
-    <Helmet title={`Resume - ${data.site.siteMetadata.title}`} />
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/base.css">
+    <title>Resume - azdavis.xyz</title>
+  </head>
+  <body>
     <h1>Ariel Davis</h1>
     <div>
       <div>
-        Email:{" "}
+        Email:
         <a href="mailto:ariel.z.davis@icloud.com">ariel.z.davis@icloud.com</a>
       </div>
       <div>
-        Website:{" "}
+        Website:
         <Link to="/">azdavis.xyz</Link>
       </div>
       <div>
-        GitHub:{" "}
+        GitHub:
         <a href="https://github.com/azdavis">azdavis</a>
       </div>
     </div>
@@ -72,8 +69,8 @@ export default ({data}) => (
       </dd>
       <dt>Spring 2017</dt>
       <dd>
-        TartanHacks: helped to create a{" "}
-        <a href={links.mlWebapp}>machine learning webapp</a>
+        TartanHacks: helped to create a
+        <a href="https://github.com/jerryyu8/tartanhacks-2017">machine learning webapp</a>
       </dd>
       <h2>Skills</h2>
       <dt>Languages</dt>
@@ -83,15 +80,5 @@ export default ({data}) => (
       <dt>Tools</dt>
       <dd>Git, GitHub, Make, Shell, POSIX</dd>
     </dl>
-  </div>
-);
-
-export const pageQuery = graphql`
-  query Resume {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;
+  </body>
+</html>

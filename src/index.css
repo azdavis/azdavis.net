@@ -1,19 +1,19 @@
-.Heading,
-.Subheading {
+h1,
+h2 {
   margin: 0;
   font-size: 1em;
 }
 
-.Section {
+section {
   margin: 0 4ch 1em;
 }
 
-.DescList {
+dl {
   margin: 0;
 }
 
 @media only screen and (max-width: 600px) {
-  .Section {
+  section {
     margin: 0 2ch 1em;
   }
 }

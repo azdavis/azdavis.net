@@ -34,37 +34,6 @@ pre {
   overflow-x: scroll;
 }
 
-/*
-.token.tag,
-.token.selector,
-.token.operator,
-.token.deleted,
-.token.keyword {
-  color: #822;
-}
-
-.token.inserted,
-.token.attr-name {
-  color: #282;
-}
-
-.token.regex,
-.token.boolean,
-.token.number {
-  color: #228;
-}
-
-.token.coord {
-  color: #288;
-}
-
-.token.attr-value,
-.token.string,
-.token.char {
-  color: #882;
-}
- */
-
 @media only print {
   html {
     font-size: 12px;
