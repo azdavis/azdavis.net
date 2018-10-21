@@ -12,7 +12,7 @@ dl {
   margin: 0;
 }
 
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   section {
     margin: 0 2ch 1em;
   }

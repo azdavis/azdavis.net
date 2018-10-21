@@ -35,7 +35,7 @@ pre {
   overflow-x: scroll;
 }
 
-@media only print {
+@media print {
   html {
     font-size: 12px;
     color: #333;
@@ -51,7 +51,7 @@ pre {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   dd {
     margin-left: 2ch;
   }
