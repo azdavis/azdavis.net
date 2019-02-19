@@ -1,19 +1,14 @@
-h1,
 h2 {
   margin: 0;
   font-size: 1em;
 }
 
-section {
+.sec {
   margin: 0 4ch 1em;
 }
 
-dl {
-  margin: 0;
-}
-
 @media screen and (max-width: 600px) {
-  section {
+  .sec {
     margin: 0 2ch 1em;
   }
 }
