@@ -24,17 +24,6 @@ dd {
   margin-left: 4ch;
 }
 
-code {
-  font-family: Input, Menlo, Consolas, monospace;
-}
-
-pre {
-  background-color: #fafafa;
-  padding: 1em;
-  border-radius: 0.5em;
-  overflow-x: scroll;
-}
-
 @media print {
   html {
     font-size: 12px;
