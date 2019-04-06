@@ -3,8 +3,7 @@
 }
 
 html {
-  color: #ddd;
-  background-color: #333;
+  color: #333;
   font-family: Verdana, sans-serif;
   line-height: 1.5;
 }
@@ -43,5 +42,12 @@ dd {
 @media (max-width: 600px) {
   dd {
     margin-left: 2ch;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color: #ddd;
+    background-color: #333;
   }
 }
