@@ -1,5 +1,6 @@
 #!/bin/sh
 
 set -eu
-cd "$(git rev-parse --show-toplevel)"
+cd "$(dirname "$0")/.."
+
 exec ruby -run -e httpd src -p 3000
