@@ -24,7 +24,7 @@ REACT_APP_WS_URL="$aws_url" npm run build
 
 cd ../server
 GOOS="linux" go build -o application \
-  -ldflags "-X main.env=prod -X main.version=$(git rev-parse HEAD)"
+  -ldflags "-X main.version=$(git rev-parse HEAD)"
 zip -q application.zip application
 rm application
 
