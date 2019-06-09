@@ -31,7 +31,6 @@ rm application
 cd "$root"
 rm -rf src/resistance
 mv ../resistance/client/build src/resistance
-
 npm run deploy
 
 cd ../resistance
