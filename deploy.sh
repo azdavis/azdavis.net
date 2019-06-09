@@ -32,6 +32,8 @@ cd "$root"
 rm -rf src/resistance
 mv ../resistance/client/build src/resistance
 npm run deploy
+git push origin master
 
 cd ../resistance
 eb deploy
+git push origin master
