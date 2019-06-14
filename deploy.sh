@@ -69,5 +69,6 @@ git push -q origin master
 cd ../resistance
 if "$deploy_resistance"; then
   eb deploy --quiet
+  rm server/application.zip
 fi
 git push -q origin master
