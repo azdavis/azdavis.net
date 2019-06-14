@@ -20,7 +20,7 @@ cd ../resistance
 [ "$(git rev-parse --abbrev-ref HEAD)" = master ]
 
 cd client
-REACT_APP_WS_URL="$aws_url" npm run build
+REACT_APP_BACKEND="$aws_url" npm run build
 
 cd ../server
 GOOS="linux" go build -o application \
