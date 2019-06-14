@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eux
+set -eu
 
 # This script manages the building and deploying of azdavis.xyz. It assumes that
 # you have:
@@ -20,7 +20,7 @@ cd ../resistance
 [ "$(git rev-parse --abbrev-ref HEAD)" = master ]
 
 cd client
-REACT_APP_BACKEND="$aws_url" npm run build
+REACT_APP_BACKEND="$aws_url" npm run build >/dev/null
 
 cd ../server
 GOOS="linux" go build -o application \
@@ -31,9 +31,9 @@ rm application
 cd "$root"
 rm -rf src/resistance
 mv ../resistance/client/build src/resistance
-npm run deploy
-git push origin master
+npm run deploy >/dev/null
+git push -q origin master
 
 cd ../resistance
-eb deploy
-git push origin master
+eb deploy --quiet
+git push -q origin master
