@@ -24,7 +24,7 @@ options:
   -h
     show this help
   -n
-    do not deploy a new resistance backend
+    do not deploy a new resistance server
 EOF
 exit 1
 }
@@ -50,7 +50,7 @@ cd ../resistance
 [ "$(git rev-parse --abbrev-ref HEAD)" = master ]
 
 cd client
-REACT_APP_BACKEND="$aws_url" npm run build >/dev/null
+REACT_APP_SERVER="$aws_url" npm run build >/dev/null
 
 if "$deploy_resistance"; then
   cd ../server
