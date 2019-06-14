@@ -61,7 +61,7 @@ rm application
 cd "$root"
 rm -rf src/resistance
 mv ../resistance/client/build src/resistance
-npm run deploy >/dev/null
+npm run deploy >/dev/null 2>/dev/null
 git push -q origin master
 
 cd ../resistance
