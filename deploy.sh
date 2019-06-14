@@ -15,10 +15,28 @@ aws_url="wss://resistance-backend.azdavis.xyz"
 usage() {
 cat <<EOF >&2
 usage:
-  $0
+  $0 [options]
+
+description:
+  build and deploy azdavis.xyz.
+
+options:
+  -h
+    show this help
+  -n
+    do not deploy a new resistance backend
 EOF
 exit 1
 }
+
+deploy_resistance=true
+while getopts 'hn' opt; do
+  case "$opt" in
+  (n) deploy_resistance=false ;;
+  (*) usage ;;
+  esac
+done
+shift "$((OPTIND - 1))"
 
 if [ "$#" -ne 0 ]; then
   usage
@@ -47,5 +65,7 @@ npm run deploy >/dev/null
 git push -q origin master
 
 cd ../resistance
-eb deploy --quiet
+if "$deploy_resistance"; then
+  eb deploy --quiet
+fi
 git push -q origin master
