@@ -52,11 +52,13 @@ cd ../resistance
 cd client
 REACT_APP_BACKEND="$aws_url" npm run build >/dev/null
 
-cd ../server
-GOOS="linux" go build -o application \
-  -ldflags "-X main.version=$(git rev-parse HEAD)"
-zip -q application.zip application
-rm application
+if "$deploy_resistance"; then
+  cd ../server
+  GOOS="linux" go build -o application \
+    -ldflags "-X main.version=$(git rev-parse HEAD)"
+  zip -q application.zip application
+  rm application
+fi
 
 cd "$root"
 rm -rf src/resistance
