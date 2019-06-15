@@ -28,16 +28,16 @@ description:
 options:
   -h
     show this help
-  -n
-    do not deploy a new resistance server
+  -b
+    do not deploy backend
 EOF
 exit 1
 }
 
-deploy_resistance=true
-while getopts 'hn' opt; do
+deploy_backend=true
+while getopts 'hb' opt; do
   case "$opt" in
-  (n) deploy_resistance=false ;;
+  (b) deploy_backend=false ;;
   (*) usage ;;
   esac
 done
@@ -60,7 +60,7 @@ fi
 cd client
 REACT_APP_SERVER="$aws_url" npm run build >/dev/null
 
-if "$deploy_resistance"; then
+if "$deploy_backend"; then
   cd ../server
   GOOS="linux" go build -o application \
     -ldflags "-X main.version=$(git rev-parse HEAD)"
@@ -75,7 +75,7 @@ npm run deploy >/dev/null 2>/dev/null
 git push -q origin master
 
 cd ../resistance
-if "$deploy_resistance"; then
+if "$deploy_backend"; then
   eb deploy --quiet
   rm server/application.zip
 fi
