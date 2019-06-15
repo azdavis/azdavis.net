@@ -12,6 +12,11 @@ aws_url="wss://resistance-backend.azdavis.xyz"
 # on netlify) without deploying anything to $aws_url, just `npm run deploy`
 # should be enough. Just make sure you do that while src/resistance exists.
 
+panic() {
+  echo "$1" >&2
+  exit 1
+}
+
 usage() {
 cat <<EOF >&2
 usage:
@@ -44,10 +49,13 @@ fi
 
 cd "$(dirname "$0")"
 root="$PWD"
-[ "$(git rev-parse --abbrev-ref HEAD)" = master ]
-
+if [ "$(git rev-parse --abbrev-ref HEAD)" = master ]; then
+  panic "$PWD not on master"
+fi
 cd ../resistance
-[ "$(git rev-parse --abbrev-ref HEAD)" = master ]
+if [ "$(git rev-parse --abbrev-ref HEAD)" = master ]; then
+  panic "$PWD not on master"
+fi
 
 cd client
 REACT_APP_SERVER="$aws_url" npm run build >/dev/null
