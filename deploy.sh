@@ -74,9 +74,9 @@ mv ../resistance/client/build src/resistance
 npm run deploy >/dev/null 2>/dev/null
 git push -q origin master
 
-cd ../resistance
 if "$deploy_backend"; then
+  cd ../resistance
   eb deploy --quiet
   rm server/application.zip
+  git push -q origin master
 fi
-git push -q origin master
