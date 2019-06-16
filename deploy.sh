@@ -57,10 +57,12 @@ if [ "$(git rev-parse --abbrev-ref HEAD)" = master ]; then
   panic "$PWD not on master"
 fi
 
+echo "building frontend"
 cd client
 REACT_APP_SERVER="$aws_url" npm run build >/dev/null
 
 if "$deploy_backend"; then
+  echo "building backend"
   cd ../server
   GOOS="linux" go build -o application \
     -ldflags "-X main.version=$(git rev-parse HEAD)"
@@ -68,6 +70,7 @@ if "$deploy_backend"; then
   rm application
 fi
 
+echo "deploying frontend"
 cd "$root"
 rm -rf src/resistance
 mv ../resistance/client/build src/resistance
@@ -76,6 +79,7 @@ git push -q origin master
 
 if "$deploy_backend"; then
   cd ../resistance
+  echo "deploying backend"
   eb deploy --quiet
   rm server/application.zip
   git push -q origin master
