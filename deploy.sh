@@ -49,11 +49,11 @@ fi
 
 cd "$(dirname "$0")"
 root="$PWD"
-if [ "$(git rev-parse --abbrev-ref HEAD)" = master ]; then
+if [ "$(git rev-parse --abbrev-ref HEAD)" != master ]; then
   panic "$PWD not on master"
 fi
 cd ../resistance
-if [ "$(git rev-parse --abbrev-ref HEAD)" = master ]; then
+if [ "$(git rev-parse --abbrev-ref HEAD)" != master ]; then
   panic "$PWD not on master"
 fi
 
