@@ -1,53 +1,53 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
-  color: #333;
-  font-family: Verdana, sans-serif;
-  line-height: 1.4;
+	color: #333;
+	font-family: Verdana, sans-serif;
+	line-height: 1.4;
 }
 
 body {
-  max-width: 70ch;
-  margin: 0 auto;
-  padding: 0.5em;
+	max-width: 70ch;
+	margin: 0 auto;
+	padding: 0.5em;
 }
 
 a,
 a:visited {
-  color: inherit;
+	color: inherit;
 }
 
 dd {
-  margin-left: 4ch;
+	margin-left: 4ch;
 }
 
 @media print {
-  html {
-    font-size: 12px;
-    color: #333;
-  }
+	html {
+		font-size: 12px;
+		color: #333;
+	}
 
-  body {
-    max-width: none;
-    margin: 0;
-  }
+	body {
+		max-width: none;
+		margin: 0;
+	}
 
-  h1 {
-    margin-top: 0;
-  }
+	h1 {
+		margin-top: 0;
+	}
 }
 
 @media (max-width: 600px) {
-  dd {
-    margin-left: 2ch;
-  }
+	dd {
+		margin-left: 2ch;
+	}
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color: #ddd;
-    background-color: #333;
-  }
+	html {
+		color: #ddd;
+		background-color: #333;
+	}
 }

@@ -13,48 +13,48 @@ aws_url="wss://resistance-backend.azdavis.xyz"
 # should be enough. Just make sure you do that while src/resistance exists.
 
 panic() {
-  echo "$1" >&2
-  exit 1
+	echo "$1" >&2
+	exit 1
 }
 
 usage() {
 cat <<EOF >&2
 usage:
-  $0 [options]
+	$0 [options]
 
 description:
-  build and deploy azdavis.xyz.
+	build and deploy azdavis.xyz.
 
 options:
-  -h
-    show this help
-  -b
-    do not deploy backend
+	-h
+		show this help
+	-b
+		do not deploy backend
 EOF
 exit 1
 }
 
 deploy_backend=true
 while getopts 'hb' opt; do
-  case "$opt" in
-  (b) deploy_backend=false ;;
-  (*) usage ;;
-  esac
+	case "$opt" in
+	(b) deploy_backend=false ;;
+	(*) usage ;;
+	esac
 done
 shift "$((OPTIND - 1))"
 
 if [ "$#" -ne 0 ]; then
-  usage
+	usage
 fi
 
 cd "$(dirname "$0")"
 root="$PWD"
 if [ "$(git rev-parse --abbrev-ref HEAD)" != master ]; then
-  panic "$PWD not on master"
+	panic "$PWD not on master"
 fi
 cd ../resistance
 if [ "$(git rev-parse --abbrev-ref HEAD)" != master ]; then
-  panic "$PWD not on master"
+	panic "$PWD not on master"
 fi
 
 echo "building frontend"
@@ -62,12 +62,12 @@ cd client
 REACT_APP_SERVER="$aws_url" npm run build >/dev/null
 
 if "$deploy_backend"; then
-  echo "building backend"
-  cd ../server
-  GOOS="linux" go build -o application \
-    -ldflags "-X main.version=$(git rev-parse HEAD)"
-  zip -q application.zip application
-  rm application
+	echo "building backend"
+	cd ../server
+	GOOS="linux" go build -o application \
+		-ldflags "-X main.version=$(git rev-parse HEAD)"
+	zip -q application.zip application
+	rm application
 fi
 
 echo "deploying frontend"
@@ -78,9 +78,9 @@ npm run deploy >/dev/null 2>/dev/null
 git push -q origin master
 
 if "$deploy_backend"; then
-  cd ../resistance
-  echo "deploying backend"
-  eb deploy --quiet
-  rm server/application.zip
-  git push -q origin master
+	cd ../resistance
+	echo "deploying backend"
+	eb deploy --quiet
+	rm server/application.zip
+	git push -q origin master
 fi

@@ -1,13 +1,13 @@
 {
-  "name": "azdavis.xyz",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "deploy": "netlify deploy -p -d src -s a65cb562-ebd1-4a65-9346-cf6775849aea",
-    "start": "serve src"
-  },
-  "devDependencies": {
-    "netlify-cli": "2.11.22",
-    "serve": "11.0.1"
-  }
+	"name": "azdavis.xyz",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"deploy": "netlify deploy -p -d src -s a65cb562-ebd1-4a65-9346-cf6775849aea",
+		"start": "serve src"
+	},
+	"devDependencies": {
+		"netlify-cli": "2.11.22",
+		"serve": "11.0.1"
+	}
 }
