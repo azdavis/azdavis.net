@@ -58,12 +58,12 @@ if [ "$(git rev-parse --abbrev-ref HEAD)" != master ]; then
 fi
 
 echo "building frontend"
-cd client
+cd frontend
 REACT_APP_SERVER="$aws_url" npm run build >/dev/null
 
 if "$deploy_backend"; then
 	echo "building backend"
-	cd ../server
+	cd ../backend
 	GOOS="linux" go build -o application \
 		-ldflags "-X main.version=$(git rev-parse HEAD)"
 	zip -q application.zip application
@@ -73,7 +73,7 @@ fi
 echo "deploying frontend"
 cd "$root"
 rm -rf src/resistance
-mv ../resistance/client/build src/resistance
+mv ../resistance/frontend/build src/resistance
 npm run deploy >/dev/null 2>/dev/null
 git push -q origin master
 
@@ -81,6 +81,6 @@ if "$deploy_backend"; then
 	cd ../resistance
 	echo "deploying backend"
 	eb deploy --quiet
-	rm server/application.zip
+	rm backend/application.zip
 	git push -q origin master
 fi
