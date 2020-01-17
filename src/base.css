@@ -20,7 +20,7 @@ a:visited {
 }
 
 dd {
-	margin-left: 4ch;
+	margin: 0 0 0.5em 4ch;
 }
 
 @media print {
