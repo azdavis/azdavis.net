@@ -1,14 +1,14 @@
 h2 {
-	margin: 0;
-	font-size: 1em;
+  margin: 0;
+  font-size: 1em;
 }
 
 .sec {
-	margin: 0 4ch 1em;
+  margin: 0 4ch 1em;
 }
 
 @media (max-width: 600px) {
-	.sec {
-		margin: 0 2ch 1em;
-	}
+  .sec {
+    margin: 0 2ch 1em;
+  }
 }

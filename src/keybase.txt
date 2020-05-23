@@ -4,40 +4,40 @@ https://keybase.io/azdavis
 
 I hereby claim:
 
-	* I am an admin of https://azdavis.xyz
-	* I am azdavis (https://keybase.io/azdavis) on keybase.
-	* I have a public key with fingerprint 63CA 2F11 00C4 98F5 03CA	43BB 640A 03C1 B87B 3D34
+  * I am an admin of https://azdavis.xyz
+  * I am azdavis (https://keybase.io/azdavis) on keybase.
+  * I have a public key with fingerprint 63CA 2F11 00C4 98F5 03CA	43BB 640A 03C1 B87B 3D34
 
 To do so, I am signing this object:
 
 {
-		"body": {
-				"key": {
-						"eldest_kid": "0101d608f018cf2380b6d127c68d8b3a99684a11f0bcbcfab4b93bfccaa2fcd037930a",
-						"fingerprint": "63ca2f1100c498f503ca43bb640a03c1b87b3d34",
-						"host": "keybase.io",
-						"key_id": "640a03c1b87b3d34",
-						"kid": "0101d608f018cf2380b6d127c68d8b3a99684a11f0bcbcfab4b93bfccaa2fcd037930a",
-						"uid": "7d51e62316e98ba165809acb76a0c019",
-						"username": "azdavis"
-				},
-				"revoke": {
-						"sig_ids": [
-								"4b9f924df42cdd0189737119d63cb5a744ea40ea3884fda8c9bc2bd10629aa670f"
-						]
-				},
-				"service": {
-						"hostname": "azdavis.xyz",
-						"protocol": "https:"
-				},
-				"type": "web_service_binding",
-				"version": 1
-		},
-		"ctime": 1490568490,
-		"expire_in": 157680000,
-		"prev": "06207e6d0a96cd74d09561536baef79c6bdedf6e3217003a4647a2a731df87e6",
-		"seqno": 12,
-		"tag": "signature"
+    "body": {
+        "key": {
+            "eldest_kid": "0101d608f018cf2380b6d127c68d8b3a99684a11f0bcbcfab4b93bfccaa2fcd037930a",
+            "fingerprint": "63ca2f1100c498f503ca43bb640a03c1b87b3d34",
+            "host": "keybase.io",
+            "key_id": "640a03c1b87b3d34",
+            "kid": "0101d608f018cf2380b6d127c68d8b3a99684a11f0bcbcfab4b93bfccaa2fcd037930a",
+            "uid": "7d51e62316e98ba165809acb76a0c019",
+            "username": "azdavis"
+        },
+        "revoke": {
+            "sig_ids": [
+                "4b9f924df42cdd0189737119d63cb5a744ea40ea3884fda8c9bc2bd10629aa670f"
+            ]
+        },
+        "service": {
+            "hostname": "azdavis.xyz",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1490568490,
+    "expire_in": 157680000,
+    "prev": "06207e6d0a96cd74d09561536baef79c6bdedf6e3217003a4647a2a731df87e6",
+    "seqno": 12,
+    "tag": "signature"
 }
 
 which yields the signature:
