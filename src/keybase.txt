@@ -6,7 +6,7 @@ I hereby claim:
 
   * I am an admin of https://azdavis.xyz
   * I am azdavis (https://keybase.io/azdavis) on keybase.
-  * I have a public key with fingerprint 63CA 2F11 00C4 98F5 03CA	43BB 640A 03C1 B87B 3D34
+  * I have a public key with fingerprint 63CA 2F11 00C4 98F5 03CA 43BB 640A 03C1 B87B 3D34
 
 To do so, I am signing this object:
 
