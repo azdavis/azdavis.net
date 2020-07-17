@@ -7,7 +7,7 @@
     "start": "serve src"
   },
   "devDependencies": {
-    "netlify-cli": "2.39.0",
-    "serve": "11.3.0"
+    "netlify-cli": "2.58.0",
+    "serve": "11.3.2"
   }
 }
