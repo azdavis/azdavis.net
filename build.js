@@ -38,6 +38,7 @@ function page(data, content) {
   </head>
   <body>
     <a href="/">azdavis.xyz</a>
+    <h1>${data.title}</h1>
     ${markdown.render(content)}
   </body>
 </html>
