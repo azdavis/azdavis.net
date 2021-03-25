@@ -14,8 +14,10 @@
     "gray-matter": "^4.0.2",
     "highlight.js": "^10.7.1",
     "html-minifier": "^4.0.0",
+    "katex": "^0.13.0",
     "netlify-cli": "2.61.0",
     "remarkable": "^2.0.1",
+    "remarkable-katex": "^1.1.7",
     "serve": "11.3.2"
   }
 }

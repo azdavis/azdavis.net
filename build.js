@@ -4,6 +4,7 @@ const { Remarkable } = require("remarkable");
 const fs = require("fs");
 const glob = require("fast-glob");
 const hl = require("highlight.js");
+const katex = require("remarkable-katex");
 const matter = require("gray-matter");
 const path = require("path");
 
@@ -11,6 +12,7 @@ const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 const rmdir = promisify(fs.rmdir);
 const mkdir = promisify(fs.mkdir);
+const copyFile = promisify(fs.copyFile);
 
 function highlight(code, language) {
   if (hl.getLanguage(language)) {
@@ -22,6 +24,7 @@ function highlight(code, language) {
 
 const markdown = new Remarkable({ highlight });
 const options = { collapseWhitespace: true };
+markdown.use(katex);
 
 function page(data, content) {
   const s = `
@@ -35,6 +38,7 @@ function page(data, content) {
     <link rel="icon" href="/favicon.png" />
     <link rel="stylesheet" href="/base.css" />
     <link rel="stylesheet" href="/code.css" />
+    <link rel="stylesheet" href="/katex.css" />
   </head>
   <body>
     <a href="/">azdavis.xyz</a>
@@ -67,6 +71,7 @@ function dateCmp({ date: a }, { date: b }) {
 async function main() {
   await rmdir(outRoot, recursive);
   await mkdir(outRoot);
+  await copyFile("node_modules/katex/dist/katex.min.css", "src/katex.css");
   const entries = await Promise.all((await glob("posts/*.md")).map(handleOne));
   entries.sort(dateCmp);
   const content = entries

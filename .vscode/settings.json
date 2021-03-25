@@ -1,6 +1,7 @@
 {
   "files.exclude": {
     "node_modules": true,
+    "src/katex.css": true,
     "src/posts": true
   }
 }
