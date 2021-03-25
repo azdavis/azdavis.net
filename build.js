@@ -37,7 +37,7 @@ function page(data, content) {
     <link rel="stylesheet" href="/code.css" />
   </head>
   <body>
-    <a href="/">Home</a>
+    <a href="/">azdavis.xyz</a>
     ${markdown.render(content)}
   </body>
 </html>
