@@ -1,3 +1,4 @@
+/.vscode/cspell.json
 /node_modules
-/src/resistance
+/src/posts
 /thoughts.md
