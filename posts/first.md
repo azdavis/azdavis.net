@@ -6,7 +6,8 @@ date: 2021-03-24
 # First post
 
 This is the first post. It's basically just testing that the thing I hacked
-together to render HTML pages with code syntax highlighting is working.
+together to render Markdown documents into HTML pages with code syntax
+highlighting is working.
 
 ```rs
 fn main() {
