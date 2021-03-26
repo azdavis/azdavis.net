@@ -26,7 +26,7 @@ async function writeHtml(
   file: string = "index.html",
 ) {
   await mkdirp(path.join(rootDir, dir));
-  await writeFile(path.join(rootDir, dir, file), contents);
+  await writeFile(path.join(rootDir, dir, file), "<!DOCTYPE html>" + contents);
 }
 
 interface PostData {
