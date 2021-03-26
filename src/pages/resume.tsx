@@ -7,7 +7,7 @@ export const resume = {
       <h1>Ariel Davis</h1>
       <div>
         <div>
-          Email:
+          Email:{" "}
           <a href="mailto:ariel.z.davis@icloud.com">ariel.z.davis@icloud.com</a>
         </div>
         <div>
