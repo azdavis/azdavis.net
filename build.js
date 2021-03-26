@@ -62,7 +62,7 @@ async function handleOne(entry) {
 }
 
 function dateCmp({ date: a }, { date: b }) {
-  return a == b ? 0 : a < b ? -1 : 1;
+  return a === b ? 0 : a < b ? 1 : -1;
 }
 
 async function main() {
