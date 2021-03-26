@@ -20,9 +20,13 @@ const copyFile = promisify(fs.copyFile);
 const rootDir = "build";
 const postsDir = "posts";
 
-async function writeHtml(dir: string, contents: string) {
+async function writeHtml(
+  dir: string,
+  contents: string,
+  file: string = "index.html",
+) {
   await mkdirp(path.join(rootDir, dir));
-  await writeFile(path.join(rootDir, dir, "index.html"), contents);
+  await writeFile(path.join(rootDir, dir, file), contents);
 }
 
 interface PostData {
@@ -71,7 +75,7 @@ async function main() {
   const content = entries
     .map(({ title, slug }) => `- [${title}](/posts/${slug})`)
     .join("\n");
-  await writeFile(path.join(rootDir, "404.html"), page(error404));
+  await writeHtml(".", page(error404), "404.html");
   await writeHtml(".", page(index));
   await writeHtml("ja", page(ja));
   await writeHtml("profiles", page(profiles));
