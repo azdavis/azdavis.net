@@ -20,7 +20,7 @@ export function Post({ title, content }: Props): ReactElement {
     <>
       <a href="/">azdavis.xyz</a>
       <h1>{title}</h1>
-      {markdown.render(content)}
+      <div dangerouslySetInnerHTML={{ __html: markdown.render(content) }} />
     </>
   );
 }
