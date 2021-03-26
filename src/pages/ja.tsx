@@ -1,7 +1,7 @@
 export const ja = {
   lang: "ja",
   title: "man azdavis",
-  styles: ["base"],
+  styles: ["base", "index"],
   body: (
     <>
       <h2>名前</h2>
