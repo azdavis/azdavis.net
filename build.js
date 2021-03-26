@@ -1,4 +1,3 @@
-const { minify } = require("html-minifier");
 const { promisify } = require("util");
 const { Remarkable } = require("remarkable");
 const fs = require("fs");
@@ -23,11 +22,10 @@ function highlight(code, language) {
 }
 
 const markdown = new Remarkable({ highlight });
-const options = { collapseWhitespace: true };
 markdown.use(katex);
 
 function page(data, content) {
-  const s = `
+  return `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,7 +45,6 @@ function page(data, content) {
   </body>
 </html>
 `;
-  return minify(s, options);
 }
 
 const outRoot = path.join("src", "posts");
