@@ -80,9 +80,9 @@ async function main() {
     postsDir,
     page({
       lang: "en",
-      title: "All posts",
+      title: "Posts",
       styles: ["base"],
-      body: <Post title="All posts" content={content} />,
+      body: <Post title="Posts" content={content} />,
     }),
   );
 }
