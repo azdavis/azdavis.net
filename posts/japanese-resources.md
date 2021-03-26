@@ -10,7 +10,7 @@ helpful resources that I use to study.
 
 [Website][jisho]
 
-Standard japanese-english dictionary (the other direction works too). Clean,
+Standard Japanese-English dictionary (the other direction works too). Clean,
 simple interface, good content.
 
 ## Kana
