@@ -20,7 +20,7 @@ const copyFile = promisify(fs.copyFile);
 const rootDir = "build";
 const postsDir = "posts";
 
-async function writeIndex(dir: string, contents: string) {
+async function writeHtml(dir: string, contents: string) {
   await mkdirp(path.join(rootDir, dir));
   await writeFile(path.join(rootDir, dir, "index.html"), contents);
 }
@@ -38,7 +38,7 @@ async function mkPost(entry: string): Promise<PostData> {
     throw new Error("bad types");
   }
   const slug = path.basename(entry, ".md");
-  await writeIndex(
+  await writeHtml(
     path.join(postsDir, slug),
     page({
       lang: "en",
@@ -72,11 +72,11 @@ async function main() {
     .map(({ title, slug }) => `- [${title}](/posts/${slug})`)
     .join("\n");
   await writeFile(path.join(rootDir, "404.html"), page(error404));
-  await writeIndex(".", page(index));
-  await writeIndex("ja", page(ja));
-  await writeIndex("profiles", page(profiles));
-  await writeIndex("resume", page(resume));
-  await writeIndex(
+  await writeHtml(".", page(index));
+  await writeHtml("ja", page(ja));
+  await writeHtml("profiles", page(profiles));
+  await writeHtml("resume", page(resume));
+  await writeHtml(
     postsDir,
     page({
       lang: "en",
