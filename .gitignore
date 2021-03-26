@@ -1,5 +1,9 @@
-/.vscode/cspell.json
+# for deps
 /node_modules
-/src/katex.css
-/src/posts
+# for ts -> js
+/out
+# for the actual site
+/build
+
+/.vscode/cspell.json
 /thoughts.md

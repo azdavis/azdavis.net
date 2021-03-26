@@ -1,23 +1,28 @@
 {
+  "private": true,
   "name": "azdavis.xyz",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
-    "build": "node build.js",
-    "deploy": "netlify deploy -p -d src -s a65cb562-ebd1-4a65-9346-cf6775849aea",
-    "start": "serve src"
+    "build": "tsc && node out/main.js",
+    "deploy": "netlify deploy -p -d build -s a65cb562-ebd1-4a65-9346-cf6775849aea",
+    "start": "serve build"
   },
   "devDependencies": {
-    "@types/html-minifier": "^4.0.0",
+    "@types/mkdirp": "^1.0.1",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
     "@types/remarkable": "^2.0.1",
-    "fast-glob": "^2.2.7",
+    "fast-glob": "^3.2.5",
     "gray-matter": "^4.0.2",
     "highlight.js": "^10.7.1",
-    "html-minifier": "^4.0.0",
     "katex": "^0.13.0",
-    "netlify-cli": "2.61.0",
+    "mkdirp": "^1.0.4",
+    "netlify-cli": "^3.13.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "remarkable": "^2.0.1",
     "remarkable-katex": "^1.1.7",
-    "serve": "11.3.2"
+    "serve": "^11.3.2",
+    "typescript": "^4.2.3"
   }
 }
