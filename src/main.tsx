@@ -1,8 +1,7 @@
 import { index } from "./pages/index";
 import { page } from "./page";
 import { Post } from "./post";
-import { promisify } from "util";
-import fs from "fs";
+import { promises as fs } from "fs";
 import glob from "fast-glob";
 import matter from "gray-matter";
 import mkdirp from "mkdirp";
@@ -11,11 +10,6 @@ import { error404 } from "./pages/404";
 import { ja } from "./pages/ja";
 import { profiles } from "./pages/profiles";
 import { resume } from "./pages/resume";
-
-const readFile = promisify(fs.readFile);
-const writeFile = promisify(fs.writeFile);
-const rm = promisify(fs.rm);
-const copyFile = promisify(fs.copyFile);
 
 const rootDir = "build";
 const postsDir = "posts";
@@ -26,7 +20,10 @@ async function writeHtml(
   file: string = "index.html",
 ) {
   await mkdirp(path.join(rootDir, dir));
-  await writeFile(path.join(rootDir, dir, file), "<!DOCTYPE html>" + contents);
+  await fs.writeFile(
+    path.join(rootDir, dir, file),
+    "<!DOCTYPE html>" + contents,
+  );
 }
 
 interface PostData {
@@ -36,7 +33,7 @@ interface PostData {
 }
 
 async function mkPost(entry: string): Promise<PostData> {
-  const { data, content } = matter((await readFile(entry)).toString());
+  const { data, content } = matter((await fs.readFile(entry)).toString());
   const { title, date } = data;
   if (typeof title !== "string" || !(date instanceof Date)) {
     throw new Error("bad types");
@@ -59,13 +56,13 @@ function postCmp({ date: a }: PostData, { date: b }: PostData): number {
 }
 
 async function copyStatic(p: string) {
-  await copyFile(p, path.join(rootDir, path.basename(p)));
+  await fs.copyFile(p, path.join(rootDir, path.basename(p)));
 }
 
 async function main() {
-  await rm(rootDir, { recursive: true, force: true });
+  await fs.rm(rootDir, { recursive: true, force: true });
   await mkdirp(rootDir);
-  await copyFile(
+  await fs.copyFile(
     "node_modules/katex/dist/katex.min.css",
     path.join(rootDir, "katex.css"),
   );
