@@ -14,6 +14,21 @@ import { resume } from "./pages/resume";
 const rootDir = "build";
 const postsDir = "posts";
 
+// https://stackoverflow.com/a/64255382
+async function copyDir(src: string, dest: string) {
+  await fs.mkdir(dest, { recursive: true });
+  const entries = await fs.readdir(src, { withFileTypes: true });
+  for (const entry of entries) {
+    const srcPath = path.join(src, entry.name);
+    const destPath = path.join(dest, entry.name);
+    if (entry.isDirectory()) {
+      await copyDir(srcPath, destPath);
+    } else {
+      await fs.copyFile(srcPath, destPath);
+    }
+  }
+}
+
 async function writeHtml(
   dir: string,
   contents: string,
@@ -44,7 +59,7 @@ async function mkPost(entry: string): Promise<PostData> {
     page({
       lang: "en",
       title,
-      styles: ["base", "code", "katex"],
+      styles: ["base", "code", "katex/katex.min"],
       body: <Post title={title} content={content} />,
     }),
   );
@@ -62,10 +77,7 @@ async function copyStatic(p: string) {
 async function main() {
   await fs.rm(rootDir, { recursive: true, force: true });
   await mkdirp(rootDir);
-  await fs.copyFile(
-    "node_modules/katex/dist/katex.min.css",
-    path.join(rootDir, "katex.css"),
-  );
+  await copyDir("node_modules/katex/dist", path.join(rootDir, "katex"));
   await Promise.all((await glob("static/*")).map(copyStatic));
   const entries = await Promise.all((await glob("posts/*.md")).map(mkPost));
   entries.sort(postCmp);
