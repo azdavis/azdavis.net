@@ -5,7 +5,7 @@ date: 2021-03-24
 
 This is the first post. It's basically just testing that the thing I hacked
 together to render Markdown documents into HTML pages with code syntax
-highlighting and KaTeX support is working.
+highlighting and $\KaTeX$ support is working.
 
 ```rust
 fn main() {
