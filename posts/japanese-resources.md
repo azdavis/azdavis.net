@@ -131,3 +131,17 @@ the reading hints ('furigana') for kanji for more practice.
 [kanji-mistakes]: https://www.tofugu.com/japanese/kanji-learning-mistakes/
 [phono-semantic]:
   https://en.wikipedia.org/wiki/Chinese_character_classification#Phono-semantic_compound_characters
+
+## YouTube
+
+There's a ton of Japanese YouTubers out there, but here are a few that I like:
+
+- [Mina Luna Japanese][mina-luna]
+- [Yudai-sensei][yudai]
+- [あかね的日本語教室][akane]
+- [日本語の森][mori]
+
+[akane]: https://www.youtube.com/channel/UCh-GhnQ7qDQmS6Bz3pGc1Mw
+[mina-luna]: https://www.youtube.com/channel/UC_v5Jim-sJaHzlINEZrxuEg
+[mori]: https://www.youtube.com/user/freejapaneselessons3
+[yudai]: https://www.youtube.com/user/zuoyexiongda
