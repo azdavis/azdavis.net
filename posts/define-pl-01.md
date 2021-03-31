@@ -3,34 +3,33 @@ title: Defining a programming language, part 1
 date: 2021-03-30
 ---
 
-In this series of posts, we'll precisely define a programming language using
-formal methods, and then prove things about the language, with the assistance of
-the [Lean theorem prover][lean].
+In this series of posts, we will:
+
+- Define a small programming language using formal methods
+- Prove things about that language using the [Lean theorem prover][lean]
 
 ## Introduction and motivation
 
-There are many many widely-used (or not) programming languages: C, C++, Java,
-JavaScript, Rust, Go, Python, Ruby, [Standard ML][sml], etc.
+There are many programming languages: C, C++, Java, JavaScript, Rust, Go,
+Python, Ruby, [Standard ML][sml], etc.
 
 But how is it that we can say that these programming languages "exist"? Or, put
 another way: What "defines" a programming language?
 
 ### Definition by implementation
 
-One answer is that a programming language is defined by its implementation. An
-implementation of a programming language is some program that, when given as
-input a program in the language, either directly interprets that program or
-compiles that program into some kind of output that can then be executed or
-otherwise used later.
+One answer is that the definition of programming language is its implementation.
+Given some programming language $P$, an implementation of $P$ is a program,
+which takes as input the text of a program $p$ in the language $P$. Then, it
+either directly interprets $p$, or it compiles $p$ into some kind of output.
+This output can then be executed or otherwise used later.
 
 The former type of implementation is aptly called an "interpreter", the latter a
-"compiler". And indeed, programming languages whose primary implementation is an
-interpreter are often called "interpreted languages", and likewise for "compiled
-languages".
+"compiler".
 
-Now, surely, for a programming language to be useful in the real world, it must
-have an implementation. Otherwise, it would be impossible to run any programs in
-that language.
+It is undeniable that for a programming language to be useful, it must have an
+implementation. Otherwise, it would be impossible to run any programs in that
+language.
 
 But what if a programming language has not one, but multiple implementations?
 Which one of these implementations is the one that "defines" the programming
@@ -41,47 +40,42 @@ implementation, bugs and all?
 
 A fix for this problem is to write a specification for the programming language.
 This spec is usually a text document written in some human language, often
-English. Implementors then use the spec to guide their implementations of the
-language and resolve ambiguities in tricky cases.
+English. Developers then use the spec as a reference when writing
+implementations of the language.
 
 Languages like C, C++, [Go][go-spec], and [JavaScript][js-spec] (technically
-ECMAScript) are specified in this way. Though, the C and C++ specs are behind a
-paywall, making it more difficult for new implementors to verify correctness of
-their implementations.
+ECMAScript) are specified in this way.
 
 ### Specification with mathematics
 
-However, it is possible to transcend the boundaries of human language and define
-programming languages with mathematics. Some examples of languages specified in
-this way are [Standard ML][sml-spec], [Pony][pony-spec], and
-[WebAssembly][wasm-spec].
+However, it is possible to specify programming language not just with words, but
+with mathematics. Some examples of languages specified in this way are [Standard
+ML][sml-spec], [Pony][pony-spec], and [WebAssembly][wasm-spec].
 
 Writing these type of formal specifications requires a lot of effort, which is
 probably why few languages are specified in this way. But the benefits are real.
 
-On top of all the benefits of writing a specification already discussed, a
-mathematical specification is completely unambiguous.
+A mathematical specification is completely unambiguous. This contrasts with
+specifications written in human languages, which can be
+[ambiguous][oxford-comma] and [hard to understand][legalese]. For instance: in
+that last sentence, what is the thing that I am saying "can be ambiguous and
+hard to understand"? Is it "specifications" or "human languages"?
 
-This is in direct contrast with specifications written in human languages, which
-can be [ambiguous][oxford-comma] and [hard to understand][legalese], especially
-for non-native speakers. For instance: in that last sentence, what is the thing
-that I am saying "can be ambiguous and hard to understand"? Is it
-"specifications" or "human languages"?
-
-Furthermore, using formal methods allows us to state theorems about the
-specification, and subsequently prove them, giving us a high degree of
-confidence that our specification is free of bugs.
+Furthermore, using formal methods allows us to state and prove theorems about
+the specification. This gives us a high degree of confidence that our
+specification is free of bugs.
 
 Let us explore this method of specification by defining our own programming
 language.
 
 ## Hatsugen, a small language
 
-In the spirit of an excellent [series of blog posts][eldiro] about implementing
-a programming language in Rust, we'll name the language by translating the
-English word "utterance" into some other language. I'll choose the target
-language to be Japanese, [given][jp-resources] my [interests][jp-resume].
-[Thus][jisho-utterance], we will call the language "Hatsugen".
+There's an excellent [series of blog posts][eldiro] about implementing a
+programming language in Rust. As in that series, we'll name our language by
+translating the English word "utterance" into some other human language. I'll
+choose the target language to be Japanese, [given][jp-resources] my
+[interests][jp-resume]. [Thus][jisho-utterance], we will call the language
+"Hatsugen".
 
 For now, Hatsugen will have only expressions and types. No statements, no
 input/output, no side effects.
@@ -158,17 +152,17 @@ $$
   \mathtt{else} \ \mathtt{789}
 $$
 
-In the informal semantics for if-expressions, we only defined behavior for when
-the conditional expression evaluates to either $\mathtt{true}$ or
+In the informal semantics for if-expressions, we only defined the behavior for
+when the conditional expression evaluates to either $\mathtt{true}$ or
 $\mathtt{false}$. What should we do here?
 
-One option is to be more permissive in the semantics for if-expressions. We
-could allow integers to be conditionals as well, perhaps with the semantics that
-if the integer is 0, then treat it as "falsy" and evaluate the "else" branch,
-otherwise treat the integer as "truthy" and evaluate the "then" branch.
+One option is to be more permissive in the semantics for if-expressions. As in
+C-like languages, we could treat 0 as "falsy" and non-zero integers as "truthy".
+Thus, if the condition evaluated to the integer not equal to 0, we would take
+the then-branch. And if it evaluated to 0, we would take the else-branch.
 
-Our only other option is to declare these kinds of expressions as "invalid"
-somehow, and thus forbid them from being evaluated.
+Our only other option is to declare these kinds of expressions as "invalid". We
+could then refuse to evaluated these invalid expression.
 
 We can disallow invalid expressions by defining a static semantics for Hatsugen.
 We'll then say that we're only allowed to evaluate expressions that have been
@@ -285,8 +279,10 @@ In Hatsugen, the only expressions that can take a step are if-expressions.
 
 First, we define that an if-expression can take a step if its condition $e_1$
 can take a step to $e_1'$. This could happen if $e_1$ itself was another
-if-expression, for instance. We say the whole if-expression then steps, leaving
-the then-branch and else-branch expressions $e_2$ and $e_3$ unchanged.
+if-expression, for instance.
+
+We say the whole if-expression then steps. When it steps, we leave the
+then-branch and else-branch expressions unchanged.
 
 $$
 \frac
@@ -339,8 +335,8 @@ More formally, progress states:
 > For all $e$, if there exists $\tau$ such that $e : \tau$, then
 > $e \ \mathsf{val}$ or there exists $e'$ such that $e \rightarrow e'$.
 
-Next, we have _preservation_, which states that well-typed expressions that can
-keep evaluating preserve their types when evaluating.
+Next, we have _preservation_. Preservation states that well-typed expressions
+that can keep evaluating preserve their types when evaluating.
 
 Again, more formally:
 
