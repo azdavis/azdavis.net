@@ -3,7 +3,11 @@
 }
 
 html {
-  color: #333;
+  --page-fg: #333;
+  --page-bg: #fff;
+
+  color: var(--page-fg);
+  background-color: var(--page-bg);
   font-family: Verdana, sans-serif;
   line-height: 1.4;
 }
@@ -51,7 +55,7 @@ dd {
 
 @media (prefers-color-scheme: dark) {
   html {
-    color: #ddd;
-    background-color: #333;
+    --page-fg: #ddd;
+    --page-bg: #333;
   }
 }
