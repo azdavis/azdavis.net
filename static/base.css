@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-html {
+:root {
   --page-fg: #333;
   --page-bg: #fff;
 
@@ -28,7 +28,7 @@ dd {
 }
 
 @media print {
-  html {
+  :root {
     font-size: 12px;
     color: #333;
   }
@@ -54,7 +54,7 @@ dd {
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
+  :root {
     --page-fg: #ddd;
     --page-bg: #333;
   }
