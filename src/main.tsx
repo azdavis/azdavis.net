@@ -67,8 +67,20 @@ async function mkPost(entry: string): Promise<PostData> {
   return { title, date, slug };
 }
 
-function postCmp({ date: a }: PostData, { date: b }: PostData): number {
-  return a === b ? 0 : a < b ? 1 : -1;
+function sameTitle(x: string): never {
+  throw new Error(`two posts have the same title: ${x}`);
+}
+
+function postCmp(a: PostData, b: PostData): number {
+  return a.date === b.date
+    ? a.title === b.title
+      ? sameTitle(a.title)
+      : a.title < b.title
+      ? -1
+      : 1
+    : a.date < b.date
+    ? 1
+    : -1;
 }
 
 async function copyStatic(p: string) {
