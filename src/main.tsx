@@ -53,6 +53,7 @@ async function mkPost(entry: string): Promise<PostData> {
   if (typeof title !== "string" || !(date instanceof Date)) {
     throw new Error("bad types");
   }
+  const props = { title, content, date };
   const slug = path.basename(entry, ".md");
   await writeHtml(
     path.join(postsDir, slug),
@@ -60,7 +61,7 @@ async function mkPost(entry: string): Promise<PostData> {
       lang: "en",
       title,
       styles: ["base", "code", "katex/katex.min"],
-      body: <Post title={title} content={content} />,
+      body: <Post {...props} />,
     }),
   );
   return { title, date, slug };
@@ -81,9 +82,6 @@ async function main() {
   await Promise.all((await glob("static/*")).map(copyStatic));
   const entries = await Promise.all((await glob("posts/*.md")).map(mkPost));
   entries.sort(postCmp);
-  const content = entries
-    .map(({ title, slug }) => `- [${title}](/posts/${slug})`)
-    .join("\n");
   await writeHtml(".", page(error404), "404.html");
   await writeHtml(".", page(index));
   await writeHtml("ja", page(ja));
@@ -95,7 +93,19 @@ async function main() {
       lang: "en",
       title: "Posts",
       styles: ["base"],
-      body: <Post title="Posts" content={content} />,
+      body: (
+        <>
+          <a href="/">azdavis.xyz</a>
+          <h1>Posts</h1>
+          <ul>
+            {entries.map(({ title, slug }) => (
+              <li key={slug}>
+                <a href={`/posts/${slug}`}>{title}</a>
+              </li>
+            ))}
+          </ul>
+        </>
+      ),
     }),
   );
 }
