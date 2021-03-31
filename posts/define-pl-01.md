@@ -6,7 +6,7 @@ date: 2021-03-30
 In this series of posts, we will:
 
 - Define a small programming language using formal methods
-- Prove things about that language using the [Lean theorem prover][lean]
+- Prove theorems about that language using the [Lean theorem prover][lean]
 
 ## Introduction and motivation
 
@@ -14,7 +14,7 @@ There are many programming languages: C, C++, Java, JavaScript, Rust, Go,
 Python, Ruby, [Standard ML][sml], etc.
 
 But how is it that we can say that these programming languages "exist"? Or, put
-another way: What "defines" a programming language?
+another way, what "defines" a programming language?
 
 ### Definition by implementation
 
@@ -39,9 +39,9 @@ implementation, bugs and all?
 ### Definition by specification
 
 A fix for this problem is to write a specification for the programming language.
-This spec is usually a text document written in some human language, often
-English. Developers then use the spec as a reference when writing
-implementations of the language.
+This spec is a text document written in some human language, often English.
+Developers then use the spec as a reference when writing implementations of the
+language.
 
 Languages like C, C++, [Go][go-spec], and [JavaScript][js-spec] (technically
 ECMAScript) are specified in this way.
@@ -152,14 +152,14 @@ $$
   \mathtt{else} \ \mathtt{789}
 $$
 
-In the informal semantics for if-expressions, we only defined the behavior for
-when the conditional expression evaluates to either $\mathtt{true}$ or
-$\mathtt{false}$. What should we do here?
+In the informal semantics for if-expressions, we only considered $\mathtt{true}$
+or $\mathtt{false}$ as possibilities for the value of the conditional. What
+should we do here?
 
 One option is to be more permissive in the semantics for if-expressions. As in
 C-like languages, we could treat 0 as "falsy" and non-zero integers as "truthy".
-Thus, if the condition evaluated to the integer not equal to 0, we would take
-the then-branch. And if it evaluated to 0, we would take the else-branch.
+Thus, if the condition evaluated to an integer not equal to 0, we would take the
+then-branch. And if it evaluated to 0, we would take the else-branch.
 
 Our only other option is to declare these kinds of expressions as "invalid". We
 could then refuse to evaluated these invalid expression.
