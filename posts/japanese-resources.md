@@ -10,7 +10,7 @@ helpful resources that I use to study.
 
 [Website][jisho]
 
-Standard Japanese-English dictionary (the other direction works too). Clean,
+Standard Japanese-English dictionary. The other direction works too. Clean,
 simple interface, good content.
 
 ## Kana
@@ -19,9 +19,10 @@ simple interface, good content.
 - [Katakana][]
 
 Japanese has 3 different writing systems. Luckily, the first 2, hiragana and
-katakana (collectively 'the kana') are pretty small and 'match up' with one
-another (each has the same number of characters and make the same sounds). How
-to read the kana should definitely be the first thing to get squared away.
+katakana, collectively 'the kana', are pretty small and 'match up' with one
+another, in that each has the same number of characters and make the same
+sounds. How to read the kana should definitely be the first thing to get squared
+away.
 
 ## Guide to Japanese
 
@@ -33,7 +34,7 @@ read everything in 'The writing system', 'Basic grammar', 'Essential grammar',
 and 'Special expressions' but haven't even bothered with everything in 'Advanced
 topics' since they're so niche.
 
-It has some exercises for earlier topics and all topics (even advanced ones)
+It has some exercises for earlier topics and all topics, even advanced ones,
 have example sentences and explanations in English.
 
 I like this one because it doesn't just try to answer the question 'How do I say
@@ -42,12 +43,10 @@ from the foundations.
 
 A good example of the the difference between this approach and the 'usual'
 approach is how the 'regular' and 'polite' forms are taught with each approach.
-(Japanese has varying levels of politeness built in to its grammar.)
 
-Most textbooks/resources will start by teaching the polite form because this
-form is used when talking to most people, i.e. essentially everyone but your
-close friends. (Actually, when talking to your _superiors_, you often have to
-use other, different forms, which are even _more_ polite than the polite form).
+In Japanese, there is a 'regular' form and a 'polite' form of verbs. Most
+textbooks/resources will start by teaching the polite form, because this form is
+a good 'default' to use when talking to practically anyone.
 
 But then, when they later teach you the regular form, you realize that actually
 the regular form is the true, 'base' form of words/the grammar, and the polite
