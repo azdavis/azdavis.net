@@ -162,19 +162,16 @@ Thus, if the condition evaluated to an integer not equal to 0, we would take the
 then-branch. And if it evaluated to 0, we would take the else-branch.
 
 Our only other option is to declare these kinds of expressions as "invalid". We
-could then refuse to evaluated these invalid expression.
+could then refuse to evaluate these invalid expressions.
 
 We can disallow invalid expressions by defining a static semantics for Hatsugen.
 We'll then say that we're only allowed to evaluate expressions that have been
 deemed valid by the static semantics.
 
 We will define the judgment $e: \tau$, read as "$e$ has type $\tau$", with rules
-of inference. "Judgement" and "rules of inference" are just mathematical jargon
-for these kinds of things.
-
-This judgement will be a relation between expressions $e$ and types $\tau$. An
-expression $e$ is thus valid precisely when there exists a type $\tau$ such that
-$e: \tau$.
+of inference. This judgement will be a relation between expressions $e$ and
+types $\tau$. An expression $e$ is thus valid precisely when there exists a type
+$\tau$ such that $e: \tau$.
 
 Our first inference rule says that integer literals have integer type.
 
