@@ -13,8 +13,8 @@ In this series of posts, we will:
 There are many programming languages: C, C++, Java, JavaScript, Rust, Go,
 Python, Ruby, [Standard ML][sml], etc.
 
-But how is it that we can say that these programming languages "exist"? Or, put
-another way, what "defines" a programming language?
+But how is it that we can say that these programming languages exist? Or, put
+another way, what defines a programming language?
 
 ### Definition by implementation
 
@@ -32,7 +32,7 @@ implementation. Otherwise, it would be impossible to run any programs in that
 language.
 
 But what if a programming language has not one, but multiple implementations?
-Which one of these implementations is the one that "defines" the programming
+Which one of these implementations is the one that defines the programming
 language? Must all other implementations copy the behavior of this "blessed"
 implementation, bugs and all?
 
@@ -85,8 +85,8 @@ The expressions and types are extremely simple: just integers (..., -2, -1, 0,
 
 We'll represent integers with integer literals like $\mathtt{123}$ or
 $\mathtt{-456}$ or $\mathtt{0}$. There are infinitely many integers, and thus
-infinitely many such possible literals. Practical considerations like a "maximum
-integer size" will be ignored for now.
+infinitely many such possible literals. Practical considerations like a maximum
+integer size will be ignored for now.
 
 We'll represent booleans with $\mathtt{true}$ and $\mathtt{false}$ literals.
 
@@ -101,8 +101,8 @@ which will evaluate $e_1$ and then
 
 (We'll formalize all of this!)
 
-It's intentional that Hatsugen is a very "small" language, at least for now.
-This will allow us to get comfortable with all the formal stuff without getting
+It's intentional that Hatsugen is a very small language, at least for now. This
+will allow us to get comfortable with all the formal stuff without getting
 bogged down with the complexity of Hatsugen itself.
 
 ## Syntax
@@ -161,7 +161,7 @@ C-like languages, we could treat 0 as "falsy" and non-zero integers as "truthy".
 Thus, if the condition evaluated to an integer not equal to 0, we would take the
 then-branch. And if it evaluated to 0, we would take the else-branch.
 
-Our only other option is to declare these kinds of expressions as "invalid". We
+Our only other option is to declare these kinds of expressions as invalid. We
 could then refuse to evaluate these invalid expressions.
 
 We can disallow invalid expressions by defining a static semantics for Hatsugen.
@@ -181,9 +181,9 @@ $$
   {\overline{n}: \mathtt{Int}}
 $$
 
-In general, inference rules look kind of like a big "fraction", with all the
-"premises" on the top and the single "conclusion" on the bottom. Since there
-aren't any premises for this rule, there's nothing above the line.
+In general, inference rules look kind of like a big fraction, with all the
+premises on the top and the single conclusion on the bottom. Since there aren't
+any premises for this rule, there's nothing above the line.
 
 Our next inference rules say that $\mathtt{true}$ and $\mathtt{false}$ have
 boolean type.
@@ -240,8 +240,7 @@ To do this, we will define 2 judgments.
 ### Values: $e \ \mathsf{val}$
 
 The first judgement, $e \ \mathsf{val}$, read as "$e$ is a value", holds when
-$e$ is a "value". Informally, a value is an expression that is "done"
-evaluating.
+$e$ is a value. Informally, a value is an expression that is done evaluating.
 
 In Hatsugen, the values are integer and boolean literals.
 
@@ -265,12 +264,12 @@ $$
 
 ### Stepping: $e \rightarrow e'$
 
-Next, we define what expressions are not "done" evaluating, and furthermore, we
+Next, we define what expressions are not done evaluating, and furthermore, we
 define what they evaluate to. Or rather, we define how their evaluation
-"progresses".
+progresses.
 
 The second dynamics judgement, $e \rightarrow e'$, read as "$e$ steps to $e'$",
-holds when the expression $e$ "takes a step" to another expression, $e'$.
+holds when the expression $e$ takes a step to another expression, $e'$.
 
 In Hatsugen, the only expressions that can take a step are if-expressions.
 
