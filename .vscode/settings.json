@@ -3,5 +3,6 @@
     "node_modules": true,
     "out": true,
     "build": true
-  }
+  },
+  "prettier.proseWrap": "preserve"
 }
