@@ -49,16 +49,20 @@ interface PostData {
 
 async function mkPost(entry: string): Promise<PostData> {
   const { data, content } = matter((await fs.readFile(entry)).toString());
-  const { title, date } = data;
-  if (typeof title !== "string" || !(date instanceof Date)) {
+  const { title, date, lang = "en" } = data;
+  if (
+    typeof title !== "string" ||
+    !(date instanceof Date) ||
+    typeof lang !== "string"
+  ) {
     throw new Error("bad types");
   }
-  const props = { title, content, date };
+  const props = { title, content, lang, date };
   const slug = path.basename(entry, ".md");
   await writeHtml(
     path.join(postsDir, slug),
     page({
-      lang: "en",
+      lang,
       title,
       styles: ["base", "code", "katex/katex.min"],
       body: <Post {...props} />,
