@@ -1,6 +1,6 @@
 ---
 title: Defining a programming language, part 1
-date: 2021-03-30
+date: 2021-03-31
 ---
 
 In this series of posts, we will:
@@ -52,18 +52,18 @@ However, it is possible to specify programming language not just with words, but
 with mathematics. Some examples of languages specified in this way are [Standard
 ML][sml-spec], [Pony][pony-spec], and [WebAssembly][wasm-spec].
 
-Writing these type of formal specifications requires a lot of effort, which is
-probably why few languages are specified in this way. But the benefits are real.
+Formally specifying a language in this way is not a trivial task, but the
+benefits are real.
 
-A mathematical specification is completely unambiguous. This contrasts with
-specifications written in human languages, which can be
+For one, a mathematical specification is completely unambiguous. This contrasts
+with specifications written in human languages, which can be
 [ambiguous][oxford-comma] and [hard to understand][legalese]. For instance: in
 that last sentence, what is the thing that I am saying "can be ambiguous and
 hard to understand"? Is it "specifications" or "human languages"?
 
 Furthermore, using formal methods allows us to state and prove theorems about
 the specification. This gives us a high degree of confidence that our
-specification is free of bugs.
+specification is free of bugs and mistakes.
 
 Let us explore this method of specification by defining our own programming
 language.
@@ -80,8 +80,7 @@ choose the target language to be Japanese, [given][jp-resources] my
 For now, Hatsugen will have only expressions and types. No statements, no
 input/output, no side effects.
 
-The expressions and types are extremely simple: just integers (..., -2, -1, 0,
-1, 2, ...) and booleans (true, false).
+The expressions and types are extremely limited: just integers and booleans.
 
 We'll represent integers with integer literals like $\mathtt{123}$ or
 $\mathtt{-456}$ or $\mathtt{0}$. There are infinitely many integers, and thus
@@ -90,11 +89,11 @@ integer size will be ignored for now.
 
 We'll represent booleans with $\mathtt{true}$ and $\mathtt{false}$ literals.
 
-As one extra bit, we'll also support an if-expression
+As one extra bit, we'll also support a conditional expression
 
 $$\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3$$
 
-which will evaluate $e_1$ and then
+which will evaluate the condition $e_1$ and then
 
 - if it's $\mathtt{true}$, evaluate $e_2$;
 - if it's $\mathtt{false}$, evaluate $e_3$.
@@ -128,10 +127,6 @@ e
 \end{aligned}
 $$
 
-Just with this simple language, we can already do a lot of stuff, at least with
-respect to proving theorems about the language. There aren't yet many
-interesting computations we can perform with the language itself.
-
 ## Statics: $e: \tau$
 
 According to the grammar, the following is a valid Hatsugen expression:
@@ -152,28 +147,25 @@ $$
   \mathtt{else} \ \mathtt{789}
 $$
 
-In the informal semantics for if-expressions, we only considered $\mathtt{true}$
-or $\mathtt{false}$ as possibilities for the value of the conditional. What
-should we do here?
+In the informal semantics for conditional expressions, we only considered
+$\mathtt{true}$ or $\mathtt{false}$ as possibilities for the value of the
+conditional. What should we do here?
 
-One option is to be more permissive in the semantics for if-expressions. As in
-C-like languages, we could treat 0 as "falsy" and non-zero integers as "truthy".
-Thus, if the condition evaluated to an integer not equal to 0, we would take the
-then-branch. And if it evaluated to 0, we would take the else-branch.
+One option is to be more permissive in the semantics for conditional
+expressions. As in C-like languages, we could treat 0 as "falsy" and non-zero
+integers as "truthy".
 
-Our only other option is to declare these kinds of expressions as invalid. We
-could then refuse to evaluate these invalid expressions.
+Our only other option is to declare certain expressions to be invalid, and
+refuse to evaluate these invalid expressions. To precisely define the notion of
+a "valid" expression, we will define a static semantics for Hatsugen.
 
-We can disallow invalid expressions by defining a static semantics for Hatsugen.
-We'll then say that we're only allowed to evaluate expressions that have been
-deemed valid by the static semantics.
+The static semantics for Hatsugen consists of one judgement, $e: \tau$, read as
+"$e$ has type $\tau$" or "$e$'s type is $\tau$. This judgement is a relation
+between expressions $e$ and types $\tau$. An expression $e$ is thus valid
+precisely when there exists a type $\tau$ such that $e: \tau$.
 
-We will define the judgment $e: \tau$, read as "$e$ has type $\tau$", with rules
-of inference. This judgement will be a relation between expressions $e$ and
-types $\tau$. An expression $e$ is thus valid precisely when there exists a type
-$\tau$ such that $e: \tau$.
-
-Our first inference rule says that integer literals have integer type.
+To define a judgment, we write its rules of inference. Our first inference rule
+says that integer literals have integer type.
 
 $$
 \frac
@@ -201,16 +193,16 @@ $$
 $$
 
 Finally, our most interesting inference rule yet defines the static semantics
-for if-expressions. It says that if
+for conditional expressions. It says that if
 
 - we have three arbitrary expressions $e_1$, $e_2$, and $e_3$,
 - and if $e_1$ has boolean type,
 - and if $e_2$ has type $\tau$ where $\tau$ is some type,
 - and if $e_3$ also has that same type $\tau$,
 
-then the whole if expression has type $\tau$.
+then the whole conditional expression has type $\tau$.
 
-Phew. That was kind of long. Let's write it out in inference rule form:
+We can express this more concisely with an inference rule:
 
 $$
 \frac
@@ -230,10 +222,9 @@ This completes the definition of the static semantics for Hatsugen.
 
 ## Dynamics
 
-Now it's time to define the dynamic semantics, i.e. what the program actually
-does when we run it. There are actually a handful of different ways to do this,
-but we're going to define a [structural operational semantics][struct-op-sem]
-for Hatsugen.
+Now it's time to define the dynamic semantics, i.e. how to evaluate programs.
+There are actually a handful of different ways to do this, but we're going to
+define a [structural operational semantics][struct-op-sem] for Hatsugen.
 
 To do this, we will define 2 judgments.
 
@@ -265,19 +256,19 @@ $$
 ### Stepping: $e \rightarrow e'$
 
 Next, we define what expressions are not done evaluating, and furthermore, we
-define what they evaluate to. Or rather, we define how their evaluation
-progresses.
+define how their evaluation progresses.
 
 The second dynamics judgement, $e \rightarrow e'$, read as "$e$ steps to $e'$",
 holds when the expression $e$ takes a step to another expression, $e'$.
 
-In Hatsugen, the only expressions that can take a step are if-expressions.
+In Hatsugen, the only expressions that can take a step are conditional
+expressions.
 
-First, we define that an if-expression can take a step if its condition $e_1$
-can take a step to $e_1'$. This could happen if $e_1$ itself was another
-if-expression, for instance.
+First, we define that a conditional expression can take a step if its condition
+$e_1$ can take a step to $e_1'$. This could happen if $e_1$ itself was another
+conditional expression, for instance.
 
-We say the whole if-expression then steps. When it steps, we leave the
+We say the whole conditional expression then steps. When it steps, we leave the
 then-branch and else-branch expressions unchanged.
 
 $$
@@ -328,7 +319,7 @@ expressions are either done evaluating or can keep evaluating.
 
 More formally, progress states:
 
-> For all $e$, if there exists $\tau$ such that $e : \tau$, then
+> For all $e$, if there exists $\tau$ such that $e: \tau$, then
 > $e \ \mathsf{val}$ or there exists $e'$ such that $e \rightarrow e'$.
 
 Next, we have _preservation_. Preservation states that well-typed expressions
@@ -336,17 +327,17 @@ that can keep evaluating preserve their types when evaluating.
 
 Again, more formally:
 
-> For all $e$, if there exist $e'$ and $\tau$ such that $e : \tau$ and
-> $e \rightarrow e'$, then $e' : \tau$.
+> For all $e$, if there exist $e'$ and $\tau$ such that $e: \tau$ and
+> $e \rightarrow e'$, then $e': \tau$.
 
 Note that taken together, we get the following _safety_ theorem:
 
-> For all $e$, if there exists $\tau$ such that $e : \tau$, then
+> For all $e$, if there exists $\tau$ such that $e: \tau$, then
 > $e \ \mathsf{val}$ or there exists $e'$ such that $e \rightarrow e'$ and
-> $e' : \tau$.
+> $e': \tau$.
 
 Crucially, note that in the case where $e \rightarrow e'$, we also have that
-$e' : \tau$. This means that we can apply the safety theorem _again_ on $e'$.
+$e': \tau$. This means that we can apply the safety theorem _again_ on $e'$.
 
 Stay tuned for the next post in the series, in which we prove these theorems
 with the Lean theorem prover.
