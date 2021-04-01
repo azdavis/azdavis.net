@@ -19,8 +19,8 @@ another way, what defines a programming language?
 ### Definition by implementation
 
 One answer is that the definition of programming language is its implementation.
-Given some programming language $P$, an implementation of $P$ is a program,
-which takes as input the text of a program $p$ in the language $P$. Then, it
+Given some programming language $L$, an implementation of $L$ is a program,
+which takes as input the text of a program $p$ in the language $L$. Then, it
 either directly interprets $p$, or it compiles $p$ into some kind of output.
 This output can then be executed or otherwise used later.
 
