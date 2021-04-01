@@ -3,6 +3,7 @@ import { Remarkable } from "remarkable";
 import { DateShow } from "./date-show";
 import hl from "highlight.js";
 import katex from "remarkable-katex";
+import lean from "highlightjs-lean";
 
 interface Props {
   title: string;
@@ -10,6 +11,8 @@ interface Props {
   date: Date;
   lang: string;
 }
+
+hl.registerLanguage("lean", lean);
 
 function highlight(code: string, language: string): string {
   return hl.getLanguage(language) ? hl.highlight(code, { language }).value : "";
