@@ -5,7 +5,7 @@ export const ja = {
   body: (
     <>
       <h2>名前</h2>
-      <div className="sec">azdavis - ある奴</div>
+      <div className="sec">azdavis - 或る奴</div>
       <h2>説明</h2>
       <div className="sec">
         azdavisはStripeで働いている開発者。カーネギーメロン大学でコンピューター科学の専攻と日本学の副専攻を取った。
