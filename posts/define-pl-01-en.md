@@ -161,7 +161,7 @@ refuse to evaluate these invalid expressions. To precisely define the notion of
 a "valid" expression, we will define a static semantics for Hatsugen.
 
 The static semantics for Hatsugen consists of one judgement, $e: \tau$, read as
-"$e$ has type $\tau$" or "$e$'s type is $\tau$. This judgement is a relation
+"$e$ has type $\tau$" or "$e$'s type is $\tau$". This judgement is a relation
 between expressions $e$ and types $\tau$. An expression $e$ is thus valid
 precisely when there exists a type $\tau$ such that $e: \tau$.
 
@@ -315,7 +315,7 @@ I said that using these formal systems lets us prove theorems. So let's state
 some theorems, and then prove them! (Actually, we'll prove them in the next
 post.)
 
-The first crucial theorem is that of _progress_. Progress says that well-typed
+The first crucial theorem is that of progress. Progress says that well-typed
 expressions are either done evaluating or can keep evaluating.
 
 More formally, progress states:
@@ -323,22 +323,22 @@ More formally, progress states:
 > For all $e$, if there exists $\tau$ such that $e: \tau$, then
 > $e \ \mathsf{val}$ or there exists $e'$ such that $e \rightarrow e'$.
 
-Next, we have _preservation_. Preservation states that well-typed expressions
-that can keep evaluating preserve their types when evaluating.
+Next, we have preservation. Preservation states that well-typed expressions that
+can keep evaluating preserve their types when evaluating.
 
 Again, more formally:
 
 > For all $e$, if there exist $e'$ and $\tau$ such that $e: \tau$ and
 > $e \rightarrow e'$, then $e': \tau$.
 
-Note that taken together, we get the following _safety_ theorem:
+Note that taken together, we get the following safety theorem:
 
 > For all $e$, if there exists $\tau$ such that $e: \tau$, then
 > $e \ \mathsf{val}$ or there exists $e'$ such that $e \rightarrow e'$ and
 > $e': \tau$.
 
 Crucially, note that in the case where $e \rightarrow e'$, we also have that
-$e': \tau$. This means that we can apply the safety theorem _again_ on $e'$.
+$e': \tau$. This means that we can apply the safety theorem again on $e'$.
 
 Stay tuned for the next post in the series, in which we prove these theorems
 with the Lean theorem prover.
@@ -352,8 +352,7 @@ with the Lean theorem prover.
 [js-spec]: https://tc39.es/
 [lean]: https://leanprover.github.io
 [legalese]: https://en.wikipedia.org/wiki/Legal_English
-[oxford-comma]:
-  https://www.cnn.com/2018/02/09/us/dairy-drivers-oxford-comma-case-settlement-trnd
+[oxford-comma]: https://www.cnn.com/2018/02/09/us/dairy-drivers-oxford-comma-case-settlement-trnd
 [peano]: https://en.wikipedia.org/wiki/Peano_axioms
 [pony-spec]: https://www.ponylang.io/media/papers/fast-cheap-with-proof.pdf
 [sml-spec]: https://smlfamily.github.io/sml97-defn.pdf
