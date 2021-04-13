@@ -129,8 +129,7 @@ the reading hints ('furigana') for kanji for more practice.
 [other guide]: http://www.guidetojapanese.org/learn/complete/
 [nhk]: https://www3.nhk.or.jp/news/easy/
 [kanji-mistakes]: https://www.tofugu.com/japanese/kanji-learning-mistakes/
-[phono-semantic]:
-  https://en.wikipedia.org/wiki/Chinese_character_classification#Phono-semantic_compound_characters
+[phono-semantic]: https://en.wikipedia.org/wiki/Chinese_character_classification#Phono-semantic_compound_characters
 
 ## YouTube
 
