@@ -49,7 +49,7 @@ interface PostData {
 
 async function mkPost(entry: string): Promise<PostData> {
   const { data, content } = matter((await fs.readFile(entry)).toString());
-  const { title, date, lang = "en" } = data;
+  const { title, date, lang } = data;
   if (typeof title !== "string") {
     throw new Error("title must be a string");
   }
