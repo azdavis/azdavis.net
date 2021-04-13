@@ -1,6 +1,7 @@
 ---
 title: Defining a programming language, part 1
 date: 2021-03-31
+lang: en
 ---
 
 In this series of posts, we will:
