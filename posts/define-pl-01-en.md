@@ -255,12 +255,12 @@ $$
   {\mathtt{false} \ \mathsf{val}}
 $$
 
-### Stepping: $e \rightarrow e'$
+### Stepping: $e \mapsto e'$
 
 Next, we define what expressions are not done evaluating, and furthermore, we
 define how their evaluation progresses.
 
-The second dynamics judgement, $e \rightarrow e'$, read as "$e$ steps to $e'$",
+The second dynamics judgement, $e \mapsto e'$, read as "$e$ steps to $e'$",
 holds when the expression $e$ takes a step to another expression, $e'$.
 
 In Hatsugen, the only expressions that can take a step are conditional
@@ -275,9 +275,9 @@ then-branch and else-branch expressions unchanged.
 
 $$
 \frac
-  {e_1 \rightarrow e_1'}
+  {e_1 \mapsto e_1'}
   {
-    \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \rightarrow
+    \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \mapsto
     \mathtt{if} \ e_1' \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
   }
 $$
@@ -292,7 +292,7 @@ $$
 \frac
   {}
   {
-    \mathtt{if} \ \mathtt{true} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \ \rightarrow
+    \mathtt{if} \ \mathtt{true} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \ \mapsto
     e_2
   }
 $$
@@ -303,7 +303,7 @@ $$
 \frac
   {}
   {
-    \mathtt{if} \ \mathtt{false} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \rightarrow
+    \mathtt{if} \ \mathtt{false} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \mapsto
     e_3
   }
 $$
@@ -322,7 +322,7 @@ expressions are either done evaluating or can keep evaluating.
 More formally, progress states:
 
 > For all $e$, if there exists $\tau$ such that $e: \tau$, then
-> $e \ \mathsf{val}$ or there exists $e'$ such that $e \rightarrow e'$.
+> $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$.
 
 Next, we have preservation. Preservation states that well-typed expressions that
 can keep evaluating preserve their types when evaluating.
@@ -330,15 +330,15 @@ can keep evaluating preserve their types when evaluating.
 Again, more formally:
 
 > For all $e$, if there exist $e'$ and $\tau$ such that $e: \tau$ and
-> $e \rightarrow e'$, then $e': \tau$.
+> $e \mapsto e'$, then $e': \tau$.
 
 Note that taken together, we get the following safety theorem:
 
 > For all $e$, if there exists $\tau$ such that $e: \tau$, then
-> $e \ \mathsf{val}$ or there exists $e'$ such that $e \rightarrow e'$ and
+> $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$ and
 > $e': \tau$.
 
-Crucially, note that in the case where $e \rightarrow e'$, we also have that
+Crucially, note that in the case where $e \mapsto e'$, we also have that
 $e': \tau$. This means that we can apply the safety theorem again on $e'$.
 
 Stay tuned for the next post in the series, in which we prove these theorems

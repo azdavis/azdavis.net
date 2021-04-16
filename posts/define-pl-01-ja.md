@@ -198,11 +198,11 @@ $$
   {\mathtt{false} \ \mathsf{val}}
 $$
 
-### 踏み出し：$e \rightarrow e'$
+### 踏み出し：$e \mapsto e'$
 
 次、どの式が評価し終わっていないか、そしてどう評価するかを定義します。
 
-第二の動的意味の判断である$e \rightarrow e'$は「$e$が一歩を踏み出し$e'$になる」と読みます。
+第二の動的意味の判断である$e \mapsto e'$は「$e$が一歩を踏み出し$e'$になる」と読みます。
 
 発言では、唯一踏み出せる式は条件式です。
 
@@ -210,9 +210,9 @@ $$
 
 $$
 \frac
-  {e_1 \rightarrow e_1'}
+  {e_1 \mapsto e_1'}
   {
-    \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \rightarrow
+    \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \mapsto
     \mathtt{if} \ e_1' \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
   }
 $$
@@ -225,7 +225,7 @@ $$
 \frac
   {}
   {
-    \mathtt{if} \ \mathtt{true} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \ \rightarrow
+    \mathtt{if} \ \mathtt{true} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \ \mapsto
     e_2
   }
 $$
@@ -236,7 +236,7 @@ $$
 \frac
   {}
   {
-    \mathtt{if} \ \mathtt{false} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \rightarrow
+    \mathtt{if} \ \mathtt{false} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \mapsto
     e_3
   }
 $$
@@ -250,17 +250,17 @@ $$
 まずは「進歩」の定理。進歩は、型のある式は値か踏み出せると言います。
 
 > For all $e$, if there exists $\tau$ such that $e: \tau$, then $e \
-> \mathsf{val}$ or there exists $e'$ such that $e \rightarrow e'$.
+> \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$.
 
 次は「維持」です。維持は、型のある式が踏み出せれば、その踏み出された式も同じ型を持つと言います。
 
-> For all $e$, if there exist $e'$ and $\tau$ such that $e: \tau$ and $e \rightarrow e'$, then $e': \tau$.
+> For all $e$, if there exist $e'$ and $\tau$ such that $e: \tau$ and $e \mapsto e'$, then $e': \tau$.
 
 それらを合わせて次の「安全」定理の出来上がりです。
 
-> For all $e$, if there exists $\tau$ such that $e: \tau$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \rightarrow e'$ and $e': \tau$.
+> For all $e$, if there exists $\tau$ such that $e: \tau$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$ and $e': \tau$.
 
-とりわけ注目して欲しいのは、$e \rightarrow e'$の場合、$e': \tau$も事実。これでまた安全定理を$e'$に使えます。
+とりわけ注目して欲しいのは、$e \mapsto e'$の場合、$e': \tau$も事実。これでまた安全定理を$e'$に使えます。
 
 次の投稿ではこれらの定理を証明するので、お楽しみください。
 
