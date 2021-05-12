@@ -46,18 +46,18 @@ export const resume = {
         <dd>Writing assistant: for elementary-level Japanese classes</dd>
         <dt>Spring 2020, Fall 2018, Spring 2018, Fall 2017, Summer 2017</dt>
         <dd>
-          Teaching assistant: for
+          Teaching assistant: for{" "}
           <a href="http://www.cs.cmu.edu/~15150/">a class</a> about functional
           programming
         </dd>
         <dt>Fall 2019</dt>
         <dd>
-          Student teacher: for
+          Student teacher: for{" "}
           <a href="https://hypefortypes.github.io">a class</a> about type theory
         </dd>
         <dt>Summer 2019</dt>
         <dd>
-          Intern at Stripe: worked on an open-source
+          Intern at Stripe: worked on an open-source{" "}
           <a href="https://sorbet.org">Ruby typechecker</a>
         </dd>
         <dt>Spring 2019</dt>
