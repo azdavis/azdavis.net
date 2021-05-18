@@ -4,15 +4,14 @@ date: 2021-03-31
 lang: en
 ---
 
-In this series of posts, we will:
-
-- Define a small programming language using formal methods
-- Prove theorems about that language using the [Lean theorem prover][lean]
+In this series of posts, we will define a small programming language using
+formal methods. We will also produce proofs about our definitions using the
+[Lean theorem prover][lean].
 
 ## Introduction and motivation
 
-There are many programming languages: C, C++, Java, JavaScript, Rust, Go,
-Python, Ruby, [Standard ML][sml], etc.
+There are many programming languages that exist: C, C++, Java, JavaScript, Rust,
+Go, Python, Ruby, [Standard ML][sml], etc.
 
 But how is it that we can say that these programming languages exist? Or, put
 another way, what defines a programming language?
@@ -22,16 +21,8 @@ another way, what defines a programming language?
 One answer is that the definition of programming language is its implementation.
 
 Given some programming language $L$, an implementation of $L$ is a program,
-which takes as input the text of a program $p$ in the language $L$. Then, it
-either directly interprets $p$, or it compiles $p$ into some kind of output.
-This output can then be executed or otherwise used later.
-
-The former type of implementation is aptly called an "interpreter", the latter a
-"compiler".
-
-It is undeniable that for a programming language to be useful, it must have an
-implementation. Otherwise, it would be impossible to run any programs in that
-language.
+which takes as input the text of a program $p$ in the language $L$, and produces
+as output some result based on $p$.
 
 But what if a programming language has not one, but multiple implementations?
 Which one of these implementations is the one that defines the programming
@@ -313,8 +304,7 @@ With that, we've defined the dynamic semantics for Hatsugen.
 ## Theorems
 
 I said that using these formal systems lets us prove theorems. So let's state
-some theorems, and then prove them! (Actually, we'll prove them in the next
-post.)
+some theorems, and then prove them!
 
 The first crucial theorem is that of progress. Progress says that well-typed
 expressions are either done evaluating or can keep evaluating.
@@ -341,8 +331,9 @@ Note that taken together, we get the following safety theorem:
 Crucially, note that in the case where $e \mapsto e'$, we also have that
 $e': \tau$. This means that we can apply the safety theorem again on $e'$.
 
-Stay tuned for the next post in the series, in which we prove these theorems
-with the Lean theorem prover.
+The proofs are available on [GitHub][proof].
+
+In the next post, we'll add functions to Hatsugen.
 
 [bnf]: https://en.wikipedia.org/wiki/Backus–Naur_form
 [eldiro]: https://arzg.github.io/lang/
@@ -360,3 +351,4 @@ with the Lean theorem prover.
 [sml]: https://www.smlnj.org/
 [wasm-spec]: https://webassembly.github.io/spec/core/
 [struct-op-sem]: https://www.youtube.com/watch?v=H40QE0_830Q
+[proof]: https://github.com/azdavis/hatsugen/tree/part-01
