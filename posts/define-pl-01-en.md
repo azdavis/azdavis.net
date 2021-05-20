@@ -311,22 +311,21 @@ expressions are either done evaluating or can keep evaluating.
 
 More formally, progress states:
 
-> For all $e$, if there exists $\tau$ such that $e: \tau$, then
-> $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$.
+> For all $e$ and $\tau$, if $e: \tau$, then $e \ \mathsf{val}$ or there exists
+> $e'$ such that $e \mapsto e'$.
 
 Next, we have preservation. Preservation states that well-typed expressions that
 can keep evaluating preserve their types when evaluating.
 
 Again, more formally:
 
-> For all $e$, if there exist $e'$ and $\tau$ such that $e: \tau$ and
-> $e \mapsto e'$, then $e': \tau$.
+> For all $e$ and $e'$ and $\tau$, if $e: \tau$ and $e \mapsto e'$, then $e':
+> \tau$.
 
 Note that taken together, we get the following safety theorem:
 
-> For all $e$, if there exists $\tau$ such that $e: \tau$, then
-> $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$ and
-> $e': \tau$.
+> For all $e$ and $\tau$, if $e: \tau$, then $e \ \mathsf{val}$ or there exists
+> $e'$ such that $e \mapsto e'$ and $e': \tau$.
 
 Crucially, note that in the case where $e \mapsto e'$, we also have that
 $e': \tau$. This means that we can apply the safety theorem again on $e'$.
