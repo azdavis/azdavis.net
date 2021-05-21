@@ -242,16 +242,18 @@ $$
 
 まずは「進歩」の定理。進歩は、型のある式は値か踏み出せると言います。
 
-> For all $e$, if there exists $\tau$ such that $e: \tau$, then $e \
-> \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$.
+> For all $e$ and $\tau$, if $e: \tau$, then $e \ \mathsf{val}$ or there exists
+> $e'$ such that $e \mapsto e'$.
 
 次は「維持」です。維持は、型のある式が踏み出せれば、その踏み出された式も同じ型を持つと言います。
 
-> For all $e$, if there exist $e'$ and $\tau$ such that $e: \tau$ and $e \mapsto e'$, then $e': \tau$.
+> For all $e$ and $e'$ and $\tau$, if $e: \tau$ and $e \mapsto e'$, then $e':
+> \tau$.
 
 それらを合わせて次の「安全」定理の出来上がりです。
 
-> For all $e$, if there exists $\tau$ such that $e: \tau$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$ and $e': \tau$.
+> For all $e$ and $\tau$, if $e: \tau$, then $e \ \mathsf{val}$ or there exists
+> $e'$ such that $e \mapsto e'$ and $e': \tau$.
 
 とりわけ注目して欲しいのは、$e \mapsto e'$の場合、$e': \tau$も事実。これでまた安全定理を$e'$に使えます。
 
