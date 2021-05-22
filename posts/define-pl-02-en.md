@@ -170,9 +170,10 @@ For application, the parameter and argument types must match.
 $$
 \frac
   {
-    e_1: \tau_1 \rightarrow \tau_2 \hspace{1em}
-    e_2: \tau_1
-  }{e_1 \ e_2: \tau_2}
+    \Gamma \vdash e_1: \tau_1 \rightarrow \tau_2 \hspace{1em}
+    \Gamma \vdash e_2: \tau_1
+  }
+  {\Gamma \vdash e_1 \ e_2: \tau_2}
 $$
 
 ## Dynamics: $e \ \mathsf{val}$ and $e \mapsto e'$
