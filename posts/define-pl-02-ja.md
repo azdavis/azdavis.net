@@ -403,5 +403,5 @@ $$
 
 次の投稿では、積型を紹介します。これらを struct や tuple とも言います。
 
-[prev]: /posts/define-pl-01-en
+[prev]: /posts/define-pl-01-ja
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-02
