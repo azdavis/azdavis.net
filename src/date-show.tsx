@@ -1,10 +1,7 @@
 import { ReactElement } from "react";
 
 function dateToIsoString(date: Date): string {
-  const y = date.getUTCFullYear();
-  const m = date.getUTCMonth() + 1;
-  const d = date.getUTCDate();
-  return `${y}-${m}-${d}`;
+  return date.toISOString().split('T')[0]
 }
 
 const options = {
