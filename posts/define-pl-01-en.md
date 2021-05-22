@@ -145,8 +145,8 @@ $\mathtt{true}$ or $\mathtt{false}$ as possibilities for the value of the
 conditional. What should we do here?
 
 One option is to be more permissive in the semantics for conditional
-expressions. As in C-like languages, we could treat 0 as "falsy" and non-zero
-integers as "truthy".
+expressions. As in C and other languages, we could treat 0 like $\mathtt{false}$
+and non-zero integers like $\mathtt{true}$.
 
 Our only other option is to declare certain expressions to be invalid, and
 refuse to evaluate these invalid expressions. To precisely define the notion of
