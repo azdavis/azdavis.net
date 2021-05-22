@@ -332,7 +332,7 @@ $e': \tau$. This means that we can apply the safety theorem again on $e'$.
 
 The proofs are available on [GitHub][proof].
 
-In the next post, we'll add functions to Hatsugen.
+In the [next post][next], we'll add functions to Hatsugen.
 
 [bnf]: https://en.wikipedia.org/wiki/Backus–Naur_form
 [eldiro]: https://arzg.github.io/lang/
@@ -351,3 +351,4 @@ In the next post, we'll add functions to Hatsugen.
 [wasm-spec]: https://webassembly.github.io/spec/core/
 [struct-op-sem]: https://www.youtube.com/watch?v=H40QE0_830Q
 [proof]: https://github.com/azdavis/hatsugen/tree/part-01
+[next]: /posts/define-pl-02-en

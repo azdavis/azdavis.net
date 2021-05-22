@@ -259,7 +259,7 @@ $$
 
 証明は[GitHub][proof]にあります。
 
-次の投稿では、関数を発言に追加します。
+[次の投稿][next]では、関数を発言に追加します。
 
 [bnf]: https://en.wikipedia.org/wiki/Backus–Naur_form
 [eldiro]: https://arzg.github.io/lang/
@@ -278,3 +278,4 @@ $$
 [wasm-spec]: https://webassembly.github.io/spec/core/
 [struct-op-sem]: https://www.youtube.com/watch?v=H40QE0_830Q
 [proof]: https://github.com/azdavis/hatsugen/tree/part-01
+[next]: /posts/define-pl-02-ja
