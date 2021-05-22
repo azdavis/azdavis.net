@@ -26,6 +26,6 @@ Here's some block math:
 
 $$
 \frac
-  {\Gamma, x : \tau \vdash e : \rho}
-  {\Gamma \vdash \lambda (x : \tau) e : \tau \rightarrow \rho}
+  {\Gamma, x: \tau_1 \vdash e: \tau_2}
+  {\Gamma \vdash \lambda (x: \tau_1) \ e: \tau_1 \rightarrow \tau_2}
 $$
