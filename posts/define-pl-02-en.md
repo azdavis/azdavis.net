@@ -208,8 +208,8 @@ literal, since it had function type.
 
 We will step into the body of the function, substituting all free occurrences of
 the variable bound by the function with the value of the argument. We write $[x
-\mapsto e] e' = e''$ to mean "substituting all free occurrences of $x$ with $e$
-in $e'$ yields $e''$".
+\mapsto e_x] e = e'$ to mean "substituting all free occurrences of $x$ with
+$e_x$ in $e$ yields $e'$".
 
 $$
 \frac
@@ -222,7 +222,7 @@ $$
   }
 $$
 
-## Substitution: $[x \mapsto e] e' = e''$
+## Substitution: $[x \mapsto e_x] e = e'$
 
 To define the dynamics for function application, we must now define substitution
 for expressions.
@@ -232,19 +232,19 @@ Substitution does nothing to integer and boolean literals:
 $$
 \frac
   {}
-  {[x \mapsto e] \overline{n} = \overline{n}}
+  {[x \mapsto e_x] \overline{n} = \overline{n}}
 $$
 
 $$
 \frac
   {}
-  {[x \mapsto e] \mathtt{true} = \mathtt{true}}
+  {[x \mapsto e_x] \mathtt{true} = \mathtt{true}}
 $$
 
 $$
 \frac
   {}
-  {[x \mapsto e] \mathtt{false} = \mathtt{false}}
+  {[x \mapsto e_x] \mathtt{false} = \mathtt{false}}
 $$
 
 For conditional and application expressions, we simply recurse on the
@@ -253,12 +253,12 @@ sub-expressions:
 $$
 \frac
   {
-    [x \mapsto e] e_1 = e_1' \hspace{1em}
-    [x \mapsto e] e_2 = e_2' \hspace{1em}
-    [x \mapsto e] e_3 = e_3'
+    [x \mapsto e_x] e_1 = e_1' \hspace{1em}
+    [x \mapsto e_x] e_2 = e_2' \hspace{1em}
+    [x \mapsto e_x] e_3 = e_3'
   }
   {
-    [x \mapsto e] \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 =
+    [x \mapsto e_x] \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 =
     \mathtt{if} \ e_1' \ \mathtt{then} \ e_2' \ \mathtt{else} \ e_3'
   }
 $$
@@ -266,29 +266,29 @@ $$
 $$
 \frac
   {
-    [x \mapsto e] e_1 = e_1' \hspace{1em}
-    [x \mapsto e] e_2 = e_2' \hspace{1em}
+    [x \mapsto e_x] e_1 = e_1' \hspace{1em}
+    [x \mapsto e_x] e_2 = e_2' \hspace{1em}
   }
   {
-    [x \mapsto e] e_1 \ e_2 =
+    [x \mapsto e_x] e_1 \ e_2 =
     e_1' \ e_2'
   }
 $$
 
 For variables, we case on whether the variable in the expression is the variable
-being substituted. If it is, we replace the variable with $e$. If not, we leave
-it alone.
+being substituted. If it is, we replace the variable with $e_x$. If not, we
+leave it alone.
 
 $$
 \frac
   {}
-  {[x \mapsto e] x = e}
+  {[x \mapsto e_x] x = e_x}
 $$
 
 $$
 \frac
   {x \ne y}
-  {[x \mapsto e] y = y}
+  {[x \mapsto e_x] y = y}
 $$
 
 For function literals, we again case on whether the variables are the same. If
@@ -298,18 +298,19 @@ we treat variables with the same name in the context $\Gamma$.
 $$
 \frac
   {}
-  {[x \mapsto e] \lambda (x: \tau) \ e' = \lambda (x: \tau) \ e'}
+  {[x \mapsto e_x] \lambda (x: \tau) \ e = \lambda (x: \tau) \ e}
 $$
 
-For the case when the variables are different, we must take care to avoid variable capture. For example, if we define
+For the case when the variables are different, we must take care to avoid
+variable capture. For example, if we define
 
 $$
 \frac
   {
     x \ne y \hspace{1em}
-    [x \mapsto e] e' = e''
+    [x \mapsto e_x] e = e'
   }
-  {[x \mapsto e] \lambda (y: \tau) \ e' = \lambda (y: \tau) \ e''}
+  {[x \mapsto e_x] \lambda (y: \tau) \ e = \lambda (y: \tau) \ e'}
 $$
 
 we can use the rules to prove that
@@ -319,18 +320,18 @@ $$[x \mapsto y] \lambda (y: \mathtt{Bool}) \ x = \lambda (y: \mathtt{Bool}) \ y$
 In this case, the variable $y$ has been captured by the binding for $y$ in the
 function literal.
 
-To avoid this, we require that the variable bound by the function literal
-not appear free in $e$. We thus revise the rule, writing $\mathsf{fv}(e)$ to
-denote the free variables in $e$.
+To avoid this, we require that the variable bound by the function literal not
+appear free in $e_x$. We thus revise the rule, writing $\mathsf{fv}(e_x)$ to
+denote the free variables in $e_x$.
 
 $$
 \frac
   {
     x \ne y \hspace{1em}
-    y \notin \mathsf{fv}(e) \hspace{1em}
-    [x \mapsto e] e' = e''
+    y \notin \mathsf{fv}(e_x) \hspace{1em}
+    [x \mapsto e_x] e = e'
   }
-  {[x \mapsto e] \lambda (y: \tau) \ e' = \lambda (y: \tau) \ e''}
+  {[x \mapsto e_x] \lambda (y: \tau) \ e = \lambda (y: \tau) \ e'}
 $$
 
 ## Free variables: $\mathsf{fv}(e)$

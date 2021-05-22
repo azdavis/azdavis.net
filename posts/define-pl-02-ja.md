@@ -190,7 +190,7 @@ $$
   }
 $$
 
-## 置き換え：$[x \mapsto e] e' = e''$
+## 置き換え：$[x \mapsto e_x] e = e'$
 
 関数適用の動的意味論を定義する為、式の置き換えをも定義します。
 
@@ -199,19 +199,19 @@ $$
 $$
 \frac
   {}
-  {[x \mapsto e] \overline{n} = \overline{n}}
+  {[x \mapsto e_x] \overline{n} = \overline{n}}
 $$
 
 $$
 \frac
   {}
-  {[x \mapsto e] \mathtt{true} = \mathtt{true}}
+  {[x \mapsto e_x] \mathtt{true} = \mathtt{true}}
 $$
 
 $$
 \frac
   {}
-  {[x \mapsto e] \mathtt{false} = \mathtt{false}}
+  {[x \mapsto e_x] \mathtt{false} = \mathtt{false}}
 $$
 
 条件と適用の式は、ただその中の式に帰納します。
@@ -219,12 +219,12 @@ $$
 $$
 \frac
   {
-    [x \mapsto e] e_1 = e_1' \hspace{1em}
-    [x \mapsto e] e_2 = e_2' \hspace{1em}
-    [x \mapsto e] e_3 = e_3'
+    [x \mapsto e_x] e_1 = e_1' \hspace{1em}
+    [x \mapsto e_x] e_2 = e_2' \hspace{1em}
+    [x \mapsto e_x] e_3 = e_3'
   }
   {
-    [x \mapsto e] \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 =
+    [x \mapsto e_x] \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 =
     \mathtt{if} \ e_1' \ \mathtt{then} \ e_2' \ \mathtt{else} \ e_3'
   }
 $$
@@ -232,11 +232,11 @@ $$
 $$
 \frac
   {
-    [x \mapsto e] e_1 = e_1' \hspace{1em}
-    [x \mapsto e] e_2 = e_2' \hspace{1em}
+    [x \mapsto e_x] e_1 = e_1' \hspace{1em}
+    [x \mapsto e_x] e_2 = e_2' \hspace{1em}
   }
   {
-    [x \mapsto e] e_1 \ e_2 =
+    [x \mapsto e_x] e_1 \ e_2 =
     e_1' \ e_2'
   }
 $$
@@ -246,13 +246,13 @@ $$
 $$
 \frac
   {}
-  {[x \mapsto e] x = e}
+  {[x \mapsto e_x] x = e_x}
 $$
 
 $$
 \frac
   {x \ne y}
-  {[x \mapsto e] y = y}
+  {[x \mapsto e_x] y = y}
 $$
 
 関数定数は、また変数が同じかどうかを見ます。同じだったら関数を変えません。これは、静的意味論では同じ変数のある複数のペアが文脈にある場合の扱い方に首尾一貫します。
@@ -260,7 +260,7 @@ $$
 $$
 \frac
   {}
-  {[x \mapsto e] \lambda (x: \tau) \ e' = \lambda (x: \tau) \ e'}
+  {[x \mapsto e_x] \lambda (x: \tau) \ e = \lambda (x: \tau) \ e}
 $$
 
 変数が違ったら、変数捕獲を回避する必要があります。例えばもし
@@ -269,9 +269,9 @@ $$
 \frac
   {
     x \ne y \hspace{1em}
-    [x \mapsto e] e' = e''
+    [x \mapsto e_x] e = e'
   }
-  {[x \mapsto e] \lambda (y: \tau) \ e' = \lambda (y: \tau) \ e''}
+  {[x \mapsto e_x] \lambda (y: \tau) \ e = \lambda (y: \tau) \ e'}
 $$
 
 を規則として定義したらば、規則を使い
@@ -280,16 +280,16 @@ $$[x \mapsto y] \lambda (y: \mathtt{Bool}) \ x = \lambda (y: \mathtt{Bool}) \ y$
 
 は証明できてしまうのです。この場合、変数の$y$は関数の束縛された$y$により捕獲されたのです。
 
-これを回避する為、変数は$e$の自由変数ではないことを不可欠な前提とします。従って規則を改善し、$e$の中の自由変数を$$\mathsf{fv}(e)$と表記します。
+これを回避する為、変数は$e$の自由変数ではないことを不可欠な前提とします。従って規則を改善し、$e_x$の中の自由変数を$$\mathsf{fv}(e_x)$と表記します。
 
 $$
 \frac
   {
     x \ne y \hspace{1em}
-    y \notin \mathsf{fv}(e) \hspace{1em}
-    [x \mapsto e] e' = e''
+    y \notin \mathsf{fv}(e_x) \hspace{1em}
+    [x \mapsto e_x] e = e'
   }
-  {[x \mapsto e] \lambda (y: \tau) \ e' = \lambda (y: \tau) \ e''}
+  {[x \mapsto e_x] \lambda (y: \tau) \ e = \lambda (y: \tau) \ e'}
 $$
 
 ## 自由変数：$\mathsf{fv}(e)$
