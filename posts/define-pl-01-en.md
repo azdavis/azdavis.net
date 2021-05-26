@@ -10,31 +10,35 @@ formal methods. We will also produce proofs about our definitions using the
 
 ## Introduction and motivation
 
-There are many programming languages that exist: C, C++, Java, JavaScript, Rust,
-Go, Python, Ruby, [Standard ML][sml], etc.
+There are many programming languages. Some have been around for years, some are
+relatively new. Some are general-purpose, some are more domain-specific.
 
-But how is it that we can say that these programming languages exist? Or, put
-another way, what defines a programming language?
+But what is a programming language? Or rather, what defines one?
 
 ### Definition by implementation
 
 One answer is that the definition of programming language is its implementation.
 
 Given some programming language $L$, an implementation of $L$ is a program,
-which takes as input the text of a program $p$ in the language $L$, and produces
-as output some result based on $p$.
+which takes as input the text of a program $p$ in the language $L$, and either
+produces as output some result based on $p$, or rejects $p$ as invalid.
 
-But what if a programming language has not one, but multiple implementations?
-Which one of these implementations is the one that defines the programming
-language? Must all other implementations copy the behavior of this "blessed"
-implementation, bugs and all?
+We could then say a program $p$ is a program in the programming language $L$ if
+the implementation of $L$ produces output for $p$, i.e. it does not reject $p$.
+
+However, a programming language may have multiple implementations. And though
+these implementations may strive for compatibility between one another, it
+sometimes happens that different implementations behave differently given the
+same program as input.
+
+In such a case, which one of these implementations is _the_ one that defines the
+programming language?
 
 ### Definition by specification
 
 A fix for this problem is to write a specification for the programming language.
-This spec is a text document written in some human language, often English.
-Developers then use the spec as a reference when writing implementations of the
-language.
+Developers then use the specification as a reference when writing
+implementations of the language.
 
 Languages like C, C++, [Go][go-spec], and [JavaScript][js-spec] (technically
 ECMAScript) are specified in this way.
@@ -50,9 +54,8 @@ benefits are real.
 
 For one, a mathematical specification is completely unambiguous. This contrasts
 with specifications written in human languages, which can be
-[ambiguous][oxford-comma] and [hard to understand][legalese]. For instance: in
-that last sentence, what is the thing that I am saying "can be ambiguous and
-hard to understand"? Is it "specifications" or "human languages"?
+[ambiguous][c-undefined]. For instance: in that last sentence, what is the thing
+that I am saying can be ambiguous? Is it specifications or human languages?
 
 Furthermore, using formal methods allows us to state and prove theorems about
 the specification. This gives us a high degree of confidence that our
@@ -63,12 +66,13 @@ language.
 
 ## Hatsugen, a small language
 
+First, we will give a name to our language.
+
 There's an excellent [series of blog posts][eldiro] about implementing a
-programming language in Rust. As in that series, we'll name our language by
-translating the English word "utterance" into some other human language. I'll
-choose the target language to be Japanese, [given][jp-resources] my
-[interests][jp-resume]. [Thus][jisho-utterance], we will call the language
-"Hatsugen".
+programming language. As in that series, we'll name our language by translating
+the English word "utterance" into some other human language. I'll choose the
+target language to be Japanese, [given][jp-resources] my [interests][jp-resume].
+[Thus][jisho-utterance], we will call the language "Hatsugen".
 
 For now, Hatsugen will have only expressions and types. No statements, no
 input/output, no side effects.
@@ -342,12 +346,9 @@ In the [next post][next], we'll add functions to Hatsugen.
 [jp-resume]: https://azdavis.xyz/ja/
 [js-spec]: https://tc39.es/
 [lean]: https://leanprover.github.io
-[legalese]: https://en.wikipedia.org/wiki/Legal_English
-[oxford-comma]: https://www.cnn.com/2018/02/09/us/dairy-drivers-oxford-comma-case-settlement-trnd
-[peano]: https://en.wikipedia.org/wiki/Peano_axioms
+[c-undefined]: https://www.yodaiken.com/2021/05/19/undefined-behavior-in-c-is-a-reading-error/
 [pony-spec]: https://www.ponylang.io/media/papers/fast-cheap-with-proof.pdf
 [sml-spec]: https://smlfamily.github.io/sml97-defn.pdf
-[sml]: https://www.smlnj.org/
 [wasm-spec]: https://webassembly.github.io/spec/core/
 [struct-op-sem]: https://www.youtube.com/watch?v=H40QE0_830Q
 [proof]: https://github.com/azdavis/hatsugen/tree/part-01
