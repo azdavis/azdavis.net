@@ -27,16 +27,16 @@ $\tau_1 \rightarrow \tau_2$は$\tau_1$を入力とし、$\tau_2$を出力とす�
 
 $$
 \begin{aligned}
+\tau
+::=  \ & \dots
+\\ | \ & \tau_1 \rightarrow \tau_2
+\\
+\\
 e
 ::=  \ & \dots
 \\ | \ & x
 \\ | \ & \lambda (x: \tau) \ e
 \\ | \ & e_1 \ e_2
-\\
-\\
-\tau
-::=  \ & \dots
-\\ | \ & \tau_1 \rightarrow \tau_2
 \end{aligned}
 $$
 

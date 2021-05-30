@@ -69,22 +69,22 @@ $$\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3$$
 
 ## 構文規則
 
-[BNF][bnf]のような形式文法で式と型の抽象的な構文規則を定義します。任意な式を$e$、型を$\tau$という変数で表します。
+[BNF][bnf]のような形式文法で式と型の抽象的な構文規則を定義します。任意な型を$\tau$、式を$e$という変数で表します。
 
 整数は無限で書くのは面倒になるから、$\overline{n}$は任意な整数だとします。
 
 $$
 \begin{aligned}
+\tau
+::=  \ & \mathtt{Int}
+\\ | \ & \mathtt{Bool}
+\\
+\\
 e
 ::=  \ & \overline{n}
 \\ | \ & \mathtt{true}
 \\ | \ & \mathtt{false}
 \\ | \ & \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
-\\
-\\
-\tau
-::=  \ & \mathtt{Int}
-\\ | \ & \mathtt{Bool}
 \end{aligned}
 $$
 

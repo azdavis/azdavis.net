@@ -103,24 +103,24 @@ bogged down with the complexity of Hatsugen itself.
 
 ## Syntax
 
-We'll use a [BNF][bnf]-style grammar to describe the abstract syntax of
-expressions $e$ and types $\tau$ in Hatsugen.
+We'll use a [BNF][bnf]-style grammar to describe the abstract syntax of types
+$\tau$ and expressions $e$ in Hatsugen.
 
 Since there are infinitely many integers, and writing them all out would take
 quite a while, we'll represent an arbitrary integer literal with $\overline{n}$.
 
 $$
 \begin{aligned}
+\tau
+::=  \ & \mathtt{Int}
+\\ | \ & \mathtt{Bool}
+\\
+\\
 e
 ::=  \ & \overline{n}
 \\ | \ & \mathtt{true}
 \\ | \ & \mathtt{false}
 \\ | \ & \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
-\\
-\\
-\tau
-::=  \ & \mathtt{Int}
-\\ | \ & \mathtt{Bool}
 \end{aligned}
 $$
 
