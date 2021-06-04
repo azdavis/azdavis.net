@@ -25,9 +25,9 @@ export const index = {
         </dt>
         <dd>An assortment of writings.</dd>
         <dt>
-          <a href="/profiles/">Profiles</a>
+          <a href="https://github.com/azdavis">GitHub</a>
         </dt>
-        <dd>A collection of accounts.</dd>
+        <dd>A collection of repositories.</dd>
       </dl>
       <h2>COPYRIGHT</h2>
       <div className="sec">Copyright 1998 Ariel Davis.</div>

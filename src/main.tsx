@@ -8,7 +8,6 @@ import mkdirp from "mkdirp";
 import path from "path";
 import { error404 } from "./pages/404";
 import { ja } from "./pages/ja";
-import { profiles } from "./pages/profiles";
 
 const rootDir = "build";
 const postsDir = "posts";
@@ -102,7 +101,6 @@ async function main() {
   await writeHtml(".", page(error404), "404.html");
   await writeHtml(".", page(index));
   await writeHtml("ja", page(ja));
-  await writeHtml("profiles", page(profiles));
   const posts = {
     lang: "en",
     title: "Posts",

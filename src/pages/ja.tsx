@@ -23,9 +23,9 @@ export const ja = {
         </dt>
         <dd>文章の揃い。</dd>
         <dt>
-          <a href="/profiles/">プロフィール</a>
+          <a href="https://github.com/azdavis">GitHub</a>
         </dt>
-        <dd>アカウントの集まり。</dd>
+        <dd>リポジトリーの集まり。</dd>
       </dl>
       <h2>著作権</h2>
       <div className="sec">著作権１９９８アリエル・デイヴィス。</div>
