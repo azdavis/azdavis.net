@@ -1,13 +1,13 @@
+import { error404 } from "./pages/404";
 import { index } from "./pages/index";
+import { ja } from "./pages/ja";
+import { join, basename } from "path";
 import { page } from "./page";
 import { Post } from "./post";
 import { promises as fs } from "fs";
 import glob from "fast-glob";
 import matter from "gray-matter";
 import mkdirp from "mkdirp";
-import path from "path";
-import { error404 } from "./pages/404";
-import { ja } from "./pages/ja";
 
 const rootDir = "build";
 const postsDir = "posts";
@@ -17,8 +17,8 @@ async function copyDir(src: string, dest: string) {
   await fs.mkdir(dest, { recursive: true });
   const entries = await fs.readdir(src, { withFileTypes: true });
   for (const entry of entries) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
+    const srcPath = join(src, entry.name);
+    const destPath = join(dest, entry.name);
     if (entry.isDirectory()) {
       await copyDir(srcPath, destPath);
     } else {
@@ -32,11 +32,8 @@ async function writeHtml(
   contents: string,
   file: string = "index.html",
 ) {
-  await mkdirp(path.join(rootDir, dir));
-  await fs.writeFile(
-    path.join(rootDir, dir, file),
-    "<!DOCTYPE html>" + contents,
-  );
+  await mkdirp(join(rootDir, dir));
+  await fs.writeFile(join(rootDir, dir, file), "<!DOCTYPE html>" + contents);
 }
 
 interface PostData {
@@ -58,9 +55,9 @@ async function mkPost(entry: string): Promise<PostData> {
     throw new Error("lang must be a string");
   }
   const props = { title, content, lang, date };
-  const slug = path.basename(entry, ".md");
+  const slug = basename(entry, ".md");
   await writeHtml(
-    path.join(postsDir, slug),
+    join(postsDir, slug),
     page({
       lang,
       title,
@@ -88,13 +85,13 @@ function postCmp(a: PostData, b: PostData): -1 | 1 {
 }
 
 async function copyStatic(p: string) {
-  await fs.copyFile(p, path.join(rootDir, path.basename(p)));
+  await fs.copyFile(p, join(rootDir, basename(p)));
 }
 
 async function main() {
   await fs.rm(rootDir, { recursive: true, force: true });
   await mkdirp(rootDir);
-  await copyDir("node_modules/katex/dist", path.join(rootDir, "katex"));
+  await copyDir("node_modules/katex/dist", join(rootDir, "katex"));
   await Promise.all((await glob("static/*")).map(copyStatic));
   const entries = await Promise.all((await glob("posts/*.md")).map(mkPost));
   entries.sort(postCmp);
