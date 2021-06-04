@@ -1,7 +1,6 @@
 ---
 title: Defining a programming language, part 2
 date: 2021-05-22
-lang: en
 ---
 
 In the [previous post][prev], we introduced Hatsugen, a small programming
@@ -453,5 +452,5 @@ The proofs are once again on [GitHub][proofs].
 
 In the next post, we'll add product types, also known as structs or tuples.
 
-[prev]: /posts/define-pl-01-en
+[prev]: /posts/define-pl-01
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-02

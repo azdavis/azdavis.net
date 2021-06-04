@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "target": "ES2020",
     "module": "CommonJS",
     "allowJs": false,
     "jsx": "react-jsx",

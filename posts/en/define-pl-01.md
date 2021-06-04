@@ -1,7 +1,6 @@
 ---
 title: Defining a programming language, part 1
 date: 2021-03-31
-lang: en
 ---
 
 In this series of posts, we will define a small programming language using
@@ -351,4 +350,4 @@ In the [next post][next], we'll add functions to Hatsugen.
 [wasm-spec]: https://webassembly.github.io/spec/core/
 [struct-op-sem]: https://www.youtube.com/watch?v=H40QE0_830Q
 [proof]: https://github.com/azdavis/hatsugen/tree/part-01
-[next]: /posts/define-pl-02-en
+[next]: /posts/define-pl-02

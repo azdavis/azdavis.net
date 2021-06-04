@@ -1,7 +1,6 @@
 ---
 title: First post
 date: 2021-03-24
-lang: en
 ---
 
 This is the first post. It's basically just testing that the thing I hacked

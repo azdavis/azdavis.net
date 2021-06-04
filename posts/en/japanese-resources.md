@@ -1,7 +1,6 @@
 ---
 title: Resources for learning Japanese
 date: 2021-03-25
-lang: en
 ---
 
 I enjoy studying the Japanese language and culture. Over time I've found lots of

@@ -43,39 +43,37 @@ async function writeHtml(
 interface PostData {
   title: string;
   date: Date;
-  lang: Lang;
   content: string;
 }
 
 function getPostData(contents: string): PostData {
   const { data, content } = matter(contents);
-  const { title, date, lang } = data;
+  const { title, date } = data;
   if (typeof title !== "string") {
     throw new Error("title must be a string");
   }
   if (!(date instanceof Date)) {
     throw new Error("date must be a Date");
   }
-  if (typeof lang !== "string") {
-    throw new Error("lang must be a string");
-  }
-  if (lang !== "en" && lang !== "ja") {
-    throw new Error("lang must be 'en' or 'ja'");
-  }
-  return { title, date, lang, content };
+  return { title, date, content };
 }
 
 interface DatedPostListItem extends PostListItem {
   date: Date;
 }
 
-async function mkPost(entry: string): Promise<DatedPostListItem> {
+async function mkPost(
+  dir: string,
+  lang: Lang,
+  entry: string,
+): Promise<DatedPostListItem> {
   const file = await fs.readFile(entry);
-  const { title, date, lang, content } = getPostData(file.toString());
+  const { title, date, content } = getPostData(file.toString());
   const slug = basename(entry, ".md");
+  const path = `/${dir}/${slug}`;
   const post = <Post title={title} content={content} lang={lang} date={date} />;
-  await writeHtml(join(postsDir, slug), post);
-  return { title, date, slug };
+  await writeHtml(path, post);
+  return { title, date, path };
 }
 
 function sameTitle(x: string): never {
@@ -94,6 +92,14 @@ function postCmp(a: DatedPostListItem, b: DatedPostListItem): -1 | 1 {
     : -1;
 }
 
+async function mkPosts(lang: Lang): Promise<void> {
+  const entries = await glob(`posts/${lang}/*.md`);
+  const dir = lang === "en" ? postsDir : `${lang}/${postsDir}`;
+  const items = await Promise.all(entries.map((e) => mkPost(dir, lang, e)));
+  items.sort(postCmp);
+  await writeHtml(dir, posts(lang, items));
+}
+
 async function copyStatic(p: string) {
   await fs.copyFile(p, join(rootDir, basename(p)));
 }
@@ -103,13 +109,11 @@ async function main() {
   await mkdirp(rootDir);
   await copyDir("node_modules/katex/dist", join(rootDir, "katex"));
   await Promise.all((await glob("static/*")).map(copyStatic));
-  const postFiles = await glob("posts/*.md");
-  const postListItems = await Promise.all(postFiles.map(mkPost));
-  postListItems.sort(postCmp);
   await writeHtml(".", error404, "404.html");
   await writeHtml(".", index);
   await writeHtml("ja", ja);
-  await writeHtml(postsDir, posts(postListItems));
+  await mkPosts("en");
+  await mkPosts("ja");
 }
 
 main().catch(console.error);

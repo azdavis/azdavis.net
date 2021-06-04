@@ -1,7 +1,6 @@
 ---
 title: プログラミング言語を定義する、その一
 date: 2021-03-31
-lang: ja
 ---
 
 この投稿のシリーズでは、私達は小さなプログラミング言語を形式手法で定義します。その定義について[Lean][lean]を使い定理を証明します。
@@ -278,4 +277,4 @@ $$
 [wasm-spec]: https://webassembly.github.io/spec/core/
 [struct-op-sem]: https://www.youtube.com/watch?v=H40QE0_830Q
 [proof]: https://github.com/azdavis/hatsugen/tree/part-01
-[next]: /posts/define-pl-02-ja
+[next]: /ja/posts/define-pl-02

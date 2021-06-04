@@ -1,7 +1,6 @@
 ---
 title: プログラミング言語を定義する、その二
 date: 2021-05-22
-lang: ja
 ---
 
 [前の投稿][prev]では、発言という整数とブーリアンの型があるプログラミング言語を紹
@@ -433,5 +432,5 @@ $$
 
 次の投稿では、積型を紹介します。これらを struct や tuple とも言います。
 
-[prev]: /posts/define-pl-01-ja
+[prev]: /ja/posts/define-pl-01
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-02

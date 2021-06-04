@@ -37,7 +37,8 @@ export function Post({ title, content, date, lang }: Props): ReactElement {
   return (
     <Page lang={lang} title={title} styles={styles}>
       <div>
-        <a href="/">azdavis.xyz</a> • <DateShow lang={lang} date={date} />
+        <a href={"/" + (lang === "en" ? "" : lang)}>azdavis.xyz</a> •{" "}
+        <DateShow lang={lang} date={date} />
       </div>
       <h1>{title}</h1>
       <div dangerouslySetInnerHTML={renderMd(content)} />

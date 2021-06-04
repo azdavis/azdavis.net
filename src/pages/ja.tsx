@@ -17,7 +17,7 @@ export const ja = (
       </dt>
       <dd lang="en">Read this page in English.</dd>
       <dt>
-        <a href="/posts/">投稿</a>
+        <a href="/ja/posts/">投稿</a>
       </dt>
       <dd>文章の揃い。</dd>
       <dt>

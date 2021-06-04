@@ -1,20 +1,26 @@
+import { Lang } from "../lang";
 import { Page } from "../page";
 import { ReactElement } from "react";
 
+const m = {
+  en: { title: "Posts", home: "/" },
+  ja: { title: "投稿", home: "/ja" },
+};
+
 export interface PostListItem {
   title: string;
-  slug: string;
+  path: string;
 }
 
-export function posts(posts: PostListItem[]): ReactElement {
+export function posts(lang: Lang, posts: PostListItem[]): ReactElement {
   return (
-    <Page lang="en" title="Posts" styles={["base"]}>
-      <a href="/">azdavis.xyz</a>
-      <h1>Posts</h1>
+    <Page lang={lang} title={m[lang].title} styles={["base"]}>
+      <a href={"/" + (lang === "en" ? "" : lang)}>azdavis.xyz</a>
+      <h1>{m[lang].title}</h1>
       <ul>
-        {posts.map(({ title, slug }) => (
-          <li key={slug}>
-            <a href={`/posts/${slug}`}>{title}</a>
+        {posts.map(({ title, path }) => (
+          <li key={title}>
+            <a href={path}>{title}</a>
           </li>
         ))}
       </ul>
