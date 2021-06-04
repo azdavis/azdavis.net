@@ -60,7 +60,7 @@ function getPostData(contents: string): PostData {
     throw new Error("lang must be a string");
   }
   if (lang !== "en" && lang !== "ja") {
-    throw new Error("lang must be en or ja");
+    throw new Error("lang must be 'en' or 'ja'");
   }
   return { title, date, lang, content };
 }
@@ -103,12 +103,13 @@ async function main() {
   await mkdirp(rootDir);
   await copyDir("node_modules/katex/dist", join(rootDir, "katex"));
   await Promise.all((await glob("static/*")).map(copyStatic));
-  const entries = await Promise.all((await glob("posts/*.md")).map(mkPost));
-  entries.sort(postCmp);
+  const postFiles = await glob("posts/*.md");
+  const postListItems = await Promise.all(postFiles.map(mkPost));
+  postListItems.sort(postCmp);
   await writeHtml(".", error404, "404.html");
   await writeHtml(".", index);
   await writeHtml("ja", ja);
-  await writeHtml(postsDir, posts(entries));
+  await writeHtml(postsDir, posts(postListItems));
 }
 
 main().catch(console.error);
