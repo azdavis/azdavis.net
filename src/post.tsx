@@ -1,6 +1,6 @@
 import { DateShow } from "./date-show";
 import { Lang } from "./lang";
-import { Page } from "./page";
+import { Style, Page } from "./page";
 import { ReactElement } from "react";
 import { Remarkable } from "remarkable";
 import hl from "highlight.js";
@@ -24,7 +24,7 @@ function renderMd(content: string): UnsafeHtml {
   return { __html: md.render(content) };
 }
 
-const styles = ["base", "code", "katex/katex.min"];
+const styles: Style[] = ["base", "code", "katex/katex.min"];
 
 interface Props {
   title: string;

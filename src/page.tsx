@@ -1,10 +1,12 @@
 import { Lang } from "./lang";
 import { ReactNode, ReactElement } from "react";
 
+export type Style = "base" | "code" | "index" | "katex/katex.min";
+
 interface Props {
   lang: Lang;
   title: string;
-  styles: string[];
+  styles: Style[];
   children: ReactNode;
 }
 
