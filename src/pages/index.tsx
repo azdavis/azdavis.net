@@ -28,10 +28,6 @@ export const index = {
           <a href="/profiles/">Profiles</a>
         </dt>
         <dd>A collection of accounts.</dd>
-        <dt>
-          <a href="/resume/">Resume</a>
-        </dt>
-        <dd>A summary of qualifications.</dd>
       </dl>
       <h2>COPYRIGHT</h2>
       <div className="sec">Copyright 1998 Ariel Davis.</div>

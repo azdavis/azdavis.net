@@ -44,7 +44,7 @@ C、C++、[Go][go-spec]、[JavaScript][js-spec]（最も正しい名前は ECMAS
 
 まずは言語に名をつけるのです。
 
-プログラミング言語を実装することについて傑作である[ブログ][eldiro]があります。作者がそのブログでしたように、英語の「utterance」という言葉を他の言語に翻訳することで、私達の言語を名付けるとしましょう。私自身の[興味][jp-resources]の[ある][jp-resume]言語である日本語を目的の言語にし。従って私達の言語を「発言」と名付けておきましょう。
+プログラミング言語を実装することについて傑作である[ブログ][eldiro]があります。作者がそのブログでしたように、英語の「utterance」という言葉を他の言語に翻訳することで、私達の言語を名付けるとしましょう。私自身の[興味のある][jp-resources]言語である日本語を目的の言語にします。従って私達の言語を「発言」と名付けておきましょう。
 
 今のところ、発言には式と型だけです。文、入力、副作用などがありません。
 
@@ -270,7 +270,6 @@ $$
 [go-spec]: https://golang.org/ref/spec
 [jisho-utterance]: https://jisho.org/word/発言
 [jp-resources]: https://azdavis.xyz/posts/japanese-resources/
-[jp-resume]: https://azdavis.xyz/ja/
 [js-spec]: https://tc39.es/
 [lean]: https://leanprover.github.io
 [c-undefined]: https://www.yodaiken.com/2021/05/19/undefined-behavior-in-c-is-a-reading-error/

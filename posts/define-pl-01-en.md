@@ -71,7 +71,7 @@ First, we will give a name to our language.
 There's an excellent [series of blog posts][eldiro] about implementing a
 programming language. As in that series, we'll name our language by translating
 the English word "utterance" into some other human language. I'll choose the
-target language to be Japanese, [given][jp-resources] my [interests][jp-resume].
+target language to be Japanese, given my [interests][jp-resources].
 [Thus][jisho-utterance], we will call the language "Hatsugen".
 
 For now, Hatsugen will have only expressions and types. No statements, no
@@ -343,7 +343,6 @@ In the [next post][next], we'll add functions to Hatsugen.
 [go-spec]: https://golang.org/ref/spec
 [jisho-utterance]: https://jisho.org/word/発言
 [jp-resources]: https://azdavis.xyz/posts/japanese-resources/
-[jp-resume]: https://azdavis.xyz/ja/
 [js-spec]: https://tc39.es/
 [lean]: https://leanprover.github.io
 [c-undefined]: https://www.yodaiken.com/2021/05/19/undefined-behavior-in-c-is-a-reading-error/

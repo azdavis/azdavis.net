@@ -26,10 +26,6 @@ export const ja = {
           <a href="/profiles/">プロフィール</a>
         </dt>
         <dd>アカウントの集まり。</dd>
-        <dt>
-          <a href="/resume/">履歴書</a>
-        </dt>
-        <dd>資格の一覧。</dd>
       </dl>
       <h2>著作権</h2>
       <div className="sec">著作権１９９８アリエル・デイヴィス。</div>

@@ -9,7 +9,6 @@ import path from "path";
 import { error404 } from "./pages/404";
 import { ja } from "./pages/ja";
 import { profiles } from "./pages/profiles";
-import { resume } from "./pages/resume";
 
 const rootDir = "build";
 const postsDir = "posts";
@@ -104,7 +103,6 @@ async function main() {
   await writeHtml(".", page(index));
   await writeHtml("ja", page(ja));
   await writeHtml("profiles", page(profiles));
-  await writeHtml("resume", page(resume));
   await writeHtml(
     postsDir,
     page({
