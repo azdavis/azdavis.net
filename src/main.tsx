@@ -5,6 +5,7 @@ import { join, basename } from "path";
 import { Lang } from "./lang";
 import { page } from "./page";
 import { Post } from "./post";
+import { posts } from "./pages/posts";
 import { promises as fs } from "fs";
 import glob from "fast-glob";
 import matter from "gray-matter";
@@ -112,25 +113,7 @@ async function main() {
   await writeHtml(".", page(error404), "404.html");
   await writeHtml(".", page(index));
   await writeHtml("ja", page(ja));
-  const posts = {
-    lang: "en" as const,
-    title: "Posts",
-    styles: ["base"],
-    body: (
-      <>
-        <a href="/">azdavis.xyz</a>
-        <h1>Posts</h1>
-        <ul>
-          {entries.map(({ title, slug }) => (
-            <li key={slug}>
-              <a href={`/posts/${slug}`}>{title}</a>
-            </li>
-          ))}
-        </ul>
-      </>
-    ),
-  };
-  await writeHtml(postsDir, page(posts));
+  await writeHtml(postsDir, page(posts(entries)));
 }
 
 main().catch(console.error);
