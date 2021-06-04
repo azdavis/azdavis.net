@@ -103,27 +103,25 @@ async function main() {
   await writeHtml(".", page(index));
   await writeHtml("ja", page(ja));
   await writeHtml("profiles", page(profiles));
-  await writeHtml(
-    postsDir,
-    page({
-      lang: "en",
-      title: "Posts",
-      styles: ["base"],
-      body: (
-        <>
-          <a href="/">azdavis.xyz</a>
-          <h1>Posts</h1>
-          <ul>
-            {entries.map(({ title, slug }) => (
-              <li key={slug}>
-                <a href={`/posts/${slug}`}>{title}</a>
-              </li>
-            ))}
-          </ul>
-        </>
-      ),
-    }),
-  );
+  const posts = {
+    lang: "en",
+    title: "Posts",
+    styles: ["base"],
+    body: (
+      <>
+        <a href="/">azdavis.xyz</a>
+        <h1>Posts</h1>
+        <ul>
+          {entries.map(({ title, slug }) => (
+            <li key={slug}>
+              <a href={`/posts/${slug}`}>{title}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    ),
+  };
+  await writeHtml(postsDir, page(posts));
 }
 
 main().catch(console.error);
