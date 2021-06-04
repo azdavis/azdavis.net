@@ -2,6 +2,7 @@ import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { ja } from "./pages/ja";
 import { join, basename } from "path";
+import { Lang } from "./lang";
 import { page } from "./page";
 import { Post } from "./post";
 import { promises as fs } from "fs";
@@ -39,11 +40,12 @@ async function writeHtml(
 interface PostData {
   title: string;
   date: Date;
-  slug: string;
+  lang: Lang;
+  content: string;
 }
 
-async function mkPost(entry: string): Promise<PostData> {
-  const { data, content } = matter((await fs.readFile(entry)).toString());
+function getPostData(contents: string): PostData {
+  const { data, content } = matter(contents);
   const { title, date, lang } = data;
   if (typeof title !== "string") {
     throw new Error("title must be a string");
@@ -57,6 +59,19 @@ async function mkPost(entry: string): Promise<PostData> {
   if (lang !== "en" && lang !== "ja") {
     throw new Error("lang must be en or ja");
   }
+  return { title, date, lang, content };
+}
+
+interface PostListItem {
+  title: string;
+  date: Date;
+  slug: string;
+}
+
+async function mkPost(entry: string): Promise<PostListItem> {
+  const { title, date, lang, content } = getPostData(
+    (await fs.readFile(entry)).toString(),
+  );
   const slug = basename(entry, ".md");
   await writeHtml(
     join(postsDir, slug),
@@ -74,7 +89,7 @@ function sameTitle(x: string): never {
   throw new Error(`two posts have the same title: ${x}`);
 }
 
-function postCmp(a: PostData, b: PostData): -1 | 1 {
+function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
   return a.date === b.date
     ? a.title === b.title
       ? sameTitle(a.title)
