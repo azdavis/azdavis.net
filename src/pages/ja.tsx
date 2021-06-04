@@ -1,5 +1,5 @@
 export const ja = {
-  lang: "ja",
+  lang: "ja" as const,
   title: "man azdavis",
   styles: ["base", "index"],
   body: (

@@ -1,8 +1,9 @@
+import { Lang } from "./lang";
 import { ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
 interface Props {
-  lang: string;
+  lang: Lang;
   title: string;
   styles: string[];
   body: ReactElement;

@@ -1,6 +1,7 @@
+import { DateShow } from "./date-show";
+import { Lang } from "./lang";
 import { ReactElement } from "react";
 import { Remarkable } from "remarkable";
-import { DateShow } from "./date-show";
 import hl from "highlight.js";
 import katex from "remarkable-katex";
 import lean from "highlightjs-lean";
@@ -26,7 +27,7 @@ interface Props {
   title: string;
   content: string;
   date: Date;
-  lang: string;
+  lang: Lang;
 }
 
 export function Post({ title, content, date, lang }: Props): ReactElement {

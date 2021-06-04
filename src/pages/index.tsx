@@ -1,5 +1,5 @@
 export const index = {
-  lang: "en",
+  lang: "en" as const,
   title: "man azdavis",
   styles: ["base", "index"],
   body: (

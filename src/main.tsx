@@ -54,7 +54,9 @@ async function mkPost(entry: string): Promise<PostData> {
   if (typeof lang !== "string") {
     throw new Error("lang must be a string");
   }
-  const props = { title, content, lang, date };
+  if (lang !== "en" && lang !== "ja") {
+    throw new Error("lang must be en or ja");
+  }
   const slug = basename(entry, ".md");
   await writeHtml(
     join(postsDir, slug),
@@ -62,7 +64,7 @@ async function mkPost(entry: string): Promise<PostData> {
       lang,
       title,
       styles: ["base", "code", "katex/katex.min"],
-      body: <Post {...props} />,
+      body: <Post title={title} content={content} lang={lang} date={date} />,
     }),
   );
   return { title, date, slug };
@@ -99,7 +101,7 @@ async function main() {
   await writeHtml(".", page(index));
   await writeHtml("ja", page(ja));
   const posts = {
-    lang: "en",
+    lang: "en" as const,
     title: "Posts",
     styles: ["base"],
     body: (

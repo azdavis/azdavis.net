@@ -1,5 +1,5 @@
 export const error404 = {
-  lang: "en",
+  lang: "en" as const,
   title: "404 Not Found",
   styles: ["base"],
   body: (
