@@ -1,5 +1,6 @@
 import { DateShow } from "./date-show";
 import { Lang } from "./lang";
+import { Page } from "./page";
 import { ReactElement } from "react";
 import { Remarkable } from "remarkable";
 import hl from "highlight.js";
@@ -23,6 +24,8 @@ function renderMd(content: string): UnsafeHtml {
   return { __html: md.render(content) };
 }
 
+const styles = ["base", "code", "katex/katex.min"];
+
 interface Props {
   title: string;
   content: string;
@@ -32,12 +35,12 @@ interface Props {
 
 export function Post({ title, content, date, lang }: Props): ReactElement {
   return (
-    <>
+    <Page lang={lang} title={title} styles={styles}>
       <div>
         <a href="/">azdavis.xyz</a> • <DateShow lang={lang} date={date} />
       </div>
       <h1>{title}</h1>
       <div dangerouslySetInnerHTML={renderMd(content)} />
-    </>
+    </Page>
   );
 }

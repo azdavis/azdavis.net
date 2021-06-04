@@ -3,10 +3,11 @@ import { index } from "./pages/index";
 import { ja } from "./pages/ja";
 import { join, basename } from "path";
 import { Lang } from "./lang";
-import { page } from "./page";
 import { Post } from "./post";
 import { posts } from "./pages/posts";
 import { promises as fs } from "fs";
+import { ReactElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import glob from "fast-glob";
 import matter from "gray-matter";
 import mkdirp from "mkdirp";
@@ -31,11 +32,12 @@ async function copyDir(src: string, dest: string) {
 
 async function writeHtml(
   dir: string,
-  contents: string,
+  contents: ReactElement,
   file: string = "index.html",
 ) {
   await mkdirp(join(rootDir, dir));
-  await fs.writeFile(join(rootDir, dir, file), "<!DOCTYPE html>" + contents);
+  const text = "<!DOCTYPE html>" + renderToStaticMarkup(contents);
+  await fs.writeFile(join(rootDir, dir, file), text);
 }
 
 interface PostData {
@@ -73,12 +75,7 @@ async function mkPost(entry: string): Promise<PostListItem> {
   const file = await fs.readFile(entry);
   const { title, date, lang, content } = getPostData(file.toString());
   const slug = basename(entry, ".md");
-  const post = page({
-    lang,
-    title,
-    styles: ["base", "code", "katex/katex.min"],
-    body: <Post title={title} content={content} lang={lang} date={date} />,
-  });
+  const post = <Post title={title} content={content} lang={lang} date={date} />;
   await writeHtml(join(postsDir, slug), post);
   return { title, date, slug };
 }
@@ -110,10 +107,10 @@ async function main() {
   await Promise.all((await glob("static/*")).map(copyStatic));
   const entries = await Promise.all((await glob("posts/*.md")).map(mkPost));
   entries.sort(postCmp);
-  await writeHtml(".", page(error404), "404.html");
-  await writeHtml(".", page(index));
-  await writeHtml("ja", page(ja));
-  await writeHtml(postsDir, page(posts(entries)));
+  await writeHtml(".", error404, "404.html");
+  await writeHtml(".", index);
+  await writeHtml("ja", ja);
+  await writeHtml(postsDir, posts(entries));
 }
 
 main().catch(console.error);

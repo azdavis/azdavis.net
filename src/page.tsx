@@ -1,15 +1,14 @@
 import { Lang } from "./lang";
-import { ReactElement } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
+import { ReactNode, ReactElement } from "react";
 
 interface Props {
   lang: Lang;
   title: string;
   styles: string[];
-  body: ReactElement;
+  children: ReactNode;
 }
 
-function PageImpl({ lang, title, styles, body }: Props): ReactElement {
+export function Page({ lang, title, styles, children }: Props): ReactElement {
   return (
     <html lang={lang}>
       <head>
@@ -22,11 +21,7 @@ function PageImpl({ lang, title, styles, body }: Props): ReactElement {
           <link key={s} rel="stylesheet" href={`/${s}.css`} />
         ))}
       </head>
-      <body>{body}</body>
+      <body>{children}</body>
     </html>
   );
-}
-
-export function page(props: Props): string {
-  return renderToStaticMarkup(<PageImpl {...props} />);
 }
