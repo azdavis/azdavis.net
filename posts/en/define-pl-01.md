@@ -1,5 +1,5 @@
 ---
-title: Defining a programming language, part 1
+title: "Defining a programming language: Introduction, integers, and booleans"
 date: 2021-03-31
 ---
 

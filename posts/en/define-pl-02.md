@@ -1,5 +1,5 @@
 ---
-title: Defining a programming language, part 2
+title: "Defining a programming language: Functions"
 date: 2021-05-22
 ---
 
