@@ -69,19 +69,16 @@ interface PostListItem {
 }
 
 async function mkPost(entry: string): Promise<PostListItem> {
-  const { title, date, lang, content } = getPostData(
-    (await fs.readFile(entry)).toString(),
-  );
+  const file = await fs.readFile(entry);
+  const { title, date, lang, content } = getPostData(file.toString());
   const slug = basename(entry, ".md");
-  await writeHtml(
-    join(postsDir, slug),
-    page({
-      lang,
-      title,
-      styles: ["base", "code", "katex/katex.min"],
-      body: <Post title={title} content={content} lang={lang} date={date} />,
-    }),
-  );
+  const post = page({
+    lang,
+    title,
+    styles: ["base", "code", "katex/katex.min"],
+    body: <Post title={title} content={content} lang={lang} date={date} />,
+  });
+  await writeHtml(join(postsDir, slug), post);
   return { title, date, slug };
 }
 
