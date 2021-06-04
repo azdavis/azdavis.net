@@ -75,7 +75,7 @@ function sameTitle(x: string): never {
   throw new Error(`two posts have the same title: ${x}`);
 }
 
-function postCmp(a: PostData, b: PostData): number {
+function postCmp(a: PostData, b: PostData): -1 | 1 {
   return a.date === b.date
     ? a.title === b.title
       ? sameTitle(a.title)
