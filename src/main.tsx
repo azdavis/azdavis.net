@@ -4,7 +4,7 @@ import { ja } from "./pages/ja";
 import { join, basename } from "path";
 import { Lang } from "./lang";
 import { Post } from "./post";
-import { posts } from "./pages/posts";
+import { posts, PostListItem } from "./pages/posts";
 import { promises as fs } from "fs";
 import { ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -65,13 +65,11 @@ function getPostData(contents: string): PostData {
   return { title, date, lang, content };
 }
 
-interface PostListItem {
-  title: string;
+interface DatedPostListItem extends PostListItem {
   date: Date;
-  slug: string;
 }
 
-async function mkPost(entry: string): Promise<PostListItem> {
+async function mkPost(entry: string): Promise<DatedPostListItem> {
   const file = await fs.readFile(entry);
   const { title, date, lang, content } = getPostData(file.toString());
   const slug = basename(entry, ".md");
@@ -84,7 +82,7 @@ function sameTitle(x: string): never {
   throw new Error(`two posts have the same title: ${x}`);
 }
 
-function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
+function postCmp(a: DatedPostListItem, b: DatedPostListItem): -1 | 1 {
   return a.date === b.date
     ? a.title === b.title
       ? sameTitle(a.title)

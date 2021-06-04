@@ -1,7 +1,7 @@
 import { Page } from "../page";
 import { ReactElement } from "react";
 
-interface PostListItem {
+export interface PostListItem {
   title: string;
   slug: string;
 }
