@@ -1,5 +1,5 @@
 ---
-title: "Defining a programming language: Functions"
+title: "Defining a programming language: functions"
 date: 2021-05-22
 ---
 
