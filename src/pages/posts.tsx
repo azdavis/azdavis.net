@@ -2,7 +2,7 @@ import { Page } from "../page";
 import type { Lang } from "../lang";
 import type { ReactElement } from "react";
 
-const m = {
+const translations = {
   en: { title: "Posts", home: "/" },
   ja: { title: "投稿", home: "/ja" },
 };
@@ -13,11 +13,11 @@ export interface PostListItem {
 }
 
 export function posts(lang: Lang, posts: PostListItem[]): ReactElement {
-  const mLang = m[lang];
+  const t = translations[lang];
   return (
-    <Page lang={lang} title={mLang.title} styles={["base"]}>
+    <Page lang={lang} title={t.title} styles={["base"]}>
       <a href={"/" + (lang === "en" ? "" : lang)}>azdavis.xyz</a>
-      <h1>{mLang.title}</h1>
+      <h1>{t.title}</h1>
       <ul>
         {posts.map(({ title, path }) => (
           <li key={title}>
