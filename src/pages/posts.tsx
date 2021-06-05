@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 
 const translations = {
   en: { title: "Posts", home: "/" },
-  ja: { title: "投稿", home: "/ja" },
+  ja: { title: "投稿", home: "/ja/" },
 };
 
 export interface PostListItem {
