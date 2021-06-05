@@ -110,7 +110,7 @@ async function main() {
   await copyDir("node_modules/katex/dist", join(rootDir, "katex"));
   await Promise.all((await glob("static/*")).map(copyStatic));
   await writeHtml(".", error404, "404.html");
-  await writeHtml(".", index);
+  await writeHtml(".", index());
   await writeHtml("ja", ja);
   await mkPosts("en");
   await mkPosts("ja");
