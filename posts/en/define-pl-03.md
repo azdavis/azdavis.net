@@ -253,14 +253,14 @@ $$
 
 $$
 \frac
-  {\mathsf{fv}(e_1) = s_1}
-  {\mathsf{fv}(e_1.\mathsf{left}) = s_1}
+  {\mathsf{fv}(e) = s}
+  {\mathsf{fv}(e.\mathsf{left}) = s}
 $$
 
 $$
 \frac
-  {\mathsf{fv}(e_1) = s_1}
-  {\mathsf{fv}(e_1.\mathsf{right}) = s_1}
+  {\mathsf{fv}(e) = s}
+  {\mathsf{fv}(e.\mathsf{right}) = s}
 $$
 
 ## Conclusion
