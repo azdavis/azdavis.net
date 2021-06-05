@@ -12,12 +12,12 @@ We can use product types to combine multiple types into a single type. For
 instance, if we want to return multiple values from a function, we can have the
 function's return type be a product type.
 
-First, we introduce a product type that contains no other types. This type is
-often called "unit". We will denote it with $\mathbf{1}$, because there is one
-value of this type. We will denote this one value, also often called "unit",
-with $\langle \rangle$.
+First, we introduce a product type that contains no other types. We will call
+this type "unit", as it is often called, and denote it with $\mathbf{1}$,
+because there is one value of this type. This one value, also often called
+"unit", is written $\langle \rangle$.
 
-Next is a product type that combines two types, sometimes called "pair". If
+Next is a product type that combines two types, which we will call "pair". If
 $\tau_1$ and $\tau_2$ are types, then $\tau_1 \times \tau_2$ is a pair type with
 $\tau_1$ on the left and $\tau_2$ on the right. Then, if $e_1$ has type $\tau_1$
 and $e_2$ has type $\tau_2$, then $\langle e_1, e_2 \rangle$ is a pair literal
@@ -25,8 +25,8 @@ with type $\tau_1 \times \tau_2$.
 
 To use a pair, we must be able to extract the values inside. For that, we add
 the expressions $e.\mathsf{left}$ and $e.\mathsf{right}$. When $e$ is a value of
-product type, these expressions extract the left and right value out of the
-product respectively.
+pair type, these expressions extract the left and right value out of the pair
+respectively.
 
 Note that by combining pair types with other pair types, we can effectively
 construct an product type combining $n$ types for any $n > 2$.
