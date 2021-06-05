@@ -6,7 +6,7 @@ export const ja = (
     <div className="sec">azdavis - 或る奴</div>
     <h2>説明</h2>
     <div className="sec">
-      azdavisはStripeで働いている開発者。カーネギーメロン大学でコンピューター科学の専攻と日本学の副専攻を取った。
+      azdavisはStripeで働いている開発者である。カーネギーメロン大学でコンピューター科学の専攻と日本学の副専攻を取った。
     </div>
     <h2>ページ</h2>
     <dl className="sec">
