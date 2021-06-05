@@ -1,6 +1,6 @@
-import { Lang } from "../lang";
 import { Page } from "../page";
-import { ReactElement } from "react";
+import type { Lang } from "../lang";
+import type { ReactElement } from "react";
 
 const m = {
   en: { title: "Posts", home: "/" },

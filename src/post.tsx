@@ -1,11 +1,11 @@
 import { DateShow } from "./date-show";
-import { Lang } from "./lang";
-import { Style, Page } from "./page";
-import { ReactElement } from "react";
 import { Remarkable } from "remarkable";
+import { Style, Page } from "./page";
 import hl from "highlight.js";
 import katex from "remarkable-katex";
 import lean from "highlightjs-lean";
+import type { Lang } from "./lang";
+import type { ReactElement } from "react";
 
 hl.registerLanguage("lean", lean);
 

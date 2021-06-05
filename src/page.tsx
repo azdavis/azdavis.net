@@ -1,5 +1,5 @@
-import { Lang } from "./lang";
-import { ReactNode, ReactElement } from "react";
+import type { Lang } from "./lang";
+import type { ReactNode, ReactElement } from "react";
 
 export type Style = "base" | "code" | "index" | "katex/katex.min";
 

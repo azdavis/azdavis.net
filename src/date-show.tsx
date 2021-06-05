@@ -1,6 +1,6 @@
 import { absurd } from "./absurd";
-import { Lang } from "./lang";
-import { ReactElement } from "react";
+import type { Lang } from "./lang";
+import type { ReactElement } from "react";
 
 function dateToIsoString(date: Date): string {
   return date.toISOString().split("T")[0];

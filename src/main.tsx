@@ -2,15 +2,15 @@ import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { ja } from "./pages/ja";
 import { join, basename } from "path";
-import { Lang } from "./lang";
 import { Post } from "./post";
 import { posts, PostListItem } from "./pages/posts";
 import { promises as fs } from "fs";
-import { ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import glob from "fast-glob";
 import matter from "gray-matter";
 import mkdirp from "mkdirp";
+import type { Lang } from "./lang";
+import type { ReactElement } from "react";
 
 const rootDir = "build";
 const postsDir = "posts";
