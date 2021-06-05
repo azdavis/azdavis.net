@@ -1,6 +1,7 @@
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { join, basename } from "path";
+import { Lang, root } from "./lang";
 import { Post } from "./post";
 import { posts, PostListItem } from "./pages/posts";
 import { promises as fs } from "fs";
@@ -8,7 +9,6 @@ import { renderToStaticMarkup } from "react-dom/server";
 import glob from "fast-glob";
 import matter from "gray-matter";
 import mkdirp from "mkdirp";
-import type { Lang } from "./lang";
 import type { ReactElement } from "react";
 
 const rootDir = "build";
@@ -69,7 +69,7 @@ async function mkPost(
   const file = await fs.readFile(entry);
   const { title, date, content } = getPostData(file.toString());
   const slug = basename(entry, ".md");
-  const path = `/${dir}/${slug}`;
+  const path = `${dir}/${slug}/`;
   const post = <Post title={title} content={content} lang={lang} date={date} />;
   await writeHtml(path, post);
   return { title, date, path };
@@ -93,7 +93,7 @@ function postCmp(a: DatedPostListItem, b: DatedPostListItem): -1 | 1 {
 
 async function mkPosts(lang: Lang): Promise<void> {
   const entries = await glob(`posts/${lang}/*.md`);
-  const dir = lang === "en" ? postsDir : `${lang}/${postsDir}`;
+  const dir = root(lang) + postsDir;
   const items = await Promise.all(entries.map((e) => mkPost(dir, lang, e)));
   items.sort(postCmp);
   await writeHtml(dir, posts(lang, items));

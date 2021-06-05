@@ -1,5 +1,5 @@
+import { Lang, root } from "../lang";
 import { Page } from "../page";
-import type { Lang } from "../lang";
 import type { ReactElement } from "react";
 
 const translations = {
@@ -13,8 +13,7 @@ const translations = {
       "Mellon University.",
     ].join(" "),
     pagesTitle: "PAGES",
-    otherLang: "ja",
-    otherLangHref: "/ja/",
+    otherLang: "ja" as const,
     otherLangTitle: "日本語",
     otherLangDesc: "このページを日本語で読む。",
     postsHref: "/posts/",
@@ -33,8 +32,7 @@ const translations = {
       "カーネギーメロン大学でコンピューター科学の専攻と日本学の副専攻を取った。",
     ].join(""),
     pagesTitle: "ページ",
-    otherLang: "en",
-    otherLangHref: "/",
+    otherLang: "en" as const,
     otherLangTitle: "English",
     otherLangDesc: "Read this page in English.",
     postsHref: "/ja/posts/",
@@ -57,7 +55,7 @@ export function index(lang: Lang): ReactElement {
       <h2>{t.pagesTitle}</h2>
       <dl className="sec">
         <dt lang={t.otherLang}>
-          <a href={t.otherLangHref}>{t.otherLangTitle}</a>
+          <a href={root(t.otherLang)}>{t.otherLangTitle}</a>
         </dt>
         <dd lang={t.otherLang}>{t.otherLangDesc}</dd>
         <dt>

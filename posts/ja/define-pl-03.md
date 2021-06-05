@@ -243,5 +243,5 @@ $$
 
 次の投稿では和型を追加します。
 
-[prev]: /ja/posts/define-pl-02
+[prev]: /ja/posts/define-pl-02/
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-03

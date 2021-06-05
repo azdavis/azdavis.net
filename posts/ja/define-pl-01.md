@@ -277,4 +277,4 @@ $$
 [wasm-spec]: https://webassembly.github.io/spec/core/
 [struct-op-sem]: https://www.youtube.com/watch?v=H40QE0_830Q
 [proof]: https://github.com/azdavis/hatsugen/tree/part-01
-[next]: /ja/posts/define-pl-02
+[next]: /ja/posts/define-pl-02/

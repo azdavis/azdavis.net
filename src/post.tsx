@@ -1,10 +1,10 @@
 import { DateShow } from "./date-show";
+import { Lang, root } from "./lang";
 import { Remarkable } from "remarkable";
 import { Style, Page } from "./page";
 import hl from "highlight.js";
 import katex from "remarkable-katex";
 import lean from "highlightjs-lean";
-import type { Lang } from "./lang";
 import type { ReactElement } from "react";
 
 hl.registerLanguage("lean", lean);
@@ -37,7 +37,7 @@ export function Post({ title, content, date, lang }: Props): ReactElement {
   return (
     <Page lang={lang} title={title} styles={styles}>
       <div>
-        <a href={"/" + (lang === "en" ? "" : lang)}>azdavis.xyz</a> •{" "}
+        <a href={root(lang)}>azdavis.xyz</a> •{" "}
         <DateShow lang={lang} date={date} />
       </div>
       <h1>{title}</h1>

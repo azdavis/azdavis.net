@@ -269,5 +269,5 @@ The proofs are once again on [GitHub][proofs].
 
 In the next post, we'll add sum types, also known as tagged unions.
 
-[prev]: /posts/define-pl-02
+[prev]: /posts/define-pl-02/
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-03
