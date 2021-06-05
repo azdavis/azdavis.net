@@ -450,7 +450,9 @@ Once again, taken together we have the following safety theorem:
 
 The proofs are once again on [GitHub][proofs].
 
-In the next post, we'll add product types, also known as structs or tuples.
+In the [next post][next], we'll add product types, also known as structs or
+tuples.
 
 [prev]: /posts/define-pl-01
+[next]: /posts/define-pl-03
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-02

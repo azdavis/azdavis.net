@@ -1,0 +1,273 @@
+---
+title: "Defining a programming language: products"
+date: 2021-06-05
+---
+
+In the [previous post][prev], we added functions to Hatsugen.
+
+In this post, we'll add product types. These are often called "structs",
+"records", or "tuples" in real programming languages.
+
+We can use product types to combine multiple types into a single type. For
+instance, if we want to return multiple values from a function, we can have the
+function's return type be a product type.
+
+First, we introduce a product type that contains no other types. This type is
+often called "unit". We will denote it with $\mathbf{1}$, because there is one
+value of this type. We will denote this one value, also often called "unit",
+with $\langle \rangle$.
+
+Next is a product type that combines two types, sometimes called "pair". If
+$\tau_1$ and $\tau_2$ are types, then $\tau_1 \times \tau_2$ is a pair type with
+$\tau_1$ on the left and $\tau_2$ on the right. Then, if $e_1$ has type $\tau_1$
+and $e_2$ has type $\tau_2$, then $\langle e_1, e_2 \rangle$ is a pair literal
+with type $\tau_1 \times \tau_2$.
+
+To use a pair, we must be able to extract the values inside. For that, we add
+the expressions $e.\mathsf{left}$ and $e.\mathsf{right}$. When $e$ is a value of
+product type, these expressions extract the left and right value out of the
+product respectively.
+
+Note that by combining pair types with other pair types, we can effectively
+construct an product type combining $n$ types for any $n > 2$.
+
+## Etymology
+
+Product types are so named because the number of values in a product type is the
+product of the number of values in the constituent types.
+
+For instance, consider the type $\mathtt{Bool}$. It has 2 values,
+$\mathtt{true}$ and $\mathtt{false}$.
+
+Now consider the type $\mathtt{Bool} \times \mathtt{Bool}$. It has 4
+values:
+
+1. $\langle \mathtt{true}, \mathtt{true} \rangle$
+1. $\langle \mathtt{true}, \mathtt{false} \rangle$
+1. $\langle \mathtt{false}, \mathtt{true} \rangle$
+1. $\langle \mathtt{false}, \mathtt{false} \rangle$
+
+Consider also the type $\mathtt{Bool} \times \mathbf{1}$, the
+product of $\mathtt{Bool}$ and unit. Like $\mathtt{Bool}$, it only has 2 values:
+
+1. $\langle \mathtt{true}, \langle \rangle \rangle$
+1. $\langle \mathtt{false}, \langle \rangle \rangle$
+
+This is why it makes sense that the unit type is written $\mathbf{1}$. It is the
+identity of the operation written $\times$.
+
+For the integers, we have that for all integers $a$,
+
+$$a \times 1 = a$$
+
+where $\times$ denotes multiplication.
+
+Then similarly, if we write $|\tau|$ to mean "the number of values in the type
+$\tau$", we have that for all types $\tau$,
+
+$$|\tau \times \mathbf{1}| = |\tau|$$
+
+where $\times$ denotes a product type.
+
+And more generally, for all types $\tau_1, \tau_2$, we have
+
+$$|\tau_1 \times \tau_2| = |\tau_1| \times |\tau_2|$$
+
+where on the left, $\times$ denotes a product type, and on the right, it denotes
+multiplication.
+
+## Syntax
+
+$$
+\begin{aligned}
+\tau
+::=  \ & \dots
+\\ | \ & \mathbf{1}
+\\ | \ & \tau_1 \times \tau_2
+\\
+\\
+e
+::=  \ & \dots
+\\ | \ & \langle \rangle
+\\ | \ & \langle e_1, e_2 \rangle
+\\ | \ & e.\mathsf{left}
+\\ | \ & e.\mathsf{right}
+\end{aligned}
+$$
+
+## Statics
+
+The unit value has unit type.
+
+$$
+\frac
+  {}
+  {\Gamma \vdash \langle \rangle: \mathbf{1}}
+$$
+
+Given two expressions each with their own type, we can make a pair of those
+types by assembling the expressions together.
+
+$$
+\frac
+  {
+    \Gamma \vdash e_1: \tau_1 \hspace{1em}
+    \Gamma \vdash e_2: \tau_2
+  }
+  {\Gamma \vdash \langle e_1, e_2 \rangle: \tau_1 \times \tau_2}
+$$
+
+We can then extract the left or right part out of the pair.
+
+$$
+\frac
+  {\Gamma \vdash e: \tau_1 \times \tau_2}
+  {\Gamma \vdash e.\mathsf{left}: \tau_1}
+$$
+
+$$
+\frac
+  {\Gamma \vdash e: \tau_1 \times \tau_2}
+  {\Gamma \vdash e.\mathsf{right}: \tau_2}
+$$
+
+## Dynamics
+
+The unit is a value.
+
+$$
+\frac
+  {}
+  {\langle \rangle \ \mathsf{val}}
+$$
+
+A pair is a value when both constituent expressions are values.
+
+$$
+\frac
+  {
+    e_1 \ \mathsf{val} \hspace{1em}
+    e_2 \ \mathsf{val}
+  }
+  {\langle e_1, e_2 \rangle \ \mathsf{val}}
+$$
+
+If the left expression in a pair can step, so can the entire pair.
+
+$$
+\frac
+  {e_1 \mapsto e_1'}
+  {\langle e_1, e_2 \rangle \mapsto \langle e_1', e_2 \rangle}
+$$
+
+After the left expression in a pair is a value, we may step the right expression
+if possible.
+
+$$
+\frac
+  {
+    e_1 \ \mathsf{val} \hspace{1em}
+    e_2 \mapsto e_2'
+  }
+  {\langle e_1, e_2 \rangle \mapsto \langle e_1, e_2' \rangle}
+$$
+
+For the extractor expressions, we must first step the pair to a value. Then,
+once it is a value, it will be a pair literal, and we may step to either the
+left or right value in the pair.
+
+$$
+\frac
+  {e \mapsto e'}
+  {e.\mathsf{left} \mapsto e'.\mathsf{left}}
+$$
+
+$$
+\frac
+  {\langle e_1, e_2 \rangle \ \mathsf{val}}
+  {\langle e_1, e_2 \rangle.\mathsf{left} \mapsto e_1}
+$$
+
+$$
+\frac
+  {e \mapsto e'}
+  {e.\mathsf{right} \mapsto e'.\mathsf{right}}
+$$
+
+$$
+\frac
+  {\langle e_1, e_2 \rangle \ \mathsf{val}}
+  {\langle e_1, e_2 \rangle.\mathsf{right} \mapsto e_2}
+$$
+
+## Helpers
+
+The helper judgments must also be updated. We can update them rather
+mechanically.
+
+### Substitution
+
+$$
+\frac
+  {}
+  {[x \mapsto e] \langle \rangle = \langle \rangle}
+$$
+
+$$
+\frac
+  {
+    [x \mapsto e] e_1 = e_1' \hspace{1em}
+    [x \mapsto e] e_2 = e_2'
+  }
+  {[x \mapsto e] \langle e_1, e_2 \rangle = \langle e_1', e_2' \rangle}
+$$
+
+$$
+\frac
+  {[x \mapsto e] e_1 = e_1'}
+  {[x \mapsto e] e_1.\mathsf{left} = e_1'.\mathsf{left}}
+$$
+
+$$
+\frac
+  {[x \mapsto e] e_1 = e_1'}
+  {[x \mapsto e] e_1.\mathsf{right} = e_1'.\mathsf{right}}
+$$
+
+### Free variables
+
+$$
+\frac
+  {}
+  {\mathsf{fv}(\langle \rangle) = \emptyset}
+$$
+
+$$
+\frac
+  {
+    \mathsf{fv}(e_1) = s_1 \hspace{1em}
+    \mathsf{fv}(e_2) = s_2
+  }
+  {\mathsf{fv}(\langle e_1, e_2 \rangle) = s_1 \cup s_2}
+$$
+
+$$
+\frac
+  {\mathsf{fv}(e_1) = s_1}
+  {\mathsf{fv}(e_1.\mathsf{left}) = s_1}
+$$
+
+$$
+\frac
+  {\mathsf{fv}(e_1) = s_1}
+  {\mathsf{fv}(e_1.\mathsf{right}) = s_1}
+$$
+
+## Conclusion
+
+The proofs are once again on [GitHub][proofs].
+
+In the next post, we'll add sum types, also known as tagged unions.
+
+[prev]: /posts/define-pl-02
+[proofs]: https://github.com/azdavis/hatsugen/tree/part-03
