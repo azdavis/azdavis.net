@@ -1,6 +1,5 @@
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
-import { ja } from "./pages/ja";
 import { join, basename } from "path";
 import { Post } from "./post";
 import { posts, PostListItem } from "./pages/posts";
@@ -110,8 +109,8 @@ async function main() {
   await copyDir("node_modules/katex/dist", join(rootDir, "katex"));
   await Promise.all((await glob("static/*")).map(copyStatic));
   await writeHtml(".", error404, "404.html");
-  await writeHtml(".", index());
-  await writeHtml("ja", ja);
+  await writeHtml(".", index("en"));
+  await writeHtml("ja", index("ja"));
   await mkPosts("en");
   await mkPosts("ja");
 }
