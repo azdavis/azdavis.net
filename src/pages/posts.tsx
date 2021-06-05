@@ -13,10 +13,11 @@ export interface PostListItem {
 }
 
 export function posts(lang: Lang, posts: PostListItem[]): ReactElement {
+  const mLang = m[lang];
   return (
-    <Page lang={lang} title={m[lang].title} styles={["base"]}>
+    <Page lang={lang} title={mLang.title} styles={["base"]}>
       <a href={"/" + (lang === "en" ? "" : lang)}>azdavis.xyz</a>
-      <h1>{m[lang].title}</h1>
+      <h1>{mLang.title}</h1>
       <ul>
         {posts.map(({ title, path }) => (
           <li key={title}>
