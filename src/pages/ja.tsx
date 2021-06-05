@@ -10,10 +10,8 @@ export const ja = (
     </div>
     <h2>ページ</h2>
     <dl className="sec">
-      <dt>
-        <a lang="en" href="/">
-          English
-        </a>
+      <dt lang="en">
+        <a href="/">English</a>
       </dt>
       <dd lang="en">Read this page in English.</dd>
       <dt>

@@ -13,10 +13,8 @@ export function index() {
       </div>
       <h2>PAGES</h2>
       <dl className="sec">
-        <dt>
-          <a lang="ja" href="/ja/">
-            日本語
-          </a>
+        <dt lang="ja">
+          <a href="/ja/">日本語</a>
         </dt>
         <dd lang="ja">このページを日本語で読む。</dd>
         <dt>
