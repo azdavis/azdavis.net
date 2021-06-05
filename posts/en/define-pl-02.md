@@ -185,8 +185,8 @@ $$
   {\lambda (x: \tau) \ e \ \mathsf{val}}
 $$
 
-Application expression first step the function expression, then once it's a
-value step the argument to a value as well:
+For application expressions, we first step the function expression. Then, once
+it's a value, we step the argument to a value as well:
 
 $$
 \frac
@@ -436,7 +436,7 @@ neither values nor can they step. Variables are given meaning by substitution.
 > and $\mathsf{fv}(e') = \emptyset$.
 
 Preservation not only preserves typing, but also the presence of free variables.
-This is important, since we need there to be no free variables for $e'$ in order
+This is important, since we need there to be no free variables in $e'$ in order
 to be able to feed $e'$ back into the progress theorem.
 
 ### Safety
