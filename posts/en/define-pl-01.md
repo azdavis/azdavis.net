@@ -271,8 +271,10 @@ $$
 \frac
   {e_1 \mapsto e_1'}
   {
-    \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \mapsto
-    \mathtt{if} \ e_1' \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+    \begin{aligned}
+      &\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \mapsto
+    \\&\mathtt{if} \ e_1' \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+    \end{aligned}
   }
 $$
 

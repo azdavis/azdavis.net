@@ -237,13 +237,17 @@ $$
 $$
 \frac
   {
-    [x \mapsto e_x] e_1 = e_1' \hspace{1em}
-    [x \mapsto e_x] e_2 = e_2' \hspace{1em}
-    [x \mapsto e_x] e_3 = e_3'
+    \begin{aligned}
+      &[x \mapsto e_x] e_1 = e_1' \hspace{1em}
+    \\&[x \mapsto e_x] e_2 = e_2' \hspace{1em}
+    \\&[x \mapsto e_x] e_3 = e_3'
+    \end{aligned}
   }
   {
-    [x \mapsto e_x] \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 =
-    \mathtt{if} \ e_1' \ \mathtt{then} \ e_2' \ \mathtt{else} \ e_3'
+    \begin{aligned}
+      [x \mapsto e_x] &\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 =
+    \\&\mathtt{if} \ e_1' \ \mathtt{then} \ e_2' \ \mathtt{else} \ e_3'
+    \end{aligned}
   }
 $$
 
