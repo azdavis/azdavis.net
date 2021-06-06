@@ -16,7 +16,6 @@ const translations = {
     otherLang: "ja" as const,
     otherLangTitle: "日本語",
     otherLangDesc: "このページを日本語で読む。",
-    postsHref: "/posts/",
     postsTitle: "Posts",
     postsDesc: "An assortment of writings.",
     githubDesc: "A collection of repositories.",
@@ -35,7 +34,6 @@ const translations = {
     otherLang: "en" as const,
     otherLangTitle: "English",
     otherLangDesc: "Read this page in English.",
-    postsHref: "/ja/posts/",
     postsTitle: "投稿",
     postsDesc: "文章の揃い。",
     githubDesc: "リポジトリーの集まり。",
@@ -59,7 +57,7 @@ export function index(lang: Lang): ReactElement {
         </dt>
         <dd lang={t.otherLang}>{t.otherLangDesc}</dd>
         <dt>
-          <a href={t.postsTitle}>{t.postsTitle}</a>
+          <a href={root(lang) + "posts/"}>{t.postsTitle}</a>
         </dt>
         <dd>{t.postsDesc}</dd>
         <dt>
