@@ -33,7 +33,7 @@ interface Props {
   lang: Lang;
 }
 
-export function Post({ title, content, date, lang }: Props): ReactElement {
+function Post({ title, content, date, lang }: Props): ReactElement {
   return (
     <Page lang={lang} title={title} styles={styles}>
       <div>
@@ -44,4 +44,8 @@ export function Post({ title, content, date, lang }: Props): ReactElement {
       <div dangerouslySetInnerHTML={renderMd(content)} />
     </Page>
   );
+}
+
+export function post(props: Props) {
+  return <Post {...props} />;
 }

@@ -2,7 +2,7 @@ import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { join, basename } from "path";
 import { Lang, root } from "./lang";
-import { Post } from "./post";
+import { post } from "./post";
 import { posts, PostListItem } from "./pages/posts";
 import { promises as fs } from "fs";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -70,8 +70,7 @@ async function mkPost(
   const { title, date, content } = getPostData(file.toString());
   const slug = basename(entry, ".md");
   const path = `${dir}/${slug}/`;
-  const post = <Post title={title} content={content} lang={lang} date={date} />;
-  await writeHtml(path, post);
+  await writeHtml(path, post({ title, content, lang, date }));
   return { title, date, path };
 }
 
