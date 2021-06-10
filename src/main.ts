@@ -1,5 +1,6 @@
 import { copyDir } from "./copy-dir";
 import { error404 } from "./pages/404";
+import { getPostData } from "./post-data";
 import { index } from "./pages/index";
 import { join, basename } from "path";
 import { Lang, root } from "./lang";
@@ -8,7 +9,6 @@ import { posts, PostListItem } from "./pages/posts";
 import { promises as fs } from "fs";
 import { renderToStaticMarkup } from "react-dom/server";
 import glob from "fast-glob";
-import matter from "gray-matter";
 import mkdirp from "mkdirp";
 import type { ReactElement } from "react";
 
@@ -23,24 +23,6 @@ async function writeHtml(
   await mkdirp(join(rootDir, dir));
   const text = "<!DOCTYPE html>" + renderToStaticMarkup(contents);
   await fs.writeFile(join(rootDir, dir, file), text);
-}
-
-interface PostData {
-  title: string;
-  date: Date;
-  content: string;
-}
-
-function getPostData(contents: string): PostData {
-  const { data, content } = matter(contents);
-  const { title, date } = data;
-  if (typeof title !== "string") {
-    throw new Error("title must be a string");
-  }
-  if (!(date instanceof Date)) {
-    throw new Error("date must be a Date");
-  }
-  return { title, date, content };
 }
 
 interface DatedPostListItem extends PostListItem {

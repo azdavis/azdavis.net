@@ -5,6 +5,7 @@ import { Style, Page } from "./page";
 import hl from "highlight.js";
 import katex from "remarkable-katex";
 import lean from "highlightjs-lean";
+import type { PostData } from "./post-data";
 import type { ReactElement } from "react";
 
 hl.registerLanguage("lean", lean);
@@ -26,10 +27,7 @@ function renderMd(content: string): UnsafeHtml {
 
 const styles: Style[] = ["base", "code", "katex/katex.min"];
 
-interface Props {
-  title: string;
-  content: string;
-  date: Date;
+interface Props extends PostData {
   lang: Lang;
 }
 
@@ -46,6 +44,6 @@ function Post({ title, content, date, lang }: Props): ReactElement {
   );
 }
 
-export function post(props: Props) {
+export function post(props: Props): ReactElement {
   return <Post {...props} />;
 }
