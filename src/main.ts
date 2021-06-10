@@ -1,3 +1,4 @@
+import { copyDir } from "./copy-dir";
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { join, basename } from "path";
@@ -13,21 +14,6 @@ import type { ReactElement } from "react";
 
 const rootDir = "build";
 const postsDir = "posts";
-
-// https://stackoverflow.com/a/64255382
-async function copyDir(src: string, dest: string) {
-  await fs.mkdir(dest, { recursive: true });
-  const entries = await fs.readdir(src, { withFileTypes: true });
-  for (const entry of entries) {
-    const srcPath = join(src, entry.name);
-    const destPath = join(dest, entry.name);
-    if (entry.isDirectory()) {
-      await copyDir(srcPath, destPath);
-    } else {
-      await fs.copyFile(srcPath, destPath);
-    }
-  }
-}
 
 async function writeHtml(
   dir: string,
