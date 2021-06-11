@@ -271,7 +271,7 @@ $$
 \frac
   {
     [x \mapsto e_x] e_1 = e_1' \hspace{1em}
-    [x \mapsto e_x] e_2 = e_2' \hspace{1em}
+    [x \mapsto e_x] e_2 = e_2'
   }
   {
     [x \mapsto e_x] e_1 \ e_2 =
