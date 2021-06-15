@@ -9,6 +9,8 @@ date: 2021-06-05
 
 型を複数取り、一個の型に重ねることができるのは積です。例えば、関数から複数の値を戻したければ、積は使えます。
 
+## 構文規則
+
 まず、他の型を一切含まぬ積型を紹介します。この型を「単位」（unit）と呼び、値が一つだけあるので、$\mathbf{1}$で表記します。その値も「単位」と呼び、$\langle \rangle$で表記します。
 
 次は型を二つ重ねる「ペア」という積型で、$\tau_1 \times \tau_2$で表記します。$\langle e_1, e_2 \rangle$はペア定数の式です。
@@ -16,46 +18,6 @@ date: 2021-06-05
 ペアを使用する為、中身の値を抽出せねば。その為$e.\mathsf{L}$と$e.\mathsf{R}$の式も追加します。$e$はペアであれば、この式は左と右の値をペアから抽出します。
 
 ペアを使い他のペアを合わせることによって、二個の型以上の積を作り上げられます。
-
-## 語源
-
-積型は何ゆえそう呼ばれているかと聞くと、型の値の数が原因です。積型にある型の値の数をかければ、積型の値の数になります。
-
-例えば$\mathtt{Bool}$には値が二つあります。$\mathtt{true}$と$\mathtt{false}$。
-
-では$\mathtt{Bool} \times \mathtt{Bool}$という型には値がいくつありますか。それは四つ。
-
-1. $\langle \mathtt{true}, \mathtt{true} \rangle$
-1. $\langle \mathtt{true}, \mathtt{false} \rangle$
-1. $\langle \mathtt{false}, \mathtt{true} \rangle$
-1. $\langle \mathtt{false}, \mathtt{false} \rangle$
-
-$\mathtt{Bool} \times \mathbf{1}$も見ましょう。$\mathtt{Bool}$と同じく、値が二つあります。
-
-1. $\langle \mathtt{true}, \langle \rangle \rangle$
-1. $\langle \mathtt{false}, \langle \rangle \rangle$
-
-ですから単位の型を$\mathbf{1}$で書くのは妥当です。単位の型である$\mathbf{1}$は、積型の$\times$の単位元です。
-
-整数なら、任意の整数$a$を取れば、
-
-$$a \times 1 = a$$
-
-ここでは$\times$は掛け算。
-
-同様に、$|\tau|$というのを「$\tau$の値の数」という意味を付け、任意な型$\tau$を取れば、
-
-$$|\tau \times \mathbf{1}| = |\tau|$$
-
-ここでは$\times$は積型。
-
-もっと全般的に言えば、
-
-$$|\tau_1 \times \tau_2| = |\tau_1| \times |\tau_2|$$
-
-ここで左側の$\times$は積型で、右は掛け算を表します。
-
-## 構文規則
 
 $$
 \begin{aligned}
@@ -236,6 +198,46 @@ $$
   {\mathsf{fv}(e) = s}
   {\mathsf{fv}(e.\mathsf{R}) = s}
 $$
+
+## 語源
+
+結論する前、「積」の語源を考えましょう。
+
+積型は何ゆえそう呼ばれているかと聞くと、型の値の数が原因です。積型にある型の値の数をかければ、積型の値の数になります。
+
+例えば$\mathtt{Bool}$には値が二つあります。$\mathtt{true}$と$\mathtt{false}$。
+
+では$\mathtt{Bool} \times \mathtt{Bool}$という型には値がいくつありますか。それは四つ。
+
+1. $\langle \mathtt{true}, \mathtt{true} \rangle$
+1. $\langle \mathtt{true}, \mathtt{false} \rangle$
+1. $\langle \mathtt{false}, \mathtt{true} \rangle$
+1. $\langle \mathtt{false}, \mathtt{false} \rangle$
+
+$\mathtt{Bool} \times \mathbf{1}$も見ましょう。$\mathtt{Bool}$と同じく、値が二つあります。
+
+1. $\langle \mathtt{true}, \langle \rangle \rangle$
+1. $\langle \mathtt{false}, \langle \rangle \rangle$
+
+ですから単位の型を$\mathbf{1}$で書くのは妥当です。単位の型である$\mathbf{1}$は、積型の$\times$の単位元です。
+
+整数なら、任意の整数$a$を取れば、
+
+$$a \times 1 = a$$
+
+ここでは$\times$は掛け算。
+
+同様に、$|\tau|$というのを「$\tau$の値の数」という意味を付け、任意な型$\tau$を取れば、
+
+$$|\tau \times \mathbf{1}| = |\tau|$$
+
+ここでは$\times$は積型。
+
+もっと全般的に言えば、
+
+$$|\tau_1 \times \tau_2| = |\tau_1| \times |\tau_2|$$
+
+ここで左側の$\times$は積型で、右は掛け算を表します。
 
 ## 結論
 

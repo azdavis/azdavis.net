@@ -12,6 +12,8 @@ We can use product types to combine multiple types into a single type. For
 instance, if we want to return multiple values from a function, we can have the
 function's return type be a product type.
 
+## Syntax
+
 First, we introduce a product type that contains no other types. We will call
 this type "unit" and denote it with $\mathbf{1}$, because there is one value of
 this type. This one value, also often called "unit", is written $\langle
@@ -27,53 +29,6 @@ expressions extract the left and right value out of the pair respectively.
 
 Note that by combining pair types with other pair types, we can effectively
 construct an product type combining $n$ types for any $n > 2$.
-
-## Etymology
-
-Product types are so named because the number of values in a product type is the
-product of the number of values in the constituent types.
-
-For instance, consider the type $\mathtt{Bool}$. It has 2 values,
-$\mathtt{true}$ and $\mathtt{false}$.
-
-Now consider the type $\mathtt{Bool} \times \mathtt{Bool}$. It has 4
-values:
-
-1. $\langle \mathtt{true}, \mathtt{true} \rangle$
-1. $\langle \mathtt{true}, \mathtt{false} \rangle$
-1. $\langle \mathtt{false}, \mathtt{true} \rangle$
-1. $\langle \mathtt{false}, \mathtt{false} \rangle$
-
-Consider also the type $\mathtt{Bool} \times \mathbf{1}$, the
-product of $\mathtt{Bool}$ and unit. Like $\mathtt{Bool}$, it only has 2 values:
-
-1. $\langle \mathtt{true}, \langle \rangle \rangle$
-1. $\langle \mathtt{false}, \langle \rangle \rangle$
-
-This is why it makes sense that the unit type is written $\mathbf{1}$. It is the
-identity of the operation written $\times$.
-
-For the integers, we have that for all integers $a$,
-
-$$a \times 1 = a$$
-
-where $\times$ denotes multiplication.
-
-Then similarly, if we write $|\tau|$ to mean "the number of values in the type
-$\tau$", we have that for all types $\tau$,
-
-$$|\tau \times \mathbf{1}| = |\tau|$$
-
-where $\times$ denotes a product type.
-
-And more generally, for all types $\tau_1, \tau_2$, we have
-
-$$|\tau_1 \times \tau_2| = |\tau_1| \times |\tau_2|$$
-
-where on the left, $\times$ denotes a product type, and on the right, it denotes
-multiplication.
-
-## Syntax
 
 $$
 \begin{aligned}
@@ -259,6 +214,53 @@ $$
   {\mathsf{fv}(e) = s}
   {\mathsf{fv}(e.\mathsf{R}) = s}
 $$
+
+## Etymology
+
+Before we conclude, let us consider the etymology of "product type".
+
+Product types are so named because the number of values in a product type is the
+product of the number of values in the constituent types.
+
+For instance, consider the type $\mathtt{Bool}$. It has 2 values,
+$\mathtt{true}$ and $\mathtt{false}$.
+
+Now consider the type $\mathtt{Bool} \times \mathtt{Bool}$. It has 4
+values:
+
+1. $\langle \mathtt{true}, \mathtt{true} \rangle$
+1. $\langle \mathtt{true}, \mathtt{false} \rangle$
+1. $\langle \mathtt{false}, \mathtt{true} \rangle$
+1. $\langle \mathtt{false}, \mathtt{false} \rangle$
+
+Consider also the type $\mathtt{Bool} \times \mathbf{1}$, the
+product of $\mathtt{Bool}$ and unit. Like $\mathtt{Bool}$, it only has 2 values:
+
+1. $\langle \mathtt{true}, \langle \rangle \rangle$
+1. $\langle \mathtt{false}, \langle \rangle \rangle$
+
+This is why it makes sense that the unit type is written $\mathbf{1}$. It is the
+identity of the operation written $\times$.
+
+For the integers, we have that for all integers $a$,
+
+$$a \times 1 = a$$
+
+where $\times$ denotes multiplication.
+
+Then similarly, if we write $|\tau|$ to mean "the number of values in the type
+$\tau$", we have that for all types $\tau$,
+
+$$|\tau \times \mathbf{1}| = |\tau|$$
+
+where $\times$ denotes a product type.
+
+And more generally, for all types $\tau_1, \tau_2$, we have
+
+$$|\tau_1 \times \tau_2| = |\tau_1| \times |\tau_2|$$
+
+where on the left, $\times$ denotes a product type, and on the right, it denotes
+multiplication.
 
 ## Conclusion
 
