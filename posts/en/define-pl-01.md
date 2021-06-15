@@ -73,17 +73,15 @@ the English word "utterance" into some other human language. I'll choose the
 target language to be Japanese, given my [interests][jp-resources].
 [Thus][jisho-utterance], we will call the language "Hatsugen".
 
-For now, Hatsugen will have only expressions and types. No statements, no
-input/output, no side effects.
+For now, Hatsugen will just have integers and booleans.
 
-The expressions and types are extremely limited: just integers and booleans.
-
-We'll represent integers with integer literals like $\mathtt{123}$ or
+We'll represent integers with integer literal expressions like $\mathtt{123}$ or
 $\mathtt{-456}$ or $\mathtt{0}$. There are infinitely many integers, and thus
 infinitely many such possible literals. Practical considerations like a maximum
 integer size will be ignored for now.
 
-We'll represent booleans with $\mathtt{true}$ and $\mathtt{false}$ literals.
+We'll represent booleans with the literal expressions $\mathtt{true}$ and
+$\mathtt{false}$.
 
 As one extra bit, we'll also support a conditional expression
 
@@ -93,8 +91,6 @@ which will evaluate the condition $e_1$ and then
 
 - if it's $\mathtt{true}$, evaluate $e_2$;
 - if it's $\mathtt{false}$, evaluate $e_3$.
-
-(We'll formalize all of this!)
 
 It's intentional that Hatsugen is a very small language, at least for now. This
 will allow us to get comfortable with all the formal stuff without getting
@@ -122,6 +118,12 @@ e
 \\ | \ & \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
 \end{aligned}
 $$
+
+This says that an expression $e$ can either be an integer literal, a boolean
+literal, or an conditional expression.
+
+Note that the conditional expression contains other expressions: $e_1$, $e_2$,
+and $e_3$.
 
 ## Statics: $e: \tau$
 
@@ -218,24 +220,29 @@ This completes the definition of the static semantics for Hatsugen.
 
 ## Dynamics
 
-Now it's time to define the dynamic semantics, i.e. how to evaluate programs.
-There are actually a handful of different ways to do this, but we're going to
-define a [structural operational semantics][struct-op-sem] for Hatsugen.
+We now define how to evaluate an expression. This is called the dynamic
+semantics. There are various ways to do this, but the one we'll use for Hatsugen
+is often called "[structural operational semantics][struct-op-sem]".
 
-To do this, we will define 2 judgments.
+To do this, we will define two judgments. To define these judgments, we will
+write inference rules.
 
 ### Values: $e \ \mathsf{val}$
 
-The first judgement, $e \ \mathsf{val}$, read as "$e$ is a value", holds when
-$e$ is a value. Informally, a value is an expression that is done evaluating.
+The first judgement is written $e \ \mathsf{val}$ and is read as "$e$ is a
+value". A value is an expression that is "done" evaluating.
 
-In Hatsugen, the values are integer and boolean literals.
+We first define that any integer literal is a value. We can express this
+definition with an inference rule:
 
 $$
 \frac
   {}
   {\overline{n} \ \mathsf{val}}
 $$
+
+We can also define that the boolean literals $\mathtt{true}$ and
+$\mathtt{false}$ are values with two more rules.
 
 $$
 \frac
@@ -249,23 +256,22 @@ $$
   {\mathtt{false} \ \mathsf{val}}
 $$
 
+In Hatsugen, these are the only expressions that are values. But what about
+conditional expressions?
+
 ### Stepping: $e \mapsto e'$
 
-Next, we define what expressions are not done evaluating, and furthermore, we
-define how their evaluation progresses.
-
+For expressions which are not values, we must now define how to evaluate them.
 The second dynamics judgement, $e \mapsto e'$, read as "$e$ steps to $e'$",
-holds when the expression $e$ takes a step to another expression, $e'$.
+holds when the expression $e$ takes a single step to another expression, $e'$.
+
+"Evaluating an expression" is thus defined as repeatedly stepping an expression
+until it is a value.
 
 In Hatsugen, the only expressions that can take a step are conditional
-expressions.
-
-First, we define that a conditional expression can take a step if its condition
-$e_1$ can take a step to $e_1'$. This could happen if $e_1$ itself was another
-conditional expression, for instance.
-
-We say the whole conditional expression then steps. When it steps, we leave the
-then-branch and else-branch expressions unchanged.
+expressions. First, we define that a conditional expression can take a step if
+its condition $e_1$ can take a step to $e_1'$. When it steps, we leave $e_2$ and
+$e_3$ unchanged.
 
 $$
 \frac
@@ -278,11 +284,8 @@ $$
   }
 $$
 
-Now, we define what happens when the condition is done evaluating. Since the
-statics said that the condition will be a boolean, we know it'll be either
-$\mathtt{true}$ or $\mathtt{false}$. (We'll actually have to prove this later!)
-
-So, if the condition was $\mathtt{true}$, we step to the then-expression.
+Now, we define what happens when $e_1$ is a value. If it is $\mathtt{true}$, we
+step to $e_2$, ignoring $e_3$.
 
 $$
 \frac
@@ -293,7 +296,8 @@ $$
   }
 $$
 
-And if it was $\mathtt{false}$, we step to the else-expression.
+And if it was $\mathtt{false}$, we do the opposite and step to $e_3$, ignoring
+$e_2$.
 
 $$
 \frac
@@ -304,12 +308,11 @@ $$
   }
 $$
 
-With that, we've defined the dynamic semantics for Hatsugen.
+With that, we've defined the dynamic semantics.
 
 ## Theorems
 
-I said that using these formal systems lets us prove theorems. So let's state
-some theorems, and then prove them!
+We can now state and prove theorems about Hatsugen.
 
 The first crucial theorem is that of progress. Progress says that well-typed
 expressions are either done evaluating or can keep evaluating.
