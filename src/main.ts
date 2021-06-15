@@ -1,16 +1,16 @@
-import { copyDir } from "./copy-dir";
-import { error404 } from "./pages/404";
-import { getPostData } from "./post-data";
-import { index } from "./pages/index";
-import { join, basename } from "path";
-import { Lang, root } from "./lang";
-import { post } from "./post";
-import { posts, PostListItem } from "./pages/posts";
-import { promises as fs } from "fs";
-import { renderToStaticMarkup } from "react-dom/server";
 import glob from "fast-glob";
+import { promises as fs } from "fs";
 import mkdirp from "mkdirp";
+import { basename, join } from "path";
 import type { ReactElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { copyDir } from "./copy-dir";
+import { Lang, root } from "./lang";
+import { error404 } from "./pages/404";
+import { index } from "./pages/index";
+import { PostListItem, posts } from "./pages/posts";
+import { post } from "./post";
+import { getPostData } from "./post-data";
 
 const rootDir = "build";
 const postsDir = "posts";

@@ -1,12 +1,12 @@
+import hl from "highlight.js";
+import lean from "highlightjs-lean";
+import type { ReactElement } from "react";
+import { Remarkable } from "remarkable";
+import katex from "remarkable-katex";
 import { DateShow } from "./date-show";
 import { Lang, root } from "./lang";
-import { Remarkable } from "remarkable";
-import { Style, Page } from "./page";
-import hl from "highlight.js";
-import katex from "remarkable-katex";
-import lean from "highlightjs-lean";
+import { Page, Style } from "./page";
 import type { PostData } from "./post-data";
-import type { ReactElement } from "react";
 
 hl.registerLanguage("lean", lean);
 
