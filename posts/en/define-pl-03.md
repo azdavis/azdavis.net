@@ -13,15 +13,13 @@ instance, if we want to return multiple values from a function, we can have the
 function's return type be a product type.
 
 First, we introduce a product type that contains no other types. We will call
-this type "unit", as it is often called, and denote it with $\mathbf{1}$,
-because there is one value of this type. This one value, also often called
-"unit", is written $\langle \rangle$.
+this type "unit" and denote it with $\mathbf{1}$, because there is one value of
+this type. This one value, also often called "unit", is written $\langle
+\rangle$.
 
-Next is a product type that combines two types, which we will call "pair". If
-$\tau_1$ and $\tau_2$ are types, then $\tau_1 \times \tau_2$ is a pair type with
-$\tau_1$ on the left and $\tau_2$ on the right. Then, if $e_1$ has type $\tau_1$
-and $e_2$ has type $\tau_2$, then $\langle e_1, e_2 \rangle$ is a pair literal
-with type $\tau_1 \times \tau_2$.
+Next is a product type that combines two types, which we will call "pair" and
+denote with $\tau_1 \times \tau_2$. Then, the expression $\langle e_1, e_2
+\rangle$ is a pair literal expression.
 
 To use a pair, we must be able to extract the values inside. For that, we add
 the expressions $e.\mathsf{L}$ and $e.\mathsf{R}$. When $e$ is a pair, these
