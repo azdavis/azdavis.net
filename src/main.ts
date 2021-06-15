@@ -73,13 +73,16 @@ async function copyStatic(p: string) {
 async function main() {
   await fs.rm(rootDir, { recursive: true, force: true });
   await mkdirp(rootDir);
-  await copyDir("node_modules/katex/dist", join(rootDir, "katex"));
-  await Promise.all((await glob("static/*")).map(copyStatic));
-  await writeHtml(".", error404, "404.html");
-  await writeHtml(".", index("en"));
-  await writeHtml("ja", index("ja"));
-  await mkPosts("en");
-  await mkPosts("ja");
+  const staticItems = await glob("static/*");
+  await Promise.all([
+    copyDir("node_modules/katex/dist", join(rootDir, "katex")),
+    ...staticItems.map(copyStatic),
+    writeHtml(".", error404, "404.html"),
+    writeHtml(".", index("en")),
+    writeHtml("ja", index("ja")),
+    mkPosts("en"),
+    mkPosts("ja"),
+  ]);
 }
 
 main().catch(console.error);
