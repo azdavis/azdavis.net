@@ -3,8 +3,12 @@ import { Lang, root } from "../lang";
 import { Page } from "../page";
 
 const translations = {
-  en: { title: "Posts" },
-  ja: { title: "投稿" },
+  en: {
+    title: "Posts",
+  },
+  ja: {
+    title: "投稿",
+  },
 };
 
 export interface PostListItem {
