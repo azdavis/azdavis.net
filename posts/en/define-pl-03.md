@@ -24,9 +24,8 @@ and $e_2$ has type $\tau_2$, then $\langle e_1, e_2 \rangle$ is a pair literal
 with type $\tau_1 \times \tau_2$.
 
 To use a pair, we must be able to extract the values inside. For that, we add
-the expressions $e.\mathsf{left}$ and $e.\mathsf{right}$. When $e$ is a value of
-pair type, these expressions extract the left and right value out of the pair
-respectively.
+the expressions $e.\mathsf{L}$ and $e.\mathsf{R}$. When $e$ is a pair, these
+expressions extract the left and right value out of the pair respectively.
 
 Note that by combining pair types with other pair types, we can effectively
 construct an product type combining $n$ types for any $n > 2$.
@@ -90,8 +89,8 @@ e
 ::=  \ & \dots
 \\ | \ & \langle \rangle
 \\ | \ & \langle e_1, e_2 \rangle
-\\ | \ & e.\mathsf{left}
-\\ | \ & e.\mathsf{right}
+\\ | \ & e.\mathsf{L}
+\\ | \ & e.\mathsf{R}
 \end{aligned}
 $$
 
@@ -122,13 +121,13 @@ We can then extract the left or right part out of the pair.
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e.\mathsf{left}: \tau_1}
+  {\Gamma \vdash e.\mathsf{L}: \tau_1}
 $$
 
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e.\mathsf{right}: \tau_2}
+  {\Gamma \vdash e.\mathsf{R}: \tau_2}
 $$
 
 ## Dynamics
@@ -179,25 +178,25 @@ left or right value in the pair.
 $$
 \frac
   {e \mapsto e'}
-  {e.\mathsf{left} \mapsto e'.\mathsf{left}}
+  {e.\mathsf{L} \mapsto e'.\mathsf{L}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle.\mathsf{left} \mapsto e_1}
+  {\langle e_1, e_2 \rangle.\mathsf{L} \mapsto e_1}
 $$
 
 $$
 \frac
   {e \mapsto e'}
-  {e.\mathsf{right} \mapsto e'.\mathsf{right}}
+  {e.\mathsf{R} \mapsto e'.\mathsf{R}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle.\mathsf{right} \mapsto e_2}
+  {\langle e_1, e_2 \rangle.\mathsf{R} \mapsto e_2}
 $$
 
 ## Helpers
@@ -225,13 +224,13 @@ $$
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1.\mathsf{left} = e_1'.\mathsf{left}}
+  {[x \mapsto e] e_1.\mathsf{L} = e_1'.\mathsf{L}}
 $$
 
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1.\mathsf{right} = e_1'.\mathsf{right}}
+  {[x \mapsto e] e_1.\mathsf{R} = e_1'.\mathsf{R}}
 $$
 
 ### Free variables
@@ -254,13 +253,13 @@ $$
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e.\mathsf{left}) = s}
+  {\mathsf{fv}(e.\mathsf{L}) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e.\mathsf{right}) = s}
+  {\mathsf{fv}(e.\mathsf{R}) = s}
 $$
 
 ## Conclusion

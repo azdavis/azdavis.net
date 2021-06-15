@@ -13,7 +13,7 @@ date: 2021-06-05
 
 次は型を二つ重ねる「ペア」という積型です。$\tau_1$と$\tau_2$は型だとしたら、$\tau_1 \times \tau_2$はそれらを合わせるペア型です。そして、$e_1$の型が$\tau_1$で$e_2$の型が$\tau_2$だとすれば、$\langle e_1, e_2 \rangle$は$\tau_1 \times \tau_2$の型のあるペア定数です。
 
-ペアを使用する為、中身の値を抽出せねば。その為$e.\mathsf{left}$と$e.\mathsf{right}$の式も追加します。$e$はペアであれば、この式は左と右の値をペアから抽出します。
+ペアを使用する為、中身の値を抽出せねば。その為$e.\mathsf{L}$と$e.\mathsf{R}$の式も追加します。$e$はペアであれば、この式は左と右の値をペアから抽出します。
 
 ペアを使い他のペアを合わせることによって、二個の型以上の積を作り上げられます。
 
@@ -69,8 +69,8 @@ e
 ::=  \ & \dots
 \\ | \ & \langle \rangle
 \\ | \ & \langle e_1, e_2 \rangle
-\\ | \ & e.\mathsf{left}
-\\ | \ & e.\mathsf{right}
+\\ | \ & e.\mathsf{L}
+\\ | \ & e.\mathsf{R}
 \end{aligned}
 $$
 
@@ -100,13 +100,13 @@ $$
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e.\mathsf{left}: \tau_1}
+  {\Gamma \vdash e.\mathsf{L}: \tau_1}
 $$
 
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e.\mathsf{right}: \tau_2}
+  {\Gamma \vdash e.\mathsf{R}: \tau_2}
 $$
 
 ## 動的意味論
@@ -154,25 +154,25 @@ $$
 $$
 \frac
   {e \mapsto e'}
-  {e.\mathsf{left} \mapsto e'.\mathsf{left}}
+  {e.\mathsf{L} \mapsto e'.\mathsf{L}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle.\mathsf{left} \mapsto e_1}
+  {\langle e_1, e_2 \rangle.\mathsf{L} \mapsto e_1}
 $$
 
 $$
 \frac
   {e \mapsto e'}
-  {e.\mathsf{right} \mapsto e'.\mathsf{right}}
+  {e.\mathsf{R} \mapsto e'.\mathsf{R}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle.\mathsf{right} \mapsto e_2}
+  {\langle e_1, e_2 \rangle.\mathsf{R} \mapsto e_2}
 $$
 
 ## 助手
@@ -199,13 +199,13 @@ $$
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1.\mathsf{left} = e_1'.\mathsf{left}}
+  {[x \mapsto e] e_1.\mathsf{L} = e_1'.\mathsf{L}}
 $$
 
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1.\mathsf{right} = e_1'.\mathsf{right}}
+  {[x \mapsto e] e_1.\mathsf{R} = e_1'.\mathsf{R}}
 $$
 
 ### 自由変数
@@ -228,13 +228,13 @@ $$
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e.\mathsf{left}) = s}
+  {\mathsf{fv}(e.\mathsf{L}) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e.\mathsf{right}) = s}
+  {\mathsf{fv}(e.\mathsf{R}) = s}
 $$
 
 ## 結論
