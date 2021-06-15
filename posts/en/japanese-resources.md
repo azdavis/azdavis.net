@@ -8,15 +8,15 @@ helpful resources that I use to study.
 
 ## Jisho
 
-[Website][jisho]
+[Website](https://jisho.org)
 
 Standard Japanese-English dictionary. The other direction works too. Clean,
 simple interface, good content.
 
-## Kana
+## Tofugu: Learn the Kana
 
-- [Hiragana][]
-- [Katakana][]
+- [Hiragana](https://www.tofugu.com/japanese/learn-hiragana/)
+- [Katakana](https://www.tofugu.com/japanese/learn-katakana/)
 
 Japanese has 3 different writing systems. Luckily, the first 2, hiragana and
 katakana, collectively 'the kana', are pretty small and 'match up' with one
@@ -26,7 +26,7 @@ away.
 
 ## Guide to Japanese
 
-[Website][guide]
+[Website](http://www.guidetojapanese.org/learn/grammar/)
 
 Good as a grammar reference. Topics are basically ordered with more
 basic/fundamental ones starting first and more niche ones as it goes on. I've
@@ -41,7 +41,7 @@ I like this one because it doesn't just try to answer the question 'How do I say
 this common thing from english' necessarily. It instead teaches Japanese grammar
 from the foundations.
 
-A good example of the the difference between this approach and the 'usual'
+A good example of the difference between this approach and the 'usual'
 approach is how the 'regular' and 'polite' forms are taught with each approach.
 
 In Japanese, there is a 'regular' form and a 'polite' form of verbs. Most
@@ -55,14 +55,9 @@ form is derived from it.
 This guide instead first teaches the regular form and later tells you how to
 derive the polite form from it.
 
-There's also [this other thing][other guide] from the same website. I haven't
-used it but seems to be an attempt at a re-write of some of the earlier parts of
-the first thing I linked. It doesn't seem as complete as the former but it might
-be helpful too.
-
 ## WaniKani
 
-[Website][wanikani]
+[Website](https://www.wanikani.com/)
 
 Teaches you 'radicals', kanji, and words. Past the first 2 levels it requires a
 subscription/lifetime purchase. I did the latter and it set me back a few
@@ -114,30 +109,28 @@ Bottom line: learn radicals. There's an [article][kanji-mistakes] about it.
 
 ## NHK News Web Easy
 
-[Website][nhk]
+[Website](https://www3.nhk.or.jp/news/easy/)
 
 'Easy' japanese news about current events. Pretty short articles. Good for
 reading practice. You can also listen to some (all?) of the articles and toggle
 the reading hints ('furigana') for kanji for more practice.
 
-[jisho]: https://jisho.org/
-[hiragana]: https://www.tofugu.com/japanese/learn-hiragana/
-[katakana]: https://www.tofugu.com/japanese/learn-katakana/
-[guide]: http://www.guidetojapanese.org/learn/grammar/
-[wanikani]: https://www.wanikani.com/
-[other guide]: http://www.guidetojapanese.org/learn/complete/
-[nhk]: https://www3.nhk.or.jp/news/easy/
-[kanji-mistakes]: https://www.tofugu.com/japanese/kanji-learning-mistakes/
 [phono-semantic]: https://en.wikipedia.org/wiki/Chinese_character_classification#Phono-semantic_compound_characters
+[kanji-mistakes]: https://www.tofugu.com/japanese/kanji-learning-mistakes/
 
 ## YouTube
 
-There's a ton of Japanese YouTubers out there, but here are a few that I like:
+There's a ton of Japanese YouTubers out there, but here are a few that I watch
+from time to time:
 
 - [Mina Luna Japanese][mina-luna]
 - [Yudai-sensei][yudai]
 - [あかね的日本語教室][akane]
 - [日本語の森][mori]
+
+The above channels are mainly focused on Japanese education, but it can also be
+helpful to find channels in the Japanese language but not specifically about
+teaching Japanese.
 
 [akane]: https://www.youtube.com/channel/UCh-GhnQ7qDQmS6Bz3pGc1Mw
 [mina-luna]: https://www.youtube.com/channel/UC_v5Jim-sJaHzlINEZrxuEg
