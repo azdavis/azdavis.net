@@ -98,19 +98,14 @@ bogged down with the complexity of Hatsugen itself.
 
 ## Syntax
 
-We'll use a [BNF][bnf]-style grammar to describe the abstract syntax of types
-$\tau$ and expressions $e$ in Hatsugen.
+We'll use a [BNF][bnf]-style grammar to describe the syntax of expressions in
+Hatsugen.
 
 Since there are infinitely many integers, and writing them all out would take
 quite a while, we'll represent an arbitrary integer literal with $\overline{n}$.
 
 $$
 \begin{aligned}
-\tau
-::=  \ & \mathtt{Int}
-\\ | \ & \mathtt{Bool}
-\\
-\\
 e
 ::=  \ & \overline{n}
 \\ | \ & \mathtt{true}
@@ -124,6 +119,8 @@ literal, or an conditional expression.
 
 Note that the conditional expression contains other expressions: $e_1$, $e_2$,
 and $e_3$.
+
+<!-- TODO delete up to next comment -->
 
 ## Statics: $e: \tau$
 
@@ -218,6 +215,8 @@ conclusion, as usual, is below the line.
 
 This completes the definition of the static semantics for Hatsugen.
 
+<!-- TODO delete up to prev comment -->
+
 ## Dynamics
 
 We now define how to evaluate an expression. This is called the dynamic
@@ -240,6 +239,10 @@ $$
   {}
   {\overline{n} \ \mathsf{val}}
 $$
+
+An inference rule looks like a big fraction, with the premises on top and the
+single conclusion on the bottom. There are no premises for this rule, so the top
+is empty.
 
 We can also define that the boolean literals $\mathtt{true}$ and
 $\mathtt{false}$ are values with two more rules.
@@ -310,6 +313,132 @@ $$
 
 With that, we've defined the dynamic semantics.
 
+But we immediately run into a problem.
+
+## The problem
+
+We earlier informally defined what it means to evaluate an expression:
+
+> "Evaluating an expression" is... defined as repeatedly stepping an
+> expression until it is a value.
+
+However, under this definition, there exist expressions that cannot be
+evaluated. For instance:
+
+$$
+\mathtt{if} \ \mathtt{1} \
+  \mathtt{then} \ \mathtt{2} \
+  \mathtt{else} \ \mathtt{3}
+$$
+
+This expression cannot take a step, because none of the rules for $e \mapsto e'$
+apply. This is because we only defined how to take a step when $e_1$ was either
+$\mathtt{true}$, $\mathtt{false}$, or able to take a step itself. We didn't
+define what to do if $e_1$ is an integer literal.
+
+Yet, this expression is also not a value, because none of the rules for $e \
+\mathsf{val}$ apply. Thus, the expression is "stuck".
+
+There are generally two things we can do here. One is to go back and add more
+rules to the dynamics to define how to evaluate these kinds of expressions. For
+instance, we could emulate C-like languages with the following rules:
+
+$$
+\frac
+  {}
+  {
+    \mathtt{if} \ \mathtt{0} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+    \mapsto e_3
+  }
+$$
+
+$$
+\frac
+  {\overline{n} \ne \mathtt{0}}
+  {
+    \mathtt{if} \ \overline{n} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+    \mapsto e_2
+  }
+$$
+
+This treats $\mathtt{0}$ like $\mathtt{false}$ and any other integer like
+$\mathtt{true}$.
+
+The other thing we could do define a notion of a "valid" expression, and only
+permit evaluation of these valid expressions. This is the approach we will use.
+
+To define which expressions are valid, we will introduce a static semantics.
+
+## Statics: $e: \tau$
+
+The static semantics tell us which expressions are valid, and thus permitted to
+evaluate.
+
+First, we introduce the notion of a type. For now, we have only two: integer and
+boolean.
+
+$$
+\begin{aligned}
+\tau
+::=  \ & \mathtt{Int}
+\\ | \ & \mathtt{Bool}
+\end{aligned}
+$$
+
+Next, we introduce another judgement, $e: \tau$, read "$e$ has type $\tau$" or
+"the type of $e$ is $\tau$". This judgement defines what it means for an
+expression to be valid: an expression $e$ is valid if there exists a type $\tau$
+for which $e: \tau$ holds.
+
+Now, we define $e: \tau$ by writing its rules, starting with rules for the
+literals. Integers literals have integer type, and boolean literals have boolean
+type.
+
+$$
+\frac
+  {}
+  {\overline{n}: \mathtt{Int}}
+$$
+
+$$
+\frac
+  {}
+  {\mathtt{true}: \mathtt{Bool}}
+$$
+
+$$
+\frac
+  {}
+  {\mathtt{false}: \mathtt{Bool}}
+$$
+
+For conditional expressions, we require that $e_1$ has boolean type. We also
+require $e_2$ and $e_3$ have the same type (but that type could be any type).
+Then we say the whole conditional expression has that type.
+
+$$
+\frac
+  {
+    e_1: \mathtt{Bool} \hspace{1em}
+    e_2: \tau \hspace{1em}
+    e_3: \tau
+  }
+  {\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3: \tau}
+$$
+
+Note that because $e_1$ must have boolean type, expressions like the previously
+considered
+
+$$
+\mathtt{if} \ \mathtt{1} \
+  \mathtt{then} \ \mathtt{2} \
+  \mathtt{else} \ \mathtt{3}
+$$
+
+are now disallowed by the static semantics.
+
+This completes the definition of the static semantics.
+
 ## Theorems
 
 We can now state and prove theorems about Hatsugen.
@@ -321,6 +450,11 @@ More formally, progress states:
 
 > For all $e$ and $\tau$, if $e: \tau$, then $e \ \mathsf{val}$ or there exists
 > $e'$ such that $e \mapsto e'$.
+
+Note that, before we introduced the static semantics, we had the problem of
+certain expressions neither being values nor being able to step. Now that we
+have the statics at our disposal, we can use them to strengthen the precondition
+of the theorem so that it is provable.
 
 Next, we have preservation. Preservation states that well-typed expressions that
 can keep evaluating preserve their types when evaluating.
