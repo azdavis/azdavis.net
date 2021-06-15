@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import { join } from "path";
 
 // https://stackoverflow.com/a/64255382
-export async function copyDir(src: string, dest: string) {
+export async function copyDir(src: string, dest: string): Promise<void> {
   await fs.mkdir(dest, { recursive: true });
   const entries = await fs.readdir(src, { withFileTypes: true });
   for (const entry of entries) {
