@@ -10,20 +10,21 @@ formal methods. We will also produce proofs about our definitions using the
 ## Introduction and motivation
 
 There are many programming languages. Some have been around for years, some are
-relatively new. Some are general-purpose, some are more domain-specific.
+relatively new.
 
-But what is a programming language? Or rather, what defines one?
+But what defines a programming language?
 
 ### Definition by implementation
 
-One answer is that the definition of programming language is its implementation.
+One answer is that the definition of a programming language is its
+implementation.
 
 Given some programming language $L$, an implementation of $L$ is a program,
-which takes as input the text of a program $p$ in the language $L$, and either
-produces as output some result based on $p$, or rejects $p$ as invalid.
+which takes the text of a program $p$ in the language $L$, and either produces
+some result based on $p$, or rejects $p$ as invalid.
 
-We could then say a program $p$ is a program in the programming language $L$ if
-the implementation of $L$ produces output for $p$, i.e. it does not reject $p$.
+We could then say $p$ is a program in the language $L$ if the implementation of
+$L$ produces output for $p$, that is, it does not reject $p$.
 
 However, a programming language may have multiple implementations. And though
 these implementations may strive for compatibility between one another, it
@@ -44,8 +45,8 @@ ECMAScript) are specified in this way.
 
 ### Specification with mathematics
 
-However, it is possible to specify programming language not just with words, but
-with mathematics. Some examples of languages specified in this way are [Standard
+However, it is possible write a specification not just with words, but with
+mathematics. Some examples of languages specified in this way are [Standard
 ML][sml-spec], [Pony][pony-spec], and [WebAssembly][wasm-spec].
 
 Formally specifying a language in this way is not a trivial task, but the
