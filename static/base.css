@@ -10,8 +10,6 @@
   background-color: var(--page-bg);
   font-family: Verdana, sans-serif;
   line-height: 1.4;
-  -webkit-hyphens: auto;
-  hyphens: auto;
 }
 
 body {
