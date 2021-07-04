@@ -9,15 +9,10 @@ formal methods. We will also produce proofs about our definitions using the
 
 ## Introduction and motivation
 
-There are many programming languages. Some have been around for years, some are
-relatively new.
-
-But what defines a programming language?
+There are many programming languages, but most do not have a formal definition.
+The majority of programming languages are defined by their implementation.
 
 ### Definition by implementation
-
-One answer is that the definition of a programming language is its
-implementation.
 
 Given some programming language $L$, an implementation of $L$ is a program,
 which takes the text of a program $p$ in the language $L$, and either produces
