@@ -38,11 +38,11 @@ It has some exercises for earlier topics and all topics, even advanced ones,
 have example sentences and explanations in English.
 
 I like this one because it doesn't just try to answer the question 'How do I say
-this common thing from english' necessarily. It instead teaches Japanese grammar
+this common thing from English' necessarily. It instead teaches Japanese grammar
 from the foundations.
 
-A good example of the difference between this approach and the 'usual'
-approach is how the 'regular' and 'polite' forms are taught with each approach.
+A good example of the difference between this approach and the 'usual' approach
+is how the 'regular' and 'polite' forms are taught with each approach.
 
 In Japanese, there is a 'regular' form and a 'polite' form of verbs. Most
 textbooks/resources will start by teaching the polite form, because this form is
