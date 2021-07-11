@@ -24,7 +24,7 @@ denote with $\tau_1 \times \tau_2$. Then, the expression $\langle e_1, e_2
 \rangle$ is a pair literal expression.
 
 To use a pair, we must be able to extract the values inside. For that, we add
-the expressions $e.\mathsf{L}$ and $e.\mathsf{R}$. When $e$ is a pair, these
+the expressions $e.\mathtt{L}$ and $e.\mathtt{R}$. When $e$ is a pair, these
 expressions extract the left and right value out of the pair respectively.
 
 Note that by combining pair types with other pair types, we can effectively
@@ -42,8 +42,8 @@ e
 ::=  \ & \dots
 \\ | \ & \langle \rangle
 \\ | \ & \langle e_1, e_2 \rangle
-\\ | \ & e.\mathsf{L}
-\\ | \ & e.\mathsf{R}
+\\ | \ & e.\mathtt{L}
+\\ | \ & e.\mathtt{R}
 \end{aligned}
 $$
 
@@ -74,13 +74,13 @@ We can then extract the left or right part out of the pair.
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e.\mathsf{L}: \tau_1}
+  {\Gamma \vdash e.\mathtt{L}: \tau_1}
 $$
 
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e.\mathsf{R}: \tau_2}
+  {\Gamma \vdash e.\mathtt{R}: \tau_2}
 $$
 
 ## Dynamics
@@ -131,25 +131,25 @@ left or right value in the pair.
 $$
 \frac
   {e \mapsto e'}
-  {e.\mathsf{L} \mapsto e'.\mathsf{L}}
+  {e.\mathtt{L} \mapsto e'.\mathtt{L}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle.\mathsf{L} \mapsto e_1}
+  {\langle e_1, e_2 \rangle.\mathtt{L} \mapsto e_1}
 $$
 
 $$
 \frac
   {e \mapsto e'}
-  {e.\mathsf{R} \mapsto e'.\mathsf{R}}
+  {e.\mathtt{R} \mapsto e'.\mathtt{R}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle.\mathsf{R} \mapsto e_2}
+  {\langle e_1, e_2 \rangle.\mathtt{R} \mapsto e_2}
 $$
 
 ## Helpers
@@ -177,13 +177,13 @@ $$
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1.\mathsf{L} = e_1'.\mathsf{L}}
+  {[x \mapsto e] e_1.\mathtt{L} = e_1'.\mathtt{L}}
 $$
 
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1.\mathsf{R} = e_1'.\mathsf{R}}
+  {[x \mapsto e] e_1.\mathtt{R} = e_1'.\mathtt{R}}
 $$
 
 ### Free variables
@@ -206,13 +206,13 @@ $$
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e.\mathsf{L}) = s}
+  {\mathsf{fv}(e.\mathtt{L}) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e.\mathsf{R}) = s}
+  {\mathsf{fv}(e.\mathtt{R}) = s}
 $$
 
 ## Etymology
