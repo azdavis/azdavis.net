@@ -24,7 +24,7 @@ denote with $\tau_1 \times \tau_2$. Then, the expression $\langle e_1, e_2
 \rangle$ is a pair literal expression.
 
 To use a pair, we must be able to extract the values inside. For that, we add
-the expressions $e.\mathtt{L}$ and $e.\mathtt{R}$. When $e$ is a pair, these
+the expressions $e \cdot \mathtt{L}$ and $e \cdot \mathtt{R}$. When $e$ is a pair, these
 expressions extract the left and right value out of the pair respectively.
 
 Note that by combining pair types with other pair types, we can effectively
@@ -42,8 +42,8 @@ e
 ::=  \ & \dots
 \\ | \ & \langle \rangle
 \\ | \ & \langle e_1, e_2 \rangle
-\\ | \ & e.\mathtt{L}
-\\ | \ & e.\mathtt{R}
+\\ | \ & e \cdot \mathtt{L}
+\\ | \ & e \cdot \mathtt{R}
 \end{aligned}
 $$
 
@@ -74,13 +74,13 @@ We can then extract the left or right part out of the pair.
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e.\mathtt{L}: \tau_1}
+  {\Gamma \vdash e \cdot \mathtt{L}: \tau_1}
 $$
 
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e.\mathtt{R}: \tau_2}
+  {\Gamma \vdash e \cdot \mathtt{R}: \tau_2}
 $$
 
 ## Dynamics
@@ -131,25 +131,25 @@ left or right value in the pair.
 $$
 \frac
   {e \mapsto e'}
-  {e.\mathtt{L} \mapsto e'.\mathtt{L}}
+  {e \cdot \mathtt{L} \mapsto e' \cdot \mathtt{L}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle.\mathtt{L} \mapsto e_1}
+  {\langle e_1, e_2 \rangle \cdot \mathtt{L} \mapsto e_1}
 $$
 
 $$
 \frac
   {e \mapsto e'}
-  {e.\mathtt{R} \mapsto e'.\mathtt{R}}
+  {e \cdot \mathtt{R} \mapsto e' \cdot \mathtt{R}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle.\mathtt{R} \mapsto e_2}
+  {\langle e_1, e_2 \rangle \cdot \mathtt{R} \mapsto e_2}
 $$
 
 ## Helpers
@@ -177,13 +177,13 @@ $$
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1.\mathtt{L} = e_1'.\mathtt{L}}
+  {[x \mapsto e] e_1 \cdot \mathtt{L} = e_1' \cdot \mathtt{L}}
 $$
 
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1.\mathtt{R} = e_1'.\mathtt{R}}
+  {[x \mapsto e] e_1 \cdot \mathtt{R} = e_1' \cdot \mathtt{R}}
 $$
 
 ### Free variables
@@ -206,13 +206,13 @@ $$
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e.\mathtt{L}) = s}
+  {\mathsf{fv}(e \cdot \mathtt{L}) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e.\mathtt{R}) = s}
+  {\mathsf{fv}(e \cdot \mathtt{R}) = s}
 $$
 
 ## Etymology

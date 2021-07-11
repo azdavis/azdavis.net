@@ -15,7 +15,7 @@ date: 2021-06-05
 
 次は型を二つ重ねる「ペア」という積型で、$\tau_1 \times \tau_2$で表記します。$\langle e_1, e_2 \rangle$はペア定数の式です。
 
-ペアを使用する為、中身の値を抽出せねば。その為$e.\mathtt{L}$と$e.\mathtt{R}$の式も追加します。$e$はペアであれば、この式は左と右の値をペアから抽出します。
+ペアを使用する為、中身の値を抽出せねば。その為$e \cdot \mathtt{L}$と$e \cdot \mathtt{R}$の式も追加します。$e$はペアであれば、この式は左と右の値をペアから抽出します。
 
 ペアを使い他のペアを合わせることによって、二個の型以上の積を作り上げられます。
 
@@ -31,8 +31,8 @@ e
 ::=  \ & \dots
 \\ | \ & \langle \rangle
 \\ | \ & \langle e_1, e_2 \rangle
-\\ | \ & e.\mathtt{L}
-\\ | \ & e.\mathtt{R}
+\\ | \ & e \cdot \mathtt{L}
+\\ | \ & e \cdot \mathtt{R}
 \end{aligned}
 $$
 
@@ -62,13 +62,13 @@ $$
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e.\mathtt{L}: \tau_1}
+  {\Gamma \vdash e \cdot \mathtt{L}: \tau_1}
 $$
 
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e.\mathtt{R}: \tau_2}
+  {\Gamma \vdash e \cdot \mathtt{R}: \tau_2}
 $$
 
 ## 動的意味論
@@ -116,25 +116,25 @@ $$
 $$
 \frac
   {e \mapsto e'}
-  {e.\mathtt{L} \mapsto e'.\mathtt{L}}
+  {e \cdot \mathtt{L} \mapsto e' \cdot \mathtt{L}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle.\mathtt{L} \mapsto e_1}
+  {\langle e_1, e_2 \rangle \cdot \mathtt{L} \mapsto e_1}
 $$
 
 $$
 \frac
   {e \mapsto e'}
-  {e.\mathtt{R} \mapsto e'.\mathtt{R}}
+  {e \cdot \mathtt{R} \mapsto e' \cdot \mathtt{R}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle.\mathtt{R} \mapsto e_2}
+  {\langle e_1, e_2 \rangle \cdot \mathtt{R} \mapsto e_2}
 $$
 
 ## 助手
@@ -161,13 +161,13 @@ $$
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1.\mathtt{L} = e_1'.\mathtt{L}}
+  {[x \mapsto e] e_1 \cdot \mathtt{L} = e_1' \cdot \mathtt{L}}
 $$
 
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1.\mathtt{R} = e_1'.\mathtt{R}}
+  {[x \mapsto e] e_1 \cdot \mathtt{R} = e_1' \cdot \mathtt{R}}
 $$
 
 ### 自由変数
@@ -190,13 +190,13 @@ $$
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e.\mathtt{L}) = s}
+  {\mathsf{fv}(e \cdot \mathtt{L}) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e.\mathtt{R}) = s}
+  {\mathsf{fv}(e \cdot \mathtt{R}) = s}
 $$
 
 ## 語源
