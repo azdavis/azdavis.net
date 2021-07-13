@@ -14,14 +14,9 @@ function's return type be a product type.
 
 ## Syntax
 
-First, we introduce a product type that contains no other types. We will call
-this type "unit" and denote it with $\mathbf{1}$, because there is one value of
-this type. This one value, also often called "unit", is written
-$\langle \rangle$.
-
-Next is a product type that combines two types, which we will call "pair" and
-denote with $\tau_1 \times \tau_2$. Then, the expression
-$\langle e_1, e_2 \rangle$ is a pair literal expression.
+A product type that combines two types is called "pair" and denoted with $\tau_1
+\times \tau_2$. The expression $\langle e_1, e_2 \rangle$ is a pair literal
+expression.
 
 Note that by combining pair types with other pair types, we can effectively
 construct an product type combining $n$ types for any $n > 2$.
@@ -30,6 +25,28 @@ To use a pair, we must be able to extract the values inside. For that, we add
 the expressions $e \cdot \mathtt{L}$ and $e \cdot \mathtt{R}$. When $e$ is a
 pair, these expressions extract the left and right value out of the pair
 respectively.
+
+We will also introduce a product type that combines no other types, called
+"unit" and denoted with $\mathbf{1}$. There is just 1 value of this type, also
+often called "unit", and it is written $\langle \rangle$.
+
+Because the unit type has only one value, it may not seem very useful. However,
+it can be useful when you want to return "nothing" from a function.
+
+For instance, in most programming languages, functions can perform side effects.
+Side effects are anything the function does other than return a value, like
+modify files or access the Internet.
+
+In fact, sometimes functions are only useful because of the side effects they
+perform, and they don't actually need to return anything useful. In these cases,
+it is convenient to have these functions return unit.
+
+Different languages call unit different things:
+
+- C, C++, Java: `void`
+- Python: `None`
+- JavaScript: `undefined`
+- Ruby: `nil`
 
 $$
 \begin{aligned}
