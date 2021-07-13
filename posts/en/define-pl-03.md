@@ -16,16 +16,17 @@ function's return type be a product type.
 
 First, we introduce a product type that contains no other types. We will call
 this type "unit" and denote it with $\mathbf{1}$, because there is one value of
-this type. This one value, also often called "unit", is written $\langle
-\rangle$.
+this type. This one value, also often called "unit", is written
+$\langle \rangle$.
 
 Next is a product type that combines two types, which we will call "pair" and
-denote with $\tau_1 \times \tau_2$. Then, the expression $\langle e_1, e_2
-\rangle$ is a pair literal expression.
+denote with $\tau_1 \times \tau_2$. Then, the expression
+$\langle e_1, e_2 \rangle$ is a pair literal expression.
 
 To use a pair, we must be able to extract the values inside. For that, we add
-the expressions $e \cdot \mathtt{L}$ and $e \cdot \mathtt{R}$. When $e$ is a pair, these
-expressions extract the left and right value out of the pair respectively.
+the expressions $e \cdot \mathtt{L}$ and $e \cdot \mathtt{R}$. When $e$ is a
+pair, these expressions extract the left and right value out of the pair
+respectively.
 
 Note that by combining pair types with other pair types, we can effectively
 construct an product type combining $n$ types for any $n > 2$.
@@ -225,16 +226,15 @@ product of the number of values in the constituent types.
 For instance, consider the type $\mathtt{Bool}$. It has 2 values,
 $\mathtt{true}$ and $\mathtt{false}$.
 
-Now consider the type $\mathtt{Bool} \times \mathtt{Bool}$. It has 4
-values:
+Now consider the type $\mathtt{Bool} \times \mathtt{Bool}$. It has 4 values:
 
 1. $\langle \mathtt{true}, \mathtt{true} \rangle$
 1. $\langle \mathtt{true}, \mathtt{false} \rangle$
 1. $\langle \mathtt{false}, \mathtt{true} \rangle$
 1. $\langle \mathtt{false}, \mathtt{false} \rangle$
 
-Consider also the type $\mathtt{Bool} \times \mathbf{1}$, the
-product of $\mathtt{Bool}$ and unit. Like $\mathtt{Bool}$, it only has 2 values:
+Consider also the type $\mathtt{Bool} \times \mathbf{1}$, the product of
+$\mathtt{Bool}$ and unit. Like $\mathtt{Bool}$, it only has 2 values:
 
 1. $\langle \mathtt{true}, \langle \rangle \rangle$
 1. $\langle \mathtt{false}, \langle \rangle \rangle$
