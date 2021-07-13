@@ -23,13 +23,13 @@ Next is a product type that combines two types, which we will call "pair" and
 denote with $\tau_1 \times \tau_2$. Then, the expression
 $\langle e_1, e_2 \rangle$ is a pair literal expression.
 
+Note that by combining pair types with other pair types, we can effectively
+construct an product type combining $n$ types for any $n > 2$.
+
 To use a pair, we must be able to extract the values inside. For that, we add
 the expressions $e \cdot \mathtt{L}$ and $e \cdot \mathtt{R}$. When $e$ is a
 pair, these expressions extract the left and right value out of the pair
 respectively.
-
-Note that by combining pair types with other pair types, we can effectively
-construct an product type combining $n$ types for any $n > 2$.
 
 $$
 \begin{aligned}
