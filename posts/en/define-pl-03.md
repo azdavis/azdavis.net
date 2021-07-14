@@ -22,9 +22,9 @@ Note that by combining pair types with other pair types, we can effectively
 construct an product type combining $n$ types for any $n > 2$.
 
 To use a pair, we must be able to extract the values inside. For that, we add
-the expressions $e \cdot \mathtt{L}$ and $e \cdot \mathtt{R}$. When $e$ is a
-pair, these expressions extract the left and right value out of the pair
-respectively.
+the projection expressions $e \cdot \mathtt{L}$ and $e \cdot \mathtt{R}$. When
+$e$ is a pair, these projections extract the left and right value out of the
+pair respectively.
 
 We will also introduce a product type that combines no other types, called
 "unit" and denoted with $\mathbf{1}$. There is just 1 value of this type, also
@@ -87,7 +87,7 @@ $$
   {\Gamma \vdash \langle e_1, e_2 \rangle: \tau_1 \times \tau_2}
 $$
 
-We can then extract the left or right part out of the pair.
+We can then project the left or right part out of the pair.
 
 $$
 \frac
@@ -142,9 +142,9 @@ $$
   {\langle e_1, e_2 \rangle \mapsto \langle e_1, e_2' \rangle}
 $$
 
-For the extractor expressions, we must first step the pair to a value. Then,
-once it is a value, it will be a pair literal, and we may step to either the
-left or right value in the pair.
+For the projections, we must first step the pair to a value. Then, once it is a
+value, it will be a pair literal, and we may step to either the left or right
+value in the pair.
 
 $$
 \frac
