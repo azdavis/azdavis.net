@@ -27,10 +27,10 @@ date: 2021-06-05
 
 違う言語は単位を他の名前で表します：
 
-- C, C++, Java: `void`
-- Python: `None`
-- JavaScript: `undefined`
-- Ruby: `nil`
+- C, C++, Java には`void`
+- Python には`None`
+- JavaScript には`undefined`
+- Ruby には`nil`
 
 $$
 \begin{aligned}

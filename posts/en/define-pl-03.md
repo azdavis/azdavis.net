@@ -43,10 +43,10 @@ it is convenient to have these functions return unit.
 
 Different languages call unit different things:
 
-- C, C++, Java: `void`
-- Python: `None`
-- JavaScript: `undefined`
-- Ruby: `nil`
+- C, C++, Java has `void`
+- Python has `None`
+- JavaScript has `undefined`
+- Ruby has `nil`
 
 $$
 \begin{aligned}
