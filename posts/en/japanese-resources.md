@@ -124,15 +124,14 @@ There's a ton of Japanese YouTubers out there, but here are a few that I watch
 from time to time:
 
 - [Mina Luna Japanese][mina-luna]
-- [Yudai-sensei][yudai]
 - [あかね的日本語教室][akane]
 - [日本語の森][mori]
 
 The above channels are mainly focused on Japanese education, but it can also be
 helpful to find channels in the Japanese language but not specifically about
-teaching Japanese.
+teaching Japanese, like [Nakata University][nakata].
 
 [akane]: https://www.youtube.com/channel/UCh-GhnQ7qDQmS6Bz3pGc1Mw
 [mina-luna]: https://www.youtube.com/channel/UC_v5Jim-sJaHzlINEZrxuEg
 [mori]: https://www.youtube.com/user/freejapaneselessons3
-[yudai]: https://www.youtube.com/user/zuoyexiongda
+[nakata]: https://www.youtube.com/channel/UCFo4kqllbcQ4nV83WCyraiw
