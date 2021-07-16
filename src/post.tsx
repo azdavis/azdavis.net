@@ -11,7 +11,10 @@ import type { PostData } from "./post-data";
 hl.registerLanguage("lean", lean);
 
 function highlight(code: string, language: string): string {
-  return hl.getLanguage(language) ? hl.highlight(code, { language }).value : "";
+  if (!hl.getLanguage(language)) {
+    throw new Error(`unknown language: ${language}`);
+  }
+  return hl.highlight(code, { language }).value;
 }
 
 const md = new Remarkable({ highlight });
