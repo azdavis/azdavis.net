@@ -41,7 +41,8 @@ Either には二つ、左と右です。ねばーには何もありません。
 $$
 \begin{aligned}
 \tau
-::=  \ & \mathbf{0}
+::=  \ & \dots
+\\ | \ & \mathbf{0}
 \\ | \ & \tau_1 + \tau_2
 \\
 \\
