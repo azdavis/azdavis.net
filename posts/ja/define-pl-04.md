@@ -1,5 +1,5 @@
 ---
-title: "Defining a programming language: sums"
+title: "プログラミング言語を定義する：和"
 date: 2021-07-15
 ---
 
