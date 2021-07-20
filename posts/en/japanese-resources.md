@@ -10,8 +10,8 @@ helpful resources that I use to study.
 
 [Website](https://jisho.org)
 
-Standard Japanese-English dictionary. The other direction works too. Clean,
-simple interface, good content.
+Standard Japanese-English dictionary. The other direction works too. Simple
+interface, good content.
 
 ## Tofugu: Learn the Kana
 
@@ -58,8 +58,7 @@ derive the polite form from it.
 [Website](https://www.wanikani.com/)
 
 Teaches you 'radicals', kanji, and words. Past the first 2 levels it requires a
-subscription/lifetime purchase. I did the latter and it set me back a few
-hundred dollars (200? 300?) but honestly i think it was worth it for me.
+subscription/lifetime purchase.
 
 Even if you don't want to pay for WaniKani, it is important to understand that
 if you want to read/write Japanese at all, you will have to learn a decent
@@ -69,29 +68,27 @@ whether using WaniKani or not, is this:
 Unlike in English with the alphabet, the character is _not_ the smallest unit
 of the writing system. Rather, the smallest unit is the "radical".
 
-I used to not know this, and I'd try to learn kanji like e.g. 議 as a unit.
-Now, when learning a kanji, you generally have to learn
+I used to not know this, and I'd try to learn kanji on their own. When
+learning a kanji, you generally have to learn
 
 - How to write it with the correct stroke order (maybe you don't care about this
   if you only want to read, but I wanted to write too)
 - How to pronounce it (the reading)
 - What it generally means (the meaning)
 
-For _every one of these things_, using radicals makes things _far_ easier. For
-the example 議 we have that
+For example, take 議.
 
 - It has 20 strokes
 - It's usually pronounced ぎ (gi)
 - It means "deliberation" or "discussion"
 
-At one time, the way I tried to learn kanji like this was just to hard-memorize
-all of these things. But once I knew radicals, I realized this character is just
-_2 radicals_: 言 and 義.
+This character is composed of 2 radicals: 言 and 義. Knowing the radicals
+helps with every aspect of a kanji:
 
 - To write 議, I literally just write a small 言 and then write a small 義 next
   to it
-- 言 means "say" which is kind of related to "deliberation"
 - 義 is also pronounced ぎ (gi)
+- 言 means "say" which is kind of related to "deliberation"
 
 Now, some kanji are pictograms, which means they kind of look like a picture:
 
@@ -114,23 +111,12 @@ Japanese language news about current events. Pretty short articles. Good for
 reading practice. You can also listen to some of the articles and toggle the
 reading hints for kanji for more practice.
 
-[phono-semantic]: https://en.wikipedia.org/wiki/Chinese_character_classification#Phono-semantic_compound_characters
-[kanji-mistakes]: https://www.tofugu.com/japanese/kanji-learning-mistakes/
-
 ## YouTube
 
-There's a ton of Japanese YouTubers out there, but here are a few that I watch
-from time to time:
+There's a ton of Japanese YouTubers out there, but I sometimes watch [Mina Luna
+Japanese][mina-luna] and [Nakata University][nakata].
 
-- [Mina Luna Japanese][mina-luna]
-- [あかね的日本語教室][akane]
-- [日本語の森][mori]
-
-The above channels are mainly focused on Japanese education, but it can also be
-helpful to find channels in the Japanese language but not specifically about
-teaching Japanese, like [Nakata University][nakata].
-
-[akane]: https://www.youtube.com/channel/UCh-GhnQ7qDQmS6Bz3pGc1Mw
+[phono-semantic]: https://en.wikipedia.org/wiki/Chinese_character_classification#Phono-semantic_compound_characters
+[kanji-mistakes]: https://www.tofugu.com/japanese/kanji-learning-mistakes/
 [mina-luna]: https://www.youtube.com/channel/UC_v5Jim-sJaHzlINEZrxuEg
-[mori]: https://www.youtube.com/user/freejapaneselessons3
 [nakata]: https://www.youtube.com/channel/UCFo4kqllbcQ4nV83WCyraiw
