@@ -8,9 +8,9 @@ In the [previous post][prev], we added functions to Hatsugen.
 In this post, we'll add product types. These are often called "structs",
 "records", or "tuples" in real programming languages.
 
-We can use product types to combine multiple types into a single type. For
-instance, if we want to return multiple values from a function, we can have the
-function's return type be a product type.
+A product type is a combination of multiple types. For instance, if we want to
+return multiple values from a function, we can have the function's return type
+be a product type.
 
 ## Syntax
 

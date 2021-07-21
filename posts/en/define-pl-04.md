@@ -7,7 +7,7 @@ In the [previous post][prev], we added product type to Hatsugen.
 
 In this post, we'll add sum types.
 
-A sum type is a choice between different types. For instance, if we have a
+A sum type is a choice between multiple types. For instance, if we have a
 function from which we would sometimes like to return one type, and sometimes
 another, we can have the function return a sum type of those two types.
 
@@ -345,11 +345,11 @@ Indeed, $|\mathbf{0}| = 0$ and $|\tau_1 + \tau_2| = |\tau_1| + |\tau_2|$.
 
 Sums and products are [duals][].
 
-To construct a pair, one must provide a value of both types. Then, when using a
-pair, one may get out either type.
+To construct a pair of two types, one must provide a value of both types. Then,
+when using a pair, one may get out either one of the two types.
 
-To construct an either, one may provide a value of either type. Then, when using
-an either, one must handle both types.
+To construct an either of two types, one may provide a value of either one of
+the two types. Then, when using an either, one must handle both types.
 
 ## Conclusion
 
