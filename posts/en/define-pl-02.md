@@ -7,7 +7,7 @@ In the [previous post][prev], we introduced Hatsugen, a small programming
 language with integer and boolean types.
 
 In this post, we'll add functions to Hatsugen. With this addition, Hatsugen
-becomes approximately as powerful as the simply-typed lambda calculus.
+becomes approximately as powerful as the [simply-typed lambda calculus][stlc].
 
 ## Syntax
 
@@ -460,3 +460,4 @@ tuples.
 [prev]: /posts/define-pl-01/
 [next]: /posts/define-pl-03/
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-02
+[stlc]: https://en.wikipedia.org/wiki/Simply_typed_lambda_calculus

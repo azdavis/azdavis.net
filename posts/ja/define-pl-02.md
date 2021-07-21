@@ -5,7 +5,7 @@ date: 2021-05-22
 
 [前の投稿][prev]では、発言という整数とブーリアンの型があるプログラミング言語を紹介しました。
 
-この投稿では、発言に関数を追加します。これで、発言の表現力は単純型付ラムダ計算とほぼ同じとなります。
+この投稿では、発言に関数を追加します。これで、発言の表現力は[単純型付ラムダ計算][stlc]とほぼ同じとなります。
 
 ## 構文規則
 
@@ -410,3 +410,4 @@ $$
 [prev]: /ja/posts/define-pl-01/
 [next]: /ja/posts/define-pl-03/
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-02
+[stlc]: https://en.wikipedia.org/wiki/Simply_typed_lambda_calculus
