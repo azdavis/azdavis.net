@@ -256,7 +256,8 @@ $$|\tau_1 \times \tau_2| = |\tau_1| \times |\tau_2|$$
 
 定理の証明もまた[GitHub][proofs]にあります。
 
-次の投稿では和型を追加します。
+[次の投稿][next]では和型を追加します。
 
 [prev]: /ja/posts/define-pl-02/
+[next]: /ja/posts/define-pl-04/
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-03
