@@ -68,10 +68,10 @@ date: 2021-03-25
 
 いくつかの漢字は小さな絵みたいです：
 
-- 木 looks like a tree, and it means "tree".
-- 林 is two trees, and it means "forest".
-- 森 is three trees, and it means "woods".
-- 大 kind of looks like a big guy stretching his arms out, and it means "big".
+- 木は木に似たいます。
+- 林には木が二つあります。
+- 森には木が三つあります。
+- 大は大きな奴の腕が広がっている姿に見えます。
 
 でも「議」と他の多くの漢字は[形声][phono-semantic]の漢字です。それは、二つの部首により作られており、一つは意味のヒントでもう一つは読みのヒントだということです。
 
