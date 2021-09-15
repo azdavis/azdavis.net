@@ -355,8 +355,9 @@ the two types. Then, when using an either, one must handle both types.
 
 The proofs are once again on [GitHub][proofs].
 
-I'm not sure what the next post will be! We've added a fair few bit of features
-to Hatsugen, so I'll think about what would be interesting to add next.
+I think this is the end of this little series, at least for now. I'll probably
+continue to write about programming language related topics, but not
+specifically by adding to Hatsugen.
 
 [prev]: /posts/define-pl-03
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-04
