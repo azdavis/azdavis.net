@@ -1,5 +1,5 @@
 ---
-title: "Defining a programming language: sums"
+title: "Define a PL: sums"
 date: 2021-07-15
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Defining a programming language: products"
+title: "Define a PL: products"
 date: 2021-06-05
 ---
 
