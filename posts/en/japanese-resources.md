@@ -1,5 +1,5 @@
 ---
-title: Resources for learning Japanese
+title: "Resources for learning Japanese"
 date: 2021-03-25
 ---
 
