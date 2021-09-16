@@ -2,20 +2,17 @@
   box-sizing: border-box;
 }
 
-:root {
+body {
   --page-fg: #333;
   --page-bg: #fff;
 
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 0.5em 0.5em 8em;
   color: var(--page-fg);
   background-color: var(--page-bg);
   font-family: Verdana, sans-serif;
   line-height: 1.5;
-}
-
-body {
-  max-width: 65ch;
-  margin: 0 auto;
-  padding: 0.5em 0.5em 8em;
 }
 
 a,
@@ -27,15 +24,13 @@ dd {
   margin: 0 0 0.5em 4ch;
 }
 
-@media print {
-  :root {
-    font-size: 12px;
-    color: #333;
-  }
 
+@media print {
   body {
     max-width: none;
     margin: 0;
+    font-size: 12px;
+    color: #333;
   }
 
   h1 {
@@ -54,7 +49,7 @@ dd {
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  body {
     --page-fg: #ddd;
     --page-bg: #333;
   }
