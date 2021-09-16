@@ -7,7 +7,7 @@ I found a [post][1] by Antoine Lehurt, which then led me to a similar [post][2]
 by Mike Crittenden. The thesis of both posts can be summed up as "write more,
 but less".
 
-That is: write more thing, but have each thing be shorter. This has a few key
+That is: write more things, but have each thing be shorter. This has a few key
 benefits.
 
 First, it lowers the barrier for writing something. Instead of worrying about
@@ -19,8 +19,8 @@ have a lot of time to spend on any one thing. The longer your thing is, the more
 likely a potential reader will just skip it.
 
 Third, keeping something short forces you, the writer, to distill what you want
-to say to its essence. See Blaise Pascal's/Mark Twain's "Sorry for not writing a
-shorter letter; I didn't have time, so I wrote a longer one instead".
+to say down to its essence. See Blaise Pascal's/Mark Twain's "Sorry for not
+writing a shorter letter; I didn't have time, so I wrote a longer one instead".
 
 There are more benefits, but gotta keep the post short, right?
 
