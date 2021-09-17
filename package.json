@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "scripts": {
     "build": "tsc && node out/main.js",
-    "deploy": "npm run build && netlify deploy -p -d build -s a65cb562-ebd1-4a65-9346-cf6775849aea",
     "start": "npm run build && serve build"
   },
   "devDependencies": {
@@ -18,7 +17,6 @@
     "highlightjs-lean": "^1.0.0",
     "katex": "^0.13.11",
     "mkdirp": "^1.0.4",
-    "netlify-cli": "^4.4.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remarkable": "^2.0.1",
