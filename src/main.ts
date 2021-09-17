@@ -25,15 +25,11 @@ async function writeHtml(
   await fs.writeFile(join(rootDir, dir, file), text);
 }
 
-interface DatedPostListItem extends PostListItem {
-  date: Date;
-}
-
 async function mkPost(
   dir: string,
   lang: Lang,
   entry: string,
-): Promise<DatedPostListItem> {
+): Promise<PostListItem> {
   const file = await fs.readFile(entry);
   const { title, date, content } = getPostData(file.toString());
   const slug = basename(entry, ".md");
@@ -46,7 +42,7 @@ function sameTitle(x: string): never {
   throw new Error(`two posts have the same title: ${x}`);
 }
 
-function postCmp(a: DatedPostListItem, b: DatedPostListItem): -1 | 1 {
+function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
   return a.date === b.date
     ? a.title === b.title
       ? sameTitle(a.title)

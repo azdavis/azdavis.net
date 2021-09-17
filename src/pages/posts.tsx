@@ -6,6 +6,7 @@ import { translations } from "../post-data";
 export interface PostListItem {
   title: string;
   path: string;
+  date: Date;
 }
 
 export function posts(lang: Lang, posts: PostListItem[]): ReactElement {
