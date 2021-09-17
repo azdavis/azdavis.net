@@ -6,7 +6,7 @@ import katex from "remarkable-katex";
 import { DateShow } from "./date-show";
 import { Lang, root } from "./lang";
 import { Page, Style } from "./page";
-import type { PostData } from "./post-data";
+import { PostData, translations } from "./post-data";
 
 hl.registerLanguage("lean", lean);
 
@@ -30,18 +30,17 @@ function renderMd(content: string): UnsafeHtml {
 
 const styles: Style[] = ["base", "code", "katex/katex.min"];
 
-const t = { posts: { en: "Posts", ja: "投稿" } };
-
 interface Props extends PostData {
   lang: Lang;
 }
 
 function Post({ title, content, date, lang }: Props): ReactElement {
+  const posts = translations[lang];
   return (
     <Page lang={lang} title={title} styles={styles}>
       <div>
         <a href={root(lang)}>azdavis.net</a> •{" "}
-        <a href={root(lang) + "posts/"}>{t.posts[lang]}</a> •{" "}
+        <a href={root(lang) + "posts/"}>{posts}</a> •{" "}
         <DateShow lang={lang} date={date} />
       </div>
       <h1>{title}</h1>

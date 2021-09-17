@@ -1,15 +1,7 @@
 import type { ReactElement } from "react";
 import { Lang, root } from "../lang";
 import { Page } from "../page";
-
-const translations = {
-  en: {
-    title: "Posts",
-  },
-  ja: {
-    title: "投稿",
-  },
-};
+import { translations } from "../post-data";
 
 export interface PostListItem {
   title: string;
@@ -17,11 +9,11 @@ export interface PostListItem {
 }
 
 export function posts(lang: Lang, posts: PostListItem[]): ReactElement {
-  const t = translations[lang];
+  const title = translations[lang];
   return (
-    <Page lang={lang} title={t.title} styles={["base"]}>
+    <Page lang={lang} title={title} styles={["base"]}>
       <a href={root(lang)}>azdavis.net</a>
-      <h1>{t.title}</h1>
+      <h1>{title}</h1>
       <ul>
         {posts.map(({ title, path }) => (
           <li key={title}>

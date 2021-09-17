@@ -17,3 +17,8 @@ export function getPostData(contents: string): PostData {
   }
   return { title, date, content };
 }
+
+export const translations = {
+  en: "Posts",
+  ja: "投稿",
+};
