@@ -8,7 +8,7 @@ function dateToIsoString(date: Date): string {
 
 const options = {
   year: "numeric",
-  month: "long",
+  month: "short",
   day: "numeric",
   timeZone: "UTC",
 } as const;

@@ -30,6 +30,8 @@ function renderMd(content: string): UnsafeHtml {
 
 const styles: Style[] = ["base", "code", "katex/katex.min"];
 
+const t = { posts: { en: "Posts", ja: "投稿" } };
+
 interface Props extends PostData {
   lang: Lang;
 }
@@ -39,6 +41,7 @@ function Post({ title, content, date, lang }: Props): ReactElement {
     <Page lang={lang} title={title} styles={styles}>
       <div>
         <a href={root(lang)}>azdavis.net</a> •{" "}
+        <a href={root(lang) + "posts/"}>{t.posts[lang]}</a> •{" "}
         <DateShow lang={lang} date={date} />
       </div>
       <h1>{title}</h1>
