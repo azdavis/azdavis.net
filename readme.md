@@ -1,3 +1,3 @@
-# azdavis.xyz
+# azdavis.net
 
 A place for stuff
