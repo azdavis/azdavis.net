@@ -20,7 +20,7 @@ export function posts(lang: Lang, posts: PostListItem[]): ReactElement {
   const t = translations[lang];
   return (
     <Page lang={lang} title={t.title} styles={["base"]}>
-      <a href={root(lang)}>azdavis.xyz</a>
+      <a href={root(lang)}>azdavis.net</a>
       <h1>{t.title}</h1>
       <ul>
         {posts.map(({ title, path }) => (

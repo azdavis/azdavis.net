@@ -379,7 +379,7 @@ In the [next post][next], we'll add functions to Hatsugen.
 [eldiro]: https://arzg.github.io/lang/
 [go-spec]: https://golang.org/ref/spec
 [jisho-utterance]: https://jisho.org/word/発言
-[jp-resources]: https://azdavis.xyz/posts/japanese-resources/
+[jp-resources]: /posts/japanese-resources/
 [js-spec]: https://tc39.es/
 [lean]: https://leanprover.github.io
 [c-undefined]: https://www.yodaiken.com/2021/05/19/undefined-behavior-in-c-is-a-reading-error/

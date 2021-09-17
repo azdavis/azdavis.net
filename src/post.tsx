@@ -38,7 +38,7 @@ function Post({ title, content, date, lang }: Props): ReactElement {
   return (
     <Page lang={lang} title={title} styles={styles}>
       <div>
-        <a href={root(lang)}>azdavis.xyz</a> •{" "}
+        <a href={root(lang)}>azdavis.net</a> •{" "}
         <DateShow lang={lang} date={date} />
       </div>
       <h1>{title}</h1>

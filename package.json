@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "azdavis.xyz",
+  "name": "azdavis.net",
   "version": "0.1.0",
   "scripts": {
     "build": "tsc && node out/main.js",
