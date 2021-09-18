@@ -42,7 +42,7 @@ blockquote {
   }
 
   h1 {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   a {
@@ -52,7 +52,7 @@ blockquote {
 
 @media (max-width: 600px) {
   dd {
-    margin-left: 2ch;
+    margin-inline-start: 2ch;
   }
 }
 
