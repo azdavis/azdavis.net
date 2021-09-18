@@ -25,11 +25,11 @@ dd {
 }
 
 blockquote {
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0.9em;
-  padding-right: 1em;
-  border-left: 0.1em solid;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0.9em;
+  padding-inline-end: 1em;
+  border-inline-start: 0.1em solid;
   font-style: italic;
 }
 
