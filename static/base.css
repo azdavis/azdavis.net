@@ -33,6 +33,11 @@ blockquote {
   font-style: italic;
 }
 
+ul,
+ol {
+  padding-inline-start: 1.5em;
+}
+
 @media print {
   body {
     max-width: none;
