@@ -1,5 +1,4 @@
 import hl from "highlight.js";
-import lean from "highlightjs-lean";
 import type { ReactElement } from "react";
 import { Remarkable } from "remarkable";
 import katex from "remarkable-katex";
@@ -7,8 +6,6 @@ import { DateShow } from "./date-show";
 import { Lang, root } from "./lang";
 import { Page, Style } from "./page";
 import { PostData, translations } from "./post-data";
-
-hl.registerLanguage("lean", lean);
 
 function highlight(code: string, language: string): string {
   if (!hl.getLanguage(language)) {
