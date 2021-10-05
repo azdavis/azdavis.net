@@ -1,5 +1,5 @@
 ---
-title: "Define a PL: introduction, integers, and booleans"
+title: "Define a PL: integers and booleans"
 date: 2021-03-31
 ---
 
