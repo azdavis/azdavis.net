@@ -37,11 +37,11 @@ code {
   color: var(--code-fg-string);
 }
 
-.hljs-function .hljs-title {
+.hljs-title.function_ {
   color: var(--code-fg-function);
 }
 
-.hljs-class .hljs-title {
+.hljs-type {
   color: var(--code-fg-type);
 }
 
