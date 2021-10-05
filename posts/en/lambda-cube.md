@@ -66,8 +66,8 @@ fixed type. That is, instead of separately defining `IntList` and `BoolList` and
 `PairOfIntAndStringList`, we would like to just define `List`, and have it work
 for any element type.
 
-Thus, `List` can be thought of as a function that takes a type (the type of
-the elements) and returns a type (the type of lists of that element type).
+Thus, `List` can be thought of as a function that takes a type (the type of the
+elements) and returns a type (the type of lists of that element type).
 
 ## Terms to types
 
@@ -87,42 +87,29 @@ of 3.
 This is a limited form of allowing terms in types, since here, the term `3` is
 used in the type `[i32; 3]`.
 
-However, Rust rejects the following attempt at creating a function from a term
-to a type:
+However, Rust rejects the following function type:
 
 ```rs
-fn zeroes(n: usize) -> [i32; n] {
-  [0; n]
-}
+fn foo(n: usize) -> [i32; n]
 ```
 
-With the following errors:
+With the following error:
 
 ```text
 error[E0435]: attempt to use a non-constant value in a constant
- --> src/lib.rs:1:30
+ --> src/lib.rs:1:27
   |
-1 | fn zeroes(n: usize) -> [i32; n] {
-  |           -                  ^
-  |           |
-  |           this would need to be a `const`
-
-error[E0435]: attempt to use a non-constant value in a constant
- --> src/lib.rs:2:7
-  |
-1 | fn zeroes(n: usize) -> [i32; n] {
-  |           - this would need to be a `const`
-2 |   [0; n]
-  |       ^
+1 | fn foo(n: usize) -> [i32; n]
+  |        -                  ^
+  |        |
+  |        this would need to be a `const`
 ```
 
 We can take the Rust compiler's suggestion and make `n` a "const parameter" (and
 also capitalize it, to conform to style guidelines):
 
 ```rs
-fn zeroes<const N: usize>() -> [i32; N] {
-  [0; N]
-}
+fn foo<const N: usize>() -> [i32; N]
 ```
 
 But now, because `N` is a const parameter, we can only pass values for it that
