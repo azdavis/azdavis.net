@@ -176,11 +176,12 @@ $$
 There is no separate syntax for types in the CoC: all terms and types are
 represented with just the above syntax.
 
+I wrote up an [implementation][coc-rust] of the CoC in Rust for edification.
+
 The calculus of constructions serves as the foundation for many
 dependently-typed programming languages, like [Coq][coq]. Using the CoC as a
 foundation, Coq is able to express and prove mathematical theorems like the
-[four-color theorem][four-c]. I wrote up an [implementation][coc-rust] of it in
-Rust for edification.
+[four-color theorem][four-c].
 
 It's rather remarkable to me that functions and variables, the most basic
 realization of the concept of "abstraction", can be so powerful in allowing all
