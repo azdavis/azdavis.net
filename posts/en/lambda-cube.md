@@ -29,8 +29,8 @@ Let us examine each in detail, and how each is uniquely useful.
 
 ## Terms to terms
 
-As mentioned, the most common variety of function is the one that allows takes a
-term and returns a term, like `is_zero`.
+As mentioned, the most common variety of function is the one that takes a term
+and returns a term, like `is_zero`.
 
 ## Types to terms
 
