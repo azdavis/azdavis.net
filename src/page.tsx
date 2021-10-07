@@ -1,7 +1,7 @@
 import type { ReactElement, ReactNode } from "react";
 import type { Lang } from "./lang";
 
-export type Style = "base" | "code" | "index" | "katex/katex.min";
+export type Style = "base" | "code" | "index" | "katex/katex.min" | "posts";
 
 const translations = {
   en: {
