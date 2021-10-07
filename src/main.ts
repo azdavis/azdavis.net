@@ -38,15 +38,9 @@ async function mkPost(
   return { title, date, path };
 }
 
-function sameTitle(x: string): never {
-  throw new Error(`two posts have the same title: ${x}`);
-}
-
 function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
   return a.date === b.date
-    ? a.title === b.title
-      ? sameTitle(a.title)
-      : a.title < b.title
+    ? a.title < b.title
       ? -1
       : 1
     : a.date < b.date
@@ -58,6 +52,15 @@ async function mkPosts(lang: Lang): Promise<void> {
   const entries = await glob(`posts/${lang}/*.md`);
   const dir = root(lang) + postsDir;
   const items = await Promise.all(entries.map((e) => mkPost(dir, lang, e)));
+  const titles = new Set<string>();
+  for (const { title } of items) {
+    if (titles.has(title)) {
+      throw new Error(
+        `two posts have the same language (${lang}) and title (${title})`,
+      );
+    }
+    titles.add(title);
+  }
   items.sort(postCmp);
   await writeHtml(dir, posts(lang, items));
 }
