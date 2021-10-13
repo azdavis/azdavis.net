@@ -139,8 +139,8 @@ of function. All points on the cube allow for term-to-term functions.
 Some commonly-known points on the cube are:
 
 - The simply typed lambda calculus, which only has term-term functions.
-- System F, which has term-term and type-term functions.
-- System F$\omega$, which has term-term, type-term, and type-type functions.
+- System $F$, which has term-term and type-term functions.
+- System $F_\omega$, which has term-term, type-term, and type-type functions.
 - The calculus of constructions, which has all four varieties of function.
 
 Once we reach the calculus of constructions, the distinction between types and
