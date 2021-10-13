@@ -6,16 +6,18 @@ date: 2021-10-04
 Many programming languages have both terms and types. Terms are also sometimes
 called expressions.
 
-Roughly speaking, terms, like `is_zero(3)`, denote the data being manipulated,
+Roughly speaking, terms, like `3` or `true`, denote the data being manipulated,
 while types, like `Int` or `Bool`, describe what operations are permitted on
 terms.
 
 For instance, if you have a term of type `Int`, you might be able to do things
-like add or subtract with other `Int`s. And if you have a term of type `Bool`,
-you could do things like negate it or use it to branch with an `if` construct.
+like add or subtract with other `Int`s. And if you have a term of type `Bool`
+(aka `true` or `false`), you could do things like negate it or use it to branch
+with an `if` construct.
 
-Common in most programming languages are functions like `is_zero`, to which one
-may pass a term and get back a term.
+Common in most programming languages are functions, to which one may pass a term
+and get back a term. For instance, we could define the function `is_zero`, which
+takes an term of type `Int` and returns a term of type `Bool`.
 
 Given the existence of both types and terms, though, we can consider four
 distinct varieties of function:
@@ -37,13 +39,11 @@ and returns a term, like `is_zero`.
 Consider the identity function, which is the function that returns its argument
 unchanged.
 
-The type of the identity function for integers is thus `Int -> Int`, and for
-booleans it is `Bool -> Bool`.
-
 The implementation of the identity function is identical for any choice of
 parameter/return type: just return the term passed in. So, it would be
-convenient if we could have a single identity function that would work for any
-choice of type. This is sometimes called a generic function.
+convenient if, instead of having to define a "different" identity function for
+every type, we could have a single identity function that would work for any
+type. This is sometimes called a generic function.
 
 What we can do is allow the identity function to take a type argument. Let us
 call it `T`. We then take a term argument whose type is `T` and return it.
