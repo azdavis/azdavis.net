@@ -12,8 +12,8 @@ continue to try to put into practice.
 
 The most important thing when communicating to is to _consider your audience_.
 Indeed, the whole point of communication is to share ideas with someone else,
-i.e. your audience. The purpose of writing an document is not "to have written
-the document", but rather "to convey information to the reader".
+i.e. your audience. The purpose of writing an document is not _to have written
+the document_, but rather _to convey information to the reader_.
 
 ## Be brief
 
