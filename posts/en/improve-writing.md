@@ -10,5 +10,5 @@ I suspect, and hope, that if I become better at writing, I will look back on
 old posts and be able to point out exactly what is wrong, but this skill is
 currently beyond me.
 
-Writing these posts is an avenue to practice and improve my writing. As with
-most things, to get better, I must put in the practice.
+Writing these posts is an avenue to improve my writing. As with most things, to
+get better, I must put in the practice.
