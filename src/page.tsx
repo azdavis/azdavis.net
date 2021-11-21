@@ -28,7 +28,7 @@ export function Page({ lang, title, styles, children }: Props): ReactElement {
         <title>{title}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="description" content={t.desc} />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         {styles.map((s) => (
           <link key={s} rel="stylesheet" href={`/${s}.css`} />
         ))}
