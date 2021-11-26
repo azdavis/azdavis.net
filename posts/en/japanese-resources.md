@@ -20,8 +20,8 @@ interface, good content.
 
 Japanese has 3 different writing systems. The first 2, hiragana and katakana,
 are called the kana. These each have 46 characters, which correspond to each
-other. For example, the Hiragana character あ corresponds to the Katakana ア, in
-that both make the same sound "a".
+other, in that they both make the same sounds. For example, the Hiragana
+character あ and the Katakana character ア both make the sound "ah".
 
 How to read the kana should definitely be the first thing to learn.
 
@@ -30,7 +30,7 @@ How to read the kana should definitely be the first thing to learn.
 [Website](http://www.guidetojapanese.org/learn/grammar/)
 
 Good as a grammar reference. Topics are basically ordered with more
-basic/fundamental ones starting first and more niche ones as it goes on.
+basic/fundamental ones first and more niche ones later.
 
 It has some exercises for earlier topics and all topics, even advanced ones,
 have example sentences and explanations in English.
@@ -46,9 +46,8 @@ In Japanese, there is a regular form and a polite form of verbs. Most
 textbooks/resources will start by teaching the polite form, because this form is
 a good default to use when talking to practically anyone.
 
-But then, when they later teach you the regular form, you realize that actually
-the regular form is the true, base form of words/the grammar, and the polite
-form is derived from it.
+But then, when they later teach you the regular form, you realize that the
+regular form is the base form, and the polite form is derived from it.
 
 This guide instead first teaches the regular form and later tells you how to
 derive the polite form from it.
@@ -57,38 +56,37 @@ derive the polite form from it.
 
 [Website](https://www.wanikani.com/)
 
-Teaches you 'radicals', kanji, and words. Past the first 2 levels it requires a
-subscription/lifetime purchase.
+Teaches you "radicals", kanji, and words. Past the first 2 levels it requires a
+subscription or a lifetime purchase.
 
 Even if you don't want to pay for WaniKani, it is important to understand that
-if you want to read/write Japanese at all, you will have to learn a decent
+if you want to read or write Japanese at all, you will have to learn a decent
 number of kanji. And the most important thing to know when learning kanji,
 whether using WaniKani or not, is this:
 
 Unlike in English with the alphabet, the character is _not_ the smallest unit
 of the writing system. Rather, the smallest unit is the "radical".
 
-I used to not know this, and I'd try to learn kanji on their own. When
-learning a kanji, you generally have to learn
+I used to not know this, and I therefore struggled with learning kanji. When
+learning a single kanji character, you generally have to learn
 
-- How to write it with the correct stroke order (maybe you don't care about this
-  if you only want to read, but I wanted to write too)
+- How to write it with the correct stroke order
 - How to pronounce it (the reading)
 - What it generally means (the meaning)
 
 For example, take 議.
 
-- It has 20 strokes
-- It's usually pronounced ぎ (gi)
-- It means "deliberation" or "discussion"
+- It has 20 strokes.
+- It's usually pronounced ぎ (gi).
+- It means "deliberation" or "discussion".
 
 This character is composed of 2 radicals: 言 and 義. Knowing the radicals
 helps with every aspect of a kanji:
 
 - To write 議, I literally just write a small 言 and then write a small 義 next
-  to it
-- 義 is also pronounced ぎ (gi)
-- 言 means "say" which is kind of related to "deliberation"
+  to it.
+- 義 is also pronounced ぎ (gi).
+- 言 means "say" which is kind of related to "deliberation".
 
 Now, some kanji are pictograms, which means they kind of look like a picture:
 
@@ -97,7 +95,7 @@ Now, some kanji are pictograms, which means they kind of look like a picture:
 - 森 is three trees, and it means "woods".
 - 大 kind of looks like a big guy stretching his arms out, and it means "big".
 
-But actually very many kanji, like 議, are [phono-semantic
+But actually most kanji, like 議, are [phono-semantic
 compounds][phono-semantic]. This means they're composed of 2 radicals, one of
 which gives a hint to the meaning and the other a hint to the reading.
 
@@ -108,13 +106,18 @@ Bottom line: learn radicals. There's an [article][kanji-mistakes] about it.
 [Website](https://www3.nhk.or.jp/news/easy/)
 
 Japanese language news about current events. Pretty short articles. Good for
-reading practice. You can also listen to some of the articles and toggle the
-reading hints for kanji for more practice.
+reading practice. You can also listen to some of the articles and toggle off the
+reading hints ("furigana") for more practice.
 
 ## YouTube
 
 There's a ton of Japanese YouTubers out there, but I sometimes watch [Mina Luna
 Japanese][mina-luna] and [Nakata University][nakata].
+
+I think a mix of channels focused on Japanese education, and channels which just
+happen to be in Japanese, is good. The education ones teach specifically about
+different grammar points, wheras the non-education focused ones often have a
+faster and more realistic rate of speech, as well as more spoken colloquialisms.
 
 [phono-semantic]: https://en.wikipedia.org/wiki/Chinese_character_classification#Phono-semantic_compound_characters
 [kanji-mistakes]: https://www.tofugu.com/japanese/kanji-learning-mistakes/
