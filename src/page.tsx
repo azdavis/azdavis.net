@@ -28,8 +28,10 @@ export function Page({ lang, title, styles, children }: Props): ReactElement {
         <title>{title}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="description" content={t.desc} />
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="mask-icon" href="/favicon.svg" color="#000000" />
+        <link rel="alternate icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         {styles.map((s) => (
           <link key={s} rel="stylesheet" href={`/${s}.css`} />
         ))}
