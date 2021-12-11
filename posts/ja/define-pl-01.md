@@ -291,16 +291,16 @@ $$
 [次の投稿][next]では、関数を発言に追加します。
 
 [bnf]: https://en.wikipedia.org/wiki/Backus–Naur_form
-[eldiro]: https://arzg.github.io/lang/
+[eldiro]: https://arzg.github.io/lang
 [go-spec]: https://golang.org/ref/spec
 [jisho-utterance]: https://jisho.org/word/発言
-[jp-resources]: /posts/japanese-resources/
+[jp-resources]: /posts/japanese-resources
 [js-spec]: https://tc39.es/
 [lean]: https://leanprover.github.io
-[c-undefined]: https://www.yodaiken.com/2021/05/19/undefined-behavior-in-c-is-a-reading-error/
+[c-undefined]: https://www.yodaiken.com/2021/05/19/undefined-behavior-in-c-is-a-reading-error
 [pony-spec]: https://www.ponylang.io/media/papers/fast-cheap-with-proof.pdf
 [sml-spec]: https://smlfamily.github.io/sml97-defn.pdf
-[wasm-spec]: https://webassembly.github.io/spec/core/
+[wasm-spec]: https://webassembly.github.io/spec/core
 [struct-op-sem]: https://www.youtube.com/watch?v=H40QE0_830Q
 [proof]: https://github.com/azdavis/hatsugen/tree/part-01
-[next]: /ja/posts/define-pl-02/
+[next]: /ja/posts/define-pl-02

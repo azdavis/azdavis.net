@@ -47,5 +47,5 @@ In closing, I would note two things:
 - Some, but not all, of what I've written here applies to other sorts of
   writing.
 
-[less]: /posts/write-more-but-less/
-[unoriginal]: /posts/unoriginality/
+[less]: /posts/write-more-but-less
+[unoriginal]: /posts/unoriginality

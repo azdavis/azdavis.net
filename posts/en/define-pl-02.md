@@ -457,7 +457,7 @@ The proofs are once again on [GitHub][proofs].
 In the [next post][next], we'll add product types, also known as structs or
 tuples.
 
-[prev]: /posts/define-pl-01/
-[next]: /posts/define-pl-03/
+[prev]: /posts/define-pl-01
+[next]: /posts/define-pl-03
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-02
 [stlc]: https://en.wikipedia.org/wiki/Simply_typed_lambda_calculus
