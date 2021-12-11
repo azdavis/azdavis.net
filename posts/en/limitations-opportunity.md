@@ -8,25 +8,21 @@ Languages][pl-cmu], taught by Prof. Robert Harper. In this class, we studied
 various programming language features and formal semantics.
 
 The most important thing I learned from the class is that _limitations provide
-opportunity_. That is: if we _limit_ our possibilities in one respect, we gain
+opportunity_. That is, if we _limit_ our possibilities in one respect, we gain
 the _opportunity_ to exploit these limitations to great effect in other
 respects.
 
-Let us explore some examples of this phenomenon. In all of these examples, the
-opportunity that is gained by imposing limitations is increased performance.
+In these examples, the opportunity that is gained by imposing limitations is
+increased performance.
 
 ## Example: Static typing
 
-In statically typed languages, a typechecker statically (i.e. before runtime)
-determines the type of every term. If the typechecker detects a type error, the
-program is not permitted to run.
+In statically typed programming languages, a typechecker statically (i.e. before
+runtime) determines the type of every [term][]. If the typechecker detects a
+type error, the program is not permitted to run.
 
 In dynamically typed languages, there is no static typechecker, and type errors
 are thus reported at runtime.
-
-Statically typed languages have some limitations compared to dynamically typed
-languages. But in exchange for this, statically typed languages also offer
-performance benefits that dynamically typed languages cannot.
 
 ### Limitation: Type annotations
 
@@ -43,8 +39,8 @@ write type annotations.
 
 Meanwhile, in dynamically typed languages, like JavaScript, Python, and Ruby,
 there is no built-in static typechecker, and thus type annotations are never
-necessary. Usually they are not even _possible_ to write: the language has no
-static types, and thus affords no syntax for static type annotations.
+necessary. Usually they are not even _possible_ to write, since the language has
+no static types, and thus affords no syntax for static type annotations.
 
 ### Limitation: Incompleteness
 
@@ -177,7 +173,7 @@ Note that an `impl` for a type may appear in a different file than the type
 itself.
 
 Further note that, being items, `impl`s may appear inside the body of function
-items:
+items.
 
 ```rs
 fn top() {
@@ -209,23 +205,30 @@ a repository of code and provides information like
 
 and so on.
 
-We would like to optimize our language server by incrementally updating its
+We would like to optimize our language server by _incrementally_ updating its
 database of semantic knowledge about the code repository when a programmer
-modifies files. For instance, if a programmer just edits a single function's
-body, we can re-type-check just that function's body, since only that function's
-body has changed.
+modifies files.
 
-Except this is _not_ true in Rust, as just discussed: the function body could
-contain an `impl` for another type declared elsewhere. So applying this
-optimization for Rust is more difficult.
+For instance, if a programmer edits just a single function's body, we would like
+to only re-typecheck just that function's body. If just a single function's body
+changed, not its type, then it shouldn't be possible for the well-typed-ness of
+other functions to change.
+
+Except this is _not_ true in Rust, as just discussed, because the function body
+could contain an `impl` for another type declared elsewhere. Then adding or
+removing `impl`s could cause methods to be added or removed for faraway types,
+which may be used in other functions. So applying this optimization for Rust is
+more difficult.
 
 ## Conclusion
 
 These examples illustrate that consciously choosing to add limitations can
-provide benefits, often in the form of increased performance. Conversely,
-removing limitations can in a sense _add_ limitations, in that we may no longer
-take advantage of the types of opportunities discussed here.
+provide benefits, often in the form of increased performance.
+
+Conversely, removing limitations can in a sense _add_ limitations, in that we
+may no longer take advantage of the types of opportunities discussed here.
 
 [pl-cmu]: https://www.cs.cmu.edu/~rjsimmon/15312-s14/
 [language server]: https://microsoft.github.io/language-server-protocol/
 [rust-analyzer]: https://rust-analyzer.github.io
+[term]: /posts/lambda-cube
