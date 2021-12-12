@@ -3,17 +3,16 @@ title: "Limitations provide opportunity"
 date: 2021-12-10
 ---
 
-One of my favorite classes I took in college was [Foundations of Programming
-Languages][pl-cmu], taught by Prof. Robert Harper. In this class, we studied
-various programming language features and formal semantics.
+In college, I took the class [Foundations of Programming Languages][pl-cmu],
+taught by Prof. Robert Harper. In this class, we studied programming languages
+and formal semantics.
 
-The most important thing I learned from the class is that _limitations provide
-opportunity_. That is, if we _limit_ our possibilities in one respect, we gain
-the _opportunity_ to exploit these limitations to great effect in other
-respects.
+One thing I learned from Prof. Harper is that _limitations provide opportunity_.
+That is, if we _limit_ our possibilities in one respect, we gain the
+_opportunity_ to exploit these limitations to great effect in other respects.
 
 In these examples, the opportunity that is gained by imposing limitations is
-increased performance.
+improved performance.
 
 ## Example: Static typing
 
@@ -26,16 +25,11 @@ are thus reported at runtime.
 
 ### Limitation: Type annotations
 
-Most statically typed languages, like C, C++, and Java, require type annotations
-for function parameters, function return values, local variables, struct/class
-fields, etc. These annotations help the static typechecker determine the type of
-every expression. But these languages thus limit the user by refusing to run
-programs lacking such annotations.
-
-Recent improvements in C++ and Java, as well as newer languages like Rust and
-Go, decrease the annotation burden somewhat by allowing type inference for local
-variables. But generally, most statically typed languages require the user to
-write type annotations.
+Most statically typed languages, like C, C++, and Java, require some amount of
+type annotations for function parameters, function return values, local
+variables, struct/class fields, etc. These annotations help the static
+typechecker determine the type of every expression. But these languages thus
+limit the user by refusing to run programs lacking such annotations.
 
 Meanwhile, in dynamically typed languages, like JavaScript, Python, and Ruby,
 there is no built-in static typechecker, and thus type annotations are never
@@ -54,13 +48,13 @@ really are no type errors in that program.
 The converse property is that of completeness: if a program has no type errors,
 then the typechecker reports none.
 
-Gödel's first incompleteness theorem states that once a formal system is
-expressive enough, it cannot be both sound and complete.
+[Gödel's first incompleteness theorem][godel-first] states that once a formal
+system is expressive enough, it cannot be both sound and complete.
 
 Thus, because we often desire type systems to be both sound, and as expressive
 as possible, it is often not possible for a type system to be complete.
 
-This means that there will almost always be programs that "should" be
+This means that there will almost always be programs that ought to be
 well-typed, but for which the typechecker will report an error.
 
 ### Opportunity: No runtime type checks
@@ -110,9 +104,9 @@ use.
 
 Some languages, like C and C++, require the programmer to explicitly allocate
 and free objects. This makes it hard to write programs free of memory errors
-like leaks, double-frees and accessing freed memory. In Rust, because
-allocations and frees are inserted automatically where needed, these memory
-issues are far less common.
+like leaks, double-frees and use-after-free. In Rust, because allocations and
+frees are inserted automatically where needed, these memory issues are far less
+common.
 
 Most other languages use either a garbage collector or reference counting to
 automatically manage memory. However, in these systems, it is not statically
@@ -126,23 +120,23 @@ additional information at runtime in this way imposes a performance penalty.
 
 Rust allows defining _items_ like types and functions. As a convenience, Rust
 permits defining items not just at the top-level as is common, but also inside
-the body of function items. This lets the programmer restrict the scope of a
-helper function to just the single function that uses the helper.
+the body of function items. This lets the programmer restrict the scope of an
+item to just the single function that uses that item.
 
 ```rs
 // top-level definition
-fn top() {
+fn outer() {
   // inner definition
-  fn helper() {}
-  // `helper` is in scope here
-  helper();
+  fn inner() {}
+  // `inner` is in scope here
+  inner();
 }
 
 fn main() {
-  // `top` is in scope here
-  top();
-  // error[E0425], `helper` is NOT in scope here
-  helper();
+  // `outer` is in scope here
+  outer();
+  // error, `inner` is NOT in scope here
+  inner();
 }
 ```
 
@@ -151,19 +145,19 @@ fn main() {
 One kind of item in Rust is the `impl` item, which adds methods to a type.
 
 ```rs
-struct Rectangle {
+struct Rect {
   width: u32,
   height: u32,
 }
 
-impl Rectangle {
+impl Rect {
   fn area(&self) -> u32 {
     self.width * self.height
   }
 }
 
 fn main() {
-  let rect = Rectangle { width: 3, height: 4 };
+  let rect = Rect { width: 3, height: 4 };
   println!("{}", rect.area());
   // ==> 12
 }
@@ -177,7 +171,7 @@ items.
 
 ```rs
 fn top() {
-  impl Rectangle {
+  impl Rect {
     fn area(&self) -> u32 {
       self.width * self.height
     }
@@ -185,14 +179,13 @@ fn top() {
 }
 ```
 
-However, `impl`s have effect (i.e. they are "in scope") no matter where
-declared. So, if as in this example, the `impl Rectangle` to add the `area`
-method was inside the `top` function, `area` would still be a method on _all_
-`Rectangle`s, whether they are used inside the scope of `top` or not.
+However, `impl`s have effect no matter where declared. So, if as in this
+example, the `impl Rect` to add the `area` method was inside the `top` function,
+`area` would still be a method on _all_ `Rect`s, whether they are used inside
+the scope of `top` or not.
 
 This means that in Rust, changing the body of a function can affect items
-declared outside of the scope of the function - even ones declared in a
-different file.
+declared outside of the scope of the function.
 
 ### (Lack of) opportunity: incremental re-typechecking
 
@@ -205,9 +198,9 @@ a repository of code and provides information like
 
 and so on.
 
-We would like to optimize our language server by _incrementally_ updating its
-database of semantic knowledge about the code repository when a programmer
-modifies files.
+When a programmer modifies files in the repository, we would like to
+incrementally update the language server's its database of semantic knowledge
+about the repository.
 
 For instance, if a programmer edits just a single function's body, we would like
 to only re-typecheck just that function's body. If just a single function's body
@@ -217,13 +210,15 @@ other functions to change.
 Except this is _not_ true in Rust, as just discussed, because the function body
 could contain an `impl` for another type declared elsewhere. Then adding or
 removing `impl`s could cause methods to be added or removed for faraway types,
-which may be used in other functions. So applying this optimization for Rust is
-more difficult.
+which may be used in other functions.
+
+So, writing an incrementally-updating language server Rust is more difficult
+than it would be if `impl`s were not allowed in function bodies.
 
 ## Conclusion
 
 These examples illustrate that consciously choosing to add limitations can
-provide benefits, often in the form of increased performance.
+provide benefits, often in the form of improved performance.
 
 Conversely, removing limitations can in a sense _add_ limitations, in that we
 may no longer take advantage of the types of opportunities discussed here.
@@ -232,3 +227,4 @@ may no longer take advantage of the types of opportunities discussed here.
 [language server]: https://microsoft.github.io/language-server-protocol/
 [rust-analyzer]: https://rust-analyzer.github.io
 [term]: /posts/lambda-cube
+[godel-first]: https://en.wikipedia.org/wiki/Gödel%27s_incompleteness_theorems#First_incompleteness_theorem
