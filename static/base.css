@@ -44,23 +44,6 @@ ol {
   padding-inline-start: 2em;
 }
 
-@media print {
-  body {
-    max-width: none;
-    margin: 0;
-    font-size: 12px;
-    color: #333;
-  }
-
-  h1 {
-    margin-block-start: 0;
-  }
-
-  a {
-    text-decoration: none;
-  }
-}
-
 @media (max-width: 600px) {
   dd {
     margin-inline-start: 2ch;
