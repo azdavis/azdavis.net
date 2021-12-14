@@ -5,6 +5,7 @@
 body {
   --page-fg: #333;
   --page-bg: #fff;
+  --link-underline: #666;
 
   max-width: 65ch;
   margin: 0 auto;
@@ -18,12 +19,16 @@ body {
 a {
   text-decoration: none;
   padding-bottom: 1px;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--link-underline);
 }
 
 a,
 a:visited {
   color: inherit;
+}
+
+a:hover {
+  border-bottom-color: inherit;
 }
 
 dd {
@@ -54,5 +59,6 @@ ol {
   body {
     --page-fg: #ddd;
     --page-bg: #333;
+    --link-underline: #aaa;
   }
 }
