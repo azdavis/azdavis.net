@@ -157,20 +157,16 @@ impl Rect {
 }
 
 fn main() {
-  let rect = Rect { width: 3, height: 4 };
-  println!("{}", rect.area());
+  let r = Rect { width: 3, height: 4 };
+  println!("{}", r.area());
   // ==> 12
 }
 ```
 
-Note that an `impl` for a type may appear in a different file than the type
-itself.
-
-Further note that, being items, `impl`s may appear inside the body of function
-items.
+Note that, being items, `impl`s may appear inside the body of function items.
 
 ```rs
-fn top() {
+fn outer() {
   impl Rect {
     fn area(&self) -> u32 {
       self.width * self.height
@@ -180,9 +176,9 @@ fn top() {
 ```
 
 However, `impl`s have effect no matter where declared. So, if as in this
-example, the `impl Rect` to add the `area` method was inside the `top` function,
+example, the `impl Rect` to add the `area` method was inside the `outer` function,
 `area` would still be a method on _all_ `Rect`s, whether they are used inside
-the scope of `top` or not.
+the scope of `outer` or not.
 
 This means that in Rust, changing the body of a function can affect items
 declared outside of the scope of the function.
@@ -212,7 +208,7 @@ could contain an `impl` for another type declared elsewhere. Then adding or
 removing `impl`s could cause methods to be added or removed for faraway types,
 which may be used in other functions.
 
-So, writing an incrementally-updating language server Rust is more difficult
+So, writing an incrementally-updating language server for Rust is more difficult
 than it would be if `impl`s were not allowed in function bodies.
 
 ## Conclusion
