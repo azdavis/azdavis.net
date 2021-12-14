@@ -24,8 +24,10 @@ writing a shorter letter; I didn't have time, so I wrote a longer one instead".
 
 There are more benefits, but gotta keep the post short, right?
 
-I'd also offer as a closing though that sometimes, a longer-form "deep dive" is
-the right move. I think it largely depends on what the audience of your work is.
+I'd also offer as a closing though that [sometimes][3], a longer-form "deep
+dive" is the right move. It may depend on what the audience of your work is, or
+how much detail you want to go into.
 
 [1]: https://blog.kewah.com/2021/write-more-but-shorter/
 [2]: https://critter.blog/2020/10/02/write-5x-more-but-write-5x-less/
+[3]: /posts/moderation

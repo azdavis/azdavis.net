@@ -114,8 +114,8 @@ reading hints ("furigana") for more practice.
 There's a ton of Japanese YouTubers out there, but I sometimes watch [Mina Luna
 Japanese][mina-luna] and [Nakata University][nakata].
 
-I think a mix of channels focused on Japanese education, and channels which just
-happen to be in Japanese, is good. The education ones teach specifically about
+It's good to have a mix of channels focused on Japanese education, and channels
+which just happen to be in Japanese. The education ones teach specifically about
 different grammar points, wheras the non-education focused ones often have a
 faster and more realistic rate of speech, as well as more spoken colloquialisms.
 

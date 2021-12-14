@@ -7,7 +7,7 @@ There's a common saying:
 
 > If it's worth doing, it's worth doing well.
 
-However, I think this way of thinking can be harmful. Let me explain why with an
+However, this way of thinking can be harmful. Let me explain why with an
 example.
 
 Suppose you wish to exercise more. You've heard time and again about the
