@@ -45,12 +45,12 @@ progress.
 
 In the example, instead of deciding to skip exercising entirely for the day,
 you'd instead just do whatever you can bring yourself to do. Maybe that's just
-five minutes of stretching. Or three minutes. _One_ minute. Maybe it's _one_
+five minutes of stretching. Or three minutes. Or _one_ minute. Maybe it's _one_
 squat. _One_ push-up.
 
 Maybe, if your goal was to "write a new blog post every day", you just write a
-rough draft of a post. Or a few sentences. Or a few bullet points. Or _one
-word_.
+rough draft of a post. Or a few sentences. Or a few bullet points. Or _one_
+word.
 
 I believe that it's better to have this mindset. By making even a small amount
 of progress each day, we avoid having [zero days][] and keep ourselves trending
