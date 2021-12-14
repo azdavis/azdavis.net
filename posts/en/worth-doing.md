@@ -54,7 +54,7 @@ word.
 
 I believe that it's better to have this mindset. By making even a small amount
 of progress each day, we avoid having [zero days][] and keep ourselves trending
-up and to the right.
+up and to the right. 📈
 
 [read]: https://www.mayoclinic.org/healthy-lifestyle/fitness/expert-answers/exercise/faq-20057916
 [zero days]: https://www.reddit.com/r/getdisciplined/comments/1q96b5
