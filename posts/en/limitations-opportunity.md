@@ -195,8 +195,8 @@ a repository of code and provides information like
 and so on.
 
 When a programmer modifies files in the repository, we would like to
-incrementally update the language server's its database of semantic knowledge
-about the repository.
+incrementally update the language server's database of semantic knowledge about
+the repository.
 
 For instance, if a programmer edits just a single function's body, we would like
 to only re-typecheck just that function's body. If just a single function's body
