@@ -57,6 +57,14 @@ img {
   border-radius: 1em;
 }
 
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
 @media (max-width: 600px) {
   dd {
     margin-inline-start: 2ch;

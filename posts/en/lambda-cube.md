@@ -121,15 +121,16 @@ to their incredible expressive power.
 
 ## The lambda cube
 
-To reiterate, most programming languages have functions from terms to terms. The
-three other varieties of functions are:
+To reiterate, the four varieties of functions are:
 
+1. From terms to terms
 1. From types to terms
 1. From types to types
 1. From terms to types
 
-A language may choose to allow or disallow these varieties of functions. There
-are three yes-or-no choices to make, and thus $2^3 = 8$ possible configurations.
+Most languages have term-term functions, but choose to allow or disallow the
+other three varieties of functions. There are three yes-or-no choices to make,
+and thus $2^3 = 8$ possible configurations.
 
 We may visualize the three choices as dimensions, and thus organize the
 possibilities into a cube. The vertices of the cube represent languages that
@@ -138,12 +139,15 @@ of function. All points on the cube allow for term-to-term functions.
 
 ![The lambda cube](/img/lambda-cube.png)
 
-Some commonly-known points on the cube are:
+Some commonly-known points on the cube are shown below. The numbers correspond
+to the 4 varieties of function discussed.
 
-- The simply typed lambda calculus, which only has term-term functions.
-- System $F$, which has term-term and type-term functions.
-- System $F_\omega$, which has term-term, type-term, and type-type functions.
-- The calculus of constructions, which has all four varieties of function.
+|                        | Name                         | 1   | 2   | 3   | 4   |
+| ---------------------- | ---------------------------- | --- | --- | --- | --- |
+| $\lambda\!\rightarrow$ | Simply typed lambda calculus | ✔   | ✗   | ✗   | ✗   |
+| $\lambda 2$            | System $F$                   | ✔   | ✔   | ✗   | ✗   |
+| $\lambda \omega$       | System $F\omega$             | ✔   | ✔   | ✔   | ✗   |
+| $\lambda C$            | Calculus of constructions    | ✔   | ✔   | ✔   | ✔   |
 
 Once we reach the calculus of constructions, the distinction between types and
 terms somewhat disappears, since each may freely appear in both themselves and
