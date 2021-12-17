@@ -50,6 +50,13 @@ ol {
   padding-inline-start: 2em;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 1em;
+}
+
 @media (max-width: 600px) {
   dd {
     margin-inline-start: 2ch;
