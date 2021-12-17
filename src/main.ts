@@ -74,6 +74,7 @@ async function main() {
   await mkdirp(rootDir);
   const staticItems = await glob("static/*");
   await Promise.all([
+    copyDir("static/img", join(rootDir, "img")),
     copyDir("node_modules/katex/dist", join(rootDir, "katex")),
     ...staticItems.map(copyStatic),
     writeHtml(".", error404, "404.html"),

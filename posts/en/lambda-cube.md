@@ -136,6 +136,8 @@ possibilities into a cube. The vertices of the cube represent languages that
 arise from choosing combinations of allowing or disallowing the three varieties
 of function. All points on the cube allow for term-to-term functions.
 
+![The lambda cube](/img/lambda-cube.png)
+
 Some commonly-known points on the cube are:
 
 - The simply typed lambda calculus, which only has term-term functions.
