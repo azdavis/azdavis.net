@@ -6,6 +6,7 @@ body {
   --page-fg: #333;
   --page-bg: #fff;
   --link-underline: #666;
+  --blockquote-fg: #555;
 
   max-width: 60ch;
   margin: 0 auto;
@@ -41,7 +42,7 @@ blockquote {
   padding-inline-start: 0.9em;
   padding-inline-end: 1em;
   border-inline-start: 0.1em solid;
-  font-style: italic;
+  color: var(--blockquote-fg);
 }
 
 ul,
@@ -60,5 +61,6 @@ ol {
     --page-fg: #ddd;
     --page-bg: #333;
     --link-underline: #aaa;
+    --blockquote-fg: #bbb;
   }
 }
