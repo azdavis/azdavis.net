@@ -7,7 +7,7 @@ body {
   --page-bg: #fff;
   --link-underline: #666;
 
-  max-width: 65ch;
+  max-width: 60ch;
   margin: 0 auto;
   padding: 0.5em 0.5em 8em;
   color: var(--page-fg);
