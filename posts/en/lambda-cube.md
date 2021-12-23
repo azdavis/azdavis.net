@@ -160,7 +160,7 @@ t
 ::=  \ & \mathsf{Prop} && \text{base type}
 \\ | \ & \mathsf{Type} && \text{type of $\mathsf{Prop}$}
 \\ | \ & x && \text{variable}
-\\ | \ & t \ t' && \text{application}
+\\ | \ & t(t') && \text{application}
 \\ | \ & \lambda (x: t) \ t' && \text{abstraction}
 \\ | \ & \Pi (x: t) \ t' && \text{forall}
 \end{aligned}
