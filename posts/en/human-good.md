@@ -3,13 +3,12 @@ title: "Humans are generally good"
 date: 2021-10-05
 ---
 
-The world is, by many measures, safer and more prosperous than it has ever been.
+In many respects, the world is safer and more prosperous than it has ever been.
 Yet, I find it is common that we forget this, and focus on what is wrong with
 the world.
 
-It is easy to ignore what is right and good, because, in some sense, it does not
-deserve our attention. What deserves, and gets, our focus is that which is not
-right, so that we may fix it.
+That which is right and just does not require improvement, so we focus less on
+it. We instead focus is that which is not, so that we may fix it.
 
 I consider this to be proof of the general goodness of humanity. That we feel
 concern in the face of unfairness, injustice, and cruelty, shows that we value
