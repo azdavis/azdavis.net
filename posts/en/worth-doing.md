@@ -7,8 +7,9 @@ There's a common saying:
 
 > If it's worth doing, it's worth doing well.
 
-However, this way of thinking can be harmful. Let me explain why with an
-example.
+However, this way of thinking can be harmful. Let me explain why.
+
+## An example
 
 Suppose you wish to exercise more. You've heard time and again about the
 benefits of exercise, so you look up "how much should I exercise daily", and
@@ -35,8 +36,22 @@ start skipping more days, and eventually you just drop it.
 
 Sound familiar? I know I've done this before, maybe without even realizing it.
 
-The problem is the type of thinking that the saying promotes. I prefer a
-different way of thinking:
+## The problem
+
+The problem is the type of thinking that the saying promotes. We translate:
+
+> If it's worth doing, it's worth doing well.
+
+Into:
+
+> If I can't do it well, then it's not worth doing.
+
+Which then leads to giving up on our commitments when we can't perfectly follow
+through on them.
+
+## The solution
+
+I prefer a different way of thinking:
 
 > If it's worth doing, it's worth doing at all.
 

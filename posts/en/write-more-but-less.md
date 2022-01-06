@@ -3,9 +3,8 @@ title: "Write more, but less"
 date: 2021-09-15
 ---
 
-I found a [post][1] by Antoine Lehurt, which then led me to a similar [post][2]
-by Mike Crittenden. The thesis of both posts can be summed up as "write more,
-but less".
+I found a [post][1], which then led me to another similar [post][2]. The thesis
+of both posts can be summed up as "write more, but less".
 
 That is: write more things, but have each thing be shorter. This has a few key
 benefits.
@@ -19,10 +18,11 @@ have a lot of time to spend on any one thing. The longer your thing is, the more
 likely a potential reader will just skip it.
 
 Third, keeping something short forces you, the writer, to distill what you want
-to say down to its essence. See Blaise Pascal's/Mark Twain's "Sorry for not
-writing a shorter letter; I didn't have time, so I wrote a longer one instead".
+to say down to its essence. Paraphrasing a quote from both Blaise Pascal and
+Mark Twain:
 
-There are more benefits, but gotta keep the post short, right?
+> Sorry for not writing a shorter letter; I didn't have time, so I wrote a
+> longer one instead.
 
 I'd also offer as a closing though that [sometimes][3], a longer-form "deep
 dive" is the right move. It may depend on what the audience of your work is, or
