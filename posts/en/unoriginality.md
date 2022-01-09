@@ -3,7 +3,8 @@ title: "Unoriginality is okay"
 date: 2021-09-18
 ---
 
-It's okay to do things that other people have done before.
+It's okay to do things that other people have done before. This is true even
+when you're not doing the thing as well as other people.
 
 I don't claim to be the first one to have thought of any of the things I write
 about here. I write about the things that I do because:
