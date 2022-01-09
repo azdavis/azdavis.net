@@ -3,8 +3,8 @@ title: "Write more, but less"
 date: 2021-09-15
 ---
 
-I found a [post][1], which then led me to another similar [post][2]. The thesis
-of both posts can be summed up as "write more, but less".
+I read two different posts ([one][1], [two][2]) recently, both of which can be
+summed up as "write more, but less".
 
 That is: write more things, but have each thing be shorter. This has a few key
 benefits.
