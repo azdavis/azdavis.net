@@ -4,13 +4,13 @@ date: 2021-09-15
 ---
 
 I read two different posts ([one][1], [two][2]) recently, both of which can be
-summed up as "write more, but less".
+summed up as: write more, but less.
 
 That is: write more things, but have each thing be shorter. This has a few key
 benefits.
 
 First, it lowers the barrier for writing something. Instead of worrying about
-whether you can write "enough" about whatever it is you want to write about,
+whether you can write enough about whatever it is you want to write about,
 just write, and don't worry if it turns out short.
 
 Second, it makes reading things easier. People are busy, and generally don't
