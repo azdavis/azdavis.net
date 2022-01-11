@@ -7,17 +7,17 @@ Many programming languages have both terms and types. Terms are also sometimes
 called expressions.
 
 Roughly speaking, terms, like `3` or `true`, denote the data being manipulated,
-while types, like `Int` or `Bool`, describe what operations are permitted on
-terms.
+while types, like `Number` or `Boolean`, describe what operations are permitted
+on terms.
 
-For instance, if you have a term of type `Int`, you might be able to do things
-like add or subtract with other `Int`s. And if you have a term of type `Bool`
-(aka `true` or `false`), you could do things like negate it or use it to branch
-with an `if` construct.
+For instance, if you have a term of type `Number`, you might be able to do
+things like add or subtract with other `Number`s. And if you have a term of type
+`Boolean` (aka `true` or `false`), you could do things like negate it or use it
+to branch with an `if` construct.
 
 Common in most programming languages are functions, to which one may pass a term
 and get back a term. For instance, we could define the function `is_zero`, which
-takes an term of type `Int` and returns a term of type `Bool`.
+takes an term of type `Number` and returns a term of type `Boolean`.
 
 Given the existence of both types and terms, though, we can consider four
 distinct varieties of function:
