@@ -32,6 +32,14 @@ interface Props {
   lang: Lang;
 }
 
+export function postsDir(lang: Lang): string {
+  return root(lang) + "posts";
+}
+
+export function postDir(lang: Lang, slug: string): string {
+  return postsDir(lang) + "/" + slug + "/";
+}
+
 function Post({ data, lang }: Props): ReactElement {
   const { title, date, content } = data;
   const posts = translations[lang];

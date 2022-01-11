@@ -4,22 +4,14 @@ import mkdirp from "mkdirp";
 import { basename, join } from "path";
 import type { ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Lang, root } from "./lang";
+import { Lang } from "./lang";
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
-import { post } from "./pages/post";
+import { post, postDir, postsDir } from "./pages/post";
 import { PostListItem, postsPage } from "./pages/posts";
 import { getPostData, PostData } from "./post-data";
 
 const rootDir = "build";
-
-function postsDir(lang: Lang): string {
-  return root(lang) + "posts";
-}
-
-function postDir(lang: Lang, slug: string): string {
-  return postsDir(lang) + "/" + slug + "/";
-}
 
 async function writeHtml(
   dir: string,
