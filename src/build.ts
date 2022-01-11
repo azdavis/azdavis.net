@@ -8,8 +8,8 @@ import { copyDir } from "./copy-dir";
 import { Lang, root } from "./lang";
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
+import { post } from "./pages/post";
 import { PostListItem, posts } from "./pages/posts";
-import { post } from "./post";
 import { getPostData } from "./post-data";
 
 const rootDir = "build";

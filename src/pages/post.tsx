@@ -2,10 +2,10 @@ import hl from "highlight.js";
 import type { ReactElement } from "react";
 import { Remarkable } from "remarkable";
 import katex from "remarkable-katex";
-import { DateShow } from "./date-show";
-import { Lang, root } from "./lang";
-import { Page, Style } from "./page";
-import { PostData, translations } from "./post-data";
+import { DateShow } from "../date-show";
+import { Lang, root } from "../lang";
+import { Page, Style } from "../page";
+import { PostData, translations } from "../post-data";
 
 function highlight(code: string, language: string): string {
   if (!hl.getLanguage(language)) {
