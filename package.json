@@ -3,7 +3,7 @@
   "name": "azdavis.net",
   "version": "0.1.0",
   "scripts": {
-    "build": "tsc && node out/main.js",
+    "build": "tsc && node out/build.js",
     "start": "npm run build && serve build"
   },
   "devDependencies": {
