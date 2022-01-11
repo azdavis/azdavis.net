@@ -153,7 +153,7 @@ fn main() {
 }
 ```
 
-### (Lack of) limitation: `impl`s may appear in function bodies
+### (No) limitation: `impl`s in function bodies
 
 One kind of item in Rust is the `impl` item, which adds methods to a type. In
 this example, we define a type `Rect`, and then add an `area` method onto that
@@ -198,7 +198,7 @@ inside the scope of `outer` or not.
 This means that in Rust, changing the body of a function can affect items
 declared outside of the scope of the function.
 
-### (Lack of) opportunity: incremental re-typechecking
+### (No) opportunity: incremental re-typechecking
 
 [rust-analyzer][] is a [language server][] for Rust. A language server analyzes
 a repository of code and provides information like
