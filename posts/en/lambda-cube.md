@@ -62,12 +62,14 @@ from. Different programming languages call this data structure different things:
 list, array, vector, sequence, and so on, but the general idea is the same.
 
 We would like a list data structure to permit the elements stored to be any
-fixed type. That is, instead of separately defining `IntList` and `BoolList` and
-`PairOfIntAndStringList`, we would like to just define `List`, and have it work
-for any element type.
+fixed type. That is, instead of separately defining `NumberList` and
+`BooleanList`, we would like to just define `List`, and have it work for any
+element type.
 
-Thus, `List` can be thought of as a function that takes a type (the type of the
-elements) and returns a type (the type of lists of that element type).
+Thus, `List` itself is not a type, but it can be thought of as a function that
+takes a type (the type of the elements) and returns a type (the type of lists of
+that element type). So, if `T` is a type, then `List<T>` is the type of lists of
+`T`s.
 
 ## Terms to types
 
@@ -78,19 +80,18 @@ Languages like C and Rust permit types like this.
 For instance, in Rust, the definition
 
 ```rs
-const A: [i32; 3] = [2, 4, 6];
+const A: [u32; 3] = [2, 4, 6];
 ```
 
-defines `A` to be an array of 32-bit signed integers (`i32`) with a fixed length
-of 3.
+defines `A` to be an array of 32-bit unsigned integers with a fixed length of 3.
 
 This is a limited form of allowing terms in types, since here, the term `3` is
-used in the type `[i32; 3]`.
+used in the type `[u32; 3]`.
 
 However, Rust rejects the following function type:
 
 ```rs
-fn foo(n: usize) -> [i32; n]
+fn foo(n: usize) -> [u32; n]
 ```
 
 With the following error:
@@ -99,7 +100,7 @@ With the following error:
 error[E0435]: attempt to use a non-constant value in a constant
  --> src/lib.rs:1:27
   |
-1 | fn foo(n: usize) -> [i32; n]
+1 | fn foo(n: usize) -> [u32; n]
   |        -                  ^
   |        |
   |        this would need to be a `const`
@@ -109,15 +110,16 @@ We can take the Rust compiler's suggestion and make `n` a "const parameter" (and
 also capitalize it, to conform to style guidelines):
 
 ```rs
-fn foo<const N: usize>() -> [i32; N]
+fn foo<const N: usize>() -> [u32; N]
 ```
 
 But now, because `N` is a const parameter, we can only pass values for it that
 are known at compile time.
 
-Types like `[i32; N]` that contain, or "depend on", terms, are called dependent
+Types like `[u32; N]` that contain, or "depend on", terms, are called dependent
 types. Not many programming languages fully support dependent types, likely due
-to their incredible expressive power.
+to their incredible expressive power. As seen in the example, Rust only permits
+limited usage of these types.
 
 ## The lambda cube
 
