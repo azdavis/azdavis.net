@@ -47,7 +47,7 @@ function Post({ data, lang }: Props): ReactElement {
     <Page lang={lang} title={title} styles={styles}>
       <div>
         <a href={root(lang)}>azdavis.net</a> •{" "}
-        <a href={root(lang) + "posts/"}>{posts}</a> •{" "}
+        <a href={postsDir(lang) + "/"}>{posts}</a> •{" "}
         <DateShow lang={lang} date={date} />
       </div>
       <h1>{title}</h1>
