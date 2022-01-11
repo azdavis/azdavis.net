@@ -146,10 +146,10 @@ to the 4 varieties of function discussed.
 
 |                        | Name                         | 1   | 2   | 3   | 4   |
 | ---------------------- | ---------------------------- | --- | --- | --- | --- |
-| $\lambda\!\rightarrow$ | Simply typed lambda calculus | Y   | N   | N   | N   |
-| $\lambda 2$            | System $F$                   | Y   | Y   | N   | N   |
-| $\lambda \omega$       | System $F\omega$             | Y   | Y   | Y   | N   |
-| $\lambda C$            | Calculus of constructions    | Y   | Y   | Y   | Y   |
+| $\lambda\!\rightarrow$ | Simply typed lambda calculus | ✓   | ×   | ×   | ×   |
+| $\lambda 2$            | System $F$                   | ✓   | ✓   | ×   | ×   |
+| $\lambda \omega$       | System $F\omega$             | ✓   | ✓   | ✓   | ×   |
+| $\lambda C$            | Calculus of constructions    | ✓   | ✓   | ✓   | ✓   |
 
 Once we reach the calculus of constructions, the distinction between types and
 terms somewhat disappears, since each may freely appear in both themselves and
