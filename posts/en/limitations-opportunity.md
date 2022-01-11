@@ -218,10 +218,10 @@ only re-typecheck that function's body. We can do this if we know that, if the
 only thing that changed was a single function's body, not its type, then it is
 not possible for the well-typed-ness of other functions to change.
 
-Except this is not true in Rust, as just discussed, because the function body
-could contain an `impl` for another type declared elsewhere. Then adding or
-removing `impl`s could add or removes methods on types defined elsewhere, which
-may be used in other functions.
+Except this is not true in Rust, as just discussed. This is because the edited
+function's body could contain an `impl` for another type defined elsewhere. And
+editing that `impl` could add or remove methods for that type, which may be used
+in other functions.
 
 So, writing an incrementally-updating language server for Rust is more difficult
 than it would be if `impl`s were not allowed in function bodies.
