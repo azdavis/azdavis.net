@@ -50,9 +50,19 @@ function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
     : -1;
 }
 
-async function mkPostsPage(lang: Lang): Promise<void> {
-  const entries = await glob(`posts/${lang}/*.md`);
-  const items = await Promise.all(entries.map((e) => mkPost(lang, e)));
+interface Posts {
+  en: Set<string>;
+  ja: Set<string>;
+}
+
+async function mkPostsPage(posts: Posts, lang: Lang): Promise<void> {
+  const toAwait: Promise<PostListItem>[] = Array(posts[lang].size);
+  let idx = 0;
+  for (const entry of posts[lang]) {
+    toAwait[idx] = mkPost(lang, entry);
+    idx++;
+  }
+  const items = await Promise.all(toAwait);
   const titles = new Set<string>();
   for (const { title } of items) {
     if (titles.has(title)) {
@@ -86,7 +96,12 @@ export async function copyDir(src: string, dest: string): Promise<void> {
 async function main() {
   await rm(rootDir, { recursive: true, force: true });
   await mkdirp(rootDir);
-  const staticItems = await glob("static/*");
+  const [staticItems, postsJa, postsEn] = await Promise.all([
+    glob("static/*"),
+    glob("posts/ja/*.md"),
+    glob("posts/en/*.md"),
+  ]);
+  const posts = { en: new Set(postsEn), ja: new Set(postsJa) };
   await Promise.all([
     copyDir("static/img", join(rootDir, "img")),
     copyDir("node_modules/katex/dist", join(rootDir, "katex")),
@@ -94,8 +109,8 @@ async function main() {
     writeHtml(".", error404, "404.html"),
     writeHtml(".", index("en")),
     writeHtml("ja", index("ja")),
-    mkPostsPage("en"),
-    mkPostsPage("ja"),
+    mkPostsPage(posts, "en"),
+    mkPostsPage(posts, "ja"),
   ]);
 }
 
