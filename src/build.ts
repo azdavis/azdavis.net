@@ -1,10 +1,9 @@
 import glob from "fast-glob";
-import { copyFile, readFile, rm, writeFile } from "fs/promises";
+import { copyFile, readdir, readFile, rm, writeFile } from "fs/promises";
 import mkdirp from "mkdirp";
 import { basename, join } from "path";
 import type { ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { copyDir } from "./copy-dir";
 import { Lang, root } from "./lang";
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
@@ -67,6 +66,21 @@ async function mkPostsPage(lang: Lang): Promise<void> {
 
 async function copyStatic(p: string) {
   await copyFile(p, join(rootDir, basename(p)));
+}
+
+// https://stackoverflow.com/a/64255382
+export async function copyDir(src: string, dest: string): Promise<void> {
+  await mkdirp(dest);
+  const entries = await readdir(src, { withFileTypes: true });
+  for (const entry of entries) {
+    const srcPath = join(src, entry.name);
+    const destPath = join(dest, entry.name);
+    if (entry.isDirectory()) {
+      await copyDir(srcPath, destPath);
+    } else {
+      await copyFile(srcPath, destPath);
+    }
+  }
 }
 
 async function main() {
