@@ -11,7 +11,7 @@ One thing I learned from Prof. Harper is that _limitations provide opportunity_.
 That is, if we _limit_ our possibilities in one respect, we gain the
 _opportunity_ to exploit these limitations to great effect in other respects.
 
-In these examples, the opportunity that is gained by imposing limitations is
+In these examples, the opportunity that we gain by imposing limitations is
 improved performance.
 
 ## Example: Static typing
@@ -38,21 +38,18 @@ no static types, and thus affords no syntax for static type annotations.
 
 ### Limitation: Incompleteness
 
-In a statically typed language, the set of rules that govern what errors the
-typechecker emits and when it emits them is called the type system.
-
-A highly desirable property of a type system is that it is sound. This means
+A highly desirable property of a typechecker is that it is sound. This means
 that if the typechecker does not report a type error for a program, then there
 really are no type errors in that program.
 
 The converse property is that of completeness: if a program has no type errors,
 then the typechecker reports none.
 
-[Gödel's first incompleteness theorem][godel-first] states that once a formal
-system is expressive enough, it cannot be both sound and complete.
+[Gödel's first incompleteness theorem][godel-first] essentially states that once
+a system is expressive enough, it cannot be both sound and complete.
 
-Thus, because we often desire type systems to be both sound, and as expressive
-as possible, it is often not possible for a type system to be complete.
+Thus, because we often desire a typechecker to be both sound, and as expressive
+as possible, it is often not possible for it to be complete.
 
 This means that there will almost always be programs that ought to be
 well-typed, but for which the typechecker will report an error.
@@ -87,48 +84,64 @@ need not store the types of values at runtime.
 ## Example: Ownership
 
 The Rust programming language has a unique memory management system based around
-_ownership_. In Rust, a value can be owned by at most one variable at a time.
-That variable is called the value's owner.
+the concept of ownership:
+
+- In Rust, at most one variable can "own" a given value at a time.
+- That variable is called the value's owner.
+- When the owner goes out of scope, the value is dropped (i.e. "deallocated" or
+  "freed").
 
 ### Limitation: Harder to express some patterns
 
-Because of the ownership system in Rust, certain fairly common patterns like a
-doubly-linked list or a tree with parent pointers are more difficult to express.
+Because of the ownership system in Rust, cyclic data structures are more
+difficult (but not impossible) to express. This includes data structures like:
+
+- A doubly-linked list, which allows inserting between adjacent nodes in
+  constant time.
+- A tree with parent pointers, which allows going from a child node to its
+  parent in constant time.
 
 ### Opportunity: Static automatic memory management
 
 Rust uses the strict rules of ownership, enforced statically by the compiler, to
-automatically insert memory allocations and frees where needed. This
+automatically insert memory allocations and deallocations where needed. This
 distinguishes Rust from nearly every other programming language in widespread
 use.
 
 Some languages, like C and C++, require the programmer to explicitly allocate
-and free objects. This makes it hard to write programs free of memory errors
-like leaks, double-frees and use-after-free. In Rust, because allocations and
-frees are inserted automatically where needed, these memory issues are far less
+and free memory. This makes it hard to write programs free of memory errors
+like:
+
+- Memory leaks, where we fail to deallocate memory that won't be used anymore
+- Double-frees, where we attempt to deallocate memory that has already been
+  deallocated
+- Uses-after-free, where we erroneously access memory that has already been
+  deallocated
+
+In Rust, because of the ownership system, these memory issues are far less
 common.
 
 Most other languages use either a garbage collector or reference counting to
-automatically manage memory. However, in these systems, it is not statically
-knowable when objects should get freed. Thus, this information must be computed
-and stored at runtime.
+automatically manage memory. In these systems, it is not statically known when
+memory should get deallocated. Thus, the runtime system decides when to
+deallocate memory while the program is running.
 
 Much as in the discussion of static versus dynamic typing, computing and storing
 additional information at runtime in this way imposes a performance penalty.
 
 ## Example: Placement of `impl`s
 
-Rust allows defining _items_ like types and functions. As a convenience, Rust
-permits defining items not just at the top-level as is common, but also inside
-the body of function items. This lets the programmer restrict the scope of an
-item to just the single function that uses that item.
+Rust allows defining items like types and functions. These items can be defined
+not just at the top level, but but also inside the body of function items. This
+lets the programmer restrict the scope of an item to just the single function
+that uses that item.
 
 ```rs
-// top-level definition
+// top-level item
 fn outer() {
-  // inner definition
+  // inner item
   fn inner() {}
-  // `inner` is in scope here
+  // `inner` is in scope inside `outer`
   inner();
 }
 
@@ -142,7 +155,9 @@ fn main() {
 
 ### (Lack of) limitation: `impl`s may appear in function bodies
 
-One kind of item in Rust is the `impl` item, which adds methods to a type.
+One kind of item in Rust is the `impl` item, which adds methods to a type. In
+this example, we define a type `Rect`, and then add an `area` method onto that
+type with an `impl`.
 
 ```rs
 struct Rect {
@@ -175,10 +190,10 @@ fn outer() {
 }
 ```
 
-However, `impl`s have effect no matter where declared. So, if as in this
-example, the `impl Rect` to add the `area` method was inside the `outer` function,
-`area` would still be a method on _all_ `Rect`s, whether they are used inside
-the scope of `outer` or not.
+However, `impl`s have effect regardless of where they are declared. So, if as in
+this example, the `impl Rect` to add the `area` method was inside the `outer`
+function, `area` would still be a method on _all_ `Rect`s, whether they are used
+inside the scope of `outer` or not.
 
 This means that in Rust, changing the body of a function can affect items
 declared outside of the scope of the function.
@@ -189,7 +204,7 @@ declared outside of the scope of the function.
 a repository of code and provides information like
 
 - the type of a given term
-- where a given name is defined
+- the definition site of a given variable
 - what methods are available for a given type
 
 and so on.
@@ -198,15 +213,15 @@ When a programmer modifies files in the repository, we would like to
 incrementally update the language server's database of semantic knowledge about
 the repository.
 
-For instance, if a programmer edits just a single function's body, we would like
-to only re-typecheck just that function's body. If just a single function's body
-changed, not its type, then it shouldn't be possible for the well-typed-ness of
-other functions to change.
+For instance, if a programmer edits a single function's body, we would like to
+only re-typecheck that function's body. We can do this if we know that, if the
+only thing that changed was a single function's body, not its type, then it is
+not possible for the well-typed-ness of other functions to change.
 
 Except this is _not_ true in Rust, as just discussed, because the function body
 could contain an `impl` for another type declared elsewhere. Then adding or
-removing `impl`s could cause methods to be added or removed for faraway types,
-which may be used in other functions.
+removing `impl`s could add or removes methods on types defined elsewhere, which
+may be used in other functions.
 
 So, writing an incrementally-updating language server for Rust is more difficult
 than it would be if `impl`s were not allowed in function bodies.
