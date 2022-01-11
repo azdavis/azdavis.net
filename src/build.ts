@@ -30,10 +30,11 @@ async function mkPost(
   entry: string,
 ): Promise<PostListItem> {
   const file = await readFile(entry);
-  const { title, date, content } = getPostData(file.toString());
+  const data = getPostData(file.toString());
   const slug = basename(entry, ".md");
   const path = `${dir}/${slug}/`;
-  await writeHtml(path, post({ title, content, lang, date }));
+  await writeHtml(path, post({ data, lang }));
+  const { title, date } = data;
   return { title, date, path };
 }
 

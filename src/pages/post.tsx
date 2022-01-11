@@ -27,11 +27,13 @@ function renderMd(content: string): UnsafeHtml {
 
 const styles: Style[] = ["base", "code", "katex/katex.min"];
 
-interface Props extends PostData {
+interface Props {
+  data: PostData;
   lang: Lang;
 }
 
-function Post({ title, content, date, lang }: Props): ReactElement {
+function Post({ data, lang }: Props): ReactElement {
+  const { title, date, content } = data;
   const posts = translations[lang];
   return (
     <Page lang={lang} title={title} styles={styles}>
