@@ -5,7 +5,7 @@ date: 2021-12-10
 
 In college, I took the class [Foundations of Programming Languages][pl-cmu],
 taught by Prof. Robert Harper. In this class, we studied programming languages
-and formal semantics.
+and [formal semantics][].
 
 One thing I learned from Prof. Harper is that limitations engender opportunity.
 That is, if we limit our possibilities in one respect, we gain the opportunity
@@ -236,6 +236,7 @@ that we may no longer take advantage of the types of opportunities discussed
 here.
 
 [pl-cmu]: https://www.cs.cmu.edu/~rjsimmon/15312-s14/
+[formal semantics]: /posts/define-pl-01
 [language server]: https://microsoft.github.io/language-server-protocol/
 [rust-analyzer]: https://rust-analyzer.github.io
 [term]: /posts/lambda-cube
