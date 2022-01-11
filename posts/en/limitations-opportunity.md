@@ -132,7 +132,7 @@ additional information at runtime in this way imposes a performance penalty.
 ## Example: Placement of `impl`s
 
 Rust allows defining items like types and functions. These items can be defined
-not just at the top level, but but also inside the body of function items. This
+not just at the top level, but also inside the body of function items. This
 lets the programmer restrict the scope of an item to just the single function
 that uses that item.
 
