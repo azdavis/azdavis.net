@@ -12,7 +12,14 @@ import { PostListItem, postsPage } from "./pages/posts";
 import { getPostData } from "./post-data";
 
 const rootDir = "build";
-const postsDir = "posts";
+
+function postsDir(lang: Lang): string {
+  return root(lang) + "posts";
+}
+
+function postDir(lang: Lang, mdEntry: string): string {
+  return postsDir(lang) + "/" + basename(mdEntry, ".md") + "/";
+}
 
 async function writeHtml(
   dir: string,
@@ -24,15 +31,10 @@ async function writeHtml(
   await writeFile(join(rootDir, dir, file), text);
 }
 
-async function mkPost(
-  dir: string,
-  lang: Lang,
-  entry: string,
-): Promise<PostListItem> {
+async function mkPost(lang: Lang, entry: string): Promise<PostListItem> {
   const file = await readFile(entry);
   const data = getPostData(file.toString());
-  const slug = basename(entry, ".md");
-  const path = `${dir}/${slug}/`;
+  const path = postDir(lang, entry);
   await writeHtml(path, post({ data, lang }));
   const { title, date } = data;
   return { title, date, path };
@@ -50,8 +52,7 @@ function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
 
 async function mkPostsPage(lang: Lang): Promise<void> {
   const entries = await glob(`posts/${lang}/*.md`);
-  const dir = root(lang) + postsDir;
-  const items = await Promise.all(entries.map((e) => mkPost(dir, lang, e)));
+  const items = await Promise.all(entries.map((e) => mkPost(lang, e)));
   const titles = new Set<string>();
   for (const { title } of items) {
     if (titles.has(title)) {
@@ -62,7 +63,7 @@ async function mkPostsPage(lang: Lang): Promise<void> {
     titles.add(title);
   }
   items.sort(postCmp);
-  await writeHtml(dir, postsPage(lang, items));
+  await writeHtml(postsDir(lang), postsPage(lang, items));
 }
 
 async function copyStatic(p: string) {
