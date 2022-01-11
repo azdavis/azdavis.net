@@ -10,7 +10,7 @@ export interface PostListItem {
   date: Date;
 }
 
-export function posts(lang: Lang, posts: PostListItem[]): ReactElement {
+export function postsPage(lang: Lang, posts: PostListItem[]): ReactElement {
   const title = translations[lang];
   return (
     <Page lang={lang} title={title} styles={["base", "posts"]}>
