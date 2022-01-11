@@ -379,7 +379,7 @@ In the [next post][next], we'll add functions to Hatsugen.
 [eldiro]: https://arzg.github.io/lang
 [go-spec]: https://golang.org/ref/spec
 [jisho-utterance]: https://jisho.org/word/発言
-[jp-resources]: /posts/japanese-resources
+[jp-resources]: /posts/japanese-resources/
 [js-spec]: https://tc39.es
 [lean]: https://leanprover.github.io
 [c-undefined]: https://www.yodaiken.com/2021/05/19/undefined-behavior-in-c-is-a-reading-error
@@ -388,4 +388,4 @@ In the [next post][next], we'll add functions to Hatsugen.
 [wasm-spec]: https://webassembly.github.io/spec/core
 [struct-op-sem]: https://www.youtube.com/watch?v=H40QE0_830Q
 [proof]: https://github.com/azdavis/hatsugen/tree/part-01
-[next]: /posts/define-pl-02
+[next]: /posts/define-pl-02/

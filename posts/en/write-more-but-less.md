@@ -30,4 +30,4 @@ how much detail you want to go into.
 
 [1]: https://blog.kewah.com/2021/write-more-but-shorter/
 [2]: https://critter.blog/2020/10/02/write-5x-more-but-write-5x-less/
-[3]: /posts/moderation
+[3]: /posts/moderation/

@@ -285,6 +285,6 @@ The proofs are once again on [GitHub][proofs].
 
 In the [next post][next], we'll add sum types, also known as tagged unions.
 
-[prev]: /posts/define-pl-02
-[next]: /posts/define-pl-04
+[prev]: /posts/define-pl-02/
+[next]: /posts/define-pl-04/
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-03

@@ -317,7 +317,7 @@ Either を作成する際、二つの型をいずれか一つを選択肢、そ�
 
 次の投稿はどうするか決めていません。発言に面白い機能をいくつか追加したから、次はどうするか考えます。
 
-[prev]: /posts/define-pl-03
+[prev]: /posts/define-pl-03/
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-04
 [sorbet]: https://sorbet.org
 [stripe]: https://stripe.com

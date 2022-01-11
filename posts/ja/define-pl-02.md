@@ -407,7 +407,7 @@ $$
 
 [次の投稿][next]では、積型を紹介します。これらを struct や tuple とも言います。
 
-[prev]: /ja/posts/define-pl-01
-[next]: /ja/posts/define-pl-03
+[prev]: /ja/posts/define-pl-01/
+[next]: /ja/posts/define-pl-03/
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-02
 [stlc]: https://en.wikipedia.org/wiki/Simply_typed_lambda_calculus

@@ -258,6 +258,6 @@ $$|\tau_1 \times \tau_2| = |\tau_1| \times |\tau_2|$$
 
 [次の投稿][next]では和型を追加します。
 
-[prev]: /ja/posts/define-pl-02
-[next]: /ja/posts/define-pl-04
+[prev]: /ja/posts/define-pl-02/
+[next]: /ja/posts/define-pl-04/
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-03

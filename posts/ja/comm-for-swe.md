@@ -31,5 +31,5 @@ project brief.
 
 プロジェクトの説明書などでは、明示的な成果物やマイルストーンを定義するのは妥当です。
 
-[less]: /posts/write-more-but-less
-[unoriginal]: /posts/unoriginality
+[less]: /posts/write-more-but-less/
+[unoriginal]: /posts/unoriginality/

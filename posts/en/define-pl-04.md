@@ -359,7 +359,7 @@ I think this is the end of this little series, at least for now. I'll probably
 continue to write about programming language related topics, but not
 specifically by adding to Hatsugen.
 
-[prev]: /posts/define-pl-03
+[prev]: /posts/define-pl-03/
 [proofs]: https://github.com/azdavis/hatsugen/tree/part-04
 [sorbet]: https://sorbet.org
 [stripe]: https://stripe.com

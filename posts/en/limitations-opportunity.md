@@ -236,8 +236,8 @@ that we may no longer take advantage of the types of opportunities discussed
 here.
 
 [pl-cmu]: https://www.cs.cmu.edu/~rjsimmon/15312-s14/
-[formal semantics]: /posts/define-pl-01
+[formal semantics]: /posts/define-pl-01/
 [language server]: https://microsoft.github.io/language-server-protocol/
 [rust-analyzer]: https://rust-analyzer.github.io
-[term]: /posts/lambda-cube
+[term]: /posts/lambda-cube/
 [godel-first]: https://en.wikipedia.org/wiki/Gödel%27s_incompleteness_theorems#First_incompleteness_theorem

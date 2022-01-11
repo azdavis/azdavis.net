@@ -46,5 +46,5 @@ of those who are intolerant, they will take over and destroy the ability to be
 tolerant. We must, then, be not moderated in this case, and categorically reject
 intolerance.
 
-[1]: /posts/write-more-but-less
+[1]: /posts/write-more-but-less/
 [2]: https://en.wikipedia.org/wiki/Paradox_of_tolerance

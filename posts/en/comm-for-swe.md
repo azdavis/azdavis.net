@@ -35,5 +35,5 @@ efficiently get what they want from your document by:
 In e.g. project briefs, it is prudent to define explicit deliverables and
 milestones.
 
-[less]: /posts/write-more-but-less
-[unoriginal]: /posts/unoriginality
+[less]: /posts/write-more-but-less/
+[unoriginal]: /posts/unoriginality/
