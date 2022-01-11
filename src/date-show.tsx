@@ -1,17 +1,35 @@
 import type { ReactElement } from "react";
-import { mkDateTimeFmt } from "./date-time-fmt";
+import { absurd } from "./absurd";
 import type { Lang } from "./lang";
 
-function dateToIsoString(date: Date): string {
-  return date.toISOString().split("T")[0];
-}
-
-const dateToHumanString = mkDateTimeFmt({
+const options: Intl.DateTimeFormatOptions = {
   year: "numeric",
   month: "short",
   day: "numeric",
   timeZone: "UTC",
-});
+};
+
+const en = new Intl.DateTimeFormat("en", options);
+const ja = new Intl.DateTimeFormat("ja", options);
+
+function getFmt(lang: Lang): Intl.DateTimeFormat {
+  switch (lang) {
+    case "en":
+      return en;
+    case "ja":
+      return ja;
+    default:
+      return absurd(lang);
+  }
+}
+
+function dateToHumanString(lang: Lang, date: Date): string {
+  return getFmt(lang).format(date);
+}
+
+function dateToIsoString(date: Date): string {
+  return date.toISOString().split("T")[0];
+}
 
 interface Props {
   lang: Lang;
