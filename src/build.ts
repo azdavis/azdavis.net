@@ -9,7 +9,7 @@ import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { post } from "./pages/post";
 import { PostListItem, postsPage } from "./pages/posts";
-import { getPostData } from "./post-data";
+import { getPostData, PostData } from "./post-data";
 
 const rootDir = "build";
 
@@ -17,8 +17,8 @@ function postsDir(lang: Lang): string {
   return root(lang) + "posts";
 }
 
-function postDir(lang: Lang, mdEntry: string): string {
-  return postsDir(lang) + "/" + basename(mdEntry, ".md") + "/";
+function postDir(lang: Lang, slug: string): string {
+  return postsDir(lang) + "/" + slug + "/";
 }
 
 async function writeHtml(
@@ -31,10 +31,12 @@ async function writeHtml(
   await writeFile(join(rootDir, dir, file), text);
 }
 
-async function mkPost(lang: Lang, entry: string): Promise<PostListItem> {
-  const file = await readFile(entry);
-  const data = getPostData(file.toString());
-  const path = postDir(lang, entry);
+async function mkPost(
+  lang: Lang,
+  slug: string,
+  data: PostData,
+): Promise<PostListItem> {
+  const path = postDir(lang, slug);
   await writeHtml(path, post({ data, lang }));
   const { title, date } = data;
   return { title, date, path };
@@ -50,16 +52,18 @@ function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
     : -1;
 }
 
-interface Posts {
-  en: Set<string>;
-  ja: Set<string>;
+type Posts = Map<string, PostData>;
+
+interface LangPosts {
+  en: Posts;
+  ja: Posts;
 }
 
-async function mkPostsPage(posts: Posts, lang: Lang): Promise<void> {
+async function mkPostsPage(posts: LangPosts, lang: Lang): Promise<void> {
   const toAwait: Promise<PostListItem>[] = Array(posts[lang].size);
   let idx = 0;
-  for (const entry of posts[lang]) {
-    toAwait[idx] = mkPost(lang, entry);
+  for (const [slug, data] of posts[lang]) {
+    toAwait[idx] = mkPost(lang, slug, data);
     idx++;
   }
   const items = await Promise.all(toAwait);
@@ -93,15 +97,30 @@ export async function copyDir(src: string, dest: string): Promise<void> {
   }
 }
 
+async function getAllPostData(entries: string[]): Promise<Posts> {
+  const awaited = await Promise.all(
+    entries.map(async (e) => {
+      const slug = basename(e, ".md");
+      const file = await readFile(e);
+      return { slug, contents: getPostData(file.toString()) };
+    }),
+  );
+  const ret = new Map<string, PostData>();
+  for (const { slug, contents } of awaited) {
+    ret.set(slug, contents);
+  }
+  return ret;
+}
+
 async function main() {
   await rm(rootDir, { recursive: true, force: true });
   await mkdirp(rootDir);
   const [staticItems, postsJa, postsEn] = await Promise.all([
     glob("static/*"),
-    glob("posts/ja/*.md"),
-    glob("posts/en/*.md"),
+    glob("posts/ja/*.md").then(getAllPostData),
+    glob("posts/en/*.md").then(getAllPostData),
   ]);
-  const posts = { en: new Set(postsEn), ja: new Set(postsJa) };
+  const posts = { en: postsEn, ja: postsJa };
   await Promise.all([
     copyDir("static/img", join(rootDir, "img")),
     copyDir("node_modules/katex/dist", join(rootDir, "katex")),

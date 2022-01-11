@@ -1,5 +1,7 @@
 export type Lang = "en" | "ja";
 
+export const all: Lang[] = ["en", "ja"];
+
 /**
  * always starts and ends with a /
  */
