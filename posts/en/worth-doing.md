@@ -55,7 +55,7 @@ I prefer a different way of thinking:
 
 > If it's worth doing, it's worth doing at all.
 
-Which means that it's better to make _any_ amount of progress than _no_
+Which means that it's better to make any non-zero amount of progress than no
 progress.
 
 In the example, instead of deciding to skip exercising entirely for the day,

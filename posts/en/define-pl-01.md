@@ -26,7 +26,7 @@ these implementations may strive for compatibility between one another, it
 sometimes happens that different implementations behave differently given the
 same program as input.
 
-In such a case, which one of these implementations is _the_ one that defines the
+In such a case, which one of these implementations is the one that defines the
 programming language?
 
 ### Definition by specification

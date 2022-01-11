@@ -64,7 +64,7 @@ if you want to read or write Japanese at all, you will have to learn a decent
 number of kanji. And the most important thing to know when learning kanji,
 whether using WaniKani or not, is this:
 
-Unlike in English with the alphabet, the character is _not_ the smallest unit
+Unlike in English with the alphabet, the character is not the smallest unit
 of the writing system. Rather, the smallest unit is the "radical".
 
 I used to not know this, and I therefore struggled with learning kanji. When

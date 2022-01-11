@@ -25,8 +25,8 @@ States, which are dominated by just two major parties, the Democratic and the
 Republican. Each party has its own position on major issues. And while I do
 often lean towards a certain one of those two parties, I find there are many
 issues where my position is more nuanced. Indeed, I would find it very
-surprising if, for _every_ issue, I found myself completely agreeing with the
-same party's position.
+surprising if, for every issue, I found myself completely agreeing with the same
+party's position.
 
 I think about this when deciding whether to spend or save the income that I
 am lucky enough to be earning. To spend it all would be irresponsible and

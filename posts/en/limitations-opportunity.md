@@ -1,5 +1,5 @@
 ---
-title: "Limitations provide opportunity"
+title: "Limitations engender opportunity"
 date: 2021-12-10
 ---
 
@@ -7,9 +7,9 @@ In college, I took the class [Foundations of Programming Languages][pl-cmu],
 taught by Prof. Robert Harper. In this class, we studied programming languages
 and formal semantics.
 
-One thing I learned from Prof. Harper is that _limitations provide opportunity_.
-That is, if we _limit_ our possibilities in one respect, we gain the
-_opportunity_ to exploit these limitations to great effect in other respects.
+One thing I learned from Prof. Harper is that limitations engender opportunity.
+That is, if we limit our possibilities in one respect, we gain the opportunity
+to exploit these limitations to great effect in other respects.
 
 In these examples, the opportunity that we gain by imposing limitations is
 improved performance.
@@ -33,7 +33,7 @@ limit the user by refusing to run programs lacking such annotations.
 
 Meanwhile, in dynamically typed languages, like JavaScript, Python, and Ruby,
 there is no built-in static typechecker, and thus type annotations are never
-necessary. Usually they are not even _possible_ to write, since the language has
+necessary. Usually they are not even possible to write, since the language has
 no static types, and thus affords no syntax for static type annotations.
 
 ### Limitation: Incompleteness
@@ -192,7 +192,7 @@ fn outer() {
 
 However, `impl`s have effect regardless of where they are declared. So, if as in
 this example, the `impl Rect` to add the `area` method was inside the `outer`
-function, `area` would still be a method on _all_ `Rect`s, whether they are used
+function, `area` would still be a method on all `Rect`s, whether they are used
 inside the scope of `outer` or not.
 
 This means that in Rust, changing the body of a function can affect items
@@ -218,7 +218,7 @@ only re-typecheck that function's body. We can do this if we know that, if the
 only thing that changed was a single function's body, not its type, then it is
 not possible for the well-typed-ness of other functions to change.
 
-Except this is _not_ true in Rust, as just discussed, because the function body
+Except this is not true in Rust, as just discussed, because the function body
 could contain an `impl` for another type declared elsewhere. Then adding or
 removing `impl`s could add or removes methods on types defined elsewhere, which
 may be used in other functions.
@@ -229,10 +229,11 @@ than it would be if `impl`s were not allowed in function bodies.
 ## Conclusion
 
 These examples illustrate that consciously choosing to add limitations can
-provide benefits, often in the form of improved performance.
+engender benefits, often in the form of improved performance.
 
-Conversely, removing limitations can in a sense _add_ limitations, in that we
-may no longer take advantage of the types of opportunities discussed here.
+Conversely, ostensibly removing limitations can in a sense add limitations, in
+that we may no longer take advantage of the types of opportunities discussed
+here.
 
 [pl-cmu]: https://www.cs.cmu.edu/~rjsimmon/15312-s14/
 [language server]: https://microsoft.github.io/language-server-protocol/
