@@ -25,19 +25,19 @@ function renderMd(content: string): UnsafeHtml {
   return { __html: md.render(content) };
 }
 
-const styles: Style[] = ["base", "code", "katex/katex.min"];
-
-interface Props {
-  data: PostData;
-  lang: Lang;
-}
-
 export function postsDir(lang: Lang): string {
   return root(lang) + "posts";
 }
 
 export function postDir(lang: Lang, slug: string): string {
   return postsDir(lang) + "/" + slug + "/";
+}
+
+const styles: Style[] = ["base", "code", "katex/katex.min"];
+
+interface Props {
+  data: PostData;
+  lang: Lang;
 }
 
 function Post({ data, lang }: Props): ReactElement {
