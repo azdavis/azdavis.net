@@ -1,11 +1,11 @@
 import hl from "highlight.js";
-import type { ReactElement } from "react";
+import { Fragment, ReactElement } from "react";
 import { Remarkable } from "remarkable";
 import katex from "remarkable-katex";
 import { DateShow } from "../date-show";
-import { Lang, root } from "../lang";
+import { Lang, name, root } from "../lang";
 import { Page, Style } from "../page";
-import { PostData, translations } from "../post-data";
+import { PostData, translations as posts } from "../post-data";
 
 function highlight(code: string, language: string): string {
   if (!hl.getLanguage(language)) {
@@ -38,19 +38,46 @@ const styles: Style[] = ["base", "code", "katex/katex.min"];
 interface Props {
   data: PostData;
   lang: Lang;
+  // includes lang (thus, never empty)
+  langs: Lang[];
+  slug: string;
 }
 
-function Post({ data, lang }: Props): ReactElement {
+const translations = {
+  translations: { en: "Translations: ", ja: "翻訳\uff1a" },
+  posts,
+  lRound: { en: "(", ja: "（" },
+  rRound: { en: ")", ja: "）" },
+};
+
+function Post({ data, lang, langs, slug }: Props): ReactElement {
   const { title, date, content } = data;
-  const posts = translations[lang];
   return (
     <Page lang={lang} title={title} styles={styles}>
       <div>
         <a href={root(lang)}>azdavis.net</a> •{" "}
-        <a href={postsDir(lang) + "/"}>{posts}</a> •{" "}
+        <a href={postsDir(lang) + "/"}>{translations.posts[lang]}</a> •{" "}
         <DateShow lang={lang} date={date} />
       </div>
       <h1>{title}</h1>
+      {langs.length > 1 && (
+        <p>
+          {translations.lRound[lang]}
+          {translations.translations[lang]}
+          {langs.map((l, idx) => {
+            const s = name[l];
+            const inner = l === lang ? <b>{s}</b> : s;
+            const last = idx + 1 === langs.length ? null : " • ";
+            return (
+              <Fragment key={l}>
+                <a href={postDir(l, slug)}>{inner}</a>
+                {last}
+              </Fragment>
+            );
+          })}
+          {translations.rRound[lang]}
+        </p>
+      )}
       <div dangerouslySetInnerHTML={renderMd(content)} />
     </Page>
   );

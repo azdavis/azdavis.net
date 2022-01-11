@@ -4,7 +4,7 @@ import mkdirp from "mkdirp";
 import { basename, join } from "path";
 import type { ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Lang } from "./lang";
+import { all, Lang } from "./lang";
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { post, postDir, postsDir } from "./pages/post";
@@ -24,12 +24,14 @@ async function writeHtml(
 }
 
 async function mkPost(
+  posts: LangPosts,
   lang: Lang,
   slug: string,
   data: PostData,
 ): Promise<PostListItem> {
   const path = postDir(lang, slug);
-  await writeHtml(path, post({ data, lang }));
+  const langs = all.filter((l) => posts[l].has(slug));
+  await writeHtml(path, post({ data, lang, slug, langs }));
   const { title, date } = data;
   return { title, date, path };
 }
@@ -55,7 +57,7 @@ async function mkPostsPage(posts: LangPosts, lang: Lang): Promise<void> {
   const toAwait: Promise<PostListItem>[] = Array(posts[lang].size);
   let idx = 0;
   for (const [slug, data] of posts[lang]) {
-    toAwait[idx] = mkPost(lang, slug, data);
+    toAwait[idx] = mkPost(posts, lang, slug, data);
     idx++;
   }
   const items = await Promise.all(toAwait);

@@ -8,3 +8,5 @@ export const all: Lang[] = ["en", "ja"];
 export function root(lang: Lang) {
   return lang === "en" ? "/" : `/${lang}/`;
 }
+
+export const name = { en: "English", ja: "日本語" };
