@@ -21,12 +21,6 @@ date: 2021-10-18
 - 構造のある情報の際、箇条書きや表などを使います。
 - 字数を少なくします。
 
-## 意味のあることに繋がります
-
-In the end, a software engineer is employed to engineer software. This means
-that it is prudent to define explicit deliverables and milestones in e.g. a
-project brief.
-
 ## 計画を立てる
 
 プロジェクトの説明書などでは、明示的な成果物やマイルストーンを定義するのは妥当です。
