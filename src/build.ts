@@ -56,9 +56,7 @@ async function mkPostsPage(lang: Lang): Promise<void> {
   const titles = new Set<string>();
   for (const { title } of items) {
     if (titles.has(title)) {
-      throw new Error(
-        `two posts have the same language (${lang}) and title (${title})`,
-      );
+      throw new Error(`duplicate: ${lang} ${title}`);
     }
     titles.add(title);
   }
