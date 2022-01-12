@@ -26,8 +26,10 @@ Mark Twain:
 
 I'd also offer as a closing though that [sometimes][3], a longer-form "deep
 dive" is the right move. It may depend on what the audience of your work is, or
-how much detail you want to go into.
+how much detail you want to go into. Or it might just be your [preferred
+style][4].
 
 [1]: https://blog.kewah.com/2021/write-more-but-shorter/
 [2]: https://critter.blog/2020/10/02/write-5x-more-but-write-5x-less/
 [3]: /posts/moderation/
+[4]: https://danluu.com/writing-non-advice/
