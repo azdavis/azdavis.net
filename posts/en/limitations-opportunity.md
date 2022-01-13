@@ -91,6 +91,20 @@ the concept of ownership:
 - When the owner goes out of scope, the value is dropped (i.e. "deallocated" or
   "freed").
 
+Consider this short Rust function, which shows a value, its owner, and when the
+value is dropped:
+
+```rs
+fn show_first() {
+  let xs = vec![2, 4, 6];
+  //       ^^^^^^^^^^^^^ a Vec literal value
+  //  ^^ `xs` is the owner of the Vec value
+  println!("First element: {:?}", xs.first());
+  // at the end of the `show_first` function,
+  // `xs` goes out of scope, so the value is freed
+}
+```
+
 ### Limitation: Harder to express some patterns
 
 Because of the ownership system in Rust, cyclic data structures are more
