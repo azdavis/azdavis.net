@@ -129,6 +129,102 @@ deallocate memory while the program is running.
 Much as in the discussion of static versus dynamic typing, computing and storing
 additional information at runtime in this way imposes a performance penalty.
 
+## Example: References
+
+Another unique feature of Rust is its system of references. In Rust, references
+largely replace pointers common in other languages.
+
+### Limitation: Only certain references can be created
+
+References can be shared or exclusive, and Rust places limitations on what
+kinds of references can be created when, and what operations are permitted on
+those references.
+
+Given a value, Rust allows either unlimited shared references to that value, or
+a single exclusive reference to that value, to be in scope at a time.
+
+Further, when shared reference to a value are in scope, Rust generally does not
+allow mutating that value. And when an exclusive reference to a value is in
+scope, Rust only allows mutating that value via that exclusive reference.
+
+### Opportunity: `noalias` information passed to LLVM
+
+Rust references are represented as pointers when compiled down with LLVM.
+Because of the restrictions around using references in Rust, the Rust compiler
+can tell LLVM that exclusive references really are exclusive by adding `noalias`
+annotations to the compiled LLVM IR. Then, when the IR is compiled down to
+assembly, this knowledge can be exploited to generate fewer assembly operations,
+improving runtime performance.
+
+For example, consider this C function:
+
+```c
+void add_twice(int* a, int* b) {
+  *a += *b;
+  *a += *b;
+}
+```
+
+Because `a` and `b` might be the same pointer, we must dereference `b` both
+times we add it to `*a`, since `*b` could have changed after the first add.
+
+For instance, this is legal:
+
+```c
+int main(void) {
+  int x = 1;
+  add_twice(&x, &x);
+  printf("%d\n", x); // ==> 4
+  return 0;
+}
+```
+
+Now consider this similar Rust function:
+
+```rs
+fn add_twice(a: &mut i32, b: &mut i32) {
+  *a += *b;
+  *a += *b;
+}
+```
+
+This function itself is legal, but calling it as we did in C is not. When we
+attempt to do so:
+
+```rs
+fn main() {
+  let mut x = 1;
+  add_twice(&mut x, &mut x);
+  println!("{}", x);
+}
+```
+
+We get an error:
+
+```text
+error[E0499]: cannot borrow `x` as mutable more than once at a time
+ --> src/lib.rs:8:21
+  |
+8 |   add_twice(&mut x, &mut x);
+  |   --------- ------  ^^^^^^ second mutable borrow occurs here
+  |   |         |
+  |   |         first mutable borrow occurs here
+  |   first borrow later used by call
+```
+
+As noted, Rust does not allow having more than one exclusive reference to a
+single value in scope at a time.
+
+Because of this limitation, Rust can instruct LLVM to compile `add_twice` to be
+more efficient. We can dereference `*b` only once, and re-use its value for both
+adds to `*a`.
+
+Although this also is possible in C by using the `restrict` keyword, in Rust it
+is the default. It turns out that Rust exposed multiple bugs in LLVM, because
+its ability to add pervasive `noalias` annotations tested many more situations
+than C and C++ programmers had ever tested by adding manual `restrict`
+annotations.
+
 ## Example: Placement of `impl`s
 
 Rust allows defining items like types and functions. These items can be defined
