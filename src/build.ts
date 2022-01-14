@@ -23,19 +23,6 @@ async function writeHtml(
   await writeFile(join(rootDir, dir, file), text);
 }
 
-async function mkPost(
-  posts: LangPosts,
-  lang: Lang,
-  slug: string,
-  data: PostData,
-): Promise<PostListItem> {
-  const path = postDir(lang, slug);
-  const langs = all.filter((l) => posts[l].has(slug));
-  await writeHtml(path, post({ data, lang, slug, langs }));
-  const { title, date } = data;
-  return { title, date, path };
-}
-
 function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
   return a.date === b.date
     ? a.title < b.title
@@ -54,19 +41,20 @@ interface LangPosts {
 }
 
 async function mkPostsPage(posts: LangPosts, lang: Lang): Promise<void> {
-  const toAwait: Promise<PostListItem>[] = Array(posts[lang].size);
+  const items: PostListItem[] = Array(posts[lang].size);
+  const titles = new Set<string>();
   let idx = 0;
   for (const [slug, data] of posts[lang]) {
-    toAwait[idx] = mkPost(posts, lang, slug, data);
-    idx++;
-  }
-  const items = await Promise.all(toAwait);
-  const titles = new Set<string>();
-  for (const { title } of items) {
+    const path = postDir(lang, slug);
+    const langs = all.filter((l) => posts[l].has(slug));
+    await writeHtml(path, post({ data, lang, slug, langs }));
+    const { title, date } = data;
     if (titles.has(title)) {
       throw new Error(`duplicate: ${lang} ${title}`);
     }
     titles.add(title);
+    items[idx] = { title, date, path };
+    idx++;
   }
   items.sort(postCmp);
   await writeHtml(postsDir(lang), postsPage(lang, items));
