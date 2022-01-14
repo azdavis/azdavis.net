@@ -1,8 +1,11 @@
 import matter from "gray-matter";
 
-export interface PostData {
+export interface PostMetadata {
   title: string;
   date: Date;
+}
+
+export interface PostData extends PostMetadata {
   content: string;
 }
 
