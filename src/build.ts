@@ -60,10 +60,6 @@ async function mkPostsPage(posts: LangPosts, lang: Lang): Promise<void> {
   await writeHtml(postsDir(lang), postsPage(lang, items));
 }
 
-async function copyStatic(p: string) {
-  await copyFile(p, join(rootDir, basename(p)));
-}
-
 // https://stackoverflow.com/a/64255382
 export async function copyDir(src: string, dest: string): Promise<void> {
   await mkdirp(dest);
@@ -92,6 +88,10 @@ async function getAllPostData(entries: string[]): Promise<Posts> {
     ret.set(slug, contents);
   }
   return ret;
+}
+
+async function copyStatic(p: string) {
+  await copyFile(p, join(rootDir, basename(p)));
 }
 
 async function main() {
