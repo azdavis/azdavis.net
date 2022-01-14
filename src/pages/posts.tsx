@@ -10,6 +10,16 @@ export interface PostListItem {
   date: Date;
 }
 
+export function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
+  return a.date === b.date
+    ? a.title < b.title
+      ? -1
+      : 1
+    : a.date < b.date
+    ? 1
+    : -1;
+}
+
 export function postsPage(lang: Lang, posts: PostListItem[]): ReactElement {
   const title = translations[lang];
   return (

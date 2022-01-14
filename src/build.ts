@@ -8,7 +8,7 @@ import { all, Lang } from "./lang";
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { post, postDir, postsDir } from "./pages/post";
-import { PostListItem, postsPage } from "./pages/posts";
+import { postCmp, PostListItem, postsPage } from "./pages/posts";
 import { getPostData, PostData } from "./post-data";
 
 const rootDir = "build";
@@ -21,16 +21,6 @@ async function writeHtml(
   await mkdirp(join(rootDir, dir));
   const text = "<!DOCTYPE html>" + renderToStaticMarkup(contents);
   await writeFile(join(rootDir, dir, file), text);
-}
-
-function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
-  return a.date === b.date
-    ? a.title < b.title
-      ? -1
-      : 1
-    : a.date < b.date
-    ? 1
-    : -1;
 }
 
 type Posts = Map<string, PostData>;
