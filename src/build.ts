@@ -1,9 +1,10 @@
 import glob from "fast-glob";
-import { copyFile, readdir, readFile, rm, writeFile } from "fs/promises";
+import { copyFile, readFile, rm, writeFile } from "fs/promises";
 import mkdirp from "mkdirp";
 import { basename, join } from "path";
 import type { ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
+import { copyDir } from "./copy-dir";
 import { all, Lang } from "./lang";
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
@@ -48,21 +49,6 @@ async function mkPostsPage(posts: LangPosts, lang: Lang): Promise<void> {
   }
   items.sort(postCmp);
   await writeHtml(postsDir(lang), postsPage(lang, items));
-}
-
-// https://stackoverflow.com/a/64255382
-export async function copyDir(src: string, dest: string): Promise<void> {
-  await mkdirp(dest);
-  const entries = await readdir(src, { withFileTypes: true });
-  for (const entry of entries) {
-    const srcPath = join(src, entry.name);
-    const destPath = join(dest, entry.name);
-    if (entry.isDirectory()) {
-      await copyDir(srcPath, destPath);
-    } else {
-      await copyFile(srcPath, destPath);
-    }
-  }
 }
 
 async function getAllPostData(entries: string[]): Promise<Posts> {
