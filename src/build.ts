@@ -13,16 +13,16 @@ import { postCmp, PostListItem, postsPage } from "./pages/posts";
 import { getPostData, PostData } from "./post-data";
 
 const siteBase = "https://azdavis.net";
-const rootDir = "build";
+const buildDir = "build";
 
 async function writeHtml(
   dir: string,
   contents: ReactElement,
   file: string = "index.html",
 ) {
-  await mkdirp(join(rootDir, dir));
+  await mkdirp(join(buildDir, dir));
   const text = "<!DOCTYPE html>" + renderToStaticMarkup(contents);
-  await writeFile(join(rootDir, dir, file), text);
+  await writeFile(join(buildDir, dir, file), text);
 }
 
 type Posts = Map<string, PostData>;
@@ -72,7 +72,7 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
 <updated>${items[0].date.toISOString()}</updated>
 ${entries.join("\n")}
 </feed>`;
-  await writeFile(join(rootDir, dir, feedBase), feed);
+  await writeFile(join(buildDir, dir, feedBase), feed);
 }
 
 async function getAllPostData(entries: string[]): Promise<Posts> {
@@ -91,12 +91,12 @@ async function getAllPostData(entries: string[]): Promise<Posts> {
 }
 
 async function copyStatic(p: string) {
-  await copyFile(p, join(rootDir, basename(p)));
+  await copyFile(p, join(buildDir, basename(p)));
 }
 
 async function main() {
-  await rm(rootDir, { recursive: true, force: true });
-  await mkdirp(rootDir);
+  await rm(buildDir, { recursive: true, force: true });
+  await mkdirp(buildDir);
   const [staticItems, postsJa, postsEn] = await Promise.all([
     glob("static/*"),
     glob("posts/ja/*.md").then(getAllPostData),
@@ -104,8 +104,8 @@ async function main() {
   ]);
   const posts = { en: postsEn, ja: postsJa };
   await Promise.all([
-    copyDir("static/img", join(rootDir, "img")),
-    copyDir("node_modules/katex/dist", join(rootDir, "katex")),
+    copyDir("static/img", join(buildDir, "img")),
+    copyDir("node_modules/katex/dist", join(buildDir, "katex")),
     ...staticItems.map(copyStatic),
     writeHtml(".", error404, "404.html"),
     writeHtml(".", index("en")),
