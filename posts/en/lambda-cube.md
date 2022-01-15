@@ -66,10 +66,9 @@ fixed type. That is, instead of separately defining `NumberList` and
 `BooleanList`, we would like to just define `List`, and have it work for any
 element type.
 
-Thus, `List` itself is not a type, but it can be thought of as a function that
-takes a type (the type of the elements) and returns a type (the type of lists of
-that element type). So, if `T` is a type, then `List<T>` is the type of lists of
-`T`s.
+Thus, `List` itself is not a type, but rather a function that takes a type (the
+type of the elements) and returns a type (the type of lists of that element
+type). So, if `T` is a type, then `List<T>` is the type of a list of `T`s.
 
 ## Terms to types
 
@@ -83,7 +82,8 @@ For instance, in Rust, the definition
 const A: [u32; 3] = [2, 4, 6];
 ```
 
-defines `A` to be an array of 32-bit unsigned integers with a fixed length of 3.
+defines `A` to be an array, with a fixed length of 3, of 32-bit unsigned
+integers.
 
 This is a limited form of allowing terms in types, since here, the term `3` is
 used in the type `[u32; 3]`.
@@ -137,11 +137,11 @@ and thus $2^3 = 8$ possible configurations.
 We may visualize the three choices as dimensions, and thus organize the
 possibilities into a cube. The vertices of the cube represent languages that
 arise from choosing combinations of allowing or disallowing the three varieties
-of function. All points on the cube allow for term-to-term functions.
+of function. All vertices on the cube allow for term-to-term functions.
 
 ![The lambda cube](/img/lambda-cube.png)
 
-Some commonly-known points on the cube are shown below. Columns 1-4 correspond
+Some commonly-known vertices on the cube are shown below. Columns 1-4 correspond
 to the 4 varieties of function discussed.
 
 |                        | Name                         | 1   | 2   | 3   | 4   |
@@ -151,9 +151,9 @@ to the 4 varieties of function discussed.
 | $\lambda \omega$       | System $F\omega$             | ✓   | ✓   | ✓   | ×   |
 | $\lambda C$            | Calculus of constructions    | ✓   | ✓   | ✓   | ✓   |
 
-Once we reach the calculus of constructions, the distinction between types and
-terms somewhat disappears, since each may freely appear in both themselves and
-the other. Indeed, as powerful as the CoC is, it has a very sparse syntax of
+Once we reach the calculus of constructions (CoC), the distinction between types
+and terms somewhat disappears, since each may freely appear in both themselves
+and the other. Indeed, as powerful as the CoC is, it has a very sparse syntax of
 terms:
 
 $$
