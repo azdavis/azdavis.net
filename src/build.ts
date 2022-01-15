@@ -31,7 +31,7 @@ interface LangPosts {
   ja: Posts;
 }
 
-async function mkPostsPage(posts: LangPosts, lang: Lang): Promise<void> {
+async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
   const items: PostListItem[] = Array(posts[lang].size);
   const titles = new Set<string>();
   let idx = 0;
@@ -86,8 +86,8 @@ async function main() {
     writeHtml(".", error404, "404.html"),
     writeHtml(".", index("en")),
     writeHtml("ja", index("ja")),
-    mkPostsPage(posts, "en"),
-    mkPostsPage(posts, "ja"),
+    mkPosts(posts, "en"),
+    mkPosts(posts, "ja"),
   ]);
 }
 
