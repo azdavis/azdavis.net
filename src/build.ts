@@ -12,6 +12,7 @@ import { post, postDir, postsDir } from "./pages/post";
 import { postCmp, PostListItem, postsPage } from "./pages/posts";
 import { getPostData, PostData } from "./post-data";
 
+const siteBase = "https://azdavis.net";
 const rootDir = "build";
 
 async function writeHtml(
@@ -48,7 +49,30 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
     idx++;
   }
   items.sort(postCmp);
-  await writeHtml(postsDir(lang), postsPage(lang, items));
+  const dir = postsDir(lang);
+  await writeHtml(dir, postsPage(lang, items));
+  const feedBase = "feed.xml";
+  const feedUrl = siteBase + dir + "/" + feedBase;
+  const entries = items.map(
+    (item) =>
+      `<entry>
+<title>${item.title}</title>
+<link href="${siteBase + item.path}" />
+<id>${siteBase + item.path}</id>
+<updated>${item.date.toISOString()}</updated>
+</entry>`,
+  );
+  const feed = `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="${lang}">
+<title>azdavis.net</title>
+<link href="${feedUrl}" />
+<link rel="self" type="application/atom+xml" href="${feedUrl}" />
+<id>${feedUrl}</id>
+<author><name>Ariel Davis</name></author>
+<updated>${items[0].date.toISOString()}</updated>
+${entries.join("\n")}
+</feed>`;
+  await writeFile(join(rootDir, dir, feedBase), feed);
 }
 
 async function getAllPostData(entries: string[]): Promise<Posts> {
