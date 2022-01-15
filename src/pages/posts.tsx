@@ -18,11 +18,18 @@ export function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
     : -1;
 }
 
-export function postsPage(lang: Lang, posts: PostListItem[]): ReactElement {
+const rssFeed = { en: "RSS feed", ja: "RSSフェード" };
+
+export function postsPage(
+  lang: Lang,
+  feedUrl: string,
+  posts: PostListItem[],
+): ReactElement {
   const title = translations[lang];
   return (
     <Page lang={lang} title={title} styles={["base", "posts"]}>
-      <a href={root(lang)}>azdavis.net</a>
+      <a href={root(lang)}>azdavis.net</a> •{" "}
+      <a href={feedUrl}>{rssFeed[lang]}</a>
       <h1>{title}</h1>
       {posts.map(({ title, path, date }) => (
         <div key={title} className="post-list-item">

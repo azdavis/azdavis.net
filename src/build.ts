@@ -50,9 +50,9 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
   }
   items.sort(postCmp);
   const dir = postsDir(lang);
-  await writeHtml(dir, postsPage(lang, items));
-  const feedBase = "feed.xml";
-  const feedUrl = siteBase + dir + "/" + feedBase;
+  const feedBase = join(dir, "feed.xml");
+  const feedUrl = siteBase + feedBase;
+  await writeHtml(dir, postsPage(lang, feedBase, items));
   const entries = items.map(
     (item) =>
       `<entry>
@@ -72,7 +72,7 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
 <updated>${items[0].date.toISOString()}</updated>
 ${entries.join("\n")}
 </feed>`;
-  await writeFile(join(buildDir, dir, feedBase), feed);
+  await writeFile(join(buildDir, feedBase), feed);
 }
 
 async function getAllPostData(entries: string[]): Promise<Posts> {
