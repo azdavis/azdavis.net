@@ -54,11 +54,9 @@ function Post({ data, lang, langs, slug }: Props): ReactElement {
   const { title, date, content } = data;
   return (
     <Page lang={lang} title={title} styles={styles}>
-      <div>
-        <a href={root(lang)}>azdavis.net</a> •{" "}
-        <a href={postsDir(lang) + "/"}>{translations.posts[lang]}</a> •{" "}
-        <DateShow lang={lang} date={date} />
-      </div>
+      <a href={root(lang)}>azdavis.net</a> •{" "}
+      <a href={postsDir(lang) + "/"}>{translations.posts[lang]}</a> •{" "}
+      <DateShow lang={lang} date={date} />
       <h1>{title}</h1>
       {langs.length > 1 && (
         <p>
