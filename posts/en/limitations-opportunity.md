@@ -25,11 +25,11 @@ are thus reported at runtime.
 
 ### Limitation: Type annotations
 
-Most statically typed languages, like C, C++, and Java, require some amount of
+Most statically typed languages, like C, Java, and Rust, require some amount of
 type annotations for function parameters, function return values, local
 variables, struct/class fields, etc. These annotations help the static
-typechecker determine the type of every expression. But these languages thus
-limit the user by refusing to run programs lacking such annotations.
+typechecker determine the type of every term. But these languages thus limit the
+user by refusing to run programs lacking such annotations.
 
 Meanwhile, in dynamically typed languages, like JavaScript, Python, and Ruby,
 there is no built-in static typechecker, and thus type annotations are never
@@ -56,13 +56,12 @@ well-typed, but for which the typechecker will report an error.
 
 ### Opportunity: No runtime type checks
 
-In dynamically typed languages like JavaScript, Python, and Ruby, type errors
-occur at runtime. This means that, at runtime, we must check the type of a value
-before performing an operation on it, to know whether we must raise a type
-error.
+In dynamically typed languages, type errors occur at runtime. This means that,
+at runtime, we must check the type of a value before performing an operation on
+it, to know whether we must raise a type error.
 
-This is an performance penalty, since it takes some non-zero amount of CPU
-cycles and branching to perform these checks.
+This is an performance penalty, since it takes a small but non-zero amount of
+time to perform these checks.
 
 In statically typed languages, because the static typechecker knows the type of
 each term before the program runs, we know that, when our program is running, it
@@ -75,8 +74,8 @@ In dynamically typed languages, since we must know the type of each value at
 runtime, we must record the type of each value along with the value itself.
 
 This is another performance penalty, this time in the sense of storage space
-rather than CPU cycles, because must use a small amount of storage to tag each
-value with its type.
+rather than time, because must use a small amount of storage to tag each value
+with its type.
 
 In statically typed languages, we do not perform runtime type checks, and so we
 need not store the types of values at runtime.
@@ -95,13 +94,14 @@ Consider this short Rust function, which shows a value, its owner, and when the
 value is dropped:
 
 ```rs
-fn show_first() {
+fn show_len() {
   let xs = vec![2, 4, 6];
-  //       ^^^^^^^^^^^^^ a Vec literal value
-  //  ^^ `xs` is the owner of the Vec value
-  println!("First element: {:?}", xs.first());
+  //       ^^^^^^^^^^^^^ a Vec value
+  //  ^^ `xs` is the owner of the value
+  let len = xs.len();
+  println!("Length: {len}");
   // at the end of the `show_first` function,
-  // `xs` goes out of scope, so the value is freed
+  // `xs` goes out of scope, so the Vec is dropped
 }
 ```
 
@@ -145,10 +145,10 @@ additional information at runtime in this way imposes a performance penalty.
 
 ## Example: References
 
-Another unique feature of Rust is its system of references. In Rust, references
-largely replace pointers common in other languages.
+Another unique feature of Rust is its system of references. References in Rust
+are similar to pointers as in C and C++, but have some key differences.
 
-### Limitation: Only certain references can be created
+### Limitation: Creation and supposed operations
 
 References can be shared or exclusive, and Rust places limitations on what
 kinds of references can be created when, and what operations are permitted on
@@ -163,7 +163,6 @@ scope, Rust only allows mutating that value via that exclusive reference.
 
 ### Opportunity: `noalias` information passed to LLVM
 
-Rust references are represented as pointers when compiled down with LLVM.
 Because of the restrictions around using references in Rust, the Rust compiler
 can tell LLVM that exclusive references really are exclusive by adding `noalias`
 annotations to the compiled LLVM IR. Then, when the IR is compiled down to
