@@ -10,8 +10,7 @@ helpful resources that I use to study.
 
 [Website](https://jisho.org)
 
-Standard Japanese-English dictionary. The other direction works too. Simple
-interface, good content.
+Standard Japanese-English dictionary. Simple interface, good content.
 
 ## Tofugu: Learn the Kana
 
@@ -29,25 +28,21 @@ How to read the kana should definitely be the first thing to learn.
 
 [Website](http://www.guidetojapanese.org/learn/grammar/)
 
-Good as a grammar reference. Topics are basically ordered with more
-basic/fundamental ones first and more niche ones later.
+Good grammar reference. Topics are basically ordered with more basic/fundamental
+ones first and more niche ones later. All topics have example sentences, as well
+as explanations in English.
 
-It has some exercises for earlier topics and all topics, even advanced ones,
-have example sentences and explanations in English.
+I like this resource because it teaches Japanese grammar from the foundations.
 
-I like this resource because it doesn't just try to answer the question "How do
-I say this common thing from English" necessarily. It instead teaches Japanese
-grammar from the foundations.
-
-A good example of the difference between this approach and the usual approach is
-how the regular and polite forms are taught with each approach.
+For instance, consider how this resources teaches the "polite form".
 
 In Japanese, there is a regular form and a polite form of verbs. Most
 textbooks/resources will start by teaching the polite form, because this form is
-a good default to use when talking to practically anyone.
+the default to use when talking to most people.
 
-But then, when they later teach you the regular form, you realize that the
-regular form is the base form, and the polite form is derived from it.
+But then, when you later learn the regular form, it is only then you realize
+that the regular form is the actual base form of the word, and the polite form
+is derived from it.
 
 This guide instead first teaches the regular form and later tells you how to
 derive the polite form from it.
