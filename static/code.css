@@ -29,7 +29,7 @@ pre {
 
 code {
   font-family: Input, Menlo, Consolas, monospace;
-  padding: 0.2em 0.4em;
+  padding: 0.1em 0.3em;
   border-radius: 0.3em;
   background-color: var(--code-bg);
 }
