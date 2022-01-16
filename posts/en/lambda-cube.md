@@ -118,8 +118,8 @@ are known at compile time.
 
 Types like `[u32; N]` that contain, or "depend on", terms, are called dependent
 types. Not many programming languages fully support dependent types, likely due
-to their incredible expressive power. As seen in the example, Rust only permits
-limited usage of these types.
+to their [incredible expressive power][curry-howard]. As seen in the example,
+Rust only permits limited usage of these types.
 
 ## The lambda cube
 
@@ -196,3 +196,4 @@ And [functions][fun]:
 [jez]: https://jez.io
 [var]: https://blog.jez.io/variables-and-binding
 [fun]: https://blog.jez.io/system-f-param
+[curry-howard]: https://en.wikipedia.org/wiki/Curry–Howard_correspondence
