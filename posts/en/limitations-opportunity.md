@@ -26,11 +26,11 @@ are thus reported at runtime.
 
 ### Limitation: Type annotations
 
-Most statically typed languages, like C, Java, and Rust, require some amount of
-type annotations for function parameters, function return values, local
-variables, struct/class fields, etc. These annotations help the static
-typechecker determine the type of every term. But these languages thus limit the
-user by refusing to run programs lacking such annotations.
+Most (but [not][sml] [all][ocaml]) statically typed languages, like C, Java, and
+Rust, require some amount of type annotations for function parameters, function
+return values, local variables, struct/class fields, etc. These annotations help
+the static typechecker determine the type of every term. But these languages
+thus limit the user by refusing to run programs lacking such annotations.
 
 Meanwhile, in dynamically typed languages, like JavaScript, Python, and Ruby,
 there is no built-in static typechecker, and thus type annotations are never
@@ -351,3 +351,5 @@ here.
 [rust-analyzer]: https://rust-analyzer.github.io
 [term]: /posts/lambda-cube/
 [godel-first]: https://en.wikipedia.org/wiki/Gödel%27s_incompleteness_theorems#First_incompleteness_theorem
+[sml]: https://www.smlnj.org/sml97.html
+[ocaml]: https://ocaml.org
