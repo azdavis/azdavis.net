@@ -1,21 +1,21 @@
 body {
-  --code-fg-comment: rgb(40, 150, 50);
-  --code-fg-function: rgb(120, 90, 40);
-  --code-fg-keyword: rgb(20, 20, 250);
-  --code-fg-number: rgb(10, 130, 90);
-  --code-fg-string: rgb(160, 20, 20);
-  --code-fg-type: rgb(40, 130, 150);
+  --code-fg-comment: #289632;
+  --code-fg-function: #785a28;
+  --code-fg-keyword: #1414fa;
+  --code-fg-number: #0a825a;
+  --code-fg-string: #a01414;
+  --code-fg-type: #288296;
   --code-bg: #eee;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    --code-fg-comment: rgb(100, 150, 90);
-    --code-fg-function: rgb(220, 220, 170);
-    --code-fg-keyword: rgb(90, 150, 220);
-    --code-fg-number: rgb(180, 200, 170);
-    --code-fg-string: rgb(200, 150, 120);
-    --code-fg-type: rgb(80, 200, 170);
+    --code-fg-comment: #64965a;
+    --code-fg-function: #dcdcaa;
+    --code-fg-keyword: #5a96dc;
+    --code-fg-number: #b4c8aa;
+    --code-fg-string: #c89678;
+    --code-fg-type: #50c8aa;
     --code-bg: #444;
   }
 }
