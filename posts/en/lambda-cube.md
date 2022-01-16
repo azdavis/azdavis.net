@@ -154,7 +154,7 @@ to the 4 varieties of function discussed.
 Once we reach the calculus of constructions (CoC), the distinction between types
 and terms somewhat disappears, since each may freely appear in both themselves
 and the other. Indeed, as powerful as the CoC is, it has a very sparse syntax of
-terms:
+terms, fully described by the following [context-free grammar][cfg]:
 
 $$
 \begin{aligned}
@@ -197,3 +197,4 @@ And [functions][fun]:
 [var]: https://blog.jez.io/variables-and-binding
 [fun]: https://blog.jez.io/system-f-param
 [curry-howard]: https://en.wikipedia.org/wiki/Curry–Howard_correspondence
+[cfg]: https://en.wikipedia.org/wiki/Context-free_grammar
