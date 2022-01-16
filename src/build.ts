@@ -10,7 +10,7 @@ import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { post } from "./pages/post";
 import { postCmp, PostListItem, postsPage } from "./pages/posts";
-import { getPostData, PostData, postDir, postsDir } from "./post-data";
+import { feedUrl, getPostData, PostData, postDir, postsDir } from "./post-data";
 
 const siteBase = "https://azdavis.net";
 const buildDir = "build";
@@ -50,10 +50,9 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
   }
   items.sort(postCmp);
   const dir = postsDir(lang);
-  const feedBase = join(dir, "feed.xml");
-  const feedUrl = siteBase + feedBase;
-  await writeHtml(dir, postsPage(lang, feedBase, items));
-  const postsUrl = siteBase + dir + "/";
+  await writeHtml(dir, postsPage(lang, items));
+  const fullFeedUrl = siteBase + feedUrl(lang);
+  const fullPostsUrl = siteBase + dir + "/";
   const entries = items.map(
     (item) =>
       `<entry>
@@ -66,14 +65,14 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
   const feed = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="${lang}">
 <title>azdavis.net</title>
-<link href="${postsUrl}" />
-<link rel="self" type="application/atom+xml" href="${feedUrl}" />
-<id>${postsUrl}</id>
+<link href="${fullPostsUrl}" />
+<link rel="self" type="application/atom+xml" href="${fullFeedUrl}" />
+<id>${fullPostsUrl}</id>
 <author><name>Ariel Davis</name></author>
 <updated>${items[0].date.toISOString()}</updated>
 ${entries.join("\n")}
 </feed>`;
-  await writeFile(join(buildDir, feedBase), feed);
+  await writeFile(join(buildDir, feedUrl(lang)), feed);
 }
 
 async function getAllPostData(entries: string[]): Promise<Posts> {

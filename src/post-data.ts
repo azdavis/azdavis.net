@@ -31,3 +31,7 @@ export function postsDir(lang: Lang): string {
 export function postDir(lang: Lang, slug: string): string {
   return postsDir(lang) + "/" + slug + "/";
 }
+
+export function feedUrl(lang: Lang): string {
+  return postsDir(lang) + "/feed.xml";
+}
