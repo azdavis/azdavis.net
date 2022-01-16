@@ -150,7 +150,7 @@ additional information at runtime in this way imposes a performance penalty.
 Another unique feature of Rust is its system of references. References in Rust
 are similar to pointers as in C and C++, but have some key differences.
 
-### Limitation: Creation and supposed operations
+### Limitation: Creation and permitted operations
 
 References can be shared or exclusive, and Rust places limitations on what
 kinds of references can be created when, and what operations are permitted on
