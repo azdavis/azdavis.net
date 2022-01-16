@@ -11,10 +11,9 @@ One thing I learned from Professor Harper is that limitations engender
 opportunity. That is, if we limit our possibilities in one respect, we gain the
 opportunity to exploit these limitations to great effect in other respects.
 
-Let us explore some examples of limitations, or lack thereof, in programming
-languages, and what opportunities they unlock, or prevent. As we will see in
-these examples, the opportunity that we gain by imposing limitations is improved
-performance.
+Let us explore some examples of limitations in programming languages, and what
+opportunities they unlock. As we will see in these examples, the opportunity
+that we gain by imposing limitations is improved performance.
 
 ## Example: Static typing
 
