@@ -5,7 +5,12 @@ import katex from "remarkable-katex";
 import { DateShow } from "../date-show";
 import { Lang, name, root } from "../lang";
 import { Page, Style } from "../page";
-import { PostData, translations as posts } from "../post-data";
+import {
+  PostData,
+  postDir,
+  postsDir,
+  translations as posts,
+} from "../post-data";
 
 function highlight(code: string, language: string): string {
   if (!hl.getLanguage(language)) {
@@ -23,14 +28,6 @@ interface UnsafeHtml {
 
 function renderMd(content: string): UnsafeHtml {
   return { __html: md.render(content) };
-}
-
-export function postsDir(lang: Lang): string {
-  return root(lang) + "posts";
-}
-
-export function postDir(lang: Lang, slug: string): string {
-  return postsDir(lang) + "/" + slug + "/";
 }
 
 const styles: Style[] = ["base", "code", "katex/katex.min"];

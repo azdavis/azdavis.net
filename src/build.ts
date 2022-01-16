@@ -8,9 +8,9 @@ import { copyDir } from "./copy-dir";
 import { all, Lang } from "./lang";
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
-import { post, postDir, postsDir } from "./pages/post";
+import { post } from "./pages/post";
 import { postCmp, PostListItem, postsPage } from "./pages/posts";
-import { getPostData, PostData } from "./post-data";
+import { getPostData, PostData, postDir, postsDir } from "./post-data";
 
 const siteBase = "https://azdavis.net";
 const buildDir = "build";

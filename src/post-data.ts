@@ -1,4 +1,5 @@
 import matter from "gray-matter";
+import { Lang, root } from "./lang";
 
 export interface PostMetadata {
   title: string;
@@ -22,3 +23,11 @@ export function getPostData(contents: string): PostData {
 }
 
 export const translations = { en: "Posts", ja: "投稿" };
+
+export function postsDir(lang: Lang): string {
+  return root(lang) + "posts";
+}
+
+export function postDir(lang: Lang, slug: string): string {
+  return postsDir(lang) + "/" + slug + "/";
+}
