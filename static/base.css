@@ -54,7 +54,7 @@ img {
   display: block;
   max-width: 100%;
   background-color: #fff;
-  border-radius: 1em;
+  border-radius: 0.3em;
 }
 
 table {

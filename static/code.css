@@ -1,32 +1,43 @@
-pre {
+body {
   --code-fg-comment: rgb(40, 150, 50);
   --code-fg-function: rgb(120, 90, 40);
   --code-fg-keyword: rgb(20, 20, 250);
   --code-fg-number: rgb(10, 130, 90);
   --code-fg-string: rgb(160, 20, 20);
   --code-fg-type: rgb(40, 130, 150);
-  --code-bg: #f8f8f8;
-
-  overflow-x: auto;
-  border-radius: 1em;
-  padding: 0.5em;
-  background-color: var(--code-bg);
+  --code-bg: #eee;
 }
 
 @media (prefers-color-scheme: dark) {
-  pre {
+  body {
     --code-fg-comment: rgb(100, 150, 90);
     --code-fg-function: rgb(220, 220, 170);
     --code-fg-keyword: rgb(90, 150, 220);
     --code-fg-number: rgb(180, 200, 170);
     --code-fg-string: rgb(200, 150, 120);
     --code-fg-type: rgb(80, 200, 170);
-    --code-bg: #3a3a3a;
+    --code-bg: #444;
   }
+}
+
+pre {
+  overflow-x: auto;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  background-color: var(--code-bg);
 }
 
 code {
   font-family: Input, Menlo, Consolas, monospace;
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  background-color: var(--code-bg);
+}
+
+pre code {
+  padding: 0;
+  border-radius: 0;
+  background: none;
 }
 
 .hljs-comment {
