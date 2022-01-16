@@ -33,9 +33,14 @@ the static typechecker determine the type of every term. But these languages
 thus limit the user by refusing to run programs lacking such annotations.
 
 Meanwhile, in dynamically typed languages, like JavaScript, Python, and Ruby,
-there is no built-in static typechecker, and thus type annotations are never
-necessary. Usually they are not even possible to write, since the language has
-no static types, and thus affords no syntax for static type annotations.
+there is no static typechecker built in to the language, and thus type
+annotations are never necessary. Usually they are not even possible to write,
+since the language has no static types, and thus affords no syntax for static
+type annotations.
+
+Although there are static typecheckers for JavaScript ([TypeScript][ts],
+[Flow][flow]), Python ([MyPy][mypy]), and Ruby ([Sorbet][sorbet]), they are not
+required.
 
 ### Limitation: Incompleteness
 
@@ -353,3 +358,7 @@ here.
 [godel-first]: https://en.wikipedia.org/wiki/Gödel%27s_incompleteness_theorems#First_incompleteness_theorem
 [sml]: https://www.smlnj.org/sml97.html
 [ocaml]: https://ocaml.org
+[ts]: https://www.typescriptlang.org
+[flow]: https://flow.org
+[mypy]: http://mypy-lang.org
+[sorbet]: https://sorbet.org
