@@ -53,6 +53,7 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
   const feedBase = join(dir, "feed.xml");
   const feedUrl = siteBase + feedBase;
   await writeHtml(dir, postsPage(lang, feedBase, items));
+  const postsUrl = siteBase + dir + "/";
   const entries = items.map(
     (item) =>
       `<entry>
@@ -65,9 +66,9 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
   const feed = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="${lang}">
 <title>azdavis.net</title>
-<link href="${feedUrl}" />
+<link href="${postsUrl}" />
 <link rel="self" type="application/atom+xml" href="${feedUrl}" />
-<id>${feedUrl}</id>
+<id>${postsUrl}</id>
 <author><name>Ariel Davis</name></author>
 <updated>${items[0].date.toISOString()}</updated>
 ${entries.join("\n")}
