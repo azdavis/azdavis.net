@@ -55,11 +55,11 @@ export function index(lang: Lang): ReactElement {
   return (
     <Page lang={lang} title="man azdavis" styles={["base", "index"]}>
       <h1>{t.nameTitle}</h1>
-      <div className="sec">{t.nameContent}</div>
+      <div className="section">{t.nameContent}</div>
       <h1>{t.descTitle}</h1>
-      <div className="sec">{t.descContent}</div>
+      <div className="section">{t.descContent}</div>
       <h1>{t.pagesTitle}</h1>
-      <dl className="sec">
+      <dl className="section">
         <dt lang={t.otherLang}>
           <a href={root(t.otherLang)}>{t.otherLangTitle}</a>
         </dt>
@@ -74,7 +74,7 @@ export function index(lang: Lang): ReactElement {
         <dd>{t.githubDesc}</dd>
       </dl>
       <h1>{t.copyrightTitle}</h1>
-      <div className="sec">{t.copyrightDesc}</div>
+      <div className="section">{t.copyrightDesc}</div>
     </Page>
   );
 }
