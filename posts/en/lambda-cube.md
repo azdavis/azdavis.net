@@ -6,9 +6,9 @@ date: 2021-10-04
 Many programming languages have both terms and types. Terms are also sometimes
 called expressions.
 
-Terms, like `3` or `false`, denote the data being manipulated. By contrast,
-types, like `u32` (aka "unsigned 32-bit integer") or `bool`, describe what
-operations are permitted on terms.
+- Terms, like `3` or `false`, denote the data being manipulated.
+- Types, like `u32` (aka "unsigned 32-bit integer") or `bool`, describe what
+  operations are permitted on terms.
 
 For instance, if you have a term of type `u32`, you might be able to do things
 like add or subtract with other `u32`s. And if you have a term of type `bool`
