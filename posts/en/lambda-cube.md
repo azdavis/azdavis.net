@@ -6,33 +6,41 @@ date: 2021-10-04
 Many programming languages have both terms and types. Terms are also sometimes
 called expressions.
 
-Roughly speaking, terms, like `3` or `true`, denote the data being manipulated,
-while types, like `Number` or `Boolean`, describe what operations are permitted
-on terms.
+Terms, like `3` or `false`, denote the data being manipulated, while types, like
+`Number` or `Boolean`, describe what operations are permitted on terms.
 
 For instance, if you have a term of type `Number`, you might be able to do
 things like add or subtract with other `Number`s. And if you have a term of type
 `Boolean` (aka `true` or `false`), you could do things like negate it or use it
 to branch with an `if` construct.
 
-Common in most programming languages are functions, to which one may pass a term
-and get back a term. For instance, we could define the function `is_zero`, which
-takes a term of type `Number` and returns a term of type `Boolean`.
+Many programming languages also have functions. For example, we could define
+the function `is_zero`, which takes a term of type `Number` (like 3) and returns
+a term of type `Boolean` (like `false`).
 
-Given the existence of both types and terms, though, we can consider four
-distinct varieties of function:
+`is_zero` is a function from terms to terms. However, given the existence of
+both types and terms, there are $2^2 = 4$ distinct varieties of function to
+consider:
 
 1. From terms to terms
-1. From types to terms
-1. From types to types
-1. From terms to types
+2. From types to terms
+3. From types to types
+4. From terms to types
 
-Let us examine each in detail, and how each is uniquely useful.
+Let us examine some examples of each kind of function.
 
 ## Terms to terms
 
-As mentioned, the most common variety of function is the one that takes a term
+As mentioned, the most common kind of function is the one that takes a term
 and returns a term, like `is_zero`.
+
+For example, in Rust:
+
+```rs
+fn is_zero(n: u32) -> bool {
+  n == 0
+}
+```
 
 ## Types to terms
 
@@ -48,27 +56,37 @@ type. This is sometimes called a generic function.
 What we can do is allow the identity function to take a type argument. Let us
 call it `T`. We then take a term argument whose type is `T` and return it.
 
-The identity "function", then, is actually defined with two functions. First is
-a function that takes a type `T` and then returns a term. That term is also a
-function. It takes a term of type `T`, and then returns that term.
+In a sense, then, the identity "function" is actually defined with two
+functions. First is a function that takes a type `T` and then returns a term.
+That term is also a function. It takes a term `x` of type `T`, and then returns
+that term `x`.
+
+In Rust, the identity function is:
+
+```rs
+fn identity<T>(x: T) {
+  x
+}
+```
 
 ## Types to types
 
-Commonly found alongside generic functions are generic types.
+Many programming languages provide a list type, which is a ordered sequence of
+elements that can be dynamically added to and removed from. Different
+programming languages call this type different things: list, array, vector,
+sequence, and so on, but the general idea is the same.
 
-For instance, many programming languages provide a list data structure, which is
-a ordered sequence of elements that can be dynamically added to and removed
-from. Different programming languages call this data structure different things:
-list, array, vector, sequence, and so on, but the general idea is the same.
-
-We would like a list data structure to permit the elements stored to be any
+We would like a list type to permit the elements stored to be any
 fixed type. That is, instead of separately defining `NumberList` and
 `BooleanList`, we would like to just define `List`, and have it work for any
-element type.
+element type. This is called a generic type.
 
-Thus, `List` itself is not a type, but rather a function that takes a type (the
-type of the elements) and returns a type (the type of lists of that element
-type). So, if `T` is a type, then `List<T>` is the type of a list of `T`s.
+But note that `List` itself is not a type. Rather, it is a function that takes a
+type (the type of the elements) and returns a type (the type of lists of that
+element type).
+
+In Rust, the list type is called `Vec`. So, if `T` is a Rust type, then `Vec<T>`
+is the type of a vector of `T`s.
 
 ## Terms to types
 
@@ -83,52 +101,34 @@ const A: [u32; 3] = [2, 4, 6];
 ```
 
 defines `A` to be an array, with a fixed length of 3, of 32-bit unsigned
-integers.
+integers. Note that the term `3` appears in the type `[u32; 3]`.
 
-This is a limited form of allowing terms in types, since here, the term `3` is
-used in the type `[u32; 3]`.
-
-However, Rust rejects the following function type:
-
-```rs
-fn foo(n: usize) -> [u32; n]
-```
-
-With the following error:
-
-```text
-error[E0435]: attempt to use a non-constant value in a constant
- --> src/lib.rs:1:27
-  |
-1 | fn foo(n: usize) -> [u32; n]
-  |        -                  ^
-  |        |
-  |        this would need to be a `const`
-```
-
-We can take the Rust compiler's suggestion and make `n` a "const parameter" (and
-also capitalize it, to conform to style guidelines):
+As we've seen, Rust allows type-to-term and type-to-type functions via
+generic type arguments. Rust also allows for term-to-type functions with a
+feature called const generics:
 
 ```rs
-fn foo<const N: usize>() -> [u32; N]
+type SquareMatrix<const N: usize> = [[u32; N]; N];
 ```
 
-But now, because `N` is a const parameter, we can only pass values for it that
-are known at compile time.
+Here, `SquareMatrix` is a function from a term `N` of type `usize`, to the type
+of square matrices with dimension `N` of unsigned 32-bit integers.
 
 Types like `[u32; N]` that contain, or "depend on", terms, are called dependent
 types. Not many programming languages fully support dependent types, likely due
-to their [incredible expressive power][curry-howard]. As seen in the example,
-Rust only permits limited usage of these types.
+to their [incredible expressive power][curry-howard].
+
+Notably, Rust only permits using term-to-type functions when the terms are known
+before the program actually runs (aka, `const`).
 
 ## The lambda cube
 
 To reiterate, the four varieties of functions are:
 
 1. From terms to terms
-1. From types to terms
-1. From types to types
-1. From terms to types
+2. From types to terms
+3. From types to types
+4. From terms to types
 
 Most languages have term-term functions, but choose to allow or disallow the
 other three varieties of functions. There are three yes-or-no choices to make,
