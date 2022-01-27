@@ -11,8 +11,8 @@ const translations = {
       <>
         azdavis is a software engineer working at
         <a href="https://stripe.com">Stripe</a>. He acquired a major in computer
-        science, with a minor in Japanese studies, from Carnegie Mellon
-        University.
+        science, with a minor in Japanese studies, from
+        <a href="https://www.cmu.edu">Carnegie Mellon University</a>.
       </>
     ),
     pagesTitle: "PAGES",
@@ -34,7 +34,8 @@ const translations = {
         azdavisは
         <a href="https://stripe.com/jp">Stripe</a>
         で働いている開発者である。
-        カーネギーメロン大学でコンピューター科学の専攻と日本学の副専攻を取った。
+        <a href="https://www.cmu.edu">カーネギーメロン大学</a>
+        でコンピューター科学の専攻と日本学の副専攻を取った。
       </>
     ),
     pagesTitle: "ページ",
