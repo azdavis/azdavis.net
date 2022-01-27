@@ -89,6 +89,21 @@ element type).
 In Rust, the list type is called `Vec`. So, if `T` is a Rust type, then `Vec<T>`
 is the type of a vector of `T`s.
 
+We can combine type-to-term and type-to-type functions to write highly generic,
+reusable code. For instance, we could write a Rust function `push` that takes a
+vector and an element to add to the end of the vector, then returns the new
+vector.
+
+```rs
+fn push<T>(xs: Vec<T>, x: T) -> Vec<T>
+```
+
+Note that:
+
+- The `<T>` type parameter on `push` is an example of a type-to-term
+  function.
+- The `<T>` type argument passed to `Vec` is a usage of a type-to-type function.
+
 ## Terms to types
 
 Some languages have a fixed-length array type. This is a type which is a bit
