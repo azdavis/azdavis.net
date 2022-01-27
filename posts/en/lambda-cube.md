@@ -16,8 +16,8 @@ like add or subtract with other `u32`s. And if you have a term of type `bool`
 with an `if` construct.
 
 Many programming languages also have functions. For example, we could define the
-function `is_zero`, which takes a term of type `u32` (like 3) and returns a term
-of type `bool` (like `false`).
+function `is_zero`, which takes a term of type `u32` (like `3`) and returns a
+term of type `bool` (like `false`).
 
 `is_zero` is a function from terms to terms. However, given the existence of
 both types and terms, there are $2^2 = 4$ distinct varieties of function to
@@ -35,7 +35,7 @@ Let us examine some examples of each kind of function.
 As mentioned, the most common kind of function is the one that takes a term
 and returns a term, like `is_zero`.
 
-For example, in Rust:
+For example, in [Rust][]:
 
 ```rs
 fn is_zero(n: u32) -> bool {
@@ -199,3 +199,4 @@ And [functions][fun]:
 [fun]: https://blog.jez.io/system-f-param
 [curry-howard]: https://en.wikipedia.org/wiki/Curry–Howard_correspondence
 [cfg]: https://en.wikipedia.org/wiki/Context-free_grammar
+[rust]: https://www.rust-lang.org
