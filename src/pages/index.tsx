@@ -9,9 +9,9 @@ const translations = {
     descTitle: "DESCRIPTION",
     descContent: (
       <>
-        azdavis is a software engineer working at
+        azdavis is a software engineer working at{" "}
         <a href="https://stripe.com">Stripe</a>. He acquired a major in computer
-        science, with a minor in Japanese studies, from
+        science, with a minor in Japanese studies, from{" "}
         <a href="https://www.cmu.edu">Carnegie Mellon University</a>.
       </>
     ),
