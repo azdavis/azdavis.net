@@ -6,17 +6,18 @@ date: 2021-10-04
 Many programming languages have both terms and types. Terms are also sometimes
 called expressions.
 
-Terms, like `3` or `false`, denote the data being manipulated, while types, like
-`Number` or `Boolean`, describe what operations are permitted on terms.
+Terms, like `3` or `false`, denote the data being manipulated. By contrast,
+types, like `u32` (aka "unsigned 32-bit integer") or `bool`, describe what
+operations are permitted on terms.
 
-For instance, if you have a term of type `Number`, you might be able to do
-things like add or subtract with other `Number`s. And if you have a term of type
-`Boolean` (aka `true` or `false`), you could do things like negate it or use it
-to branch with an `if` construct.
+For instance, if you have a term of type `u32`, you might be able to do things
+like add or subtract with other `u32`s. And if you have a term of type `bool`
+(aka `true` or `false`), you could do things like negate it or use it to branch
+with an `if` construct.
 
-Many programming languages also have functions. For example, we could define
-the function `is_zero`, which takes a term of type `Number` (like 3) and returns
-a term of type `Boolean` (like `false`).
+Many programming languages also have functions. For example, we could define the
+function `is_zero`, which takes a term of type `u32` (like 3) and returns a term
+of type `bool` (like `false`).
 
 `is_zero` is a function from terms to terms. However, given the existence of
 both types and terms, there are $2^2 = 4$ distinct varieties of function to
