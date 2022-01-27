@@ -17,6 +17,15 @@ body {
   line-height: 1.5;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    --page-fg: #ddd;
+    --page-bg: #333;
+    --link-underline: #aaa;
+    --blockquote-fg: #bbb;
+  }
+}
+
 a {
   text-decoration: none;
   padding-bottom: 1px;
@@ -68,14 +77,5 @@ th {
 @media (max-width: 600px) {
   dd {
     margin-inline-start: 2ch;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    --page-fg: #ddd;
-    --page-bg: #333;
-    --link-underline: #aaa;
-    --blockquote-fg: #bbb;
   }
 }
