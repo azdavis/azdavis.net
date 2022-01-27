@@ -64,7 +64,7 @@ that term `x`.
 In Rust, the identity function is:
 
 ```rs
-fn identity<T>(x: T) {
+fn identity<T>(x: T) -> T {
   x
 }
 ```
