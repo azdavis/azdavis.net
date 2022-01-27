@@ -9,8 +9,9 @@ const translations = {
     descTitle: "DESCRIPTION",
     descContent: (
       <>
-        azdavis is a software engineer working at Stripe. He acquired a major in
-        computer science, with a minor in Japanese studies, from Carnegie Mellon
+        azdavis is a software engineer working at
+        <a href="https://stripe.com">Stripe</a>. He acquired a major in computer
+        science, with a minor in Japanese studies, from Carnegie Mellon
         University.
       </>
     ),
@@ -30,7 +31,9 @@ const translations = {
     descTitle: "説明",
     descContent: (
       <>
-        azdavisはStripeで働いている開発者である。
+        azdavisは
+        <a href="https://stripe.com/jp">Stripe</a>
+        で働いている開発者である。
         カーネギーメロン大学でコンピューター科学の専攻と日本学の副専攻を取った。
       </>
     ),
