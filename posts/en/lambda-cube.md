@@ -77,10 +77,10 @@ elements that can be dynamically added to and removed from. Different
 programming languages call this type different things: list, array, vector,
 sequence, and so on, but the general idea is the same.
 
-We would like a list type to permit the elements stored to be any
-fixed type. That is, instead of separately defining `NumberList` and
-`BooleanList`, we would like to just define `List`, and have it work for any
-element type. This is called a generic type.
+We would like a list type to permit the elements stored to be any fixed type.
+That is, instead of separately defining `ListOfU32` and `ListOfBool`, we would
+like to just define `List`, and have it work for any element type. This is
+called a generic type.
 
 But note that `List` itself is not a type. Rather, it is a function that takes a
 type (the type of the elements) and returns a type (the type of lists of that
