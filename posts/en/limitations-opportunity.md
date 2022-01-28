@@ -4,8 +4,8 @@ date: 2021-12-10
 ---
 
 In college, I took the class [Foundations of Programming Languages][pl-cmu],
-taught by Professor Robert Harper. In this class, we studied programming
-languages and [formal semantics][].
+taught by Professor Robert Harper. In this class, we studied
+[programming languages][pfpl] and [formal semantics][].
 
 One thing I learned from Professor Harper is that limitations engender
 opportunity. That is, if we limit our possibilities in one respect, we gain the
@@ -21,8 +21,8 @@ In statically typed programming languages, a typechecker statically (i.e. before
 runtime) determines the type of every [term][]. If the typechecker detects a
 type error, the program is not permitted to run.
 
-In dynamically typed languages, there is no static typechecker, and type errors
-are thus reported at runtime.
+In dynamically typed (or should I say [uni-typed][]) languages, there is no
+static typechecker, and type errors are thus reported at runtime.
 
 ### Limitation: Type annotations
 
@@ -352,6 +352,8 @@ here.
 
 [pl-cmu]: https://www.cs.cmu.edu/~rjsimmon/15312-s14/
 [formal semantics]: /posts/define-pl-01/
+[pfpl]: https://www.cs.cmu.edu/~rwh/pfpl/
+[uni-typed]: https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/
 [language server]: https://microsoft.github.io/language-server-protocol/
 [rust-analyzer]: https://rust-analyzer.github.io
 [term]: /posts/lambda-cube/
