@@ -21,8 +21,8 @@ In statically typed programming languages, a typechecker statically (i.e. before
 runtime) determines the type of every [term][]. If the typechecker detects a
 type error, the program is not permitted to run.
 
-In dynamically typed (or should I say [uni-typed][]) languages, there is no
-static typechecker, and type errors are thus reported at runtime.
+In [dynamically typed][uni-typed] languages, there is no static typechecker, and
+type errors are thus reported at runtime.
 
 ### Limitation: Type annotations
 
