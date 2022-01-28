@@ -57,7 +57,7 @@ a system is expressive enough, it cannot be both sound and complete.
 Thus, because we often desire a typechecker to be both sound, and as expressive
 as possible, it is often not possible for it to be complete.
 
-This means that there will almost always be programs that ought to be
+This means that there will almost always be programs that "ought" to be
 well-typed, but for which the typechecker will report an error.
 
 ### Opportunity: No runtime type checks
