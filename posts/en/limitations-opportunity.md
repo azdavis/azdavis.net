@@ -4,7 +4,7 @@ date: 2021-12-10
 ---
 
 In college, I took the class [Foundations of Programming Languages][pl-cmu],
-taught by Professor Robert Harper. In this class, we studied
+taught by Professor [Robert Harper][bob]. In this class, we studied
 [programming languages][pfpl] and [formal semantics][].
 
 One thing I learned from Professor Harper is that limitations engender
@@ -351,6 +351,7 @@ that we may no longer take advantage of the types of opportunities discussed
 here.
 
 [pl-cmu]: https://www.cs.cmu.edu/~rjsimmon/15312-s14/
+[bob]: https://www.cs.cmu.edu/~rwh/
 [formal semantics]: /posts/define-pl-01/
 [pfpl]: https://www.cs.cmu.edu/~rwh/pfpl/
 [uni-typed]: https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/
