@@ -127,8 +127,9 @@ feature called const generics:
 type SquareMatrix<const N: usize> = [[u32; N]; N];
 ```
 
-Here, `SquareMatrix` is a function from a term `N` of type `usize`, to the type
-of square matrices with dimension `N` of unsigned 32-bit integers.
+Here, `SquareMatrix` is a function from a term to a type. The input term `N` has
+type `usize`, and the output type is the type of square matrices, with dimension
+`N`, whose elements are unsigned 32-bit integers.
 
 Types like `[u32; N]` that contain, or "depend on", terms, are called dependent
 types. Not many programming languages fully support dependent types, likely due
