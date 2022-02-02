@@ -67,7 +67,7 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
 <title>azdavis.net</title>
 <link href="${fullPostsUrl}" />
 <link rel="self" type="application/atom+xml" href="${fullFeedUrl}" />
-<id>${fullPostsUrl}</id>
+<id>${fullFeedUrl}</id>
 <author><name>Ariel Davis</name></author>
 <updated>${items[0].date.toISOString()}</updated>
 ${entries.join("\n")}
