@@ -21,7 +21,7 @@ $\lambda (x: \tau) \ e$ is a function literal, taking one argument $x$ of type
 $\tau$ and evaluating $e$ when applied to an argument. $x$ may appear in the
 expression $e$.
 
-$e_1 \ e_2$ is an application expression, representing the application of the
+$e_1(e_2)$ is an application expression, representing the application of the
 function $e_1$ to the argument $e_2$.
 
 $\tau_1 \rightarrow \tau_2$ is the type of functions taking $\tau_1$ as input
@@ -38,7 +38,7 @@ e
 ::=  \ & \dots
 \\ | \ & x
 \\ | \ & \lambda (x: \tau) \ e
-\\ | \ & e_1 \ e_2
+\\ | \ & e_1(e_2)
 \end{aligned}
 $$
 
@@ -172,7 +172,7 @@ $$
     \Gamma \vdash e_1: \tau_1 \rightarrow \tau_2 \hspace{1em}
     \Gamma \vdash e_2: \tau_1
   }
-  {\Gamma \vdash e_1 \ e_2: \tau_2}
+  {\Gamma \vdash e_1(e_2): \tau_2}
 $$
 
 ## Dynamics: $e \ \mathsf{val}$ and $e \mapsto e'$
@@ -191,7 +191,7 @@ it's a value, we step the argument to a value as well:
 $$
 \frac
   {e_1 \mapsto e_1'}
-  {e_1 \ e_2 \mapsto e_1' \ e_2}
+  {e_1(e_2) \mapsto e_1'(e_2)}
 $$
 
 $$
@@ -200,7 +200,7 @@ $$
     e_1 \ \mathsf{val} \hspace{1em}
     e_2 \mapsto e_2'
   }
-  {e_1 \ e_2 \mapsto e_1 \ e_2'}
+  {e_1(e_2) \mapsto e_1(e_2')}
 $$
 
 Once both expressions are values, we can prove the first will be a function
@@ -274,8 +274,8 @@ $$
     [x \mapsto e_x] e_2 = e_2'
   }
   {
-    [x \mapsto e_x] e_1 \ e_2 =
-    e_1' \ e_2'
+    [x \mapsto e_x] e_1(e_2) =
+    e_1'(e_2')
   }
 $$
 
@@ -384,7 +384,7 @@ $$
     \mathsf{fv}(e_2) = s_2
   }
   {
-    \mathsf{fv}(e_1 \ e_2) =
+    \mathsf{fv}(e_1(e_2)) =
     s_1 \cup s_2
   }
 $$

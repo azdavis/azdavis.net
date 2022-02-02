@@ -15,7 +15,7 @@ date: 2021-05-22
 
 $\lambda (x: \tau) \ e$は関数定数で、$x$という$\tau$の型のある引数を一つ取り、実引数に適用されたら$e$を評価します。$x$は$e$の中に現れるのは可能です。
 
-$e_1 \ e_2$は関数適用式で、関数の$e_1$を実引数の$e_2$への適用を表現します。
+$e_1(e_2)$は関数適用式で、関数の$e_1$を実引数の$e_2$への適用を表現します。
 
 $\tau_1 \rightarrow \tau_2$は$\tau_1$を入力とし、$\tau_2$を出力とする関数の型です。
 
@@ -30,7 +30,7 @@ e
 ::=  \ & \dots
 \\ | \ & x
 \\ | \ & \lambda (x: \tau) \ e
-\\ | \ & e_1 \ e_2
+\\ | \ & e_1(e_2)
 \end{aligned}
 $$
 
@@ -145,7 +145,7 @@ $$
     \Gamma \vdash e_1: \tau_1 \rightarrow \tau_2 \hspace{1em}
     \Gamma \vdash e_2: \tau_1
   }
-  {\Gamma \vdash e_1 \ e_2: \tau_2}
+  {\Gamma \vdash e_1(e_2): \tau_2}
 $$
 
 ## 動的意味論：$e \ \mathsf{val}$と$e \mapsto e'$
@@ -163,7 +163,7 @@ $$
 $$
 \frac
   {e_1 \mapsto e_1'}
-  {e_1 \ e_2 \mapsto e_1' \ e_2}
+  {e_1(e_2) \mapsto e_1'(e_2)}
 $$
 
 $$
@@ -172,7 +172,7 @@ $$
     e_1 \ \mathsf{val} \hspace{1em}
     e_2 \mapsto e_2'
   }
-  {e_1 \ e_2 \mapsto e_1 \ e_2'}
+  {e_1(e_2) \mapsto e_1(e_2')}
 $$
 
 両方が値の時、関数は関数定数であることは証明できます。
@@ -240,8 +240,8 @@ $$
     [x \mapsto e_x] e_2 = e_2'
   }
   {
-    [x \mapsto e_x] e_1 \ e_2 =
-    e_1' \ e_2'
+    [x \mapsto e_x] e_1(e_2) =
+    e_1'(e_2')
   }
 $$
 
@@ -342,7 +342,7 @@ $$
     \mathsf{fv}(e_2) = s_2
   }
   {
-    \mathsf{fv}(e_1 \ e_2) =
+    \mathsf{fv}(e_1(e_2)) =
     s_1 \cup s_2
   }
 $$
