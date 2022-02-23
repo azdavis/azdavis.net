@@ -2,15 +2,15 @@ import hl from "highlight.js";
 import { Fragment, ReactElement } from "react";
 import { Remarkable } from "remarkable";
 import katex from "remarkable-katex";
-import { DateShow } from "../date-show";
-import { Lang, name, root } from "../lang";
-import { Page, Style } from "../page";
+import { DateShow } from "../components/DateShow";
+import { Page, Style } from "../components/Page";
+import { Lang, name, root } from "../util/lang";
 import {
   PostData,
   postDir,
   postsDir,
   translations as posts,
-} from "../post-data";
+} from "../util/post-data";
 
 function highlight(code: string, language: string): string {
   if (!hl.getLanguage(language)) {

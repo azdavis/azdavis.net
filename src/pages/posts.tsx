@@ -1,8 +1,8 @@
 import type { ReactElement } from "react";
-import { DateShow } from "../date-show";
-import { Lang, root } from "../lang";
-import { Page } from "../page";
-import { feedUrl, PostMetadata, translations } from "../post-data";
+import { DateShow } from "../components/DateShow";
+import { Page } from "../components/Page";
+import { Lang, root } from "../util/lang";
+import { feedUrl, PostMetadata, translations } from "../util/post-data";
 
 export interface PostListItem extends PostMetadata {
   path: string;

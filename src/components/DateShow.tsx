@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
-import { absurd } from "./absurd";
-import type { Lang } from "./lang";
+import { absurd } from "../util/absurd";
+import type { Lang } from "../util/lang";
 
 const options: Intl.DateTimeFormatOptions = {
   year: "numeric",

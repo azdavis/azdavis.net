@@ -4,13 +4,19 @@ import mkdirp from "mkdirp";
 import { basename, join } from "path";
 import type { ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { copyDir } from "./copy-dir";
-import { all, Lang } from "./lang";
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { post } from "./pages/post";
 import { postCmp, PostListItem, postsPage } from "./pages/posts";
-import { feedUrl, getPostData, PostData, postDir, postsDir } from "./post-data";
+import { copyDir } from "./util/copy-dir";
+import { all, Lang } from "./util/lang";
+import {
+  feedUrl,
+  getPostData,
+  PostData,
+  postDir,
+  postsDir,
+} from "./util/post-data";
 
 const siteBase = "https://azdavis.net";
 const buildDir = "build";

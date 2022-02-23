@@ -1,4 +1,4 @@
-import { Page } from "../page";
+import { Page } from "../components/Page";
 
 export const error404 = (
   <Page lang="en" title="404 Not Found" styles={["base"]}>

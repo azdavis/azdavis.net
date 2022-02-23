@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
-import { Lang, root } from "../lang";
-import { Page } from "../page";
+import { Page } from "../components/Page";
+import { Lang, root } from "../util/lang";
 
 const translations = {
   en: {
