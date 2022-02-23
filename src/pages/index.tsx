@@ -22,6 +22,8 @@ const translations = {
     postsTitle: "Posts",
     postsDesc: "An assortment of writings.",
     githubDesc: "A collection of repositories.",
+    contactTitle: "CONTACT",
+    contactDesc: "<first name>.z.<last name>@icloud.com",
     copyrightTitle: "COPYRIGHT",
     copyrightDesc: "Copyright 1998 Ariel Davis.",
   },
@@ -45,8 +47,10 @@ const translations = {
     postsTitle: "投稿",
     postsDesc: "文章の揃い。",
     githubDesc: "リポジトリーの集まり。",
+    contactTitle: "連絡",
+    contactDesc: "<名>.z.<姓>@icloud.com",
     copyrightTitle: "著作権",
-    copyrightDesc: "著作権１９９８アリエル・デイヴィス。",
+    copyrightDesc: "著作権１９９８アリエル・デイヴィス（Ariel Davis）。",
   },
 };
 
@@ -73,6 +77,8 @@ export function index(lang: Lang): ReactElement {
         </dt>
         <dd>{t.githubDesc}</dd>
       </dl>
+      <h1>{t.contactTitle}</h1>
+      <div className="section">{t.contactDesc}</div>
       <h1>{t.copyrightTitle}</h1>
       <div className="section">{t.copyrightDesc}</div>
     </Page>
