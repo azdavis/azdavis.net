@@ -12,8 +12,8 @@ opportunity. That is, if we limit our possibilities in one respect, we gain the
 opportunity to exploit these limitations to great effect in other respects.
 
 Let us explore some examples of limitations in programming languages, and what
-opportunities they unlock. As we will see in these examples, the opportunity
-that we gain by imposing limitations is improved performance.
+opportunities they unlock. In these examples, the opportunity that we gain by
+imposing limitations is improved performance.
 
 ## Example: Static typing
 
@@ -38,9 +38,13 @@ annotations are never necessary. Usually they are not even possible to write,
 since the language has no static types, and thus affords no syntax for static
 type annotations.
 
-Although there are static typecheckers for JavaScript ([TypeScript][ts],
-[Flow][flow]), Python ([MyPy][mypy]), and Ruby ([Sorbet][sorbet]), they are not
-required.
+Some dynamically typed languages have optional static typecheckers:
+
+- JavaScript has [TypeScript][ts] and [Flow][flow]
+- Python has [MyPy][mypy]
+- Ruby has [Sorbet][sorbet]
+
+However, they are not required.
 
 ### Limitation: Incompleteness
 
@@ -101,13 +105,14 @@ value is dropped:
 
 ```rs
 fn show_len() {
-  let xs = vec![2, 4, 6];
+  let xs = vec![2, 4, 7];
   //       ^^^^^^^^^^^^^ a Vec value
   //  ^^ `xs` is the owner of the value
   let len = xs.len();
   println!("Length: {len}");
-  // at the end of the `show_first` function,
-  // `xs` goes out of scope, so the Vec is dropped
+  // at the end of this function,
+  // `xs` goes out of scope.
+  // so, the Vec value is dropped.
 }
 ```
 
@@ -123,31 +128,33 @@ difficult (but not impossible) to express. This includes data structures like:
 
 ### Opportunity: Static automatic memory management
 
-Rust uses the strict rules of ownership, enforced statically by the compiler, to
-automatically insert memory allocations and deallocations where needed. This
-distinguishes Rust from nearly every other programming language in widespread
-use.
+When compiling a Rust program, the compiler uses the rules of ownership to
+automatically insert memory allocations and deallocations exactly where needed.
+This distinguishes Rust from nearly every other programming language in
+widespread use.
 
 Some languages, like C and C++, require the programmer to explicitly allocate
-and free memory. This makes it hard to write programs free of memory errors
-like:
+and free memory. This makes it hard to write programs free of memory errors.
+There are many forms of memory errors:
 
-- Memory leaks, where we fail to deallocate memory that won't be used anymore
-- Double-frees, where we attempt to deallocate memory that has already been
-  deallocated
-- Uses-after-free, where we erroneously access memory that has already been
-  deallocated
+- Memory leak: we fail to deallocate memory that won't be used anymore
+- Double free: we attempt to deallocate memory that has already been deallocated
+- Use after free: we access memory that has already been deallocated
+- Out of bounds: we access memory right next to memory we own
+- Segmentation fault: we attempt to access memory in a restricted area, and the
+  operating system intervenes to prevent this
 
-In Rust, because of the ownership system, these memory issues are far less
-common.
+In Rust, because allocations and deallocations are automatically inserted where
+appropriate, these memory issues are far less common.
 
 Most other languages use either a garbage collector or reference counting to
 automatically manage memory. In these systems, it is not statically known when
 memory should get deallocated. Thus, the runtime system decides when to
 deallocate memory while the program is running.
 
-Much as in the discussion of static versus dynamic typing, computing and storing
-additional information at runtime in this way imposes a performance penalty.
+Much as in the discussion of static versus dynamic typing, computing, storing,
+and acting upon additional information at runtime in this way imposes a
+performance penalty.
 
 ## Example: References
 
