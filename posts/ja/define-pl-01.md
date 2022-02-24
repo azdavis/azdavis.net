@@ -43,18 +43,18 @@ C、C++、[Go][go-spec]、[JavaScript][js-spec]（最も正しい名前は ECMAS
 
 今のところ、発言には整数とブーリアンだけです。
 
-整数を$\mathtt{123}$か$\mathtt{-456}$か$\mathtt{0}$のような定数の式で表します。整数は無限なので、定数も無限です。整数の最大限などの実用的な配慮を今のところ無視します。
+整数を$\mathsf{123}$か$\mathsf{-456}$か$\mathsf{0}$のような定数の式で表します。整数は無限なので、定数も無限です。整数の最大限などの実用的な配慮を今のところ無視します。
 
-ブーリアンの真を$\mathtt{true}$で、偽を$\mathtt{false}$で表記します。
+ブーリアンの真を$\mathsf{true}$で、偽を$\mathsf{false}$で表記します。
 
 最後に、条件式を追加します：
 
-$$\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3$$
+$$\mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3$$
 
 これはまず$e_1$を評価します。次に
 
-- それは$\mathtt{true}$であれば$e_2$を評価し；
-- それは$\mathtt{false}$であれば$e_3$を評価します。
+- それは$\mathsf{true}$であれば$e_2$を評価し；
+- それは$\mathsf{false}$であれば$e_3$を評価します。
 
 発言は小さな言語であることは意図的です。言語その物がそれ程複雑ではないから、その言語を仕様する形式手法は少しでも慣れやすくなる、というのは目的です。
 
@@ -68,9 +68,9 @@ $$
 \begin{aligned}
 e
 ::=  \ & \overline{n}
-\\ | \ & \mathtt{true}
-\\ | \ & \mathtt{false}
-\\ | \ & \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+\\ | \ & \mathsf{true}
+\\ | \ & \mathsf{false}
+\\ | \ & \mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3
 \end{aligned}
 $$
 
@@ -103,13 +103,13 @@ $$
 $$
 \frac
   {}
-  {\mathtt{true} \ \mathsf{val}}
+  {\mathsf{true} \ \mathsf{val}}
 $$
 
 $$
 \frac
   {}
-  {\mathtt{false} \ \mathsf{val}}
+  {\mathsf{false} \ \mathsf{val}}
 $$
 
 発言ではこれらだけが値です。しかし条件式はどうでしょう。
@@ -122,37 +122,37 @@ $$
 
 これで「式を評価する」というのは式が値になるまで新たな式へと踏み出すということになります。
 
-発言では、唯一踏み出せる式は条件式です。まず、その$\mathtt{if}$と$\mathtt{then}$の間にある$e_1$という式が踏み出すことができればその$e_1$を囲む条件式自体が他の$e_2$や$e_3$を変えずに踏み出せます。
+発言では、唯一踏み出せる式は条件式です。まず、その$\mathsf{if}$と$\mathsf{then}$の間にある$e_1$という式が踏み出すことができればその$e_1$を囲む条件式自体が他の$e_2$や$e_3$を変えずに踏み出せます。
 
 $$
 \frac
   {e_1 \mapsto e_1'}
   {
     \begin{aligned}
-      &\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \mapsto
-    \\&\mathtt{if} \ e_1' \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+      &\mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3 \mapsto
+    \\&\mathsf{if} \ e_1' \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3
     \end{aligned}
   }
 $$
 
-そして、$e_1$が値だったらどうするか定義します。$\mathtt{true}$だったら$e_3$を無視しながら$e_2$に踏み出します。
+そして、$e_1$が値だったらどうするか定義します。$\mathsf{true}$だったら$e_3$を無視しながら$e_2$に踏み出します。
 
 $$
 \frac
   {}
   {
-    \mathtt{if} \ \mathtt{true} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \ \mapsto
+    \mathsf{if} \ \mathsf{true} \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3 \ \mapsto
     e_2
   }
 $$
 
-$\mathtt{false}$だったら逆に$e_2$を無視しならが$e_3$に踏み出します。
+$\mathsf{false}$だったら逆に$e_2$を無視しならが$e_3$に踏み出します。
 
 $$
 \frac
   {}
   {
-    \mathtt{if} \ \mathtt{false} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \mapsto
+    \mathsf{if} \ \mathsf{false} \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3 \mapsto
     e_3
   }
 $$
@@ -170,12 +170,12 @@ $$
 しかしこの定義では評価できない式が存在してしまいます。例えば：
 
 $$
-\mathtt{if} \ \mathtt{1} \
-  \mathtt{then} \ \mathtt{2} \
-  \mathtt{else} \ \mathtt{3}
+\mathsf{if} \ \mathsf{1} \
+  \mathsf{then} \ \mathsf{2} \
+  \mathsf{else} \ \mathsf{3}
 $$
 
-この式は踏み出せません。なぜなら$e_1$が$\mathtt{true}$か$\mathtt{false}$か踏み出せる場合だけ踏み出しを定義しました。$e_1$が整数である場合、何も定義しなかったのです。
+この式は踏み出せません。なぜなら$e_1$が$\mathsf{true}$か$\mathsf{false}$か踏み出せる場合だけ踏み出しを定義しました。$e_1$が整数である場合、何も定義しなかったのです。
 
 なのに、この式は値でもないのです。この式は嵌ったとしか言えません。
 
@@ -185,21 +185,21 @@ $$
 \frac
   {}
   {
-    \mathtt{if} \ \mathtt{0} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+    \mathsf{if} \ \mathsf{0} \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3
     \mapsto e_3
   }
 $$
 
 $$
 \frac
-  {\overline{n} \ne \mathtt{0}}
+  {\overline{n} \ne \mathsf{0}}
   {
-    \mathtt{if} \ \overline{n} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+    \mathsf{if} \ \overline{n} \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3
     \mapsto e_2
   }
 $$
 
-これは$\mathtt{0}$を$\mathtt{false}$とし、他の整数を$\mathtt{true}$とします。
+これは$\mathsf{0}$を$\mathsf{false}$とし、他の整数を$\mathsf{true}$とします。
 
 二番目の手は「有効な式」を定義し、その有効な式だけを評価します。ここではその選択肢にします。
 
@@ -214,8 +214,8 @@ $$
 $$
 \begin{aligned}
 \tau
-::=  \ & \mathtt{Int}
-\\ | \ & \mathtt{Bool}
+::=  \ & \mathsf{Int}
+\\ | \ & \mathsf{Bool}
 \end{aligned}
 $$
 
@@ -226,19 +226,19 @@ $e: \tau$の規則を作り上げることにより定義します。整数定�
 $$
 \frac
   {}
-  {\overline{n}: \mathtt{Int}}
+  {\overline{n}: \mathsf{Int}}
 $$
 
 $$
 \frac
   {}
-  {\mathtt{true}: \mathtt{Bool}}
+  {\mathsf{true}: \mathsf{Bool}}
 $$
 
 $$
 \frac
   {}
-  {\mathtt{false}: \mathtt{Bool}}
+  {\mathsf{false}: \mathsf{Bool}}
 $$
 
 条件式は、$e_1$の型はブーリアンであることを前提とします。$e_2$と$e_3$の型は任意で同じというのも前提です。そしてその型は条件式の型になります。
@@ -246,19 +246,19 @@ $$
 $$
 \frac
   {
-    e_1: \mathtt{Bool} \hspace{1em}
+    e_1: \mathsf{Bool} \hspace{1em}
     e_2: \tau \hspace{1em}
     e_3: \tau
   }
-  {\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3: \tau}
+  {\mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3: \tau}
 $$
 
 $e_1$の型はブーリアンだから先のような式はもう静的意味論により禁止されています：
 
 $$
-\mathtt{if} \ \mathtt{1} \
-  \mathtt{then} \ \mathtt{2} \
-  \mathtt{else} \ \mathtt{3}
+\mathsf{if} \ \mathsf{1} \
+  \mathsf{then} \ \mathsf{2} \
+  \mathsf{else} \ \mathsf{3}
 $$
 
 これで静的意味論を完了しました。

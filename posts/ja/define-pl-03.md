@@ -15,9 +15,9 @@ date: 2021-06-05
 
 ペアを使い他のペアを合わせることによって、二個の型以上の積を作り上げられます。
 
-ペアを使用する為、中身の値を抽出せねば。その為$e \cdot \mathtt{L}$と$e \cdot \mathtt{R}$の射影式も追加します。$e$はペアであれば、この式は左と右の値をペアから射影します。
+ペアを使用する為、中身の値を抽出せねば。その為$e \cdot \mathsf{L}$と$e \cdot \mathsf{R}$の射影式も追加します。$e$はペアであれば、この式は左と右の値をペアから射影します。
 
-次、他の型を一切含まぬ積型を紹介します。この型を「単位」（unit）と呼び、$\mathbf{1}$で表記します。値が一つだけあるので、その値も「単位」と呼び、$\langle \rangle$で表記します。
+次、他の型を一切含まぬ積型を紹介します。この型を「単位」（unit）と呼び、$\mathsf{1}$で表記します。値が一つだけあるので、その値も「単位」と呼び、$\langle \rangle$で表記します。
 
 値が一つしかないから、単位型はあまり役立たないと思われるかもしれません。しかし、関数から何も戻したくなかったら役立てます。
 
@@ -36,7 +36,7 @@ $$
 \begin{aligned}
 \tau
 ::=  \ & \dots
-\\ | \ & \mathbf{1}
+\\ | \ & \mathsf{1}
 \\ | \ & \tau_1 \times \tau_2
 \\
 \\
@@ -44,8 +44,8 @@ e
 ::=  \ & \dots
 \\ | \ & \langle \rangle
 \\ | \ & \langle e_1, e_2 \rangle
-\\ | \ & e \cdot \mathtt{L}
-\\ | \ & e \cdot \mathtt{R}
+\\ | \ & e \cdot \mathsf{L}
+\\ | \ & e \cdot \mathsf{R}
 \end{aligned}
 $$
 
@@ -56,7 +56,7 @@ $$
 $$
 \frac
   {}
-  {\Gamma \vdash \langle \rangle: \mathbf{1}}
+  {\Gamma \vdash \langle \rangle: \mathsf{1}}
 $$
 
 式が二つあって、それぞれには型があれば、ペアを作り出せます。
@@ -75,13 +75,13 @@ $$
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e \cdot \mathtt{L}: \tau_1}
+  {\Gamma \vdash e \cdot \mathsf{L}: \tau_1}
 $$
 
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e \cdot \mathtt{R}: \tau_2}
+  {\Gamma \vdash e \cdot \mathsf{R}: \tau_2}
 $$
 
 ## 動的意味論
@@ -129,25 +129,25 @@ $$
 $$
 \frac
   {e \mapsto e'}
-  {e \cdot \mathtt{L} \mapsto e' \cdot \mathtt{L}}
+  {e \cdot \mathsf{L} \mapsto e' \cdot \mathsf{L}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle \cdot \mathtt{L} \mapsto e_1}
+  {\langle e_1, e_2 \rangle \cdot \mathsf{L} \mapsto e_1}
 $$
 
 $$
 \frac
   {e \mapsto e'}
-  {e \cdot \mathtt{R} \mapsto e' \cdot \mathtt{R}}
+  {e \cdot \mathsf{R} \mapsto e' \cdot \mathsf{R}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle \cdot \mathtt{R} \mapsto e_2}
+  {\langle e_1, e_2 \rangle \cdot \mathsf{R} \mapsto e_2}
 $$
 
 ## 助手
@@ -174,13 +174,13 @@ $$
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1 \cdot \mathtt{L} = e_1' \cdot \mathtt{L}}
+  {[x \mapsto e] e_1 \cdot \mathsf{L} = e_1' \cdot \mathsf{L}}
 $$
 
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1 \cdot \mathtt{R} = e_1' \cdot \mathtt{R}}
+  {[x \mapsto e] e_1 \cdot \mathsf{R} = e_1' \cdot \mathsf{R}}
 $$
 
 ### 自由変数
@@ -203,13 +203,13 @@ $$
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e \cdot \mathtt{L}) = s}
+  {\mathsf{fv}(e \cdot \mathsf{L}) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e \cdot \mathtt{R}) = s}
+  {\mathsf{fv}(e \cdot \mathsf{R}) = s}
 $$
 
 ## 語源
@@ -218,21 +218,21 @@ $$
 
 積型は何ゆえそう呼ばれているかと聞くと、型の値の数が原因です。積型にある型の値の数をかければ、積型の値の数になります。
 
-例えば$\mathtt{Bool}$には値が二つあります。$\mathtt{true}$と$\mathtt{false}$。
+例えば$\mathsf{Bool}$には値が二つあります。$\mathsf{true}$と$\mathsf{false}$。
 
-では$\mathtt{Bool} \times \mathtt{Bool}$という型には値がいくつありますか。それは四つ。
+では$\mathsf{Bool} \times \mathsf{Bool}$という型には値がいくつありますか。それは四つ。
 
-1. $\langle \mathtt{true}, \mathtt{true} \rangle$
-1. $\langle \mathtt{true}, \mathtt{false} \rangle$
-1. $\langle \mathtt{false}, \mathtt{true} \rangle$
-1. $\langle \mathtt{false}, \mathtt{false} \rangle$
+1. $\langle \mathsf{true}, \mathsf{true} \rangle$
+1. $\langle \mathsf{true}, \mathsf{false} \rangle$
+1. $\langle \mathsf{false}, \mathsf{true} \rangle$
+1. $\langle \mathsf{false}, \mathsf{false} \rangle$
 
-$\mathtt{Bool} \times \mathbf{1}$も見ましょう。$\mathtt{Bool}$と同じく、値が二つあります。
+$\mathsf{Bool} \times \mathsf{1}$も見ましょう。$\mathsf{Bool}$と同じく、値が二つあります。
 
-1. $\langle \mathtt{true}, \langle \rangle \rangle$
-1. $\langle \mathtt{false}, \langle \rangle \rangle$
+1. $\langle \mathsf{true}, \langle \rangle \rangle$
+1. $\langle \mathsf{false}, \langle \rangle \rangle$
 
-ですから単位の型を$\mathbf{1}$で書くのは妥当です。単位の型である$\mathbf{1}$は、積型の$\times$の単位元です。
+ですから単位の型を$\mathsf{1}$で書くのは妥当です。単位の型である$\mathsf{1}$は、積型の$\times$の単位元です。
 
 整数なら、任意の整数$a$を取れば、
 
@@ -242,7 +242,7 @@ $$a \times 1 = a$$
 
 同様に、$|\tau|$というのを「$\tau$の値の数」という意味を付け、任意な型$\tau$を取れば、
 
-$$|\tau \times \mathbf{1}| = |\tau|$$
+$$|\tau \times \mathsf{1}| = |\tau|$$
 
 ここでは$\times$は積型。
 

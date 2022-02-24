@@ -27,10 +27,10 @@ First we have the binary sum type, denoted with $\tau_1 + \tau_2$ and called
 type $\tau_1$ or the right type $\tau_2$.
 
 However, the values must be "tagged" with whether they are the left or right
-type. We add two new expressions, $\mathtt{L} \ e$ and $\mathtt{R} \ e$, to do
+type. We add two new expressions, $\mathsf{L} \ e$ and $\mathsf{R} \ e$, to do
 this tagging. These are sometimes called "injections".
 
-The sum type that is a choice between no types is written $\mathbf{0}$ and
+The sum type that is a choice between no types is written $\mathsf{0}$ and
 called "never", because we can never have a value of this type.
 
 Although it may seem odd to have a type with no values, the never type can be
@@ -64,18 +64,18 @@ $$
 \begin{aligned}
 \tau
 ::=  \ & \dots
-\\ | \ & \mathbf{0}
+\\ | \ & \mathsf{0}
 \\ | \ & \tau_1 + \tau_2
 \\
 \\
 e
 ::=  \ & \dots
-\\ | \ & \mathtt{L} \ e
-\\ | \ & \mathtt{R} \ e
-\\ | \ & \mathtt{case} \ e \ \{ \}
-\\ | \ & \mathtt{case} \ e \ \{
-    \mathtt{L} \ x_1 . e_1,
-    \mathtt{R} \ x_2 . e_2
+\\ | \ & \mathsf{L} \ e
+\\ | \ & \mathsf{R} \ e
+\\ | \ & \mathsf{case} \ e \ \{ \}
+\\ | \ & \mathsf{case} \ e \ \{
+    \mathsf{L} \ x_1 . e_1,
+    \mathsf{R} \ x_2 . e_2
     \}
 \end{aligned}
 $$
@@ -88,7 +88,7 @@ right type can be any type.
 $$
 \frac
   {\Gamma \vdash e: \tau_1}
-  {\Gamma \vdash \mathtt{L} \ e: \tau_1 + \tau_2}
+  {\Gamma \vdash \mathsf{L} \ e: \tau_1 + \tau_2}
 $$
 
 Similar with the right injection.
@@ -96,7 +96,7 @@ Similar with the right injection.
 $$
 \frac
   {\Gamma \vdash e: \tau_2}
-  {\Gamma \vdash \mathtt{R} \ e: \tau_1 + \tau_2}
+  {\Gamma \vdash \mathsf{R} \ e: \tau_1 + \tau_2}
 $$
 
 The empty case requires that its "head" be never type, but permits the result of
@@ -106,8 +106,8 @@ can do anything we want.
 
 $$
 \frac
-  {\Gamma \vdash e: \mathbf{0}}
-  {\Gamma \vdash \mathtt{case} \ e \ \{ \}: \tau}
+  {\Gamma \vdash e: \mathsf{0}}
+  {\Gamma \vdash \mathsf{case} \ e \ \{ \}: \tau}
 $$
 
 The either case requires its head be an either type. Then, each respective case
@@ -126,9 +126,9 @@ $$
     \end{aligned}
   }
   {
-    \Gamma \vdash \mathtt{case} \ e \ \{
-      \mathtt{L} \ x_1 . e_1,
-      \mathtt{R} \ x_2 . e_2
+    \Gamma \vdash \mathsf{case} \ e \ \{
+      \mathsf{L} \ x_1 . e_1,
+      \mathsf{R} \ x_2 . e_2
     \}: \tau
   }
 $$
@@ -140,7 +140,7 @@ The left injection is a value if its argument is a value.
 $$
 \frac
   {e \ \mathsf{val}}
-  {\mathtt{L} \ e \ \mathsf{val}}
+  {\mathsf{L} \ e \ \mathsf{val}}
 $$
 
 Same with the right.
@@ -148,7 +148,7 @@ Same with the right.
 $$
 \frac
   {e \ \mathsf{val}}
-  {\mathtt{R} \ e \ \mathsf{val}}
+  {\mathsf{R} \ e \ \mathsf{val}}
 $$
 
 If the left injection's argument steps, then the whole injection steps.
@@ -156,7 +156,7 @@ If the left injection's argument steps, then the whole injection steps.
 $$
 \frac
   {e \mapsto e'}
-  {\mathtt{L} \ e \mapsto \mathtt{L} \ e'}
+  {\mathsf{L} \ e \mapsto \mathsf{L} \ e'}
 $$
 
 And same as the right.
@@ -164,7 +164,7 @@ And same as the right.
 $$
 \frac
   {e \mapsto e'}
-  {\mathtt{R} \ e \mapsto \mathtt{R} \ e'}
+  {\mathsf{R} \ e \mapsto \mathsf{R} \ e'}
 $$
 
 If the empty case's head can step, so can the whole case.
@@ -172,7 +172,7 @@ If the empty case's head can step, so can the whole case.
 $$
 \frac
   {e \mapsto e'}
-  {\mathtt{case} \ e \ \{ \} \mapsto \mathtt{case} \ e' \ \{ \}}
+  {\mathsf{case} \ e \ \{ \} \mapsto \mathsf{case} \ e' \ \{ \}}
 $$
 
 And same with the binary case.
@@ -182,14 +182,14 @@ $$
   {e \mapsto e'}
   {
     \begin{aligned}
-      & \mathtt{case} \ e \ \{
-        \mathtt{L} \ x_1 . e_1,
-        \mathtt{R} \ x_2 . e_2
+      & \mathsf{case} \ e \ \{
+        \mathsf{L} \ x_1 . e_1,
+        \mathsf{R} \ x_2 . e_2
       \}
       \mapsto \\
-      & \mathtt{case} \ e' \ \{
-        \mathtt{L} \ x_1 . e_1,
-        \mathtt{R} \ x_2 . e_2
+      & \mathsf{case} \ e' \ \{
+        \mathsf{L} \ x_1 . e_1,
+        \mathsf{R} \ x_2 . e_2
       \}
     \end{aligned}
   }
@@ -201,13 +201,13 @@ the argument, bind it to the left variable, and step into the left expression.
 $$
 \frac
   {
-    \mathtt{L} \ e \ \mathsf{val} \hspace{1em}
+    \mathsf{L} \ e \ \mathsf{val} \hspace{1em}
     [x_1 \mapsto e] e_1 = e'
   }
   {
-    \mathtt{case} \ \mathtt{L} \ e \ \{
-      \mathtt{L} \ x_1 . e_1,
-      \mathtt{R} \ x_2 . e_2
+    \mathsf{case} \ \mathsf{L} \ e \ \{
+      \mathsf{L} \ x_1 . e_1,
+      \mathsf{R} \ x_2 . e_2
     \} \mapsto e'
   }
 $$
@@ -217,13 +217,13 @@ And similarly with the right.
 $$
 \frac
   {
-    \mathtt{R} \ e \ \mathsf{val} \hspace{1em}
+    \mathsf{R} \ e \ \mathsf{val} \hspace{1em}
     [x_2 \mapsto e] e_2 = e'
   }
   {
-    \mathtt{case} \ \mathtt{R} \ e \ \{
-      \mathtt{L} \ x_1 . e_1,
-      \mathtt{R} \ x_2 . e_2
+    \mathsf{case} \ \mathsf{R} \ e \ \{
+      \mathsf{L} \ x_1 . e_1,
+      \mathsf{R} \ x_2 . e_2
     \} \mapsto e'
   }
 $$
@@ -237,19 +237,19 @@ Just as last time, updating the helper judgments is a mostly mechanical process.
 $$
 \frac
   {[x \mapsto e_x] e = e'}
-  {[x \mapsto e_x] \mathtt{L} \ e = \mathtt{L} \ e'}
+  {[x \mapsto e_x] \mathsf{L} \ e = \mathsf{L} \ e'}
 $$
 
 $$
 \frac
   {[x \mapsto e_x] e = e'}
-  {[x \mapsto e_x] \mathtt{R} \ e = \mathtt{R} \ e'}
+  {[x \mapsto e_x] \mathsf{R} \ e = \mathsf{R} \ e'}
 $$
 
 $$
 \frac
   {[x \mapsto e_x] e = e'}
-  {[x \mapsto e_x] \mathtt{case} \ e \ \{\} = \mathtt{case} \ e' \ \{\}}
+  {[x \mapsto e_x] \mathsf{case} \ e \ \{\} = \mathsf{case} \ e' \ \{\}}
 $$
 
 For the binary case, we cheat a bit and re-use the definition of substitution
@@ -275,14 +275,14 @@ $$
   {
     \begin{aligned}
       & [x \mapsto e_x]
-    \\& \mathtt{case} \ e \ \{
-        \mathtt{L} \ x_1 . e_1,
-        \mathtt{R} \ x_2 . e_2
+    \\& \mathsf{case} \ e \ \{
+        \mathsf{L} \ x_1 . e_1,
+        \mathsf{R} \ x_2 . e_2
       \}
       = \\
-      & \mathtt{case} \ e' \ \{
-        \mathtt{L} \ x_1 . e_1',
-        \mathtt{R} \ x_2 . e_2'
+      & \mathsf{case} \ e' \ \{
+        \mathsf{L} \ x_1 . e_1',
+        \mathsf{R} \ x_2 . e_2'
       \}
     \end{aligned}
   }
@@ -293,19 +293,19 @@ $$
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(\mathtt{L} \ e) = s}
+  {\mathsf{fv}(\mathsf{L} \ e) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(\mathtt{R} \ e) = s}
+  {\mathsf{fv}(\mathsf{R} \ e) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(\mathtt{case} \ e \ \{\}) = s}
+  {\mathsf{fv}(\mathsf{case} \ e \ \{\}) = s}
 $$
 
 $$
@@ -317,9 +317,9 @@ $$
   }
   {
     \begin{aligned}
-    \mathsf{fv}(&\mathtt{case} \ e \ \{
-      \mathtt{L} \ x_1 . e_1,
-      \mathtt{R} \ x_2 . e_2
+    \mathsf{fv}(&\mathsf{case} \ e \ \{
+      \mathsf{L} \ x_1 . e_1,
+      \mathsf{R} \ x_2 . e_2
     \})
     = \\
     & s \cup (s_1 \setminus \{ x_1 \}) \cup (s_2 \setminus \{ x_2 \})
@@ -333,13 +333,13 @@ Sum types, similarly to product types, are so named because of how the number of
 values in the sum or product type relates to the number of values in the other
 types.
 
-For instance, $|\mathtt{Bool} + \mathbf{1}| = 2 + 1 = 3$:
+For instance, $|\mathsf{Bool} + \mathsf{1}| = 2 + 1 = 3$:
 
-1. $\mathtt{L} \ \mathtt{true}$
-1. $\mathtt{L} \ \mathtt{false}$
-1. $\mathtt{R} \ \langle \rangle$
+1. $\mathsf{L} \ \mathsf{true}$
+1. $\mathsf{L} \ \mathsf{false}$
+1. $\mathsf{R} \ \langle \rangle$
 
-Indeed, $|\mathbf{0}| = 0$ and $|\tau_1 + \tau_2| = |\tau_1| + |\tau_2|$.
+Indeed, $|\mathsf{0}| = 0$ and $|\tau_1 + \tau_2| = |\tau_1| + |\tau_2|$.
 
 ## Duality of sums and products
 

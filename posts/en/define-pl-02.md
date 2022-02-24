@@ -44,15 +44,15 @@ $$
 
 ## Statics: $\Gamma \vdash e: \tau$
 
-Consider the expression $\lambda (x: \mathtt{Int}) \ x$. It should have type
-$\mathtt{Int} \rightarrow \mathtt{Int}$.
+Consider the expression $\lambda (x: \mathsf{Int}) \ x$. It should have type
+$\mathsf{Int} \rightarrow \mathsf{Int}$.
 
-The very similar expression $\lambda (x: \mathtt{Bool}) \ x$ should have type
-$\mathtt{Bool} \rightarrow \mathtt{Bool}$.
+The very similar expression $\lambda (x: \mathsf{Bool}) \ x$ should have type
+$\mathsf{Bool} \rightarrow \mathsf{Bool}$.
 
 Notice that both of these example expressions contain the sub-expression $x$, as
 the body of the function. But in each, the type of $x$ is different:
-$\mathtt{Int}$ in the first and $\mathtt{Bool}$ in the second.
+$\mathsf{Int}$ in the first and $\mathsf{Bool}$ in the second.
 
 As this example illustrates, the type of variables is determined by how the
 variable is declared. This is the first time that the same expression (in this
@@ -85,31 +85,31 @@ rules just use the context without changing it.
 $$
 \frac
   {}
-  {\Gamma \vdash \overline{n}: \mathtt{Int}}
+  {\Gamma \vdash \overline{n}: \mathsf{Int}}
 $$
 
 $$
 \frac
   {}
-  {\Gamma \vdash \mathtt{true}: \mathtt{Bool}}
+  {\Gamma \vdash \mathsf{true}: \mathsf{Bool}}
 $$
 
 $$
 \frac
   {}
-  {\Gamma \vdash \mathtt{false}: \mathtt{Bool}}
+  {\Gamma \vdash \mathsf{false}: \mathsf{Bool}}
 $$
 
 $$
 \frac
   {
-    \Gamma \vdash e_1: \mathtt{Bool} \hspace{1em}
+    \Gamma \vdash e_1: \mathsf{Bool} \hspace{1em}
     \Gamma \vdash e_2: \tau \hspace{1em}
     \Gamma \vdash e_3: \tau
   }
   {
     \Gamma \vdash
-    \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3: \tau
+    \mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3: \tau
   }
 $$
 
@@ -140,8 +140,8 @@ to the right in the context determines the type of the variable under the
 context. For instance, using the rules we can derive
 
 $$
-(\cdot, x: \mathtt{Int}, x: \mathtt{Bool}, y: \mathtt{Int})(x) =
-  \mathtt{Bool}
+(\cdot, x: \mathsf{Int}, x: \mathsf{Bool}, y: \mathsf{Int})(x) =
+  \mathsf{Bool}
 $$
 
 We can now use this helper lookup judgement in the typing rule for variables.
@@ -238,13 +238,13 @@ $$
 $$
 \frac
   {}
-  {[x \mapsto e_x] \mathtt{true} = \mathtt{true}}
+  {[x \mapsto e_x] \mathsf{true} = \mathsf{true}}
 $$
 
 $$
 \frac
   {}
-  {[x \mapsto e_x] \mathtt{false} = \mathtt{false}}
+  {[x \mapsto e_x] \mathsf{false} = \mathsf{false}}
 $$
 
 For conditional and application expressions, we simply recurse on the
@@ -261,8 +261,8 @@ $$
   }
   {
     \begin{aligned}
-      [x \mapsto e_x] &\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 =
-    \\&\mathtt{if} \ e_1' \ \mathtt{then} \ e_2' \ \mathtt{else} \ e_3'
+      [x \mapsto e_x] &\mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3 =
+    \\&\mathsf{if} \ e_1' \ \mathsf{then} \ e_2' \ \mathsf{else} \ e_3'
     \end{aligned}
   }
 $$
@@ -319,7 +319,7 @@ $$
 
 we can use the rules to prove that
 
-$$[x \mapsto y] \lambda (y: \mathtt{Bool}) \ x = \lambda (y: \mathtt{Bool}) \ y$$
+$$[x \mapsto y] \lambda (y: \mathsf{Bool}) \ x = \lambda (y: \mathsf{Bool}) \ y$$
 
 In this case, the variable $y$ has been captured by the binding for $y$ in the
 function literal.
@@ -353,13 +353,13 @@ $$
 $$
 \frac
   {}
-  {\mathsf{fv}(\mathtt{true}) = \emptyset}
+  {\mathsf{fv}(\mathsf{true}) = \emptyset}
 $$
 
 $$
 \frac
   {}
-  {\mathsf{fv}(\mathtt{false}) = \emptyset}
+  {\mathsf{fv}(\mathsf{false}) = \emptyset}
 $$
 
 For conditional and application expressions, we simply recurse and union:
@@ -372,7 +372,7 @@ $$
     \mathsf{fv}(e_3) = s_3
   }
   {
-    \mathsf{fv}(\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3) =
+    \mathsf{fv}(\mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3) =
     s_1 \cup s_2 \cup s_3
   }
 $$
@@ -422,8 +422,8 @@ substitution as we evaluate.
 To see why this is necessary, consider choosing $e$ to be
 
 $$
-(\lambda (x: \mathtt{Bool} \rightarrow \mathtt{Bool}) \ x) \
-  (\lambda (y: \mathtt{Bool}) \ x)
+(\lambda (x: \mathsf{Bool} \rightarrow \mathsf{Bool}) \ x) \
+  (\lambda (y: \mathsf{Bool}) \ x)
 $$
 
 This expression has one free variable, $x$. According to the rules, this

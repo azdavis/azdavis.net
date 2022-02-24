@@ -17,9 +17,9 @@ date: 2021-07-15
 
 まずは二項の和型です。それを「いずれか」（either）と呼び、$\tau_1 + \tau_2$で表記します。名前通り、この型の値は左の$\tau_1$か右の$\tau_2$から来ます。
 
-しかし、どちらの型から来たかを伝える必要があります。その為、$\mathtt{L} \ e$と$\mathtt{R} \ e$という新たな「注射」式を二つ追加します。
+しかし、どちらの型から来たかを伝える必要があります。その為、$\mathsf{L} \ e$と$\mathsf{R} \ e$という新たな「注射」式を二つ追加します。
 
-どの型でもないという選択のある型は$\mathbf{0}$と書かれ、「ネバー」（never）といいます。なぜならこの型の値は決してないのです。
+どの型でもないという選択のある型は$\mathsf{0}$と書かれ、「ネバー」（never）といいます。なぜならこの型の値は決してないのです。
 
 値のない型が役立たないと思われるのかもしれませんけれど、使い道は確かにあります。例えば、特別な関数でプログラムから直ちに出るという機能を追加したとします。これはプログラミング言語の良くある機能です。
 
@@ -42,18 +42,18 @@ $$
 \begin{aligned}
 \tau
 ::=  \ & \dots
-\\ | \ & \mathbf{0}
+\\ | \ & \mathsf{0}
 \\ | \ & \tau_1 + \tau_2
 \\
 \\
 e
 ::=  \ & \dots
-\\ | \ & \mathtt{L} \ e
-\\ | \ & \mathtt{R} \ e
-\\ | \ & \mathtt{case} \ e \ \{ \}
-\\ | \ & \mathtt{case} \ e \ \{
-    \mathtt{L} \ x_1 . e_1,
-    \mathtt{R} \ x_2 . e_2
+\\ | \ & \mathsf{L} \ e
+\\ | \ & \mathsf{R} \ e
+\\ | \ & \mathsf{case} \ e \ \{ \}
+\\ | \ & \mathsf{case} \ e \ \{
+    \mathsf{L} \ x_1 . e_1,
+    \mathsf{R} \ x_2 . e_2
     \}
 \end{aligned}
 $$
@@ -65,7 +65,7 @@ $$
 $$
 \frac
   {\Gamma \vdash e: \tau_1}
-  {\Gamma \vdash \mathtt{L} \ e: \tau_1 + \tau_2}
+  {\Gamma \vdash \mathsf{L} \ e: \tau_1 + \tau_2}
 $$
 
 右単射式は似ています。
@@ -73,15 +73,15 @@ $$
 $$
 \frac
   {\Gamma \vdash e: \tau_2}
-  {\Gamma \vdash \mathtt{R} \ e: \tau_1 + \tau_2}
+  {\Gamma \vdash \mathsf{R} \ e: \tau_1 + \tau_2}
 $$
 
 空っぽのケースの「頭」の式はネバー型で、式全体の型は任意です。これは、ネバーの値を実現するのは不可能だがら、それができたらなんでもできるということです。
 
 $$
 \frac
-  {\Gamma \vdash e: \mathbf{0}}
-  {\Gamma \vdash \mathtt{case} \ e \ \{ \}: \tau}
+  {\Gamma \vdash e: \mathsf{0}}
+  {\Gamma \vdash \mathsf{case} \ e \ \{ \}: \tau}
 $$
 
 二項のケースの頭の式の方は either 型で、それぞれの「腕」は頭の式の中身を変数に束縛します。この変数はそれぞれの腕の式を評価する際、使用可能です。腕の式の型は同じでなければなりません。そして、その一致している型は式全体の型です。
@@ -96,9 +96,9 @@ $$
     \end{aligned}
   }
   {
-    \Gamma \vdash \mathtt{case} \ e \ \{
-      \mathtt{L} \ x_1 . e_1,
-      \mathtt{R} \ x_2 . e_2
+    \Gamma \vdash \mathsf{case} \ e \ \{
+      \mathsf{L} \ x_1 . e_1,
+      \mathsf{R} \ x_2 . e_2
     \}: \tau
   }
 $$
@@ -110,7 +110,7 @@ $$
 $$
 \frac
   {e \ \mathsf{val}}
-  {\mathtt{L} \ e \ \mathsf{val}}
+  {\mathsf{L} \ e \ \mathsf{val}}
 $$
 
 右も同じく。
@@ -118,7 +118,7 @@ $$
 $$
 \frac
   {e \ \mathsf{val}}
-  {\mathtt{R} \ e \ \mathsf{val}}
+  {\mathsf{R} \ e \ \mathsf{val}}
 $$
 
 同様、左単射の実引数は踏み出せれば、その単射も踏み出せます。
@@ -126,7 +126,7 @@ $$
 $$
 \frac
   {e \mapsto e'}
-  {\mathtt{L} \ e \mapsto \mathtt{L} \ e'}
+  {\mathsf{L} \ e \mapsto \mathsf{L} \ e'}
 $$
 
 そして右も同じく。
@@ -134,7 +134,7 @@ $$
 $$
 \frac
   {e \mapsto e'}
-  {\mathtt{R} \ e \mapsto \mathtt{R} \ e'}
+  {\mathsf{R} \ e \mapsto \mathsf{R} \ e'}
 $$
 
 空のケースも。
@@ -142,7 +142,7 @@ $$
 $$
 \frac
   {e \mapsto e'}
-  {\mathtt{case} \ e \ \{ \} \mapsto \mathtt{case} \ e' \ \{ \}}
+  {\mathsf{case} \ e \ \{ \} \mapsto \mathsf{case} \ e' \ \{ \}}
 $$
 
 二項のケースも。
@@ -152,14 +152,14 @@ $$
   {e \mapsto e'}
   {
     \begin{aligned}
-      & \mathtt{case} \ e \ \{
-        \mathtt{L} \ x_1 . e_1,
-        \mathtt{R} \ x_2 . e_2
+      & \mathsf{case} \ e \ \{
+        \mathsf{L} \ x_1 . e_1,
+        \mathsf{R} \ x_2 . e_2
       \}
       \mapsto \\
-      & \mathtt{case} \ e' \ \{
-        \mathtt{L} \ x_1 . e_1,
-        \mathtt{R} \ x_2 . e_2
+      & \mathsf{case} \ e' \ \{
+        \mathsf{L} \ x_1 . e_1,
+        \mathsf{R} \ x_2 . e_2
       \}
     \end{aligned}
   }
@@ -170,13 +170,13 @@ $$
 $$
 \frac
   {
-    \mathtt{L} \ e \ \mathsf{val} \hspace{1em}
+    \mathsf{L} \ e \ \mathsf{val} \hspace{1em}
     [x_1 \mapsto e] e_1 = e'
   }
   {
-    \mathtt{case} \ \mathtt{L} \ e \ \{
-      \mathtt{L} \ x_1 . e_1,
-      \mathtt{R} \ x_2 . e_2
+    \mathsf{case} \ \mathsf{L} \ e \ \{
+      \mathsf{L} \ x_1 . e_1,
+      \mathsf{R} \ x_2 . e_2
     \} \mapsto e'
   }
 $$
@@ -186,13 +186,13 @@ $$
 $$
 \frac
   {
-    \mathtt{R} \ e \ \mathsf{val} \hspace{1em}
+    \mathsf{R} \ e \ \mathsf{val} \hspace{1em}
     [x_2 \mapsto e] e_2 = e'
   }
   {
-    \mathtt{case} \ \mathtt{R} \ e \ \{
-      \mathtt{L} \ x_1 . e_1,
-      \mathtt{R} \ x_2 . e_2
+    \mathsf{case} \ \mathsf{R} \ e \ \{
+      \mathsf{L} \ x_1 . e_1,
+      \mathsf{R} \ x_2 . e_2
     \} \mapsto e'
   }
 $$
@@ -206,19 +206,19 @@ $$
 $$
 \frac
   {[x \mapsto e_x] e = e'}
-  {[x \mapsto e_x] \mathtt{L} \ e = \mathtt{L} \ e'}
+  {[x \mapsto e_x] \mathsf{L} \ e = \mathsf{L} \ e'}
 $$
 
 $$
 \frac
   {[x \mapsto e_x] e = e'}
-  {[x \mapsto e_x] \mathtt{R} \ e = \mathtt{R} \ e'}
+  {[x \mapsto e_x] \mathsf{R} \ e = \mathsf{R} \ e'}
 $$
 
 $$
 \frac
   {[x \mapsto e_x] e = e'}
-  {[x \mapsto e_x] \mathtt{case} \ e \ \{\} = \mathtt{case} \ e' \ \{\}}
+  {[x \mapsto e_x] \mathsf{case} \ e \ \{\} = \mathsf{case} \ e' \ \{\}}
 $$
 
 二項のケースは、関数定数の置き換えの定義を再び使います。
@@ -239,14 +239,14 @@ $$
   {
     \begin{aligned}
       & [x \mapsto e_x]
-    \\& \mathtt{case} \ e \ \{
-        \mathtt{L} \ x_1 . e_1,
-        \mathtt{R} \ x_2 . e_2
+    \\& \mathsf{case} \ e \ \{
+        \mathsf{L} \ x_1 . e_1,
+        \mathsf{R} \ x_2 . e_2
       \}
       = \\
-      & \mathtt{case} \ e' \ \{
-        \mathtt{L} \ x_1 . e_1',
-        \mathtt{R} \ x_2 . e_2'
+      & \mathsf{case} \ e' \ \{
+        \mathsf{L} \ x_1 . e_1',
+        \mathsf{R} \ x_2 . e_2'
       \}
     \end{aligned}
   }
@@ -257,19 +257,19 @@ $$
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(\mathtt{L} \ e) = s}
+  {\mathsf{fv}(\mathsf{L} \ e) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(\mathtt{R} \ e) = s}
+  {\mathsf{fv}(\mathsf{R} \ e) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(\mathtt{case} \ e \ \{\}) = s}
+  {\mathsf{fv}(\mathsf{case} \ e \ \{\}) = s}
 $$
 
 $$
@@ -281,9 +281,9 @@ $$
   }
   {
     \begin{aligned}
-    \mathsf{fv}(&\mathtt{case} \ e \ \{
-      \mathtt{L} \ x_1 . e_1,
-      \mathtt{R} \ x_2 . e_2
+    \mathsf{fv}(&\mathsf{case} \ e \ \{
+      \mathsf{L} \ x_1 . e_1,
+      \mathsf{R} \ x_2 . e_2
     \})
     = \\
     & s \cup (s_1 \setminus \{ x_1 \}) \cup (s_2 \setminus \{ x_2 \})
@@ -295,13 +295,13 @@ $$
 
 積型と似たように、和型は含まれている型の値の数とその和型の値の数の関係で名付けられています。
 
-例えば、$|\mathtt{Bool} + \mathbf{1}| = 2 + 1 = 3$：
+例えば、$|\mathsf{Bool} + \mathsf{1}| = 2 + 1 = 3$：
 
-1. $\mathtt{L} \ \mathtt{true}$
-1. $\mathtt{L} \ \mathtt{false}$
-1. $\mathtt{R} \ \langle \rangle$
+1. $\mathsf{L} \ \mathsf{true}$
+1. $\mathsf{L} \ \mathsf{false}$
+1. $\mathsf{R} \ \langle \rangle$
 
-いかにも、$|\mathbf{0}| = 0$、そして$|\tau_1 + \tau_2| = |\tau_1| + |\tau_2|$。
+いかにも、$|\mathsf{0}| = 0$、そして$|\tau_1 + \tau_2| = |\tau_1| + |\tau_2|$。
 
 ## 和と積の双対性
 

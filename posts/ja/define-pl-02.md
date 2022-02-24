@@ -36,11 +36,11 @@ $$
 
 ## 静的意味論：$\Gamma \vdash e: \tau$
 
-$\lambda (x: \mathtt{Int}) \ x$の式をご覧ください。式の型は$\mathtt{Int}\rightarrow \mathtt{Int}$のはずです。
+$\lambda (x: \mathsf{Int}) \ x$の式をご覧ください。式の型は$\mathsf{Int}\rightarrow \mathsf{Int}$のはずです。
 
-それに似た式$\lambda (x: \mathtt{Bool}) \ x$の型は$\mathtt{Bool} \rightarrow \mathtt{Bool}$のはずです。
+それに似た式$\lambda (x: \mathsf{Bool}) \ x$の型は$\mathsf{Bool} \rightarrow \mathsf{Bool}$のはずです。
 
-この式両方では、$x$の式は含まれています。しかし、$x$の型は違います。一番目では$\mathtt{Int}$で、二番目では$\mathtt{Bool}$です。
+この式両方では、$x$の式は含まれています。しかし、$x$の型は違います。一番目では$\mathsf{Int}$で、二番目では$\mathsf{Bool}$です。
 
 この例に描かれたように、変数の型は、その変数はどう宣言されたによります。文脈により同じ式（この場合は$x$）の型が異なるというのは、今までなかったことです。
 
@@ -65,31 +65,31 @@ $$
 $$
 \frac
   {}
-  {\Gamma \vdash \overline{n}: \mathtt{Int}}
+  {\Gamma \vdash \overline{n}: \mathsf{Int}}
 $$
 
 $$
 \frac
   {}
-  {\Gamma \vdash \mathtt{true}: \mathtt{Bool}}
+  {\Gamma \vdash \mathsf{true}: \mathsf{Bool}}
 $$
 
 $$
 \frac
   {}
-  {\Gamma \vdash \mathtt{false}: \mathtt{Bool}}
+  {\Gamma \vdash \mathsf{false}: \mathsf{Bool}}
 $$
 
 $$
 \frac
   {
-    \Gamma \vdash e_1: \mathtt{Bool} \hspace{1em}
+    \Gamma \vdash e_1: \mathsf{Bool} \hspace{1em}
     \Gamma \vdash e_2: \tau \hspace{1em}
     \Gamma \vdash e_3: \tau
   }
   {
     \Gamma \vdash
-    \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3: \tau
+    \mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3: \tau
   }
 $$
 
@@ -115,8 +115,8 @@ $$
 この規則は「shadowing」という現象を生み出します。これは、同じ変数のある複数のペアが文脈に存在することができるけれど、そのペアの中、一番右のペアはその変数の型を決定する、ということを指します。例えば、規則によると
 
 $$
-(\cdot, x: \mathtt{Int}, x: \mathtt{Bool}, y: \mathtt{Int})(x) =
-  \mathtt{Bool}
+(\cdot, x: \mathsf{Int}, x: \mathsf{Bool}, y: \mathsf{Int})(x) =
+  \mathsf{Bool}
 $$
 
 この判断を使い、変数の型の規則を制作します。
@@ -205,13 +205,13 @@ $$
 $$
 \frac
   {}
-  {[x \mapsto e_x] \mathtt{true} = \mathtt{true}}
+  {[x \mapsto e_x] \mathsf{true} = \mathsf{true}}
 $$
 
 $$
 \frac
   {}
-  {[x \mapsto e_x] \mathtt{false} = \mathtt{false}}
+  {[x \mapsto e_x] \mathsf{false} = \mathsf{false}}
 $$
 
 条件と適用の式は、ただその中の式に帰納します。
@@ -227,8 +227,8 @@ $$
   }
   {
     \begin{aligned}
-      [x \mapsto e_x] &\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 =
-    \\&\mathtt{if} \ e_1' \ \mathtt{then} \ e_2' \ \mathtt{else} \ e_3'
+      [x \mapsto e_x] &\mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3 =
+    \\&\mathsf{if} \ e_1' \ \mathsf{then} \ e_2' \ \mathsf{else} \ e_3'
     \end{aligned}
   }
 $$
@@ -280,7 +280,7 @@ $$
 
 を規則として定義したらば、規則を使い
 
-$$[x \mapsto y] \lambda (y: \mathtt{Bool}) \ x = \lambda (y: \mathtt{Bool}) \ y$$
+$$[x \mapsto y] \lambda (y: \mathsf{Bool}) \ x = \lambda (y: \mathsf{Bool}) \ y$$
 
 は証明できてしまうのです。この場合、変数の$y$は関数の束縛された$y$により捕獲されたのです。
 
@@ -311,13 +311,13 @@ $$
 $$
 \frac
   {}
-  {\mathsf{fv}(\mathtt{true}) = \emptyset}
+  {\mathsf{fv}(\mathsf{true}) = \emptyset}
 $$
 
 $$
 \frac
   {}
-  {\mathsf{fv}(\mathtt{false}) = \emptyset}
+  {\mathsf{fv}(\mathsf{false}) = \emptyset}
 $$
 
 条件と適用はまた帰納します。
@@ -330,7 +330,7 @@ $$
     \mathsf{fv}(e_3) = s_3
   }
   {
-    \mathsf{fv}(\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3) =
+    \mathsf{fv}(\mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3) =
     s_1 \cup s_2 \cup s_3
   }
 $$
@@ -378,8 +378,8 @@ $e$には自由変数が全くないことを前提とします。これで、�
 この前提はなぜ必要かを答える為に、$e$を次の式にして見ましょう。
 
 $$
-(\lambda (x: \mathtt{Bool} \rightarrow \mathtt{Bool}) \ x) \
-  (\lambda (y: \mathtt{Bool}) \ x)
+(\lambda (x: \mathsf{Bool} \rightarrow \mathsf{Bool}) \ x) \
+  (\lambda (y: \mathsf{Bool}) \ x)
 $$
 
 この式には自由変数の$x$があります。規則によれば、この式は値ではなく、踏み出すこともできないのです。原因は、$x$は実引数には自由なのに関数に束縛されているのです。

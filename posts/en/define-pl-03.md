@@ -22,12 +22,12 @@ Note that by combining pair types with other pair types, we can effectively
 construct an product type combining $n$ types for any $n > 2$.
 
 To use a pair, we must be able to extract the values inside. For that, we add
-the projection expressions $e \cdot \mathtt{L}$ and $e \cdot \mathtt{R}$. When
+the projection expressions $e \cdot \mathsf{L}$ and $e \cdot \mathsf{R}$. When
 $e$ is a pair, these projections extract the left and right value out of the
 pair respectively.
 
 We will also introduce a product type that combines no other types, called
-"unit" and denoted with $\mathbf{1}$. There is just 1 value of this type, also
+"unit" and denoted with $\mathsf{1}$. There is just 1 value of this type, also
 often called "unit", and it is written $\langle \rangle$.
 
 Because the unit type has only one value, it may not seem very useful. However,
@@ -52,7 +52,7 @@ $$
 \begin{aligned}
 \tau
 ::=  \ & \dots
-\\ | \ & \mathbf{1}
+\\ | \ & \mathsf{1}
 \\ | \ & \tau_1 \times \tau_2
 \\
 \\
@@ -60,8 +60,8 @@ e
 ::=  \ & \dots
 \\ | \ & \langle \rangle
 \\ | \ & \langle e_1, e_2 \rangle
-\\ | \ & e \cdot \mathtt{L}
-\\ | \ & e \cdot \mathtt{R}
+\\ | \ & e \cdot \mathsf{L}
+\\ | \ & e \cdot \mathsf{R}
 \end{aligned}
 $$
 
@@ -72,7 +72,7 @@ The unit value has unit type.
 $$
 \frac
   {}
-  {\Gamma \vdash \langle \rangle: \mathbf{1}}
+  {\Gamma \vdash \langle \rangle: \mathsf{1}}
 $$
 
 Given two expressions each with their own type, we can make a pair of those
@@ -92,13 +92,13 @@ We can then project the left or right part out of the pair.
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e \cdot \mathtt{L}: \tau_1}
+  {\Gamma \vdash e \cdot \mathsf{L}: \tau_1}
 $$
 
 $$
 \frac
   {\Gamma \vdash e: \tau_1 \times \tau_2}
-  {\Gamma \vdash e \cdot \mathtt{R}: \tau_2}
+  {\Gamma \vdash e \cdot \mathsf{R}: \tau_2}
 $$
 
 ## Dynamics
@@ -149,25 +149,25 @@ value in the pair.
 $$
 \frac
   {e \mapsto e'}
-  {e \cdot \mathtt{L} \mapsto e' \cdot \mathtt{L}}
+  {e \cdot \mathsf{L} \mapsto e' \cdot \mathsf{L}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle \cdot \mathtt{L} \mapsto e_1}
+  {\langle e_1, e_2 \rangle \cdot \mathsf{L} \mapsto e_1}
 $$
 
 $$
 \frac
   {e \mapsto e'}
-  {e \cdot \mathtt{R} \mapsto e' \cdot \mathtt{R}}
+  {e \cdot \mathsf{R} \mapsto e' \cdot \mathsf{R}}
 $$
 
 $$
 \frac
   {\langle e_1, e_2 \rangle \ \mathsf{val}}
-  {\langle e_1, e_2 \rangle \cdot \mathtt{R} \mapsto e_2}
+  {\langle e_1, e_2 \rangle \cdot \mathsf{R} \mapsto e_2}
 $$
 
 ## Helpers
@@ -195,13 +195,13 @@ $$
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1 \cdot \mathtt{L} = e_1' \cdot \mathtt{L}}
+  {[x \mapsto e] e_1 \cdot \mathsf{L} = e_1' \cdot \mathsf{L}}
 $$
 
 $$
 \frac
   {[x \mapsto e] e_1 = e_1'}
-  {[x \mapsto e] e_1 \cdot \mathtt{R} = e_1' \cdot \mathtt{R}}
+  {[x \mapsto e] e_1 \cdot \mathsf{R} = e_1' \cdot \mathsf{R}}
 $$
 
 ### Free variables
@@ -224,13 +224,13 @@ $$
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e \cdot \mathtt{L}) = s}
+  {\mathsf{fv}(e \cdot \mathsf{L}) = s}
 $$
 
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(e \cdot \mathtt{R}) = s}
+  {\mathsf{fv}(e \cdot \mathsf{R}) = s}
 $$
 
 ## Etymology
@@ -240,23 +240,23 @@ Before we conclude, let us consider the etymology of "product type".
 Product types are so named because the number of values in a product type is the
 product of the number of values in the constituent types.
 
-For instance, consider the type $\mathtt{Bool}$. It has 2 values,
-$\mathtt{true}$ and $\mathtt{false}$.
+For instance, consider the type $\mathsf{Bool}$. It has 2 values,
+$\mathsf{true}$ and $\mathsf{false}$.
 
-Now consider the type $\mathtt{Bool} \times \mathtt{Bool}$. It has 4 values:
+Now consider the type $\mathsf{Bool} \times \mathsf{Bool}$. It has 4 values:
 
-1. $\langle \mathtt{true}, \mathtt{true} \rangle$
-1. $\langle \mathtt{true}, \mathtt{false} \rangle$
-1. $\langle \mathtt{false}, \mathtt{true} \rangle$
-1. $\langle \mathtt{false}, \mathtt{false} \rangle$
+1. $\langle \mathsf{true}, \mathsf{true} \rangle$
+1. $\langle \mathsf{true}, \mathsf{false} \rangle$
+1. $\langle \mathsf{false}, \mathsf{true} \rangle$
+1. $\langle \mathsf{false}, \mathsf{false} \rangle$
 
-Consider also the type $\mathtt{Bool} \times \mathbf{1}$, the product of
-$\mathtt{Bool}$ and unit. Like $\mathtt{Bool}$, it only has 2 values:
+Consider also the type $\mathsf{Bool} \times \mathsf{1}$, the product of
+$\mathsf{Bool}$ and unit. Like $\mathsf{Bool}$, it only has 2 values:
 
-1. $\langle \mathtt{true}, \langle \rangle \rangle$
-1. $\langle \mathtt{false}, \langle \rangle \rangle$
+1. $\langle \mathsf{true}, \langle \rangle \rangle$
+1. $\langle \mathsf{false}, \langle \rangle \rangle$
 
-This is why it makes sense that the unit type is written $\mathbf{1}$. It is the
+This is why it makes sense that the unit type is written $\mathsf{1}$. It is the
 identity of the operation written $\times$.
 
 For the integers, we have that for all integers $a$,
@@ -268,7 +268,7 @@ where $\times$ denotes multiplication.
 Then similarly, if we write $|\tau|$ to mean "the number of values in the type
 $\tau$", we have that for all types $\tau$,
 
-$$|\tau \times \mathbf{1}| = |\tau|$$
+$$|\tau \times \mathsf{1}| = |\tau|$$
 
 where $\times$ denotes a product type.
 

@@ -71,22 +71,22 @@ target language to be Japanese, given my [interests][jp-resources].
 
 For now, Hatsugen will just have integers and booleans.
 
-We'll represent integers with integer literal expressions like $\mathtt{123}$ or
-$\mathtt{-456}$ or $\mathtt{0}$. There are infinitely many integers, and thus
+We'll represent integers with integer literal expressions like $\mathsf{123}$ or
+$\mathsf{-456}$ or $\mathsf{0}$. There are infinitely many integers, and thus
 infinitely many such possible literals. Practical considerations like a maximum
 integer size will be ignored for now.
 
-We'll represent booleans with the literal expressions $\mathtt{true}$ and
-$\mathtt{false}$.
+We'll represent booleans with the literal expressions $\mathsf{true}$ and
+$\mathsf{false}$.
 
 As one extra bit, we'll also support a conditional expression
 
-$$\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3$$
+$$\mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3$$
 
 which will evaluate the condition $e_1$ and then
 
-- if it's $\mathtt{true}$, evaluate $e_2$;
-- if it's $\mathtt{false}$, evaluate $e_3$.
+- if it's $\mathsf{true}$, evaluate $e_2$;
+- if it's $\mathsf{false}$, evaluate $e_3$.
 
 It's intentional that Hatsugen is a very small language, at least for now. This
 will allow us to get comfortable with all the formal stuff without getting
@@ -104,9 +104,9 @@ $$
 \begin{aligned}
 e
 ::=  \ & \overline{n}
-\\ | \ & \mathtt{true}
-\\ | \ & \mathtt{false}
-\\ | \ & \mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+\\ | \ & \mathsf{true}
+\\ | \ & \mathsf{false}
+\\ | \ & \mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3
 \end{aligned}
 $$
 
@@ -143,19 +143,19 @@ An inference rule looks like a big fraction, with the premises on top and the
 single conclusion on the bottom. There are no premises for this rule, so the top
 is empty.
 
-We can also define that the boolean literals $\mathtt{true}$ and
-$\mathtt{false}$ are values with two more rules.
+We can also define that the boolean literals $\mathsf{true}$ and
+$\mathsf{false}$ are values with two more rules.
 
 $$
 \frac
   {}
-  {\mathtt{true} \ \mathsf{val}}
+  {\mathsf{true} \ \mathsf{val}}
 $$
 
 $$
 \frac
   {}
-  {\mathtt{false} \ \mathsf{val}}
+  {\mathsf{false} \ \mathsf{val}}
 $$
 
 In Hatsugen, these are the only expressions that are values. But what about
@@ -180,32 +180,32 @@ $$
   {e_1 \mapsto e_1'}
   {
     \begin{aligned}
-      &\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \mapsto
-    \\&\mathtt{if} \ e_1' \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+      &\mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3 \mapsto
+    \\&\mathsf{if} \ e_1' \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3
     \end{aligned}
   }
 $$
 
-Now, we define what happens when $e_1$ is a value. If it is $\mathtt{true}$, we
+Now, we define what happens when $e_1$ is a value. If it is $\mathsf{true}$, we
 step to $e_2$, ignoring $e_3$.
 
 $$
 \frac
   {}
   {
-    \mathtt{if} \ \mathtt{true} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \ \mapsto
+    \mathsf{if} \ \mathsf{true} \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3 \ \mapsto
     e_2
   }
 $$
 
-And if it was $\mathtt{false}$, we do the opposite and step to $e_3$, ignoring
+And if it was $\mathsf{false}$, we do the opposite and step to $e_3$, ignoring
 $e_2$.
 
 $$
 \frac
   {}
   {
-    \mathtt{if} \ \mathtt{false} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3 \mapsto
+    \mathsf{if} \ \mathsf{false} \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3 \mapsto
     e_3
   }
 $$
@@ -225,14 +225,14 @@ However, under this definition, there exist expressions that cannot be
 evaluated. For instance:
 
 $$
-\mathtt{if} \ \mathtt{1} \
-  \mathtt{then} \ \mathtt{2} \
-  \mathtt{else} \ \mathtt{3}
+\mathsf{if} \ \mathsf{1} \
+  \mathsf{then} \ \mathsf{2} \
+  \mathsf{else} \ \mathsf{3}
 $$
 
 This expression cannot take a step, because none of the rules for $e \mapsto e'$
 apply. This is because we only defined how to take a step when $e_1$ was either
-$\mathtt{true}$, $\mathtt{false}$, or able to take a step itself. We didn't
+$\mathsf{true}$, $\mathsf{false}$, or able to take a step itself. We didn't
 define what to do if $e_1$ is an integer literal.
 
 Yet, this expression is also not a value, because none of the rules for $e \
@@ -246,22 +246,22 @@ $$
 \frac
   {}
   {
-    \mathtt{if} \ \mathtt{0} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+    \mathsf{if} \ \mathsf{0} \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3
     \mapsto e_3
   }
 $$
 
 $$
 \frac
-  {\overline{n} \ne \mathtt{0}}
+  {\overline{n} \ne \mathsf{0}}
   {
-    \mathtt{if} \ \overline{n} \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3
+    \mathsf{if} \ \overline{n} \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3
     \mapsto e_2
   }
 $$
 
-This treats $\mathtt{0}$ like $\mathtt{false}$ and any other integer like
-$\mathtt{true}$.
+This treats $\mathsf{0}$ like $\mathsf{false}$ and any other integer like
+$\mathsf{true}$.
 
 The other thing we could do define a notion of a "valid" expression, and only
 permit evaluation of these valid expressions. This is the approach we will use.
@@ -279,8 +279,8 @@ boolean.
 $$
 \begin{aligned}
 \tau
-::=  \ & \mathtt{Int}
-\\ | \ & \mathtt{Bool}
+::=  \ & \mathsf{Int}
+\\ | \ & \mathsf{Bool}
 \end{aligned}
 $$
 
@@ -296,19 +296,19 @@ type.
 $$
 \frac
   {}
-  {\overline{n}: \mathtt{Int}}
+  {\overline{n}: \mathsf{Int}}
 $$
 
 $$
 \frac
   {}
-  {\mathtt{true}: \mathtt{Bool}}
+  {\mathsf{true}: \mathsf{Bool}}
 $$
 
 $$
 \frac
   {}
-  {\mathtt{false}: \mathtt{Bool}}
+  {\mathsf{false}: \mathsf{Bool}}
 $$
 
 For conditional expressions, we require that $e_1$ has boolean type. We also
@@ -318,20 +318,20 @@ Then we say the whole conditional expression has that type.
 $$
 \frac
   {
-    e_1: \mathtt{Bool} \hspace{1em}
+    e_1: \mathsf{Bool} \hspace{1em}
     e_2: \tau \hspace{1em}
     e_3: \tau
   }
-  {\mathtt{if} \ e_1 \ \mathtt{then} \ e_2 \ \mathtt{else} \ e_3: \tau}
+  {\mathsf{if} \ e_1 \ \mathsf{then} \ e_2 \ \mathsf{else} \ e_3: \tau}
 $$
 
 Note that because $e_1$ must have boolean type, expressions like the previously
 considered
 
 $$
-\mathtt{if} \ \mathtt{1} \
-  \mathtt{then} \ \mathtt{2} \
-  \mathtt{else} \ \mathtt{3}
+\mathsf{if} \ \mathsf{1} \
+  \mathsf{then} \ \mathsf{2} \
+  \mathsf{else} \ \mathsf{3}
 $$
 
 are now disallowed by the static semantics.
