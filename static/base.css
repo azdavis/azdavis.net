@@ -5,7 +5,7 @@
 body {
   --page-fg: #333;
   --page-bg: #fff;
-  --link-underline: #666;
+  --link-fg: #16d;
   --blockquote-fg: #555;
 
   max-width: 60ch;
@@ -21,24 +21,22 @@ body {
   body {
     --page-fg: #ddd;
     --page-bg: #333;
-    --link-underline: #aaa;
+    --link-fg: #5af;
     --blockquote-fg: #bbb;
   }
 }
 
 a {
   text-decoration: none;
-  padding-bottom: 1px;
-  border-bottom: 1px solid var(--link-underline);
 }
 
 a,
 a:visited {
-  color: inherit;
+  color: var(--link-fg);
 }
 
 a:hover {
-  border-bottom-color: inherit;
+  text-decoration: underline;
 }
 
 dd {
