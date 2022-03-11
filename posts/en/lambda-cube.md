@@ -91,8 +91,8 @@ is the type of a vector of `T`s.
 
 We can combine type-to-term and type-to-type functions to write highly generic,
 reusable code. For instance, we could write a Rust function `push` that takes a
-vector and an element to add to the end of the vector, then returns the new
-vector.
+vector and an element to add ("push") to the end of the vector, then returns the
+new vector.
 
 ```rs
 fn push<T>(xs: Vec<T>, x: T) -> Vec<T>
