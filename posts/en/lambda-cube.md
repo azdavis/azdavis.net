@@ -100,9 +100,10 @@ fn push<T>(xs: Vec<T>, x: T) -> Vec<T>
 
 Note that:
 
-- The `<T>` type parameter on `push` is an example of a type-to-term
-  function.
-- The `<T>` type argument passed to `Vec` is a usage of a type-to-type function.
+- In `push<T>`, the `T` is a type parameter. This is an example of a
+  type-to-term function.
+- In `Vec<T>`, the `T` is a type argument. It is being passed to the
+  type-to-type function `Vec`.
 
 ## Terms to types
 
