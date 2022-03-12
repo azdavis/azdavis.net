@@ -5,7 +5,8 @@ date: 2022-03-11
 
 Many programming languages have not only [functions], but methods. Methods are
 similar to functions, but their biggest difference is that we call them with a
-special "method call" syntax.
+special "method call" syntax. Whereas function call syntax often looks like
+`f(x, y)`, method call syntax often looks like `x.f(y)`.
 
 ## Functions
 
@@ -108,9 +109,9 @@ let r2 = r1
 ## Limitations of defining methods
 
 However, there are often limitations on where we can define methods. Many
-languages that support methods only allow defining methods "nearby" the type
-itself. So we often cannot, for instance, define a method on a type in a
-separate file from where the type is defined.
+languages that support methods only allow defining methods "nearby" the
+definition of the type itself. So we often cannot, for instance, define a method
+on a type in a separate file from where the type is defined.
 
 So suppose our `Rect` library was written by someone else and we're importing it
 for our own use. We'd like to define and use a `shrink` operation, kind of like
@@ -139,16 +140,16 @@ This mix of styles hurts readability.
 To counteract this, some languages, like Ruby, allow anyone to define any new
 method for any type. This is called monkey patching.
 
-However, this too can cause issues:
+However, this too can cause issues. Here's one plausible example:
 
-1. Suppose I define a new `shrink` method for
-   `Rect`, and release my `shrink` method as a library.
-2. Then someone else defines
-   their own `shrink` method, but theirs is a bit different from mine.
-3. Now, suppose someone depends on both my library and the other library.
-   (Perhaps without realizing it, through a chain of dependencies.)
-
-In this situation, which definition of `shrink` "wins"?
+1. Suppose I define my own `shrink` method for `Rect`.
+2. Later, I update my version of the `Rect` library, and the new version comes
+   with their own version of `shrink`, which is different from mine.
+3. A new developer comes along, reads the public docs for `shrink`, and uses
+   `shrink` in their code, expecting it to behave as publicly documented.
+4. The code actually calls my version of `shrink`, since my monkey-patch now
+   overrides the existing definition on `Rect`.
+5. The developer is confused as to why their code is broken.
 
 As another example, try going on StackOverflow and searching for ruby-tagged
 questions. [Some common methods][ruby-methods] like `blank?` and `present?`
