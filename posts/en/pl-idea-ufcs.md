@@ -171,7 +171,12 @@ define methods on the wrapper type. This is what [jQuery][jquery] does:
 This allows for [chaining][]:
 
 ```js
-$("p").css("color", "red").find(".special").css("color", "green");
+$("button")
+  .css("color", "red")
+  .find(".icon")
+  .parent()
+  .css("color", "green")
+  .slideUp(2000);
 ```
 
 However, it can be inconvenient to have to wrap the actual value. In our `Rect`
