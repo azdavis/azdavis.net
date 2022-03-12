@@ -120,7 +120,7 @@ and $e_3$.
 
 We now define how to evaluate an expression. This is called the dynamic
 semantics. There are various ways to do this, but the one we'll use for Hatsugen
-is often called "[structural operational semantics][struct-op-sem]".
+is often called structural operational semantics[.][struct-op-sem]
 
 To do this, we will define two judgments. To define these judgments, we will
 write inference rules.
