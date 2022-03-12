@@ -119,7 +119,7 @@ the opposite of `scale`. The `Rect` library authors didn't define a `shrink`
 method, so we define the operation ourself, but we have to define it as a
 function, not a method.
 
-Now, when using our function, we are forced to interrupt the "flow" of the chain
+Now, when using our function, we are forced to interrupt the flow of the chain
 of methods method from before:
 
 ```rs
@@ -158,11 +158,11 @@ way to restrict the scope of monkey patching.
 
 ## Wrapper types
 
-Another alternative is to define a new "wrapper" type around the real type, then
+Another alternative is to define a new wrapper type around the real type, then
 define methods on the wrapper type. This is what [jQuery][jquery] does:
 
-1. Given a "native" DOM value or CSS selector for such values, the `$` function
-   returns a [jQuery value][jquery-type] that "wraps" those values.
+1. Given a native DOM value or CSS selector for such values, the `$` function
+   returns a [jQuery value][jquery-type] that wraps those values.
 2. Then, many of the common methods on the jQuery value return new jQuery
    values.
 
@@ -172,8 +172,8 @@ This allows for [chaining][]:
 $("p").css("color", "red").find(".special").css("color", "green");
 ```
 
-However, it can be inconvenient to have to "wrap" the actual value. In our
-`Rect` example, we'd have to:
+However, it can be inconvenient to have to wrap the actual value. In our `Rect`
+example, we'd have to:
 
 1. Create a new `WrappedRect` type, that contains a `Rect`.
 2. Define our own methods on it, like `shrink`.
@@ -195,10 +195,10 @@ entirely? As noted, a method is basically just a function with some extra syntax
 at the definition site to note that it's a method. Let us instead remove the
 distinction between functions and methods, and only allow defining functions.
 
-Wwe will then allow for a method call "syntax sugar" `rect.scale(5)` that is
+We will then allow for a method call "syntax sugar" `rect.scale(5)` that is
 exactly equivalent to as if you had written the call like a regular function
-call, `scale(rect, 5)`. This idea is called "[unified function call
-syntax][ufcs]" (UFCS).
+call, `scale(rect, 5)`. This idea is called [unified function call syntax][ufcs]
+(UFCS).
 
 ```rs
 // defined like a function
@@ -211,11 +211,11 @@ let r2 = scale(r1, 5)
 let r3 = r1.scale(5)
 ```
 
-With UFCS, the `.` for "method calls" acts a bit more like [the pipe
-operator][pipe] from functional programming.
+With UFCS, the `.` acts a bit like [the pipe operator][pipe] from functional
+programming.
 
-Now we can choose to use the `.` "chaining" syntax with our own functions or
-library defined functions. We can choose to use the "regular" call syntax as
+Now we can choose to use the `.` syntax with our own functions or
+library defined functions. We can choose to use the regular call syntax as
 well. The decision is no longer made for us based on who defined the operation;
 rather, it is up to the caller to decide which call syntax makes the code more
 legible.
