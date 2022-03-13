@@ -3,10 +3,10 @@ title: "PL idea: unified function call syntax"
 date: 2022-03-11
 ---
 
-Many programming languages have not only [functions], but methods. Methods are
-similar to functions, but their biggest difference is that we call them with a
-special "method call" syntax. Whereas function call syntax often looks like
-`f(x, y)`, method call syntax often looks like `x.f(y)`.
+[Functions] are common in most programming languages. Some languages also have
+methods, which are similar to functions. Their biggest difference is that we
+call methods with a special "method call" syntax. Whereas function call syntax
+often looks like `f(x, y)`, method call syntax often looks like `x.f(y)`.
 
 ## Functions
 
