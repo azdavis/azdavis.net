@@ -3,41 +3,36 @@ title: "PL idea: unified function call syntax"
 date: 2022-03-11
 ---
 
-[Functions] are common in most programming languages. Some languages also have
+[Functions][] are common in most programming languages. Some languages also have
 methods, which are similar to functions. Their biggest difference is that we
 call methods with a special "method call" syntax. Whereas function call syntax
 often looks like `f(x, y)`, method call syntax often looks like `x.f(y)`.
 
 ## Functions
 
-Here's a program in a fake language with Rust-like syntax. In it, we define a
-rectangle type and a function that scales a rectangle's dimensions by some
-factor.
+Here's a Rust program in which we define a rectangle type and a function that
+scales a rectangle's dimensions by some factor.
 
 ```rs
-type Rect {
-  width: Number
-  height: Number
+struct Rect {
+  width: u32,
+  height: u32,
 }
 
-fn scale(rect: Rect, by: Number): Rect {
-  return Rect {
-    width: rect.width * by,
-    height: rect.height * by,
-  }
-}
+// implementation elided
+fn scale(rect: Rect, by: u32) -> Rect {...}
 
-let r1 = Rect { width: 3, height: 4 }
-let r2 = scale(r1, 5)
-assert(r2.width == 15)
-assert(r2.height == 20)
+let r1 = Rect { width: 3, height: 4 };
+let r2 = scale(r1, 5);
+assert_eq!(r2.width, 15);
+assert_eq!(r2.height, 20);
 ```
 
 Suppose we now want to perform a chain of rectangle manipulation operations, one
 after the other. We might do something like this:
 
 ```rs
-let r2 = scale(increase_width(reflect(decrease_height(r1, 4)), 7), 5)
+let r2 = scale(increase_width(reflect(decrease_height(r1, 4)), 7), 5);
 ```
 
 This is not very easy to read, because:
@@ -58,17 +53,17 @@ let r2 = scale(
     7,
   ),
   5,
-)
+);
 ```
 
 We can also kind of fix both problems by introducing many intermediary
 variables, but then we have to come up with awkward names for the variables:
 
 ```rs
-let shorter = decrease_height(r1, 4)
-let reflected = reflect(shorter)
-let wider = increase_width(reflected, 7)
-let r2 = scale(wider, 5)
+let shorter = decrease_height(r1, 4);
+let reflected = reflect(shorter);
+let wider = increase_width(reflected, 7);
+let r2 = scale(wider, 5);
 ```
 
 ## Methods
@@ -79,19 +74,16 @@ case `Rect`. Then, once we define the method, we call it with a special method
 call syntax: instead of e.g. `scale(rect, 5)` we do `rect.scale(5)`.
 
 ```rs
-// `self` is a `Rect`.
-fn Rect.scale(self, by: Number): Rect {
-  return Rect {
-    width: self.width * by,
-    height: self.height * by,
-  }
+impl Rect {
+  // `self` is a `Rect`
+  fn scale(self, by: u32) -> Rect {...}
 }
 
-let r1 = Rect { width: 3, height: 4 }
+let r1 = Rect { width: 3, height: 4 };
 // method call syntax
-let r2 = r1.scale(5)
-assert(r2.width == 15)
-assert(r2.height == 20)
+let r2 = r1.scale(5);
+assert_eq!(r2.width, 15);
+assert_eq!(r2.height, 20);
 ```
 
 Now, using methods, the order that the calls occur matches the order they appear
@@ -103,7 +95,7 @@ let r2 = r1
   .decrease_height(4)
   .reflect()
   .increase_width(7)
-  .scale(5)
+  .scale(5);
 ```
 
 ## Limitations of defining methods
@@ -130,7 +122,7 @@ let r2 =
     2,
   )
     .increase_width(7)
-    .scale(5)
+    .scale(5);
 ```
 
 This mix of styles hurts readability.
@@ -212,13 +204,13 @@ This idea is called [unified function call syntax][ufcs] (UFCS).
 
 ```rs
 // defined like a function
-fn scale(rect: Rect, by: Number) -> Rect { ... }
+fn scale(rect: Rect, by: u32) -> Rect {...}
 
-let r1 = Rect { ... }
+let r1 = Rect {...};
 // can call like a function...
-let r2 = scale(r1, 5)
+let r2 = scale(r1, 5);
 // ...or like a method.
-let r3 = r1.scale(5)
+let r3 = r1.scale(5);
 ```
 
 With UFCS, the `.` acts a bit like [the pipe operator][pipe] from functional
