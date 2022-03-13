@@ -249,7 +249,7 @@ polymorphism][ad-hoc-poly]. This allows many functions to exist with the same
 name, as long as they have different types. Then the compiler could select the
 appropriate function to call based on the types of the function arguments.
 
-[functions]: /posts/lambda-cube
+[functions]: /posts/lambda-cube/
 [ruby-methods]: https://stackoverflow.com/questions/885414
 [rails]: https://rubyonrails.org
 [refinements]: https://docs.ruby-lang.org/en/2.4.0/syntax/refinements_rdoc.html
