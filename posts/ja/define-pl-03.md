@@ -220,14 +220,15 @@ $$
 
 例えば$\mathsf{Bool}$には値が二つあります。$\mathsf{true}$と$\mathsf{false}$。
 
-では$\mathsf{Bool} \times \mathsf{Bool}$という型には値がいくつありますか。それは四つ。
+では$\mathsf{Bool} \times \mathsf{Bool}$という型には値がいくつありますか。それは
+$2 \times 2 = 4$。
 
 1. $\langle \mathsf{true}, \mathsf{true} \rangle$
 1. $\langle \mathsf{true}, \mathsf{false} \rangle$
 1. $\langle \mathsf{false}, \mathsf{true} \rangle$
 1. $\langle \mathsf{false}, \mathsf{false} \rangle$
 
-$\mathsf{Bool} \times \mathsf{1}$も見ましょう。$\mathsf{Bool}$と同じく、値が二つあります。
+$\mathsf{Bool} \times \mathsf{1}$も見ましょう。値の数は$2 \times 1 = 2$。
 
 1. $\langle \mathsf{true}, \langle \rangle \rangle$
 1. $\langle \mathsf{false}, \langle \rangle \rangle$

@@ -243,7 +243,8 @@ product of the number of values in the constituent types.
 For instance, consider the type $\mathsf{Bool}$. It has 2 values,
 $\mathsf{true}$ and $\mathsf{false}$.
 
-Now consider the type $\mathsf{Bool} \times \mathsf{Bool}$. It has 4 values:
+Now consider the type $\mathsf{Bool} \times \mathsf{Bool}$. It has $2 \times 2 =
+4$ values:
 
 1. $\langle \mathsf{true}, \mathsf{true} \rangle$
 1. $\langle \mathsf{true}, \mathsf{false} \rangle$
@@ -251,7 +252,7 @@ Now consider the type $\mathsf{Bool} \times \mathsf{Bool}$. It has 4 values:
 1. $\langle \mathsf{false}, \mathsf{false} \rangle$
 
 Consider also the type $\mathsf{Bool} \times \mathsf{1}$, the product of
-$\mathsf{Bool}$ and unit. Like $\mathsf{Bool}$, it only has 2 values:
+$\mathsf{Bool}$ and unit. It has $2 \times 1 = 2$ values:
 
 1. $\langle \mathsf{true}, \langle \rangle \rangle$
 1. $\langle \mathsf{false}, \langle \rangle \rangle$
