@@ -24,6 +24,7 @@ fn scale(rect: Rect, by: u32) -> Rect {...}
 
 let r1 = Rect { width: 3, height: 4 };
 let r2 = scale(r1, 5);
+
 assert_eq!(r2.width, 15);
 assert_eq!(r2.height, 20);
 ```
@@ -82,6 +83,7 @@ impl Rect {
 let r1 = Rect { width: 3, height: 4 };
 // method call syntax
 let r2 = r1.scale(5);
+
 assert_eq!(r2.width, 15);
 assert_eq!(r2.height, 20);
 ```
