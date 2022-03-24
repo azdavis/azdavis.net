@@ -125,12 +125,18 @@ generic type arguments. Rust also allows for term-to-type functions with a
 feature called const generics:
 
 ```rs
-type SquareMatrix<const N: usize> = [[u32; N]; N];
+type IntArray<const N: usize> = [u32; N];
 ```
 
-Here, `SquareMatrix` is a function from a term to a type. The input term `N` has
-type `usize`, and the output type is the type of square matrices, with dimension
-`N`, whose elements are unsigned 32-bit integers.
+Here, `IntArray` is a function from a term to a type. The input term `N` has
+type `usize`, and the output type is the type of arrays of unsigned 32-bit
+integers with length `N`.
+
+We can use it like this:
+
+```rs
+const A: IntArray<3> = [2, 4, 6];
+```
 
 Types like `[u32; N]` that contain, or "depend on", terms, are called dependent
 types. Not many programming languages fully support dependent types, likely due
