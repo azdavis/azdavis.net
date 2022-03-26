@@ -235,7 +235,7 @@ types-first architecture.
 
 However, I want to stress that ultimately, the goal is to make it easier for
 humans to use the language. I believe that
-[limitations provide opportunity][lim-op]: by adding some limitations to
+[limitations engender opportunity][lim-op]: by adding some limitations to
 languages so that they integrate better with tooling, we unlock the opportunity
 to have surprisingly great tooling for those languages. Further, I believe the
 increased quality of the tooling enabled by these design choices results in a
