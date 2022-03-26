@@ -95,9 +95,10 @@ fn bar() {
 }
 
 Foo::quz();
-// we must typecheck the body of `bar` to know
-// that this call to `quz` is well-typed.
 ```
+
+In this example, we must typecheck the body of `bar` to know that the call to
+`quz` is well-typed.
 
 #### Flow: Inferring types across module boundaries
 
