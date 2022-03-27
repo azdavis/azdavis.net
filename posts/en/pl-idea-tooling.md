@@ -158,13 +158,13 @@ package, not any of the other hundreds or thousands of unchanged packages.
 When designing a language, we can make explicit design choices in service of
 offering a better language server for that language.
 
-For instance, requiring type annotations on publicly exported items in modules.
-Then your language server, too, can be architected like Flow's types-first
-system.
+For instance, you could require type annotations on publicly exported items in
+modules. Then your language server, too, can be architected like Flow's
+types-first system.
 
 For that matter, having a module system with explicit imports and exports in the
-first place. Then you can isolate and analyze individual modules, as Sorbet will
-eventually, instead of the entire codebase at once.
+first place is important. Then you can isolate and analyze individual modules,
+as Sorbet will eventually, instead of the entire codebase at once.
 
 It may also be a good idea to structure your language's concrete syntax in such
 a way that it is easy to recover from syntax errors. For instance, you might
