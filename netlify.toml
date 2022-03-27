@@ -1,3 +1,4 @@
+# https://securityheaders.com
 [[headers]]
 for = "/*"
 [headers.values]
