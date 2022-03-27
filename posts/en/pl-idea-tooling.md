@@ -102,7 +102,7 @@ Foo::quz();
 In this example, we must typecheck the body of `bar` to know that the call to
 `quz` is well-typed.
 
-#### Flow: Inferring types across module boundaries
+#### Flow: inferring types across module boundaries
 
 [Flow][flow] used to infer types across module boundaries. So for instance, code
 like this used to be allowed:
@@ -132,7 +132,7 @@ export const foo: number = Math.random();
 Now, Flow can use these annotations to first construct the type signature of a
 module, then individually typecheck each module.
 
-#### Ruby: Autoloading
+#### Ruby: autoloading
 
 Ruby code often uses an autoloader, which de-necessitates explicitly
 `require`ing all the dependencies of a given file. The autoloader figures out
