@@ -71,10 +71,12 @@ when you start up your text editor and keeps running as long as it's open. It
 builds and maintains a semantic model of the codebase, updating the model in
 response to your changes of the code.
 
-To be performant, a language server should incrementally update its semantic
-model, as opposed to recalculating it wholesale every time. For instance, it
-would be unacceptable if, every time you changed a single function's body, the
-language server had to re-typecheck the entire codebase.
+To be [performant][lang-srv-perf], a language server should incrementally update
+its semantic model, as opposed to recalculating it wholesale every time. For
+instance, it would be unsustainable if, every time you changed a single
+function's body, the language server had to re-typecheck the entire codebase.
+This might work for an initial proof-of-concept on a small codebase, but for
+large ones, the responsiveness of the language server would drop precipitously.
 
 Certain choices in the design of the language can make it easier or harder to
 implement an incrementally-updating language server for that language.
@@ -212,6 +214,10 @@ By contrast, in a language where the block structure is explicitly noted with
 delimiters like `{` and `}`, the formatter can take the fullest of liberties to
 rewrite your code to be correctly indented.
 
+Not to mention that many editors, even without language server support,
+automatically insert the pairing closing `}` when you type `{` (and similarly
+with `[]`, `()`, etc).
+
 Additionally, it could be advantageous to be forgiving, to a degree, with your
 language's syntax, since the autoformatter can take care of it. For instance,
 you could allow trailing commas in list literals and things of that sort. The
@@ -253,6 +259,7 @@ some inspiration for this post. Alas, I can't find the talk.
 [parse-recovery]: https://blog.jez.io/error-recovery-part-1/
 [rust-analyzer]: https://rust-analyzer.github.io
 [ufcs]: /posts/pl-idea-ufcs/
+[lang-srv-perf]: https://rust-analyzer.github.io/blog/2020/07/20/three-architectures-for-responsive-ide.html
 [flow]: https://flow.org/
 [types-first]: https://flow.org/en/docs/lang/types-first/
 [ruby-mutation]: https://blog.jez.io/ruby-mutation/
