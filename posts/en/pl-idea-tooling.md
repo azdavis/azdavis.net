@@ -247,9 +247,9 @@ to have surprisingly great tooling for those languages. Further, I believe the
 increased quality of the tooling enabled by these design choices results in a
 net gain for the developer.
 
-### Inspired by a talk
+### Inspired by many others
 
-Much of this article was inspired by a bunch of other things I've read and
+Much of this article was [inspired][] by a bunch of other things I've read and
 watched. I've linked to the things I can find, but there's one thing in
 particular, a talk by [Niko Matsakis][niko], about things like incremental
 compilation in Rust, [salsa-rs][], and the Rust compiler query system that was
@@ -271,3 +271,4 @@ some inspiration for this post. Alas, I can't find the talk.
 [lim-op]: /posts/limitations-opportunity/
 [niko]: http://smallcultfollowing.com/babysteps/about/
 [salsa-rs]: https://github.com/salsa-rs/salsa
+[inspired]: /posts/unoriginality/
