@@ -24,7 +24,7 @@ analyze code as you write it, pointing out warnings and errors directly in your
 text editor.
 
 Language servers also allow developers to navigate and understand their codebase
-more easily. They offer features like
+more easily. They offer features like:
 
 - Jump to definition
 - Code completion
@@ -86,7 +86,7 @@ implement an incrementally-updating language server for that language.
 
 Rust allows `impl` items to appear in function bodies. This means changing the
 body of one function can affect whether the call site for another, different
-function is well-typed.
+function is well-typed:
 
 ```rs
 struct Foo {}
@@ -176,7 +176,7 @@ that kind of thing.
 
 In Rust, local variable definitions begin with `let`. So, given this incomplete
 Rust code, rust-analyzer is able to easily recover and parse the second `let`
-statement.
+statement:
 
 ```rs
 let x =
