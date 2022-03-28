@@ -36,7 +36,7 @@ more easily. They offer features like
 To be effective, a language server [should be able to parse][parse-recovery] and
 analyze code that is the middle of being written.
 
-For instance, suppose we're writing some Rust, and we've typed this so far:
+Suppose we're writing some Rust, and we've typed this so far:
 
 ```rs
 let mut xs = vec![2, 4, 7];
@@ -71,9 +71,10 @@ when you start up your text editor and keeps running as long as it's open. It
 builds and maintains a semantic model of the codebase, updating the model in
 response to your changes of the code.
 
-To be [performant][lang-srv-perf], a language server should incrementally update
-its semantic model, as opposed to recalculating it wholesale every time. For
-instance, it would be unsustainable if, every time you changed a single
+To be [responsive][lang-srv-perf], a language server should incrementally update
+its semantic model, as opposed to recalculating it wholesale every time.
+
+As an example, it would be unsustainable if, every time you changed a single
 function's body, the language server had to re-typecheck the entire codebase.
 This might work for an initial proof-of-concept on a small codebase, but for
 large ones, the responsiveness of the language server would drop precipitously.
@@ -104,8 +105,8 @@ In this example, we must typecheck the body of `bar` to know that the call to
 
 #### Flow: inferring types across module boundaries
 
-[Flow][flow] used to infer types across module boundaries. So for instance, code
-like this used to be allowed:
+[Flow][flow] used to infer types across module boundaries. So code like this
+used to be allowed:
 
 ```ts
 export const foo = Math.random();
@@ -149,7 +150,7 @@ for use with Sorbet. This package system, now in use in production at Stripe,
 will eventually allow Sorbet to typecheck individual packages, instead of the
 whole codebase.
 
-Sorbet could, for instance, note that a new module added in a package is not
+Eventually, Sorbet could note that a new module added in a package is not
 exported to other packages. It can thus safely re-typecheck only files in the
 package, not any of the other hundreds or thousands of unchanged packages.
 
@@ -158,7 +159,7 @@ package, not any of the other hundreds or thousands of unchanged packages.
 When designing a language, we can make explicit design choices in service of
 offering a better language server for that language.
 
-For instance, you could require type annotations on publicly exported items in
+You could require type annotations on publicly exported items in
 modules. Then your language server, too, can be architected like Flow's
 types-first system.
 
@@ -167,15 +168,15 @@ first place is important. Then you can isolate and analyze individual modules,
 as Sorbet will eventually, instead of the entire codebase at once.
 
 It may also be a good idea to structure your language's concrete syntax in such
-a way that it is easy to recover from syntax errors. For instance, you might
-choose to have each kind of declaration in your language begin with an explicit
-keyword marking what kind of thing it is, like `func`, `type`, `struct`, `enum`,
-`const`, `let`, etc. Then whenever the parser sees that keyword, it can begin to
-try to parse that kind of thing.
+a way that it is easy to recover from syntax errors. You might choose to have
+each kind of declaration in your language begin with an explicit keyword marking
+what kind of thing it is, like `func`, `type`, `struct`, `enum`, `const`, `let`,
+etc. Then whenever the parser sees that keyword, it can begin to try to parse
+that kind of thing.
 
-For instance, given this incomplete Rust code, rust-analyzer is able to easily
-recover and parse the second complete statement, because of the explicit `let`
-keyword.
+In Rust, local variable definitions begin with `let`. So, given this incomplete
+Rust code, rust-analyzer is able to easily recover and parse the second `let`
+statement.
 
 ```rs
 let x =
@@ -219,10 +220,10 @@ automatically insert the pairing closing `}` when you type `{` (and similarly
 with `[]`, `()`, etc).
 
 Additionally, it could be advantageous to be forgiving, to a degree, with your
-language's syntax, since the autoformatter can take care of it. For instance,
-you could allow trailing commas in list literals and things of that sort. The
-autoformatter can then decide to add trailing commas if the literal spans many
-lines, and not add them if it spans only one line.
+language's syntax, since the autoformatter can take care of it. You could allow
+trailing commas in list literals and things of that sort. The autoformatter can
+then decide to add trailing commas if the literal spans many lines, and not add
+them if it spans only one line.
 
 Having a forgiving syntax also helps with cutting down on parse errors, which
 makes your language easier to work with for a language server.
@@ -235,9 +236,9 @@ I'd like to offer a few closing thoughts.
 
 When I say that we can design languages to work better with tooling, it may
 sound like this is at the expense of making them harder for humans to work with.
-And on a surface level, this might be true. For instance, it is more work for
-the human to add type annotations to all exports as required by Flow's
-types-first architecture.
+And on a surface level, this might be true. It is indeed more work for the human
+to add type annotations to all exports as required by Flow's types-first
+architecture.
 
 However, I want to stress that ultimately, the goal is to make it easier for
 humans to use the language. I believe that
