@@ -52,7 +52,33 @@ partial parse tree for this code, but also
 - semantically analyze the (partial!) parse tree;
 - note that `xs.` looks like the user is about to make a [method call][ufcs] on
   `xs`; and
-- use the type of `xs` to offer method suggestions.
+- use the type and mutability of `xs` to offer method suggestions, like
+  [`Vec::push`][push].
+
+#### Takeaways
+
+If we structure a language's syntax so that it is easy to recover from syntax
+errors, we will able to more easily parse it, even partially. This makes it
+easier to implement an effective language server for that language.
+
+We can have each kind of declaration in the language begin with an distinct
+keyword, like `func`, `type`, `struct`, `enum`, `const`, `let`, etc. Then,
+whenever the parser sees that keyword, it can begin to try to parse that kind,
+and only that kind, of declaration.
+
+In Rust, local variable definitions begin with `let`. So, given this incomplete
+Rust code, rust-analyzer is able to easily recover and parse the second `let`
+statement:
+
+```rs
+let x =
+let y = foo();
+```
+
+It is additionally desirable to have these keywords always act like keywords.
+That way, the language server can avoid situations where it has to
+[break compatibility][parse-kw] with the true syntax of the language to improve
+the editing experience.
 
 ### Incremental updating
 
@@ -101,7 +127,15 @@ Foo::quz();
 ```
 
 In this example, we must typecheck the body of `bar` to know that the call to
-`quz` is well-typed.
+`quz` is well-typed. Put another way, when changing the body of `bar`, we can
+cause errors when using `Foo` anywhere else in the codebase.
+
+##### Takeaways
+
+Consider maintaining the invariant that changing the body of a function can only
+cause new errors in that function. This means, in the common case when a
+programmer is mostly editing a single function at a time, the language server
+can quickly re-typecheck just that function.
 
 #### Flow: inferring types across module boundaries
 
@@ -131,7 +165,16 @@ export const foo: number = Math.random();
 ```
 
 Now, Flow can use these annotations to first construct the type signature of a
-module, then individually typecheck each module.
+module, then typecheck each module in parallel.
+
+##### Takeaways
+
+Consider requiring type annotations on publicly exported items in modules.
+
+When we do this, the language server can know that, even if we change the
+definition of an item (i.e. the expression to the right of `=` in the examples
+above), its type cannot change. That means no modules other than the one we just
+edited need to be re-typechecked.
 
 #### Ruby: autoloading
 
@@ -153,38 +196,13 @@ Eventually, Sorbet could note that a new module added in a package is not
 exported to other packages. It can thus safely re-typecheck only files in the
 package, not any of the other hundreds or thousands of unchanged packages.
 
-### Takeaways
+##### Takeaways
 
-When designing a language, we can make explicit design choices in service of
-offering a better language server for that language.
+Consider having a module system with explicit imports and exports. This allows a
+language server to:
 
-The language could have a module system with explicit imports and exports. Then
-the language server can isolate and analyze individual modules, as Sorbet will
-eventually, instead of the entire codebase at once.
-
-On top of this, the language could require type annotations on publicly exported
-items in modules. Then its language server, too, can be architected like Flow's
-types-first system.
-
-It may also be a good idea to structure the language's concrete syntax in such a
-way that it is easy to recover from syntax errors. If each kind of declaration
-in the language begins with an distinct keyword, like `func`, `type`, `struct`,
-`enum`, `const`, `let`, etc, then whenever the parser sees that keyword, it can
-begin to try to parse that kind, and only that kind, of declaration.
-
-In Rust, local variable definitions begin with `let`. So, given this incomplete
-Rust code, rust-analyzer is able to easily recover and parse the second `let`
-statement:
-
-```rs
-let x =
-let y = foo();
-```
-
-It is additionally desirable to have these keywords always act like keywords.
-That way, the language server can avoid situations where it has to
-[break compatibility][parse-kw] with the true syntax of the language to improve
-the editing experience.
+- Parallelize typechecking across modules.
+- Know that changes in module-private definitions cannot affect other modules.
 
 ## Auto-formatters
 
@@ -258,6 +276,7 @@ some inspiration for this post. Alas, I can't find the talk.
 [parse-recovery]: https://blog.jez.io/error-recovery-part-1/
 [rust-analyzer]: https://rust-analyzer.github.io
 [ufcs]: /posts/pl-idea-ufcs/
+[push]: https://doc.rust-lang.org/stable/alloc/vec/struct.Vec.html#method.push
 [lang-srv-perf]: https://rust-analyzer.github.io/blog/2020/07/20/three-architectures-for-responsive-ide.html
 [flow]: https://flow.org/
 [types-first]: https://flow.org/en/docs/lang/types-first/
