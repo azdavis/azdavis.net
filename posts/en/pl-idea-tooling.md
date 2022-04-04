@@ -137,6 +137,34 @@ cause new errors in that function. This means, in the common case when a
 programmer is mostly editing a single function at a time, the language server
 can quickly re-typecheck just that function.
 
+#### Ruby: autoloading
+
+Ruby code often uses an autoloader, which de-necessitates explicitly
+`require`ing all the dependencies of a given file. The autoloader figures out
+which files define what, and automatically requires them when needed.
+
+This means a static typechecker for Ruby, like [Sorbet][sorbet], must track a
+single massive interconnected graph of dependencies between files. Sorbet must
+thus potentially re-typecheck dozens or hundreds of files in response to editing
+a single file.
+
+To solve this, engineers at [Stripe][stripe] working on Sorbet have developed a
+package system for use with Sorbet. This package system encourages defining
+explicit boundaries between logical areas of the codebase. It will eventually
+allow Sorbet to typecheck individual packages, instead of the whole codebase.
+
+Eventually, Sorbet could note that a new module added in a package is not
+exported to other packages. It can thus safely re-typecheck only files in the
+package, not any of the other hundreds or thousands of unchanged packages.
+
+##### Takeaways
+
+Consider having a module system with explicit imports and exports. This allows a
+language server to:
+
+- Parallelize typechecking across modules.
+- Know that changes in module-private definitions cannot affect other modules.
+
 #### Flow: inferring types across module boundaries
 
 [Flow][flow] used to infer types across module boundaries. So code like this
@@ -175,34 +203,6 @@ When we do this, the language server can know that, even if we change the
 definition of an item (i.e. the expression to the right of `=` in the examples
 above), its type cannot change. That means no modules other than the one we just
 edited need to be re-typechecked.
-
-#### Ruby: autoloading
-
-Ruby code often uses an autoloader, which de-necessitates explicitly
-`require`ing all the dependencies of a given file. The autoloader figures out
-which files define what, and automatically requires them when needed.
-
-This means a static typechecker for Ruby, like [Sorbet][sorbet], must track a
-single massive interconnected graph of dependencies between files. Sorbet must
-thus potentially re-typecheck dozens or hundreds of files in response to editing
-a single file.
-
-To solve this, engineers at [Stripe][stripe] working on Sorbet have developed a
-package system for use with Sorbet. This package system encourages defining
-explicit boundaries between logical areas of the codebase. It will eventually
-allow Sorbet to typecheck individual packages, instead of the whole codebase.
-
-Eventually, Sorbet could note that a new module added in a package is not
-exported to other packages. It can thus safely re-typecheck only files in the
-package, not any of the other hundreds or thousands of unchanged packages.
-
-##### Takeaways
-
-Consider having a module system with explicit imports and exports. This allows a
-language server to:
-
-- Parallelize typechecking across modules.
-- Know that changes in module-private definitions cannot affect other modules.
 
 ## Auto-formatters
 
@@ -278,12 +278,12 @@ some inspiration for this post. Alas, I can't find the talk.
 [ufcs]: /posts/pl-idea-ufcs/
 [push]: https://doc.rust-lang.org/stable/alloc/vec/struct.Vec.html#method.push
 [lang-srv-perf]: https://rust-analyzer.github.io/blog/2020/07/20/three-architectures-for-responsive-ide.html
-[flow]: https://flow.org/
-[types-first]: https://flow.org/en/docs/lang/types-first/
 [ruby-mutation]: https://blog.jez.io/ruby-mutation/
 [sorbet]: https://sorbet.org
 [stripe]: https://stripe.com
 [parse-kw]: https://github.com/sorbet/sorbet/pull/1993
+[flow]: https://flow.org/
+[types-first]: https://flow.org/en/docs/lang/types-first/
 [prettier]: https://prettier.io
 [rustfmt]: https://github.com/rust-lang/rustfmt
 [lim-op]: /posts/limitations-opportunity/
