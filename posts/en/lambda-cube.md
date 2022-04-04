@@ -10,9 +10,9 @@ called expressions.
 - Types, like `u32` (aka "unsigned 32-bit integer") or `bool`, describe what
   operations are permitted on terms.
 
-For instance, if you have a term of type `u32`, you might be able to do things
-like add or subtract with other `u32`s. And if you have a term of type `bool`
-(aka `true` or `false`), you could do things like negate it or use it to branch
+For instance, if we have a term of type `u32`, we might be able to do things
+like add or subtract with other `u32`s. And if we have a term of type `bool`
+(aka `true` or `false`), we could do things like negate it or use it to branch
 with an `if` construct.
 
 Many programming languages also have functions. For example, we could define the

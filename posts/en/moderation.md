@@ -37,7 +37,7 @@ enjoy new experiences. I do not wish to begin living my life only once I retire.
 Lastly, I think about this when faced with the "exceptions" to this maxim. That
 is, the situations in which it is better to take an extreme view, rather than a
 moderated one. But note that these "exceptions" are not even exceptions, since
-the maxim itself, "Everything in moderation, including this", exhorts you to
+the maxim itself, "Everything in moderation, including this", exhorts us to
 exercise moderation in the very act of exercising moderation.
 
 A good example of such an "exception" is when dealing with hatred and

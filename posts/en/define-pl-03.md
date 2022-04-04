@@ -31,7 +31,7 @@ We will also introduce a product type that combines no other types, called
 often called "unit", and it is written $\langle \rangle$.
 
 Because the unit type has only one value, it may not seem very useful. However,
-it can be useful when you want to return "nothing" from a function.
+it can be useful when we want to return "nothing" from a function.
 
 For instance, in most programming languages, functions can perform side effects.
 Side effects are anything the function does other than return a value, like

@@ -20,8 +20,8 @@ it means we have a feedback loop between writing code and learning whether the
 code we wrote was correct.
 
 More recently, [language servers][lang-srv] have improved the situation. They
-analyze code as you write it, pointing out warnings and errors directly in your
-text editor.
+analyze code as a developer writes it, pointing out warnings and errors directly
+in their text editor.
 
 Language servers also allow developers to navigate and understand their codebase
 more easily. They offer features like:
@@ -67,14 +67,14 @@ sometimes described as really complicated, but ultimately pure, functions from
 strings (the input code) to strings (the output compiled artifacts).
 
 By contrast, a language server is a long-running, stateful process. It starts up
-when you start up your text editor and keeps running as long as it's open. It
-builds and maintains a semantic model of the codebase, updating the model in
-response to your changes of the code.
+the text editor starts up and keeps running as long as it's open. It builds and
+maintains a semantic model of the codebase, updating the model in response to
+changes to the code.
 
 To be [responsive][lang-srv-perf], a language server should incrementally update
 its semantic model, as opposed to recalculating it wholesale every time.
 
-As an example, it would be unsustainable if, every time you changed a single
+As an example, it would be unsustainable if, every time we changed a single
 function's body, the language server had to re-typecheck the entire codebase.
 This might work for an initial proof-of-concept on a small codebase, but for
 large ones, the responsiveness of the language server would drop precipitously.
@@ -137,18 +137,17 @@ module, then individually typecheck each module.
 
 Ruby code often uses an autoloader, which de-necessitates explicitly
 `require`ing all the dependencies of a given file. The autoloader figures out
-which files define what, and automatically requires them for you when needed.
+which files define what, and automatically requires them when needed.
 
 This means a static typechecker for Ruby, like [Sorbet][sorbet], must track a
 single massive interconnected graph of dependencies between files. Sorbet must
 thus potentially re-typecheck dozens or hundreds of files in response to editing
 a single file.
 
-To encourage more explicit boundaries between logical areas of the codebase,
-engineers at [Stripe][stripe] working on Sorbet have developed a package system
-for use with Sorbet. This package system, now in use in production at Stripe,
-will eventually allow Sorbet to typecheck individual packages, instead of the
-whole codebase.
+To solve this, engineers at [Stripe][stripe] working on Sorbet have developed a
+package system for use with Sorbet. This package system encourages defining
+explicit boundaries between logical areas of the codebase. It will eventually
+allow Sorbet to typecheck individual packages, instead of the whole codebase.
 
 Eventually, Sorbet could note that a new module added in a package is not
 exported to other packages. It can thus safely re-typecheck only files in the
@@ -159,20 +158,19 @@ package, not any of the other hundreds or thousands of unchanged packages.
 When designing a language, we can make explicit design choices in service of
 offering a better language server for that language.
 
-You could require type annotations on publicly exported items in
-modules. Then your language server, too, can be architected like Flow's
+The language could have a module system with explicit imports and exports. Then
+the language server can isolate and analyze individual modules, as Sorbet will
+eventually, instead of the entire codebase at once.
+
+On top of this, the language could require type annotations on publicly exported
+items in modules. Then its language server, too, can be architected like Flow's
 types-first system.
 
-For that matter, having a module system with explicit imports and exports in the
-first place is important. Then you can isolate and analyze individual modules,
-as Sorbet will eventually, instead of the entire codebase at once.
-
-It may also be a good idea to structure your language's concrete syntax in such
-a way that it is easy to recover from syntax errors. You might choose to have
-each kind of declaration in your language begin with an explicit keyword marking
-what kind of thing it is, like `func`, `type`, `struct`, `enum`, `const`, `let`,
-etc. Then whenever the parser sees that keyword, it can begin to try to parse
-that kind of thing.
+It may also be a good idea to structure the language's concrete syntax in such a
+way that it is easy to recover from syntax errors. If each kind of declaration
+in the language begins with an distinct keyword, like `func`, `type`, `struct`,
+`enum`, `const`, `let`, etc, then whenever the parser sees that keyword, it can
+begin to try to parse that kind, and only that kind, of declaration.
 
 In Rust, local variable definitions begin with `let`. So, given this incomplete
 Rust code, rust-analyzer is able to easily recover and parse the second `let`
@@ -184,7 +182,7 @@ let y = foo();
 ```
 
 It is additionally desirable to have these keywords always act like keywords.
-That way, your language can avoid a situation where your language server has to
+That way, the language server can avoid situations where it has to
 [break compatibility][parse-kw] with the true syntax of the language to improve
 the editing experience.
 
@@ -205,28 +203,28 @@ formatting, it passes, else it fails and the code may not be merged in.
 
 Design a language's syntax so that the autoformatter can really go to town.
 
-For instance, suppose your language uses whitespace for semantic meaning. The
+For instance, suppose a language uses whitespace for semantic meaning. The
 autoformatter is then less able to change whitespace however it pleases, since
-doing so could change the meaning of the code. This means when moving around
-blocks of code during a refactor, or when pasting snippets of code from your
-coworker or StackOverflow, you must correctly indent the code yourself.
+doing so could change the meaning of the code. This means when a developer moves
+around blocks of code during a refactor, or pastes a snippet of code from their
+coworker or StackOverflow, they must correctly indent the code themselves.
 
 By contrast, in a language where the block structure is explicitly noted with
 delimiters like `{` and `}`, the formatter can take the fullest of liberties to
-rewrite your code to be correctly indented.
+rewrite the code to be correctly indented.
 
 Not to mention that many editors, even without language server support,
-automatically insert the pairing closing `}` when you type `{` (and similarly
+automatically insert the pairing closing `}` when typing `{` (and similarly
 with `[]`, `()`, etc).
 
-Additionally, it could be advantageous to be forgiving, to a degree, with your
-language's syntax, since the autoformatter can take care of it. You could allow
-trailing commas in list literals and things of that sort. The autoformatter can
-then decide to add trailing commas if the literal spans many lines, and not add
-them if it spans only one line.
+Additionally, it could be advantageous to be forgiving, to a degree, with the
+language's syntax, since the autoformatter can take care of it. Consider
+allowing trailing commas in list literals and things of that sort. The
+autoformatter can then decide to add trailing commas if the literal spans many
+lines, and not add them if it spans only one line.
 
 Having a forgiving syntax also helps with cutting down on parse errors, which
-makes your language easier to work with for a language server.
+makes the language easier to work with for a language server.
 
 ## Conclusion
 
