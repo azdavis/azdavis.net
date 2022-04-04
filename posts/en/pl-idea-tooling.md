@@ -31,7 +31,7 @@ more easily. They offer features like:
 - Inline documentation
 - Type information
 
-### Partial parses
+## Partial parses
 
 To be effective, a language server [should be able to parse][parse-recovery] and
 analyze code that is the middle of being written.
@@ -55,7 +55,7 @@ partial parse tree for this code, but also
 - use the type and mutability of `xs` to offer method suggestions, like
   [`Vec::push`][push].
 
-#### Takeaways
+### Takeaways
 
 If we structure a language's syntax so that it is easy to recover from syntax
 errors, we will able to more easily parse it, even partially. This makes it
@@ -80,7 +80,7 @@ That way, the language server can avoid situations where it has to
 [break compatibility][parse-kw] with the true syntax of the language to improve
 the editing experience.
 
-### Incremental updating
+## Incremental updating
 
 A conventional compiler runs like this:
 
@@ -108,7 +108,7 @@ large ones, the responsiveness of the language server would drop precipitously.
 Certain choices in the design of the language can make it easier or harder to
 implement an incrementally-updating language server for that language.
 
-#### Rust: `impl` items in function bodies
+## Rust: `impl` items in function bodies
 
 Rust allows `impl` items to appear in function bodies. This means changing the
 body of one function can affect whether the call site for another, different
@@ -130,14 +130,14 @@ In this example, we must typecheck the body of `bar` to know that the call to
 `quz` is well-typed. Put another way, when changing the body of `bar`, we can
 cause errors when using `Foo` anywhere else in the codebase.
 
-##### Takeaways
+### Takeaways
 
 Consider maintaining the invariant that changing the body of a function can only
 cause new errors in that function. This means, in the common case when a
 programmer is mostly editing a single function at a time, the language server
 can quickly re-typecheck just that function.
 
-#### Ruby: autoloading
+## Ruby: autoloading
 
 Ruby code often uses an autoloader, which de-necessitates explicitly
 `require`ing all the dependencies of a given file. The autoloader figures out
@@ -157,7 +157,7 @@ Eventually, Sorbet could note that a new module added in a package is not
 exported to other packages. It can thus safely re-typecheck only files in the
 package, not any of the other hundreds or thousands of unchanged packages.
 
-##### Takeaways
+### Takeaways
 
 Consider having a module system with explicit imports and exports. This allows a
 language server to:
@@ -165,7 +165,7 @@ language server to:
 - Parallelize typechecking across modules.
 - Know that changes in module-private definitions cannot affect other modules.
 
-#### Flow: inferring types across module boundaries
+## Flow: inferring types across module boundaries
 
 [Flow][flow] used to infer types across module boundaries. So code like this
 used to be allowed:
@@ -195,7 +195,7 @@ export const foo: number = Math.random();
 Now, Flow can use these annotations to first construct the type signature of a
 module, then typecheck each module in parallel.
 
-##### Takeaways
+### Takeaways
 
 Consider requiring type annotations on publicly exported items in modules.
 
