@@ -39,41 +39,7 @@ a:hover {
   text-decoration: underline;
 }
 
-dd {
-  margin-inline-start: 4ch;
-}
-
-@media (max-width: 600px) {
-  dd {
-    margin-inline-start: 2ch;
-  }
-}
-
-blockquote {
-  margin-inline-start: 0;
-  margin-inline-end: 0;
-  padding-inline-start: 0.9em;
-  padding-inline-end: 1em;
-  border-inline-start: 0.1em solid;
-  color: var(--blockquote-fg);
-}
-
 ul,
 ol {
   padding-inline-start: 2em;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  background-color: #fff;
-  border-radius: 0.3em;
-}
-
-table {
-  width: 100%;
-}
-
-th {
-  text-align: left;
 }

@@ -12,3 +12,13 @@ h1 {
     margin: 0 2ch 1em;
   }
 }
+
+dd {
+  margin-inline-start: 4ch;
+}
+
+@media (max-width: 600px) {
+  dd {
+    margin-inline-start: 2ch;
+  }
+}
