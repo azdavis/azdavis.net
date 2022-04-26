@@ -30,7 +30,7 @@ function renderMd(content: string): UnsafeHtml {
   return { __html: md.render(content) };
 }
 
-const styles: Style[] = ["base", "code", "katex/katex.min"];
+const styles: Style[] = ["base", "post", "katex/katex.min"];
 
 interface Props {
   data: PostData;
