@@ -40,7 +40,13 @@ a:hover {
 }
 
 dd {
-  margin: 0 0 0.5em 4ch;
+  margin-inline-start: 4ch;
+}
+
+@media (max-width: 600px) {
+  dd {
+    margin-inline-start: 2ch;
+  }
 }
 
 blockquote {
@@ -70,10 +76,4 @@ table {
 
 th {
   text-align: left;
-}
-
-@media (max-width: 600px) {
-  dd {
-    margin-inline-start: 2ch;
-  }
 }
