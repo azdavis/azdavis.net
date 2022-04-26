@@ -8,7 +8,7 @@ body {
   --link-fg: #16d;
   --blockquote-fg: #555;
 
-  max-width: 60ch;
+  max-width: 70ch;
   margin: 0 auto;
   padding: 0.5em 0.5em 8em;
   color: var(--page-fg);
