@@ -93,9 +93,9 @@ sometimes described as really complicated, but ultimately pure, functions from
 strings (the input code) to strings (the output compiled artifacts).
 
 By contrast, a language server is a long-running, stateful process. It starts up
-the text editor starts up and keeps running as long as it's open. It builds and
-maintains a semantic model of the codebase, updating the model in response to
-changes to the code.
+when the text editor starts up, and keeps running as long as it's open. It
+builds and maintains a semantic model of the codebase, updating the model in
+response to changes to the code.
 
 To be [responsive][lang-srv-perf], a language server should incrementally update
 its semantic model, as opposed to recalculating it wholesale every time.
