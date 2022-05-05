@@ -19,8 +19,12 @@ struct Rect {
   height: u32,
 }
 
-// implementation elided
-fn scale(rect: Rect, by: u32) -> Rect {...}
+fn scale(rect: Rect, by: u32) -> Rect {
+  Rect {
+    width: rect.width * by,
+    height: rect.height * by,
+  }
+}
 
 let r1 = Rect { width: 3, height: 4 };
 let r2 = scale(r1, 5);
@@ -76,8 +80,12 @@ call syntax: instead of e.g. `scale(rect, 5)` we do `rect.scale(5)`.
 
 ```rs
 impl Rect {
-  // `self` is a `Rect`
-  fn scale(self, by: u32) -> Rect {...}
+  fn scale(self, by: u32) -> Rect {
+    Rect {
+      width: self.width * by,
+      height: self.height * by,
+    }
+  }
 }
 
 let r1 = Rect { width: 3, height: 4 };
@@ -206,9 +214,14 @@ This idea is called [unified function call syntax][ufcs] (UFCS).
 
 ```rs
 // defined like a function
-fn scale(rect: Rect, by: u32) -> Rect {...}
+fn scale(rect: Rect, by: u32) -> Rect {
+  Rect {
+    width: rect.width * by,
+    height: rect.height * by,
+  }
+}
 
-let r1 = Rect {...};
+let r1 = Rect { width: 3, height: 4 };
 // can call like a function...
 let r2 = scale(r1, 5);
 // ...or like a method.
