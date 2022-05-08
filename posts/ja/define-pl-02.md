@@ -369,9 +369,7 @@ $$
 
 ### 進歩
 
-> For all $\Gamma$ and $e$ and $\tau$, if $\Gamma \vdash e: \tau$ and
-> $\mathsf{fv}(e) = \emptyset$, then $e \ \mathsf{val}$ or there exists $e'$
-> such that $e \mapsto e'$.
+> For all $\Gamma$ and $e$ and $\tau$, if $\Gamma \vdash e: \tau$ and $\mathsf{fv}(e) = \emptyset$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$.
 
 $e$には自由変数が全くないことを前提とします。これで、評価しながら必要となると置き換えられます。
 
@@ -388,9 +386,7 @@ $$
 
 ### 維持
 
-> For all $\Gamma$ and $e$ and $e'$ and $\tau$, if $\Gamma \vdash e: \tau$ and
-> $\mathsf{fv}(e) = \emptyset$ and $e \mapsto e'$, then $\Gamma \vdash e': \tau$
-> and $\mathsf{fv}(e') = \emptyset$.
+> For all $\Gamma$ and $e$ and $e'$ and $\tau$, if $\Gamma \vdash e: \tau$ and $\mathsf{fv}(e) = \emptyset$ and $e \mapsto e'$, then $\Gamma \vdash e': \tau$ and $\mathsf{fv}(e') = \emptyset$.
 
 維持定理は型だけではなく、自由変数の有無も維持します。$e'$を進歩させる為には自由変数がないのは進歩定理の前提として必要だから、その有無が維持できるのは大事です。
 
@@ -398,9 +394,7 @@ $$
 
 また、この定理を合わせれば安全定理の出来上がりです。
 
-> For all $\Gamma$ and $e$ and $\tau$, if $\Gamma \vdash e: \tau$ and
-> $\mathsf{fv}(e) = \emptyset$, then $e \ \mathsf{val}$ or there exists $e'$
-> such that $e \mapsto e'$ and $\Gamma \vdash e': \tau$ and $\mathsf{fv}(e') =
+> For all $\Gamma$ and $e$ and $\tau$, if $\Gamma \vdash e: \tau$ and $\mathsf{fv}(e) = \emptyset$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$ and $\Gamma \vdash e': \tau$ and $\mathsf{fv}(e') =
 > \emptyset$.
 
 証明はまた[GitHub][proofs]にあります。

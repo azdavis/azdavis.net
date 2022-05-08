@@ -269,8 +269,7 @@ $$
 
 まずは「進歩」の定理。進歩は、型のある式は値か踏み出せると言います。
 
-> For all $e$ and $\tau$, if $e: \tau$, then $e \ \mathsf{val}$ or there exists
-> $e'$ such that $e \mapsto e'$.
+> For all $e$ and $\tau$, if $e: \tau$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$.
 
 静的意味論を紹介する前、或る式は踏み出せないし、値でもないという問題がありました。しかし静的意味論を使い、定理の前提を強化し、定理を証明可能にするのです。
 
@@ -281,8 +280,7 @@ $$
 
 それらを合わせて次の「安全」定理の出来上がりです。
 
-> For all $e$ and $\tau$, if $e: \tau$, then $e \ \mathsf{val}$ or there exists
-> $e'$ such that $e \mapsto e'$ and $e': \tau$.
+> For all $e$ and $\tau$, if $e: \tau$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$ and $e': \tau$.
 
 とりわけ注目して欲しいのは、$e \mapsto e'$の場合、$e': \tau$も事実。これでまた安全定理を$e'$に使えます。
 

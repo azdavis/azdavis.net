@@ -3,40 +3,23 @@ title: "Limitations engender opportunity"
 date: 2021-12-10
 ---
 
-In college, I took the class [Foundations of Programming Languages][pl-cmu],
-taught by Professor [Robert Harper][bob]. In this class, we studied
-[programming languages][pfpl] and [formal semantics][].
+In college, I took the class [Foundations of Programming Languages][pl-cmu], taught by Professor [Robert Harper][bob]. In this class, we studied [programming languages][pfpl] and [formal semantics][].
 
-One thing I learned from Professor Harper is that limitations engender
-opportunity. That is, if we limit our possibilities in one respect, we gain the
-opportunity to exploit these limitations to great effect in other respects.
+One thing I learned from Professor Harper is that limitations engender opportunity. That is, if we limit our possibilities in one respect, we gain the opportunity to exploit these limitations to great effect in other respects.
 
-Let us explore some examples of limitations in programming languages, and what
-opportunities they unlock. In these examples, the opportunity that we gain by
-imposing limitations is improved performance.
+Let us explore some examples of limitations in programming languages, and what opportunities they unlock. In these examples, the opportunity that we gain by imposing limitations is improved performance.
 
 ## Example: Static typing
 
-In statically typed programming languages, a typechecker statically (i.e. before
-runtime) determines the type of every [term][]. If the typechecker detects a
-type error, the program is not permitted to run.
+In statically typed programming languages, a typechecker statically (i.e. before runtime) determines the type of every [term][]. If the typechecker detects a type error, the program is not permitted to run.
 
-In [dynamically typed][uni-typed] languages, there is no static typechecker, and
-type errors are thus reported at runtime.
+In [dynamically typed][uni-typed] languages, there is no static typechecker, and type errors are thus reported at runtime.
 
 ### Limitation: Type annotations
 
-Most (but [not][sml] [all][ocaml]) statically typed languages, like C, Java, and
-Rust, require some amount of type annotations for function parameters, function
-return values, local variables, struct/class fields, etc. These annotations help
-the static typechecker determine the type of every term. But these languages
-thus limit the user by refusing to run programs lacking such annotations.
+Most (but [not][sml] [all][ocaml]) statically typed languages, like C, Java, and Rust, require some amount of type annotations for function parameters, function return values, local variables, struct/class fields, etc. These annotations help the static typechecker determine the type of every term. But these languages thus limit the user by refusing to run programs lacking such annotations.
 
-Meanwhile, in dynamically typed languages, like JavaScript, Python, and Ruby,
-there is no static typechecker built in to the language, and thus type
-annotations are never necessary. Usually they are not even possible to write,
-since the language has no static types, and thus affords no syntax for static
-type annotations.
+Meanwhile, in dynamically typed languages, like JavaScript, Python, and Ruby, there is no static typechecker built in to the language, and thus type annotations are never necessary. Usually they are not even possible to write, since the language has no static types, and thus affords no syntax for static type annotations.
 
 Some dynamically typed languages have optional static typecheckers:
 
@@ -48,60 +31,41 @@ However, they are not required.
 
 ### Limitation: Incompleteness
 
-A highly desirable property of a typechecker is that it is sound. This means
-that if the typechecker does not report a type error for a program, then there
-really are no type errors in that program.
+A highly desirable property of a typechecker is that it is sound. This means that if the typechecker does not report a type error for a program, then there really are no type errors in that program.
 
-The converse property is that of completeness: if a program has no type errors,
-then the typechecker reports none.
+The converse property is that of completeness: if a program has no type errors, then the typechecker reports none.
 
-[Gödel's first incompleteness theorem][godel-first] essentially states that once
-a system is expressive enough, it cannot be both sound and complete.
+[Gödel's first incompleteness theorem][godel-first] essentially states that once a system is expressive enough, it cannot be both sound and complete.
 
-Thus, because we often desire a typechecker to be both sound, and as expressive
-as possible, it is often not possible for it to be complete.
+Thus, because we often desire a typechecker to be both sound, and as expressive as possible, it is often not possible for it to be complete.
 
-This means that there will almost always be programs that "ought" to be
-well-typed, but for which the typechecker will report an error.
+This means that there will almost always be programs that "ought" to be well-typed, but for which the typechecker will report an error.
 
 ### Opportunity: No runtime type checks
 
-In dynamically typed languages, type errors occur at runtime. This means that,
-at runtime, we must check the type of a value before performing an operation on
-it, to know whether we must raise a type error.
+In dynamically typed languages, type errors occur at runtime. This means that, at runtime, we must check the type of a value before performing an operation on it, to know whether we must raise a type error.
 
-This is an performance penalty, since it takes a small but non-zero amount of
-time to perform these checks.
+This is an performance penalty, since it takes a small but non-zero amount of time to perform these checks.
 
-In statically typed languages, because the static typechecker knows the type of
-each term before the program runs, we know that, when our program is running, it
-will be free of type errors. This means that there is no need to do runtime type
-checks.
+In statically typed languages, because the static typechecker knows the type of each term before the program runs, we know that, when our program is running, it will be free of type errors. This means that there is no need to do runtime type checks.
 
 ### Opportunity: No runtime storage of types
 
-In dynamically typed languages, since we must know the type of each value at
-runtime, we must record the type of each value along with the value itself.
+In dynamically typed languages, since we must know the type of each value at runtime, we must record the type of each value along with the value itself.
 
-This is another performance penalty, this time in the sense of storage space
-rather than time, because must use a small amount of storage to tag each value
-with its type.
+This is another performance penalty, this time in the sense of storage space rather than time, because must use a small amount of storage to tag each value with its type.
 
-In statically typed languages, we do not perform runtime type checks, and so we
-need not store the types of values at runtime.
+In statically typed languages, we do not perform runtime type checks, and so we need not store the types of values at runtime.
 
 ## Example: Ownership
 
-The Rust programming language has a unique memory management system based around
-the concept of ownership:
+The Rust programming language has a unique memory management system based around the concept of ownership:
 
 - In Rust, at most one variable can "own" a given value at a time.
 - That variable is called the value's owner.
-- When the owner goes out of scope, the value is dropped (i.e. "deallocated" or
-  "freed").
+- When the owner goes out of scope, the value is dropped (i.e. "deallocated" or "freed").
 
-Consider this short Rust function, which shows a value, its owner, and when the
-value is dropped:
+Consider this short Rust function, which shows a value, its owner, and when the value is dropped:
 
 ```rs
 fn show_len() {
@@ -118,69 +82,44 @@ fn show_len() {
 
 ### Limitation: Harder to express some patterns
 
-Because of the ownership system in Rust, cyclic data structures are more
-difficult (but not impossible) to express. This includes data structures like:
+Because of the ownership system in Rust, cyclic data structures are more difficult (but not impossible) to express. This includes data structures like:
 
-- A doubly-linked list, which allows inserting between adjacent nodes in
-  constant time.
-- A tree with parent pointers, which allows going from a child node to its
-  parent in constant time.
+- A doubly-linked list, which allows inserting between adjacent nodes in constant time.
+- A tree with parent pointers, which allows going from a child node to its parent in constant time.
 
 ### Opportunity: Static automatic memory management
 
-When compiling a Rust program, the compiler uses the rules of ownership to
-automatically insert memory allocations and deallocations exactly where needed.
-This distinguishes Rust from nearly every other programming language in
-widespread use.
+When compiling a Rust program, the compiler uses the rules of ownership to automatically insert memory allocations and deallocations exactly where needed. This distinguishes Rust from nearly every other programming language in widespread use.
 
-Some languages, like C and C++, require the programmer to explicitly allocate
-and free memory. This makes it hard to write programs free of memory errors.
-There are many forms of memory errors:
+Some languages, like C and C++, require the programmer to explicitly allocate and free memory. This makes it hard to write programs free of memory errors. There are many forms of memory errors:
 
 - Memory leak: we fail to deallocate memory that won't be used anymore
 - Double free: we attempt to deallocate memory that has already been deallocated
 - Use after free: we access memory that has already been deallocated
 - Out of bounds: we access memory right next to memory we own
-- Segmentation fault: we attempt to access memory in a restricted area, and the
-  operating system intervenes to prevent this
+- Segmentation fault: we attempt to access memory in a restricted area, and the operating system intervenes to prevent this
 
-In Rust, because allocations and deallocations are automatically inserted where
-appropriate, these memory issues are far less common.
+In Rust, because allocations and deallocations are automatically inserted where appropriate, these memory issues are far less common.
 
-Most other languages use either a garbage collector or reference counting to
-automatically manage memory. In these systems, it is not statically known when
-memory should get deallocated. Thus, the runtime system decides when to
-deallocate memory while the program is running.
+Most other languages use either a garbage collector or reference counting to automatically manage memory. In these systems, it is not statically known when memory should get deallocated. Thus, the runtime system decides when to deallocate memory while the program is running.
 
-Much as in the discussion of static versus dynamic typing, computing, storing,
-and acting upon additional information at runtime in this way imposes a
-performance penalty.
+Much as in the discussion of static versus dynamic typing, computing, storing, and acting upon additional information at runtime in this way imposes a performance penalty.
 
 ## Example: References
 
-Another unique feature of Rust is its system of references. References in Rust
-are similar to pointers as in C and C++, but have some key differences.
+Another unique feature of Rust is its system of references. References in Rust are similar to pointers as in C and C++, but have some key differences.
 
 ### Limitation: Creation and permitted operations
 
-References can be shared or exclusive, and Rust places limitations on what
-kinds of references can be created when, and what operations are permitted on
-those references.
+References can be shared or exclusive, and Rust places limitations on what kinds of references can be created when, and what operations are permitted on those references.
 
-Given a value, Rust allows either unlimited shared references to that value, or
-a single exclusive reference to that value, to be in scope at a time.
+Given a value, Rust allows either unlimited shared references to that value, or a single exclusive reference to that value, to be in scope at a time.
 
-Further, when shared reference to a value are in scope, Rust generally does not
-allow mutating that value. And when an exclusive reference to a value is in
-scope, Rust only allows mutating that value via that exclusive reference.
+Further, when shared reference to a value are in scope, Rust generally does not allow mutating that value. And when an exclusive reference to a value is in scope, Rust only allows mutating that value via that exclusive reference.
 
 ### Opportunity: `noalias` information passed to LLVM
 
-Because of the restrictions around using references in Rust, the Rust compiler
-can tell LLVM that exclusive references really are exclusive by adding `noalias`
-annotations to the compiled LLVM IR. Then, when the IR is compiled down to
-assembly, this knowledge can be exploited to generate fewer assembly operations,
-improving runtime performance.
+Because of the restrictions around using references in Rust, the Rust compiler can tell LLVM that exclusive references really are exclusive by adding `noalias` annotations to the compiled LLVM IR. Then, when the IR is compiled down to assembly, this knowledge can be exploited to generate fewer assembly operations, improving runtime performance.
 
 For example, consider this C function:
 
@@ -191,8 +130,7 @@ void add_twice(int* a, int* b) {
 }
 ```
 
-Because `a` and `b` might be the same pointer, we must dereference `b` both
-times we add it to `*a`, since `*b` could have changed after the first add.
+Because `a` and `b` might be the same pointer, we must dereference `b` both times we add it to `*a`, since `*b` could have changed after the first add.
 
 For instance, this is legal:
 
@@ -214,8 +152,7 @@ fn add_twice(a: &mut i32, b: &mut i32) {
 }
 ```
 
-This function itself is legal, but calling it as we did in C is not. When we
-attempt to do so:
+This function itself is legal, but calling it as we did in C is not. When we attempt to do so:
 
 ```rs
 fn main() {
@@ -238,25 +175,15 @@ error[E0499]: cannot borrow `x` as mutable more than once at a time
   |   first borrow later used by call
 ```
 
-As noted, Rust does not allow having more than one exclusive reference to a
-single value in scope at a time.
+As noted, Rust does not allow having more than one exclusive reference to a single value in scope at a time.
 
-Because of this limitation, Rust can instruct LLVM to compile `add_twice` to be
-more efficient. We can dereference `*b` only once, and re-use its value for both
-adds to `*a`.
+Because of this limitation, Rust can instruct LLVM to compile `add_twice` to be more efficient. We can dereference `*b` only once, and re-use its value for both adds to `*a`.
 
-Although this also is possible in C by using the `restrict` keyword, in Rust it
-is the default. It turns out that Rust exposed multiple bugs in LLVM, because
-its ability to add pervasive `noalias` annotations tested many more situations
-than C and C++ programmers had ever tested by adding manual `restrict`
-annotations.
+Although this also is possible in C by using the `restrict` keyword, in Rust it is the default. It turns out that Rust exposed multiple bugs in LLVM, because its ability to add pervasive `noalias` annotations tested many more situations than C and C++ programmers had ever tested by adding manual `restrict` annotations.
 
 ## Example: Placement of `impl`s
 
-Rust allows defining items like types and functions. These items can be defined
-not just at the top level, but also inside the body of function items. This
-lets the programmer restrict the scope of an item to just the single function
-that uses that item.
+Rust allows defining items like types and functions. These items can be defined not just at the top level, but also inside the body of function items. This lets the programmer restrict the scope of an item to just the single function that uses that item.
 
 ```rs
 // top-level item
@@ -277,9 +204,7 @@ fn main() {
 
 ### (No) limitation: `impl`s in function bodies
 
-One kind of item in Rust is the `impl` item, which adds methods to a type. In
-this example, we define a type `Rect`, and then add an `area` method onto that
-type with an `impl`.
+One kind of item in Rust is the `impl` item, which adds methods to a type. In this example, we define a type `Rect`, and then add an `area` method onto that type with an `impl`.
 
 ```rs
 struct Rect {
@@ -312,18 +237,13 @@ fn outer() {
 }
 ```
 
-However, `impl`s have effect regardless of where they are declared. So, if as in
-this example, the `impl Rect` to add the `area` method was inside the `outer`
-function, `area` would still be a method on all `Rect`s, whether they are used
-inside the scope of `outer` or not.
+However, `impl`s have effect regardless of where they are declared. So, if as in this example, the `impl Rect` to add the `area` method was inside the `outer` function, `area` would still be a method on all `Rect`s, whether they are used inside the scope of `outer` or not.
 
-This means that in Rust, changing the body of a function can affect items
-declared outside of the scope of the function.
+This means that in Rust, changing the body of a function can affect items declared outside of the scope of the function.
 
 ### (No) opportunity: incremental re-typechecking
 
-[rust-analyzer][] is a [language server][] for Rust. A language server analyzes
-a repository of code and provides information like
+[rust-analyzer][] is a [language server][] for Rust. A language server analyzes a repository of code and provides information like
 
 - the type of a given term
 - the definition site of a given variable
@@ -331,31 +251,19 @@ a repository of code and provides information like
 
 and so on.
 
-When a programmer modifies files in the repository, we would like to
-incrementally update the language server's database of semantic knowledge about
-the repository.
+When a programmer modifies files in the repository, we would like to incrementally update the language server's database of semantic knowledge about the repository.
 
-For instance, if a programmer edits a single function's body, we would like to
-only re-typecheck that function's body. We can do this if we know that, if the
-only thing that changed was a single function's body, not its type, then it is
-not possible for the well-typed-ness of other functions to change.
+For instance, if a programmer edits a single function's body, we would like to only re-typecheck that function's body. We can do this if we know that, if the only thing that changed was a single function's body, not its type, then it is not possible for the well-typed-ness of other functions to change.
 
-Except this is not true in Rust, as just discussed. This is because the edited
-function's body could contain an `impl` for another type defined elsewhere. And
-editing that `impl` could add or remove methods for that type, which may be used
-in other functions.
+Except this is not true in Rust, as just discussed. This is because the edited function's body could contain an `impl` for another type defined elsewhere. And editing that `impl` could add or remove methods for that type, which may be used in other functions.
 
-So, writing an incrementally-updating language server for Rust is more difficult
-than it would be if `impl`s were not allowed in function bodies.
+So, writing an incrementally-updating language server for Rust is more difficult than it would be if `impl`s were not allowed in function bodies.
 
 ## Conclusion
 
-These examples illustrate that consciously choosing to add limitations can
-engender benefits, often in the form of improved performance.
+These examples illustrate that consciously choosing to add limitations can engender benefits, often in the form of improved performance.
 
-Conversely, ostensibly removing limitations can in a sense add limitations, in
-that we may no longer take advantage of the types of opportunities discussed
-here.
+Conversely, ostensibly removing limitations can in a sense add limitations, in that we may no longer take advantage of the types of opportunities discussed here.
 
 [pl-cmu]: https://www.cs.cmu.edu/~rjsimmon/15312-s14/
 [bob]: https://www.cs.cmu.edu/~rwh/
