@@ -186,19 +186,14 @@ Although this also is possible in C by using the `restrict` keyword, in Rust it 
 Rust allows defining items like types and functions. These items can be defined not just at the top level, but also inside the body of function items. This lets the programmer restrict the scope of an item to just the single function that uses that item.
 
 ```rs
-// top-level item
 fn outer() {
-  // inner item
   fn inner() {}
-  // `inner` is in scope inside `outer`
   inner();
 }
 
 fn main() {
-  // `outer` is in scope here
   outer();
-  // error, `inner` is NOT in scope here
-  inner();
+  inner(); // ==> error: not in scope
 }
 ```
 
@@ -220,8 +215,7 @@ impl Rect {
 
 fn main() {
   let r = Rect { width: 3, height: 4 };
-  println!("{}", r.area());
-  // ==> 12
+  println!("{}", r.area()); // ==> 12
 }
 ```
 
