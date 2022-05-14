@@ -69,7 +69,7 @@ fn push<T>(xs: Vec<T>, x: T) -> Vec<T>
 
 Note that:
 
-- In `push<T>`, the `T` is a type parameter. This is an example of a type-to-term function.
+- In `fn push<T>`, the `T` is a type parameter. This is an example of a type-to-term function.
 - In `Vec<T>`, the `T` is a type argument. It is being passed to the type-to-type function `Vec`.
 
 ## Terms to types
@@ -87,15 +87,15 @@ defines `A` to be an array, with a fixed length of 3, of 32-bit unsigned integer
 As we've seen, Rust allows type-to-term and type-to-type functions via generic type arguments. Rust also allows for term-to-type functions with a feature called const generics:
 
 ```rs
-type IntArray<const N: usize> = [u32; N];
+type U32Array<const N: usize> = [u32; N];
 ```
 
-Here, `IntArray` is a function from a term to a type. The input term `N` has type `usize`, and the output type is the type of arrays of unsigned 32-bit integers with length `N`.
+Here, `U32Array` is a function from a term to a type. The input term `N` has type `usize`, and the output type is the type of arrays of unsigned 32-bit integers with length `N`.
 
 We can use it like this:
 
 ```rs
-const A: IntArray<3> = [2, 4, 6];
+const A: U32Array<3> = [2, 4, 6];
 ```
 
 Types like `[u32; N]` that contain, or "depend on", terms, are called dependent types. Not many programming languages fully support dependent types, likely due to their [incredible expressive power][curry-howard].
