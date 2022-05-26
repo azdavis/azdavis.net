@@ -3,7 +3,7 @@
 }
 
 body {
-  --page-fg: #333;
+  --page-fg: #222;
   --page-bg: #fff;
   --link-fg: #16d;
   --blockquote-fg: #555;
@@ -20,7 +20,7 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     --page-fg: #ddd;
-    --page-bg: #333;
+    --page-bg: #222;
     --link-fg: #5af;
     --blockquote-fg: #bbb;
   }

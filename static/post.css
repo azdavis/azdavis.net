@@ -5,7 +5,7 @@ body {
   --code-fg-number: #0a825a;
   --code-fg-string: #a01414;
   --code-fg-type: #288296;
-  --code-bg: #f4f4f4;
+  --code-bg: #f6f6f6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,7 +16,7 @@ body {
     --code-fg-number: #b4c8aa;
     --code-fg-string: #c89678;
     --code-fg-type: #50c8aa;
-    --code-bg: #404040;
+    --code-bg: #333;
   }
 }
 
