@@ -53,6 +53,7 @@ pre {
 
 code {
   font-family: Input, Menlo, Consolas, monospace;
+  font-size: 0.9em;
   padding: 0.1em 0.3em;
   border-radius: 0.3em;
   background-color: var(--code-bg);
