@@ -43,8 +43,8 @@ interface Props {
 const translations = {
   translations: { en: "Translations: ", ja: "翻訳\uff1a" },
   posts,
-  lRound: { en: "(", ja: "（" },
-  rRound: { en: ")", ja: "）" },
+  lRound: { en: "(", ja: "\uff08" },
+  rRound: { en: ")", ja: "\uff09" },
 };
 
 function Post({ data, lang, langs, slug }: Props): ReactElement {
