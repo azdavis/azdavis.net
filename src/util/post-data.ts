@@ -10,14 +10,13 @@ export interface PostData extends PostMetadata {
   content: string;
 }
 
-export function getPostData(contents: string): PostData {
+export function getPostData(slug: string, contents: string): PostData {
   const { data, content } = matter(contents);
   const { title, date } = data;
-  if (typeof title !== "string") {
-    throw new Error("title must be a string");
-  }
-  if (!(date instanceof Date)) {
-    throw new Error("date must be a Date");
+  if (typeof title !== "string" || !(date instanceof Date)) {
+    throw new Error(
+      `${slug}: front matter must be {title: string, date: Date}`,
+    );
   }
   return { title, date, content };
 }

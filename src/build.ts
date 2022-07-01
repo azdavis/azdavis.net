@@ -83,10 +83,10 @@ ${entries.join("\n")}
 
 async function getAllPostData(entries: string[]): Promise<Posts> {
   const awaited = await Promise.all(
-    entries.map(async (e) => {
-      const slug = basename(e, ".md");
-      const file = await readFile(e);
-      return { slug, contents: getPostData(file.toString()) };
+    entries.map(async (name) => {
+      const slug = basename(name, ".md");
+      const file = await readFile(name);
+      return { slug, contents: getPostData(slug, file.toString()) };
     }),
   );
   const ret = new Map<string, PostData>();
