@@ -13,16 +13,23 @@ interface Props {
   title: string;
   styles: Style[];
   children: ReactNode;
+  desc?: string;
 }
 
-export function Page({ lang, title, styles, children }: Props): ReactElement {
+export function Page({
+  lang,
+  title,
+  styles,
+  children,
+  desc,
+}: Props): ReactElement {
   return (
     <html lang={lang}>
       <head>
         <meta charSet="utf-8" />
         <title>{title}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="description" content={translations[lang]} />
+        <meta name="description" content={desc ?? translations[lang]} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="mask-icon" href="/favicon.svg" color="#000000" />
         <link rel="alternate icon" type="image/png" href="/favicon.png" />

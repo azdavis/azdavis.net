@@ -48,9 +48,9 @@ const translations = {
 };
 
 function Post({ data, lang, langs, slug }: Props): ReactElement {
-  const { title, date, content } = data;
+  const { title, desc, date, content } = data;
   return (
-    <Page lang={lang} title={title} styles={styles}>
+    <Page lang={lang} title={title} desc={desc} styles={styles}>
       <a href={root(lang)}>azdavis.net</a> •{" "}
       <a href={postsDir(lang) + "/"}>{translations.posts[lang]}</a> •{" "}
       <DateShow lang={lang} date={date} />
