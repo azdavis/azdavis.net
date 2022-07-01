@@ -1,3 +1,5 @@
-.post-list-item {
-  margin: 1em 0;
+.posts {
+  display: grid;
+  grid-template-columns: 14ch 1fr;
+  gap: 1em;
 }
