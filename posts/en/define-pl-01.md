@@ -1,6 +1,7 @@
 ---
 title: "Define a PL: integers and booleans"
 date: 2021-03-31
+desc: "The beginnings of a small, formally defined PL."
 ---
 
 In this series of posts, we will define a small programming language using formal methods. We will also produce proofs about our definitions using the [Lean theorem prover][lean].

@@ -1,6 +1,7 @@
 ---
 title: "Write more, but less"
 date: 2021-09-15
+desc: "A particular writing style that may not work for you, but sometimes for me."
 ---
 
 I read two different posts ([one][1], [two][2]) recently, both of which can be summed up as: write more, but less.

@@ -46,12 +46,12 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
     const path = postDir(lang, slug);
     const langs = all.filter((l) => posts[l].has(slug));
     await writeHtml(path, post({ data, lang, slug, langs }));
-    const { title, date } = data;
+    const { title, desc, date } = data;
     if (titles.has(title)) {
       throw new Error(`duplicate: ${lang} ${title}`);
     }
     titles.add(title);
-    items[idx] = { title, date, path };
+    items[idx] = { title, desc, date, path };
     idx++;
   }
   items.sort(postCmp);

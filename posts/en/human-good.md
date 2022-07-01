@@ -1,6 +1,7 @@
 ---
 title: "Humans are generally good"
 date: 2021-10-05
+desc: "An overall positive outlook on humanity."
 ---
 
 In many respects, the world is safer and more prosperous than it has ever been. Yet, I find it is common that we forget this, and focus on what is wrong with the world.

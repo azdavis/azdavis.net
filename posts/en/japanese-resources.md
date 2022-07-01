@@ -1,6 +1,7 @@
 ---
 title: "Resources for learning Japanese"
 date: 2021-03-25
+desc: "Things I use to study Japanese."
 ---
 
 I enjoy studying the Japanese language and culture. Over time I've found lots of helpful resources that I use to study.
@@ -80,6 +81,12 @@ Bottom line: learn radicals. There's an [article][kanji-mistakes] about it.
 [Website](https://www3.nhk.or.jp/news/easy/)
 
 Japanese language news about current events. Pretty short articles. Good for reading practice. You can also listen to some of the articles and toggle off the reading hints ("furigana") for more practice.
+
+## Mainichi Kanji
+
+[Website](https://mainichikanji.com)
+
+Daily kanji practice. You actually write out the kanji.
 
 ## YouTube
 

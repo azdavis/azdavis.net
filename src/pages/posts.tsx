@@ -24,11 +24,12 @@ export function postsPage(lang: Lang, posts: PostListItem[]): ReactElement {
     <Page lang={lang} title={title} styles={["base", "posts"]}>
       <a href={root(lang)}>azdavis.net</a> • <a href={feedUrl(lang)}>RSS</a>
       <h1>{title}</h1>
-      {posts.map(({ title, path, date }) => (
+      {posts.map(({ title, desc, path, date }) => (
         <div key={title} className="post-list-item">
           <div>
             <a href={path}>{title}</a>
           </div>
+          <p>{desc}</p>
           <DateShow lang={lang} date={date} />
         </div>
       ))}

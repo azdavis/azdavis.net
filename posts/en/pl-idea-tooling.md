@@ -1,6 +1,7 @@
 ---
 title: "PL idea: built for tooling"
 date: 2022-03-26
+desc: "The next generation of programming languages."
 ---
 
 The tools and languages that developers use to craft software continue to evolve. By thinking about these tools and how we use them, we can gain insight into how to design new programming languages and extend existing ones.

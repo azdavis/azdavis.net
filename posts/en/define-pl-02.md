@@ -1,6 +1,7 @@
 ---
 title: "Define a PL: functions"
 date: 2021-05-22
+desc: "Adding pure functions to a small PL."
 ---
 
 In the [previous post][prev], we introduced Hatsugen, a small programming language with integer and boolean types.

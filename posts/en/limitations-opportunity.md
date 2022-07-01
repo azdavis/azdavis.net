@@ -1,6 +1,7 @@
 ---
 title: "Limitations engender opportunity"
 date: 2021-12-10
+desc: "Alternative title: 'tradeoffs are a thing'."
 ---
 
 In college, I took the class [Foundations of Programming Languages][pl-cmu], taught by Professor [Robert Harper][bob]. In this class, we studied [programming languages][pfpl] and [formal semantics][].

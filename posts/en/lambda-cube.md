@@ -1,6 +1,7 @@
 ---
 title: "Terms, types, and functions"
 date: 2021-10-04
+desc: "Various varieties of function in programming languages."
 ---
 
 Many programming languages have both terms and types. Terms are also sometimes called expressions.

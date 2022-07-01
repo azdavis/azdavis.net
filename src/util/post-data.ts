@@ -3,6 +3,7 @@ import { Lang, root } from "./lang";
 
 export interface PostMetadata {
   title: string;
+  desc: string;
   date: Date;
 }
 
@@ -12,13 +13,17 @@ export interface PostData extends PostMetadata {
 
 export function getPostData(slug: string, contents: string): PostData {
   const { data, content } = matter(contents);
-  const { title, date } = data;
-  if (typeof title !== "string" || !(date instanceof Date)) {
+  const { title, desc, date } = data;
+  if (
+    typeof title !== "string" ||
+    typeof desc !== "string" ||
+    !(date instanceof Date)
+  ) {
     throw new Error(
-      `${slug}: front matter must be {title: string, date: Date}`,
+      `${slug}: front matter must be {title: string, desc: string, date: Date}`,
     );
   }
-  return { title, date, content };
+  return { title, desc, date, content };
 }
 
 export const translations = { en: "Posts", ja: "投稿" };
