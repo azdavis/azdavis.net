@@ -4,8 +4,6 @@ date: 2022-07-02
 desc: "A language server for Standard ML."
 ---
 
-<!-- TODO add art here -->
-
 Millet, a [language server][lang-srv] for [Standard ML][sml] (SML), is now available.
 
 - There is a [VS Code][vs-code] extension available on the [marketplace][vs-code-marketplace].
@@ -201,24 +199,6 @@ In addition to showing errors inline (or, well, the old implementation really ju
 The old implementation would analyze each SML file in the workspace in isolation. This meant files could not import or export things from one another.
 
 Now, Millet uses its (limited) support for CM files to process many files at once.
-
-<!--
-TODO uncomment this when art is ready
-
-#### It has art to go with its name
-
-The rationale behind the name of the project is explained in the [readme][naming]:
-
-> "Millet" has M and L in it, in that order. So does "Standard ML".
->
-> Also:
->
-> - Birds eat millet.
-> - A bird named Polly Morphism is the mascot for 15-150, Carnegie Mellon's introductory functional programming course.
-> - 15-150 is taught in Standard ML.
-
-So it only made sense to get some art to go with it.
- -->
 
 ## Thanks: a recognition
 
