@@ -8,8 +8,7 @@ Millet, a [language server][lang-srv] for [Standard ML][sml] (SML), is now avail
 
 - There is a [VS Code][vs-code] extension available on the [marketplace][vs-code-marketplace].
 - The source is on [GitHub][repo].
-
-If you're a [CMU 15-150][15-150] student trying to use Millet, see [this doc][for-15-150].
+- If you're a [CMU 15-150][15-150] student trying to use Millet, see [this doc][for-15-150].
 
 I'd like to:
 
@@ -51,7 +50,7 @@ When something has a polymorphic type, Millet displays both:
 
 ![a screenshot of Millet showing first the most general type of a function, then the specific type induced by the types of the function arguments](/img/millet/4-hover-poly-ty.png)
 
-Some items from the standard basis library also have documentation available on hover.
+Most items from the standard basis library also have documentation available on hover.
 
 ![a screenshot of Millet showing showing the general type, specific type, and documentation for List.foldl, a standard basis library function](/img/millet/5-hover-std-basis-doc.png)
 
@@ -71,7 +70,7 @@ Since types can be composed of other types, there may be many options to jump to
 
 At time of writing, there are some major limitations of Millet:
 
-- Support for [SML/NJ Compilation Manager][cm] ("CM") files is rudimentary. There are some CM features that 15-150 uses which Millet can't make heads or tails of.
+- Support for [SML/NJ Compilation Manager][cm] ("CM") files is rudimentary.
 - Millet re-analyzes every file when even one file is changed. Millet is fast enough that this works for small projects, but certainly not for large ones.
 - There are a whole slew of language server features that Millet doesn't offer, like completions and semantic highlighting.
 
@@ -145,7 +144,7 @@ meant that I ended up putting the project on hold indefinitely.
 
 ### Interlude
 
-Somewhere in there, I even wrote [another language server][c0ls], this time for [C0][c0], CMU's own teaching language used in [15-122][], the intro-level imperative programming course. This time, I wrote the language server more like a language server and less like a compiler.
+Somewhere in there, I wrote [another language server][c0ls], this time for [C0][c0], CMU's own teaching language used in [15-122][], the intro-level imperative programming course. This time, I wrote the language server more like a language server and less like a compiler.
 
 However, it was only after I got it to MVP status that I realized [one already existed][c0-staff], and it:
 
@@ -179,13 +178,14 @@ I profiled it, and made copying of some key data structures more efficient. This
 
 For instance, it now supports:
 
-- `sharing` and `where`
-- `#` selectors
-- `...` pattern rows
+- `sharing` specifications
+- `where` signature expressions
+- `#` record selectors
+- `...` pattern rows (as in `val {x, ...} = {y = 1, x = 2}`)
 - All derived forms
 - Various common extensions, like:
   - Or patterns
-  - `where S = T` ("`where` for structures")
+  - `where S = T`
   - `functor` and `signature` in `local`
 
 In addition, it handles other language constructs ostensibly supported in the old implementation with much fewer bugs.
@@ -201,6 +201,7 @@ This means it's able to:
 
 In addition to showing errors inline (or, well, the old implementation really just showed "error" inline), it now has:
 
+- Snippets
 - Hover for info
 - Jump to def
 
