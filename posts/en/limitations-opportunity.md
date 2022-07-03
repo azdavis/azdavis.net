@@ -18,9 +18,27 @@ In [dynamically typed][uni-typed] languages, there is no static typechecker, and
 
 ### Limitation: Type annotations
 
-Most (but [not][sml] [all][ocaml]) statically typed languages, like C, Java, and Rust, require some amount of type annotations for function parameters, function return values, local variables, struct/class fields, etc. These annotations help the static typechecker determine the type of every term. But these languages thus limit the user by refusing to run programs lacking such annotations.
+Most ([but][sml] not [all][ocaml]) statically typed languages, like C, Java, and Rust, require some amount of type annotations for function parameters, function return values, local variables, struct/class fields, etc. These annotations help the static typechecker determine the type of every term. But these languages thus limit the user by refusing to run programs lacking such annotations.
+
+Here's some Rust code that defines a function from integers to integers. We must explicitly note the input and output types with annotations.
+
+```rust
+//     type annotations
+//        vvv     vvv
+fn inc(x: u32) -> u32 {
+  x + 1
+}
+```
 
 Meanwhile, in dynamically typed languages, like JavaScript, Python, and Ruby, there is no static typechecker built in to the language, and thus type annotations are never necessary. Usually they are not even possible to write, since the language has no static types, and thus affords no syntax for static type annotations.
+
+This JavaScript code, comparable with the Rust code above, has no type annotations.
+
+```js
+function inc(x) {
+  return x + 1;
+}
+```
 
 Some dynamically typed languages have optional static typecheckers:
 
@@ -28,7 +46,13 @@ Some dynamically typed languages have optional static typecheckers:
 - Python has [MyPy][mypy]
 - Ruby has [Sorbet][sorbet]
 
-However, they are not required.
+However, these tools are not required. For instance, this TypeScript code has type annotations, but it is converted into the type-annotation-less JavaScript code above before being run.
+
+```ts
+function inc(x: number): number {
+  return x + 1;
+}
+```
 
 ### Limitation: Incompleteness
 
@@ -54,9 +78,30 @@ In statically typed languages, because the static typechecker knows the type of 
 
 In dynamically typed languages, since we must know the type of each value at runtime, we must record the type of each value along with the value itself.
 
-This is another performance penalty, this time in the sense of storage space rather than time, because must use a small amount of storage to tag each value with its type.
+This is another performance penalty, this time in the sense of storage space rather than time, because the running program must use memory to tag each value with its type.
 
-In statically typed languages, we do not perform runtime type checks, and so we need not store the types of values at runtime.
+For instance, this program shows that in Python, the integer `123` takes 28 bytes to store.
+
+- Some of these 28 bytes are for the actual value of the integer, 123.
+- Some are for recording this value's type, `int`.
+- Some are for other purposes, like the reference count for garbage collection.
+
+```py
+import sys
+print(sys.getsizeof(123))
+# ==> 28
+```
+
+By contrast, in statically typed languages, we do not perform runtime type checks, and so we need not store the types of values at runtime.
+
+This Rust program shows that the integer `123` (which defaults to the signed 32-bit integer type) indeed takes 32 bits, or 4 bytes, to store.
+
+```rs
+fn main() {
+  println!("{}", std::mem::size_of_val(&123));
+  // ==> 4
+}
+```
 
 ## Example: Ownership
 
@@ -95,10 +140,10 @@ When compiling a Rust program, the compiler uses the rules of ownership to autom
 Some languages, like C and C++, require the programmer to explicitly allocate and free memory. This makes it hard to write programs free of memory errors. There are many forms of memory errors:
 
 - Memory leak: we fail to deallocate memory that won't be used anymore
-- Double free: we attempt to deallocate memory that has already been deallocated
+- Double free: we deallocate memory that has already been deallocated
 - Use after free: we access memory that has already been deallocated
-- Out of bounds: we access memory right next to memory we own
-- Segmentation fault: we attempt to access memory in a restricted area, and the operating system intervenes to prevent this
+- Out of bounds: we access memory outside of the range of memory we control
+- Segmentation fault: we access memory in a restricted area, and the operating system intervenes to prevent this
 
 In Rust, because allocations and deallocations are automatically inserted where appropriate, these memory issues are far less common.
 
@@ -167,7 +212,7 @@ We get an error:
 
 ```text
 error[E0499]: cannot borrow `x` as mutable more than once at a time
- --> src/lib.rs:8:21
+ --> src/main.rs:8:21
   |
 8 |   add_twice(&mut x, &mut x);
   |   --------- ------  ^^^^^^ second mutable borrow occurs here
