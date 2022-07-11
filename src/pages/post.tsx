@@ -1,7 +1,8 @@
 import hl from "highlight.js";
+import katex from "katex";
+import markdownIt from "markdown-it";
+import texmath from "markdown-it-texmath";
 import { Fragment, ReactElement } from "react";
-import { Remarkable } from "remarkable";
-import katex from "remarkable-katex";
 import { DateShow } from "../components/DateShow";
 import { Page, Style } from "../components/Page";
 import { Lang, name, root } from "../util/lang";
@@ -19,8 +20,8 @@ function highlight(code: string, language: string): string {
   return hl.highlight(code, { language }).value;
 }
 
-const md = new Remarkable({ highlight });
-md.use(katex);
+const md = markdownIt({ highlight });
+md.use(texmath, { engine: katex, delimiters: "dollars" });
 
 interface UnsafeHtml {
   __html: string;
