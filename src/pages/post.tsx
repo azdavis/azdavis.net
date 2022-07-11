@@ -20,7 +20,7 @@ function highlight(code: string, language: string): string {
   return hl.highlight(code, { language }).value;
 }
 
-const md = markdownIt({ highlight });
+const md = markdownIt({ highlight, typographer: true });
 md.use(texmath, { engine: katex, delimiters: "dollars" });
 
 interface UnsafeHtml {
