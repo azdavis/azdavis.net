@@ -18,14 +18,15 @@ interface UnsafeHtml {
   __html: string;
 }
 
-function renderMd(value: string): UnsafeHtml {
-  return { __html: md.render(value) };
+function renderMd(value: string, inline: boolean): UnsafeHtml {
+  return { __html: inline ? md.renderInline(value) : md.render(value) };
 }
 
 interface Props {
   value: string;
+  inline?: boolean;
 }
 
-export function Markdown({ value }: Props): ReactElement {
-  return <div dangerouslySetInnerHTML={renderMd(value)} />;
+export function Markdown({ value, inline = false }: Props): ReactElement {
+  return <div dangerouslySetInnerHTML={renderMd(value, inline)} />;
 }

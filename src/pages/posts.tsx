@@ -1,5 +1,6 @@
 import { Fragment, type ReactElement } from "react";
 import { DateShow } from "../components/DateShow";
+import { Markdown } from "../components/Markdown";
 import { Page } from "../components/Page";
 import { Lang, root } from "../util/lang";
 import { feedUrl, PostMetadata, translations } from "../util/post-data";
@@ -32,7 +33,7 @@ export function postsPage(lang: Lang, posts: PostListItem[]): ReactElement {
               <strong>
                 <a href={path}>{title}</a>
               </strong>
-              <div>{desc}</div>
+              <Markdown value={desc} inline />
             </div>
           </Fragment>
         ))}
