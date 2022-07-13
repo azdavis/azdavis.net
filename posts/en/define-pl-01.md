@@ -178,8 +178,7 @@ $$
 
 This expression cannot take a step, because none of the rules for $e \mapsto e'$ apply. This is because we only defined how to take a step when $e_1$ was either $\mathsf{true}$, $\mathsf{false}$, or able to take a step itself. We didn't define what to do if $e_1$ is an integer literal.
 
-Yet, this expression is also not a value, because none of the rules for $e \
-\mathsf{val}$ apply. Thus, the expression is "stuck".
+Yet, this expression is also not a value, because none of the rules for $e \ \mathsf{val}$ apply. Thus, the expression is "stuck".
 
 There are generally two things we can do here. One is to go back and add more rules to the dynamics to define how to evaluate these kinds of expressions. For instance, we could emulate C-like languages with the following rules:
 
@@ -283,8 +282,7 @@ Next, we have preservation. Preservation states that well-typed expressions that
 
 Again, more formally:
 
-> For all $e$ and $e'$ and $\tau$, if $e: \tau$ and $e \mapsto e'$, then $e':
-> \tau$.
+> For all $e$ and $e'$ and $\tau$, if $e: \tau$ and $e \mapsto e'$, then $e': \tau$.
 
 Note that taken together, we get the following safety theorem:
 

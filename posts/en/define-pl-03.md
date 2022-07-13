@@ -12,8 +12,7 @@ A product type is a combination of multiple types. For instance, if we want to r
 
 ## Syntax
 
-A product type that combines two types is called "pair" and denoted with $\tau_1
-\times \tau_2$. The expression $\langle e_1, e_2 \rangle$ is a pair literal expression.
+A product type that combines two types is called "pair" and denoted with $\tau_1 \times \tau_2$. The expression $\langle e_1, e_2 \rangle$ is a pair literal expression.
 
 Note that by combining pair types with other pair types, we can effectively construct an product type combining $n$ types for any $n > 2$.
 
@@ -222,8 +221,7 @@ Product types are so named because the number of values in a product type is the
 
 For instance, consider the type $\mathsf{Bool}$. It has 2 values, $\mathsf{true}$ and $\mathsf{false}$.
 
-Now consider the type $\mathsf{Bool} \times \mathsf{Bool}$. It has $2 \times 2 =
-4$ values:
+Now consider the type $\mathsf{Bool} \times \mathsf{Bool}$. It has $2 \times 2 = 4$ values:
 
 1. $\langle \mathsf{true}, \mathsf{true} \rangle$
 1. $\langle \mathsf{true}, \mathsf{false} \rangle$

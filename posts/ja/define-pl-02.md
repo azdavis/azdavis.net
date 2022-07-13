@@ -395,8 +395,7 @@ $$
 
 また、この定理を合わせれば安全定理の出来上がりです。
 
-> For all $\Gamma$ and $e$ and $\tau$, if $\Gamma \vdash e: \tau$ and $\mathsf{fv}(e) = \emptyset$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$ and $\Gamma \vdash e': \tau$ and $\mathsf{fv}(e') =
-> \emptyset$.
+> For all $\Gamma$ and $e$ and $\tau$, if $\Gamma \vdash e: \tau$ and $\mathsf{fv}(e) = \emptyset$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$ and $\Gamma \vdash e': \tau$ and $\mathsf{fv}(e') = \emptyset$.
 
 証明はまた[GitHub][proofs]にあります。
 

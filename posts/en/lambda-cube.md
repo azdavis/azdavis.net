@@ -133,7 +133,7 @@ $$
 \begin{aligned}
 t
 ::=  \ & \mathsf{Prop} && \text{base type}
-\\ | \ & \mathsf{Type} && \text{type of $\mathsf{Prop}$}
+\\ | \ & \mathsf{Type} && \text{type of \textsf{Prop}}
 \\ | \ & x && \text{variable}
 \\ | \ & t(t') && \text{application}
 \\ | \ & \lambda (x: t) \ t' && \text{abstraction}

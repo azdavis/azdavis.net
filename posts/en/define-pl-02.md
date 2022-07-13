@@ -178,8 +178,7 @@ $$
 
 Once both expressions are values, we can prove the first will be a function literal, since it had function type.
 
-We will step into the body of the function, substituting all free occurrences of the variable bound by the function with the value of the argument. We write $[x
-\mapsto e_x] e = e'$ to mean "substituting all free occurrences of $x$ with $e_x$ in $e$ yields $e'$".
+We will step into the body of the function, substituting all free occurrences of the variable bound by the function with the value of the argument. We write $[x \mapsto e_x] e = e'$ to mean "substituting all free occurrences of $x$ with $e_x$ in $e$ yields $e'$".
 
 $$
 \frac
@@ -396,8 +395,7 @@ Preservation not only preserves typing, but also the presence of free variables.
 
 Once again, taken together we have the following safety theorem:
 
-> For all $\Gamma$ and $e$ and $\tau$, if $\Gamma \vdash e: \tau$ and $\mathsf{fv}(e) = \emptyset$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$ and $\Gamma \vdash e': \tau$ and $\mathsf{fv}(e') =
-> \emptyset$.
+> For all $\Gamma$ and $e$ and $\tau$, if $\Gamma \vdash e: \tau$ and $\mathsf{fv}(e) = \emptyset$, then $e \ \mathsf{val}$ or there exists $e'$ such that $e \mapsto e'$ and $\Gamma \vdash e': \tau$ and $\mathsf{fv}(e') = \emptyset$.
 
 The proofs are once again on [GitHub][proofs].
 

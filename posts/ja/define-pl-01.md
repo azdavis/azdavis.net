@@ -276,8 +276,7 @@ $$
 
 次は「維持」です。維持は、型のある式が踏み出せれば、その踏み出された式も同じ型を持つと言います。
 
-> For all $e$ and $e'$ and $\tau$, if $e: \tau$ and $e \mapsto e'$, then $e':
-> \tau$.
+> For all $e$ and $e'$ and $\tau$, if $e: \tau$ and $e \mapsto e'$, then $e': \tau$.
 
 それらを合わせて次の「安全」定理の出来上がりです。
 
