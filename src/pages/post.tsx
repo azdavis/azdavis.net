@@ -1,9 +1,6 @@
-import hl from "highlight.js";
-import katex from "katex";
-import markdownIt from "markdown-it";
-import texmath from "markdown-it-texmath";
 import { Fragment, ReactElement } from "react";
 import { DateShow } from "../components/DateShow";
+import { Markdown } from "../components/Markdown";
 import { Page, Style } from "../components/Page";
 import { Lang, name, root } from "../util/lang";
 import {
@@ -12,24 +9,6 @@ import {
   postsDir,
   translations as posts,
 } from "../util/post-data";
-
-function highlight(code: string, language: string): string {
-  if (!hl.getLanguage(language)) {
-    throw new Error(`unknown language: ${language}`);
-  }
-  return hl.highlight(code, { language }).value;
-}
-
-const md = markdownIt({ highlight, typographer: true });
-md.use(texmath, { engine: katex, delimiters: "dollars" });
-
-interface UnsafeHtml {
-  __html: string;
-}
-
-function renderMd(content: string): UnsafeHtml {
-  return { __html: md.render(content) };
-}
 
 const styles: Style[] = ["base", "post", "katex/katex.min"];
 
@@ -74,7 +53,7 @@ function Post({ data, lang, langs, slug }: Props): ReactElement {
           {translations.rRound[lang]}
         </p>
       )}
-      <div dangerouslySetInnerHTML={renderMd(content)} />
+      <Markdown value={content} />
     </Page>
   );
 }
