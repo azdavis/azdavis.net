@@ -35,7 +35,7 @@ Parse errors, type errors, and more show up directly in the editor.
 
 ![a screenshot of Millet showing an error that a function is not exhaustive](/img/millet/2-error.png)
 
-Every error has an error code. In the screenshot, that's the blue number [4013][err-4013] next to the the error message. Click it for a more detailed explanation.
+Every error has an error code. In the screenshot, that's the blue number [5012][err-5012] next to the the error message. Click it for a more detailed explanation.
 
 ### Hover for type/documentation
 
@@ -231,7 +231,7 @@ I'd like to give thanks to some folks that helped me along the way:
 [c0]: https://c0.cs.cmu.edu/docs/c0-reference.pdf
 [c0ls]: https://github.com/azdavis/c0ls
 [cm]: https://www.smlnj.org/doc/CM/new.pdf
-[err-4013]: https://github.com/azdavis/millet/blob/main/docs/errors.md#4013
+[err-5012]: https://github.com/azdavis/millet/blob/main/docs/errors.md#5012
 [for-15-150]: https://github.com/azdavis/millet/blob/main/docs/for-15-150.md
 [lang-srv]: https://microsoft.github.io/language-server-protocol/
 [naming]: https://github.com/azdavis/millet#naming
