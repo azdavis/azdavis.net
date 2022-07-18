@@ -27,13 +27,13 @@ The extension provides syntax highlighting, as well as bracket and comment confi
 
 There are snippets for common language constructs.
 
-![a screenshot of Millet suggesting a snippet for a case expression](/img/millet/1-snippet.png)
+![Millet suggesting a snippet for a case expression](/img/millet/1-snippet.png)
 
 ### Inline errors
 
 Parse errors, type errors, and more show up directly in the editor.
 
-![a screenshot of Millet showing an error that a function is not exhaustive](/img/millet/2-error.png)
+![Millet showing an error that a function is not exhaustive](/img/millet/2-error.png)
 
 Every error has an error code. In the screenshot, that's the blue number [5012][err-5012] next to the the error message. Click it for a more detailed explanation.
 
@@ -41,30 +41,30 @@ Every error has an error code. In the screenshot, that's the blue number [5012][
 
 Hover over an expression, pattern, or type to see more information about it.
 
-![a screenshot of Millet showing information about the type of an expression when hovering](/img/millet/3-hover-ty.png)
+![Millet showing information about the type of an expression when hovering](/img/millet/3-hover-ty.png)
 
 When something has a polymorphic type, Millet displays both:
 
 - the most general type of the item, and
 - the specific type induced by this usage of that item.
 
-![a screenshot of Millet showing first the most general type of a function, then the specific type induced by the types of the function arguments](/img/millet/4-hover-poly-ty.png)
+![Millet showing first the most general type of a function, then the specific type induced by the types of the function arguments](/img/millet/4-hover-poly-ty.png)
 
 Most items from the standard basis library also have documentation available on hover.
 
-![a screenshot of Millet showing showing the general type, specific type, and documentation for List.foldl, a standard basis library function](/img/millet/5-hover-std-basis-doc.png)
+![Millet showing showing the general type, specific type, and documentation for List.foldl, a standard basis library function](/img/millet/5-hover-std-basis-doc.png)
 
 ### Go to definition/type definition
 
 Jump to (or peek) the definition of a value, type, structure, signature, or functor.
 
-![a screenshot of Millet peeking the definition of a structure member](/img/millet/6-def-peek.png)
+![Millet peeking the definition of a structure member](/img/millet/6-def-peek.png)
 
 Additionally, if the item has a type, it's possible to jump to (or peek) the definition of the type of that item.
 
 Since types can be composed of other types, there may be many options to jump to. In that case, all available options are shown.
 
-![a screenshot of Millet peeking all the involved type definitions of an expression](/img/millet/7-ty-def-peek.png)
+![Millet peeking all the involved type definitions of an expression](/img/millet/7-ty-def-peek.png)
 
 ## Limitations: a caveat
 
