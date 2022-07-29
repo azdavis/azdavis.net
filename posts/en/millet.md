@@ -225,7 +225,7 @@ I'd like to give thanks to some folks that helped me along the way:
 
 - CMU, where I first discovered my enjoyment of PL-related things.
 - 15-150, the class I TA'd the most. It is to 15-150's students that I primarily wanted (and want) to provide Millet.
-- [Project Savannah][proj-sav], a group who shares my desire in improving the tooling around SML. Many of them are current and former 15-150 TAs.
+- [Project Savanna][proj-sav], a group who shares my desire in improving the tooling around SML. Many of them are current and former 15-150 TAs.
 - The CMU student Discord, for motivating me to revive and improve the project.
 - My girlfriend, for supporting me and the things I like.
 
