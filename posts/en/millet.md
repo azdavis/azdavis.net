@@ -74,6 +74,16 @@ Though these "hole" types and expressions are rejected in later stages of analys
 
 ![Millet showing an error for an expression hole, noting its inferred type](/img/millet/8-exp-hole.png)
 
+### Code actions
+
+Millet provides code actions to reduce manual typing of boilerplate code.
+
+The "fill case" quick fix automatically fills a `case` expression with all the variants of a `datatype`.
+
+<video controls>
+  <source src="/img/millet/9-fill-case.mp4#t=0.001" />
+</video>
+
 ## Limitations: a caveat
 
 At time of writing, there are some major limitations of Millet:
