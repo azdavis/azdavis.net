@@ -232,6 +232,7 @@ In addition to showing errors inline (or, well, the old implementation really ju
 - Snippets
 - Hover for info
 - Jump to def
+- Code actions
 
 #### It supports multiple files
 
