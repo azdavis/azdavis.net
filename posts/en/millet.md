@@ -84,13 +84,23 @@ The "fill case" quick fix automatically fills a `case` expression with all the v
   <source src="/img/millet/9-fill-case.mp4#t=0.001" />
 </video>
 
+### Multiple files
+
+To allow for large projects with many files, Millet has support for some common SML "group" file types:
+
+- [ML Basis][mlb] ("MLB")
+- [SML/NJ Compilation Manager][cm] ("CM")
+
+These file types tell Millet what files in the project to analyze, and in what order.
+
 ## Limitations: a caveat
 
 At time of writing, there are some major limitations of Millet:
 
-- Support for [SML/NJ Compilation Manager][cm] ("CM") files is rudimentary.
+- Support for MLB files is limited.
+- Support for CM files is limited even more so.
 - Millet re-analyzes every file when even one file is changed. Millet is fast enough that this works for small projects, but certainly not for large ones.
-- There are a whole slew of language server features that Millet doesn't offer, like completions and semantic highlighting.
+- There are a whole slew of language server features that Millet doesn't offer.
 
 See also [this doc][for-15-150] discussing some of the limitations [CMU 15-150][15-150] students may run into, and how to try to fix them.
 
@@ -227,7 +237,7 @@ In addition to showing errors inline (or, well, the old implementation really ju
 
 The old implementation would analyze each SML file in the workspace in isolation. This meant files could not import or export things from one another.
 
-Now, Millet uses its (limited) support for CM files to process many files at once.
+Now, Millet uses its (limited) support for MLB and CM files to process many files.
 
 ## Thanks: a recognition
 
@@ -252,6 +262,7 @@ I'd like to give thanks to some folks that helped me along the way:
 [err-5011]: https://github.com/azdavis/millet/blob/main/docs/errors.md#5011
 [for-15-150]: https://github.com/azdavis/millet/blob/main/docs/for-15-150.md
 [lang-srv]: https://microsoft.github.io/language-server-protocol/
+[mlb]: http://mlton.org/MLBasis
 [naming]: https://github.com/azdavis/millet#naming
 [proj-sav]: https://projectsavanna.slack.com
 [repo]: https://github.com/azdavis/millet
