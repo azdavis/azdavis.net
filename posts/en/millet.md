@@ -41,7 +41,7 @@ Every error has an error code. In the screenshot, that's the blue number [5011][
 
 ### Hover for type/documentation
 
-Hover over an expression, pattern, or type to see more information about it.
+Hover over an expression, pattern, type, or keyword to see more information about it.
 
 ![Millet showing information about the type of an expression when hovering](/img/millet/3-hover-ty.png)
 
@@ -70,9 +70,9 @@ Since types can be composed of other types, there may be many options to jump to
 
 ### Holes
 
-Millet supports the full grammar of Standard ML. In addition, Millet parses `_` as a type and expression (as well as a pattern, as is standard).
+Millet supports the full grammar of Standard ML. In addition, Millet parses various "holes", like `_` and `...`.
 
-Though these "hole" types and expressions are rejected in later stages of analysis, a programmer can use `_` as a placeholder. Millet even reports the inferred type of hole expressions in the error.
+Though these "holes" are rejected in later stages of analysis, a programmer can use them as placeholders. Millet even reports the inferred type of hole expressions in the error.
 
 ![Millet showing an error for an expression hole, noting its inferred type](/img/millet/8-exp-hole.png)
 
