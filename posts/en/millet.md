@@ -4,6 +4,8 @@ date: 2022-07-02
 desc: "A language server for Standard ML."
 ---
 
+![Millet logo](/img/millet/0-logo.png)
+
 Millet, a [language server][lang-srv] for [Standard ML][sml] (SML), is now available.
 
 - There is a [VS Code][vs-code] extension available on the [marketplace][vs-code-marketplace].
@@ -248,6 +250,7 @@ I'd like to give thanks to some folks that helped me along the way:
 - 15-150, the class I TA'd the most. It is to 15-150's students that I primarily wanted (and want) to provide Millet.
 - [Project Savanna][proj-sav], a group who shares my desire in improving the tooling around SML. Many of them are current and former 15-150 TAs.
 - The CMU student Discord, for motivating me to revive and improve the project.
+- [Yixin He][yixin], for the art.
 - My girlfriend, for supporting me and the things I like.
 
 [15-122]: https://www.cs.cmu.edu/~15122/
@@ -271,3 +274,4 @@ I'd like to give thanks to some folks that helped me along the way:
 [tooling]: /posts/pl-idea-tooling
 [vs-code-marketplace]: https://marketplace.visualstudio.com/items?itemName=azdavis.millet
 [vs-code]: https://code.visualstudio.com
+[yixin]: https://yixinhe.me
