@@ -4,13 +4,13 @@ date: 2022-07-02
 desc: "A language server for Standard ML."
 ---
 
-![Millet logo](/img/millet/0-logo.png)
-
 Millet, a [language server][lang-srv] for [Standard ML][sml] (SML), is now available.
 
 - There is a [VS Code][vs-code] extension available on the [marketplace][vs-code-marketplace].
 - The source is on [GitHub][repo].
 - If you're a [CMU 15-150][15-150] student trying to use Millet, see [this doc][for-15-150].
+
+![Millet logo](/img/millet/0-logo.png)
 
 I'd like to:
 
