@@ -5,6 +5,7 @@ export interface PostMetadata {
   title: string;
   desc: string;
   date: Date;
+  img?: string;
 }
 
 export interface PostData extends PostMetadata {
@@ -13,17 +14,18 @@ export interface PostData extends PostMetadata {
 
 export function getPostData(slug: string, contents: string): PostData {
   const { data, content } = matter(contents);
-  const { title, desc, date } = data;
+  const { title, desc, date, img } = data;
   if (
+    (img !== undefined && typeof img !== "string") ||
     typeof title !== "string" ||
     typeof desc !== "string" ||
     !(date instanceof Date)
   ) {
     throw new Error(
-      `${slug}: front matter must be {title: string, desc: string, date: Date}`,
+      `${slug}: front matter must be {title: string, desc: string, date: Date, img?: string}`,
     );
   }
-  return { title, desc, date, content };
+  return { title, desc, date, img, content };
 }
 
 export const translations = { en: "Posts", ja: "投稿" };

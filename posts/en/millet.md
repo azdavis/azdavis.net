@@ -2,6 +2,7 @@
 title: "Millet"
 date: 2022-07-02
 desc: "A language server for Standard ML."
+img: /img/millet/0-logo.png
 ---
 
 Millet, a [language server][lang-srv] for [Standard ML][sml] (SML), is now available.

@@ -18,6 +18,7 @@ interface Props {
   // includes lang (thus, never empty)
   langs: Lang[];
   slug: string;
+  img?: string;
 }
 
 const translations = {
@@ -28,9 +29,9 @@ const translations = {
 };
 
 function Post({ data, lang, langs, slug }: Props): ReactElement {
-  const { title, desc, date, content } = data;
+  const { title, desc, date, content, img } = data;
   return (
-    <Page lang={lang} title={title} desc={desc} styles={styles}>
+    <Page lang={lang} title={title} desc={desc} styles={styles} img={img}>
       <a href={root(lang)}>azdavis.net</a> •{" "}
       <a href={postsDir(lang) + "/"}>{translations.posts[lang]}</a> •{" "}
       <DateShow lang={lang} date={date} />

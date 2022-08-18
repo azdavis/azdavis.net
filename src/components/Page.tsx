@@ -14,6 +14,7 @@ interface Props {
   styles: Style[];
   children: ReactNode;
   desc?: string;
+  img?: string;
 }
 
 export function Page({
@@ -22,6 +23,7 @@ export function Page({
   styles,
   children,
   desc,
+  img,
 }: Props): ReactElement {
   return (
     <html lang={lang}>
@@ -30,6 +32,9 @@ export function Page({
         <title>{title}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="description" content={desc ?? translations[lang]} />
+        {img === undefined ? null : (
+          <meta property="og:image" content={"https://azdavis.net" + img} />
+        )}
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="mask-icon" href="/favicon.svg" color="#000000" />
         <link rel="alternate icon" type="image/png" href="/favicon.png" />
