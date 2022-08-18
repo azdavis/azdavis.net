@@ -97,7 +97,7 @@ These file types tell Millet what files in the project to analyze, and in what o
 
 ## Limitations: a caveat
 
-At time of writing, there are some major limitations of Millet:
+At time of writing, there are some [major limitations][known-issues] of Millet:
 
 - Support for MLB files is limited.
 - Support for CM files is limited even more so.
@@ -265,6 +265,7 @@ I'd like to give thanks to some folks that helped me along the way:
 [cm]: https://www.smlnj.org/doc/CM/new.pdf
 [err-5011]: https://github.com/azdavis/millet/blob/main/docs/errors.md#5011
 [for-15-150]: https://github.com/azdavis/millet/blob/main/docs/for-15-150.md
+[known-issues]: https://github.com/azdavis/millet/blob/main/docs/known-issues.md
 [lang-srv]: https://microsoft.github.io/language-server-protocol/
 [mlb]: http://mlton.org/MLBasis
 [naming]: https://github.com/azdavis/millet#naming
