@@ -32,6 +32,9 @@ export function Page({
         <title>{title}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="description" content={desc ?? translations[lang]} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={desc ?? translations[lang]} />
         {img === undefined ? null : (
           <meta property="og:image" content={"https://azdavis.net" + img} />
         )}
