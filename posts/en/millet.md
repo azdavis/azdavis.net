@@ -53,9 +53,26 @@ When something has a polymorphic type, Millet displays both:
 
 ![Millet showing first the most general type of a function, then the specific type induced by the types of the function arguments](/img/millet/4-hover-poly-ty.png)
 
-Most items from the standard basis library also have documentation available on hover.
+Most items from the standard basis library also have built-in documentation available on hover.
 
-![Millet showing showing the general type, specific type, and documentation for List.foldl, a standard basis library function](/img/millet/5-hover-std-basis-doc.png)
+![Millet showing the general type, specific type, and documentation for List.foldl, a standard basis library function](/img/millet/5-hover-std-basis-doc.png)
+
+Millet allows for user-written doc comments as well. Use the syntax:
+
+```sml
+(*!
+My _favorite_ number.
+!*)
+val num = 5
+```
+
+Note that:
+
+- The `(*!` and `!*)` must be on their own lines.
+- The comment may use Markdown.
+- Leading `*` inside the comment body are not recommended, since the entirety of the text between the comment delimiters is treated as Markdown.
+
+![Millet showing user-written doc comments on hover](/img/millet/5a-hover-user-doc.png)
 
 ### Go to definition/type definition
 
