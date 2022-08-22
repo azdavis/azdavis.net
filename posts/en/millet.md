@@ -61,16 +61,16 @@ Millet allows for user-written doc comments as well. Use the syntax:
 
 ```sml
 (*!
-My _favorite_ number.
-!*)
+ * My _favorite_ number.
+ *)
 val num = 5
 ```
 
 Note that:
 
-- The `(*!` and `!*)` must be on their own lines.
-- The comment may use Markdown.
-- Leading `*` inside the comment body are not recommended, since the entirety of the text between the comment delimiters is treated as Markdown.
+- The `(*!` and `*)` must be on their own lines.
+- The comment is parsed as [Markdown][md].
+- Leading `*` at the start of each line of the comment are required.
 
 ![Millet showing user-written doc comments on hover](/img/millet/5a-hover-user-doc.png)
 
@@ -285,6 +285,7 @@ I'd like to give thanks to some folks that helped me along the way:
 [for-15-150]: https://github.com/azdavis/millet/blob/main/docs/for-15-150.md
 [known-issues]: https://github.com/azdavis/millet/blob/main/docs/known-issues.md
 [lang-srv]: https://microsoft.github.io/language-server-protocol/
+[md]: https://www.markdownguide.org
 [mlb]: http://mlton.org/MLBasis
 [naming]: https://github.com/azdavis/millet#naming
 [proj-sav]: https://projectsavanna.slack.com
