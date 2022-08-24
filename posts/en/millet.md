@@ -288,7 +288,7 @@ I'd like to give thanks to some folks that helped me along the way:
 [md]: https://www.markdownguide.org
 [mlb]: http://mlton.org/MLBasis
 [naming]: https://github.com/azdavis/millet#naming
-[proj-sav]: https://projectsavanna.slack.com
+[proj-sav]: https://discord.gg/hgPSUby2Ny
 [repo]: https://github.com/azdavis/millet
 [sml]: https://smlfamily.github.io
 [tooling]: /posts/pl-idea-tooling
