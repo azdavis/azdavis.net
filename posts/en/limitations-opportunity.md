@@ -155,7 +155,7 @@ Much as in the discussion of static versus dynamic typing, computing, storing, a
 
 Another unique feature of Rust is its system of references. References in Rust are similar to pointers as in C and C++, but have some key differences.
 
-### Limitation: Creation and permitted operations
+### Limitation: Permitted operations
 
 References can be shared or exclusive, and Rust places limitations on what kinds of references can be created when, and what operations are permitted on those references.
 
@@ -165,7 +165,9 @@ Further, when shared reference to a value are in scope, Rust generally does not 
 
 ### Opportunity: `noalias` information passed to LLVM
 
-Because of the restrictions around using references in Rust, the Rust compiler can tell LLVM that exclusive references really are exclusive by adding `noalias` annotations to the compiled LLVM IR. Then, when the IR is compiled down to assembly, this knowledge can be exploited to generate fewer assembly operations, improving runtime performance.
+The Rust compiler transforms Rust code into a low-level format called LLVM IR, which is then transformed into machine code by LLVM.
+
+Because of the restrictions around using references in Rust, the Rust compiler can tell LLVM that exclusive references really are exclusive by adding `noalias` annotations to this compiled LLVM IR. Then, when the IR is compiled down to assembly, this knowledge can be exploited to generate fewer assembly operations, improving runtime performance.
 
 For example, consider this C function:
 
@@ -281,7 +283,7 @@ However, `impl`s have effect regardless of where they are declared. So, if as in
 
 This means that in Rust, changing the body of a function can affect items declared outside of the scope of the function.
 
-### (No) opportunity: incremental re-typechecking
+### (No) opportunity: Incremental re-typechecking
 
 [rust-analyzer][] is a [language server][] for Rust. A language server analyzes a repository of code and provides information like
 
