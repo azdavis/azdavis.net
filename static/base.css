@@ -11,10 +11,10 @@ body {
   max-width: 40em;
   margin: 0 auto;
   padding: 1em 1em 10em;
-  font-size: 1.1em;
+  font-size: 1.05em;
   color: var(--page-fg);
   background-color: var(--page-bg);
-  font-family: Palatino, Garamond, Georgia, serif;
+  font-family: Verdana, Tahoma, sans-serif;
   line-height: 1.5;
 }
 
