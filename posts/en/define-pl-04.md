@@ -4,7 +4,7 @@ date: 2021-07-15
 desc: "Adding sums (aka 'enums' or 'tagged unions') to a small PL."
 ---
 
-In the [previous post][prev], we added product type to Hatsugen.
+In the [previous post][prev], we added product types to Hatsugen.
 
 In this post, we'll add sum types.
 
