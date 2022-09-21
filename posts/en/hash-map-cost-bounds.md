@@ -83,7 +83,7 @@ $$O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n)< \cdots$$
 
 It's not wrong to say that traversing every byte of a string is an $O(n)$ operation. However, the key is that $n$ here refers specifically to the number of bytes in that string.
 
-By contrast, when we say that the common hash map operations each have worst-case performance $O(n)$, in _that_ case, $n$ refers to the number of key-value pairs in the map.
+By contrast, when we say that the common hash map operations each have worst-case performance $O(n)$, in **that** case, $n$ refers to the number of key-value pairs in the map.
 
 So, two completely different things:
 
@@ -117,6 +117,6 @@ This implicit component is an invariant about the hash map. The invariant must b
 
 This [concept][limitations-opportunity], in which we enforce a bound on the size of the keys to be able to achieve good performance, comes up in other computer science contexts.
 
-One such context it came up for me was when I was implementing a dynamic programming algorithm. I wished to construct a DP table keyed on strings. However, a TA pointed out to me that since there was _no_ constant bound on the size of the string keys I would be using, I could not claim that accessing the DP table would be a constant-time operation. I thus had to restructure my approach.
+One such context it came up for me was when I was implementing a dynamic programming algorithm. I wished to construct a DP table keyed on strings. However, a TA pointed out to me that since there was **no** constant bound on the size of the string keys I would be using, I could not claim that accessing the DP table would be a constant-time operation. I thus had to restructure my approach.
 
 [limitations-opportunity]: /posts/limitations-opportunity/
