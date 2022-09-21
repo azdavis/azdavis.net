@@ -77,9 +77,16 @@ How, then, can the average case for hash map operations be $O(1)$ and only the w
 
 To begin to answer this question, we should first be more precise about what we mean by $n$.
 
-Computer scientists and software engineers usually use the variable $n$ to talk about various common cost bounds:
+Computer scientists and software engineers usually use the variable $n$ to talk about various common cost bounds. From lowest to highest, some common cost bounds are:
 
-$$O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n)< \cdots$$
+| Name        | Big-$O$     |
+| ----------- | ----------- |
+| Constant    | $O(1)$      |
+| Logarithmic | $O(\log n)$ |
+| Linear      | $O(n)$      |
+| Quadratic   | $O(n^2)$    |
+| Cubic       | $O(n^3)$    |
+| Exponential | $O(2^n)$    |
 
 It's not wrong to say that traversing every byte of a string is an $O(n)$ operation. However, the key is that $n$ here refers specifically to the number of bytes in that string.
 
