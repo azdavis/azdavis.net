@@ -45,7 +45,7 @@ Roughly speaking, a hash map has two key components:
 
 All of the major operations on a hash map involve a given key. Given that key, a hash map implementation will:
 
-1. Apply the hash function to that given key, to transform the key into an hash value (aka a natural number, aka a non-negative integer).
+1. Apply the hash function to that given key, to transform the key into an hash value.
 2. Use that hash value and other factors, such as the backing array's size, to compute an index into the backing array.
 3. Index into the array with that index to either:
    - Insert a value there (insert).
@@ -111,7 +111,7 @@ The answer is, actually, the TL;DR at the top of this post, which I will include
 
 The way I like to think of this is that there is an implicit third component of a hash map, in addition to the hash function and backing array:
 
-3. A natural number $c$ such that the size of every key is less than or equal to $c$.
+3. A constant $c$ such that the size of every key is less than or equal to $c$.
 
 This implicit component is an invariant about the hash map. The invariant must be upheld in order for us to say that we may hash an arbitrary key in constant time.
 
