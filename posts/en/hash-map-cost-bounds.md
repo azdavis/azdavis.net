@@ -94,11 +94,6 @@ But both are, colloquially, "$O(n)$", since we often use $n$ as much as possible
 
 Thus, I conflated the two in my mind, and got confused.
 
-To avoid confusion, for the rest of the post, given our example of a hash map with string keys, I will avoid using $n$ and instead use:
-
-- $s$ as the length of some string key in the map, and
-- $m$ as the number of key-value pairs in the map.
-
 ## An implicit component
 
 We are now ready to answer the question of how the hash map operations can execute in constant time on average.
