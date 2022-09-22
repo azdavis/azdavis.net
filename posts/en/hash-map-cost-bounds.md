@@ -17,8 +17,8 @@ The one sentence TL;DR of the entire post is this:
 A hash map is a data structure that maps keys to values. Its most important operations are:
 
 - **Insert** a key-value pair into the map.
-- **Search** for the value associated with a given key in the map.
-- **Delete** a key's value from the map.
+- **Get** the value associated with a given key in the map.
+- **Remove** a key-value pair from the map.
 
 For instance, in TypeScript:
 
@@ -29,10 +29,11 @@ let m = new Map<string, number>();
 // insert
 m.set("foo", 150);
 
-// search
-console.log(m.get("foo")); // ==> 150
+// get
+let num = m.get("foo");
+console.log(num); // ==> 150
 
-// delete
+// remove
 m.delete("foo");
 ```
 
@@ -45,25 +46,27 @@ Roughly speaking, a hash map has two key components:
 
 All of the major operations on a hash map involve a given key. Given that key, a hash map implementation will:
 
-1. Apply the hash function to that given key, to transform the key into an hash value.
+1. Apply the hash function to the key, to transform the key into a hash value. The hash value will be a non-negative integer, aka a natural number.
 2. Use that hash value and other factors, such as the backing array's size, to compute an index into the backing array.
 3. Index into the array with that index to either:
    - Insert a value there (insert).
-   - Return whatever value is there (search).
-   - Delete the value there (delete).
+   - Return whatever value is there (get).
+   - Remove the value there (remove).
 
 There's a **lot** of detail I'm glossing over here, but this is the general idea.
 
 ## Cost bounds
 
-The asymptotic cost bounds for the performance of the various hash map operations are quite impressive:
+The asymptotic cost bounds for the performance of the various hash map operations are quite impressive.
 
-- On average, a hash map can execute each operation in **constant time**, aka $O(1)$.
-- In the worst case, each operation may take linear time, aka $O(n)$.
+A hash map may execute a single one of the three core operations (insert, get, or remove):
+
+- On average, in constant time, aka $O(1)$.
+- In the worst case, in linear time, aka $O(n)$.
 
 Indeed, hash maps are quite a ubiquitous and important data structure because of this. In practice, other data structures, even those with asymptotically better worst-case performance, such as search trees, are often eschewed for the all-powerful hash map.
 
-> **Aside**: This fact has somewhat to do with cache locality (or lack thereof) on modern CPUs. Search trees are often implemented with each node as a new memory allocation, which leads to lots of pointer chasing.
+This fact has somewhat to do with cache locality (or lack thereof) on modern CPUs. Search trees are often implemented with each node as a new memory allocation, which leads to lots of pointer chasing.
 
 ## Cost to hash the keys
 
@@ -90,14 +93,14 @@ Computer scientists and software engineers usually use the variable $n$ to talk 
 
 It's not wrong to say that traversing every byte of a string is an $O(n)$ operation. However, the key is that $n$ here refers specifically to the number of bytes in that string.
 
-By contrast, when we say that the common hash map operations each have worst-case performance $O(n)$, in **that** case, $n$ refers to the number of key-value pairs in the map.
+By contrast, when we say that the common hash map operations each have worst-case performance $O(n)$, here, $n$ refers to the number of key-value pairs in the map.
 
-So, two completely different things:
+So, we have two completely different things:
 
 1. The length of a string key in bytes
 2. The size of the hash map
 
-But both are, colloquially, "$O(n)$", since we often use $n$ as much as possible when expressing cost bounds.
+But both are, colloquially, "$n$", since we often use $n$ as much as possible when expressing "sizes" of things.
 
 Thus, I conflated the two in my mind, and got confused.
 
@@ -111,7 +114,7 @@ The answer is, actually, the TL;DR at the top of this post, which I will include
 
 The way I like to think of this is that there is an implicit third component of a hash map, in addition to the hash function and backing array:
 
-3. A constant $c$ such that the size of every key is less than or equal to $c$.
+3. A natural number $c$ such that the size of every key is less than or equal to $c$.
 
 This implicit component is an invariant about the hash map. The invariant must be upheld in order for us to say that we may hash an arbitrary key in constant time.
 
@@ -119,6 +122,6 @@ This implicit component is an invariant about the hash map. The invariant must b
 
 This [concept][limitations-opportunity], in which we enforce a bound on the size of the keys to be able to achieve good performance, comes up in other computer science contexts.
 
-One such context it came up for me was when I was implementing a dynamic programming algorithm. I wished to construct a DP table keyed on strings. However, a TA pointed out to me that since there was **no** constant bound on the size of the string keys I would be using, I could not claim that accessing the DP table would be a constant-time operation. I thus had to restructure my approach.
+One such context it came up for me was when I was implementing a dynamic programming algorithm. I wished to construct a DP table keyed on strings. However, a TA pointed out to me that since there was no constant bound on the size of the string keys I would be using, I could not claim that accessing the DP table would be a constant-time operation. I thus had to restructure my approach.
 
 [limitations-opportunity]: /posts/limitations-opportunity/
