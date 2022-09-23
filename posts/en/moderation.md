@@ -1,7 +1,7 @@
 ---
-title: "Everything in moderation, including this"
+title: Everything in moderation, including this
 date: 2021-09-16
-desc: "A little idiom I like."
+desc: A little idiom I like.
 ---
 
 I closed my [post][1] about writing more, but less, with the observation that sometimes the titular maxim doesn't apply. That is, depending on the situation, something overly short might be infeasible or inappropriate. Consider, for instance, whether it is appropriate to reduce a research paper, backed by hours of careful study, and which might not necessarily be generalizable, to a single short sensational news headline.

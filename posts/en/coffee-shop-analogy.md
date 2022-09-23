@@ -1,7 +1,7 @@
 ---
-title: "The coffee shop analogy"
+title: The coffee shop analogy
 date: 2022-09-16
-desc: "An analogy for software engineer levels."
+desc: An analogy for software engineer levels.
 ---
 
 I work as a software engineer at Stripe. Recently, my new manager and I had a discussion about the different "levels" of software engineers, and how one can use a coffee shop analogy to understand the responsibilities of the different levels. I thought the analogy was pretty good, so I'm sharing the sketch of it here.

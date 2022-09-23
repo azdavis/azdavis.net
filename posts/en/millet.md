@@ -1,7 +1,7 @@
 ---
-title: "Millet"
+title: Millet
 date: 2022-07-02
-desc: "A language server for Standard ML."
+desc: A language server for Standard ML.
 img: /img/millet/0-logo.png
 ---
 

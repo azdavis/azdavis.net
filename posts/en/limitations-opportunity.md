@@ -1,5 +1,5 @@
 ---
-title: "Limitations engender opportunity"
+title: Limitations engender opportunity
 date: 2021-12-10
 desc: "Alternative title: 'tradeoffs are a thing'."
 ---

@@ -1,7 +1,7 @@
 ---
-title: "Resources for learning Japanese"
+title: Resources for learning Japanese
 date: 2021-03-25
-desc: "Things I use to study Japanese."
+desc: Things I use to study Japanese.
 ---
 
 I enjoy studying the Japanese language and culture. Over time I've found lots of helpful resources that I use to study.

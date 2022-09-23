@@ -1,7 +1,7 @@
 ---
 title: "Define a PL: products"
 date: 2021-06-05
-desc: "Adding product types (aka 'structs' or 'tuples') to a small PL."
+desc: Adding product types (aka 'structs' or 'tuples') to a small PL.
 ---
 
 In the [previous post][prev], we added functions to Hatsugen.

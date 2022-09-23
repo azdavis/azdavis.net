@@ -1,7 +1,7 @@
 ---
-title: "If it's worth doing, it's worth doing at all"
+title: If it's worth doing, it's worth doing at all
 date: 2021-12-14
-desc: "Another little idiom I like."
+desc: Another little idiom I like.
 ---
 
 There's a common saying:

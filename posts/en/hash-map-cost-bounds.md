@@ -1,7 +1,7 @@
 ---
-title: "Hash map cost bounds"
+title: Hash map cost bounds
 date: 2022-09-20
-desc: "A technicality hidden in some asymptotic cost bounds."
+desc: A technicality hidden in some asymptotic cost bounds.
 ---
 
 A while ago, I found myself quite confused by exactly how hash maps can claim to have such excellent performance.

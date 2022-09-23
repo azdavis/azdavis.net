@@ -1,7 +1,7 @@
 ---
-title: "Unoriginality is okay"
+title: Unoriginality is okay
 date: 2021-09-18
-desc: "An exhortation to create."
+desc: An exhortation to create.
 ---
 
 It's okay to do things that other people have done before. This is true even when other people have done that thing better than you are (currently) able.

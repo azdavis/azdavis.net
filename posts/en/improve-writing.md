@@ -1,7 +1,7 @@
 ---
-title: "Improving my writing"
+title: Improving my writing
 date: 2021-11-11
-desc: "Trying to do better."
+desc: Trying to do better.
 ---
 
 When I write, I can sense on some level that my writing is not the best. Even after editing, I feel it could be improved somehow, but I'm not sure how.

@@ -1,7 +1,7 @@
 ---
-title: "Communication for software engineers"
+title: Communication for software engineers
 date: 2021-10-18
-desc: "Tips on communicating effectively."
+desc: Tips on communicating effectively.
 ---
 
 I enjoy practicing my technical skills. However, now that I've graduated from college and am working as a software engineer, I've begun to focus more on communication. Here is some of what I've learned, though [it's all been said before][unoriginal].
