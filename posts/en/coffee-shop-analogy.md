@@ -19,7 +19,7 @@ In the coffee shop analogy, this would look like:
 
 ## Entry-level-plus (L2)
 
-In the next level, an engineer begins to manage entire systems, instead of individual tasks. In the analogy:
+In the next level, an engineer begins to manage entire projects and systems, instead of individual tasks. In the analogy:
 
 - Ensure the espresso machine is working and producing quality coffee.
 - Man the register and address any issues that come up.
@@ -29,7 +29,7 @@ The tasks begin to become more ambiguous, requiring the engineer to think more a
 
 ## Senior (L3)
 
-At this level, an engineer begins to manage entire projects. The projects often are of such large scope that multiple engineers work on them. Thus, a senior engineer's responsibilities often take on more of a managerial flavor.
+At this level, an engineer begins to think more on the level of the entire team, rather than one specific project. Projects often are of such large scope that multiple engineers work on them. Thus, a senior engineer's responsibilities often take on more of a managerial flavor.
 
 In the analogy, this is like managing an entire coffee shop:
 
