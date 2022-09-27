@@ -1,7 +1,5 @@
 import { mkdir, readdir, readFile, rm, writeFile } from "fs/promises";
 import { basename, join } from "path";
-import type { ReactElement } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
 import { error404 } from "./pages/404";
 import { index } from "./pages/index";
 import { post } from "./pages/post";
@@ -21,11 +19,11 @@ const buildDir = "build";
 
 async function writeHtml(
   dir: string,
-  contents: ReactElement,
+  contents: string,
   file: string = "index.html",
 ) {
   await mkdir(join(buildDir, dir), { recursive: true });
-  const text = "<!DOCTYPE html>" + renderToStaticMarkup(contents);
+  const text = "<!DOCTYPE html>" + contents;
   await writeFile(join(buildDir, dir, file), text);
 }
 
@@ -43,7 +41,7 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
   for (const [slug, data] of posts[lang]) {
     const path = postDir(lang, slug);
     const langs = all.filter((l) => posts[l].has(slug));
-    await writeHtml(path, post({ data, lang, slug, langs }));
+    await writeHtml(path, post(data, lang, langs, slug));
     const { title, desc, date, img } = data;
     if (titles.has(title)) {
       throw new Error(`duplicate: ${lang} ${title}`);

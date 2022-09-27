@@ -3,7 +3,6 @@
     "target": "ES2020",
     "module": "CommonJS",
     "allowJs": false,
-    "jsx": "react-jsx",
     "outDir": "out",
     "rootDir": "src",
     "strict": true,

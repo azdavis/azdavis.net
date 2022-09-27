@@ -1,5 +1,5 @@
-import type { ReactElement } from "react";
 import { absurd } from "../util/absurd";
+import { e } from "../util/e";
 import type { Lang } from "../util/lang";
 
 const options: Intl.DateTimeFormatOptions = {
@@ -31,15 +31,8 @@ function dateToIsoString(date: Date): string {
   return date.toISOString().split("T")[0];
 }
 
-interface Props {
-  lang: Lang;
-  date: Date;
-}
-
-export function DateShow({ lang, date }: Props): ReactElement {
-  return (
-    <time dateTime={dateToIsoString(date)}>
-      {dateToHumanString(lang, date)}
-    </time>
-  );
+export function dateShow(lang: Lang, date: Date): string {
+  return e("time", { datetime: dateToIsoString(date) }, [
+    dateToHumanString(lang, date),
+  ]);
 }
