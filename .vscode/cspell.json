@@ -1,4 +1,9 @@
 {
   "version": "0.2",
-  "words": ["azdavis", "katex", "texmath"]
+  "words": [
+    "azdavis",
+    "datetime",
+    "katex",
+    "texmath"
+  ]
 }
