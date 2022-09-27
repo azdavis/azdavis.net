@@ -1,5 +1,4 @@
-import glob from "fast-glob";
-import { copyFile, mkdir, readFile, rm, writeFile } from "fs/promises";
+import { mkdir, readdir, readFile, rm, writeFile } from "fs/promises";
 import { basename, join } from "path";
 import type { ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -95,23 +94,22 @@ async function getAllPostData(entries: string[]): Promise<Posts> {
   return ret;
 }
 
-async function copyStatic(p: string) {
-  await copyFile(p, join(buildDir, basename(p)));
+async function readDirWithDirName(dir: string): Promise<string[]> {
+  const xs = await readdir(dir);
+  return xs.map((x) => join(dir, x));
 }
 
 async function main() {
   await rm(buildDir, { recursive: true, force: true });
-  await mkdir(buildDir, { recursive: true });
-  const [staticItems, postsJa, postsEn] = await Promise.all([
-    glob("static/*"),
-    glob("posts/ja/*.md").then(getAllPostData),
-    glob("posts/en/*.md").then(getAllPostData),
+  await copyDir("static", buildDir);
+  const [postsJa, postsEn] = await Promise.all([
+    readDirWithDirName(join("posts", "ja")).then(getAllPostData),
+    readDirWithDirName(join("posts", "en")).then(getAllPostData),
   ]);
   const posts = { en: postsEn, ja: postsJa };
   await Promise.all([
     copyDir("static/img", join(buildDir, "img")),
     copyDir("node_modules/katex/dist", join(buildDir, "katex")),
-    ...staticItems.map(copyStatic),
     writeHtml(".", error404, "404.html"),
     writeHtml(".", index("en")),
     writeHtml("ja", index("ja")),
