@@ -1,6 +1,5 @@
 import glob from "fast-glob";
-import { copyFile, readFile, rm, writeFile } from "fs/promises";
-import mkdirp from "mkdirp";
+import { copyFile, mkdir, readFile, rm, writeFile } from "fs/promises";
 import { basename, join } from "path";
 import type { ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -26,7 +25,7 @@ async function writeHtml(
   contents: ReactElement,
   file: string = "index.html",
 ) {
-  await mkdirp(join(buildDir, dir));
+  await mkdir(join(buildDir, dir), { recursive: true });
   const text = "<!DOCTYPE html>" + renderToStaticMarkup(contents);
   await writeFile(join(buildDir, dir, file), text);
 }
@@ -102,7 +101,7 @@ async function copyStatic(p: string) {
 
 async function main() {
   await rm(buildDir, { recursive: true, force: true });
-  await mkdirp(buildDir);
+  await mkdir(buildDir, { recursive: true });
   const [staticItems, postsJa, postsEn] = await Promise.all([
     glob("static/*"),
     glob("posts/ja/*.md").then(getAllPostData),

@@ -1,10 +1,9 @@
-import { copyFile, readdir } from "fs/promises";
-import mkdirp from "mkdirp";
+import { copyFile, mkdir, readdir } from "fs/promises";
 import { join } from "path";
 
 // https://stackoverflow.com/a/64255382
 export async function copyDir(src: string, dest: string): Promise<void> {
-  await mkdirp(dest);
+  await mkdir(dest, { recursive: true });
   const entries = await readdir(src, { withFileTypes: true });
   for (const entry of entries) {
     const srcPath = join(src, entry.name);
