@@ -12,14 +12,6 @@ import {
 
 const styles: Style[] = ["base", "post", "katex/katex.min"];
 
-interface Props {
-  data: PostData;
-  lang: Lang;
-  // includes lang (thus, never empty)
-  langs: Lang[];
-  slug: string;
-}
-
 const translations = {
   translations: { en: "Translations: ", ja: "翻訳\uff1a" },
   posts,
