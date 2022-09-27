@@ -4,6 +4,3 @@
 /out
 # for the actual site
 /build
-
-/.vscode/cspell.json
-/thoughts.md
