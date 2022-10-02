@@ -4,7 +4,7 @@ date: 2022-10-02
 desc: A way to think about writing recursive functions.
 ---
 
-When writing a recursive function, we may assume that **if** we make a recursive call on a "smaller" argument, **then** the call will return to us the correct answer, **without** thinking at all about how the recursive call manages to do that.
+When writing a recursive function, we may assume that **if** we make a recursive call on a "smaller" argument, **then** the call will return to us the correct answer, **without** thinking at all about how the call manages to do that.
 
 The reason why it is okay to do this is because recursion corresponds to induction. That is, "assume the recursive call just works" is **not** informal hand-waving, it is the **inductive hypothesis**. Further, it is known that if you give something a fancy math name, it is Correct.
 
@@ -266,7 +266,7 @@ fun sum L =
 
 Note that we have suggestively named the result of `sum xs`. This is a callback to the first sentence of this post:
 
-> When writing a recursive function, we may assume that **if** we make a recursive call on a "smaller" argument, **then** the call will return to us the correct answer, **without** thinking at all about how the recursive call manages to do that.
+> When writing a recursive function, we may assume that **if** we make a recursive call on a "smaller" argument, **then** the call will return to us the correct answer, **without** thinking at all about how the call manages to do that.
 
 So, **without** thinking about "how" `sum` continues to recur on `xs` until it hits a (or rather, the) base case, we think to ourselves only this: `sum xs` really is the sum of all the numbers in `xs`, because that's what we said `sum` does.
 
