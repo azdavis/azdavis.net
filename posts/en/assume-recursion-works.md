@@ -203,14 +203,14 @@ We have a recursive definition for lists, reproduced here:
 > - `nil` is a list.
 > - If `x` is a value, and `xs` is a list, then `x :: xs` is a list.
 
-That means we have a corresponding principle of structural induction on lists, that directly "falls out" of the definition of lists. And here it is:
+That means we have a corresponding principle of structural induction on lists, that directly "falls out" of the definition of lists. And here it is.
 
-> Given we have a statement $P$ about lists, **if** we prove:
->
-> - $P(\textsf{nil})$ holds.
-> - If $x$ is a value and $\ell$ is a list, then $P(x :: \ell)$ holds.
->
-> **Then** we have proven that for all lists $L$, $P(L)$ holds.
+Given we have a statement $P$ about lists, **if** we prove:
+
+- $P(\textsf{nil})$ holds.
+- If $x$ is a value and $\ell$ is a list, then $P(x :: \ell)$ holds.
+
+**Then** we have proven that for all lists $L$, $P(L)$ holds.
 
 Note that we use $\ell$ instead of `xs` because mathematicians really don't like multi-letter variable names, and it's okay because we they're [equivalent][alpha-equiv] anyway because they're bound variables. Other than that, the principle of induction on lists was mechanically derived from the definition of lists itself.
 
