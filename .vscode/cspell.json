@@ -3,7 +3,10 @@
   "words": [
     "azdavis",
     "datetime",
+    "desugars",
+    "infixr",
     "katex",
-    "texmath"
+    "texmath",
+    "textsf"
   ]
 }
