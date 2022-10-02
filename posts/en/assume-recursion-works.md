@@ -4,7 +4,7 @@ date: 2022-10-02
 desc: A way to think about writing recursive functions.
 ---
 
-When writing a recursive function, it behooves one to assume that recursive calls will return the correct answer, **without** thinking about exactly how they manage to do that.
+When writing a recursive function, we may assume that **if** we make a recursive call on a "smaller" argument, **then** the call will return to us the correct answer, **without** thinking at all about how the recursive call manages to do that.
 
 The reason why it is okay to do this is because recursion corresponds to induction. That is, "assume the recursive call just works" is **not** informal hand-waving, it is the **inductive hypothesis**. Further, it is known that if you give something a fancy math name, it is Correct.
 
@@ -141,7 +141,7 @@ The idea of induction is that if we want to prove $P(n)$ is true for every natur
 More formally, the principle of induction on the natural numbers is: Given some statement $P$ about natural numbers, **if** we prove the following two things:
 
 - $P(0)$ holds.
-- If $P(k)$ holds, then $P(k + 1)$ holds.
+- If $k$ is a natural number, and $P(k)$ holds, then $P(k + 1)$ holds.
 
 **Then** we have proven that for all natural numbers $n$, $P(n)$ holds.
 
@@ -208,7 +208,7 @@ That means we have a corresponding principle of structural induction on lists, t
 Given we have a statement $P$ about lists, **if** we prove:
 
 - $P(\textsf{nil})$ holds.
-- If $x$ is a value and $\ell$ is a list, then $P(x :: \ell)$ holds.
+- If $x$ is a value, and $\ell$ is a list, and $P(\ell)$ holds, then $P(x :: \ell)$ holds.
 
 **Then** we have proven that for all lists $L$, $P(L)$ holds.
 
@@ -218,17 +218,21 @@ Note that we use $\ell$ instead of `xs` because mathematicians really don't like
 
 We now, finally, return to the `sum` example in earnest.
 
-Suppose we are writing the `sum` function. We know it takes a list of numbers. So let's start with that.
+Suppose we are writing the `sum` function. The speciation of `sum` that our implementation must satisfy is this: For a given list of numbers `L`, `sum L` returns the sum of the numbers in `L`.
+
+Put another way, we can express the specification as a proposition $P(L)$. We define $P(L)$ to be the statement "`sum L` returns the sum of all the numbers in `L`." Our goal now is to define `sum` such that for all $L$, $P(L)$ holds.
+
+Okay. We know `sum` takes a list of numbers. So let's start with that, and call the list `L`.
 
 ```sml
-fun sum numbers = ...
+fun sum L = ...
 ```
 
-Now, we know `numbers` will be a list. We recall the definition of lists: there are two cases, `nil` and `::` ("cons"). So let's write a case for each one.
+Now, we know `L` will be a list. We recall the definition of lists: there are two cases, `nil` and `::` ("cons"). So let's write a case for each one.
 
 ```sml
-fun sum numbers =
-  case numbers of
+fun sum L =
+  case L of
     nil => ...
   | x :: xs => ...
 ```
@@ -236,19 +240,21 @@ fun sum numbers =
 Starting with the `nil` case, we can just say that the "empty sum" is 0. Actually, it's less that we're "just saying" that, and more that 0 is the [identity][monoid] for $+$.
 
 ```sml
-fun sum numbers =
-  case numbers of
+fun sum L =
+  case L of
     nil => 0
   | x :: xs => ...
 ```
 
-We now turn to the recursive case. We have `x` and `xs` in scope.
+This proves $P(\textsf{nil})$ holds. That's the base case of the proof. (Notice how we're writing the correctness proof of the function as we're writing the function itself? Nifty.)
 
-`xs` is a list of numbers, one smaller than the original input, `numbers`. Only because `xs` is smaller are we allowed to make a recursive call on it. If we had a list **not** smaller than `numbers` (like, for instance, `numbers` itself), we would **not** be allowed to recur on it, because then the recursion would not terminate. But it's not, so it will, so we do.
+We now turn to the recursive case.
+
+We have `x` and `xs` in scope. `xs` is a list of numbers, one smaller than the original input, `L`. Only because `xs` is smaller are we allowed to make a recursive call on it. If we had a list **not** smaller than `L` (like, for instance, `L` itself), we would **not** be allowed to recur on it, because then the recursion would not terminate. But it's not, so it will, so we do.
 
 ```sml
-fun sum numbers =
-  case numbers of
+fun sum L =
+  case L of
     nil => 0
   | x :: xs =>
       let
@@ -258,21 +264,27 @@ fun sum numbers =
       end
 ```
 
-Note that we have suggestively named the result of `sum xs`. This reminds us of the message at the top of this post:
+Note that we have suggestively named the result of `sum xs`. This is a callback to the first sentence of this post:
 
-> When writing a recursive function, it behooves one to assume that recursive calls will return the correct answer, **without** thinking about exactly how they manage to do that.
+> When writing a recursive function, we may assume that **if** we make a recursive call on a "smaller" argument, **then** the call will return to us the correct answer, **without** thinking at all about how the recursive call manages to do that.
 
 So, **without** thinking about "how" `sum` continues to recur on `xs` until it hits a (or rather, the) base case, we think to ourselves only this: `sum xs` really is the sum of all the numbers in `xs`, because that's what we said `sum` does.
 
-Okay, given the sum of `xs`, which we now "somehow" have (remember: we **do not care** how we have it), how can we get the sum of `numbers`?
+We can be a bit more formal about this. Think about $P$, and the second part of the principle of induction for lists. The second part is the "recursive" part, which corresponds to the fact that we're in the recursive case of the `sum` function. It states:
 
-Well, in this case, `numbers = x :: xs`. So we need to add `x` to the sum of `xs`, and that'd be the sum of `x :: xs`, which is `numbers`.
+> If $x$ is a value and $\ell$ is a list and $P(\ell)$ holds, then $P(x :: \ell)$ holds.
 
-Hey, we have the sum of `xs`! Okay, let's add `x` to that and return.
+Remember, we are trying to define `sum` such that it satisfies its spec. That is, we are trying to prove that for all $L$, $P(L)$ holds. In this case $L = x :: \ell$. Or, in the code, `L = x :: xs`. (Sorry. Trying to satisfy the mathematicians by using one letter variable names in the math, and also satisfy the programmers by not using the ambiguous `l` as a variable name in the code.)
+
+So we have `x`, a value, and `xs`, a list. We get to assume $P(\ell)$, er, $P(\texttt{xs})$, holds, as the inductive hypothesis. That means (recall the definition of $P$) we assume `sum xs` really is the sum of all the numbers in `xs`. Now we must show $P(x :: \ell)$, uh, $P(\texttt{x :: xs})$ holds. Which means we must finish the definition of `sum` so that `sum (x :: xs)` is the sum of all the numbers in `x :: xs`.
+
+Okay, given the sum of `xs`, which we now "somehow" have (remember: we **do not care** how we have it), how can we get the sum of `x :: xs`?
+
+Well, we need to add `x` to the sum of `xs`. Okay, let's do that and return.
 
 ```sml
-fun sum numbers =
-  case numbers of
+fun sum L =
+  case L of
     nil => 0
   | x :: xs =>
       let
@@ -282,7 +294,16 @@ fun sum numbers =
       end
 ```
 
-That `let` expression has only one binding, we can just inline it.
+That `let` expression has only one binding, so we can just inline it.
+
+```sml
+fun sum L =
+  case L of
+    nil => 0
+  | x :: xs => x + sum xs
+```
+
+We can rename the bound variable to make it match up with the original example, and make the function a little more self-documenting:
 
 ```sml
 fun sum numbers =

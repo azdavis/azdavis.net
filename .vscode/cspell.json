@@ -7,6 +7,7 @@
     "infixr",
     "katex",
     "texmath",
-    "textsf"
+    "textsf",
+    "texttt"
   ]
 }
