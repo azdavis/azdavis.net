@@ -4,9 +4,9 @@ date: 2022-10-02
 desc: A way to think about writing recursive functions.
 ---
 
-When writing a recursive function, we may assume that **if** we make a recursive call on a "smaller" argument, **then** the call will return to us the correct answer, **without** thinking at all about how the call manages to do that.
+When writing a recursive function, we may assume that if we make a recursive call on a "smaller" argument, then the call will return to us the correct answer, without thinking at all about how the call manages to do that.
 
-The reason why it is okay to do this is because recursion corresponds to induction. That is, "assume the recursive call just works" is **not** informal hand-waving, it is the **inductive hypothesis**. Further, it is known that if you give something a fancy math name, it is Correct.
+The reason why it is okay to do this is because recursion corresponds to induction. That is, "assume the recursive call just works" is not informal hand-waving, it is the **inductive hypothesis**. Further, it is known that if you give something a fancy math name, it is Correct.
 
 The rest of this post is basically just expounding on the above at length.
 
@@ -88,7 +88,7 @@ To try to grok how the recursion works, students will often try tracing out an e
 = 9
 ```
 
-Now, writing out these traces **can** be useful for convincing oneself that a recursive function, **as written**, really does work. However, I claim that thinking in terms of **how** the recursion works is less helpful when actually **writing** the function.
+Now, writing out these traces can be useful for convincing oneself that a recursive function, as written, really does work. However, I claim that thinking in terms of **how** the recursion works is less helpful when actually **writing** the function.
 
 My advice is to instead assume:
 
@@ -151,7 +151,7 @@ Note how the definition of "natural number" itself **strongly** mirrors the defi
 
 Indeed, in general, when we have **any** recursively defined structure, there is a corresponding "principle of induction" for that structure that mirrors the definition of the structure itself.
 
-This is important! It's also why I said that induction is "introduced" as something for the natural numbers only. Really, induction is applicable to **any** recursive structure.
+This is important! It's also why I said that induction is "introduced" as something for the natural numbers only. Really, induction is applicable to any recursive structure.
 
 This idea, that we can generalize induction past just the natural numbers and apply it to arbitrary recursive structures, is called "structural induction".
 
@@ -250,7 +250,7 @@ This proves $P(\textsf{nil})$ holds. That's the base case of the proof. (Notice 
 
 We now turn to the recursive case.
 
-We have `x` and `xs` in scope. `xs` is a list of numbers, one smaller than the original input, `L`. Only because `xs` is smaller are we allowed to make a recursive call on it. If we had a list **not** smaller than `L` (like, for instance, `L` itself), we would **not** be allowed to recur on it, because then the recursion would not terminate. But it's not, so it will, so we do.
+We have `x` and `xs` in scope. `xs` is a list of numbers, one smaller than the original input, `L`. Only because `xs` is smaller are we allowed to make a recursive call on it. If we had a list not smaller than `L` (like, for instance, `L` itself), we would not be allowed to recur on it, because then the recursion would not terminate. But it's not, so it will, so we do.
 
 ```sml
 fun sum L =
@@ -266,7 +266,7 @@ fun sum L =
 
 Note that we have suggestively named the result of `sum xs`. This is a callback to the first sentence of this post:
 
-> When writing a recursive function, we may assume that **if** we make a recursive call on a "smaller" argument, **then** the call will return to us the correct answer, **without** thinking at all about how the call manages to do that.
+> When writing a recursive function, we may assume that if we make a recursive call on a "smaller" argument, then the call will return to us the correct answer, without thinking at all about how the call manages to do that.
 
 So, **without** thinking about "how" `sum` continues to recur on `xs` until it hits a (or rather, the) base case, we think to ourselves only this: `sum xs` really is the sum of all the numbers in `xs`, because that's what we said `sum` does.
 
@@ -278,7 +278,7 @@ Remember, we are trying to define `sum` such that it satisfies its spec. That is
 
 So we have `x`, a value, and `xs`, a list. We get to assume $P(\ell)$, er, $P(\texttt{xs})$, holds, as the inductive hypothesis. That means (recall the definition of $P$) we assume `sum xs` really is the sum of all the numbers in `xs`. Now we must show $P(x :: \ell)$, uh, $P(\texttt{x :: xs})$ holds. Which means we must finish the definition of `sum` so that `sum (x :: xs)` is the sum of all the numbers in `x :: xs`.
 
-Okay, given the sum of `xs`, which we now "somehow" have (remember: we **do not care** how we have it), how can we get the sum of `x :: xs`?
+Okay, given the sum of `xs`, which we now "somehow" have (remember: we do not care how we have it), how can we get the sum of `x :: xs`?
 
 Well, we need to add `x` to the sum of `xs`. Okay, let's do that and return.
 
