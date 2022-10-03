@@ -164,7 +164,7 @@ Just as with natural numbers, we can define lists recursively:
 - `nil` is a list.
 - If `x` is a value, and `xs` is a list, then `x :: xs` is a list.
 
-This is actually quite similar to the recursive definition of the natural numbers. The biggest difference is that the recursive case, instead of adding 1 to the natural number to get a new natural number, we are "adding" the value `x` to the front of the list to get a new list.
+This is actually quite similar to the recursive definition of the natural numbers. The biggest difference is that in the recursive case, instead of adding 1 to the natural number to get a new natural number, we are "adding" the value `x` to the front of the list to get a new list.
 
 We could, in fact, "recover" the natural numbers from lists by ignoring the values in the list, and just caring about the length of the list. (That is, `type nat = unit list`.)
 
@@ -212,7 +212,7 @@ Given we have a statement $P$ about lists, **if** we prove:
 
 **Then** we have proven that for all lists $L$, $P(L)$ holds.
 
-Note that we use $\ell$ instead of `xs` because mathematicians really don't like multi-letter variable names, and it's okay because we they're [equivalent][alpha-equiv] anyway because they're bound variables. Other than that, the principle of induction on lists was mechanically derived from the definition of lists itself.
+Note that we use $\ell$ instead of `xs` because mathematicians really don't like multi-letter variable names, and it's okay because they're [equivalent][alpha-equiv] anyway because they're bound variables. Other than that, the principle of induction on lists was mechanically derived from the definition of lists itself.
 
 ## The whole point
 
