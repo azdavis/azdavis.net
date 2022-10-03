@@ -20,19 +20,19 @@ To permit repeated execution of part of a program, most modern languages allow f
 In e.g. Python, we can implement a function that sums up a list of numbers in either style:
 
 ```py
-def sum_iter(numbers):
+def sum_iter(nums):
     ret = 0
     # iterative loop
-    for num in numbers:
+    for num in nums:
         ret += num
     return ret
 
-def sum_rec(numbers):
+def sum_rec(nums):
     # base case
-    if len(numbers) == 0:
+    if len(nums) == 0:
         return 0
     # recursive call
-    return numbers[0] + sum_rec(numbers[1:])
+    return nums[0] + sum_rec(nums[1:])
 ```
 
 However, many programmers often prefer iteration over recursion, for various reasons:
@@ -65,8 +65,8 @@ Indeed, when I was a teaching assistant for an [introductory level functional pr
 In SML, we would sum up a list of numbers with recursion:
 
 ```sml
-fun sum numbers =
-  case numbers of
+fun sum nums =
+  case nums of
     nil => 0
   | x :: xs => x + sum xs
 ```
@@ -306,8 +306,8 @@ fun sum L =
 We can rename the bound variable to make it match up with the original example, and make the function a little more self-documenting:
 
 ```sml
-fun sum numbers =
-  case numbers of
+fun sum nums =
+  case nums of
     nil => 0
   | x :: xs => x + sum xs
 ```

@@ -6,6 +6,7 @@
     "desugars",
     "infixr",
     "katex",
+    "nums",
     "texmath",
     "textsf",
     "texttt"
