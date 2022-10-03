@@ -8,9 +8,7 @@ A while ago, I found myself quite confused by exactly how hash maps can claim to
 
 I've since, to my knowledge, cleared up my understanding, so I thought I'd write up the misunderstanding I had and how I resolved it.
 
-The one sentence TL;DR of the entire post is this:
-
-> The asymptotic cost bounds for hash map performance assume the sizes of all keys are bounded by some fixed constant.
+The one sentence TL;DR of the entire post is this: The asymptotic cost bounds for hash map performance assume the sizes of all keys are bounded by some fixed constant.
 
 ## Background
 
