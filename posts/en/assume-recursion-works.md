@@ -20,19 +20,19 @@ To permit repeated execution of part of a program, most modern languages allow f
 In e.g. Python, we can implement a function that sums up a list of numbers in either style:
 
 ```py
-def sum_iterative(numbers):
+def sum_iter(numbers):
     ret = 0
     # iterative loop
     for num in numbers:
         ret += num
     return ret
 
-def sum_recursive(numbers):
+def sum_rec(numbers):
     # base case
     if len(numbers) == 0:
         return 0
     # recursive call
-    return numbers[0] + sum_recursive(numbers[1:])
+    return numbers[0] + sum_rec(numbers[1:])
 ```
 
 However, many programmers often prefer iteration over recursion, for various reasons:
