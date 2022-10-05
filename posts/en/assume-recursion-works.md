@@ -183,7 +183,7 @@ Note that the business with `'a` is enforcing two things:
 1. A list's element type can be any arbitrary type.
 2. Given some arbitrary element type, every element of a list must have that type.
 
-Note also that the `infixr` declaration following the `datatype` means that `::` is a right-associative infix operator with precedence 5.
+Note also that the `infixr` declaration following the `datatype` means that `::` (pronounced "cons") is a right-associative infix operator with precedence 5.
 
 Finally, note that the built-in list literal syntax with `[]` and `,` is "syntax sugar" for the underlying list constructors.
 
@@ -228,7 +228,7 @@ Okay. We know `sum` takes a list of numbers. So let's start with that, and call 
 fun sum L = ...
 ```
 
-Now, we know `L` will be a list. We recall the definition of lists: there are two cases, `nil` and `::` ("cons"). So let's write a case for each one.
+Now, we know `L` will be a list. We recall the definition of lists: there are two cases, `nil` and `::`. So let's write a case for each one.
 
 ```sml
 fun sum L =
