@@ -101,7 +101,7 @@ Millet provides code actions to reduce manual typing of boilerplate code.
 The "fill case" quick fix automatically fills a `case` expression with all the variants of a `datatype`.
 
 <video controls>
-  <source src="/img/millet/9-fill-case.mp4#t=0.001" />
+  <source src="/img/millet/9-fill-case.mp4#t=0.001">
 </video>
 
 ### Multiple files
