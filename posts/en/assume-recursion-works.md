@@ -6,7 +6,7 @@ desc: A way to think about writing recursive functions.
 
 When writing a recursive function, we may assume that if we make a recursive call on a "smaller" argument, then the call will return to us the correct answer.
 
-The reason why it is okay to do this is because recursion corresponds to induction. That is, "assume the recursive call just works" is not informal hand-waving, it is the **inductive hypothesis**. Further, it is known that if you give something a fancy math name, it is Correct.
+The reason why it is okay to do this is because recursion corresponds to induction. That is, "assume the recursive call just works" is not informal hand-waving, it is the **inductive hypothesis**. Further, it is known that if you give something a fancy math name, it is Correct™.
 
 The rest of this post is basically just expounding on the above at length.
 
