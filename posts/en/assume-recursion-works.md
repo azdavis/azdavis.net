@@ -175,7 +175,7 @@ datatype 'a list =
   nil
 | :: of 'a * 'a list
 
-infixr ::
+infixr 5 ::
 ```
 
 Note that the business with `'a` is enforcing two things:
@@ -183,7 +183,7 @@ Note that the business with `'a` is enforcing two things:
 1. A list's element type can be any arbitrary type.
 2. Given some arbitrary element type, every element of a list must have that type.
 
-Note also that the `infixr` declaration following the `datatype` means that `::` is a right-associative infix operator.
+Note also that the `infixr` declaration following the `datatype` means that `::` is a right-associative infix operator with precedence 5.
 
 Finally, note that the built-in list literal syntax with `[]` and `,` is "syntax sugar" for the underlying list constructors.
 
