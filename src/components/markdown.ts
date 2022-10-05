@@ -1,7 +1,105 @@
 import hl from "highlight.js";
 import katex from "katex";
 import markdownIt from "markdown-it";
-import texmath from "markdown-it-texmath";
+import type StateBlock from "markdown-it/lib/rules_block/state_block";
+import type StateInline from "markdown-it/lib/rules_inline/state_inline";
+
+// math stuff adapted from https://github.com/goessner/markdown-it-texmath
+// copyright Stefan Goessner, licensed under the MIT License.
+
+const BACKSLASH = 0x5c;
+const ZERO = 0x30;
+const NINE = 0x39;
+
+function isAsciiDigitCodePoint(num: number): boolean {
+  return ZERO <= num && num <= NINE;
+}
+
+const inlineRule = {
+  name: "math_inline",
+  rex: /\$((?:[^\s\\])|(?:\S.*?[^\s\\]))\$/g,
+  tag: "$",
+};
+
+function inlineMath(state: StateInline, silent: boolean): boolean {
+  const pos = state.pos;
+  inlineRule.rex.lastIndex = pos;
+  const prev = pos > 0 ? state.src[pos - 1].charCodeAt(0) : null;
+  if (
+    !state.src.startsWith(inlineRule.tag, pos) ||
+    (prev !== null && (prev === BACKSLASH || isAsciiDigitCodePoint(prev)))
+  ) {
+    return false;
+  }
+  const match = inlineRule.rex.exec(state.src);
+  if (match === null) {
+    return false;
+  }
+  const next =
+    inlineRule.rex.lastIndex < state.src.length
+      ? state.src[inlineRule.rex.lastIndex].charCodeAt(0)
+      : null;
+  if (
+    pos >= inlineRule.rex.lastIndex ||
+    (next !== null && isAsciiDigitCodePoint(next))
+  ) {
+    return false;
+  }
+  if (!silent) {
+    const token = state.push(inlineRule.name, "math", 0);
+    token.content = match[1];
+    token.markup = inlineRule.tag;
+  }
+  state.pos = inlineRule.rex.lastIndex;
+  return true;
+}
+
+const blockRule = {
+  name: "math_block",
+  rex: /\${2}([^$]*?[^\\])\${2}/gm,
+  tag: "$$",
+};
+
+function blockMath(
+  state: StateBlock,
+  begLine: number,
+  endLine: number,
+  silent: boolean,
+): boolean {
+  const pos = state.bMarks[begLine] + state.tShift[begLine];
+  blockRule.rex.lastIndex = pos;
+  if (!state.src.startsWith(blockRule.tag, pos)) {
+    return false;
+  }
+  const match = blockRule.rex.exec(state.src);
+  if (match === null || pos >= blockRule.rex.lastIndex) {
+    return false;
+  }
+  if (silent) {
+    return true;
+  }
+  const endPos = blockRule.rex.lastIndex - 1;
+  let curLine: number;
+  for (curLine = begLine; curLine < endLine; curLine++) {
+    if (
+      endPos >= state.bMarks[curLine] + state.tShift[curLine] &&
+      endPos <= state.eMarks[curLine]
+    ) {
+      break;
+    }
+  }
+  const lineMax = state.lineMax;
+  state.lineMax = curLine;
+  const token = state.push(blockRule.name, "math", 0);
+  token.block = true;
+  token.tag = blockRule.tag;
+  token.markup = "";
+  token.content = match[1];
+  token.map = [begLine, curLine + 1];
+  state.lineMax = lineMax;
+  state.line = curLine + 1;
+  return true;
+}
 
 const md = markdownIt({
   highlight(code: string, language: string): string {
@@ -13,7 +111,16 @@ const md = markdownIt({
   typographer: true,
   html: true,
 });
-md.use(texmath, { engine: katex, delimiters: "dollars" });
+
+md.inline.ruler.before("escape", inlineRule.name, inlineMath);
+md.renderer.rules[inlineRule.name] = (tokens, idx) =>
+  katex.renderToString(tokens[idx].content, { throwOnError: true });
+md.block.ruler.before("fence", blockRule.name, blockMath);
+md.renderer.rules[blockRule.name] = (tokens, idx) =>
+  katex.renderToString(tokens[idx].content, {
+    throwOnError: true,
+    displayMode: true,
+  });
 
 export function markdown(value: string, inline: boolean = false): string {
   return inline ? md.renderInline(value) : md.render(value);
