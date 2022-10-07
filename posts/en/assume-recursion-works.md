@@ -244,7 +244,7 @@ fun sum L =
   | x :: r => ...
 ```
 
-This proves $P(\textsf{nil})$ holds. That's the base case of the proof. (Notice how we're writing the correctness proof of the function as we're writing the function itself? Nifty.)
+This proves $P(\textsf{nil})$ holds. That's the base case of the proof.
 
 We now turn to the recursive case.
 
