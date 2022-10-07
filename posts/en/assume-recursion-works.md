@@ -68,20 +68,20 @@ In SML, we would sum up a list of numbers with recursion:
 fun sum nums =
   case nums of
     nil => 0
-  | x :: xs => x + sum xs
+  | x :: r => x + sum r
 ```
 
 To try to grok how the recursion works, students will often try tracing out an example call of a recursive function. However, even when applying a relatively simple function, such as `sum`, to a relatively small argument, such as `[1, 3, 5]`, these traces can quickly get rather large:
 
 ```sml
   sum [1, 3, 5]
-= case [1, 3, 5] of nil => 0 | x :: xs => x + sum xs
+= case [1, 3, 5] of nil => 0 | x :: r => x + sum r
 = 1 + sum [3, 5]
-= 1 + (case [3, 5] of nil => 0 | x :: xs => x + sum xs)
+= 1 + (case [3, 5] of nil => 0 | x :: r => x + sum r)
 = 1 + (3 + (sum [5]))
-= 1 + (3 + (case [5] of nil => 0 | x :: xs => x + sum xs))
+= 1 + (3 + (case [5] of nil => 0 | x :: r => x + sum r))
 = 1 + (3 + (5 + (sum [])))
-= 1 + (3 + (5 + (case [] of nil => 0 | x :: xs => x + sum xs)))
+= 1 + (3 + (5 + (case [] of nil => 0 | x :: r => x + sum r)))
 = 1 + (3 + (5 + (0)))
 = 1 + (3 + (5))
 = 1 + (8)
@@ -161,10 +161,10 @@ We now return to the initial example of summing up a list of numbers.
 
 Just as with natural numbers, we can define lists recursively:
 
-- `nil` is a list.
-- If `x` is a value, and `xs` is a list, then `x :: xs` is a list.
+- $\textsf{nil}$ is a list.
+- If $x$ is a value, and $r$ is a list, then $x :: r$ is a list.
 
-This is actually quite similar to the recursive definition of the natural numbers. The biggest difference is that in the recursive case, instead of adding 1 to the natural number to get a new natural number, we are "adding" the value `x` to the front of the list to get a new list.
+This is actually quite similar to the recursive definition of the natural numbers. The biggest difference is that in the recursive case, instead of adding 1 to the natural number to get a new natural number, we are "adding" the value $x$ to the front of the list to get a new list.
 
 We could, in fact, "recover" the natural numbers from lists by ignoring the values in the list, and just caring about the length of the list. (That is, `type nat = unit list`.)
 
@@ -200,19 +200,17 @@ This means that the following are all equivalent:
 
 We have a recursive definition for lists, reproduced here:
 
-> - `nil` is a list.
-> - If `x` is a value, and `xs` is a list, then `x :: xs` is a list.
+> - $\textsf{nil}$ is a list.
+> - If $x$ is a value, and $r$ is a list, then $x :: r$ is a list.
 
 That means we have a corresponding principle of structural induction on lists, that directly "falls out" of the definition of lists. And here it is.
 
 Given we have a statement $P$ about lists, **if** we prove:
 
 - $P(\textsf{nil})$ holds.
-- If $x$ is a value, and $\ell$ is a list, and $P(\ell)$ holds, then $P(x :: \ell)$ holds.
+- If $x$ is a value, and $r$ is a list, and $P(r)$ holds, then $P(x :: r)$ holds.
 
 **Then** we have proven that for all lists $L$, $P(L)$ holds.
-
-Note that we use $\ell$ instead of `xs` because mathematicians really don't like multi-letter variable names, and it's okay because they're [equivalent][alpha-equiv] anyway because they're bound variables. Other than that, the principle of induction on lists was mechanically derived from the definition of lists itself.
 
 ## The whole point
 
@@ -234,7 +232,7 @@ Now, we know `L` will be a list. We recall the definition of lists: there are tw
 fun sum L =
   case L of
     nil => ...
-  | x :: xs => ...
+  | x :: r => ...
 ```
 
 Starting with the `nil` case, we can just say that the "empty sum" is 0. Actually, it's less that we're "just saying" that, and more that 0 is the [identity][monoid] for $+$.
@@ -243,54 +241,54 @@ Starting with the `nil` case, we can just say that the "empty sum" is 0. Actuall
 fun sum L =
   case L of
     nil => 0
-  | x :: xs => ...
+  | x :: r => ...
 ```
 
 This proves $P(\textsf{nil})$ holds. That's the base case of the proof. (Notice how we're writing the correctness proof of the function as we're writing the function itself? Nifty.)
 
 We now turn to the recursive case.
 
-We have `x` and `xs` in scope. `xs` is a list of numbers, one smaller than the original input, `L`. Only because `xs` is smaller are we allowed to make a recursive call on it. If we had a list not smaller than `L` (like, for instance, `L` itself), we would not be allowed to recur on it, because then the recursion would not terminate. But it's not, so it will, so we do.
+We have `x` and `r` in scope. `r` is a list of numbers, one smaller than the original input, `L`. Only because `r` is smaller are we allowed to make a recursive call on it. If we had a list not smaller than `L` (like, for instance, `L` itself), we would not be allowed to recur on it, because then the recursion would not terminate. But it's not, so it will, so we do.
 
 ```sml
 fun sum L =
   case L of
     nil => 0
-  | x :: xs =>
+  | x :: r =>
       let
-        val sum_xs = sum xs
+        val sum_r = sum r
       in
         ...
       end
 ```
 
-Note that we have suggestively named the result of `sum xs`. This is a callback to the first sentence of this post:
+Note that we have suggestively named the result of `sum r`. This is a callback to the first sentence of this post:
 
 > When writing a recursive function, we may assume that if we make a recursive call on a "smaller" argument, then the call will return to us the correct answer.
 
-So, **without** thinking about "how" `sum` continues to recur on `xs` until it hits a (or rather, the) base case, we think to ourselves only this: `sum xs` really is the sum of all the numbers in `xs`, because that's what we said `sum` does.
+So, **without** thinking about "how" `sum` continues to recur on `r` until it hits a (or rather, the) base case, we think to ourselves only this: `sum r` really is the sum of all the numbers in `r`, because that's what we said `sum` does.
 
 We can be a bit more formal about this. Think about $P$, and the second part of the principle of induction for lists. The second part is the "recursive" part, which corresponds to the fact that we're in the recursive case of the `sum` function. It states:
 
-> If $x$ is a value and $\ell$ is a list and $P(\ell)$ holds, then $P(x :: \ell)$ holds.
+> If $x$ is a value and $r$ is a list and $P(r)$ holds, then $P(x :: r)$ holds.
 
-Remember, we are trying to define `sum` such that it satisfies its spec. That is, we are trying to prove that for all $L$, $P(L)$ holds. In this case $L = x :: \ell$. Or, in the code, `L = x :: xs`. (Sorry. Trying to satisfy the mathematicians by using one letter variable names in the math, and also satisfy the programmers by not using the ambiguous `l` as a variable name in the code.)
+Remember, we are trying to define `sum` such that it satisfies its spec. That is, we are trying to prove that for all $L$, $P(L)$ holds. In this case $L = x :: r$.
 
-So we have `x`, a value, and `xs`, a list. We get to assume $P(\ell)$, er, $P(\texttt{xs})$, holds, as the inductive hypothesis. That means (recall the definition of $P$) we assume `sum xs` really is the sum of all the numbers in `xs`. Now we must show $P(x :: \ell)$, uh, $P(\texttt{x :: xs})$ holds. Which means we must finish the definition of `sum` so that `sum (x :: xs)` is the sum of all the numbers in `x :: xs`.
+So we have `x`, a value, and `r`, a list. We get to assume $P(r)$ holds, as the inductive hypothesis. That means (recall the definition of $P$) we assume `sum r` really is the sum of all the numbers in `r`. Now we must show $P(x :: r)$ holds. Which means we must finish the definition of `sum` so that `sum (x :: r)` is the sum of all the numbers in `x :: r`.
 
-Okay, given the sum of `xs`, which we now "somehow" have (remember: we do not care how we have it), how can we get the sum of `x :: xs`?
+Okay, given the sum of `r`, which we now "somehow" have (remember: we do not care how we have it), how can we get the sum of `x :: r`?
 
-Well, we need to add `x` to the sum of `xs`. Okay, let's do that and return.
+Well, we need to add `x` to the sum of `r`. Okay, let's do that and return.
 
 ```sml
 fun sum L =
   case L of
     nil => 0
-  | x :: xs =>
+  | x :: r =>
       let
-        val sum_xs = sum xs
+        val sum_r = sum r
       in
-        x + sum_xs
+        x + sum_r
       end
 ```
 
@@ -300,7 +298,7 @@ That `let` expression has only one binding, so we can just inline it.
 fun sum L =
   case L of
     nil => 0
-  | x :: xs => x + sum xs
+  | x :: r => x + sum r
 ```
 
 We can rename the bound variable to make it match up with the original example, and make the function a little more self-documenting:
@@ -309,7 +307,7 @@ We can rename the bound variable to make it match up with the original example, 
 fun sum nums =
   case nums of
     nil => 0
-  | x :: xs => x + sum xs
+  | x :: r => x + sum r
 ```
 
 And there it is. QED.
@@ -324,5 +322,4 @@ And there it is. QED.
 [oeis]: https://oeis.org/search?q=0%2C1%2C2%2C3%2C4
 [peano]: https://en.wikipedia.org/wiki/Peano_axioms
 [codecademy]: https://www.codecademy.com/forum_questions/4fd5964ffc052d000300483f
-[alpha-equiv]: https://en.wikipedia.org/wiki/Lambda_calculus#α-conversion
 [monoid]: https://en.wikipedia.org/wiki/Monoid
