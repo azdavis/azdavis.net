@@ -270,7 +270,7 @@ So, **without** thinking about "how" `sum` continues to recur on `r` until it hi
 
 We can be a bit more formal about this. Think about $P$, and the second part of the principle of induction for lists. The second part is the "recursive" part, which corresponds to the fact that we're in the recursive case of the `sum` function. It states:
 
-> If $x$ is a value and $r$ is a list and $P(r)$ holds, then $P(x :: r)$ holds.
+> If $x$ is a value, and $r$ is a list, and $P(r)$ holds, then P($x :: r$) holds.
 
 Remember, we are trying to define `sum` such that it satisfies its spec. That is, we are trying to prove that for all $L$, $P(L)$ holds. In this case $L = x :: r$.
 
