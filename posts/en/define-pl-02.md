@@ -361,7 +361,7 @@ Function literals bind a single variable:
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(\lambda (x: \tau) \ e) = \{ x \} \setminus s}
+  {\mathsf{fv}(\lambda (x: \tau) \ e) = s \setminus \{ x \}}
 $$
 
 ## Theorems

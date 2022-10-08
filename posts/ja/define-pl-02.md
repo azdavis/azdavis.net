@@ -361,7 +361,7 @@ $$
 $$
 \frac
   {\mathsf{fv}(e) = s}
-  {\mathsf{fv}(\lambda (x: \tau) \ e) = \{ x \} \setminus s}
+  {\mathsf{fv}(\lambda (x: \tau) \ e) = s \setminus \{ x \}}
 $$
 
 ## 定理

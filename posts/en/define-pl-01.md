@@ -12,13 +12,13 @@ There are many programming languages, but most do not have a formal definition. 
 
 ### Definition by implementation
 
-Given some programming language $L$, an implementation of $L$ is a program, which takes the text of a program $p$ in the language $L$, and either produces some result based on $p$, or rejects $p$ as invalid.
+An implementation of a programming language $L$ is a program $p_L$. This program $p_L$ takes the text of another program, $p$, and either produces some result based on $p$, or rejects $p$ as invalid.
 
-We could then say $p$ is a program in the language $L$ if the implementation of $L$ produces output for $p$, that is, it does not reject $p$.
+We could then say $p$ is a program in the language $L$ if $p_L$, the implementation of $L$, produces output for $p$, that is, it does not reject $p$.
 
-However, a programming language may have multiple implementations. And though these implementations may strive for compatibility between one another, it sometimes happens that different implementations behave differently given the same program as input.
+However, a programming language may have multiple implementations. And though these implementations may strive for compatibility between one another, it sometimes happens that different implementations behave differently given the same program as input. In such a case, which one of these implementations is the one that defines the programming language?
 
-In such a case, which one of these implementations is the one that defines the programming language?
+In fact, even in a language with only one implementation, the implementation may produce output for a given program $p$ that we judge to be "wrong". We can then fix the bug in the implementation, but this raises the question: what defines the "right" behavior, if not the implementation?
 
 ### Definition by specification
 
