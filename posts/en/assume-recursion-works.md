@@ -133,6 +133,7 @@ Suppose we have some statement $P(n)$ about an arbitrary natural number $n$. For
 
 - $n + 0 = n$, which is true for every natural number.
 - $n \times 2 > n$, which is true for every natural number except $0$.
+- $n = 4$, which is false for every natural number except $4$.
 
 We can think of $P$ as a function that maps every natural number $n$ to a statement about that natural number $n$. We now want to prove that, no matter what natural number $n$ we plug into $P$, we will get a true statement out.
 
