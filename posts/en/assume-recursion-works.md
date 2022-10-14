@@ -39,6 +39,7 @@ However, many programmers often prefer iteration over recursion, for various rea
 
 - The usual implementation of iteration is more [efficient][stack-overflow] than recursion.
 - Iteration does not require defining and naming a separate function.
+- Safety-critical environments often [restrict or ban recursion outright][nasa].
 
 Indeed, most Python programmers (after pointing out the fact that `sum` is in the standard library) would probably approach this problem iteratively.
 
@@ -314,6 +315,7 @@ fun sum nums =
 And there it is. QED.
 
 [stack-overflow]: https://stackoverflow.com/a/3093
+[nasa]: https://spinroot.com/gerard/pdf/P10.pdf
 [reddit]: https://old.reddit.com/r/learnprogramming/comments/2by3vz/is_recursion_unnecessary/
 [150]: http://www.cs.cmu.edu/~15150/
 [millet]: /posts/millet/
