@@ -1,6 +1,7 @@
 import { page } from "../components/page";
 import { e } from "../util/e";
 import { Lang, root } from "../util/lang";
+import { postsDir } from "../util/post-data";
 
 const translations = {
   en: {
@@ -69,7 +70,7 @@ export function index(lang: Lang): string {
           e("a", { href: root(t.otherLang) }, [t.otherLangTitle]),
         ]),
         e("dd", { lang: t.otherLang }, [t.otherLangDesc]),
-        e("dt", {}, [e("a", { href: root(lang) + "posts/" }, [t.postsTitle])]),
+        e("dt", {}, [e("a", { href: postsDir(lang) + "/" }, [t.postsTitle])]),
         e("dd", {}, [t.postsDesc]),
         e("dt", {}, [
           e("a", { href: "https://github.com/azdavis" }, ["GitHub"]),
