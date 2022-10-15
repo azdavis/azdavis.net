@@ -17,13 +17,13 @@ function isAsciiDigitCodePoint(num: number): boolean {
 
 const inlineRule = {
   name: "math_inline",
-  rex: /\$((?:[^\s\\])|(?:\S.*?[^\s\\]))\$/g,
+  re: /\$((?:[^\s\\])|(?:\S.*?[^\s\\]))\$/g,
   tag: "$",
 };
 
 function inlineMath(state: StateInline, silent: boolean): boolean {
   const pos = state.pos;
-  inlineRule.rex.lastIndex = pos;
+  inlineRule.re.lastIndex = pos;
   const prev = pos > 0 ? state.src[pos - 1].charCodeAt(0) : null;
   if (
     !state.src.startsWith(inlineRule.tag, pos) ||
@@ -31,16 +31,16 @@ function inlineMath(state: StateInline, silent: boolean): boolean {
   ) {
     return false;
   }
-  const match = inlineRule.rex.exec(state.src);
+  const match = inlineRule.re.exec(state.src);
   if (match === null) {
     return false;
   }
   const next =
-    inlineRule.rex.lastIndex < state.src.length
-      ? state.src[inlineRule.rex.lastIndex].charCodeAt(0)
+    inlineRule.re.lastIndex < state.src.length
+      ? state.src[inlineRule.re.lastIndex].charCodeAt(0)
       : null;
   if (
-    pos >= inlineRule.rex.lastIndex ||
+    pos >= inlineRule.re.lastIndex ||
     (next !== null && isAsciiDigitCodePoint(next))
   ) {
     return false;
@@ -50,13 +50,13 @@ function inlineMath(state: StateInline, silent: boolean): boolean {
     token.content = match[1];
     token.markup = inlineRule.tag;
   }
-  state.pos = inlineRule.rex.lastIndex;
+  state.pos = inlineRule.re.lastIndex;
   return true;
 }
 
 const blockRule = {
   name: "math_block",
-  rex: /\${2}([^$]*?[^\\])\${2}/gm,
+  re: /\${2}([^$]*?[^\\])\${2}/gm,
   tag: "$$",
 };
 
@@ -67,18 +67,18 @@ function blockMath(
   silent: boolean,
 ): boolean {
   const pos = state.bMarks[begLine] + state.tShift[begLine];
-  blockRule.rex.lastIndex = pos;
+  blockRule.re.lastIndex = pos;
   if (!state.src.startsWith(blockRule.tag, pos)) {
     return false;
   }
-  const match = blockRule.rex.exec(state.src);
-  if (match === null || pos >= blockRule.rex.lastIndex) {
+  const match = blockRule.re.exec(state.src);
+  if (match === null || pos >= blockRule.re.lastIndex) {
     return false;
   }
   if (silent) {
     return true;
   }
-  const endPos = blockRule.rex.lastIndex - 1;
+  const endPos = blockRule.re.lastIndex - 1;
   let curLine: number;
   for (curLine = begLine; curLine < endLine; curLine++) {
     if (
