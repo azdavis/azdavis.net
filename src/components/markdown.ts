@@ -3,6 +3,7 @@ import katex from "katex";
 import markdownIt from "markdown-it";
 import type StateBlock from "markdown-it/lib/rules_block/state_block";
 import type StateInline from "markdown-it/lib/rules_inline/state_inline";
+import { absurd } from "../util/absurd";
 
 // math stuff adapted from https://github.com/goessner/markdown-it-texmath
 // copyright Stefan Goessner, licensed under the MIT License.
@@ -125,6 +126,14 @@ md.renderer.rules[inlineRule.name] = (tokens, idx) =>
 md.renderer.rules[blockRule.name] = (tokens, idx) =>
   renderMath(tokens[idx].content, true);
 
-export function markdown(value: string, inline: boolean = false): string {
-  return inline ? md.renderInline(value) : md.render(value);
+export type Display = "block" | "inline";
+export function markdown(text: string, display: Display): string {
+  switch (display) {
+    case "block":
+      return md.render(text);
+    case "inline":
+      return md.renderInline(text);
+    default:
+      return absurd(display);
+  }
 }

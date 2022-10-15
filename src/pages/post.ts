@@ -52,7 +52,7 @@ export function post(
               translations.rRound[lang],
             ]),
           ]),
-      markdown(data.content),
+      markdown(data.content, "block"),
     ],
     data.desc,
     data.img,

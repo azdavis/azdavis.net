@@ -38,7 +38,7 @@ export function postsPage(lang: Lang, posts: PostListItem[]): string {
             dateShow(lang, date),
             e("div", {}, [
               e("strong", {}, [e("a", { href: path }, [title])]),
-              e("div", {}, [markdown(desc, true)]),
+              e("div", {}, [markdown(desc, "inline")]),
             ]),
           ])
           .flat(),
