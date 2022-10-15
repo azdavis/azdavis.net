@@ -112,15 +112,18 @@ const md = markdownIt({
   html: true,
 });
 
+function renderMath(tex: string, displayMode: boolean): string {
+  return katex.renderToString(tex, { throwOnError: true, displayMode });
+}
+
 md.inline.ruler.before("escape", inlineRule.name, inlineMath);
-md.renderer.rules[inlineRule.name] = (tokens, idx) =>
-  katex.renderToString(tokens[idx].content, { throwOnError: true });
 md.block.ruler.before("fence", blockRule.name, blockMath);
+
+md.renderer.rules[inlineRule.name] = (tokens, idx) =>
+  renderMath(tokens[idx].content, false);
+
 md.renderer.rules[blockRule.name] = (tokens, idx) =>
-  katex.renderToString(tokens[idx].content, {
-    throwOnError: true,
-    displayMode: true,
-  });
+  renderMath(tokens[idx].content, true);
 
 export function markdown(value: string, inline: boolean = false): string {
   return inline ? md.renderInline(value) : md.render(value);
