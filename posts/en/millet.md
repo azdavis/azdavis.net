@@ -117,8 +117,7 @@ These file types tell Millet what files in the project to analyze, and in what o
 
 At time of writing, there are some [major limitations][known-issues] of Millet:
 
-- Support for MLB files is limited.
-- Support for CM files is limited even more so.
+- Some (hopefully less common) MLB, CM, and SML features are not implemented.
 - Millet re-analyzes every file when even one file is changed. Millet is fast enough that this works for small projects, but certainly not for large ones.
 - There are a whole slew of language server features that Millet doesn't offer.
 
