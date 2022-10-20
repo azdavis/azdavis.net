@@ -7,9 +7,7 @@ img: /img/millet/0-logo.png
 
 Millet, a [language server][lang-srv] for [Standard ML][sml] (SML), is now available.
 
-- There is a [VS Code][vs-code] extension available on the [marketplace][vs-code-marketplace].
-- The source is on [GitHub][repo].
-- If you're a [CMU 15-150][15-150] student trying to use Millet, see [this doc][for-15-150].
+There is a [VS Code][vs-code] extension available on the [marketplace][vs-code-marketplace], and the source is on [GitHub][repo].
 
 ![Millet logo](/img/millet/0-logo.png)
 
@@ -115,13 +113,11 @@ These file types tell Millet what files in the project to analyze, and in what o
 
 ## Limitations: a caveat
 
-At time of writing, there are some [major limitations][known-issues] of Millet:
+At time of writing, there are some [known issues][known-issues] with Millet:
 
 - Some (hopefully less common) MLB, CM, and SML features are not implemented.
 - Millet re-analyzes every file when even one file is changed. Millet is fast enough that this works for small projects, but certainly not for large ones.
 - There are a whole slew of language server features that Millet doesn't offer.
-
-See also [this doc][for-15-150] discussing some of the limitations [CMU 15-150][15-150] students may run into, and how to try to fix them.
 
 With enough spare time on my (or others') part, these limitations might be addressed in the future.
 
@@ -129,7 +125,7 @@ With enough spare time on my (or others') part, these limitations might be addre
 
 ### Prelude
 
-It was the early months of 2020, the last semester of my undergraduate career at CMU. I was a teaching assistant for [15-150][], our introductory-level functional programming class, taught in Standard ML.
+It was the early months of 2020, the last semester of my undergraduate career at [Carnegie Mellon][]. I was a teaching assistant for [15-150][], our introductory-level functional programming class, taught in Standard ML.
 
 This being the fifth time I'd TA'd that class, I saw once again a pattern I had become familiar with. I would see students grapple with not just the "deep ideas" of the course, but "surface level" issues.
 
@@ -257,14 +253,14 @@ In addition to showing errors inline (or, well, the old implementation really ju
 
 The old implementation would analyze each SML file in the workspace in isolation. This meant files could not import or export things from one another.
 
-Now, Millet uses its (limited) support for MLB and CM files to process many files.
+Now, Millet uses its support for MLB and CM files to process many files.
 
 ## Thanks: a recognition
 
 I'd like to give thanks to some folks that helped me along the way:
 
 - CMU, where I first discovered my enjoyment of PL-related things.
-- 15-150, the class I TA'd the most. It is to 15-150's students that I primarily wanted (and want) to provide Millet.
+- 15-150, the class I TA'd the most.
 - [Project Savanna][proj-sav], a group who shares my desire in improving the tooling around SML. Many of them are current and former 15-150 TAs.
 - The CMU student Discord, for motivating me to revive and improve the project.
 - [Yixin He][yixin], for the art.
@@ -280,8 +276,8 @@ I'd like to give thanks to some folks that helped me along the way:
 [c0]: https://c0.cs.cmu.edu/docs/c0-reference.pdf
 [c0ls]: https://github.com/azdavis/c0ls
 [cm]: https://www.smlnj.org/doc/CM/new.pdf
+[cmu]: https://www.cmu.edu
 [err-5011]: https://github.com/azdavis/millet/blob/main/docs/errors.md#5011
-[for-15-150]: https://github.com/azdavis/millet/blob/main/docs/for-15-150.md
 [known-issues]: https://github.com/azdavis/millet/blob/main/docs/known-issues.md
 [lang-srv]: https://microsoft.github.io/language-server-protocol/
 [md]: https://www.markdownguide.org
