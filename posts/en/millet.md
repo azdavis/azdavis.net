@@ -125,7 +125,7 @@ With enough spare time on my (or others') part, these limitations might be addre
 
 ### Prelude
 
-It was the early months of 2020, the last semester of my undergraduate career at [Carnegie Mellon][]. I was a teaching assistant for [15-150][], our introductory-level functional programming class, taught in Standard ML.
+It was the early months of 2020, the last semester of my undergraduate career at Carnegie Mellon. I was a teaching assistant for [15-150][], our introductory-level functional programming class, taught in Standard ML.
 
 This being the fifth time I'd TA'd that class, I saw once again a pattern I had become familiar with. I would see students grapple with not just the "deep ideas" of the course, but "surface level" issues.
 
@@ -276,7 +276,6 @@ I'd like to give thanks to some folks that helped me along the way:
 [c0]: https://c0.cs.cmu.edu/docs/c0-reference.pdf
 [c0ls]: https://github.com/azdavis/c0ls
 [cm]: https://www.smlnj.org/doc/CM/new.pdf
-[cmu]: https://www.cmu.edu
 [err-5011]: https://github.com/azdavis/millet/blob/main/docs/errors.md#5011
 [known-issues]: https://github.com/azdavis/millet/blob/main/docs/known-issues.md
 [lang-srv]: https://microsoft.github.io/language-server-protocol/
