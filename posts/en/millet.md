@@ -5,9 +5,11 @@ desc: A language server for Standard ML.
 img: /img/millet/0-logo.png
 ---
 
-Millet, a [language server][lang-srv] for [Standard ML][sml] (SML), is now available.
+Millet, a [language server][lang-srv] for [Standard ML][sml] (SML), is now available. Check it out on:
 
-There is a [VS Code][vs-code] extension available on the [marketplace][vs-code-marketplace], and the source is on [GitHub][repo].
+- [GitHub][repo]
+- [VS Code marketplace][vs-code-marketplace]
+- [Open VSX][ovsx]
 
 ![Millet logo](/img/millet/0-logo.png)
 
@@ -287,5 +289,5 @@ I'd like to give thanks to some folks that helped me along the way:
 [sml]: https://smlfamily.github.io
 [tooling]: /posts/pl-idea-tooling
 [vs-code-marketplace]: https://marketplace.visualstudio.com/items?itemName=azdavis.millet
-[vs-code]: https://code.visualstudio.com
 [yixin]: https://yixinhe.me
+[ovsx]: https://open-vsx.org/extension/azdavis/millet
