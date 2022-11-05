@@ -217,7 +217,9 @@ After reaching parity with the old implementation, I deleted the old to continue
 
 #### It's faster
 
-I profiled it, and made copying of some key data structures more efficient. This sped it up by 15x on one particularly large 15-150 homework handout.
+- I profiled it, and made copying of some key data structures more efficient with `Arc`. This sped it up by 15x on one particularly large 15-150 homework handout.
+- I implement the approach in "Efficient ML Type Inference Using Ranked Type Variables" (doi:10.1145/1292535.1292538) to, well, efficiently infer types.
+- When e.g. matching a structure against a signature, I replaced iterating over the entire basis with a single integer comparison.
 
 #### It handles more language constructs
 
