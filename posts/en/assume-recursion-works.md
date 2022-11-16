@@ -159,8 +159,6 @@ This idea, that we can generalize induction past just the natural numbers and ap
 
 ## A succinct `datatype`
 
-We now return to the initial example of summing up a list of numbers.
-
 Just as with natural numbers, we can define lists recursively:
 
 - $\textsf{nil}$ is a list.
@@ -216,7 +214,7 @@ Given we have a statement $P$ about lists, **if** we prove:
 
 ## The whole point
 
-We now, finally, return to the `sum` example in earnest.
+We now return to the `sum` example.
 
 Suppose we are writing the `sum` function. The speciation of `sum` that our implementation must satisfy is this: For a given list of numbers `L`, `sum L` returns the sum of the numbers in `L`.
 
