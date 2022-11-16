@@ -124,7 +124,7 @@ To make this more precise, we can define the natural numbers recursively:
 
 This is slightly hand-wavey, since it requires that already have the "$+$" operation, but this is the general idea.
 
-Note, now, in the definition of natural numbers, in the second point, we say "If $k$ is a natural number, then ...". This is why the definition is recursive: we are defining the statement "$n$ is a natural number" by referring to itself in its own definition. We state that that **if** we already have some natural number $k$, **then** something else, i.e. $k + 1$, is a natural number as well.
+Note, now, in the definition of natural numbers, in the second point, we say "If $k$ is a natural number, then ...". This is why the definition is recursive: we are defining the statement "$n$ is a natural number" by referring to itself in its own definition. We state that **if** we already have some natural number $k$, **then** something else, i.e. $k + 1$, is a natural number as well.
 
 This two-line definition is [pretty much][peano] all you need to define the natural numbers.
 

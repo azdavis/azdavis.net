@@ -38,7 +38,7 @@ Parse errors, type errors, and more show up directly in the editor.
 
 ![Millet showing an error that a function is not exhaustive](/img/millet/2-error.png)
 
-Every error has an error code. In the screenshot, that's the blue number [5011][err-5011] next to the the error message. Click it for a more detailed explanation.
+Every error has an error code. In the screenshot, that's the blue number [5011][err-5011] next to the error message. Click it for a more detailed explanation.
 
 ### Hover for type/documentation
 
