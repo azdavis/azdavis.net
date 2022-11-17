@@ -147,7 +147,7 @@ struct Bounds {
 }
 
 fn maybe_do_task(bounds: Bounds, amount: i32) {
-  match get_task_args(bounds, amount) {
+  match task_args(bounds, amount) {
     None => {}
     Some(args) => do_task(args.sign, args.amount),
   }
@@ -158,10 +158,7 @@ struct TaskArgs {
   amount: i32,
 }
 
-fn get_task_args(
-  bounds: Bounds,
-  amount: i32,
-) -> Option<TaskArgs> {
+fn task_args(bounds: Bounds, amount: i32) -> Option<TaskArgs> {
   match amount.cmp(0) {
     Ordering::Equal => None,
     Ordering::Less => {
@@ -188,11 +185,11 @@ fn get_task_args(
 }
 ```
 
-Notice that `maybe_do_task` is quite simple now, and all the fiddly math logic with comparisons and negating and adding and subtracting and signs is localized to `get_task_args`. (I renamed it because of the change in return type.)
+Notice that `maybe_do_task` is quite simple now, and all the fiddly math logic with comparisons and negating and adding and subtracting and signs is localized to `task_args`. (I renamed it because of the change in return type.)
 
 Note also that it's now immediately clear that `amount - bounds.upper` makes sense, because the check for `amount > bounds.upper` is literally on the previous line.
 
-Finally, note that this allows us to remove the duplicated logic that compares `amount` with `0` in `should_do_task` and then again in `maybe_do_task`. Now we do only one comparison in `get_task_args` and do all the necessary logic in each branch of that comparison.
+Finally, note that this allows us to remove the duplicated logic that compares `amount` with `0` in `should_do_task` and then again in `maybe_do_task`. Now we do only one comparison in `task_args` and do all the necessary logic in each branch of that comparison.
 
 ## Closing thoughts
 
