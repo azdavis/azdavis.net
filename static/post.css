@@ -5,6 +5,8 @@ body {
   --code-fg-number: #0a825a;
   --code-fg-string: #a01414;
   --code-fg-type: #288296;
+  --code-fg-addition: #3d845c;
+  --code-fg-deletion: #96261f;
   --code-bg: #f6f6f6;
 }
 
@@ -16,6 +18,8 @@ body {
     --code-fg-number: #b4c8aa;
     --code-fg-string: #c89678;
     --code-fg-type: #50c8aa;
+    --code-fg-addition: #bbcdab;
+    --code-fg-deletion: #c5947c;
     --code-bg: #333;
   }
 }
@@ -89,4 +93,12 @@ pre code {
 .hljs-keyword,
 .hljs-literal {
   color: var(--code-fg-keyword);
+}
+
+.hljs-addition {
+  color: var(--code-fg-addition);
+}
+
+.hljs-deletion {
+  color: var(--code-fg-deletion);
 }
