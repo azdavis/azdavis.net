@@ -199,7 +199,7 @@ Using the option type allows one to avoid the kind of "boolean blindness" (so ca
 
 Option types are a special case of [sum types][], which express an alternative between two or more types. Given:
 
-- A general sum type between two types, written $\textsf{Either}[X, Y]$
+- A general sum type between two types $X$ and $Y$, written $\textsf{Either}[X, Y]$
 - The "nothing" type, aka the empty [product type][], written $\langle \rangle$
 
 One can recover the option type:
