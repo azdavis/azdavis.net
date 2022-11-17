@@ -195,7 +195,7 @@ Finally, note that this allows us to remove the duplicated logic that compares `
 
 This refactor would not have been possible without a type system that supports the option type.
 
-Using the option type allows one to avoid the kind of "boolean blindness" (so called by my past professor, Robert Harper) we saw in the first attempt. Instead of reducing all our information down from `should_do_task` into a single bit (`true` or `false`), using a sum type allows us to provide to the caller a "witness" of the information that we calculated. Thus the blog post title.
+Using the option type allows one to avoid the kind of "boolean blindness" (so called by my past professor, Robert Harper) we saw in the first attempt. Instead of reducing all our information down from `should_do_task` into a single bit (`true` or `false`), using an option allows us to provide to the caller a "witness" of the information that we calculated. Thus the blog post title.
 
 Option types are a special case of [sum types][], which express an alternative between two or more types. Given:
 
