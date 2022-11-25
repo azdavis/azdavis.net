@@ -37,20 +37,18 @@ export function post(
       " • ",
       dateShow(lang, data.date),
       e("h1", {}, [data.title]),
-      ...(langs.length <= 1
-        ? []
-        : [
-            e("p", {}, [
-              translations.lRound[lang],
-              translations.translations[lang],
-              ...langs.map((l, idx) => {
-                const s = name[l];
-                const inner = l === lang ? e("strong", {}, [s]) : s;
-                const last = idx + 1 === langs.length ? "" : " • ";
-                return e("a", { href: postDir(l, slug) }, [inner]) + last;
-              }),
-              translations.rRound[lang],
-            ]),
+      langs.length <= 1
+        ? null
+        : e("p", {}, [
+            translations.lRound[lang],
+            translations.translations[lang],
+            ...langs.map((l, idx) => {
+              const s = name[l];
+              const inner = l === lang ? e("strong", {}, [s]) : s;
+              const last = idx + 1 === langs.length ? "" : " • ";
+              return e("a", { href: postDir(l, slug) }, [inner]) + last;
+            }),
+            translations.rRound[lang],
           ]),
       markdown(data.content, "block"),
     ],

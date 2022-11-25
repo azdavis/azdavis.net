@@ -12,7 +12,7 @@ export function page(
   lang: Lang,
   title: string,
   styles: Style[],
-  children: string[],
+  children: (string | null)[],
   desc?: string,
   img?: string,
 ): string {
@@ -31,14 +31,12 @@ export function page(
         property: "og:description",
         content: desc ?? translations[lang],
       }),
-      ...(img === undefined
-        ? []
-        : [
-            e("meta", {
-              property: "og:image",
-              content: "https://azdavis.net" + img,
-            }),
-          ]),
+      img === undefined
+        ? null
+        : e("meta", {
+            property: "og:image",
+            content: "https://azdavis.net" + img,
+          }),
       e("link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }),
       e("link", { rel: "mask-icon", href: "/favicon.svg", color: "#000000" }),
       e("link", {
