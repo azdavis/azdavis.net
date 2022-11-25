@@ -79,7 +79,7 @@ My goal was to do some extra calculations for the amount we pass in when doing t
 During code review I got two pieces of feedback on this. The first was that before we do
 
 ```rs
-amount = amount - bounds.upper;
+task_amount = amount - bounds.upper;
 ```
 
 We should first check that `amount` is actually greater than `bounds.upper`.
