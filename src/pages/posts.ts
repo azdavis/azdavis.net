@@ -26,9 +26,11 @@ export function postsPage(lang: Lang, posts: PostListItem[]): string {
     title,
     ["base", "posts"],
     [
-      e("a", { href: root(lang) }, ["azdavis.net"]),
-      " • ",
-      e("a", { href: feedUrl(lang) }, ["RSS"]),
+      e("header", {}, [
+        e("a", { href: root(lang) }, ["azdavis.net"]),
+        " • ",
+        e("a", { href: feedUrl(lang) }, ["RSS"]),
+      ]),
       e("h1", {}, [title]),
       e(
         "div",

@@ -31,11 +31,13 @@ export function post(
     data.title,
     styles,
     [
-      e("a", { href: root(lang) }, ["azdavis.net"]),
-      " • ",
-      e("a", { href: postsDir(lang) + "/" }, [translations.posts[lang]]),
-      " • ",
-      dateShow(lang, data.date),
+      e("header", {}, [
+        e("a", { href: root(lang) }, ["azdavis.net"]),
+        " • ",
+        e("a", { href: postsDir(lang) + "/" }, [translations.posts[lang]]),
+        " • ",
+        dateShow(lang, data.date),
+      ]),
       e("h1", {}, [data.title]),
       langs.length <= 1
         ? null
