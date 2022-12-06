@@ -3,14 +3,24 @@
   "words": [
     "azdavis",
     "datetime",
+    "deallocate",
+    "deallocated",
+    "deallocations",
     "desugars",
+    "getsizeof",
     "Goessner",
     "infixr",
     "katex",
     "nilable",
+    "noalias",
     "nums",
+    "println",
+    "struct",
     "texmath",
     "textsf",
-    "texttt"
+    "texttt",
+    "typecheck",
+    "typechecker",
+    "typecheckers"
   ]
 }
