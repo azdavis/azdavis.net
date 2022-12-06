@@ -248,7 +248,7 @@ This proves $P(\textsf{nil})$ holds. That's the base case of the proof.
 
 We now turn to the recursive case.
 
-We have `x` and `r` in scope. `r` is a list of numbers, one smaller than the original input, `L`. Only because `r` is smaller are we allowed to make a recursive call on it. If we had a list not smaller than `L` (like, for instance, `L` itself), we would not be allowed to recur on it, because then the recursion would not terminate. But it's not, so it will, so we do.
+We have `x` and `r` in scope. `r` is a list of numbers, one smaller than the original input, `L`. Only because `r` is smaller are we allowed to make a recursive call on it. If we had a list not smaller than `L` (like, for instance, `L` itself), we would not be allowed to recur on it, because then the recursion would not terminate. But it is, so it will, so we do.
 
 ```sml
 fun sum L =
