@@ -60,11 +60,19 @@ A highly desirable property of a typechecker is that it is sound. This means tha
 
 The converse property is that of completeness: if a program has no type errors, then the typechecker reports none.
 
-[Gödel's first incompleteness theorem][godel-first] essentially states that once a system is expressive enough, it cannot be both sound and complete.
+Gödel's first incompleteness theorem essentially states that once a system is expressive enough, it cannot be both sound and complete.
 
 Thus, because we often desire a typechecker to be both sound, and as expressive as possible, it is often not possible for it to be complete.
 
-This means that there will almost always be programs that "ought" to be well-typed, but for which the typechecker will report an error.
+This means that there will always be programs that ought to be well-typed, but for which the typechecker will report an error.
+
+### Limitation: Rice's theorem
+
+Another important result relevant to statically typed languages is that of [Rice's theorem][rice]. This states essentially states that it is impossible in general to determine whether a program will do a certain thing when you run it, without running it.
+
+The purpose of a static type system, and static analysis in general, is to reject programs that would encounter some error if we ran the program. Static type systems should be, and [usually][cpp-parse-undecidable] are, decidable. It follows from this fact, and Rice's theorem, that all static type systems are necessarily approximations.
+
+Interestingly, it can be argued that both Rice's theorem and Gödel's incompleteness's theorems ([and other theorems][halt]) follow directly from a single underlying concept: the undecidability of the halting problem.
 
 ### Opportunity: No runtime type checks
 
@@ -315,10 +323,12 @@ Conversely, ostensibly removing limitations can in a sense add limitations, in t
 [language server]: https://microsoft.github.io/language-server-protocol/
 [rust-analyzer]: https://rust-analyzer.github.io
 [term]: /posts/lambda-cube/
-[godel-first]: https://en.wikipedia.org/wiki/Gödel%27s_incompleteness_theorems#First_incompleteness_theorem
 [sml]: https://www.smlnj.org/sml97.html
 [ocaml]: https://ocaml.org
 [ts]: https://www.typescriptlang.org
 [flow]: https://flow.org
 [mypy]: http://mypy-lang.org
 [sorbet]: https://sorbet.org
+[cpp-parse-undecidable]: https://blog.reverberate.org/2013/08/parsing-c-is-literally-undecidable.html
+[halt]: http://www.scottaaronson.com/blog/?p=710
+[rice]: https://busy-beavers.tigyog.app/rice
