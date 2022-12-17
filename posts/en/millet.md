@@ -104,6 +104,12 @@ The "fill case" quick fix automatically fills a `case` expression with all the v
   <source src="/img/millet/9-fill-case.mp4#t=0.001">
 </video>
 
+### Document symbols
+
+Millet can show information about all the symbols in a document.
+
+![Millet showing all the symbols in a document](/img/millet/10-document-symbols.png)
+
 ### Multiple files
 
 To allow for large projects with many files, Millet has support for some common SML "group" file types:
@@ -252,6 +258,7 @@ In addition to showing errors inline (or, well, the old implementation really ju
 - Hover for info
 - Jump to def
 - Code actions
+- Document symbols
 
 #### It supports multiple files
 
