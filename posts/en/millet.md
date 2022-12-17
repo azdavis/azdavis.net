@@ -110,6 +110,14 @@ Millet can show information about all the symbols in a document.
 
 ![Millet showing all the symbols in a document](/img/millet/10-document-symbols.png)
 
+### Find all references
+
+Given a definition, Millet can find all references to that definition.
+
+<video controls>
+  <source src="/img/millet/11-find-all-refs.mp4#t=0.001">
+</video>
+
 ### Multiple files
 
 To allow for large projects with many files, Millet has support for some common SML "group" file types:
