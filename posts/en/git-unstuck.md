@@ -1,6 +1,6 @@
 ---
 title: Understanding Git repository state
-date: 2022-10-02
+date: 2022-12-22
 desc: Tips and pointers for knowing what's going on with a Git repository.
 ---
 
