@@ -12,17 +12,17 @@ My friend [Yixin He][yixin] gave the excellent suggestion of cooking the bacon f
 
 ### Frying pan
 
-I use a 10 inch cast iron pan from Lodge. You can get fancier ones, but the one I have seems pretty good. If you use a cast iron pan, remember to scrub, dry, and season it after each use.
+I use a 10 inch cast iron pan from Lodge. You can get fancier ones, but the one I have seems pretty good. If you use a cast iron pan, remember to scrub, dry, and season it with some cooking oil after each use.
 
 ### Spatula
 
-I like the "fish turner" style of spatula, which is made of very thin, slatted metal. I find this makes it easier to get the spatula under stuff to flip it over.
+The "fish turner" style of spatula, which is made of very thin, slatted metal, is quite nice. I find this makes it easier to get the spatula under stuff to flip it over.
 
-Also, if you're going to use a metal spatula, you need a durable frying pan. A cast iron pan will be quite durable, which is nice.
+Also, if you're going to use a metal spatula, you need a durable frying pan, like a cast iron one.
 
 ### Grater
 
-I like the box grater style which has various grater settings. You'll probably want to grate the ingredients on a pretty large setting.
+A box grater will have various grater settings. You'll probably want to grate the ingredients on a pretty large setting.
 
 ### Bowl and plate
 
