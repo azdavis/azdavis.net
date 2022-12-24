@@ -1,6 +1,6 @@
 ---
 title: Breakfast burritos
-date: 2022-12-23
+date: 2022-12-24
 desc: A recipe for a tasty snack.
 ---
 
