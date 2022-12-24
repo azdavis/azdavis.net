@@ -4,7 +4,7 @@ date: 2022-12-22
 desc: Tips and pointers for knowing what's going on with a Git repository.
 ---
 
-[Git][git] is one of the most commonly used version control systems. It also has a [big reputation][taylor] of being [difficult to use][shit].
+[Git][git] is one of the most commonly used version control systems. It also has a big reputation of being [difficult][shit] to use[.][taylor]
 
 This often leads to developers getting their repositories into confusing states. [Sometimes][xkcd], this leads people to "declare bankruptcy" on their repository:
 
