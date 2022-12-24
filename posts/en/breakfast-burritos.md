@@ -8,15 +8,6 @@ Recently, I've been trying to get into cooking more. I don't yet have a large re
 
 My friend [Yixin He][yixin] gave the excellent suggestion of cooking the bacon first, so that you can then absorb the fat with the potato and eggs.
 
-## Ingredients
-
-- 1 big tortilla or 2 smaller ones
-- 1 russet potato
-- Cheddar cheese with spicy peppers
-- 2 eggs
-- 2 slices thick-cut bacon
-- Secret Aardvark sauce
-
 ## Equipment
 
 ### Frying pan
@@ -40,6 +31,15 @@ For mixing and serving.
 ### Cheese cloth or paper towel
 
 For squeezing out juices.
+
+## Ingredients
+
+- 1 big tortilla or 2 smaller ones
+- 1 russet potato
+- Cheddar cheese with spicy peppers
+- 2 eggs
+- 2 slices thick-cut bacon
+- Secret Aardvark sauce
 
 ## Directions
 
