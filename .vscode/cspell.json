@@ -9,6 +9,7 @@
     "desugars",
     "getsizeof",
     "goessner",
+    "habanero",
     "infixr",
     "katex",
     "nilable",

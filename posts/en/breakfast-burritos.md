@@ -39,7 +39,7 @@ For squeezing out juices.
 - Cheddar cheese with spicy peppers
 - 2 eggs
 - 2 slices thick-cut bacon
-- Secret Aardvark sauce
+- Secret Aardvark habanero sauce
 
 ## Directions
 
