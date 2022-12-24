@@ -55,6 +55,7 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
   await writeHtml(dir, postsPage(lang, items));
   const fullFeedUrl = siteBase + feedUrl(lang);
   const fullPostsUrl = siteBase + dir + "/";
+  // TODO add <description> for each entry?
   const entries = items.map(
     (item) =>
       `<entry>
@@ -62,6 +63,7 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
 <link href="${siteBase + item.path}" />
 <id>${siteBase + item.path}</id>
 <updated>${item.date.toISOString()}</updated>
+<summary>${item.desc}</summary>
 </entry>`,
   );
   const feed = `<?xml version="1.0" encoding="utf-8"?>
