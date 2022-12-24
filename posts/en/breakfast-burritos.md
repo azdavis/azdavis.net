@@ -36,6 +36,7 @@ For squeezing out juices.
 
 - 1 big tortilla or 2 smaller ones
 - 1 russet potato
+- Cooking oil
 - Cheddar cheese with spicy peppers
 - 2 eggs
 - 2 slices thick-cut bacon
@@ -47,12 +48,12 @@ For squeezing out juices.
 2. Squeeze the grated potato with a cheese cloth or paper towel, to get out as much of the juices as possible. Set aside.
 3. Grate the cheese, then set aside.
 4. Cook the bacon in the pan, then set aside to cool.
-5. Cook the potatoes in the pan with the bacon fat until brown.
-6. Put the potato onto the tortilla(s).
+5. Cook the potatoes in the pan with the bacon fat until brown, adding more cooking oil as the pan gets dry.
+6. Put the potato onto the tortilla.
 7. Mix the eggs in a bowl.
 8. Scramble the eggs in the pan.
-9. Put the eggs and cheese into the tortilla(s).
-10. Cut up the bacon and put it into the tortilla(s).
+9. Put the eggs and cheese into the tortilla.
+10. Cut up the bacon and put it into the tortilla.
 11. Fold the tortilla up into a burrito and put it into the pan.
 12. Brown both sides of the burrito.
 13. Put the sauce on it as you eat.
