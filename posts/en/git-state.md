@@ -39,7 +39,7 @@ If you're in a weird state with Git, the first thing I recommend is getting your
 
 ## `git log`: Knowing the past
 
-Next is `git log`, which shows you the log of all past commits. The default appearance of `git log` is something like this:
+Next is `git log`, which shows you the log of all past commits. The default appearance of `git log` is something like this[:][guy]
 
 ```text
 $ git log
@@ -223,3 +223,4 @@ are "read-only" commands. This means they will never modify the state of the rep
 [xkcd]: https://xkcd.com/1597/
 [shit]: https://ohshitgit.com
 [taylor]: https://youtu.be/zAiOfWu5xUk?t=24
+[guy]: https://youtu.be/7jaAeTaG_ms
