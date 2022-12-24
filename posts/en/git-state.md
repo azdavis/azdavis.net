@@ -4,7 +4,7 @@ date: 2022-12-22
 desc: Tips and pointers for knowing what's going on with a Git repository.
 ---
 
-[Git][git] is one of the most commonly used version control systems. It also has a reputation of being difficult to use.
+[Git][git] is one of the most commonly used version control systems. It also has a [big reputation][taylor] of being [difficult to use][shit].
 
 This often leads to developers getting their repositories into confusing states. [Sometimes][xkcd], this leads people to "declare bankruptcy" on their repository:
 
@@ -221,3 +221,5 @@ are "read-only" commands. This means they will never modify the state of the rep
 
 [git]: https://git-scm.com
 [xkcd]: https://xkcd.com/1597/
+[shit]: https://ohshitgit.com
+[taylor]: https://youtu.be/zAiOfWu5xUk?t=24
