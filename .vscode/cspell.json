@@ -8,7 +8,7 @@
     "deallocations",
     "desugars",
     "getsizeof",
-    "Goessner",
+    "goessner",
     "infixr",
     "katex",
     "nilable",
@@ -21,6 +21,7 @@
     "texttt",
     "typecheck",
     "typechecker",
-    "typecheckers"
+    "typecheckers",
+    "yixin"
   ]
 }
