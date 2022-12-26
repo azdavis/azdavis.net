@@ -11,7 +11,7 @@ body {
   max-width: 42em;
   margin: 0 auto;
   padding: 1em 1em 10em;
-  font-size: 1.05em;
+  font-size: 18px;
   color: var(--page-fg);
   background-color: var(--page-bg);
   font-family: Verdana, Tahoma, sans-serif;
