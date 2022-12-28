@@ -7,12 +7,11 @@ cd ..
 
 mkdir -p build
 ./node_modules/.bin/serve build >/dev/null &
-
-sleep 1
+./node_modules/.bin/tsc
 open 'http://localhost:3000'
 
 if command -v entr >/dev/null; then
-  find src posts static package.json tsconfig.json -type f | entr ./scripts/build-and-reload.sh
+  find posts static -type f | entr ./scripts/build-and-reload.sh
 fi
 
 wait

@@ -5,7 +5,6 @@ set -eu
 cd "$(dirname "$0")"
 cd ..
 
-./node_modules/.bin/tsc
 node ./out/build.js
 
 app_running() {
