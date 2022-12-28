@@ -9,6 +9,7 @@ import {
   postsDir,
   translations as posts,
 } from "../util/post-data";
+import { name as siteName } from "../util/site";
 
 const styles: Style[] = ["base", "post", "katex/katex.min"];
 
@@ -32,7 +33,7 @@ export function post(
     styles,
     [
       e("header", {}, [
-        e("a", { href: root(lang) }, ["azdavis.net"]),
+        e("a", { href: root(lang) }, [siteName]),
         " • ",
         e("a", { href: postsDir(lang) + "/" }, [translations.posts[lang]]),
         " • ",

@@ -1,5 +1,6 @@
 import { e } from "../util/e";
 import type { Lang } from "../util/lang";
+import { baseUrl } from "../util/site";
 
 export type Style = "base" | "post" | "index" | "katex/katex.min" | "posts";
 
@@ -35,7 +36,7 @@ export function page(
         ? null
         : e("meta", {
             property: "og:image",
-            content: "https://azdavis.net" + img,
+            content: baseUrl + img,
           }),
       e("link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }),
       e("link", { rel: "mask-icon", href: "/favicon.svg", color: "#000000" }),

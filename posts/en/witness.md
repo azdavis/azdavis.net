@@ -208,5 +208,5 @@ $$\textsf{Option}[X] = \textsf{Either}[X, \langle \rangle]$$
 
 [stripe]: https://stripe.com
 [sorbet]: https://sorbet.org
-[sum types]: https://azdavis.net/posts/define-pl-04/
-[product type]: https://azdavis.net/posts/define-pl-03/
+[sum types]: /posts/define-pl-04/
+[product type]: /posts/define-pl-03/

@@ -2,6 +2,7 @@ import { page } from "../components/page";
 import { e } from "../util/e";
 import { Lang, root } from "../util/lang";
 import { postsDir } from "../util/post-data";
+import { author as siteAuthor } from "../util/site";
 
 const translations = {
   en: {
@@ -26,7 +27,7 @@ const translations = {
     contactTitle: "CONTACT",
     contactDesc: "[first name].z.[last name]@icloud.com",
     copyrightTitle: "COPYRIGHT",
-    copyrightDesc: "Copyright 1998 Ariel Davis.",
+    copyrightDesc: `Copyright 1998 ${siteAuthor}.`,
   },
   ja: {
     nameTitle: "名前",
@@ -49,7 +50,7 @@ const translations = {
     contactTitle: "連絡",
     contactDesc: "[名].z.[姓]@icloud.com",
     copyrightTitle: "著作権",
-    copyrightDesc: "著作権１９９８アリエル・デイヴィス（Ariel Davis）。",
+    copyrightDesc: `著作権１９９８アリエル・デイヴィス（${siteAuthor}）。`,
   },
 };
 

@@ -4,6 +4,7 @@ import { page } from "../components/page";
 import { e } from "../util/e";
 import { Lang, root } from "../util/lang";
 import { feedUrl, PostMetadata, translations } from "../util/post-data";
+import { name as siteName } from "../util/site";
 
 export interface PostListItem extends PostMetadata {
   path: string;
@@ -27,7 +28,7 @@ export function postsPage(lang: Lang, posts: PostListItem[]): string {
     ["base", "posts"],
     [
       e("header", {}, [
-        e("a", { href: root(lang) }, ["azdavis.net"]),
+        e("a", { href: root(lang) }, [siteName]),
         " • ",
         e("a", { href: feedUrl(lang) }, ["RSS"]),
       ]),

@@ -13,8 +13,8 @@ import {
   postDir,
   postsDir,
 } from "./util/post-data";
+import { author as siteAuthor, baseUrl, name as siteName } from "./util/site";
 
-const siteBase = "https://azdavis.net";
 const buildDir = "build";
 
 async function writeHtml(
@@ -53,26 +53,25 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
   items.sort(postCmp);
   const dir = postsDir(lang);
   await writeHtml(dir, postsPage(lang, items));
-  const fullFeedUrl = siteBase + feedUrl(lang);
-  const fullPostsUrl = siteBase + dir + "/";
-  // TODO add <description> for each entry?
+  const fullFeedUrl = baseUrl + feedUrl(lang);
+  const fullPostsUrl = baseUrl + dir + "/";
   const entries = items.map(
     (item) =>
       `<entry>
 <title>${item.title}</title>
-<link href="${siteBase + item.path}" />
-<id>${siteBase + item.path}</id>
+<link href="${baseUrl + item.path}" />
+<id>${baseUrl + item.path}</id>
 <updated>${item.date.toISOString()}</updated>
 <summary>${item.desc}</summary>
 </entry>`,
   );
   const feed = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="${lang}">
-<title>azdavis.net</title>
+<title>${siteName}</title>
 <link href="${fullPostsUrl}" />
 <link rel="self" type="application/atom+xml" href="${fullFeedUrl}" />
 <id>${fullFeedUrl}</id>
-<author><name>Ariel Davis</name></author>
+<author><name>${siteAuthor}</name></author>
 <updated>${items[0].date.toISOString()}</updated>
 ${entries.join("\n")}
 </feed>`;
