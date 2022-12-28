@@ -5,9 +5,9 @@ A place for stuff
 ## Setup
 
 - Install node + npm.
-- (Optional) Install `entr` for auto-reloading.
+- (Optional) Install `entr` for auto-reloading support in the dev script.
 
-## Dev
+## Development
 
 Run `scripts/dev.sh` to run a local dev server.
 
