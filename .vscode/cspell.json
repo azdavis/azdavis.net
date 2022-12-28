@@ -13,6 +13,8 @@
     "hljs",
     "infixr",
     "katex",
+    "keytab",
+    "ktutil",
     "nilable",
     "noalias",
     "nums",
