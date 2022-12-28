@@ -2,12 +2,14 @@
 
 A place for stuff
 
+## Setup
+
+- Install node + npm.
+- (Optional) Install `entr` for auto-reloading.
+
 ## Dev
 
-- Requires node + npm
-- Run `npm install` for first-time setup
-- Run `npm start` to run local dev server
-- Run `npm run build` for production build
+Run `scripts/dev.sh` to run a local dev server.
 
 ## Deploy
 
