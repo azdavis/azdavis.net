@@ -11,11 +11,9 @@ body {
   max-width: 42em;
   margin: 0 auto;
   padding: 1em 1em 10em;
-  font-size: 18px;
+  font: 18px/1.5 Verdana, Tahoma, sans-serif;
   color: var(--page-fg);
   background-color: var(--page-bg);
-  font-family: Verdana, Tahoma, sans-serif;
-  line-height: 1.5;
 }
 
 @media (prefers-color-scheme: dark) {
