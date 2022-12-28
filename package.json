@@ -3,7 +3,7 @@
   "name": "azdavis.net",
   "version": "0.1.0",
   "devDependencies": {
-    "@types/katex": "^0.14.0",
+    "@types/katex": "^0.16.0",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.7.23",
     "gray-matter": "^4.0.3",
