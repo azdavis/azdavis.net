@@ -2,5 +2,5 @@
 /node_modules
 # for ts -> js
 /out
-# for the actual site
+# for the built site
 /build
