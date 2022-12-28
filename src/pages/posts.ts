@@ -22,10 +22,11 @@ export function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
 
 export function postsPage(lang: Lang, posts: PostListItem[]): string {
   const title = translations[lang];
+  // need post css as well to get styling for markdown elements like <code>
   return page(
     lang,
     title,
-    ["base", "posts"],
+    ["base", "posts", "post"],
     [
       e("header", {}, [
         e("a", { href: root(lang) }, [siteName]),
