@@ -2,6 +2,9 @@
   "private": true,
   "name": "azdavis.net",
   "version": "0.1.0",
+  "scripts": {
+    "build": "tsc && node ./out/build.js"
+  },
   "devDependencies": {
     "@types/katex": "^0.16.0",
     "@types/markdown-it": "^12.2.3",
