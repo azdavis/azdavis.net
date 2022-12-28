@@ -55,6 +55,8 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
   await writeHtml(dir, postsPage(lang, items));
   const fullFeedUrl = baseUrl + feedUrl(lang);
   const fullPostsUrl = baseUrl + dir + "/";
+  const siteUpdatedDate = items.length === 0 ? new Date(0) : items[0].date;
+  const siteUpdated = siteUpdatedDate.toISOString();
   const entries = items.map(
     (item) =>
       `<entry>
@@ -72,7 +74,7 @@ async function mkPosts(posts: LangPosts, lang: Lang): Promise<void> {
 <link rel="self" type="application/atom+xml" href="${fullFeedUrl}" />
 <id>${fullFeedUrl}</id>
 <author><name>${siteAuthor}</name></author>
-<updated>${items[0].date.toISOString()}</updated>
+<updated>${siteUpdated}</updated>
 ${entries.join("\n")}
 </feed>`;
   await writeFile(join(buildDir, feedUrl(lang)), feed);
@@ -94,7 +96,7 @@ async function getAllPostData(entries: string[]): Promise<Posts> {
 }
 
 async function readDirWithDirName(dir: string): Promise<string[]> {
-  const xs = await readdir(dir);
+  const xs = await readdir(dir).catch((_) => []);
   return xs.map((x) => join(dir, x));
 }
 
