@@ -20,10 +20,10 @@ const translations = {
   rRound: { en: ")", ja: "\uff09" },
 };
 
+// `langs` includes `lang` (thus, it is never empty)
 export function post(
   data: PostData,
   lang: Lang,
-  // includes lang (thus, never empty)
   langs: Lang[],
   slug: string,
 ): string {
