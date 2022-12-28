@@ -86,9 +86,21 @@ Host cmu
   GSSAPIDelegateCredentials yes
 ```
 
-This'll allow `ssh cmu` to work, which is more concise than typing out your username at whatever - another time saver. You may want to add more `Host`s with other `Hostname`s if you e.g. want to use the "shark machines" (not sure if they still use those, but they did from 2016-2020).
+This'll allow you to type
 
-The bits with `GSSAPI` tell `ssh` to use Kerberos for authentication.
+```sh
+$ ssh cmu
+```
+
+instead of the usual
+
+```sh
+$ ssh <ANDREW_USERNAME>@unix.andrew.cmu.edu
+```
+
+You may want to add more `Host`s with other `Hostname`s if you e.g. want to use the "shark machines" (not sure if they still use those, but they did from 2016-2020).
+
+The bits with `GSSAPI` tell `ssh` to use Kerberos for authentication for `ssh cmu`.
 
 ## Check your shell
 
@@ -102,7 +114,7 @@ $ echo $0
 
 at the command line to see what shell program you're currently running.
 
-- If it says something e.g. `/bin/zsh`, then your configuration will go in `~/.zshrc`.
+- If it says e.g. `/bin/zsh`, then your configuration will go in `~/.zshrc`.
 - If it says e.g. `/bin/bash`, then it'll go in `~/.bashrc` or `~/.bash_profile`.
 
 I'm not sure on the specifics for bash because I don't use bash. The default on macOS is zsh nowadays.
