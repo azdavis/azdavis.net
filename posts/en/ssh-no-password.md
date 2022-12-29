@@ -52,7 +52,7 @@ A few caveats:
 
 - If you put your keytab in some other place that wasn't `~/.local/keytab`, change the thing after `-k` to wherever the keytab file is.
 - Replace `<ANDREW_USERNAME>` with your CMU Andrew username, not your local computer username.
-- You'll need to type and re-type your password.
+- You'll need to type and re-type your CMU Andrew password.
 
 ```sh
 $ ktutil \
@@ -104,7 +104,7 @@ The bits with `GSSAPI` tell `ssh` to use Kerberos for authentication for `ssh cm
 
 ## Check your shell
 
-The last few step will involve adding configuration not for `ssh`, but your shell itself. To know where to add the configuration, you need to know what shell you're using.
+The last step will involve adding configuration not for `ssh`, but your shell itself. To know where to add the configuration, you need to know what shell you're using.
 
 Type:
 
@@ -153,7 +153,10 @@ ssh() {
 }
 ```
 
-This overrides the `ssh` commands. This function first gets a ticket, then calls the real `ssh` with all the arguments passed to the wrapper `ssh` function.
+This function overrides the `ssh` command. When called, it:
+
+1. Gets a ticket
+2. Calls the real `ssh` command with all the arguments passed to the wrapper `ssh` function
 
 Note that the `-q` passed to `ssh` is optional, but I find it nice to quiet down some informational messages from `ssh` that I find overly chatty.
 
