@@ -31,18 +31,17 @@ Send bug-reports to heimdal-bugs@h5l.org
 
 We'll be using `ktutil` to create the keytab file. You'll need to decide where this file should go on your local computer.
 
-My suggestion would be to create a directory called `~/.local` and put your keytab named `keytab` in it.
+My suggestion would be to create a directory called `~/.local` and put your keytab named `keytab` in it:
 
 ```sh
 $ mkdir -p ~/.local
-$ touch ~/.local/keytab
-$ file ~/.local/keytab
-/Users/<USERNAME>/.local/keytab: empty
+$ ls ~/.local/keytab
+ls: /Users/<USERNAME>/.local/keytab: No such file or directory
 ```
 
-The usage of `file` verifies that you created the empty keytab file, named `~/.local/keytab`. Its output will show your local username in place of `<USERNAME>`.
+The usage of `ls` verifies that there is no pre-existing `~/.local/keytab` which would be overwritten with the following steps. Its output will show your local username in place of `<USERNAME>`.
 
-We're now going to populate the currently empty `keytab` file.
+We're now going to create the keytab file.
 
 ## Populate the keytab file
 
@@ -63,7 +62,7 @@ $ ktutil \
   -V 1
 ```
 
-Afterwards, you can verify it worked with another usage of `file`:
+Afterwards, you can verify it worked with a usage of the `file` command:
 
 ```sh
 $ file ~/.local/keytab
