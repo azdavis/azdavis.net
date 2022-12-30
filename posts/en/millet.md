@@ -13,7 +13,7 @@ Millet, a [language server][lang-srv] for [Standard ML][sml] (SML), is now avail
 
 ![Millet logo](/img/millet/0-logo.png)
 
-I'd like to:
+In this post, I will:
 
 1. Introduce some of the main features of the project.
 2. Note some caveats and potential areas of improvement.
@@ -90,7 +90,7 @@ Since types can be composed of other types, there may be many options to jump to
 
 Millet supports the full grammar of Standard ML. In addition, Millet parses various "holes", like `_` and `...`.
 
-Though these "holes" are rejected in later stages of analysis, a programmer can use them as placeholders. Millet even reports the inferred type of hole expressions in the error.
+Though these holes are rejected in later stages of analysis, a programmer can use them as placeholders. Millet even reports the inferred type of hole expressions in the error.
 
 ![Millet showing an error for an expression hole, noting its inferred type](/img/millet/8-exp-hole.png)
 
@@ -232,7 +232,7 @@ After reaching parity with the old implementation, I deleted the old to continue
 #### It's faster
 
 - I profiled it, and made copying of some key data structures more efficient with `Arc`. This sped it up by 15x on one particularly large 15-150 homework handout.
-- I implement the approach in "Efficient ML Type Inference Using Ranked Type Variables" (doi:10.1145/1292535.1292538) to, well, efficiently infer types.
+- I implement the approach in ["Efficient ML Type Inference Using Ranked Type Variables"][tv] to, well, efficiently infer types.
 - When e.g. matching a structure against a signature, I replaced iterating over the entire basis with a single integer comparison.
 
 #### It handles more language constructs
@@ -308,3 +308,4 @@ I'd like to give thanks to some folks that helped me along the way:
 [vs-code-marketplace]: https://marketplace.visualstudio.com/items?itemName=azdavis.millet
 [yixin]: https://yixinhe.me
 [ovsx]: https://open-vsx.org/extension/azdavis/millet
+[tv]: https://dl.acm.org/doi/10.1145/1292535.1292538
