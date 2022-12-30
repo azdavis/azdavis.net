@@ -16,8 +16,6 @@ const styles: Style[] = ["base", "post", "katex/katex.min"];
 const translations = {
   translations: { en: "Translations: ", ja: "翻訳\uff1a" },
   posts,
-  lRound: { en: "(", ja: "\uff08" },
-  rRound: { en: ")", ja: "\uff09" },
 };
 
 // `langs` includes `lang` (thus, it is never empty)
@@ -43,7 +41,6 @@ export function post(
       langs.length <= 1
         ? null
         : e("p", {}, [
-            translations.lRound[lang],
             translations.translations[lang],
             ...langs.map((l, idx) => {
               const s = name[l];
@@ -51,7 +48,6 @@ export function post(
               const last = idx + 1 === langs.length ? "" : " • ";
               return e("a", { href: postDir(l, slug) }, [inner]) + last;
             }),
-            translations.rRound[lang],
           ]),
       markdown(data.content, "block"),
     ],
