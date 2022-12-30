@@ -4,6 +4,7 @@ import { page, Style } from "../components/page";
 import { e } from "../util/e";
 import { Lang, name, root } from "../util/lang";
 import {
+  feedUrl,
   PostData,
   postDir,
   postsDir,
@@ -35,9 +36,10 @@ export function post(
         " • ",
         e("a", { href: postsDir(lang) + "/" }, [translations.posts[lang]]),
         " • ",
-        dateShow(lang, data.date),
+        e("a", { href: feedUrl(lang) }, ["RSS"]),
       ]),
       e("h1", {}, [data.title]),
+      e("p", {}, [dateShow(lang, data.date)]),
       langs.length <= 1
         ? null
         : e("p", {}, [
