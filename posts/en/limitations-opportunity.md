@@ -68,13 +68,21 @@ This means that there will always be programs that ought to be well-typed, but f
 
 ### Limitation: Rice's theorem
 
-Another important result relevant to statically typed languages is that of [Rice's theorem][rice]. This states that it is impossible in general to statically determine **anything** non-trivial about a program's behavior.
+Another important result is that of [Rice's theorem][rice]. This states that it is undecidable, aka impossible in general, to statically determine **anything** non-trivial about a program's behavior when run.
 
-The purpose of a static type system, and static analysis in general, is to reject programs that would encounter some error if we ran the program. Static type systems should be, and [usually][cpp-parse-undecidable] are, decidable. It follows from this fact, and Rice's theorem, that all static type systems are necessarily approximations. It must be that:
+The purpose of a static type system is to reject programs that would encounter some error if we ran the program. Static type systems should be, and [usually][cpp-parse-undecidable] are, decidable. It follows from this, and Rice's theorem, that all static type systems are necessarily approximations.
 
-- The typechecker is unsound, which means it does not reject programs that error when run.
-- The typechecker is incomplete, which means it rejects programs that would not error when run.
+Therefore, at least one of the following must be true about all programming languages:
+
+- The typechecker for the language is unsound.
+  - This means the typechecker does not reject programs that error when run.
+  - Example: [TypeScript][ts].
+- The typechecker for the language is incomplete.
+  - This means the typechecker rejects programs that would not error when run.
+  - Example: Most programming languages.
 - The language is not Turing-complete.
+  - This means the language cannot perform certain classes of computations.
+  - Example: [Dhall][dhall].
 
 Interestingly, and speaking of Turing, it can be proven that both Rice's theorem and Gödel's incompleteness's theorems ([and other theorems][halt]) follow directly from a single underlying concept: the undecidability of Turing's halting problem.
 
@@ -92,26 +100,26 @@ In dynamically typed languages, since we must know the type of each value at run
 
 This is another performance penalty, this time in the sense of storage space rather than time, because the running program must use memory to tag each value with its type.
 
-For instance, this program shows that in Python, the integer `123` takes 28 bytes to store.
+For instance, this program shows that in Python, the value `True` takes 28 bytes to store.
 
-- Some of these 28 bytes are for the actual value of the integer, 123.
-- Some are for recording this value's type, `int`.
+- Some of these 28 bytes are for the actual value of the boolean, to distinguish it from the other boolean, `False`.
+- Some are for recording this value's type, `bool`.
 - Some are for other purposes, like the reference count for garbage collection.
 
 ```py
 import sys
-print(sys.getsizeof(123))
+print(sys.getsizeof(True))
 # ==> 28
 ```
 
 By contrast, in statically typed languages, we do not perform runtime type checks, and so we need not store the types of values at runtime.
 
-This Rust program shows that the integer `123` (which defaults to the signed 32-bit integer type) indeed takes 32 bits, or 4 bytes, to store.
+This Rust program shows that value `true`, of type `bool`, takes only 1 byte to store.
 
 ```rs
 fn main() {
-  println!("{}", std::mem::size_of_val(&123));
-  // ==> 4
+  println!("{}", std::mem::size_of_val(&true));
+  // ==> 1
 }
 ```
 
@@ -293,7 +301,7 @@ fn outer() {
 
 However, `impl`s have effect regardless of where they are declared. So, if as in this example, the `impl Rect` to add the `area` method was inside the `outer` function, `area` would still be a method on all `Rect`s, whether they are used inside the scope of `outer` or not.
 
-This means that in Rust, changing the body of a function can affect items declared outside of the scope of the function.
+This means that in Rust, changing the body of a function, like `outer`, can affect items declared outside of the scope of the function, like `Rect`.
 
 ### (No) opportunity: Incremental re-typechecking
 
@@ -336,3 +344,5 @@ Conversely, ostensibly removing limitations can in a sense add limitations, in t
 [cpp-parse-undecidable]: https://blog.reverberate.org/2013/08/parsing-c-is-literally-undecidable.html
 [halt]: http://www.scottaaronson.com/blog/?p=710
 [rice]: https://busy-beavers.tigyog.app/rice
+[ts]: https://www.typescriptlang.org/docs/handbook/type-compatibility.html#a-note-on-soundness
+[dhall]: https://docs.dhall-lang.org/discussions/Safety-guarantees.html#turing-completeness
