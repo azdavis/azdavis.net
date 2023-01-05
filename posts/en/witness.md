@@ -125,7 +125,7 @@ That line should use `bounds.lower` instead. Oops.
 
 The problem with the current code is that the checking logic is very separate from the later calculation logic, even though they are quite related. This makes it harder to follow the code and thus easier to introduce bugs, which I promptly did.
 
-The solution is this: Instead of returning just a `bool` saying "we can do the task", and then doing the (strongly related) calculation for how to do the task after that, what would really make sense is if we returned _either_ how to do the task, _or_ some indication that we can't do the task.
+The solution is this: Instead of returning just a `bool` saying "we can do the task", and then doing the (strongly related) calculation for how to do the task after that, what would really make sense is if we returned _either_ how to do the task, _or_ "nothing", indicating that we can't do the task.
 
 Many languages have support for this pattern, variously called "optional", "option", "maybe", "nilable", or "nullable":
 
@@ -199,12 +199,12 @@ Using the option type allows one to avoid the kind of "boolean blindness" (so ca
 
 Option types are a special case of [sum types][], which express an alternative between two or more types. Given:
 
-- A general sum type between two types $X$ and $Y$, written $\textsf{Either}[X, Y]$
+- A general sum type between two types $X$ and $Y$, written $\textsf{Either}(X, Y)$
 - The "nothing" type, aka the empty [product type][], written $\langle \rangle$
 
 One can recover the option type:
 
-$$\textsf{Option}[X] = \textsf{Either}[X, \langle \rangle]$$
+$$\textsf{Option}(X) = \textsf{Either}(X, \langle \rangle)$$
 
 [stripe]: https://stripe.com
 [sorbet]: https://sorbet.org
