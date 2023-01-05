@@ -74,12 +74,12 @@ The purpose of a static type system is to reject programs that would encounter s
 
 Therefore, at least one of the following must be true about all programming languages:
 
-- The typechecker for the language is unsound.
-  - This means the typechecker does not reject programs that error when run.
-  - Example: [TypeScript][ts].
 - The typechecker for the language is incomplete.
   - This means the typechecker rejects programs that would not error when run.
   - Example: Most programming languages.
+- The typechecker for the language is unsound.
+  - This means the typechecker does not reject programs that error when run.
+  - Example: [TypeScript][ts].
 - The language is not Turing-complete.
   - This means the language cannot perform certain classes of computations.
   - Example: [Dhall][dhall].
