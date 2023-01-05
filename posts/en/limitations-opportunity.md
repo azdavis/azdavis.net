@@ -108,8 +108,7 @@ For instance, this program shows that in Python, the value `True` takes 28 bytes
 
 ```py
 import sys
-print(sys.getsizeof(True))
-# ==> 28
+print(sys.getsizeof(True)) # ==> 28
 ```
 
 By contrast, in statically typed languages, we do not perform runtime type checks, and so we need not store the types of values at runtime.
@@ -118,8 +117,7 @@ This Rust program shows that value `true`, of type `bool`, takes only 1 byte to 
 
 ```rs
 fn main() {
-  println!("{}", std::mem::size_of_val(&true));
-  // ==> 1
+  println!("{}", std::mem::size_of_val(&true)); // ==> 1
 }
 ```
 
