@@ -47,12 +47,6 @@ We're now going to create the keytab file.
 
 Utter the following magical incantation to set up the keytab file.
 
-A few caveats:
-
-- If you put your keytab in some other place that wasn't `~/.local/keytab`, change the thing after `-k` to wherever the keytab file is.
-- Replace `<ANDREW_USERNAME>` with your CMU Andrew username, not your local computer username.
-- You'll need to type and re-type your CMU Andrew password.
-
 ```sh
 $ ktutil \
   -k ~/.local/keytab \
@@ -61,6 +55,12 @@ $ ktutil \
   -e aes256-cts-hmac-sha1-96 \
   -V 1
 ```
+
+A few caveats:
+
+- If you put your keytab in some other place that wasn't `~/.local/keytab`, change the thing after `-k` to wherever the keytab file is.
+- Replace `<ANDREW_USERNAME>` with your CMU Andrew username, not your local computer username.
+- You'll need to type and re-type your CMU Andrew password.
 
 Afterwards, you can verify it worked with a usage of the `file` command:
 
