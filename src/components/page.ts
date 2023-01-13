@@ -1,5 +1,6 @@
 import { e } from "../util/e";
 import type { Lang } from "../util/lang";
+import { feedUrl } from "../util/post-data";
 import { baseUrl } from "../util/site";
 
 export type Style = "base" | "post" | "index" | "katex/katex.min" | "posts";
@@ -46,6 +47,11 @@ export function page(
         href: "/favicon.png",
       }),
       e("link", { rel: "apple-touch-icon", href: "/favicon.png" }),
+      e("link", {
+        rel: "alternate",
+        type: "application/atom+xml",
+        href: feedUrl(lang),
+      }),
       ...styles.map((s) => e("link", { rel: "stylesheet", href: `/${s}.css` })),
     ]),
     e("body", {}, children),
