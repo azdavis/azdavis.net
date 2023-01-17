@@ -295,7 +295,7 @@ I'd like to give thanks to some folks that helped me along the way:
 [c0]: https://c0.cs.cmu.edu/docs/c0-reference.pdf
 [c0ls]: https://github.com/azdavis/c0ls
 [cm]: https://www.smlnj.org/doc/CM/new.pdf
-[err-5011]: https://github.com/azdavis/millet/blob/main/docs/errors.md#5011
+[err-5011]: https://github.com/azdavis/millet/blob/main/docs/diagnostics.md#5011
 [known-issues]: https://github.com/azdavis/millet/blob/main/docs/known-issues.md
 [lang-srv]: https://microsoft.github.io/language-server-protocol/
 [md]: https://www.markdownguide.org
