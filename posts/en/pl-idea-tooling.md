@@ -77,7 +77,7 @@ As an example, it would be unsustainable if, every time we changed a single func
 
 Certain choices in the design of the language can make it easier or harder to implement an incrementally-updating language server for that language.
 
-## Rust: `impl` items in function bodies
+### Rust: `impl` items in function bodies
 
 Rust allows `impl` items to appear in function bodies. This means changing the body of one function can affect whether the call site for another, different function is well-typed:
 
@@ -95,11 +95,11 @@ Foo::quz();
 
 In this example, we must typecheck the body of `bar` to know that the call to `quz` is well-typed. Put another way, when changing the body of `bar`, we can cause errors when using `Foo` anywhere else in the codebase.
 
-### Takeaways
+#### Takeaways
 
 Consider maintaining the invariant that changing the body of a function can only cause new errors in that function. This means, in the common case when a programmer is mostly editing a single function at a time, the language server can quickly re-typecheck just that function.
 
-## Ruby: autoloading
+### Ruby: autoloading
 
 Ruby code often uses an autoloader, which de-necessitates explicitly `require`ing all the dependencies of a given file. The autoloader figures out which files define what, and automatically requires them when needed.
 
@@ -109,14 +109,14 @@ To solve this, engineers at [Stripe][stripe] working on Sorbet have developed a 
 
 Eventually, Sorbet could note that a new module added in a package is not exported to other packages. It can thus safely re-typecheck only files in the package, not any of the other hundreds or thousands of unchanged packages.
 
-### Takeaways
+#### Takeaways
 
 Consider having a module system with explicit imports and exports. This allows a language server to:
 
 - Parallelize typechecking across modules.
 - Know that changes in module-private definitions cannot affect other modules.
 
-## Flow: inferring types across module boundaries
+### Flow: inferring types across module boundaries
 
 [Flow][flow] used to infer types across module boundaries. So code like this used to be allowed:
 
@@ -138,7 +138,7 @@ export const foo: number = Math.random();
 
 Now, Flow can use these annotations to first construct the type signature of a module, then typecheck each module in parallel.
 
-### Takeaways
+#### Takeaways
 
 Consider requiring type annotations on publicly exported items in modules.
 
