@@ -1,6 +1,7 @@
 import hl from "highlight.js";
 import katex from "katex";
 import markdownIt from "markdown-it";
+import markdownItAnchor from "markdown-it-anchor";
 import type StateBlock from "markdown-it/lib/rules_block/state_block";
 import type StateInline from "markdown-it/lib/rules_inline/state_inline";
 import { absurd } from "../util/absurd";
@@ -116,6 +117,12 @@ const md = markdownIt({
   },
   typographer: true,
   html: true,
+});
+
+markdownItAnchor(md, {
+  level: 2,
+  tabIndex: false,
+  permalink: markdownItAnchor.permalink.headerLink({ safariReaderFix: true }),
 });
 
 function renderMath(tex: string, displayMode: boolean): string {
