@@ -1,4 +1,4 @@
-import { e } from "../util/e";
+import { h } from "../util/h";
 import type { Lang } from "../util/lang";
 import { feedUrl } from "../util/post-data";
 import { baseUrl } from "../util/site";
@@ -18,42 +18,42 @@ export function page(
   desc?: string,
   img?: string,
 ): string {
-  return e("html", { lang }, [
-    e("head", {}, [
-      e("meta", { charset: "utf-8" }),
-      e("title", {}, [title]),
-      e("meta", {
+  return h("html", { lang }, [
+    h("head", {}, [
+      h("meta", { charset: "utf-8" }),
+      h("title", {}, [title]),
+      h("meta", {
         name: "viewport",
         content: "width=device-width,initial-scale=1",
       }),
-      e("meta", { name: "description", content: desc ?? translations[lang] }),
-      e("meta", { property: "og:type", content: "website" }),
-      e("meta", { property: "og:title", content: title }),
-      e("meta", {
+      h("meta", { name: "description", content: desc ?? translations[lang] }),
+      h("meta", { property: "og:type", content: "website" }),
+      h("meta", { property: "og:title", content: title }),
+      h("meta", {
         property: "og:description",
         content: desc ?? translations[lang],
       }),
       img === undefined
         ? null
-        : e("meta", {
+        : h("meta", {
             property: "og:image",
             content: baseUrl + img,
           }),
-      e("link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }),
-      e("link", { rel: "mask-icon", href: "/favicon.svg", color: "#000000" }),
-      e("link", {
+      h("link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }),
+      h("link", { rel: "mask-icon", href: "/favicon.svg", color: "#000000" }),
+      h("link", {
         rel: "alternate icon",
         type: "image/png",
         href: "/favicon.png",
       }),
-      e("link", { rel: "apple-touch-icon", href: "/favicon.png" }),
-      e("link", {
+      h("link", { rel: "apple-touch-icon", href: "/favicon.png" }),
+      h("link", {
         rel: "alternate",
         type: "application/atom+xml",
         href: feedUrl(lang),
       }),
-      ...styles.map((s) => e("link", { rel: "stylesheet", href: `/${s}.css` })),
+      ...styles.map((s) => h("link", { rel: "stylesheet", href: `/${s}.css` })),
     ]),
-    e("body", {}, children),
+    h("body", {}, children),
   ]);
 }

@@ -1,5 +1,5 @@
 import { page } from "../components/page";
-import { e } from "../util/e";
+import { h } from "../util/h";
 import { name as siteName } from "../util/site";
 
 export const error404 = page(
@@ -7,8 +7,8 @@ export const error404 = page(
   "404 Not Found",
   ["base"],
   [
-    e("a", { href: "/" }, [siteName]),
-    e("h1", {}, ["404 Not Found"]),
-    e("p", {}, ["This page does not exist."]),
+    h("a", { href: "/" }, [siteName]),
+    h("h1", {}, ["404 Not Found"]),
+    h("p", {}, ["This page does not exist."]),
   ],
 );

@@ -1,5 +1,5 @@
 import { page } from "../components/page";
-import { e } from "../util/e";
+import { h } from "../util/h";
 import { Lang, root } from "../util/lang";
 import { postsDir } from "../util/post-data";
 import { author as siteAuthor } from "../util/site";
@@ -11,10 +11,10 @@ const translations = {
     descTitle: "DESCRIPTION",
     descContent: [
       "azdavis is a software engineer working at ",
-      e("a", { href: "https://stripe.com" }, ["Stripe"]),
+      h("a", { href: "https://stripe.com" }, ["Stripe"]),
       ". He acquired a major in computer science, with a minor in Japanese ",
       "studies, from ",
-      e("a", { href: "https://www.cmu.edu" }, ["Carnegie Mellon University"]),
+      h("a", { href: "https://www.cmu.edu" }, ["Carnegie Mellon University"]),
       ".",
     ],
     pagesTitle: "PAGES",
@@ -35,9 +35,9 @@ const translations = {
     descTitle: "説明",
     descContent: [
       "azdavisは",
-      e("a", { href: "https://stripe.com/jp" }, ["Stripe"]),
+      h("a", { href: "https://stripe.com/jp" }, ["Stripe"]),
       "で働いている開発者である。",
-      e("a", { href: "https://www.cmu.edu" }, ["カーネギーメロン大学"]),
+      h("a", { href: "https://www.cmu.edu" }, ["カーネギーメロン大学"]),
       "でコンピューター科学の専攻と日本学の副専攻を取った。",
     ],
     pagesTitle: "ページ",
@@ -61,27 +61,27 @@ export function index(lang: Lang): string {
     "man azdavis",
     ["base", "index"],
     [
-      e("h1", {}, [t.nameTitle]),
-      e("div", { class: "section" }, [t.nameContent]),
-      e("h1", {}, [t.descTitle]),
-      e("div", { class: "section" }, t.descContent),
-      e("h1", {}, [t.pagesTitle]),
-      e("dl", { class: "section" }, [
-        e("dt", { lang: t.otherLang }, [
-          e("a", { href: root(t.otherLang) }, [t.otherLangTitle]),
+      h("h1", {}, [t.nameTitle]),
+      h("div", { class: "section" }, [t.nameContent]),
+      h("h1", {}, [t.descTitle]),
+      h("div", { class: "section" }, t.descContent),
+      h("h1", {}, [t.pagesTitle]),
+      h("dl", { class: "section" }, [
+        h("dt", { lang: t.otherLang }, [
+          h("a", { href: root(t.otherLang) }, [t.otherLangTitle]),
         ]),
-        e("dd", { lang: t.otherLang }, [t.otherLangDesc]),
-        e("dt", {}, [e("a", { href: postsDir(lang) + "/" }, [t.postsTitle])]),
-        e("dd", {}, [t.postsDesc]),
-        e("dt", {}, [
-          e("a", { href: "https://github.com/azdavis" }, ["GitHub"]),
+        h("dd", { lang: t.otherLang }, [t.otherLangDesc]),
+        h("dt", {}, [h("a", { href: postsDir(lang) + "/" }, [t.postsTitle])]),
+        h("dd", {}, [t.postsDesc]),
+        h("dt", {}, [
+          h("a", { href: "https://github.com/azdavis" }, ["GitHub"]),
         ]),
-        e("dd", {}, [t.githubDesc]),
+        h("dd", {}, [t.githubDesc]),
       ]),
-      e("h1", {}, [t.contactTitle]),
-      e("div", { class: "section" }, [t.contactDesc]),
-      e("h1", {}, [t.copyrightTitle]),
-      e("div", { class: "section" }, [t.copyrightDesc]),
+      h("h1", {}, [t.contactTitle]),
+      h("div", { class: "section" }, [t.contactDesc]),
+      h("h1", {}, [t.copyrightTitle]),
+      h("div", { class: "section" }, [t.copyrightDesc]),
     ],
   );
 }

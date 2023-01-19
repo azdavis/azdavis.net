@@ -1,5 +1,5 @@
 import { absurd } from "../util/absurd";
-import { e } from "../util/e";
+import { h } from "../util/h";
 import type { Lang } from "../util/lang";
 
 const options: Intl.DateTimeFormatOptions = {
@@ -32,7 +32,7 @@ function dateToIsoString(date: Date): string {
 }
 
 export function dateShow(lang: Lang, date: Date): string {
-  return e("time", { datetime: dateToIsoString(date) }, [
+  return h("time", { datetime: dateToIsoString(date) }, [
     dateToHumanString(lang, date),
   ]);
 }

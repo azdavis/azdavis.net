@@ -1,7 +1,7 @@
 import { dateShow } from "../components/date-show";
 import { markdown } from "../components/markdown";
 import { page } from "../components/page";
-import { e } from "../util/e";
+import { h } from "../util/h";
 import { Lang, root } from "../util/lang";
 import { feedUrl, PostMetadata, translations } from "../util/post-data";
 import { name as siteName } from "../util/site";
@@ -28,21 +28,21 @@ export function postsPage(lang: Lang, posts: PostListItem[]): string {
     title,
     ["base", "posts", "post"],
     [
-      e("header", {}, [
-        e("a", { href: root(lang) }, [siteName]),
+      h("header", {}, [
+        h("a", { href: root(lang) }, [siteName]),
         " • ",
-        e("a", { href: feedUrl(lang) }, ["RSS"]),
+        h("a", { href: feedUrl(lang) }, ["RSS"]),
       ]),
-      e("h1", {}, [title]),
-      e(
+      h("h1", {}, [title]),
+      h(
         "div",
         { class: "posts" },
         posts
           .map(({ title, desc, path, date }) => [
             dateShow(lang, date),
-            e("div", {}, [
-              e("strong", {}, [e("a", { href: path }, [title])]),
-              e("div", {}, [markdown(desc, "inline")]),
+            h("div", {}, [
+              h("strong", {}, [h("a", { href: path }, [title])]),
+              h("div", {}, [markdown(desc, "inline")]),
             ]),
           ])
           .flat(),

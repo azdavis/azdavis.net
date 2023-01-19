@@ -1,4 +1,4 @@
-export function e(
+export function h(
   name: string,
   attrs: { [k: string]: string },
   body?: (string | null)[],

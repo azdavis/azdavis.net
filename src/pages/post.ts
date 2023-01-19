@@ -1,7 +1,7 @@
 import { dateShow } from "../components/date-show";
 import { markdown } from "../components/markdown";
 import { page, Style } from "../components/page";
-import { e } from "../util/e";
+import { h } from "../util/h";
 import { Lang, name, root } from "../util/lang";
 import {
   feedUrl,
@@ -31,24 +31,24 @@ export function post(
     data.title,
     styles,
     [
-      e("header", {}, [
-        e("a", { href: root(lang) }, [siteName]),
+      h("header", {}, [
+        h("a", { href: root(lang) }, [siteName]),
         " • ",
-        e("a", { href: postsDir(lang) + "/" }, [translations.posts[lang]]),
+        h("a", { href: postsDir(lang) + "/" }, [translations.posts[lang]]),
         " • ",
-        e("a", { href: feedUrl(lang) }, ["RSS"]),
+        h("a", { href: feedUrl(lang) }, ["RSS"]),
       ]),
-      e("h1", {}, [data.title]),
-      e("p", {}, [dateShow(lang, data.date)]),
+      h("h1", {}, [data.title]),
+      h("p", {}, [dateShow(lang, data.date)]),
       langs.length <= 1
         ? null
-        : e("p", {}, [
+        : h("p", {}, [
             translations.translations[lang],
             ...langs.map((l, idx) => {
               const s = name[l];
-              const inner = l === lang ? e("strong", {}, [s]) : s;
+              const inner = l === lang ? h("strong", {}, [s]) : s;
               const last = idx + 1 === langs.length ? "" : " • ";
-              return e("a", { href: postDir(l, slug) }, [inner]) + last;
+              return h("a", { href: postDir(l, slug) }, [inner]) + last;
             }),
           ]),
       markdown(data.content, "block"),
