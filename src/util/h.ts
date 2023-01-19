@@ -1,6 +1,6 @@
 export function h(
   name: string,
-  attrs: { [k: string]: string },
+  attrs: Record<string, string>,
   body?: (string | null)[],
 ): string {
   const attrString = Object.entries(attrs)
