@@ -1,5 +1,23 @@
+type ElemName =
+  | "a"
+  | "body"
+  | "dd"
+  | "div"
+  | "dl"
+  | "dt"
+  | "h1"
+  | "head"
+  | "header"
+  | "html"
+  | "link"
+  | "meta"
+  | "p"
+  | "strong"
+  | "time"
+  | "title";
+
 export function h(
-  name: string,
+  name: ElemName,
   attrs: Record<string, string>,
   body?: (string | null)[],
 ): string {
