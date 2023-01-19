@@ -10,13 +10,16 @@ const translations = {
   ja: "azdavisの個人的なウェブサイト",
 };
 
+interface Extra {
+  desc?: string;
+  img?: string;
+}
 export function page(
   lang: Lang,
   title: string,
   styles: Style[],
+  { desc, img }: Extra,
   children: (string | null)[],
-  desc?: string,
-  img?: string,
 ): string {
   return h("html", { lang }, [
     h("head", {}, [

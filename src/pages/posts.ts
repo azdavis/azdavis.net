@@ -23,30 +23,25 @@ export function postCmp(a: PostListItem, b: PostListItem): -1 | 1 {
 export function postsPage(lang: Lang, posts: PostListItem[]): string {
   const title = translations[lang];
   // need post css as well to get styling for markdown elements like <code>
-  return page(
-    lang,
-    title,
-    ["base", "posts", "post"],
-    [
-      h("header", {}, [
-        h("a", { href: root(lang) }, [siteName]),
-        " • ",
-        h("a", { href: feedUrl(lang) }, ["RSS"]),
-      ]),
-      h("h1", {}, [title]),
-      h(
-        "div",
-        { class: "posts" },
-        posts
-          .map(({ title, desc, path, date }) => [
-            dateShow(lang, date),
-            h("div", {}, [
-              h("strong", {}, [h("a", { href: path }, [title])]),
-              h("div", {}, [markdown(desc, "inline")]),
-            ]),
-          ])
-          .flat(),
-      ),
-    ],
-  );
+  return page(lang, title, ["base", "posts", "post"], {}, [
+    h("header", {}, [
+      h("a", { href: root(lang) }, [siteName]),
+      " • ",
+      h("a", { href: feedUrl(lang) }, ["RSS"]),
+    ]),
+    h("h1", {}, [title]),
+    h(
+      "div",
+      { class: "posts" },
+      posts
+        .map(({ title, desc, path, date }) => [
+          dateShow(lang, date),
+          h("div", {}, [
+            h("strong", {}, [h("a", { href: path }, [title])]),
+            h("div", {}, [markdown(desc, "inline")]),
+          ]),
+        ])
+        .flat(),
+    ),
+  ]);
 }

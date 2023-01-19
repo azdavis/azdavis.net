@@ -26,34 +26,27 @@ export function post(
   langs: Lang[],
   slug: string,
 ): string {
-  return page(
-    lang,
-    data.title,
-    styles,
-    [
-      h("header", {}, [
-        h("a", { href: root(lang) }, [siteName]),
-        " • ",
-        h("a", { href: postsDir(lang) + "/" }, [translations.posts[lang]]),
-        " • ",
-        h("a", { href: feedUrl(lang) }, ["RSS"]),
-      ]),
-      h("h1", {}, [data.title]),
-      h("p", {}, [dateShow(lang, data.date)]),
-      langs.length <= 1
-        ? null
-        : h("p", {}, [
-            translations.translations[lang],
-            ...langs.map((l, idx) => {
-              const s = name[l];
-              const inner = l === lang ? h("strong", {}, [s]) : s;
-              const last = idx + 1 === langs.length ? "" : " • ";
-              return h("a", { href: postDir(l, slug) }, [inner]) + last;
-            }),
-          ]),
-      markdown(data.content, "block"),
-    ],
-    data.desc,
-    data.img,
-  );
+  return page(lang, data.title, styles, data, [
+    h("header", {}, [
+      h("a", { href: root(lang) }, [siteName]),
+      " • ",
+      h("a", { href: postsDir(lang) + "/" }, [translations.posts[lang]]),
+      " • ",
+      h("a", { href: feedUrl(lang) }, ["RSS"]),
+    ]),
+    h("h1", {}, [data.title]),
+    h("p", {}, [dateShow(lang, data.date)]),
+    langs.length <= 1
+      ? null
+      : h("p", {}, [
+          translations.translations[lang],
+          ...langs.map((l, idx) => {
+            const s = name[l];
+            const inner = l === lang ? h("strong", {}, [s]) : s;
+            const last = idx + 1 === langs.length ? "" : " • ";
+            return h("a", { href: postDir(l, slug) }, [inner]) + last;
+          }),
+        ]),
+    markdown(data.content, "block"),
+  ]);
 }

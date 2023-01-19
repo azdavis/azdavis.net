@@ -56,32 +56,25 @@ const translations = {
 
 export function index(lang: Lang): string {
   const t = translations[lang];
-  return page(
-    lang,
-    "man azdavis",
-    ["base", "index"],
-    [
-      h("h1", {}, [t.nameTitle]),
-      h("div", { class: "section" }, [t.nameContent]),
-      h("h1", {}, [t.descTitle]),
-      h("div", { class: "section" }, t.descContent),
-      h("h1", {}, [t.pagesTitle]),
-      h("dl", { class: "section" }, [
-        h("dt", { lang: t.otherLang }, [
-          h("a", { href: root(t.otherLang) }, [t.otherLangTitle]),
-        ]),
-        h("dd", { lang: t.otherLang }, [t.otherLangDesc]),
-        h("dt", {}, [h("a", { href: postsDir(lang) + "/" }, [t.postsTitle])]),
-        h("dd", {}, [t.postsDesc]),
-        h("dt", {}, [
-          h("a", { href: "https://github.com/azdavis" }, ["GitHub"]),
-        ]),
-        h("dd", {}, [t.githubDesc]),
+  return page(lang, "man azdavis", ["base", "index"], {}, [
+    h("h1", {}, [t.nameTitle]),
+    h("div", { class: "section" }, [t.nameContent]),
+    h("h1", {}, [t.descTitle]),
+    h("div", { class: "section" }, t.descContent),
+    h("h1", {}, [t.pagesTitle]),
+    h("dl", { class: "section" }, [
+      h("dt", { lang: t.otherLang }, [
+        h("a", { href: root(t.otherLang) }, [t.otherLangTitle]),
       ]),
-      h("h1", {}, [t.contactTitle]),
-      h("div", { class: "section" }, [t.contactDesc]),
-      h("h1", {}, [t.copyrightTitle]),
-      h("div", { class: "section" }, [t.copyrightDesc]),
-    ],
-  );
+      h("dd", { lang: t.otherLang }, [t.otherLangDesc]),
+      h("dt", {}, [h("a", { href: postsDir(lang) + "/" }, [t.postsTitle])]),
+      h("dd", {}, [t.postsDesc]),
+      h("dt", {}, [h("a", { href: "https://github.com/azdavis" }, ["GitHub"])]),
+      h("dd", {}, [t.githubDesc]),
+    ]),
+    h("h1", {}, [t.contactTitle]),
+    h("div", { class: "section" }, [t.contactDesc]),
+    h("h1", {}, [t.copyrightTitle]),
+    h("div", { class: "section" }, [t.copyrightDesc]),
+  ]);
 }
