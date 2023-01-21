@@ -3,5 +3,7 @@
     "node_modules": true,
     "out": true,
     "build": true
-  }
+  },
+  "markdown.validate.enabled": true,
+  "markdown.validate.fileLinks.enabled": "ignore"
 }
