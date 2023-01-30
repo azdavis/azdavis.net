@@ -157,7 +157,7 @@ For most calls this is pretty easy.
      let mut tmp = gunc(es, num + 4);
 ```
 
-## Split else if
+## Split `else if`
 
 It's a little harder to do this when the call is inside the condition of an `if`. It's even harder when `&&` is involved.
 
@@ -198,7 +198,7 @@ Now we can make a variable for that new `if` condition.
        tmp.cond = !tmp.cond;
 ```
 
-## Split &&
+## Split `&&`
 
 To split up `&&` we have to be careful to be maximally lazy.
 
@@ -217,7 +217,7 @@ To split up `&&` we have to be careful to be maximally lazy.
        let mut tmp = gunc(es, num + 4);
 ```
 
-## Use tmp
+## Use `tmp`
 
 Now we can put the call to `func` on its own line.
 
@@ -234,7 +234,7 @@ Now we can put the call to `func` on its own line.
        es.push(Event::F);
 ```
 
-## Avoid early return
+## Avoid early `return`
 
 We have some early returns in `func` and `gunc` for the base case. We're going to remove the `return` and instead use a big `else`, indenting everything that used to be after the `return` in one level.
 
@@ -278,7 +278,7 @@ Note that the diffs shown here are ignoring whitespace changes, otherwise they'd
 +}
 ```
 
-## Add unused hunc
+## Add unused `hunc`
 
 Now we can start to construct the wrapper function. We'll call it `hunc`. It will take a type that represents either the arguments to `func` or `gunc`, and will return a type that represents either the return type of `func` or `gunc`.
 
@@ -308,7 +308,7 @@ One unfortunate caveat of this approach is that it doesn't encode in the type sy
 +}
 ```
 
-## Swap func
+## Swap `func`
 
 Now we can put the body of `func` into `hunc` and swap `func` to just delegate to `hunc`.
 
@@ -367,7 +367,7 @@ Now we can put the body of `func` into `hunc` and swap `func` to just delegate t
  }
 ```
 
-## Swap gunc
+## Swap `gunc`
 
 And same for `gunc`.
 
@@ -452,7 +452,7 @@ And same for `gunc`.
  }
 ```
 
-## Use unwrap\_\*
+## Use `unwrap_*`
 
 In `func` and `gunc`, which are now just stubs that call `hunc`, we have the previously described run-time match to extract the appropriate `func` or `gunc` return value. We're going to put that matching logic into some helper functions, since we'll be needing it a lot.
 
@@ -502,7 +502,7 @@ In `func` and `gunc`, which are now just stubs that call `hunc`, we have the pre
      Arg::Func(mut data) => Ret::Func(if data.num >= THRESHOLD {
 ```
 
-## Inline func
+## Inline `func`
 
 Notice how short the definition of `func` is now. We can just inline every usage of `func` with a call to `hunc` with `func` args that unwraps a `func` return value.
 
@@ -542,7 +542,7 @@ Notice how short the definition of `func` is now. We can just inline every usage
              tmp
 ```
 
-## Inline gunc
+## Inline `gunc`
 
 And same for `gunc`.
 
@@ -576,7 +576,7 @@ Notice at this point, we have removed the mutual recursion. `func` and `gunc` ju
            }
 ```
 
-## Wrap every branch in a Ret
+## Wrap every branch in a `Ret`
 
 When we inlined the original bodies of `func` and `gunc` into `hunc`, we took both whole blocks and wrapped them each in their own appropriate `Ret` enum variant.
 
@@ -650,7 +650,7 @@ We're now going to go and wrap each individual final expression instead, since w
  }
 ```
 
-## Add cont
+## Add `Cont`
 
 This next step is also a bit of pre-work. The general idea of the next stage of the transformation is that we are going to change how we handle all the bits of code that comes after a given recursive call.
 
@@ -692,7 +692,7 @@ We call the type that will represent all of the possible different recursive cal
  }
 ```
 
-## Wrap in loop
+## Wrap in `loop`
 
 We discussed in the last step how we're going to use an explicit stack of continuations to make it so that every recursive call is a tail call.
 
@@ -730,7 +730,7 @@ Remember that at every step of the transformation so far, and to come, the behav
  }
 ```
 
-## Do C1
+## Do `C1`
 
 This is the first [defunctionalization of a continuation][defunctionalize] we perform. Most of the rest of the steps will basically look like this one.
 
@@ -802,7 +802,7 @@ Note also that in this case, we didn't need any local variables to be live acros
    }
 ```
 
-## Do C2
+## Do `C2`
 
 This is pretty similar to the previous step.
 
@@ -840,7 +840,7 @@ This is pretty similar to the previous step.
      return ret;
 ```
 
-## Do C3
+## Do `C3`
 
 This is mostly the same, but note that we need a local variable from before the call now. So we have this variant carry data, namely, the local variable we need after the call.
 
@@ -888,7 +888,7 @@ This is mostly the same, but note that we need a local variable from before the 
      return ret;
 ```
 
-## Use post_if_c4
+## Use `post_if_c4`
 
 There's a bit of difficulty around transforming recursive calls that are followed by other recursive calls, as well as transforming calls that are part of a conditional branch that ends and rejoins the pre-existing control flow.
 
@@ -936,7 +936,7 @@ We'll see more in the next step, but for now we're just going to move some stuff
 +}
 ```
 
-## Do C4
+## Do `C4`
 
 Now we see why we needed the `post_if_c4` helper from last step.
 
@@ -978,7 +978,7 @@ Now we see why we needed the `post_if_c4` helper from last step.
      return ret;
 ```
 
-## Return ControlFlow
+## Return `ControlFlow`
 
 This next step is more pre-work.
 
@@ -1065,7 +1065,7 @@ This corresponds to making more than one recursive call. If we have more than on
  }
 ```
 
-## Do C5
+## Do `C5`
 
 With the new `ControlFlow` machinery, we can continue along (heh). Note that the continuations we're pushing are now **inside** `post_if_c4`.
 
@@ -1133,7 +1133,7 @@ We also have to pass `cs` into `post_if_c4`.
      let fst = hunc(es, Arg::Func(data)).unwrap_func();
 ```
 
-## Do C6
+## Do `C6`
 
 Note that we recursively call `hunc` in the newly moved block for `Cont::C6`. We'll get rid of that in the next step.
 
@@ -1173,7 +1173,7 @@ Note that we recursively call `hunc` in the newly moved block for `Cont::C6`. We
  }
 ```
 
-## Do C7
+## Do `C7`
 
 As predicted, we replace the recursive call with a cont push, arg set, and `continue`, but we must use the `'outer` label because we're in the `while` loop.
 
@@ -1204,7 +1204,7 @@ This is the last one!
          }
 ```
 
-## Rm ControlFlow
+## Remove `ControlFlow`
 
 Since we only return `Continue` from `post_if_c4`, we can remove `ControlFlow` and just always `continue`.
 
