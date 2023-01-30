@@ -745,7 +745,9 @@ We:
 - Remove the recursive call and instead mutate the `arg` and `continue`.
 - Take all the code that was after the recursive call and move it to the `match cont` that we do as we pop off the stack.
 
-Note that in this case, we didn't need any local variables to be live across the recursive call, so the `Cont` variant we're adding doesn't carry any data.
+Note that in the continuation code, we are updating the local variable `ret`, which was initially set above. When we're done removing all the recursion, `ret` will always start as a base-case value, and then we will pop off all the continuations from `cs` that we popped on when recurring (aka `continue`ing).
+
+Note also that in this case, we didn't need any local variables to be live across the recursive call, so the `Cont` variant we're adding doesn't carry any data.
 
 ```diff
 @@ -34,13 +34,14 @@ impl Ret {
