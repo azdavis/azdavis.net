@@ -57,7 +57,7 @@ Remember, though, that the important thing is not the specific contrived example
 First we define the events, some data, and a threshold so we don't infinitely recur:
 
 ```rs
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum Event {
   A(bool),
   B(usize),
