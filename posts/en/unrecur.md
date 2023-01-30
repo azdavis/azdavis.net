@@ -4,33 +4,29 @@ date: 2025-01-29
 desc: A constructive proof of an equivalence.
 ---
 
-A consequence of the [Church-Turing thesis][ctt] is that [recursion][recur-post] and iteration are equivalent. This means that you can always take a piece of code using iteration, and rewrite it to use recursion, while changing nothing about the behavior of the code itself, and vice versa.
+A consequence of the [Church-Turing thesis][ctt] is that iteration and [recursion][recur-post] are equivalent. This means that you can always take a piece of code using iteration, and rewrite it to use recursion, while changing nothing about the behavior of the code itself, and vice versa.
 
 For instance, you can rewrite iterating over a list with recursion in Rust:
 
 ```rs
 fn foo_iter<T>(xs: Vec<T>) {
-  for x in xs {
+  for x in xs.into_iter().rev() {
     bar(x);
   }
 }
 
 fn foo_rec<T>(mut xs: Vec<T>) {
-  if xs.is_empty() {
-    return;
+  match xs.pop() {
+    None => {}
+    Some(x) => {
+      bar(x);
+      foo_rec(xs);
+    }
   }
-  let x = xs.remove(0);
-  bar(x);
-  foo_rec(xs);
 }
 ```
 
-Of course, this is a contrived example. Also, the recursive version is less efficient:
-
-- We might allocate a new stack frame for the recursive call to `foo_rec`, unless the optimizer notices it is a tail call.
-- The call `remove(0)` has to shift over everything in the list by 1, which takes $O(n)$ time, making the entire `foo_rec` function $O(n^2)$ instead of `foo_iter`'s $O(n)$, assuming `bar` is $O(1)$.
-
-But importantly, both `foo_iter` and `foo_rec` have the same behavior, in that they call `bar` with all the same `x` in the same order.
+Of course, this is a contrived example, and these functions may not compile down to the exact same assembly, especially depending on whether there tail-call optimizer kicks in. But importantly, both `foo_iter` and `foo_rec` have the same behavior, in that they call `bar` with all the same `x` in the same order.
 
 But how may we rewrite recursion as iteration? The answer is not always as clear, especially when considering things like:
 
