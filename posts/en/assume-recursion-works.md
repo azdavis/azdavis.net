@@ -53,11 +53,11 @@ Languages with mostly or only imperative features are called imperative programm
 
 ## A strange style
 
-A modern programmer can make it quite far with only iteration, and minimal or no recursion ([source][reddit]):
+A [modern programmer][reddit] can make it quite far with only iteration, and minimal or no recursion:
 
 > I've been programming for nearly 4 years, work in the field, and almost have my CS degree yet for the life of me I can't understand the point of recursion.
 
-Because of this, when a programmer used to iteration first encounters recursion, they may find it strange and alien ([source][codecademy]):
+Because of this, when a programmer used to iteration first encounters recursion, [they][codecademy] may find it strange and alien:
 
 > Is recursion really something I need to know? Should I keep banging my head against walls of examples until I get it, or is it so rarely used in the real world that I can forget about it? It sounds like for just about everything I’d ever need, I could just use a 'while' loop, which I find infinitely easier to understand.
 
