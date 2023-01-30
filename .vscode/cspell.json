@@ -2,6 +2,8 @@
   "version": "0.2",
   "words": [
     "azdavis",
+    "clippy",
+    "cond",
     "datetime",
     "deallocate",
     "deallocated",
@@ -11,8 +13,10 @@
     "dhall",
     "getsizeof",
     "goessner",
+    "gunc",
     "habanero",
     "hljs",
+    "hunc",
     "infixr",
     "katex",
     "keytab",
@@ -31,6 +35,7 @@
     "typechecker",
     "typecheckers",
     "unrecur",
+    "usize",
     "yixin"
   ]
 }
