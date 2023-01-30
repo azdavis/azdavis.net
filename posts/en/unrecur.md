@@ -1294,4 +1294,4 @@ It might be possible to do this with some hackery with `Pin`. Basically, we need
 [repo]: https://github.com/azdavis/unrecur
 [cont]: https://en.wikipedia.org/wiki/Continuation
 [defunctionalize]: https://www.pathsensitive.com/2019/07/the-best-refactoring-youve-never-heard.html
-[control-flow]: https://doc.rust-lang.org/stable/core/ops/enum.ControlFlow.html
+[control-flow]: https://doc.rust-lang.org/stable/std/ops/enum.ControlFlow.html
