@@ -664,7 +664,13 @@ This is basically what the "call stack" is and does. We're just making it explic
 
 Doing this means every recursive call is a tail call.
 
-We call the type that will represent all of the possible different recursive call sites and the actions we have to do after those calls `Cont`, for "[continuation][cont]". We might have also called it `Frame`, which is terminology associated with the call stack.
+We're going to create a type that will represent:
+
+- All of the possible different recursive call sites
+- The actions we have to do after those calls
+- The local variables we need to be live across the calls to do those actions
+
+We'll call it `Cont`, for "[continuation][cont]". We might have also called it `Frame`, which is terminology associated with the call stack.
 
 ```diff
 @@ -34,8 +34,11 @@
