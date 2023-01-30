@@ -26,7 +26,7 @@ fn foo_rec<T>(mut xs: Vec<T>) {
 }
 ```
 
-Of course, this is a contrived example, and these functions may not compile down to the exact same assembly, especially depending on whether there tail-call optimizer kicks in. But importantly, both `foo_iter` and `foo_rec` have the same behavior, in that they call `bar` with all the same `x` in the same order.
+Of course, this is a contrived example, and these functions may not compile down to the exact same assembly, especially depending on whether the tail-call optimizer kicks in. But importantly, both `foo_iter` and `foo_rec` have the same behavior, in that they call `bar` with all the same `x` in the same order.
 
 But how may we rewrite recursion as iteration? The answer is not always as clear, especially when considering things like:
 
