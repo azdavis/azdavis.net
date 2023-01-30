@@ -1135,7 +1135,7 @@ We also have to pass `cs` into `post_if_c4`.
 
 ## Do C6
 
-This one and the next one are pretty standard fare, so we won't discuss them much.
+Note that we recursively call `hunc` in the newly moved block for `Cont::C6`. We'll get rid of that in the next step.
 
 ```diff
 @@ -41,6 +41,7 @@
@@ -1174,6 +1174,8 @@ This one and the next one are pretty standard fare, so we won't discuss them muc
 ```
 
 ## Do C7
+
+As predicted, we replace the recursive call with a cont push, arg set, and `continue`, but we must use the `'outer` label because we're in the `while` loop.
 
 This is the last one!
 
