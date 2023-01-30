@@ -129,6 +129,7 @@ We're going to be putting each recursive call on its own line, since we're going
 For most calls this is pretty easy.
 
 ```diff
+# rs
 @@ -9,11 +9,13 @@
    if data.cond {
      es.push(Event::B(data.num));
@@ -164,6 +165,7 @@ It's a little harder to do this when the call is inside the condition of an `if`
 We'll start by splitting an `else if` into `else` and `if`.
 
 ```diff
+# rs
 @@ -30,7 +30,8 @@
      es.push(Event::E(es.len()));
      let tmp = func(es, data);
@@ -186,6 +188,7 @@ We'll start by splitting an `else if` into `else` and `if`.
 Now we can make a variable for that new `if` condition.
 
 ```diff
+# rs
 @@ -31,7 +31,8 @@
      let tmp = func(es, data);
      Data { num: tmp + 3, cond }
@@ -203,6 +206,7 @@ Now we can make a variable for that new `if` condition.
 To split up `&&` we have to be careful to be maximally lazy.
 
 ```diff
+# rs
 @@ -31,7 +31,10 @@
      let tmp = func(es, data);
      Data { num: tmp + 3, cond }
@@ -222,6 +226,7 @@ To split up `&&` we have to be careful to be maximally lazy.
 Now we can put the call to `func` on its own line.
 
 ```diff
+# rs
 @@ -33,7 +33,8 @@
    } else {
      let mut cond = es.len() % 3 > 0;
@@ -243,6 +248,7 @@ This isn't great coding style, but we need to do this because we're going to be 
 Note that the diffs shown here are ignoring whitespace changes, otherwise they'd be massive and confusing.
 
 ```diff
+# rs
 @@ -3,8 +3,8 @@
  pub fn func(es: &mut Vec<Event>, mut data: Data) -> usize {
    if data.num >= THRESHOLD {
@@ -285,6 +291,7 @@ Now we can start to construct the wrapper function. We'll call it `hunc`. It wil
 One unfortunate caveat of this approach is that it doesn't encode in the type system the information that whenever we pass it a `func` arg, we expect a `func` return, and same for `gunc`. We'll have to check every time at runtime, which is a performance penalty.
 
 ```diff
+# rs
 @@ -52,3 +52,20 @@
      }
    }
@@ -313,6 +320,7 @@ One unfortunate caveat of this approach is that it doesn't encode in the type sy
 Now we can put the body of `func` into `hunc` and swap `func` to just delegate to `hunc`.
 
 ```diff
+# rs
 @@ -1,22 +1,9 @@
  use crate::common::{Data, Event, THRESHOLD};
 
@@ -372,6 +380,7 @@ Now we can put the body of `func` into `hunc` and swap `func` to just delegate t
 And same for `gunc`.
 
 ```diff
+# rs
 @@ -8,35 +8,9 @@
  }
 
@@ -457,6 +466,7 @@ And same for `gunc`.
 In `func` and `gunc`, which are now just stubs that call `hunc`, we have the previously described run-time match to extract the appropriate `func` or `gunc` return value. We're going to put that matching logic into some helper functions, since we'll be needing it a lot.
 
 ```diff
+# rs
 @@ -1,17 +1,11 @@
  use crate::common::{Data, Event, THRESHOLD};
 
@@ -507,6 +517,7 @@ In `func` and `gunc`, which are now just stubs that call `hunc`, we have the pre
 Notice how short the definition of `func` is now. We can just inline every usage of `func` with a call to `hunc` with `func` args that unwraps a `func` return value.
 
 ```diff
+# rs
 @@ -49,7 +49,7 @@
        } else {
          es.push(Event::C);
@@ -549,6 +560,7 @@ And same for `gunc`.
 Notice at this point, we have removed the mutual recursion. `func` and `gunc` just delegate to `hunc`, and `hunc` only recursively calls itself.
 
 ```diff
+# rs
 @@ -44,7 +44,7 @@
        if data.cond {
          es.push(Event::B(data.num));
@@ -583,6 +595,7 @@ When we inlined the original bodies of `func` and `gunc` into `hunc`, we took bo
 We're now going to go and wrap each individual final expression instead, since we're going to be moving around the various inner blocks more.
 
 ```diff
+# rs
 @@ -36,34 +36,36 @@
 
  fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
@@ -673,6 +686,7 @@ We're going to create a type that will represent:
 We'll call it `Cont`, for "[continuation][cont]". We might have also called it `Frame`, which is terminology associated with the call stack.
 
 ```diff
+# rs
 @@ -34,8 +34,11 @@
    }
  }
@@ -717,6 +731,7 @@ If these last few steps seem a bit weird, stay with me! The next few steps, wher
 Remember that at every step of the transformation so far, and to come, the behavior of `func` and `gunc` has not changed, and will not change.
 
 ```diff
+# rs
 @@ -38,6 +38,8 @@
 
  fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
@@ -752,6 +767,7 @@ Note that in the continuation code, we are updating the local variable `ret`, wh
 Note also that in this case, we didn't need any local variables to be live across the recursive call, so the `Cont` variant we're adding doesn't carry any data.
 
 ```diff
+# rs
 @@ -34,13 +34,14 @@
    }
  }
@@ -813,6 +829,7 @@ Note also that in this case, we didn't need any local variables to be live acros
 This is pretty similar to the previous step.
 
 ```diff
+# rs
 @@ -36,6 +36,7 @@
 
  enum Cont {
@@ -851,6 +868,7 @@ This is pretty similar to the previous step.
 This is mostly the same, but note that we need a local variable from before the call now. So we have this variant carry data, namely, the local variable we need after the call.
 
 ```diff
+# rs
 @@ -37,6 +37,7 @@
  enum Cont {
    C1,
@@ -901,6 +919,7 @@ There's a bit of difficulty around transforming recursive calls that are followe
 We'll see more in the next step, but for now we're just going to move some stuff into a helper function. It has only one call site now, but in the next step we'll add another call site.
 
 ```diff
+# rs
 @@ -82,18 +82,7 @@
              let tmp = hunc(es, Arg::Func(data.clone())).unwrap_func();
              cond = tmp % 2 == 0;
@@ -947,6 +966,7 @@ We'll see more in the next step, but for now we're just going to move some stuff
 Now we see why we needed the `post_if_c4` helper from last step.
 
 ```diff
+# rs
 @@ -38,6 +38,7 @@
    C1,
    C2,
@@ -1003,6 +1023,7 @@ Note that we need to add a label to the `'outer` wrapper loop, so that, inside t
 This corresponds to making more than one recursive call. If we have more than one recursive call, those further calls are necessarily after that first recursive call. Everything after a recursive call is inside a continuation, and we handle continuations in the `while` loop.
 
 ```diff
+# rs
 @@ -1,4 +1,5 @@
  use crate::common::{Data, Event, THRESHOLD};
 +use std::ops::ControlFlow;
@@ -1078,6 +1099,7 @@ With the new `ControlFlow` machinery, we can continue along (heh). Note that the
 We also have to pass `cs` into `post_if_c4`.
 
 ```diff
+# rs
 @@ -40,6 +40,7 @@
    C2,
    C3(bool),
@@ -1144,6 +1166,7 @@ We also have to pass `cs` into `post_if_c4`.
 Note that we recursively call `hunc` in the newly moved block for `Cont::C6`. We'll get rid of that in the next step.
 
 ```diff
+# rs
 @@ -41,6 +41,7 @@
    C3(bool),
    C4(Data, usize),
@@ -1186,6 +1209,7 @@ As predicted, we replace the recursive call with a cont push, arg set, and `cont
 This is the last one!
 
 ```diff
+# rs
 @@ -42,6 +42,7 @@
    C4(Data, usize),
    C5,
@@ -1215,6 +1239,7 @@ This is the last one!
 Since we only return `Continue` from `post_if_c4`, we can remove `ControlFlow` and just always `continue`.
 
 ```diff
+# rs
 @@ -1,5 +1,4 @@
  use crate::common::{Data, Event, THRESHOLD};
 -use std::ops::ControlFlow;

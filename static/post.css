@@ -5,8 +5,8 @@ body {
   --code-fg-number: #0a825a;
   --code-fg-string: #a01414;
   --code-fg-type: #288296;
-  --code-fg-addition: #3d845c;
-  --code-fg-deletion: #96261f;
+  --code-bg-addition: #e6ffe6;
+  --code-bg-deletion: #ffe6e6;
   --code-fg-meta: #367895;
   --code-bg: #f6f6f6;
 }
@@ -19,8 +19,8 @@ body {
     --code-fg-number: #b4c8aa;
     --code-fg-string: #c89678;
     --code-fg-type: #50c8aa;
-    --code-fg-addition: #bbcdab;
-    --code-fg-deletion: #c5947c;
+    --code-bg-addition: #1e4e1e;
+    --code-bg-deletion: #4e1e1e;
     --code-fg-meta: #4da5c9;
     --code-bg: #333;
   }
@@ -114,11 +114,11 @@ h4 a:hover {
 }
 
 .hljs-addition {
-  color: var(--code-fg-addition);
+  background-color: var(--code-bg-addition);
 }
 
 .hljs-deletion {
-  color: var(--code-fg-deletion);
+  background-color: var(--code-bg-deletion);
 }
 
 .hljs-meta {

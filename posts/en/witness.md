@@ -58,6 +58,7 @@ Of course, some irrelevant/sensitive details have been stripped out, but this is
 My goal was to do some extra calculations for the amount we pass in when doing the task. Instead of passing the whole amount, we want to first do some math with both the amount, and the bound that the amount was outside of.
 
 ```diff
+# rs
  fn maybe_do_task(bounds: Bounds, amount: i32) {
    if !should_do_task(bounds, amount) {
      return;

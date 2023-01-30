@@ -110,13 +110,105 @@ function runHljs(code: string, language: string): string {
   return hl.highlight(code, { language }).value;
 }
 
+type DiffMarker =
+  | { t: "meta"; content: string }
+  | { t: "addition" }
+  | { t: "deletion" };
+
+const COMMENT = /^#/;
+const FIRST_CHAR = /^./;
+
+function rmFirstChar(s: string): string {
+  return s.replace(FIRST_CHAR, "");
+}
+
+function hljsSpan(cls: string, inner: string): string {
+  return `<span class="hljs-${cls}">${inner}</span>`;
+}
+
 function highlight(code: string, language: string): string {
   if (language.length === 0) {
     throw new Error(
       "no language for code block. to opt out of syntax highlighting, use `text`",
     );
   }
-  return runHljs(code, language);
+  if (language !== "diff") {
+    return runHljs(code, language);
+  }
+  const lines = code.split("\n");
+  const firstLine = lines.shift();
+  if (firstLine === undefined) {
+    throw new Error("highlight empty diff block");
+  }
+  if (!COMMENT.test(firstLine)) {
+    throw new Error(`first line of diff was not a '#' comment: '${firstLine}'`);
+  }
+  const innerLang = firstLine.replace(COMMENT, "").trim();
+  const innerLangLines: string[] = [];
+  const diffMarkers: (DiffMarker | null)[] = [];
+  for (const line of lines) {
+    if (line.length === 0) {
+      innerLangLines.push("");
+      diffMarkers.push(null);
+      continue;
+    }
+    const c = line[0];
+    switch (c) {
+      case "#":
+        continue;
+      case " ":
+        innerLangLines.push(rmFirstChar(line));
+        diffMarkers.push(null);
+        continue;
+      case "@":
+        innerLangLines.push("");
+        diffMarkers.push({ t: "meta", content: line });
+        continue;
+      case "+":
+        innerLangLines.push(rmFirstChar(line));
+        diffMarkers.push({ t: "addition" });
+        continue;
+      case "-":
+        innerLangLines.push(rmFirstChar(line));
+        diffMarkers.push({ t: "deletion" });
+        continue;
+      default:
+        throw new Error(`unknown first char of diff line: '${c}'`);
+    }
+  }
+  if (innerLangLines.length !== diffMarkers.length) {
+    throw new Error("bug: innerLangLines.length !== diffMarkers.length");
+  }
+  const hljsLines = runHljs(innerLangLines.join("\n"), innerLang).split("\n");
+  if (innerLangLines.length !== hljsLines.length) {
+    throw new Error("bug: innerLangLines.length !== hljsLines.length");
+  }
+  const outLines: string[] = [];
+  for (let i = 0; i < diffMarkers.length; i++) {
+    const hljsLine = hljsLines[i];
+    const diffMarker = diffMarkers[i];
+    if (diffMarker === null) {
+      outLines.push(" " + hljsLine);
+      continue;
+    }
+    switch (diffMarker.t) {
+      case "meta":
+        if (hljsLine.length !== 0) {
+          throw new Error("bug: non-empty hljs meta line");
+        }
+        outLines.push(hljsSpan("meta", diffMarker.content));
+        continue;
+      case "addition":
+        outLines.push(hljsSpan("addition", "+" + hljsLine));
+        continue;
+      case "deletion":
+        outLines.push(hljsSpan("deletion", "-" + hljsLine));
+        continue;
+      default:
+        return absurd(diffMarker);
+    }
+  }
+  return outLines.join("\n");
 }
 
 const md = markdownIt({
