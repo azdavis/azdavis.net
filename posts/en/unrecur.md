@@ -129,7 +129,7 @@ We're going to be putting each recursive call on its own line, since we're going
 For most calls this is pretty easy.
 
 ```diff
-@@ -9,11 +9,13 @@ pub fn func(es: &mut Vec<Event>, mut data: Data) -> usize {
+@@ -9,11 +9,13 @@
    if data.cond {
      es.push(Event::B(data.num));
      data.num += 1;
@@ -145,7 +145,7 @@ For most calls this is pretty easy.
    }
  }
 
-@@ -26,7 +28,8 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
+@@ -26,7 +28,8 @@
    let data = Data { num: num + 2, cond };
    if es.len() < 5 {
      es.push(Event::E(es.len()));
@@ -164,7 +164,7 @@ It's a little harder to do this when the call is inside the condition of an `if`
 We'll start by splitting an `else if` into `else` and `if`.
 
 ```diff
-@@ -30,7 +30,8 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
+@@ -30,7 +30,8 @@
      es.push(Event::E(es.len()));
      let tmp = func(es, data);
      Data { num: tmp + 3, cond }
@@ -174,7 +174,7 @@ We'll start by splitting an `else if` into `else` and `if`.
        es.push(Event::F);
        let mut tmp = gunc(es, num + 4);
        tmp.cond = !tmp.cond;
-@@ -43,3 +44,4 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
+@@ -43,3 +44,4 @@
        tmp
      }
    }
@@ -186,7 +186,7 @@ We'll start by splitting an `else if` into `else` and `if`.
 Now we can make a variable for that new `if` condition.
 
 ```diff
-@@ -31,7 +31,8 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
+@@ -31,7 +31,8 @@
      let tmp = func(es, data);
      Data { num: tmp + 3, cond }
    } else {
@@ -203,7 +203,7 @@ Now we can make a variable for that new `if` condition.
 To split up `&&` we have to be careful to be maximally lazy.
 
 ```diff
-@@ -31,7 +31,10 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
+@@ -31,7 +31,10 @@
      let tmp = func(es, data);
      Data { num: tmp + 3, cond }
    } else {
@@ -222,7 +222,7 @@ To split up `&&` we have to be careful to be maximally lazy.
 Now we can put the call to `func` on its own line.
 
 ```diff
-@@ -33,7 +33,8 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
+@@ -33,7 +33,8 @@
    } else {
      let mut cond = es.len() % 3 > 0;
      if cond {
@@ -243,7 +243,7 @@ This isn't great coding style, but we need to do this because we're going to be 
 Note that the diffs shown here are ignoring whitespace changes, otherwise they'd be massive and confusing.
 
 ```diff
-@@ -3,8 +3,8 @@ use crate::common::{Data, Event, THRESHOLD};
+@@ -3,8 +3,8 @@
  pub fn func(es: &mut Vec<Event>, mut data: Data) -> usize {
    if data.num >= THRESHOLD {
      es.push(Event::A(data.cond));
@@ -254,7 +254,7 @@ Note that the diffs shown here are ignoring whitespace changes, otherwise they'd
      data.cond = !data.cond;
      if data.cond {
        es.push(Event::B(data.num));
-@@ -18,13 +18,14 @@ pub fn func(es: &mut Vec<Event>, mut data: Data) -> usize {
+@@ -18,13 +18,14 @@
        tmp + 3
      }
    }
@@ -271,7 +271,7 @@ Note that the diffs shown here are ignoring whitespace changes, otherwise they'd
      let data = Data { num: num + 2, cond };
      if es.len() < 5 {
        es.push(Event::E(es.len()));
-@@ -50,3 +51,4 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
+@@ -50,3 +51,4 @@
        }
      }
    }
@@ -285,7 +285,7 @@ Now we can start to construct the wrapper function. We'll call it `hunc`. It wil
 One unfortunate caveat of this approach is that it doesn't encode in the type system the information that whenever we pass it a `func` arg, we expect a `func` return, and same for `gunc`. We'll have to check every time at runtime, which is a performance penalty.
 
 ```diff
-@@ -52,3 +52,20 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
+@@ -52,3 +52,20 @@
      }
    }
  }
@@ -340,7 +340,7 @@ Now we can put the body of `func` into `hunc` and swap `func` to just delegate t
    }
  }
 
-@@ -65,7 +52,23 @@ enum Ret {
+@@ -65,7 +52,23 @@
 
  fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
    match arg {
@@ -372,7 +372,7 @@ Now we can put the body of `func` into `hunc` and swap `func` to just delegate t
 And same for `gunc`.
 
 ```diff
-@@ -8,35 +8,9 @@ pub fn func(es: &mut Vec<Event>, data: Data) -> usize {
+@@ -8,35 +8,9 @@
  }
 
  pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
@@ -411,7 +411,7 @@ And same for `gunc`.
    }
  }
 
-@@ -69,6 +43,37 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -69,6 +43,37 @@
          tmp + 3
        }
      }),
@@ -477,7 +477,7 @@ In `func` and `gunc`, which are now just stubs that call `hunc`, we have the pre
  }
 
  enum Arg {
-@@ -24,6 +18,22 @@ enum Ret {
+@@ -24,6 +18,22 @@
    Gunc(Data),
  }
 
@@ -507,7 +507,7 @@ In `func` and `gunc`, which are now just stubs that call `hunc`, we have the pre
 Notice how short the definition of `func` is now. We can just inline every usage of `func` with a call to `hunc` with `func` args that unwraps a `func` return value.
 
 ```diff
-@@ -49,7 +49,7 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -49,7 +49,7 @@
        } else {
          es.push(Event::C);
          data.num += 6;
@@ -516,7 +516,7 @@ Notice how short the definition of `func` is now. We can just inline every usage
          tmp + 3
        }
      }),
-@@ -62,12 +62,12 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -62,12 +62,12 @@
          let data = Data { num: num + 2, cond };
          if es.len() < 5 {
            es.push(Event::E(es.len()));
@@ -531,7 +531,7 @@ Notice how short the definition of `func` is now. We can just inline every usage
              cond = tmp % 2 == 0;
            }
            if cond {
-@@ -77,7 +77,7 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -77,7 +77,7 @@
              tmp
            } else {
              es.push(Event::G);
@@ -549,7 +549,7 @@ And same for `gunc`.
 Notice at this point, we have removed the mutual recursion. `func` and `gunc` just delegate to `hunc`, and `hunc` only recursively calls itself.
 
 ```diff
-@@ -44,7 +44,7 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -44,7 +44,7 @@
        if data.cond {
          es.push(Event::B(data.num));
          data.num += 1;
@@ -558,7 +558,7 @@ Notice at this point, we have removed the mutual recursion. `func` and `gunc` ju
          tmp + 2
        } else {
          es.push(Event::C);
-@@ -72,13 +72,13 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -72,13 +72,13 @@
            }
            if cond {
              es.push(Event::F);
@@ -583,7 +583,7 @@ When we inlined the original bodies of `func` and `gunc` into `hunc`, we took bo
 We're now going to go and wrap each individual final expression instead, since we're going to be moving around the various inner blocks more.
 
 ```diff
-@@ -36,34 +36,36 @@ impl Ret {
+@@ -36,34 +36,36 @@
 
  fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
    match arg {
@@ -628,7 +628,7 @@ We're now going to go and wrap each individual final expression instead, since w
          } else {
            let mut cond = es.len() % 3 > 0;
            if cond {
-@@ -74,16 +76,16 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -74,16 +76,16 @@
              es.push(Event::F);
              let mut tmp = hunc(es, Arg::Gunc(num + 4)).unwrap_gunc();
              tmp.cond = !tmp.cond;
@@ -667,7 +667,7 @@ Doing this means every recursive call is a tail call.
 We call the type that will represent all of the possible different recursive call sites and the actions we have to do after those calls `Cont`, for "[continuation][cont]".
 
 ```diff
-@@ -34,8 +34,11 @@ impl Ret {
+@@ -34,8 +34,11 @@
    }
  }
 
@@ -680,7 +680,7 @@ We call the type that will represent all of the possible different recursive cal
      Arg::Func(mut data) => {
        if data.num >= THRESHOLD {
          es.push(Event::A(data.cond));
-@@ -87,5 +90,9 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -87,5 +90,9 @@
          }
        }
      }
@@ -711,7 +711,7 @@ If these last few steps seem a bit weird, stay with me! The next few steps, wher
 Remember that at every step of the transformation so far, and to come, the behavior of `func` and `gunc` has not changed, and will not change.
 
 ```diff
-@@ -38,6 +38,8 @@ enum Cont {}
+@@ -38,6 +38,8 @@
 
  fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
    let mut cs = Vec::<Cont>::new();
@@ -720,7 +720,7 @@ Remember that at every step of the transformation so far, and to come, the behav
      let ret = match arg {
        Arg::Func(mut data) => {
          if data.num >= THRESHOLD {
-@@ -94,5 +96,6 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -94,5 +96,6 @@
      while let Some(cont) = cs.pop() {
        match cont {}
      }
@@ -746,7 +746,7 @@ Note that in the continuation code, we are updating the local variable `ret`, wh
 Note also that in this case, we didn't need any local variables to be live across the recursive call, so the `Cont` variant we're adding doesn't carry any data.
 
 ```diff
-@@ -34,13 +34,14 @@ impl Ret {
+@@ -34,13 +34,14 @@
    }
  }
 
@@ -765,7 +765,7 @@ Note also that in this case, we didn't need any local variables to be live acros
        Arg::Func(mut data) => {
          if data.num >= THRESHOLD {
            es.push(Event::A(data.cond));
-@@ -50,16 +51,16 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -50,16 +51,16 @@
            if data.cond {
              es.push(Event::B(data.num));
              data.num += 1;
@@ -786,7 +786,7 @@ Note also that in this case, we didn't need any local variables to be live acros
        Arg::Gunc(num) => {
          let cond = es.len() % 2 == 0;
          if num >= THRESHOLD {
-@@ -94,7 +95,12 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -94,7 +95,12 @@
        }
      };
      while let Some(cont) = cs.pop() {
@@ -807,7 +807,7 @@ Note also that in this case, we didn't need any local variables to be live acros
 This is pretty similar to the previous step.
 
 ```diff
-@@ -36,6 +36,7 @@ impl Ret {
+@@ -36,6 +36,7 @@
 
  enum Cont {
    C1,
@@ -815,7 +815,7 @@ This is pretty similar to the previous step.
  }
 
  fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
-@@ -57,8 +58,9 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -57,8 +58,9 @@
            }
            es.push(Event::C);
            data.num += 6;
@@ -827,7 +827,7 @@ This is pretty similar to the previous step.
          }
        }
        Arg::Gunc(num) => {
-@@ -100,6 +102,10 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -100,6 +102,10 @@
            let tmp = ret.unwrap_gunc().num;
            ret = Ret::Func(tmp + 2);
          }
@@ -845,7 +845,7 @@ This is pretty similar to the previous step.
 This is mostly the same, but note that we need a local variable from before the call now. So we have this variant carry data, namely, the local variable we need after the call.
 
 ```diff
-@@ -37,6 +37,7 @@ impl Ret {
+@@ -37,6 +37,7 @@
  enum Cont {
    C1,
    C2,
@@ -853,7 +853,7 @@ This is mostly the same, but note that we need a local variable from before the 
  }
 
  fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
-@@ -72,9 +73,10 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -72,9 +73,10 @@
            let data = Data { num: num + 2, cond };
            if es.len() < 5 {
              es.push(Event::E(es.len()));
@@ -867,7 +867,7 @@ This is mostly the same, but note that we need a local variable from before the 
            let mut cond = es.len() % 3 > 0;
            if cond {
              let tmp = hunc(es, Arg::Func(data.clone())).unwrap_func();
-@@ -94,7 +96,6 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -94,7 +96,6 @@
            }
          }
        }
@@ -875,7 +875,7 @@ This is mostly the same, but note that we need a local variable from before the 
      };
      while let Some(cont) = cs.pop() {
        match cont {
-@@ -106,6 +107,10 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -106,6 +107,10 @@
            let tmp = ret.unwrap_func();
            ret = Ret::Func(tmp + 3);
          }
@@ -895,7 +895,7 @@ There's a bit of difficulty around transforming recursive calls that are followe
 We'll see more in the next step, but for now we're just going to move some stuff into a helper function. It has only one call site now, but in the next step we'll add another call site.
 
 ```diff
-@@ -82,18 +82,7 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -82,18 +82,7 @@
              let tmp = hunc(es, Arg::Func(data.clone())).unwrap_func();
              cond = tmp % 2 == 0;
            }
@@ -915,7 +915,7 @@ We'll see more in the next step, but for now we're just going to move some stuff
          }
        }
      };
-@@ -116,3 +105,18 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -116,3 +105,18 @@
      return ret;
    }
  }
@@ -941,7 +941,7 @@ We'll see more in the next step, but for now we're just going to move some stuff
 Now we see why we needed the `post_if_c4` helper from last step.
 
 ```diff
-@@ -38,6 +38,7 @@ enum Cont {
+@@ -38,6 +38,7 @@
    C1,
    C2,
    C3(bool),
@@ -949,7 +949,7 @@ Now we see why we needed the `post_if_c4` helper from last step.
  }
 
  fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
-@@ -77,10 +78,11 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -77,10 +78,11 @@
              arg = Arg::Func(data);
              continue;
            }
@@ -964,7 +964,7 @@ Now we see why we needed the `post_if_c4` helper from last step.
            }
            post_if_c4(es, data, num, cond)
          }
-@@ -100,6 +102,11 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -100,6 +102,11 @@
            let tmp = ret.unwrap_func();
            ret = Ret::Gunc(Data { num: tmp + 3, cond });
          }
@@ -1003,7 +1003,7 @@ This corresponds to making more than one recursive call. If we have more than on
 
  pub fn func(es: &mut Vec<Event>, data: Data) -> usize {
    hunc(es, Arg::Func(data)).unwrap_func()
-@@ -43,7 +44,7 @@ enum Cont {
+@@ -43,7 +44,7 @@
 
  fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
    let mut cs = Vec::<Cont>::new();
@@ -1012,7 +1012,7 @@ This corresponds to making more than one recursive call. If we have more than on
      let mut ret = match arg {
        Arg::Func(mut data) => {
          if data.num >= THRESHOLD {
-@@ -84,7 +85,13 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -84,7 +85,13 @@
              arg = Arg::Func(data);
              continue;
            }
@@ -1027,7 +1027,7 @@ This corresponds to making more than one recursive call. If we have more than on
          }
        }
      };
-@@ -105,7 +112,13 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -105,7 +112,13 @@
          Cont::C4(data, num) => {
            let tmp = ret.unwrap_func();
            let cond = tmp % 2 == 0;
@@ -1042,7 +1042,7 @@ This corresponds to making more than one recursive call. If we have more than on
          }
        }
      }
-@@ -113,17 +126,17 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -113,17 +126,17 @@
    }
  }
 
@@ -1072,7 +1072,7 @@ With the new `ControlFlow` machinery, we can continue along (heh). Note that the
 We also have to pass `cs` into `post_if_c4`.
 
 ```diff
-@@ -40,6 +40,7 @@ enum Cont {
+@@ -40,6 +40,7 @@
    C2,
    C3(bool),
    C4(Data, usize),
@@ -1080,7 +1080,7 @@ We also have to pass `cs` into `post_if_c4`.
  }
 
  fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
-@@ -85,7 +86,7 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -85,7 +86,7 @@
              arg = Arg::Func(data);
              continue;
            }
@@ -1089,7 +1089,7 @@ We also have to pass `cs` into `post_if_c4`.
              ControlFlow::Continue(a) => {
                arg = a;
                continue;
-@@ -112,7 +113,7 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -112,7 +113,7 @@
          Cont::C4(data, num) => {
            let tmp = ret.unwrap_func();
            let cond = tmp % 2 == 0;
@@ -1098,7 +1098,7 @@ We also have to pass `cs` into `post_if_c4`.
              ControlFlow::Continue(a) => {
                arg = a;
                continue 'outer;
-@@ -120,18 +121,28 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -120,18 +121,28 @@
              ControlFlow::Break(r) => ret = r,
            }
          }
@@ -1138,7 +1138,7 @@ We also have to pass `cs` into `post_if_c4`.
 This one and the next one are pretty standard fare, so we won't discuss them much.
 
 ```diff
-@@ -41,6 +41,7 @@ enum Cont {
+@@ -41,6 +41,7 @@
    C3(bool),
    C4(Data, usize),
    C5,
@@ -1146,7 +1146,7 @@ This one and the next one are pretty standard fare, so we won't discuss them muc
  }
 
  fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
-@@ -126,6 +127,12 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -126,6 +127,12 @@
            tmp.cond = !tmp.cond;
            ret = Ret::Gunc(tmp);
          }
@@ -1159,7 +1159,7 @@ This one and the next one are pretty standard fare, so we won't discuss them muc
        }
      }
      return ret;
-@@ -145,9 +152,7 @@ fn post_if_c4(
+@@ -145,9 +152,7 @@
      ControlFlow::Continue(Arg::Gunc(num + 4))
    } else {
      es.push(Event::G);
@@ -1178,7 +1178,7 @@ This one and the next one are pretty standard fare, so we won't discuss them muc
 This is the last one!
 
 ```diff
-@@ -42,6 +42,7 @@ enum Cont {
+@@ -42,6 +42,7 @@
    C4(Data, usize),
    C5,
    C6,
@@ -1186,7 +1186,7 @@ This is the last one!
  }
 
  fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
-@@ -129,7 +130,12 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -129,7 +130,12 @@
          }
          Cont::C6 => {
            let fst = ret.unwrap_func();
@@ -1213,7 +1213,7 @@ Since we only return `Continue` from `post_if_c4`, we can remove `ControlFlow` a
 
  pub fn func(es: &mut Vec<Event>, data: Data) -> usize {
    hunc(es, Arg::Func(data)).unwrap_func()
-@@ -88,14 +87,9 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -88,14 +87,9 @@
              arg = Arg::Func(data);
              continue;
            }
@@ -1229,7 +1229,7 @@ Since we only return `Continue` from `post_if_c4`, we can remove `ControlFlow` a
        }
      };
      while let Some(cont) = cs.pop() {
-@@ -115,14 +109,9 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -115,14 +109,9 @@
          Cont::C4(data, num) => {
            let tmp = ret.unwrap_func();
            let cond = tmp % 2 == 0;
@@ -1245,7 +1245,7 @@ Since we only return `Continue` from `post_if_c4`, we can remove `ControlFlow` a
          Cont::C5 => {
            let mut tmp = ret.unwrap_gunc();
            tmp.cond = !tmp.cond;
-@@ -145,20 +134,14 @@ fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
+@@ -145,20 +134,14 @@
    }
  }
 
