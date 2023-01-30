@@ -808,21 +808,6 @@ Note that in this case, we didn't need any local variables to be live across the
    }
 ```
 
-This just removes a now-unneeded clippy lint.
-
-## Rm clippy
-
-```diff
-@@ -38,7 +38,6 @@ enum Cont {
-   C1,
- }
-
--#[allow(clippy::needless_pass_by_value)]
- fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
-   let mut cs = Vec::<Cont>::new();
-   loop {
-```
-
 ## Do C2
 
 This is pretty similar to the previous.
