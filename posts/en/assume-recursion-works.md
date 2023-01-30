@@ -12,7 +12,7 @@ The rest of this post is basically just expounding on the above at length.
 
 ## Background
 
-To permit repeated execution of part of a program, most modern languages allow for either:
+To permit repeated execution of part of a program, most modern languages allow for [either][unrecur-post]:
 
 - **Iteration**, via loops like `while` or `for`.
 - **Recursion**, via recursive function definitions.
@@ -324,3 +324,4 @@ And there it is. QED.
 [peano]: https://en.wikipedia.org/wiki/Peano_axioms
 [codecademy]: https://www.codecademy.com/forum_questions/4fd5964ffc052d000300483f
 [monoid]: https://en.wikipedia.org/wiki/Monoid
+[unrecur-post]: /posts/unrecur/

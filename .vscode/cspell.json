@@ -6,6 +6,7 @@
     "deallocate",
     "deallocated",
     "deallocations",
+    "defunctionalization",
     "desugars",
     "dhall",
     "getsizeof",
@@ -29,6 +30,7 @@
     "typecheck",
     "typechecker",
     "typecheckers",
+    "unrecur",
     "yixin"
   ]
 }
