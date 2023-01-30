@@ -7,6 +7,7 @@ body {
   --code-fg-type: #288296;
   --code-fg-addition: #3d845c;
   --code-fg-deletion: #96261f;
+  --code-fg-meta: #367895;
   --code-bg: #f6f6f6;
 }
 
@@ -20,6 +21,7 @@ body {
     --code-fg-type: #50c8aa;
     --code-fg-addition: #bbcdab;
     --code-fg-deletion: #c5947c;
+    --code-fg-meta: #4da5c9;
     --code-bg: #333;
   }
 }
@@ -117,4 +119,8 @@ h4 a:hover {
 
 .hljs-deletion {
   color: var(--code-fg-deletion);
+}
+
+.hljs-meta {
+  color: var(--code-fg-meta);
 }
