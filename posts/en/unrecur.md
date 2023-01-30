@@ -1,6 +1,6 @@
 ---
 title: Rewriting recursion as iteration
-date: 2025-01-29
+date: 2023-01-29
 desc: A constructive proof of an equivalence.
 ---
 
