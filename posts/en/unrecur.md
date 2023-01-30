@@ -130,7 +130,7 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
 
 We're going to be putting each recursive call on its own line, since we're going to be moving and changing the calls around a lot.
 
-For a most calls this is pretty easy.
+For most calls this is pretty easy.
 
 ```diff
 @@ -9,11 +9,13 @@ pub fn func(es: &mut Vec<Event>, mut data: Data) -> usize {
@@ -187,7 +187,7 @@ We'll start by splitting an `else if` into `else` and `if`.
 
 ## Make cond var
 
-Now we can make a var for that new `if` condition.
+Now we can make a variable for that new `if` condition.
 
 ```diff
 @@ -31,7 +31,8 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
@@ -240,9 +240,11 @@ Now we can put the call to `func` on its own line.
 
 ## Avoid early return
 
-We have some early returns in `func` and `gunc` for the base case. It's bad coding style, but we're going to remove the `return` and instead use a bit `else` case.
+We have some early returns in `func` and `gunc` for the base case. We're going to remove the `return` and instead use a big `else`, indenting everything that used to be after the `return` in one level.
 
-We need to do this because we're going to be putting both functions in one big wrapper function, to remove the **mutual** recursion (we'll still be recursive, but it'll be one function). That wrapper function will need to do its own bookkeeping, so we can't be `return`ing explicitly at inopportune times.
+This isn't great coding style, but we need to do this because we're going to be putting both functions in one big wrapper function, to remove the **mutual** recursion (we'll still be recursive, but it'll be one function). That wrapper function will need to do its own bookkeeping, so we can't be `return`ing explicitly at inopportune times.
+
+Note that the diffs shown here are ignoring whitespace changes, otherwise they'd be massive and confusing.
 
 ```diff
 @@ -3,8 +3,8 @@ use crate::common::{Data, Event, THRESHOLD};
