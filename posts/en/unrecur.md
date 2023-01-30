@@ -550,7 +550,7 @@ Notice how short the definition of `func` is now. We can just inline every usage
 
 And same for `gunc`.
 
-Notice at this point, we have removed the mutual recursion. `func` and `gunc` just delegate to `hunc`, and `hunc` only recursively calls `hunc`.
+Notice at this point, we have removed the mutual recursion. `func` and `gunc` just delegate to `hunc`, and `hunc` only recursively calls itself.
 
 ```diff
 @@ -44,7 +44,7 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
