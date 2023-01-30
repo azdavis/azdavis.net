@@ -30,9 +30,9 @@ Of course, this is a contrived example, and these functions may not compile down
 
 But how may we rewrite recursion as iteration? The answer is not always as clear, especially when considering things like:
 
-1. Mutual recursion
-2. Multiple recursive calls
-3. Non-tail calls
+- Mutual recursion
+- Multiple recursive calls
+- Non-tail calls
 
 In this post, we will start with some complex recursive code, containing all three of the above mentioned tricky bits. We will then gradually rewrite the code, preserving behavior along the way, until finally all recursive calls are removed.
 
@@ -75,7 +75,7 @@ pub const THRESHOLD: usize = 150;
 
 ## Starter code
 
-Now we may define our glorious, contrived, mutually recursive `func` and `gunc`. Aren't they splendid?
+Now we may define our glorious, contrived, mutually recursive `func` and `gunc`.
 
 ```rs
 use crate::common::{Data, Event, THRESHOLD};
