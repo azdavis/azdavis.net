@@ -710,9 +710,9 @@ This is essentially what tail-call optimization is. We're just going to make it 
 
 In this step, we add a loop around everything that never loops (note the clippy allow), because we just unconditionally (for now) return at the very bottom.
 
-If these last few steps seem a bit weird, stay with me! I hope that if you think that, the next few steps, where we actually start using `Cont` and this outer `loop`, will help make it make sense.
+If these last few steps seem a bit weird, stay with me! The next few steps, where we actually start using `Cont` and this outer `loop`, should help make it make sense.
 
-Remember that at every step of the transformation so far, and to come, the behavior of `func` and `gunc` have not, and will not, change.
+Remember that at every step of the transformation so far, and to come, the behavior of `func` and `gunc` has not changed, and will not change.
 
 ```diff
 @@ -38,6 +38,8 @@ enum Cont {}
@@ -741,8 +741,8 @@ This is the first [defunctionalization of a continuation][defunctionalize] we pe
 We:
 
 - Add a new variant to `Cont`.
-- Update a single recursive call site to push that new `Cont` variant to the stack.
-- Update that recursive call site to instead of doing the call, mutate the `arg` and `continue`.
+- Update a single recursive call site to push that new `Cont` variant to the stack before the call.
+- Remove the recursive call and instead mutate the `arg` and `continue`.
 - Take all the code that was after the recursive call and move it to the `match cont` that we do as we pop off the stack.
 
 Note that in this case, we didn't need any local variables to be live across the recursive call, so the `Cont` variant we're adding doesn't carry any data.
@@ -806,7 +806,7 @@ Note that in this case, we didn't need any local variables to be live across the
 
 ## Do C2
 
-This is pretty similar to the previous.
+This is pretty similar to the previous step.
 
 ```diff
 @@ -36,6 +36,7 @@ impl Ret {
@@ -844,7 +844,7 @@ This is pretty similar to the previous.
 
 ## Do C3
 
-This is mostly the same, but note that we need a local variable now. So we have this variant carry data, namely, the local variable we need after the call.
+This is mostly the same, but note that we need a local variable from before the call now. So we have this variant carry data, namely, the local variable we need after the call.
 
 ```diff
 @@ -37,6 +37,7 @@ impl Ret {
@@ -988,13 +988,15 @@ In the next few steps, we're going to transform our helper function. Note that w
 
 We need to change `post_if_c4` to push to `cs`, update `arg`, and `continue` instead of recursively calling `hunc`, as in the previous steps. But there's a problem: we can't use `continue`, because we're not syntactically inside the outer loop in `hunc`.
 
-The solution is to use `std::ops::ControlFlow`, in Rust' standard library. This reifies the control flow choice between `break` and `continue`.
+The solution is to use `std::ops::ControlFlow`, in the [Rust standard library][control-flow]. This reifies the control flow choice between `break` and `continue`.
 
 When we want to `continue` from `post_if_c4`, we'll return a `Continue` variant containing the new argument for the recursive call. When we want to just return, we'll use `Break`.
 
 Then `hunc`, which is the only caller of `post_if_c4`, can examine the `ControlFlow` value and either use the returned `Break` value or mutate its `arg` to the new argument inside the `Continue` variant and continue.
 
-Note that we need to add a label to the `'outer` wrapper loop, so that, inside the `while` loop popping off the stack of `Cont`s, we can jump out of that loop and back into the main outer loop. This corresponds to making more than one recursive call, because if we have more than one recursive call, those further calls are necessarily after that first recursive call, and everything after a recursive call is inside a continuation, which we handle in the `while` loop.
+Note that we need to add a label to the `'outer` wrapper loop, so that, inside the `while` loop popping off the stack of `Cont`s, we can jump out of that loop and back into the main outer loop.
+
+This corresponds to making more than one recursive call. If we have more than one recursive call, those further calls are necessarily after that first recursive call. Everything after a recursive call is inside a continuation, and we handle continuations in the `while` loop.
 
 ```diff
 @@ -1,4 +1,5 @@
@@ -1067,7 +1069,7 @@ Note that we need to add a label to the `'outer` wrapper loop, so that, inside t
 
 ## Do C5
 
-With the new `ControlFlow` machinery, we can continue along. Note that the continuations we're handling are now **inside** `post_if_c4`.
+With the new `ControlFlow` machinery, we can continue along (heh). Note that the continuations we're pushing are now **inside** `post_if_c4`.
 
 We also have to pass `cs` into `post_if_c4`.
 
@@ -1204,7 +1206,7 @@ This is the last one!
 
 ## Rm ControlFlow
 
-Since we only `Continue` from `post_if_c4`, we can remove `ControlFlow` and just always `continue`.
+Since we only return `Continue` from `post_if_c4`, we can remove `ControlFlow` and just always `continue`.
 
 ```diff
 @@ -1,5 +1,4 @@
@@ -1273,14 +1275,17 @@ Since we only `Continue` from `post_if_c4`, we can remove `ControlFlow` and just
 
 ## Conclusion
 
-This transformation process should work for almost any arbitrarily complicated set of mutually recursive functions. One case I found that I couldn't handle was when one of the mutually recursive functions takes an argument by reference, and its caller constructs an owned local variable and passes a reference to it. This is tricky to handle with Rust's borrow checker when transforming the continuations.
+This transformation process should work for almost any arbitrarily complicated set of mutually recursive functions.
 
-Even if we tried to move the temporary in the continuation variant and then grab a reference to that, it would still not work because we mutate the continuation stack, which could invalidate the reference if the backing array was reallocated.
+One case I found that I couldn't handle was when one of the mutually recursive functions takes an argument by reference, and its caller constructs an owned local variable and passes a reference to it. This is tricky to handle with Rust's borrow checker when transforming the continuations.
 
-It might be possible to do this with some hackery with `Pin`; basically, we need a guarantee that the local variable will not move until we process the continuation, at which point we can drop it.
+Even if I tried to move the temporary in the continuation variant and then grab a reference to that, it would still not work because we might mutate the continuation stack, which could invalidate the reference if the backing array was reallocated.
+
+It might be possible to do this with some hackery with `Pin`. Basically, we need a guarantee that the local variable will not move until we process the continuation, at which point we can drop it.
 
 [ctt]: https://en.wikipedia.org/wiki/Church–Turing_thesis
 [recur-post]: /posts/assume-recursion-works/
 [repo]: https://github.com/azdavis/unrecur
 [cont]: https://en.wikipedia.org/wiki/Continuation
 [defunctionalize]: https://www.pathsensitive.com/2019/07/the-best-refactoring-youve-never-heard.html
+[control-flow]: https://doc.rust-lang.org/stable/core/ops/enum.ControlFlow.html
