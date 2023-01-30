@@ -289,7 +289,7 @@ Now we can start to construct the wrapper function. We'll call it `hunc`. It wil
 One unfortunate caveat of this approach is that it doesn't encode in the type system the information that whenever we pass it a `func` arg, we expect a `func` return, and same for `gunc`. We'll have to check every time at runtime, which is a performance penalty.
 
 ```diff
-@@ -52,3 +52,21 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
+@@ -52,3 +52,20 @@ pub fn gunc(es: &mut Vec<Event>, num: usize) -> Data {
      }
    }
  }
@@ -304,7 +304,6 @@ One unfortunate caveat of this approach is that it doesn't encode in the type sy
 +  Gunc(Data),
 +}
 +
-+#[allow(clippy::needless_pass_by_value)]
 +fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
 +  match arg {
 +    Arg::Func(data) => Ret::Func(func(es, data)),
@@ -345,8 +344,8 @@ Now we can put the body of `func` into `hunc` and swap `func` to just delegate t
    }
  }
 
-@@ -66,7 +53,23 @@ enum Ret {
- #[allow(clippy::needless_pass_by_value)]
+@@ -65,7 +52,23 @@ enum Ret {
+
  fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
    match arg {
 -    Arg::Func(data) => Ret::Func(func(es, data)),
@@ -416,7 +415,7 @@ And same for `gunc`.
    }
  }
 
-@@ -70,6 +44,37 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -69,6 +43,37 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
          tmp + 3
        }
      }),
@@ -502,9 +501,9 @@ In `func` and `gunc`, which are now just stubs that call `hunc`, we have the pre
 +  }
 +}
 +
- #[allow(clippy::needless_pass_by_value)]
  fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
    match arg {
+     Arg::Func(mut data) => Ret::Func(if data.num >= THRESHOLD {
 ```
 
 ## Inline func
@@ -512,7 +511,7 @@ In `func` and `gunc`, which are now just stubs that call `hunc`, we have the pre
 Notice how short the definition of `func` is now. We can just inline every usage of `func` with a call to `hunc` with `func` args that unwraps a `func` return value.
 
 ```diff
-@@ -50,7 +50,7 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -49,7 +49,7 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
        } else {
          es.push(Event::C);
          data.num += 6;
@@ -521,7 +520,7 @@ Notice how short the definition of `func` is now. We can just inline every usage
          tmp + 3
        }
      }),
-@@ -63,12 +63,12 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -62,12 +62,12 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
          let data = Data { num: num + 2, cond };
          if es.len() < 5 {
            es.push(Event::E(es.len()));
@@ -536,7 +535,7 @@ Notice how short the definition of `func` is now. We can just inline every usage
              cond = tmp % 2 == 0;
            }
            if cond {
-@@ -78,7 +78,7 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -77,7 +77,7 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
              tmp
            } else {
              es.push(Event::G);
@@ -554,7 +553,7 @@ And same for `gunc`.
 Notice at this point, we have removed the mutual recursion. `func` and `gunc` just delegate to `hunc`, and `hunc` only recursively calls `hunc`.
 
 ```diff
-@@ -45,7 +45,7 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -44,7 +44,7 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
        if data.cond {
          es.push(Event::B(data.num));
          data.num += 1;
@@ -563,7 +562,7 @@ Notice at this point, we have removed the mutual recursion. `func` and `gunc` ju
          tmp + 2
        } else {
          es.push(Event::C);
-@@ -73,13 +73,13 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -72,13 +72,13 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
            }
            if cond {
              es.push(Event::F);
@@ -588,8 +587,8 @@ When we inlined the original bodies of `func` and `gunc` into `hunc`, we took th
 We're now going to go and wrap each individual final expression instead, since we're going to be moving around the various inner blocks more.
 
 ```diff
-@@ -37,34 +37,36 @@ impl Ret {
- #[allow(clippy::needless_pass_by_value)]
+@@ -36,34 +36,36 @@ impl Ret {
+
  fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
    match arg {
 -    Arg::Func(mut data) => Ret::Func(if data.num >= THRESHOLD {
@@ -633,7 +632,7 @@ We're now going to go and wrap each individual final expression instead, since w
          } else {
            let mut cond = es.len() % 3 > 0;
            if cond {
-@@ -75,16 +77,16 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -74,16 +76,16 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
              es.push(Event::F);
              let mut tmp = hunc(es, Arg::Gunc(num + 4)).unwrap_gunc();
              tmp.cond = !tmp.cond;
@@ -672,13 +671,12 @@ Doing this means every recursive call is a tail call.
 We call the type that will represent all of the possible different recursive call sites and the actions we have to do after those calls `Cont`, for "[continuation][cont]".
 
 ```diff
-@@ -34,9 +34,12 @@ impl Ret {
+@@ -34,8 +34,11 @@ impl Ret {
    }
  }
 
 +enum Cont {}
 +
- #[allow(clippy::needless_pass_by_value)]
  fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
 -  match arg {
 +  let mut cs = Vec::<Cont>::new();
@@ -686,7 +684,7 @@ We call the type that will represent all of the possible different recursive cal
      Arg::Func(mut data) => {
        if data.num >= THRESHOLD {
          es.push(Event::A(data.cond));
-@@ -88,5 +91,9 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -87,5 +90,9 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
          }
        }
      }
@@ -717,8 +715,8 @@ If these last few steps seem a bit weird, stay with me! I hope that if you think
 Remember that at every step of the transformation so far, and to come, the behavior of `func` and `gunc` have not, and will not, change.
 
 ```diff
-@@ -39,6 +39,8 @@ enum Cont {}
- #[allow(clippy::needless_pass_by_value)]
+@@ -38,6 +38,8 @@ enum Cont {}
+
  fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
    let mut cs = Vec::<Cont>::new();
 +  #[allow(clippy::never_loop)]
@@ -726,7 +724,7 @@ Remember that at every step of the transformation so far, and to come, the behav
      let ret = match arg {
        Arg::Func(mut data) => {
          if data.num >= THRESHOLD {
-@@ -95,5 +97,6 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -94,5 +96,6 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
      while let Some(cont) = cs.pop() {
        match cont {}
      }
@@ -750,8 +748,7 @@ We:
 Note that in this case, we didn't need any local variables to be live across the recursive call, so the `Cont` variant we're adding doesn't carry any data.
 
 ```diff
-
-@@ -34,14 +34,15 @@ impl Ret {
+@@ -34,13 +34,14 @@ impl Ret {
    }
  }
 
@@ -760,7 +757,6 @@ Note that in this case, we didn't need any local variables to be live across the
 +  C1,
 +}
 
- #[allow(clippy::needless_pass_by_value)]
 -fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
 +fn hunc(es: &mut Vec<Event>, mut arg: Arg) -> Ret {
    let mut cs = Vec::<Cont>::new();
@@ -771,7 +767,7 @@ Note that in this case, we didn't need any local variables to be live across the
        Arg::Func(mut data) => {
          if data.num >= THRESHOLD {
            es.push(Event::A(data.cond));
-@@ -51,16 +52,16 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -50,16 +51,16 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
            if data.cond {
              es.push(Event::B(data.num));
              data.num += 1;
@@ -792,7 +788,7 @@ Note that in this case, we didn't need any local variables to be live across the
        Arg::Gunc(num) => {
          let cond = es.len() % 2 == 0;
          if num >= THRESHOLD {
-@@ -95,7 +96,12 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
+@@ -94,7 +95,12 @@ fn hunc(es: &mut Vec<Event>, arg: Arg) -> Ret {
        }
      };
      while let Some(cont) = cs.pop() {
