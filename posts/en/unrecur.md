@@ -582,7 +582,7 @@ Notice at this point, we have removed the mutual recursion. `func` and `gunc` ju
 
 ## Wrap every branch in a Ret
 
-When we inlined the original bodies of `func` and `gunc` into `hunc`, we took the whole block and wrapped it in the appropriate `Ret` enum variant.
+When we inlined the original bodies of `func` and `gunc` into `hunc`, we took both whole blocks and wrapped them each in their own appropriate `Ret` enum variant.
 
 We're now going to go and wrap each individual final expression instead, since we're going to be moving around the various inner blocks more.
 
