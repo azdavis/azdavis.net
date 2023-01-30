@@ -103,18 +103,24 @@ function blockMath(
   return true;
 }
 
+function runHljs(code: string, language: string): string {
+  if (!hl.getLanguage(language)) {
+    throw new Error(`unknown language: ${language}`);
+  }
+  return hl.highlight(code, { language }).value;
+}
+
+function highlight(code: string, language: string): string {
+  if (language.length === 0) {
+    throw new Error(
+      "no language for code block. to opt out of syntax highlighting, use `text`",
+    );
+  }
+  return runHljs(code, language);
+}
+
 const md = markdownIt({
-  highlight(code: string, language: string): string {
-    if (language.length === 0) {
-      throw new Error(
-        "no language for code block. to opt out of syntax highlighting, use `text`",
-      );
-    }
-    if (!hl.getLanguage(language)) {
-      throw new Error(`unknown language: ${language}`);
-    }
-    return hl.highlight(code, { language }).value;
-  },
+  highlight,
   typographer: true,
   html: true,
 });
