@@ -47,17 +47,14 @@ The code for this post is available in this [repository][repo], which also shows
 - We'll have 2 functions, `func` and `gunc`.
 - They recursively call themselves and each other.
 - They pass around various changing data to each other.
-- Part of this data is a special number.
-- This number will increase with every recursive call.
-- When this number is large enough, we will stop recurring.
 - The functions will also pass around and append to a log of events, represented as a list.
-- As we rewrite, we will test that the original version and the rewritten version produce the same event log, given the same starting number.
+- As we rewrite, we will test that the original version and the rewritten version produce the same event log, given the same starting data.
 
 Remember, though, that the important thing is not the specific contrived example code that we'll be working with. Rather, it is the process itself, of incrementally rewriting and transforming the code while preserving its behavior, that is the most useful.
 
 ## Common code
 
-First we define the events, some data, and the special number threshold:
+First we define the events, some data, and a threshold so we don't infinitely recur:
 
 ```rs
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
