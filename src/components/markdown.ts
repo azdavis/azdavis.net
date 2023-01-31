@@ -188,7 +188,8 @@ function highlight(code: string, language: string): string {
     const hljsLine = hljsLines[i];
     const diffMarker = diffMarkers[i];
     if (diffMarker === null) {
-      outLines.push(" " + hljsLine);
+      const outLine = hljsLine.length === 0 ? hljsLine : " " + hljsLine;
+      outLines.push(outLine);
       continue;
     }
     switch (diffMarker.t) {
