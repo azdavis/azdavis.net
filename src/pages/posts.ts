@@ -1,5 +1,5 @@
 import { dateShow } from "../components/date-show";
-import { markdown } from "../components/markdown";
+import { inline } from "../components/markdown";
 import { page } from "../components/page";
 import { h } from "../util/h";
 import { Lang, root } from "../util/lang";
@@ -38,7 +38,7 @@ export function postsPage(lang: Lang, posts: PostListItem[]): string {
           dateShow(lang, date),
           h("div", {}, [
             h("strong", {}, [h("a", { href: path }, [title])]),
-            h("div", {}, [markdown(desc, "inline")]),
+            h("div", {}, [inline(desc)]),
           ]),
         ])
         .flat(),

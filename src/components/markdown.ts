@@ -241,14 +241,10 @@ md.renderer.rules[inlineRule.name] = (tokens, idx) =>
 md.renderer.rules[blockRule.name] = (tokens, idx) =>
   renderMath(tokens[idx].content, true);
 
-export type Display = "block" | "inline";
-export function markdown(text: string, display: Display): string {
-  switch (display) {
-    case "block":
-      return md.render(text);
-    case "inline":
-      return md.renderInline(text);
-    default:
-      return absurd(display);
-  }
+export function inline(text: string): string {
+  return md.renderInline(text);
+}
+
+export function block(text: string): string {
+  return md.render(text);
 }

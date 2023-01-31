@@ -1,5 +1,5 @@
 import { dateShow } from "../components/date-show";
-import { markdown } from "../components/markdown";
+import { block } from "../components/markdown";
 import { page, Style } from "../components/page";
 import { h } from "../util/h";
 import { Lang, name, root } from "../util/lang";
@@ -47,6 +47,6 @@ export function post(
             return h("a", { href: postDir(l, slug) }, [inner]) + last;
           }),
         ]),
-    markdown(data.content, "block"),
+    block(data.content),
   ]);
 }
