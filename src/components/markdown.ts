@@ -115,7 +115,6 @@ type DiffMarker =
   | { t: "addition" }
   | { t: "deletion" };
 
-const COMMENT = /^#/;
 const FIRST_CHAR = /^./;
 
 function rmFirstChar(s: string): string {
@@ -126,90 +125,95 @@ function hljsSpan(cls: string, inner: string): string {
   return `<span class="hljs-${cls}">${inner}</span>`;
 }
 
-function highlight(code: string, language: string): string {
-  if (language.length === 0) {
-    throw new Error(
-      "no language for code block. to opt out of syntax highlighting, use `text`",
-    );
-  }
-  if (language !== "diff") {
-    return runHljs(code, language);
-  }
-  const lines = code.split("\n");
-  const firstLine = lines.shift();
+const COMMENT = /^#/;
+
+function highlightWithDiff(code: string): string {
+  const diffLines = code.split("\n");
+  const firstLine = diffLines.shift();
   if (firstLine === undefined) {
     throw new Error("highlight empty diff block");
   }
   if (!COMMENT.test(firstLine)) {
-    throw new Error(`first line of diff was not a '#' comment: '${firstLine}'`);
+    throw new Error(
+      `first diffLine of diff was not a '#' comment: '${firstLine}'`,
+    );
   }
-  const innerLang = firstLine.replace(COMMENT, "").trim();
-  const innerLangLines: string[] = [];
+  const lang = firstLine.replace(COMMENT, "").trim();
+  const langLines: string[] = [];
   const diffMarkers: (DiffMarker | null)[] = [];
-  for (const line of lines) {
-    if (line.length === 0) {
-      innerLangLines.push("");
+  for (const diffLine of diffLines) {
+    if (diffLine.length === 0) {
+      langLines.push("");
       diffMarkers.push(null);
       continue;
     }
-    const c = line[0];
+    const c = diffLine[0];
     switch (c) {
       case "#":
         continue;
       case " ":
-        innerLangLines.push(rmFirstChar(line));
+        langLines.push(rmFirstChar(diffLine));
         diffMarkers.push(null);
         continue;
       case "@":
-        innerLangLines.push("");
-        diffMarkers.push({ t: "meta", content: line });
+        langLines.push("");
+        diffMarkers.push({ t: "meta", content: diffLine });
         continue;
       case "+":
-        innerLangLines.push(rmFirstChar(line));
+        langLines.push(rmFirstChar(diffLine));
         diffMarkers.push({ t: "addition" });
         continue;
       case "-":
-        innerLangLines.push(rmFirstChar(line));
+        langLines.push(rmFirstChar(diffLine));
         diffMarkers.push({ t: "deletion" });
         continue;
       default:
-        throw new Error(`unknown first char of diff line: '${c}'`);
+        throw new Error(`unknown first char of diff diffLine: '${c}'`);
     }
   }
-  if (innerLangLines.length !== diffMarkers.length) {
-    throw new Error("bug: innerLangLines.length !== diffMarkers.length");
+  if (langLines.length !== diffMarkers.length) {
+    throw new Error("bug: langLines.length !== diffMarkers.length");
   }
-  const hljsLines = runHljs(innerLangLines.join("\n"), innerLang).split("\n");
-  if (innerLangLines.length !== hljsLines.length) {
-    throw new Error("bug: innerLangLines.length !== hljsLines.length");
+  const hljsLines = runHljs(langLines.join("\n"), lang).split("\n");
+  if (langLines.length !== hljsLines.length) {
+    throw new Error("bug: langLines.length !== hljsLines.length");
   }
-  const outLines: string[] = [];
+  const retLines: string[] = [];
   for (let i = 0; i < diffMarkers.length; i++) {
     const hljsLine = hljsLines[i];
     const diffMarker = diffMarkers[i];
     if (diffMarker === null) {
-      const outLine = hljsLine.length === 0 ? hljsLine : " " + hljsLine;
-      outLines.push(outLine);
+      const retLine = hljsLine.length === 0 ? hljsLine : " " + hljsLine;
+      retLines.push(retLine);
       continue;
     }
     switch (diffMarker.t) {
       case "meta":
         if (hljsLine.length !== 0) {
-          throw new Error("bug: non-empty hljs meta line");
+          throw new Error("bug: non-empty hljs meta diffLine");
         }
-        outLines.push(hljsSpan("meta", diffMarker.content));
+        retLines.push(hljsSpan("meta", diffMarker.content));
         continue;
       case "addition":
-        outLines.push(hljsSpan("addition", "+" + hljsLine));
+        retLines.push(hljsSpan("addition", "+" + hljsLine));
         continue;
       case "deletion":
-        outLines.push(hljsSpan("deletion", "-" + hljsLine));
+        retLines.push(hljsSpan("deletion", "-" + hljsLine));
         continue;
       default:
         return absurd(diffMarker);
     }
   }
-  return outLines.join("\n");
+  return retLines.join("\n");
+}
+
+function highlight(code: string, lang: string): string {
+  if (lang.length === 0) {
+    throw new Error(
+      "no lang for code block. to opt out of syntax highlighting, use `text`",
+    );
+  }
+  return lang === "diff" ? highlightWithDiff(code) : runHljs(code, lang);
 }
 
 const md = markdownIt({
