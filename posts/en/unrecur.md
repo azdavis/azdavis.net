@@ -245,7 +245,7 @@ We have some early returns in `func` and `gunc` for the base case. We're going t
 
 This isn't great coding style, but we need to do this because we're going to be putting both functions in one big wrapper function, to remove the **mutual** recursion (we'll still be recursive, but it'll be one function). That wrapper function will need to do its own bookkeeping, so we can't be `return`ing explicitly at inopportune times.
 
-Note that the diffs shown here are ignoring whitespace changes, otherwise they'd be massive and confusing.
+Note that the diffs shown here are ignoring whitespace changes (using `git show -w`), otherwise they'd be massive and confusing.
 
 ```diff
 # rs
