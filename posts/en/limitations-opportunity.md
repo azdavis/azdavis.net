@@ -108,7 +108,8 @@ For instance, this program shows that in Python, the value `True` takes 28 bytes
 
 ```py
 import sys
-print(sys.getsizeof(True)) # ==> 28
+s = sys.getsizeof(True)
+assert s == 28
 ```
 
 By contrast, in statically typed languages, we do not perform runtime type checks, and so we need not store the types of values at runtime.
@@ -116,9 +117,8 @@ By contrast, in statically typed languages, we do not perform runtime type check
 This Rust program shows that value `true`, of type `bool`, takes only 1 byte to store.
 
 ```rs
-fn main() {
-  println!("{}", std::mem::size_of_val(&true)); // ==> 1
-}
+let s = std::mem::size_of_val(&true);
+assert_eq!(s, 1);
 ```
 
 ## Example: Ownership
@@ -221,11 +221,9 @@ fn add_twice(a: &mut i32, b: &mut i32) {
 This function itself is legal, but calling it as we did in C is not. When we attempt to do so:
 
 ```rs
-fn main() {
-  let mut x = 1;
-  add_twice(&mut x, &mut x);
-  println!("{}", x);
-}
+let mut x = 1;
+add_twice(&mut x, &mut x);
+println!("{}", x);
 ```
 
 We get an error:
