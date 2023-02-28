@@ -10,7 +10,9 @@ I learned about this idea of "testing everything" from Alex Kladov, aka matklad,
 
 ## Examples
 
-In my project [Millet][], a [language server][lsp] for [Standard ML][sml], I have some repository tests, which ensure the repository itself must be a certain way.
+In my project [Millet][], a [language server][lsp] for [Standard ML][sml] written in Rust, I have some repository tests, which ensure the repository itself must be a certain way.
+
+One feature of Rust that makes these kinds of tests easier to write is the [`include_str`][include-str] macro. This built-in macro includes the contents of a file into the program at compile time as a string literal. As you'll see, many of the tests include some file and then assert that the file satisfies some condition.
 
 ### Statics rule references
 
@@ -89,3 +91,4 @@ And so on.
 [changelog]: https://github.com/azdavis/millet/blob/ed79c7e2302f8ecdb7c1b87e44c43a5e6f74aa91/docs/CHANGELOG.md
 [diagnostics]: https://github.com/azdavis/millet/blob/ed79c7e2302f8ecdb7c1b87e44c43a5e6f74aa91/docs/diagnostics.md
 [manual]: https://github.com/azdavis/millet/blob/ed79c7e2302f8ecdb7c1b87e44c43a5e6f74aa91/docs/manual.md
+[include-str]: https://doc.rust-lang.org/stable/std/macro.include_str.html
