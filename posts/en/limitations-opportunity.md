@@ -79,7 +79,7 @@ Therefore, at least one of the following must be true about all programming lang
   - Example: Most programming languages.
 - The typechecker for the language is unsound.
   - This means the typechecker does not reject programs that error when run.
-  - Example: [TypeScript][ts].
+  - Example: [TypeScript][ts-soundness].
 - The language is not Turing-complete.
   - This means the language cannot perform certain classes of computations.
   - Example: [Dhall][dhall].
@@ -342,5 +342,5 @@ Conversely, ostensibly removing limitations can in a sense add limitations, in t
 [cpp-parse-undecidable]: https://blog.reverberate.org/2013/08/parsing-c-is-literally-undecidable.html
 [halt]: http://www.scottaaronson.com/blog/?p=710
 [rice]: https://busy-beavers.tigyog.app/rice
-[ts]: https://www.typescriptlang.org/docs/handbook/type-compatibility.html#a-note-on-soundness
+[ts-soundness]: https://www.typescriptlang.org/docs/handbook/type-compatibility.html#a-note-on-soundness
 [dhall]: https://docs.dhall-lang.org/discussions/Safety-guarantees.html#turing-completeness
