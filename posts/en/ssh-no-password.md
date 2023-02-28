@@ -75,7 +75,14 @@ The specifics might be slightly different, but the bottom line is that it is a v
 
 We'll need to configure SSH to use the keytab file we just created.
 
-`ssh` is configured with the `~/.ssh/config` file. Create that file if it doesn't exist, then add these lines to it, replacing `<ANDREW_USERNAME>` with your username:
+`ssh` is configured with the `~/.ssh/config` file. Create that file if it doesn't exist:
+
+```sh
+$ mkdir -p ~/.ssh
+$ touch ~/.ssh/config
+```
+
+Then add these lines to it, replacing `<ANDREW_USERNAME>` with your username:
 
 ```text
 Host cmu
@@ -108,13 +115,13 @@ The last step will involve adding configuration not for `ssh`, but your shell it
 Type:
 
 ```sh
-$ echo $0
+$ basename $SHELL
 ```
 
 at the command line to see what shell program you're currently running.
 
-- If it says e.g. `/bin/zsh`, then your configuration will go in `~/.zshrc`.
-- If it says e.g. `/bin/bash`, then it'll go in `~/.bashrc` or `~/.bash_profile`.
+- If it says `zsh`, then your configuration will go in `~/.zshrc`.
+- If it says `bash`, then it'll go in `~/.bashrc` or `~/.bash_profile`.
 
 I'm not sure on the specifics for bash because I don't use bash. The default on macOS is zsh nowadays.
 
