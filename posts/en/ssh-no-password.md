@@ -36,10 +36,10 @@ My suggestion would be to create a directory called `~/.local` and put your keyt
 ```sh
 $ mkdir -p ~/.local
 $ ls ~/.local/keytab
-ls: /Users/<USERNAME>/.local/keytab: No such file or directory
+ls: /Users/username/.local/keytab: No such file or directory
 ```
 
-The usage of `ls` verifies that there is no pre-existing `~/.local/keytab` which would be overwritten with the following steps. Its output will show your local username in place of `<USERNAME>`.
+The usage of `ls` verifies that there is no pre-existing `~/.local/keytab` which would be overwritten with the following steps. Its output will show your local username in place of `username`.
 
 We're now going to create the keytab file.
 
@@ -49,9 +49,8 @@ Utter the following magical incantation to set up the keytab file.
 
 ```sh
 $ ktutil \
-  -k ~/.local/keytab \
-  add \
-  -p <ANDREW_USERNAME>@ANDREW.CMU.EDU \
+  -k ~/.local/keytab add \
+  -p ANDREW_USERNAME@ANDREW.CMU.EDU \
   -e aes256-cts-hmac-sha1-96 \
   -V 1
 ```
@@ -59,14 +58,14 @@ $ ktutil \
 A few caveats:
 
 - If you put your keytab in some other place that wasn't `~/.local/keytab`, change the thing after `-k` to wherever the keytab file is.
-- Replace `<ANDREW_USERNAME>` with your CMU Andrew username, not your local computer username.
+- Replace `ANDREW_USERNAME` with your uppercase CMU Andrew username, not your local computer username.
 - You'll need to type and re-type your CMU Andrew password.
 
 Afterwards, you can verify it worked with a usage of the `file` command:
 
 ```sh
 $ file ~/.local/keytab
-/Users/<USERNAME>/.local/keytab: Kerberos Keytab file, realm=ANDREW.CMU.EDU, principal=<ANDREW_USERNAME>/, type=12345, date=Thu Dec 10 01:23:45 2050, kvno=10
+/Users/username/.local/keytab: Kerberos Keytab file, realm=ANDREW.CMU.EDU, principal=ANDREW_USERNAME/, type=12345, date=Thu Dec 10 01:23:45 2050, kvno=10
 ```
 
 The specifics might be slightly different, but the bottom line is that it is a valid "Kerberos Keytab" file.
@@ -82,11 +81,11 @@ $ mkdir -p ~/.ssh
 $ touch ~/.ssh/config
 ```
 
-Then add these lines to it, replacing `<ANDREW_USERNAME>` with your username:
+Then add these lines to it, replacing `andrew_username` with your lowercase Andrew username:
 
 ```text
 Host cmu
-  User <ANDREW_USERNAME>
+  User andrew_username
   Hostname unix.andrew.cmu.edu
   GSSAPIAuthentication yes
   GSSAPIDelegateCredentials yes
@@ -101,7 +100,7 @@ $ ssh cmu
 instead of the usual
 
 ```sh
-$ ssh <ANDREW_USERNAME>@unix.andrew.cmu.edu
+$ ssh andrew_username@unix.andrew.cmu.edu
 ```
 
 You may want to add more `Host`s with other `Hostname`s if you e.g. want to use the "shark machines" (not sure if they still use those, but they did from 2016-2020).
@@ -137,11 +136,11 @@ First create a shell function that'll generate a ticket for you. Add this functi
 
 ```sh
 get_kerberos_ticket() {
-  kinit -t ~/.local/keytab <ANDREW_USERNAME>@ANDREW.CMU.EDU
+  kinit -t ~/.local/keytab ANDREW_USERNAME@ANDREW.CMU.EDU
 }
 ```
 
-Again, you'll need to replace `<ANDREW_USERNAME>`, as well as the path to the keytab if you changed that.
+Again, you'll need to replace `ANDREW_USERNAME` with your uppercase Andrew username, as well as the path to the keytab if you changed that.
 
 Now, every time you `ssh`, you can manually say `get_kerberos_ticket` to generate a ticket. Like this:
 
