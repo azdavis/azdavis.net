@@ -11,6 +11,8 @@ pid="$!"
 
 if command -v entr >/dev/null; then
   find posts static -type f | entr ./scripts/build-and-reload.sh
+else
+  ./scripts/build-and-reload.sh
 fi
 
 wait "$pid"
