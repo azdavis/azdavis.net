@@ -283,7 +283,7 @@ I'd like to give thanks to some folks that helped me along the way:
 - [Project Savanna][proj-sav], a group who shares my desire in improving the tooling around SML. Many of them are current and former 15-150 TAs.
 - The CMU student Discord, for motivating me to revive and improve the project.
 - [Yixin He][yixin], for the art.
-- My girlfriend, for supporting me and the things I like.
+- My partner, for supporting me and the things I like.
 
 [15-122]: https://www.cs.cmu.edu/~15122/
 [15-150]: https://www.cs.cmu.edu/~15150/
