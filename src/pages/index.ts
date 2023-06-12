@@ -24,6 +24,7 @@ const translations = {
     postsTitle: "Posts",
     postsDesc: "An assortment of writings.",
     githubDesc: "A collection of repositories.",
+    linkedInDesc: "A network of professionals.",
     contactTitle: "CONTACT",
     contactDesc: "[first name].z.[last name]@icloud.com",
     copyrightTitle: "COPYRIGHT",
@@ -47,6 +48,7 @@ const translations = {
     postsTitle: "投稿",
     postsDesc: "文章の揃い。",
     githubDesc: "リポジトリーの集まり。",
+    linkedInDesc: "専門家の通信網。",
     contactTitle: "連絡",
     contactDesc: "[名].z.[姓]@icloud.com",
     copyrightTitle: "著作権",
@@ -71,6 +73,12 @@ export function index(lang: Lang): string {
       h("dd", {}, [t.postsDesc]),
       h("dt", {}, [h("a", { href: "https://github.com/azdavis" }, ["GitHub"])]),
       h("dd", {}, [t.githubDesc]),
+      h("dt", {}, [
+        h("a", { href: "https://www.linkedin.com/in/ariel-davis-b61b2714a/" }, [
+          "LinkedIn",
+        ]),
+      ]),
+      h("dd", {}, [t.linkedInDesc]),
     ]),
     h("h1", {}, [t.contactTitle]),
     h("div", { class: "section" }, [t.contactDesc]),
