@@ -118,6 +118,12 @@ Given a definition, Millet can find all references to that definition.
   <source src="/img/millet/11-find-all-refs.mp4#t=0.001">
 </video>
 
+### Completions
+
+Millet provides code completions at the current cursor.
+
+![Millet showing available code completions](/img/millet/12-completions.png)
+
 ### Multiple files
 
 To allow for large projects with many files, Millet has support for some common SML "group" file types:
