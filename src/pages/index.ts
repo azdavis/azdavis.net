@@ -10,9 +10,8 @@ const translations = {
     nameContent: "azdavis - a fella",
     descTitle: "DESCRIPTION",
     descContent: [
-      "azdavis is a software engineer working at ",
-      h("a", { href: "https://stripe.com" }, ["Stripe"]),
-      ". He acquired a major in computer science, with a minor in Japanese ",
+      "azdavis is a software engineer. ",
+      "He acquired a major in computer science, with a minor in Japanese ",
       "studies, from ",
       h("a", { href: "https://www.cmu.edu" }, ["Carnegie Mellon University"]),
       ".",
@@ -35,9 +34,7 @@ const translations = {
     nameContent: "azdavis - 或る奴",
     descTitle: "説明",
     descContent: [
-      "azdavisは",
-      h("a", { href: "https://stripe.com/jp" }, ["Stripe"]),
-      "で働いている開発者である。",
+      "azdavisは開発者である。",
       h("a", { href: "https://www.cmu.edu" }, ["カーネギーメロン大学"]),
       "でコンピューター科学の専攻と日本学の副専攻を取った。",
     ],
