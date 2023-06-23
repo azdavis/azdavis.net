@@ -186,7 +186,6 @@ Much of this article was [inspired][] by a bunch of other things I've read and w
 [ufcs]: /posts/pl-idea-ufcs/
 [push]: https://doc.rust-lang.org/stable/alloc/vec/struct.Vec.html#method.push
 [lang-srv-perf]: https://rust-analyzer.github.io/blog/2020/07/20/three-architectures-for-responsive-ide.html
-[ruby-mutation]: https://blog.jez.io/ruby-mutation/
 [sorbet]: https://sorbet.org
 [stripe]: https://stripe.com
 [parse-kw]: https://github.com/sorbet/sorbet/pull/1993
