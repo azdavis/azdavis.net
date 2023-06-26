@@ -78,7 +78,7 @@ Note that:
 
 Related to this, Millet can show inlay hints for types right in the editor.
 
-![Millet showing inlay hints on fun and val declarations ](/img/millet/13-inlay-hints.png)
+![Millet showing inlay hints on fun and val declarations](/img/millet/13-inlay-hints.png)
 
 ### Go to definition/type definition
 
