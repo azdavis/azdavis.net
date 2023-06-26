@@ -74,6 +74,12 @@ Note that:
 
 ![Millet showing user-written doc comments on hover](/img/millet/5a-hover-user-doc.png)
 
+### Inlay hints
+
+Related to this, Millet can show inlay hints for types right in the editor.
+
+![Millet showing inlay hints on fun and val declarations ](/img/millet/13-inlay-hints.png)
+
 ### Go to definition/type definition
 
 Jump to (or peek) the definition of a value, type, structure, signature, or functor.
