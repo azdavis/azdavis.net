@@ -4,7 +4,7 @@ date: 2021-12-14
 desc: 俺の好きな慣用句の一つ。
 ---
 
-英語では文句があって：
+英語では慣用句があって：
 
 > If it's worth doing, it's worth doing well.
 
