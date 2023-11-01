@@ -43,5 +43,11 @@ Moving away from car-centrism and investing in other modes of transport naturall
 
 But these policies also benefit car owners, who will enjoy less traffic and roads that break down less rapidly, due to fewer cars using those roads.
 
+## There are other modes of private transport
+
+You'll notice that I've been discussing private cars and public transportation in this post so far. This may imply the only method of private transportation is a car.
+
+As any owner of a bike, e-bike, scooter, or working pair of legs can tell you, this is untrue.
+
 [rfuckcars]: https://old.reddit.com/r/fuckcars/
 [xkcd]: https://xkcd.com/2832/
