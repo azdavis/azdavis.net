@@ -37,7 +37,7 @@ Every developed country that has advanced public transport also has a well-devel
 
 ## Hope for the future
 
-Trying to [build a city][xkcd] around cars, however, is basically impossible. Car-centric cities cannot possibly be livable and walkable. The physical reality of how much space cars take up doesn't allow it.
+Trying to [build a city][xkcd] around cars, however, is impossible. Car-centric cities cannot possibly be livable and walkable. The physical reality of how much space cars take up doesn't allow it.
 
 Because of this, I believe over time, cities that want to densify will have no choice but to abandon car-centrism and implement support for other modes of transport.
 
