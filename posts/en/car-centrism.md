@@ -26,7 +26,9 @@ It's much rarer to convince someone of your viewpoint with anger and hate, than 
 
 ## Cars have their place
 
-You'll notice that I said that cars are _often_ not the best way to get around. But of course, cars are useful when traveling through rural areas, for instance. Every developed country that has advanced public transport also has well-developed systems of roads and freeways.
+You'll notice that I said that cars are _often_ not the best way to get around. But of course, cars are useful when traveling through rural areas, for instance.
+
+Every developed country that has advanced public transport also has a well-developed system of roads and freeways.
 
 ## Hope for the future
 
