@@ -8,6 +8,7 @@ Those who have heard me talk about public policy will know that I often bemoan t
 
 - Safer
 - Cheaper
+- Quieter
 - Faster
 - More energy efficient
 - More space efficient
