@@ -4,7 +4,11 @@ date: 2023-11-01
 desc: I like trains.
 ---
 
-Those who have heard me talk about public policy will know that I often bemoan the dominance of private cars as the primary mode of transport for most Americans. The benefits of well-implemented public transport are real:
+Those who have heard me talk about public policy will know that I often bemoan the dominance of private cars as the primary mode of transport for most Americans.
+
+## It's not about public transport
+
+The benefits of well-implemented public transport are real:
 
 - Safer
 - Cheaper
@@ -13,9 +17,7 @@ Those who have heard me talk about public policy will know that I often bemoan t
 - More energy efficient
 - More space efficient
 
-## It's not about public transport
-
-Curiously enough, I wouldn't describe myself as a fan of public transport per se. Rather, I'd say I'm a fan of _being able to get to my destination_, and I just happen to think private cars are often not the best way to do that.
+And yet curiously enough, I wouldn't describe myself as a fan of public transport per se. Rather, I'd say I'm a fan of _being able to get to my destination_, and I just happen to think private cars are often not the best way to do that.
 
 You see this issue in software engineering as well. Sometimes we forget that the point is not to "write code", but rather to _solve a problem_.
 
