@@ -4,7 +4,9 @@ date: 2023-11-01
 desc: I like trains.
 ---
 
-Those who have heard me talk about public policy will know that I often bemoan the dominance of private cars as the primary mode of transport for most Americans.
+Those who know me well know that I often bemoan the dominance of private cars as the primary mode of transport for most Americans.
+
+Now Internet strangers, who may or may not know me well, can read my bemoaning too!
 
 ## It's not about public transport
 
