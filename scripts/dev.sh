@@ -5,6 +5,10 @@ set -eu
 cd "$(dirname "$0")"
 cd ..
 
+if ! [ -e ./node_modules ]; then
+  npm i
+fi
+
 ./node_modules/.bin/tsc
 ./node_modules/.bin/serve build &
 pid="$!"

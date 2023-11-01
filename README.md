@@ -5,6 +5,7 @@ A place for stuff
 ## Setup
 
 - Install node + npm.
+- Install deps with `npm i`.
 - (Optional) Install `entr` for auto-reloading support in the dev script.
 
 ## Development
