@@ -8,7 +8,7 @@ cd ..
 node ./out/build.js
 
 app_running() {
-  command -v pgrep >/dev/null && pgrep "$1" >/dev/null
+  command -v pgrep >/dev/null && pgrep -x "$1" >/dev/null
 }
 
 if app_running 'Google Chrome'; then
