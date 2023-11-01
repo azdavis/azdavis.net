@@ -12,7 +12,7 @@ A place for stuff
 
 Run `scripts/dev.sh` to run a local dev server.
 
-It will set up auto-reloading for when files in `posts` change. However, it will **not** auto-reload if the build script changes.
+It will set up auto-reloading for when files in `posts` change. However, it will **not** auto-reload if the build script or static files (like CSS) change.
 
 The build script is built only once, when the dev server starts up. To rebuild it, re-run the dev script.
 
