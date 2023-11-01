@@ -20,7 +20,7 @@ You see this issue in software engineering as well. Sometimes we forget that the
 
 ## It's not about hating cars
 
-In a similar vein, that sentiments like "I hate cars" and "[fuck cars][rfuckcars]" are counterproductive. A car owner might interpret "fuck cars" as "fuck you" and become defensive, shutting down conversation.
+In a similar vein, sentiments like "I hate cars" and "[fuck cars][rfuckcars]" are counterproductive. A car owner might interpret "fuck cars" as "fuck you" and become defensive, shutting down conversation.
 
 It's much rarer to convince someone of your viewpoint with anger and hate, than it is by laying out the facts calmly and respectfully.
 
@@ -32,7 +32,7 @@ You'll notice that I said that cars are _often_ not the best way to get around. 
 
 Trying to [build a city around cars][xkcd], however, is basically impossible. Car-centric cities cannot possibly be livable and walkable. The physical reality of how much space cars take up doesn't allow it.
 
-Because of this, I believe over time, cities that want to densify will have no choice but to abandon car centrism and implement support for other modes of transport.
+Because of this, I believe over time, cities that want to densify will have no choice but to abandon car-centrism and implement support for other modes of transport.
 
 ## Options benefit us all
 
