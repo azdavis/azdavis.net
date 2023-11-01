@@ -20,15 +20,15 @@ You see this issue in software engineering as well. Sometimes we forget that the
 
 ## It's not about hating cars
 
-Similarly, I think that sentiments like "I hate cars" and "[fuck cars](https://old.reddit.com/r/fuckcars/)" are counterproductive. I think it's much rarer to convince someone of your viewpoint with anger and hate, than it is by laying out the facts calmly and respectfully.
+In a similar vein, that sentiments like "I hate cars" and "[fuck cars][rfuckcars]" are counterproductive. It's much rarer to convince someone of your viewpoint with anger and hate, than it is by laying out the facts calmly and respectfully.
 
 ## Cars have their place
 
-You'll notice that I said that I think cars are _often_ not the best way to get around. But of course, cars are useful when traveling through rural areas, for instance. Every developed country that has advanced public transport also has well-developed systems of roads and freeways.
+You'll notice that I said that cars are _often_ not the best way to get around. But of course, cars are useful when traveling through rural areas, for instance. Every developed country that has advanced public transport also has well-developed systems of roads and freeways.
 
 ## Hope for the future
 
-Trying to build a city around cars, however, is basically impossible.Car-centric cities cannot possibly be livable and walkable. The physical reality of how much space cars take up don't allow it.
+Trying to build a city around cars, however, is basically impossible. Car-centric cities cannot possibly be livable and walkable. The physical reality of how much space cars take up don't allow it.
 
 Because of this, I believe over time, cities that want to densify will have no choice but to abandon car centrism and implement support for other modes of transport.
 
@@ -37,3 +37,5 @@ Because of this, I believe over time, cities that want to densify will have no c
 Moving away from car-centrism and investing in other modes of transport naturally benefits non-drivers, like children and those without a license.
 
 But these policies also benefit car owners, who will enjoy less traffic and roads that break down less rapidly, due to fewer cars using those roads.
+
+[rfuckcars]: https://old.reddit.com/r/fuckcars/
