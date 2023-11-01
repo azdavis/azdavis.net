@@ -16,6 +16,12 @@ body {
   background-color: var(--page-bg);
 }
 
+@media (max-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     --page-fg: #ddd;
