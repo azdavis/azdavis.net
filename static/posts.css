@@ -1,5 +1,5 @@
 .posts {
   display: grid;
-  grid-template-columns: 13ch 1fr;
+  grid-template-columns: 14ch 1fr;
   gap: 1em;
 }
