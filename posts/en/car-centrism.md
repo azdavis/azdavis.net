@@ -58,7 +58,7 @@ As any owner of a bike, e-bike, scooter, or working pair of legs can tell you, t
 
 ## Most trips shouldn't require a car
 
-Most car rides are not multi-hundred-mile road trips or lugging hundreds of pounds of cargo (other than the massive weight of the car itself). A large amount of trips are just a few miles around town.
+Most car rides are not multi-hundred-mile road trips or lugging hundreds of pounds of cargo. A large amount of trips are just a few miles around town.
 
 These kinds of short, local trips could often be done with other modes of transport like bikes, **if** the town in question implements sufficient infrastructure for these other transport modes.
 
