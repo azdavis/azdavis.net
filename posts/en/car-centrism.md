@@ -20,9 +20,9 @@ The benefits of well-implemented public transport are real:
 - More space efficient
 - Pollute less
 
-And yet curiously enough, I wouldn't describe myself as a fan of public transport per se. Rather, I'd say I'm a fan of _being able to get to my destination_, and I just happen to think private cars are often not the best way to do that.
+And yet curiously enough, I wouldn't describe myself as a fan of public transport per se. Rather, I'd say I'm a fan of **being able to get to my destination**, and I just happen to think private cars are often not the best way to do that.
 
-You see this issue in many other contexts as well. For instance, I'm a software engineer. Sometimes we are described as "coders". But I think this somewhat misses the point. The point is not to "code", but rather to _solve a problem_. Or rather, _engineer_ a solution to a problem, using software as a _tool_ to do that: a means to an end.
+You see this issue in many other contexts as well. For instance, I'm a software engineer. Sometimes we are described as "coders". But I think this somewhat misses the point. The point is not to "code", but rather to **solve a problem**. Or rather, **engineer** a solution to a problem, using software as a **tool** to do that: a means to an end.
 
 ## It's not about hating cars
 
@@ -32,7 +32,7 @@ It's much rarer to convince someone of your viewpoint with anger and hate, than 
 
 ## Cars have their place
 
-You'll notice that I said that cars are _often_ not the best way to get around. But of course, cars are useful in some cases, like when traveling through rural areas or with large cargo.
+You'll notice that I said that cars are **often** not the best way to get around. But of course, cars are useful in some cases, like when traveling through rural areas or with large cargo.
 
 Every developed country that has advanced public transport also has a well-developed system of roads and freeways.
 
