@@ -6,7 +6,7 @@ desc: I like trains.
 
 Those who know me well know that I often bemoan the dominance of private cars as the primary mode of transport for most Americans.
 
-Now folks on the Internet, who don't know me, can read my bemoaning too.
+Now folks on the Internet can read my bemoaning too.
 
 ## It's not about public transport
 
