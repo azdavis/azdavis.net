@@ -36,6 +36,8 @@ You'll notice that I said that cars are _often_ not the best way to get around. 
 
 Every developed country that has advanced public transport also has a well-developed system of roads and freeways.
 
+This too is generalizable: [everything in moderation (including moderation)][mod].
+
 ## Hope for the future
 
 Trying to [build a city][xkcd] around cars, however, is impossible. Car-centric cities cannot possibly be walkable. The physical reality of how much space cars take up doesn't allow it.
@@ -60,3 +62,4 @@ These kinds of short, local trips could often be done with other modes of transp
 
 [rfuckcars]: https://old.reddit.com/r/fuckcars/
 [xkcd]: https://xkcd.com/2832/
+[mod]: /posts/moderation
