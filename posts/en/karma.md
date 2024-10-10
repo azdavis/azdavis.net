@@ -1,6 +1,6 @@
 ---
 title: Karma
-date: 2024-10-10
+date: 2024-06-01
 desc: A reassuring lie.
 ---
 
