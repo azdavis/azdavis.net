@@ -1,7 +1,7 @@
 ---
 title: Karma
 date: 2024-06-01
-desc: A reassuring lie.
+desc: A reassuring delusion.
 ---
 
 There are many sayings and idioms related to the general idea of "karma" - that good things happen to good people, and vice versa:
