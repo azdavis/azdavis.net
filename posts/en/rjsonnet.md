@@ -31,13 +31,13 @@ local repeatedlyGreet(who, times) =
   "%s%s!" % [std.repeat("hello ", times), who];
 ```
 
-This will be inferred to have type
+This will be inferred to have type:
 
 ```text
 (who: string, times: number) => string
 ```
 
-## Implementation
+## Design
 
 The implementation is generally broken up into a few distinct stages, which proceed one after the other.
 
@@ -86,7 +86,7 @@ type ExprArena = Vec<Expr>;
 
 We have a main enum representing all possible 'expressions' (`Expr`s). There is an enum case for each different kind of expression, like literals, `if`, `function`, `local`, `assert`, array comprehensions, etc.
 
-We have an arena which is basically just a `Vec` of all the `Expr` enum we generate when desugaring the AST into HIR.
+We also have an arena which is basically just a `Vec` of all the `Expr` enum we generate when desugaring the AST into HIR.
 
 When expressions are recursive (i.e. contain sub-expressions), we use `ExprIdx`, which is either an index into the arena of expressions or `None`.
 
@@ -108,27 +108,29 @@ We do static analysis on the files. This checks things like whether variables ar
 
 We also check the types of expressions, to some degree. We carry out a limited form of type inference; we do not infer constraints on function parameters as is done in a [Damas-Hindley-Milner type system][hm] like Haskell's or [Standard ML][millet]'s. Instead, function parameters are assumed to be of any type, but can be "annotated" with type assertions at the beginning of the function.
 
-To check the types of expressions, we need to know the types of imported files. This means there is a dependency order between the files, and we must do static analysis of "leaf" files first before later files. This is unlike the previous stages, in which each file could be analyzed completely independently. which could all be done independently of other files.
+To check the types of expressions, we need to know the types of imported files. This means there is a dependency order between the files, and we must do static analysis of "leaf" files first before later files. This is unlike the previous stages, in which each file could be analyzed (almost) completely independently.
 
 ## Performance
 
 In addition to tolerating error states, a language server should be performant. It should quickly respond to user edits and still provide useful, up-to-date information, while using low CPU and memory.
 
-The goal of high performance drove many key design decisions in the implementation.
+[Performance is a feature][nelhage-perf]. The goal of high performance drove many key design decisions in the implementation.
 
 ### Interning
 
 For important types whose values may be repeated multiple times during program analysis, we use a technique called "interning", where we store the unique values a constant number of times instead of re-allocating for each instance.
 
-For instance, strings. Even if the same string occurs many times in the program text, we don't repeatedly allocate that same string each time. Instead we store that string in the string arena and hand out cheap indices into the arena (just an integer index).
+For instance, even if the same string occurs many times in the program text, we don't repeatedly allocate that same string each time. Instead we store that string in the string arena and hand out cheap integer-sized indices into the arena.
 
-We also intern static types. If multiple parts of the program are both inferred to have the same type, there will a shared allocation for the value representing that type.
+We also intern the values that represent the static types we encountered in the program. If multiple parts of the program are both inferred to have the same type, there will a shared allocation for the value representing that type.
 
 ### Parallelism
 
-We noted before that the early stages of analysis on a file are totally independent. This includes lexing, parsing, and desugaring.
+We noted before that the early stages of analysis on a given file are independent from other files. This includes lexing, parsing, and desugaring.
 
-But this is not quite true. When we desugar, we carry out string interning. This requires us to mutate the string arena to add new strings as we encounter them. This is problematic, since now there are data dependencies between the analyses of different files.
+This was a bit of a fib. It's true for lexing and parsing, but not for desugaring.
+
+When we desugar, we carry out string interning. This requires us to mutate the string arena to add new strings as we encounter them. This is problematic, since now there are data dependencies between the analyses of different files.
 
 Once way we could resolve this is by desugaring files in parallel, but having a single shared mutable string arena across the parallelized desugarings. This means we always have a single unified view of what the interned strings are.
 
@@ -152,7 +154,7 @@ local b = "foo";
 [a, b]
 ```
 
-Desugaring basically processes the file in the same order as the source text. So we'll, intern "foo" first in the first file and "bar" first in the second. We'll then end up assigning the same interning indices to different strings in the two files.
+Desugaring basically processes the file in the same order as the source text. So we'll intern "foo" first in the first file and "bar" first in the second. We'll then end up assigning the same interning indices to different strings in the two files.
 
 To make later stages of analysis more convenient, we'd like to combine the different per-file string arenas into one, instead of having to carry around the per-file string arena for each file. This means we have to combine the string arenas into a single global one.
 
@@ -166,9 +168,9 @@ This general idea, of:
 2. then combining the arenas, which generates a substitution
 3. that we then apply to affected values
 
-I learned from [Dmitry Petrashko](https://github.com/DarkDimius) from his work on [Sorbet](https://sorbet.org/), a type-checker for Ruby built at [Stripe](https://stripe.com/), where I interned twice and worked full-time for 3 years.
+is a technique I learned from [Dmitry Petrashko](https://github.com/DarkDimius) from his work on [Sorbet](https://sorbet.org/), a type-checker for Ruby built at [Stripe](https://stripe.com/), where I interned twice and worked full-time for 3 years.
 
-We also use this general idea in the static analysis, since we store types in arenas as well. However, for static analysis, there are even more data dependencies between files, because we must type-check `import`ed files before the importing files.
+We also use this technique in static analysis, since we store types in arenas as well. However, for static analysis, there are even more data dependencies between files, because we must type-check `import`ed files before the importing files.
 
 To make sure we analyze files in the right dependency order, we perform a topological sort of the files based on their imports, and parallelize for each the "levels" in this sort.
 
@@ -217,3 +219,4 @@ When a file updates, the language client (e.g. VSCode) is configured to send onl
 [vscode]: https://marketplace.visualstudio.com/items?itemName=azdavis.rjsonnet
 [hm]: https://bernsteinbear.com/blog/type-inference/
 [millet]: /posts/millet/
+[nelhage-perf]: https://blog.nelhage.com/post/reflections-on-performance/
