@@ -4,9 +4,12 @@ date: 2024-10-10
 desc: A language server for Jsonnet.
 ---
 
-We use [Jsonnet][] extensively at [Databricks][db]. There are various editor tools and plugins for Jsonnet, but I wanted to try making my own.
+We use [Jsonnet][] extensively at [Databricks][db]. There are various pre-existing editor tools and plugins for Jsonnet, like:
 
-So I created [rjsonnet][], a Jsonnet language server in Rust. It is available as a [VS Code][vscode] extension.
+- [Jsonnet LSP][carl], by Carl Verge
+- [Jsonnet Language Server][grafana], by Grafana
+
+But I wanted to try making my own. So I created [rjsonnet][], a Jsonnet language server in Rust. It is available as a [VS Code][vscode] extension.
 
 ## Features
 
@@ -213,10 +216,12 @@ We cache results of files between updates so that if the file doesn't change, we
 
 When a file updates, the language client (e.g. VSCode) is configured to send only the text of the file that updated, instead of the whole file.
 
+[carl]: https://marketplace.visualstudio.com/items?itemName=cverge.jsonnet-lsp
 [db]: https://www.databricks.com/
-[jsonnet]: https://jsonnet.org/
-[rjsonnet]: https://github.com/azdavis/rjsonnet
-[vscode]: https://marketplace.visualstudio.com/items?itemName=azdavis.rjsonnet
+[grafana]: https://marketplace.visualstudio.com/items?itemName=Grafana.vscode-jsonnet
 [hm]: https://bernsteinbear.com/blog/type-inference/
+[jsonnet]: https://jsonnet.org/
 [millet]: /posts/millet/
 [nelhage-perf]: https://blog.nelhage.com/post/reflections-on-performance/
+[rjsonnet]: https://github.com/azdavis/rjsonnet
+[vscode]: https://marketplace.visualstudio.com/items?itemName=azdavis.rjsonnet
