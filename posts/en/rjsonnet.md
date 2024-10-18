@@ -133,7 +133,7 @@ We noted before that the early stages of analysis - lexing, parsing, and desugar
 
 This was a bit of a fib. It's true for lexing and parsing, but not for desugaring.
 
-When we desugar, we carry out string interning. This requires us to mutate the string arena to add new strings as we encounter them. This is problematic, since now there are data dependencies between the analyses of different files.
+When we desugar, we carry out string interning. This requires us to mutate the string arena to add new strings as we encounter them. This is problematic, since now we have mutable state that we want to share across parallel tasks.
 
 Once way we could resolve this is by desugaring files in parallel, but having a single shared mutable string arena across the parallelized desugarings. This means we always have a single unified view of what the interned strings are.
 
