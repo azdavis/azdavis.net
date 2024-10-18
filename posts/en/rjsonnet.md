@@ -135,9 +135,7 @@ This was a bit of a fib. It's true for lexing and parsing, but not for desugarin
 
 When we desugar, we carry out string interning. This requires us to mutate the string arena to add new strings as we encounter them. This is problematic, since now we have mutable state that we want to share across parallel tasks.
 
-Once way we could resolve this is by desugaring files in parallel, but having a single shared mutable string arena across the parallelized desugarings. This means we always have a single unified view of what the interned strings are.
-
-But it also means we have to put the single global mutable string arena behind a synchronization primitive like a mutex or read-write lock. Given that this string arena will likely experience high contention during desugaring, this would lead to poor performance.
+Once way we could resolve this is putting the single global mutable string arena behind a synchronization primitive like a mutex or read-write lock. Given that this string arena will likely experience high contention during desugaring, this would lead to poor performance.
 
 Another choice, which is what we do, is to desugar in parallel with no shared mutable string arena, and instead produce a separate arena from each desugaring. This means there is no need for synchronization primitives and thus no contention.
 
