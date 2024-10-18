@@ -127,7 +127,7 @@ For instance, even if the same string occurs many times in the program text, we 
 
 We also intern the values that represent the static types we encountered in the program. If multiple parts of the program are both inferred to have the same type, there will a shared allocation for the value representing that type.
 
-### Parallelism
+### Parallelizing, combining, and substituting
 
 We noted before that the early stages of analysis on a given file are independent from other files. This includes lexing, parsing, and desugaring.
 
@@ -172,6 +172,8 @@ This general idea, of:
 3. that we then apply to affected values
 
 is a technique I learned from [Dmitry Petrashko](https://github.com/DarkDimius) from his work on [Sorbet](https://sorbet.org/), a type-checker for Ruby built at [Stripe](https://stripe.com/), where I interned twice and worked full-time for 3 years.
+
+### Topological sorting & per-level parallelization
 
 We also use this technique in static analysis, since we store types in arenas as well. However, for static analysis, there are even more data dependencies between files, because we must type-check `import`ed files before the importing files.
 
