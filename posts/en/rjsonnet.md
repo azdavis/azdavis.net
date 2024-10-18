@@ -126,17 +126,19 @@ We also intern static types. If multiple parts of the program are both inferred 
 
 ### Parallelism
 
-As noted before, some of the early stages of analysis on a file are totally independent. This includes lexing, parsing, and desugaring.
+We noted before that the early stages of analysis on a file are totally independent. This includes lexing, parsing, and desugaring.
 
-However, when we desugar, we carry out string interning. This requires us to mutate the string arena to add new strings as we see them. This is problematic, since now it's not true that the stages are completely independent.
+But this is not quite true. When we desugar, we carry out string interning. This requires us to mutate the string arena to add new strings as we encounter them. This is problematic, since now there are data dependencies between the analyses of different files.
 
-We have two choices for what we can do to fix this.
+Once way we could resolve this is by desugaring files in parallel, but having a single shared mutable string arena across the parallelized desugarings. This means we always have a single unified view of what the interned strings are.
 
-The first choice is to desugar files in parallel, but have a single shared mutable string arena across the parallelized desugaring. This means we always have a single unified view of what the interned strings are, but it also means we have to put the string arena behind a mutex or read-write lock. Given that the string arena will experience high contention during desugaring, this would likely lead to poor performance.
+But it also means we have to put the single global mutable string arena behind a synchronization primitive like a mutex or read-write lock. Given that this string arena will likely experience high contention during desugaring, this would lead to poor performance.
 
-The second choice is to desugar in parallel with no shared mutable string arena - instead have a separate arena for each desugaring. This means there is no contention, but it also leads to problem where the same string gets interned at different indices across different desugars.
+Another choice, which is what we do, is to desugar in parallel with no shared mutable string arena, and instead produce a separate arena from each desugaring. This means there is no need for synchronization primitives and thus no contention.
 
-For example, if we carry out desugaring (and thus string interning) on these two files in parallel, each with their own string arena:
+But now we have a separate string arena for each file. This means we could have the same string that gets interned at different indices across different desugars.
+
+For example, consider these two files:
 
 ```text
 local a = "foo";
@@ -150,13 +152,56 @@ local b = "foo";
 [a, b]
 ```
 
-Then, because we intern "foo" first in the first file and "bar" first in the second, we will assign different interning indices to each one.
+Desugaring basically processes the file in the same order as the source text. So we'll, intern "foo" first in the first file and "bar" first in the second. We'll then end up assigning the same interning indices to different strings in the two files.
 
-We would like to have stuff be consistent. So we do merging.
+To make later stages of analysis more convenient, we'd like to combine the different per-file string arenas into one, instead of having to carry around the per-file string arena for each file. This means we have to combine the string arenas into a single global one.
 
-We also do something similar for statics. However for that there is even more dependency between files because of imports.
+But when we combine one file's string arena with the global one, the same string may end up at a different index, as shown in the above example.
 
-We also have to make sure we do stuff in the right order when doing things in parallel. For that we use a topological sort and parallelize across the "levels" of this sort.
+So when combining, we need to also produce a substitution from old string indices to new ones, that we then apply to the desugared file.
+
+This general idea, of:
+
+1. generating individual arenas to avoid contention
+2. then combining the arenas, which generates a substitution
+3. that we then apply to affected values
+
+I learned from [Dmitry Petrashko](https://github.com/DarkDimius) from his work on [Sorbet](https://sorbet.org/), a type-checker for Ruby built at [Stripe](https://stripe.com/), where I interned twice and worked full-time for 3 years.
+
+We also use this general idea in the static analysis, since we store types in arenas as well. However, for static analysis, there are even more data dependencies between files, because we must type-check `import`ed files before the importing files.
+
+To make sure we analyze files in the right dependency order, we perform a topological sort of the files based on their imports, and parallelize for each the "levels" in this sort.
+
+For instance, consider we're analyzing a file named `A` that imports files `B` and `C`, which then import other files. We can visualize the graph of dependencies By laying out nested dependencies further down and the root node `A` at the top, with `|` and `\` drawing dependency edges between the files. The example graph looks like this, with each level number also noted:
+
+```text
+Graph      Level
+
+A          0
+| \
+B  C       1
+| \| \
+D  E  F    2
+   | \
+   G  H    3
+```
+
+Which is also given by this table:
+
+| File | Imports | Level |
+| ---- | ------- | ----- |
+| A    | B, C    | 0     |
+| B    | D, E    | 1     |
+| C    | E, F    | 1     |
+| D    | None    | 2     |
+| E    | G       | 2     |
+| F    | None    | 2     |
+| G    | None    | 3     |
+| H    | None    | 3     |
+
+We then analyze each level, starting from the furthest down and working up. Files on a given level can be analyzed in parallel, since they do not depend on each other. And we start at the furthest down level and go up, so that dependencies are analyzed before the dependents.
+
+In this example, we would first analyze `G` and `H` in parallel, then `D`, `E`, and `F` in parallel, then `B` and `C` in parallel, then `A`.
 
 ### Caching
 
