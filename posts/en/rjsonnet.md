@@ -144,15 +144,11 @@ But now we have a separate string arena for each file. This means we could have 
 For example, consider these two files:
 
 ```text
-local a = "foo";
-local b = "bar";
-[a, b]
+["foo", "bar"]
 ```
 
 ```text
-local a = "bar";
-local b = "foo";
-[a, b]
+["bar", "foo"]
 ```
 
 Desugaring basically processes the file in the same order as the source text. So we'll intern "foo" first in the first file and "bar" first in the second. We'll then end up assigning the same interning indices to different strings in the two files.
