@@ -135,7 +135,7 @@ This was a bit of a fib. It's true for lexing and parsing, but not for desugarin
 
 When we desugar, we carry out string interning. This requires us to mutate the string arena to add new strings as we encounter them. This is problematic, since now we have mutable state that we want to share across parallel tasks.
 
-Once way we could resolve this is putting the single global mutable string arena behind a synchronization primitive like a mutex or read-write lock. Given that this string arena will likely experience high contention during desugaring, this would lead to poor performance.
+Once way we could resolve this is putting the single global mutable string arena behind a synchronization primitive like a mutex or read-write lock. Given that this string arena will likely experience high contention during desugaring, this would probably lead to poor performance.
 
 Another choice, which is what we do, is to desugar in parallel with no shared mutable string arena, and instead produce a separate arena from each desugaring. This means there is no need for synchronization primitives and thus no contention.
 
@@ -153,7 +153,7 @@ For example, consider these two files:
 
 Desugaring basically processes the file in the same order as the source text. So we'll intern "foo" first in the first file and "bar" first in the second. We'll then end up assigning the same interning indices to different strings in the two files.
 
-To make later stages of analysis more convenient, we'd like to combine the different per-file string arenas into one, instead of having to carry around the per-file string arena for each file. This means we have to combine the string arenas into a single global one.
+To make later stages of analysis more convenient, we'd like to combine the different per-file string arenas into one, instead of having to carry around the per-file string arena for each file.
 
 But when we combine one file's string arena with the global one, the same string may end up at a different index, as shown in the above example.
 
@@ -161,9 +161,9 @@ So when combining, we need to also produce a substitution from old string indice
 
 This general idea, of:
 
-1. generating individual arenas to avoid contention
-2. then combining the arenas, which generates a substitution
-3. that we then apply to affected values
+1. generating individual arenas to avoid contention,
+2. then combining the arenas, which generates a substitution,
+3. that we then apply to affected values which contain indices into the arenas
 
 is a technique I learned from [Dmitry Petrashko](https://github.com/DarkDimius) from his work on [Sorbet](https://sorbet.org/), a type-checker for Ruby built at [Stripe](https://stripe.com/), where I interned twice and worked full-time for 3 years.
 
@@ -173,7 +173,7 @@ We also use this technique in static analysis, since we store types in arenas as
 
 To make sure we analyze files in the right dependency order, we perform a topological sort of the files based on their imports, and parallelize for each the "levels" in this sort.
 
-For instance, consider we're analyzing a file named `A` that imports files `B` and `C`, which then import other files. We can visualize the graph of dependencies By laying out nested dependencies further down and the root node `A` at the top, with `|` and `\` drawing dependency edges between the files. The example graph looks like this, with each level number also noted:
+For instance, consider we're analyzing a file named `A` that imports files `B` and `C`, which then import other files. We can visualize the graph of dependencies by laying out nested dependencies further down and the root node `A` at the top, with `|` and `\` denoting dependency edges between the files. Our example graph looks like this, with each level number also noted:
 
 ```text
 Graph      Level
