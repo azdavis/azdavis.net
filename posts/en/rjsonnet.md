@@ -129,7 +129,7 @@ We also intern the values that represent the static types we encountered in the 
 
 ### Parallelizing, combining, and substituting
 
-We noted before that the early stages of analysis on a given file are independent from other files. This includes lexing, parsing, and desugaring.
+We noted before that the early stages of analysis - lexing, parsing, and desugaring - on a given file are independent from other files.
 
 This was a bit of a fib. It's true for lexing and parsing, but not for desugaring.
 
