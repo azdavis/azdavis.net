@@ -22,6 +22,7 @@ It has the usual features you'd expect from a language server:
 - Standard library documentation
 - Hover for info
 - Auto-completions, via knowing what fields are on an object
+- Signature help, when calling a function
 
 Although Jsonnet does not have static types or type annotations, the language server does perform type inference. This powers some advanced features like auto-completions.
 
