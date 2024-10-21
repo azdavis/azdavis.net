@@ -35,7 +35,7 @@ But I wanted to try making my own. So I created [rjsonnet][], a Jsonnet language
 
 ## Features
 
-It has the usual features you'd expect from a language server:
+As shown above, its has a lot of the usual features you'd expect from a language server:
 
 - Syntax highlighting
 - Error tolerant parsing
@@ -120,7 +120,7 @@ The index is optional because we must permit representing partially-formed docum
 
 ```text
 local func(x) =
-  if   then else x + 1
+  if   then 3 else x + 1
 //   ^ cursor here, just deleted the condition
 ```
 
@@ -190,7 +190,7 @@ This general idea, of:
 
 is a technique I learned from [Dmitry Petrashko](https://github.com/DarkDimius) from his work on [Sorbet](https://sorbet.org/), a type-checker for Ruby built at [Stripe](https://stripe.com/), where I interned twice and worked full-time for 3 years.
 
-### Topological sorting & per-level parallelization
+### Topological sorting and per-level parallelization
 
 We also use this technique in static analysis, since we store types in arenas as well. However, for static analysis, there are even more data dependencies between files, because we must type-check `import`ed files before the importing files.
 
