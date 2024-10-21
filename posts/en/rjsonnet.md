@@ -239,9 +239,14 @@ Which is also given by this table:
 | G    | None    | 3     |
 | H    | None    | 3     |
 
-We then analyze each level, starting from the furthest down and working up. Files on a given level can be analyzed in parallel, since they do not depend on each other. And we start at the furthest down level and go up, so that dependencies are analyzed before the dependents.
+We then analyze each level, starting from the furthest down and working up. Files on a given level can be analyzed in parallel, since they do not depend on each other. And we start at the furthest level down and go up, so that dependencies are analyzed before the dependents.
 
-In this example, we would first analyze G and H in parallel, then D, E, and F in parallel, then B and C in parallel, then A.
+In this example, we would analyze:
+
+1. G, H
+1. D, E, F
+1. B, C
+1. A
 
 ### Caching
 
