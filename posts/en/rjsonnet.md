@@ -11,6 +11,28 @@ We use [Jsonnet][] extensively at [Databricks][db]. There are various pre-existi
 
 But I wanted to try making my own. So I created [rjsonnet][], a Jsonnet language server in Rust. It is available as a [VS Code][vscode] extension.
 
+## Screenshots
+
+### Syntax highlighting, error tolerant parsing, and inline diagnostics
+
+![syntax-hl-err-tolerant-diagnostics](/img/rjsonnet/1-syntax-hl-err-tolerant-diagnostics.png)
+
+### Go to (or peek) definition
+
+![peek-def](/img/rjsonnet/2-peek-def.png)
+
+### Hover for type and standard library documentation
+
+![std-lib](/img/rjsonnet/3-std-lib-doc-hover.png)
+
+### Auto-complete object fields
+
+![auto-complete](/img/rjsonnet/4-auto-complete.png)
+
+### Signature help
+
+![auto-complete](/img/rjsonnet/5-sig-help.png)
+
 ## Features
 
 It has the usual features you'd expect from a language server:
