@@ -196,19 +196,35 @@ We also use this technique in static analysis, since we store types in arenas as
 
 To make sure we analyze files in the right dependency order, we perform a topological sort of the files based on their imports, and parallelize for each the "levels" in this sort.
 
-For instance, consider we're analyzing a file named `A` that imports files `B` and `C`, which then import other files. We can visualize the graph of dependencies by laying out nested dependencies further down and the root node `A` at the top, with `|` and `\` denoting dependency edges between the files. Our example graph looks like this, with each level number also noted:
+For instance, consider we're analyzing a file named A that imports files B and C, which then import other files. We can visualize the graph of dependencies by laying out nested dependencies further down and the root node A at the top, with an arrow $x \rightarrow y$ denoting $x$ depends on $y$. Our example graph looks like this, with each level number also noted:
 
-```text
-Graph      Level
-
-A          0
-| \
-B  C       1
-| \| \
-D  E  F    2
-   | \
-   G  H    3
-```
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40">
+  <defs>
+    <marker id="head" orient="auto" markerWidth="8" markerHeight="8" refX="1" refY="4">
+      <path d="M 0,0 V 8 L 4,4 Z" fill="black" />
+    </marker>
+  </defs>
+  <text x="30" y="5" text-anchor="middle" font-size="4">A</text>
+  <text x="25" y="15" text-anchor="middle" font-size="4">B</text>
+  <text x="35" y="15" text-anchor="middle" font-size="4">C</text>
+  <text x="20" y="25" text-anchor="middle" font-size="4">D</text>
+  <text x="30" y="25" text-anchor="middle" font-size="4">E</text>
+  <text x="40" y="25" text-anchor="middle" font-size="4">F</text>
+  <text x="25" y="35" text-anchor="middle" font-size="4">G</text>
+  <text x="35" y="35" text-anchor="middle" font-size="4">H</text>
+  <text x="10" y="5" text-anchor="middle" font-size="2">0</text>
+  <text x="10" y="15" text-anchor="middle" font-size="2">1</text>
+  <text x="10" y="25" text-anchor="middle" font-size="2">2</text>
+  <text x="10" y="35" text-anchor="middle" font-size="2">3</text>
+  <path d="M 29,6 L 26,10" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 31,6 L 34,10" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 24,16 L 21,20" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 26,16 L 29,20" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 34,16 L 31,20" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 36,16 L 39,20" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 29,26 L 26,30" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 31,26 L 34,30" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
+</svg>
 
 Which is also given by this table:
 
@@ -225,7 +241,7 @@ Which is also given by this table:
 
 We then analyze each level, starting from the furthest down and working up. Files on a given level can be analyzed in parallel, since they do not depend on each other. And we start at the furthest down level and go up, so that dependencies are analyzed before the dependents.
 
-In this example, we would first analyze `G` and `H` in parallel, then `D`, `E`, and `F` in parallel, then `B` and `C` in parallel, then `A`.
+In this example, we would first analyze G and H in parallel, then D, E, and F in parallel, then B and C in parallel, then A.
 
 ### Caching
 
