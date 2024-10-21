@@ -234,7 +234,7 @@ Which is also given by this table:
 | B    | D, E    | 1     |
 | C    | E, F    | 1     |
 | D    | None    | 2     |
-| E    | G       | 2     |
+| E    | G, H    | 2     |
 | F    | None    | 2     |
 | G    | None    | 3     |
 | H    | None    | 3     |
