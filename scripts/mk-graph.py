@@ -38,20 +38,28 @@ def arrow(begin: Text, end: Text) -> str:
         dx = -1
     else:
         dx = 1
-    return f'<path d="M {begin.x+dx},{begin.y+1} L {end.x-dx},{end.y-5}" stroke="black" stroke-width="0.2" marker-end="url(#head)" />'
+    return f'<path d="M {begin.x+dx},{begin.y+1} L {end.x-dx},{end.y-5}" stroke-width="0.2" marker-end="url(#head)" />'
 
 
-levels = sorted({letter.y for letter in Letters.ALL})
+letters = "\n  ".join(
+    letter.render()
+    for letter in Letters.ALL
+)
+
+levels = "\n  ".join(
+  Text(10, y, str(i), big=False).render()
+  for i, y in enumerate(sorted({letter.y for letter in Letters.ALL}))
+)
 
 result = f"""
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40">
   <defs>
     <marker id="head" orient="auto" markerWidth="8" markerHeight="8" refX="1" refY="4">
-      <path d="M 0,0 V 8 L 4,4 Z" fill="black" />
+      <path d="M 0,0 V 8 L 4,4 Z" />
     </marker>
   </defs>
-  {"\n  ".join(letter.render() for letter in Letters.ALL)}
-  {"\n  ".join(Text(10, y, str(i), big=False).render() for i, y in enumerate(levels))}
+  {letters}
+  {levels}
   {arrow(Letters.A, Letters.B)}
   {arrow(Letters.A, Letters.C)}
   {arrow(Letters.B, Letters.D)}

@@ -124,3 +124,12 @@ h4 a:hover {
 .hljs-meta {
   color: var(--code-fg-meta);
 }
+
+text {
+  fill: var(--page-fg);
+}
+
+path {
+  fill: var(--page-fg);
+  stroke: var(--page-fg);
+}

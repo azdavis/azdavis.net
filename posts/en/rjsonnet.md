@@ -201,7 +201,7 @@ For instance, consider we're analyzing a file named A that imports files B and C
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40">
   <defs>
     <marker id="head" orient="auto" markerWidth="8" markerHeight="8" refX="1" refY="4">
-      <path d="M 0,0 V 8 L 4,4 Z" fill="black" />
+      <path d="M 0,0 V 8 L 4,4 Z" />
     </marker>
   </defs>
   <text x="30" y="5" text-anchor="middle" font-size="4">A</text>
@@ -216,14 +216,14 @@ For instance, consider we're analyzing a file named A that imports files B and C
   <text x="10" y="15" text-anchor="middle" font-size="2">1</text>
   <text x="10" y="25" text-anchor="middle" font-size="2">2</text>
   <text x="10" y="35" text-anchor="middle" font-size="2">3</text>
-  <path d="M 29,6 L 26,10" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 31,6 L 34,10" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 24,16 L 21,20" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 26,16 L 29,20" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 34,16 L 31,20" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 36,16 L 39,20" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 29,26 L 26,30" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 31,26 L 34,30" stroke="black" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 29,6 L 26,10" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 31,6 L 34,10" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 24,16 L 21,20" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 26,16 L 29,20" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 34,16 L 31,20" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 36,16 L 39,20" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 29,26 L 26,30" stroke-width="0.2" marker-end="url(#head)" />
+  <path d="M 31,26 L 34,30" stroke-width="0.2" marker-end="url(#head)" />
 </svg>
 
 Which is also given by this table:
