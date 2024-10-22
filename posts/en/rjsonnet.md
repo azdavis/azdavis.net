@@ -198,33 +198,7 @@ To make sure we analyze files in the right dependency order, we perform a topolo
 
 For instance, consider we're analyzing a file named A that imports files B and C, which then import other files. We can visualize the graph of dependencies by laying out nested dependencies further down and the root node A at the top, with an arrow $x \rightarrow y$ denoting $x$ depends on $y$. Our example graph looks like this, with each level number also noted:
 
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40">
-  <defs>
-    <marker id="head" orient="auto" markerWidth="8" markerHeight="8" refX="1" refY="4">
-      <path d="M 0,0 V 8 L 4,4 Z" />
-    </marker>
-  </defs>
-  <text x="30" y="5" text-anchor="middle" font-size="4">A</text>
-  <text x="25" y="15" text-anchor="middle" font-size="4">B</text>
-  <text x="35" y="15" text-anchor="middle" font-size="4">C</text>
-  <text x="20" y="25" text-anchor="middle" font-size="4">D</text>
-  <text x="30" y="25" text-anchor="middle" font-size="4">E</text>
-  <text x="40" y="25" text-anchor="middle" font-size="4">F</text>
-  <text x="25" y="35" text-anchor="middle" font-size="4">G</text>
-  <text x="35" y="35" text-anchor="middle" font-size="4">H</text>
-  <text x="10" y="5" text-anchor="middle" font-size="2">0</text>
-  <text x="10" y="15" text-anchor="middle" font-size="2">1</text>
-  <text x="10" y="25" text-anchor="middle" font-size="2">2</text>
-  <text x="10" y="35" text-anchor="middle" font-size="2">3</text>
-  <path d="M 29,6 L 26,10" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 31,6 L 34,10" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 24,16 L 21,20" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 26,16 L 29,20" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 34,16 L 31,20" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 36,16 L 39,20" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 29,26 L 26,30" stroke-width="0.2" marker-end="url(#head)" />
-  <path d="M 31,26 L 34,30" stroke-width="0.2" marker-end="url(#head)" />
-</svg>
+@@GRAPH_PLACEHOLDER@@
 
 Which is also given by this table:
 

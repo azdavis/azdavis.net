@@ -1,14 +1,15 @@
 import { dateShow } from "../components/date-show";
 import { block } from "../components/markdown";
 import { page, Style } from "../components/page";
+import { g } from "../util/graph";
 import { h } from "../util/h";
 import { Lang, name, root } from "../util/lang";
 import {
   feedUrl,
   PostData,
   postDir,
-  postsDir,
   translations as posts,
+  postsDir,
 } from "../util/post-data";
 import { name as siteName } from "../util/site";
 
@@ -47,6 +48,6 @@ export function post(
             return h("a", { href: postDir(l, slug) }, [inner]) + last;
           }),
         ]),
-    block(data.content),
+    block(data.content).replace("@@GRAPH_PLACEHOLDER@@", g),
   ]);
 }
