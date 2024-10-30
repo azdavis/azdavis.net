@@ -33,6 +33,10 @@ But I wanted to try making my own. So I created [rjsonnet][], a Jsonnet language
 
 ![auto-complete](/img/rjsonnet/5-sig-help.png)
 
+### Flow typing
+
+![flow typing](/img/rjsonnet/6-flow-typing.png)
+
 ## Features
 
 As shown above, its has a lot of the usual features you'd expect from a language server:
