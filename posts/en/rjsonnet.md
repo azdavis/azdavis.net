@@ -114,7 +114,7 @@ type ExprIdx = Option<u32>;
 type ExprArena = Vec<Expr>;
 ```
 
-We have a main enum representing all possible 'expressions' (`Expr`s). There is an enum case for each different kind of expression, like literals, `if`, `function`, `local`, `assert`, array comprehensions, etc.
+We have a main enum representing all possible "expressions" (`Expr`s). There is an enum case for each different kind of expression, like literals, `if`, `function`, `local`, `assert`, array comprehensions, etc.
 
 We also have an arena which is basically just a `Vec` of all the `Expr` enum we generate when desugaring the AST into HIR.
 
