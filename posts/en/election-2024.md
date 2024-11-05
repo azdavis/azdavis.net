@@ -1,7 +1,7 @@
 ---
-title: I'm voting for Kamala Harris
+title: The 2024 US election
 date: 2024-11-04
-desc: Turn the page.
+desc: The choice is clear.
 ---
 
 In the United States, we have a [first past the post (FPTP) voting system](https://www.youtube.com/watch?v=s7tWHJfhiyo). This is why we have only two dominant political parties. Generally, a voter can only express their preference between the choices offered by those two major political parties.
@@ -14,4 +14,6 @@ And how could you not, in this case?
 
 There are only two people who might become President in 2025: Kamala Harris and Donald Trump. Even if you disagree with Harris's proposed policies, only Harris believes in [your right to disagree with them](https://www.threads.net/@kamalahq/post/DB4aHh4uP8l). To support Trump would be to fall into the [paradox of tolerance](/posts/moderation). We can't tolerate, we can't elect, a candidate who believes those who disagree with him are "[the enemy within](https://www.theguardian.com/us-news/2024/oct/14/trump-military-enemy-within-armed-forces-election-day)".
 
-I don't usually like broadcasting my opinions like this on the broader Internet. But I feel a need to be clear now: [Donald Trump is unfit to lead](https://www.nytimes.com/interactive/2024/11/02/opinion/vote-harris-2024-election.html). Vote Harris.
+I don't usually like broadcasting my opinions like this on the broader Internet. But I feel a need to be clear now: [Donald Trump is unfit to lead](https://www.nytimes.com/interactive/2024/11/02/opinion/vote-harris-2024-election.html).
+
+It's time to turn the page. Vote Harris.
