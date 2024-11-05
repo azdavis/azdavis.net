@@ -29,14 +29,16 @@ export function post(
 ): string {
   return page(lang, data.title, styles, data, [
     h("header", {}, [
-      h("a", { href: root(lang) }, [siteName]),
-      " • ",
-      h("a", { href: postsDir(lang) + "/" }, [translations.posts[lang]]),
-      " • ",
-      h("a", { href: feedUrl(lang) }, ["RSS"]),
+      h("nav", {}, [
+        h("a", { href: root(lang) }, [siteName]),
+        " • ",
+        h("a", { href: postsDir(lang) + "/" }, [translations.posts[lang]]),
+        " • ",
+        h("a", { href: feedUrl(lang) }, ["RSS"]),
+      ]),
+      h("h1", {}, [data.title]),
+      h("p", { class: "muted" }, [dateShow(lang, data.date)]),
     ]),
-    h("h1", {}, [data.title]),
-    h("p", { class: "muted" }, [dateShow(lang, data.date)]),
     langs.length <= 1
       ? null
       : h("p", {}, [

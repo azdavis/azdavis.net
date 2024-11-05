@@ -25,11 +25,13 @@ export function postsPage(lang: Lang, posts: PostListItem[]): string {
   // need post css as well to get styling for markdown elements like <code>
   return page(lang, title, ["base", "posts", "post"], {}, [
     h("header", {}, [
-      h("a", { href: root(lang) }, [siteName]),
-      " • ",
-      h("a", { href: feedUrl(lang) }, ["RSS"]),
+      h("nav", {}, [
+        h("a", { href: root(lang) }, [siteName]),
+        " • ",
+        h("a", { href: feedUrl(lang) }, ["RSS"]),
+      ]),
+      h("h1", {}, [title]),
     ]),
-    h("h1", {}, [title]),
     h(
       "div",
       { class: "posts" },
