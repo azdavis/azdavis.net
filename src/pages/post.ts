@@ -36,7 +36,7 @@ export function post(
       h("a", { href: feedUrl(lang) }, ["RSS"]),
     ]),
     h("h1", {}, [data.title]),
-    h("p", {}, [dateShow(lang, data.date)]),
+    h("p", { class: "muted" }, [dateShow(lang, data.date)]),
     langs.length <= 1
       ? null
       : h("p", {}, [
@@ -49,6 +49,6 @@ export function post(
           }),
         ]),
     block(data.content).replace("@@GRAPH_PLACEHOLDER@@", g),
-    h("footer", {}, ["Thanks for reading."]),
+    h("footer", { class: "muted" }, ["Thanks for reading."]),
   ]);
 }

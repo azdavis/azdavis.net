@@ -45,3 +45,7 @@ ul,
 ol {
   padding-inline-start: 2em;
 }
+
+.muted {
+  color: var(--muted-fg);
+}
