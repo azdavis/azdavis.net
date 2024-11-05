@@ -6,7 +6,7 @@ body {
   --page-fg: #222;
   --page-bg: #fff;
   --link-fg: #16d;
-  --thanks-fg: #555;
+  --muted-fg: #555;
 
   max-width: 42em;
   margin: 0 auto;
@@ -27,7 +27,7 @@ body {
     --page-fg: #ddd;
     --page-bg: #222;
     --link-fg: #5af;
-    --thanks-fg: #bbb;
+    --muted-fg: #bbb;
   }
 }
 

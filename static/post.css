@@ -27,7 +27,7 @@ body {
 }
 
 footer {
-  color: var(--thanks-fg);
+  color: var(--muted-fg);
   text-align: right;
 }
 
