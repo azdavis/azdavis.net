@@ -4,7 +4,7 @@ date: 2024-06-01
 desc: A reassuring delusion.
 ---
 
-There are many sayings and idioms related to the general idea of "karma" - that good things happen to good people, and vice versa:
+There are many sayings and idioms related to the general idea of "karma": that good things happen to good people, and vice versa:
 
 - What goes around comes around.
 - They got what was coming to them.
@@ -20,4 +20,4 @@ An easy example: babies and young children are too young to have virtually any a
 
 It's bad enough that bad things happen to those who've done nothing wrong. But it's even worse that people who believe in karma thus come to the conclusion that if bad things are happening to you, it's because **you deserve it**.
 
-This breeds an attitude of mistrust, fear, and derision towards those who are less privileged than others - even though they need society's support the most. And in turn, it contributes to idolization of the rich and powerful - even though the powerful often gain and entrench their power by exploiting the weak, skirting or outright flouting the rules, and privatizing gains while socializing losses.
+This breeds an attitude of mistrust, fear, and derision towards those who are less privileged than others, even though they need society's support the most. And in turn, it contributes to idolization of the rich and powerful, even though they often gain and entrench their power by exploiting the weak, skirting or outright flouting the rules, and privatizing gains while socializing losses.
