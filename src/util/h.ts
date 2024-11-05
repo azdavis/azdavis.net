@@ -7,6 +7,7 @@ type ElemName =
   | "dt"
   | "h1"
   | "head"
+  | "footer"
   | "header"
   | "html"
   | "link"

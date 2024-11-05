@@ -26,13 +26,17 @@ body {
   }
 }
 
+footer {
+  color: var(--thanks-fg);
+  text-align: right;
+}
+
 blockquote {
   margin-inline-start: 0;
   margin-inline-end: 0;
   padding-inline-start: 0.9em;
   padding-inline-end: 1em;
   border-inline-start: 0.1em solid;
-  color: var(--blockquote-fg);
 }
 
 img,

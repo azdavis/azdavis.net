@@ -49,5 +49,6 @@ export function post(
           }),
         ]),
     block(data.content).replace("@@GRAPH_PLACEHOLDER@@", g),
+    h("footer", {}, ["Thanks for reading."]),
   ]);
 }
