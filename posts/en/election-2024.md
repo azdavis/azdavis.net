@@ -12,7 +12,7 @@ However, **given** the system we have, it is **irrational** to **not** express y
 
 And how could you not, in this case?
 
-There are only two people who might become President in 2025: Kamala Harris and Donald Trump. Even if you disagree with Harris's proposed policies, **only Harris** believes in [your right to disagree with them](https://www.threads.net/@kamalahq/post/DB4aHh4uP8l).
+There are only two people who might become President in 2025: Kamala Harris and Donald Trump. Even if you disagree with Harris's proposed policies, **only Harris** believes in [your right to disagree with them][diagree].
 
 To support Trump would be to fall into the [paradox of tolerance][tolerance]. We can't tolerate, we can't elect, a candidate who believes those who disagree with him are "[the enemy within][enemy-within]" and who tried to subvert democracy by engaging in [stochastic terrorism][terror] when [he lost last time][jan6].
 
@@ -30,3 +30,4 @@ It's time to turn the page. Vote Harris.
 [jan6]: https://en.wikipedia.org/wiki/January_6_United_States_Capitol_attack
 [unfit]: https://www.nytimes.com/interactive/2024/11/02/opinion/vote-harris-2024-election.html
 [cabinet]: https://www.thebulwark.com/p/reich-track-wrong-track
+[diagree]: https://www.threads.net/@kamalahq/post/DB4aHh4uP8l
