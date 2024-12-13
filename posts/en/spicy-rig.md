@@ -4,7 +4,7 @@ date: 2024-12-12
 desc: A delicious Italian-inspired recipe.
 ---
 
-An tasty recipe I've been making a lot lately is spicy rigatoni. My partner found this [Instagram post][insta] giving the recipe, and I figured I'd transcribe it into textual form here.
+A tasty recipe I've been making a lot lately is spicy rigatoni. My partner found this [Instagram post][insta] giving the recipe, and I figured I'd transcribe it into textual form here.
 
 ## Equipment
 
