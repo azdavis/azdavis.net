@@ -43,5 +43,7 @@ A lot of the amounts are approximate and/or my best guess. Feel free to tweak as
 1. Add the heavy cream and Calabrian chiles.
 1. Once the rigatoni is about 1 minute underdone, add it, and some pasta water, to the pan.
 1. Add Parmesan and butter.
+1. Mix to finish cooking the rigatoni in the sauce.
+1. Serve with more Parmesan on top.
 
 [insta]: https://www.instagram.com/reel/DBXJq1gO6m0/
