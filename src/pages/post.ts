@@ -38,19 +38,19 @@ export function post(
       ]),
       h("h1", {}, [data.title]),
       h("p", { class: "muted" }, [dateShow(lang, data.date)]),
+      langs.length <= 1
+        ? null
+        : h("p", {}, [
+            translations.translations[lang],
+            ...langs.map((l, idx) => {
+              const s = name[l];
+              const inner = l === lang ? h("strong", {}, [s]) : s;
+              const last = idx + 1 === langs.length ? "" : " • ";
+              return h("a", { href: postDir(l, slug) }, [inner]) + last;
+            }),
+          ]),
     ]),
-    langs.length <= 1
-      ? null
-      : h("p", {}, [
-          translations.translations[lang],
-          ...langs.map((l, idx) => {
-            const s = name[l];
-            const inner = l === lang ? h("strong", {}, [s]) : s;
-            const last = idx + 1 === langs.length ? "" : " • ";
-            return h("a", { href: postDir(l, slug) }, [inner]) + last;
-          }),
-        ]),
-    block(data.content).replace("@@GRAPH_PLACEHOLDER@@", g),
+    h("main", {}, [block(data.content).replace("@@GRAPH_PLACEHOLDER@@", g)]),
     h("footer", { class: "muted" }, ["Thanks for reading."]),
   ]);
 }

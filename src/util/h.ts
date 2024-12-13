@@ -11,6 +11,7 @@ type ElemName =
   | "header"
   | "html"
   | "link"
+  | "main"
   | "meta"
   | "nav"
   | "p"

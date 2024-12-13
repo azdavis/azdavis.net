@@ -33,7 +33,7 @@ export function postsPage(lang: Lang, posts: PostListItem[]): string {
       h("h1", {}, [title]),
     ]),
     h(
-      "div",
+      "main",
       { class: "posts" },
       posts
         .map(({ title, desc, path, date }) => [
