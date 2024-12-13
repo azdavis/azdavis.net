@@ -16,12 +16,14 @@ An easy, tasty recipe I've been making a lot lately is spicy rigatoni. My partne
 
 ## Ingredients
 
+A lot of the amounts are approximate and/or my best guess. Feel free to tweak as your heart desires!
+
 - 1 shallot, diced
 - 5 cloves garlic, diced
-- Olive oil
-- Salt
-- Black pepper
-- Red pepper flakes
+- 3 tbsp olive oil
+- 1 tsp salt
+- 1 tsp black pepper
+- 1 tsp red pepper flakes
 - 6 oz tomato paste
 - 1/2 lb rigatoni
 - 2 shots vodka OR lemon juice and water
