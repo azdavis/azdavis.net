@@ -10,9 +10,9 @@ An easy, tasty recipe I've been making a lot lately is spicy rigatoni. My partne
 
 - Frying pan, for the sauce
 - Pot or sauce pan, for the pasta
-- Spatula
-- Knife
-- Cutting board
+- Spatula, for mixing
+- Knife, for cutting
+- Cutting board, for cutting
 
 ## Ingredients
 
