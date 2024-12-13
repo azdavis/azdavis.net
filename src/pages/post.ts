@@ -40,7 +40,7 @@ export function post(
       h("p", { class: "muted" }, [dateShow(lang, data.date)]),
       langs.length <= 1
         ? null
-        : h("p", {}, [
+        : h("p", { class: "muted" }, [
             translations.translations[lang],
             ...langs.map((l, idx) => {
               const s = name[l];
