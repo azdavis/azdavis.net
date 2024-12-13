@@ -25,12 +25,12 @@ A lot of the amounts are approximate and/or my best guess. Feel free to tweak as
 - 1 tsp black pepper
 - 1 tsp red pepper flakes
 - 6 oz tomato paste
-- 1/2 lb rigatoni
+- ½ lb rigatoni
 - 2 shots vodka OR lemon juice and water
-- 3/4 cup heavy cream
+- ¾ cup heavy cream
 - 5 Calabrian chiles
 - 3 tbsp butter
-- 1/2 cup Parmesan cheese
+- ½ cup Parmesan cheese
 
 ## Instructions
 
