@@ -4,7 +4,7 @@ date: 2024-12-23
 desc: A classic staple.
 ---
 
-Here's another [Instagram recipe by Claudia Harrington](https://www.instagram.com/reel/C-1OrJ-uwJc/) that I transcribed, this time for tomato soup.
+Here's another [Instagram recipe by Claudia Harrington][insta] that I transcribed, this time for tomato soup.
 
 ## Equipment
 
@@ -44,3 +44,5 @@ Remember to wash all the vegetables!
 1. Transfer to a pot on the stove on medium heat.
 1. Add milk, Parmesan rind, and Parmesan cheese.
 1. Reduce for a few minutes, and season to taste.
+
+[insta]: https://www.instagram.com/reel/C-1OrJ-uwJc/
