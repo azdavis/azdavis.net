@@ -10,11 +10,8 @@ const translations = {
     nameContent: "azdavis - a fella",
     descTitle: "DESCRIPTION",
     descContent: [
-      "azdavis is a software engineer. ",
-      "He acquired a major in computer science, with a minor in Japanese ",
-      "studies, from ",
-      h("a", { href: "https://www.cmu.edu" }, ["Carnegie Mellon University"]),
-      ".",
+      "azdavis is a software engineer. He acquired a major in computer science, with a minor ",
+      "in Japanese studies, from Carnegie Mellon University.",
     ],
     pagesTitle: "PAGES",
     otherLang: "ja" as const,
@@ -35,8 +32,7 @@ const translations = {
     descTitle: "説明",
     descContent: [
       "azdavisは開発者である。",
-      h("a", { href: "https://www.cmu.edu" }, ["カーネギーメロン大学"]),
-      "でコンピューター科学の専攻と日本学の副専攻を取った。",
+      "カーネギーメロン大学でコンピューター科学の専攻と日本学の副専攻を取った。",
     ],
     pagesTitle: "ページ",
     otherLang: "en" as const,
