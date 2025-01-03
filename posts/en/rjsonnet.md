@@ -28,7 +28,7 @@ So I created [rjsonnet][], a Jsonnet language server in Rust. It is available as
 
 ![auto-complete](/img/rjsonnet/4-auto-complete.png)
 
-### Type annotations via assert and signature help
+### Type annotations and signature help
 
 ![sig-help](/img/rjsonnet/5-sig-help.png)
 
