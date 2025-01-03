@@ -28,13 +28,13 @@ So I created [rjsonnet][], a Jsonnet language server in Rust. It is available as
 
 ![auto-complete](/img/rjsonnet/4-auto-complete.png)
 
-### Signature help
+### Type annotations via assert and signature help
 
-![auto-complete](/img/rjsonnet/5-sig-help.png)
+![sig-help](/img/rjsonnet/5-sig-help.png)
 
 ### Flow typing
 
-![flow typing](/img/rjsonnet/6-flow-typing.png)
+![flow-typing](/img/rjsonnet/6-flow-typing.png)
 
 ## Features
 
