@@ -4,7 +4,7 @@ date: 2024-12-23
 desc: A classic staple.
 ---
 
-Here's another [Instagram recipe](https://www.instagram.com/reel/C-1OrJ-uwJc/) I transcribed, this time for tomato soup.
+Here's another [Instagram recipe by Claudia Harrington](https://www.instagram.com/reel/C-1OrJ-uwJc/) that I transcribed, this time for tomato soup.
 
 ## Equipment
 
