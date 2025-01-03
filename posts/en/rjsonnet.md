@@ -4,12 +4,11 @@ date: 2024-10-10
 desc: A language server for Jsonnet.
 ---
 
-We use [Jsonnet][] extensively at [Databricks][db]. There are various pre-existing editor tools and plugins for Jsonnet, like:
+We use [Jsonnet][] extensively at [Databricks][db].
 
-- [Jsonnet LSP][carl], by Carl Verge
-- [Jsonnet Language Server][grafana], by Grafana
+There are various pre-existing editor tools and plugins for Jsonnet, like [Jsonnet LSP][carl] by Carl Verge and [Jsonnet Language Server][grafana] by Grafana. But I wanted to try making my own.
 
-But I wanted to try making my own. So I created [rjsonnet][], a Jsonnet language server in Rust. It is available as a [VS Code][vscode] extension.
+So I created [rjsonnet][], a Jsonnet language server in Rust. It is available as a [VS Code][vscode] extension.
 
 ## Screenshots
 
@@ -21,7 +20,7 @@ But I wanted to try making my own. So I created [rjsonnet][], a Jsonnet language
 
 ![peek-def](/img/rjsonnet/2-peek-def.png)
 
-### Hover for type and standard library documentation
+### Hover for type, standard library docs, and typechecking
 
 ![std-lib](/img/rjsonnet/3-std-lib-doc-hover.png)
 
