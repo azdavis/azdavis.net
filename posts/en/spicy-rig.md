@@ -21,16 +21,16 @@ A lot of the amounts are approximate and/or my best guess. Feel free to tweak as
 - 1 shallot, diced
 - 5 cloves garlic, diced
 - 3 tbsp olive oil
-- 1 tsp salt
-- 1 tsp black pepper
-- 1 tsp red pepper flakes
-- 6 oz tomato paste
+- 2 tsp salt
+- 2 tsp black pepper
+- 2 tsp red pepper flakes
+- 6 oz (1 small can) tomato paste
 - ½ lb rigatoni
-- 2 shots vodka OR lemon juice and water
-- ¾ cup heavy cream
+- 3 oz (2 shots) vodka
+- 1 cup heavy cream
 - 5 Calabrian chiles
 - 3 tbsp butter
-- ½ cup Parmesan cheese
+- 1 cup Parmesan cheese
 
 ## Instructions
 
