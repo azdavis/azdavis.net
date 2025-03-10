@@ -28,7 +28,7 @@ It's unfortunate, then, that so many people seem to reject these ideas.
 
 ---
 
-I know, not just from analyzing its policy positions, but also from its core philosophy, that the political philosophy known as "conservatism" is not for me.
+I know, not just from analyzing its policy positions, but also from its core philosophy, that  conservatism is not for me.
 
 Things worth conserving, like [national parks](https://apnews.com/article/trump-national-park-firings-doge-grand-teton-baedee0a748a6374eafb6f95aac5dadc), should indeed be preserved and protected. But defaulting to preserving things only because "that is what has been done" is not valid.
 
