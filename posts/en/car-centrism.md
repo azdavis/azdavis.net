@@ -20,7 +20,7 @@ The benefits of well-implemented public transport are real:
 
 And yet curiously enough, I wouldn't describe myself as a fan of public transport per se. Rather, I'd say I'm a fan of **being able to get to my destination**, and I just happen to think private cars are often not the best way to do that.
 
-You see this issue in many other contexts as well. For instance, I'm a software engineer. Sometimes we are described as "coders". But I think this somewhat misses the point. The point is not to "code", but rather to **solve a problem**. Or rather, **engineer** a solution to a problem, using software as a **tool** to do that: a means to an end.
+This issue appears in many other contexts as well. For instance, I'm a software engineer. Sometimes we are described as "coders". But I think this somewhat misses the point. The point is not to "code", but rather to **solve a problem**. Or rather, **engineer** a solution to a problem, using software as a **tool** to do that: a means to an end.
 
 ## It's not about hating cars
 

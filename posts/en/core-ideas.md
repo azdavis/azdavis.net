@@ -4,7 +4,7 @@ date: 2025-03-08
 desc: Sorry for the vague title.
 ---
 
-Here's a question for you:
+Here's a question:
 
 > Are some people inherently superior to others?
 
@@ -34,7 +34,7 @@ I know, not just from analyzing its policy positions, but also from its core phi
 
 Now, things **worth** conserving, like [national parks][parks], should indeed be preserved and protected. But defaulting to preserving things only because "that is what has been done" is not valid.
 
-You should constantly be challenging, and perhaps updating, your positions and beliefs, by considering new data and viewpoints. Yet conservatism is a tendency to default to, or exclusively demand, a **lack** of change. This seems deeply, fundamentally incorrect. The only constant in life is change.
+We should constantly be challenging, and perhaps updating, our positions and beliefs, by considering new data and viewpoints. Yet conservatism is a tendency to default to, or exclusively demand, a **lack** of change. This is deeply, fundamentally incorrect. The only constant in life is change.
 
 ---
 
@@ -54,7 +54,7 @@ As with the tendency to reject change by default, I find this viewpoint deeply u
 
 But it's now clear to me why conservatism and right-wing ideology are intertwined.
 
-Right-wingers believe that there should be social hierarchies. Conservatives tend to reject change. Combine these, and you get the belief that **existing social hierarchies should not be changed**.
+Right-wingers believe that there should be social hierarchies. Conservatives tend to reject change. Combine these, and we get the belief that **existing social hierarchies should not be changed**.
 
 The belief is that the people who are currently favored by existing, entrenched hierarchies indeed **should** be favored, because they have been in the past.
 
@@ -71,7 +71,7 @@ But conservatives do not appear to actually be concerned about all of that. Thei
 
 The rich and powerful support [slashing regulation][regulation10to1] and taxes (and [enforcement of taxes][irscut]) because it will [enrich themselves][trumptaxcut], at the cost of the health, safety, and comfort of rest of us. They [decry the social safety net][elonsocsecponzi]  while accepting massive [tax breaks, subsidies, and grants][spacexfedfunding].
 
-It makes sense when you understand the core idea that underlies their various positions. The core idea is that **they are superior**. That's why they accept [government welfare for rich people][drking], like tax breaks and [loan forgiveness][ppptweet] and [bailouts][tbtf], but scoff at welfare for the structurally disadvantaged. That's why they say they're against illegal immigration, but when it's [one of their guys][elonworkvisa], it's OK.
+It makes sense when we understand the core idea that underlies their various positions. The core idea is that **they are superior**, and thus [deserve][karma] superior treatment. That's why they accept [government welfare for rich people][drking], like tax breaks and [loan forgiveness][ppptweet] and [bailouts][tbtf], but scoff at welfare for the structurally disadvantaged. That's why they say they're against illegal immigration, but when it's [one of their guys][elonworkvisa], it's OK.
 
 Sometimes they slip up and [say the quiet part out loud][needhurt]. But usually they are more subtle, more careful.
 
@@ -95,6 +95,7 @@ This is not a hard and fast rule: [few things are][moderation]. And when I say "
 [felon]: https://apnews.com/article/trump-trial-deliberations-jury-testimony-verdict-85558c6d08efb434d05b694364470aa0
 [irs]: https://news.harvard.edu/gazette/story/2023/07/turns-out-irs-audits-of-wealthy-offer-terrific-return-on-investment-for-taxpayers/
 [irscut]: https://apnews.com/article/irs-doge-layoffs-tax-season-0659e4b439400bf66023273f6a532fa0
+[karma]: /posts/karma/
 [moderation]: /posts/moderation/
 [needhurt]: https://www.vox.com/policy-and-politics/2019/1/8/18173678/trump-shutdown-voter-florida
 [parks]: https://apnews.com/article/trump-national-park-firings-doge-grand-teton-baedee0a748a6374eafb6f95aac5dadc
