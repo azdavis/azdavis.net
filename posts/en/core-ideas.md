@@ -60,7 +60,7 @@ The belief is that the people who are currently favored by existing, entrenched 
 
 ---
 
-As noted before, I believe that there are few who would publicly defend this viewpoint when stated as such. So conservatives tell others, and perhaps even tell themselves, that what they're really concerned with are things like "making government more efficient" and "stopping illegal immigration". This is convenient, because indeed, who would oppose increased efficiency or
+As noted before, I believe that there are few who would publicly defend this viewpoint when stated as such. So conservatives tell others, and perhaps even tell themselves, that what they're really concerned about are things like "making government more efficient" and "stopping illegal immigration". This is convenient, because indeed, who would oppose increased efficiency or
 enforcement of law?
 
 Indeed, **I support** government efficiency and the rule of law. That's why I support policies that allow the government to [collect the revenues it is owed by law][irs], so that it can provide the services that are expected of it. And I support sentencing, and ideally rehabilitating, those convicted of crimes, regardless of whether the convicted is in a position of immense power, such as [our President][felon].
