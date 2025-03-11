@@ -77,7 +77,7 @@ Sometimes they slip up and [say the quiet part out loud][needhurt]. But usually 
 
 ---
 
-So I've devised a simple test which I use to evaluate proposed policies:
+So I've devised a simple test which I use to evaluate policies:
 
 > Does this policy tend to benefit those who already have structural advantages and privileges?
 
