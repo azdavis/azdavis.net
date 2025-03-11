@@ -81,7 +81,7 @@ So I've devised a simple test which I use to evaluate policies, both existing an
 
 > Does this policy tend to benefit those who already have structural advantages and privileges?
 
-If yes, I tend to oppose the policy, or at least support it conditional on the enactment of other policies that aim to remove those structural advantages.
+If yes, I tend to oppose the policy, or, if I would support it, do so conditional on the enactment of other policies that aim to remove those structural advantages.
 
 If no, I tend to support it.
 
