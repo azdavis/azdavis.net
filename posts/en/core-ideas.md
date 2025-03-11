@@ -77,7 +77,7 @@ Sometimes they slip up and [say the quiet part out loud][needhurt]. But usually 
 
 ---
 
-So I've devised a simple test which I use to evaluate policies:
+So I've devised a simple test which I use to evaluate policies, both existing and proposed:
 
 > Does this policy tend to benefit those who already have structural advantages and privileges?
 
@@ -85,7 +85,7 @@ If yes, I tend to oppose the policy, or at least support it conditional on the e
 
 If no, I tend to support it.
 
-This is not a hard and fast rule: [few things are][moderation]. But I find it a good first litmus test. I strive to have this be a core idea for **me** that informs **my** decisions and actions.
+This is not a hard and fast rule: [few things are][moderation]. And when I say "I've devised", I don't to imply that I'm the first person to have thought up these ideas. But I strive to have this be a core idea for **me** that informs **my** decisions and actions.
 
 [discharge]: https://www.politico.com/news/2025/01/10/trump-unconditional-discharge-sentencing-what-that-means-00197500
 [doge]: https://www.r-bloggers.com/2025/02/political-ideology-and-doge-layoffs/
