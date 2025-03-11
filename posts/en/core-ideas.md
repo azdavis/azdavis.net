@@ -81,9 +81,11 @@ So I've devised a simple test which I use to evaluate policies:
 
 > Does this policy tend to benefit those who already have structural advantages and privileges?
 
-If yes, I tend to oppose the policy; if not, I tend to support it.
+If yes, I tend to oppose the policy, or at least support it conditional on the enactment of other policies that aim to remove those structural advantages.
 
-This is not a hard and fast rule: [few things are][moderation]. But I find it a good first litmus test.
+If no, I tend to support it.
+
+This is not a hard and fast rule: [few things are][moderation]. But I find it a good first litmus test. I strive to have this be a core idea for **me** that informs **my** decisions and actions.
 
 [discharge]: https://www.politico.com/news/2025/01/10/trump-unconditional-discharge-sentencing-what-that-means-00197500
 [doge]: https://www.r-bloggers.com/2025/02/political-ideology-and-doge-layoffs/
