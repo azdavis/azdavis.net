@@ -28,7 +28,7 @@ It's unfortunate, then, that so many people seem to reject these ideas.
 
 ---
 
-I know, not just from analyzing its policy positions, but also from its core philosophy, that  conservatism is not for me. This core philosophy is, according to [Webster's Unabridged 1913][webster]:
+The definition of conservative, according to [Webster's Unabridged 1913][webster], is:
 
 > Tending or disposed to maintain existing institutions; opposed to change or innovation.
 
@@ -42,7 +42,7 @@ A little while ago, I was wondering about why sometimes people talk about "conse
 
 I also knew that any leftist will be quick to point out the key difference between liberalism and leftism, which is, in brief, that liberals like capitalism and leftists do not.
 
-So I wondered, is there any difference between right-wing politics and conservatism? I looked up the definition of [right-wing politics][rightwing] and found:
+So I wondered, is there any difference between right-wing politics and conservatism? I looked up [right-wing politics][rightwing] and found:
 
 > Right-wing politics is the range of political ideologies that view certain social orders and hierarchies as inevitable, natural, normal, or desirable.
 
