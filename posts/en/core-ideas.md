@@ -10,7 +10,7 @@ Here's a question for you:
 
 This question, if answered honestly, says a lot about a person's overall worldview.
 
-Most people, even if they actually believed the answer is yes, would probably answer no. Because the obvious follow-up to a yes answer is: Which people do you think are superior? And why? In many cases people would rather not, or cannot, acknowledge their prejudices and biases.
+Most people, even if they actually believed the answer is yes, would probably answer no. Because the obvious follow-up to a yes answer is: Which people do you think are superior? And why? People usually would rather not, or cannot, acknowledge their prejudices and biases.
 
 Here's another question:
 
