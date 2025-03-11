@@ -24,6 +24,10 @@ body {
     --code-fg-meta: #4da5c9;
     --code-bg: #333;
   }
+
+  hr {
+    border-top-width: 0;
+  }
 }
 
 footer {
