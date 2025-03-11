@@ -1,7 +1,7 @@
 ---
 title: "The core ideas"
 date: 2025-03-08
-desc: Sorry for the vague title.
+desc: I'm intentionally leaving the title vague to discourage preconceived notions.
 ---
 
 Here's a question:
