@@ -34,6 +34,10 @@ I didn't live close enough to my friends the way some of my friends lived close 
 
 ---
 
+One day, as I was getting driven around in the car by my mom, as we were stopped at a large interaction in front of City Hall, I saw one of my teachers from high school riding on his bike on the road. I was shocked to see him there. Never before had I seen someone biking on a large, wide road such as the one we were on. Why was he biking on that road? Wasn't that unsafe? I chalked it up to him being from the UK and not knowing how things worked in the US.
+
+---
+
 In my first year of college at CMU in Pittsburgh, PA, I and the rest of the first-years were required to stay in on-campus housing. I remained in on-campus housing in the year after, since I enjoyed living within a walkable distance to campus. I had never walked to school, or a store, from my residence before.
 
 In college, I also rode the bus to other nearby areas, like into the University of Pittsburgh campus, where there were more restaurants. The bus was free to CMU students, which was nice. In later years, I moved off campus and relied on the bus to get me to campus.
@@ -58,25 +62,25 @@ This area was similar where I grew up: a "city" of almost exclusively single-fam
 
 Although we didn't do much during Covid, we did walk around outside to get some fresh air. We often would walk on a long, flat trail nearby called the Iron Horse Trail. I later learned that the "iron horse" that gave the trail its name was the railroad, because the trail used to be a railroad.
 
-As things began opening back up after the worst of Covid seemed mitigated, I got my driver's license, which immediately opened up the surrounding area for exploration.
+As things began opening back up after the worst of Covid seemed mitigated, I got my driver's license, which immediately opened up the surrounding area for exploration. As noted, there was no longer any train service in the area, and only limited bus service. Thus, since everything was so spread out, driving was, once again, often the only viable option for getting around the area.
 
 ---
 
-I moved with my partner to Bellevue, WA in late 2022. Here again, I found myself in a "city" of mostly single family homes. Though, this city seemed to have somewhat of a downtown. I also learned that a light rail line had been in construction and would open soon, which I was excited about.
+I moved with my partner to Bellevue, WA in late 2022. Here again, I found myself in a "city" of mostly single family homes. Though, this city seemed to have somewhat of a downtown. I also learned that a light rail line was under construction and would open soon, which I was excited about.
 
-I was remote at first, but when I switched jobs, my new job required some in-office time. I knew immediately that I would **not** be driving downtown during rush hour. I decided instead to get a bike, which I would then use to get to a bus that went downtown. But then I realized the hill near my house was too steep.
+I worked remotely at first, but when I switched jobs, my new job required some in-office time. I decided immediately that I would **not** be driving downtown during rush hour. I decided instead to get a bike, which I would then use to get to a bus that went downtown. But then I realized the hill near my house was too steep.
 
-I tried my friend's e-scooter, but didn't like that. So then I got myself an e-bike and pannier. I quickly realized how convenient and enjoyable it was to zip around town without a car and without having to wait for the infrequent bus. I also, however, began to experience firsthand how some drivers seemed bothered to see bikes on the road and felt it necessary to pass me with little clearance, great speed, and sometimes yelling and jeering.
+I tried my friend's e-scooter, but didn't like that. So then I got myself an e-bike and pannier. I quickly realized how convenient and enjoyable it was to zip around town without a car and without having to wait for the infrequent bus. I also, however, began to experience firsthand how some drivers seemed bothered or surprised to see bikes on the road and felt it necessary to pass me with little clearance, great speed, and sometimes yelling and jeering.
 
 Once the light rail opened, I also used that from time to time by parking in the massive 1,500 stall parking garage at South Bellevue and taking the train north two stops.
 
 ---
 
-Over time, I've thought more about these past experiences and how they relate to my current desires to live in an area where I am required to do as little driving as possible. I've been to a few countries outside the US, and it seems to me that everywhere else I've been has far superior transit and walkability.
+Over time, I've thought more about these past experiences and how they relate to my current desires to live in an area where I am required to do as little driving as possible. I've been to a few countries outside the US, and it seems to me that every other developed country I've been to has far superior transit and walkability.
 
-I've also come to realize that a great many issues - traffic, [housing][], sustainability, third places, public safety, public health, nature preservation, sense of place, loneliness - are all related to the same root cause. That root cause is:
+I've also come to realize that a great many issues - traffic congestion, [housing][], sustainability, third places, public safety, public health, conservation of nature, sense of place, loneliness - are all related to the same root cause. That root cause is:
 
-In the mid to late 1900s, US cities, led by the example of Robert Moses, bulldozed through nonwhite neighborhoods, ripped up their extensive electric streetcar lines, and reconfigured existing streets and roads, to connect them to the massive new network of federally funded, inter-state controlled-access highways, in order to allow rich whites to flee from those cities, away from the nonwhites who were just starting to gain some semblance of civil rights and economic prosperity, and into the redlined, exclusionary-zoned, sprawling single-family suburbs, which were and are subsidized by the economic output and tax revenue still generated by those cities, that the suburbanites had rendered unrecognizable in service of intending to allow them to travel by single-occupant [car][] to every destination.
+In the mid to late 1900s, US cities, led by the example of Robert Moses, bulldozed through nonwhite neighborhoods, ripped up their extensive electric streetcar lines, and reconfigured existing streets and roads, to connect them to the massive new network of federally funded, inter-state controlled-access highways, in order to allow rich whites to flee from those cities, away from the nonwhites who were just starting to gain some semblance of civil rights and economic prosperity, and into the redlined, exclusionary-zoned, sprawling single-family suburbs, which were and are subsidized by the economic output and tax revenue still generated by those cities, that the suburbanites had rendered unrecognizable in service of intending to allow them to travel by single-occupant [car][] to every possible destination they might desire to go.
 
 This national tragedy occurred in varying degrees in various cities, and today, various cities are taking various degrees of action to mitigating this injustice. Although it is a slow, arduous process, blocked and delayed by NIMBYs at every turn, I now know there is a name for those concerned with this slew of issues: urbanists.
 
