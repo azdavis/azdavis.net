@@ -26,7 +26,7 @@ Since we lived close enough to New York City, and there was an NJ Transit train 
 
 ---
 
-Before high school, my parents, and my friend's parents, would from time to time drive my friends and I around to meet up at each others' houses and hang out. During high school, my friends and classmates started getting driver's licenses and driving themselves around. This gave us the freedom to hang out on ours own terms.
+Before high school, my parents, and my friends' parents, would from time to time drive my friends and I around to meet up at each others' houses and hang out. During high school, my friends and classmates started getting driver's licenses and driving themselves around. This gave us the freedom to hang out on ours own terms.
 
 Though I passed the written driver's test, I didn't prioritize finding time to practice actually driving on the road, so I didn't have a license. My friends bemoaned the fact that they always had to come to my house to pick me up, especially since I lived further away. I felt bad about this, but didn't see an alternative.
 
