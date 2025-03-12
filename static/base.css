@@ -47,7 +47,7 @@ ol {
 }
 
 hr {
-  border-top: 1px solid var(--page-fg);
+  border-top: 1px solid var(--muted-fg);
   border-bottom: 0;
   border-left: 0;
   border-right: 0;
