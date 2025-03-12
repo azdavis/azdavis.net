@@ -34,7 +34,11 @@ I didn't live close enough to my friends the way some of my friends lived close 
 
 ---
 
-One day, as I was getting driven around in the car by my mom, as we were stopped at a large interaction in front of City Hall, I saw one of my teachers from high school riding on his bike on the road. I was shocked to see him there. Never before had I seen someone biking on a large, wide road such as the one we were on. Why was he biking on that road? Wasn't that unsafe? I chalked it up to him being from the UK and not knowing how things worked in the US.
+One day, as I was getting driven around in the car by my mom, as we were stopped at a large interaction in front of City Hall, I saw one of my teachers from high school riding on his bike on the road.
+
+I was shocked to see him there. Never before had I seen someone biking on a large, wide road such as the one we were on. Why was he biking on that road? Wasn't that unsafe?
+
+I chalked it up to him being from the UK and not knowing how things worked in the US.
 
 ---
 
