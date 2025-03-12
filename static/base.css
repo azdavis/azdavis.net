@@ -49,3 +49,7 @@ ol {
 .muted {
   color: var(--muted-fg);
 }
+
+hr {
+  border-top: 0;
+}
