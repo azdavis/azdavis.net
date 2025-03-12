@@ -46,10 +46,13 @@ ol {
   padding-inline-start: 2em;
 }
 
-.muted {
-  color: var(--muted-fg);
+hr {
+  border-top: 1px solid var(--page-fg);
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
 }
 
-hr {
-  border-top: 0;
+.muted {
+  color: var(--muted-fg);
 }
