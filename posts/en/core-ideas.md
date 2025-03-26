@@ -22,7 +22,11 @@ Most people would answer that we can improve. And so it immediately follows that
 
 ---
 
-The answers to these questions seem so obvious to me. No, no one is inherently superior or more valuable than another: every life is unique and irreplaceable. No, society is not optimal: we have immense economic and social inequality, political polarization, and general fear and suspicion of one another. Yes, we should try to change society for the better.
+The answers to these questions seem so obvious to me.
+
+- No, no one is inherently superior or more valuable than another: every life is unique and irreplaceable.
+- No, society is not optimal: we have immense economic and social inequality, political polarization, and general fear and suspicion of one another.
+- Yes, we should try to change society for the better.
 
 It's unfortunate, then, that so many people seem to reject these ideas.
 
