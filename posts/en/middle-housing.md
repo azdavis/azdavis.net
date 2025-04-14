@@ -13,23 +13,21 @@ You are allowed to adapt this text for your purposes. If you do, please state:
 
 ---
 
-I'm a resident of Bellevue writing to express support for more housing density in Bellevue, even beyond what state law requires.
+I'm a resident of Bellevue writing to express support for proposed policies to allow more middle housing in Bellevue, especially near transit, beyond what state law requires.
 
-Bellevue is a very high cost of living area. Housing prices are expensive. This shows that people want to live here, but there is insufficient housing supply to answer the demand. The city should improve this situation by building more housing, especially near transit.
+Bellevue is a very high cost of living area. Housing prices are expensive. This shows that people want to live here, but there is insufficient housing supply to answer the demand. The city should improve this situation by allowing more housing, especially near transit.
 
 The governor's office has stated that [transit oriented development should be a top priority][tod]:
 
 > There is no single housing policy that can produce more homes, for a range of incomes, than a transit-oriented development policy that moves high-density housing past simply being zoned for, to actually being constructed – by up to 70 percent more production.
 
-Allowing higher housing density means more tax revenue for the city from those denser parcels of land. Denser housing means more people utilize each mile of sewers, roads, power lines, etc that the city has to maintain, which is a more efficient use of limited city resources.
+More homes near transit means more people can live, work, and shop in our city without needing to use a car as much. When people live near transit, they can get around more easily by using and supporting our growing transit system, instead of having to use a large, expensive personal car for every trip. This means we decrease vehicle miles traveled per capita, which means less tire particulate pollution, less noise pollution, less land required for parking, less wear and tear on our roads, and less traffic violence.
 
-More homes near transit means more people can live, work, and shop in our city without needing to use a car as much. When people live near transit, they can get around more easily while using and supporting our growing transit system, instead of having to use a large, expensive personal car for every trip. This means we decrease vehicle miles traveled per capita, which means less tire particulate pollution, less noise pollution, less land required for parking, less wear and tear on our roads, and less traffic violence.
+Allowing higher housing density means more tax revenue for the city from those denser parcels of land. Denser housing means more people utilize each mile of sewers, roads, power lines, etc that the city has to maintain, which is a more efficient use of limited city resources. Transit-oriented development means more people can live and work in the city, generating tax revenue, while using public transit and thus putting less strain on our roads than they would if they used cars, saving the city money on new road construction and maintenance.
 
-Middle housing is widely popular. According to a city survey, 81% of respondents support middle housing near transit and jobs and 67% support it in residential areas. This is a clear and resounding majority in both cases.
+Middle housing is widely popular. According to a city survey, 81% of respondents support middle housing near transit and jobs and 67% support it in residential areas. This is a clear majority in both cases.
 
-Building middle housing like fourplexes and sixplexes increases housing supply, while preserving and enhancing the family oriented character of neighborhoods. Even without building Manhattan-style skyscrapers, we can increase the number of housing units greatly. This means more families will be able to live in these neighborhoods, making the area safer and more welcoming.
-
-Without increased housing supply, middle class families will continue to leave our city and school enrollment will continue to drop. The neighborhood character will turn from working families to wealthy, privileged rich people with every home sale if prohibitively high housing costs are not addressed by building more housing.
+Building middle housing like fourplexes and sixplexes increases housing supply, while preserving and enhancing the family-oriented character of neighborhoods. Even without building Manhattan-style skyscrapers, we can increase the number of housing units greatly in our city. This means more families will be able to live here, making the area safer and more welcoming.
 
 I understand that there are those who object to these proposed middle housing policies. I find this regrettable and upsetting. Their arguments, which go something like this, do not stand up to scrutiny:
 
@@ -56,6 +54,8 @@ In fact, it's the current policy of single-family exclusionary zoning that is wo
 I can't speak to exactly what neighborhood character these people think they are protecting, but any neighborhood character that forces hardworking families to move out, and which leads to kids who are raised here not being able to afford to live here when they grow up, is not a neighborhood character worth preserving.
 
 Allowing families to live and work here will improve neighborhood character by creating vibrant, welcoming communities. It will also provide an increased customer base to support local businesses.
+
+Without increased housing supply, middle class families will continue to leave our city and school enrollment will continue to drop. The neighborhood character will turn from working families to wealthy, privileged rich people with every home sale if prohibitively high housing costs are not addressed by building more housing.
 
 **"Listen to the current residents."**
 
