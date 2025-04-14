@@ -1,5 +1,5 @@
 ---
-title: "In support of transit-oriented middle housing"
+title: "In support of middle housing"
 date: 2025-04-13
 desc: An email sent to my city council in support of more housing.
 ---
