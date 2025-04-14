@@ -17,6 +17,8 @@ I'm a resident of Bellevue writing to express support for proposed policies to a
 
 Bellevue is a very high cost of living area. Housing prices are expensive. This shows that people want to live here, but there is insufficient housing supply to answer the demand. The city should improve this situation by allowing more housing, especially near transit.
 
+## Benefits
+
 The governor's office has stated that [transit-oriented development should be a top priority][tod]:
 
 > There is no single housing policy that can produce more homes, for a range of incomes, than a transit-oriented development policy that moves high-density housing past simply being zoned for, to actually being constructed – by up to 70 percent more production.
@@ -25,19 +27,21 @@ More homes near transit means more people can live, work, and shop in our city w
 
 Allowing higher housing density means more tax revenue for the city from those denser parcels of land. Denser housing means more people utilize each mile of sewers, roads, power lines, etc that the city has to maintain, which is a more efficient use of limited city resources. Transit-oriented development means more people can live and work in the city, generating tax revenue, while using public transit and thus putting less strain on our roads than they would if they used cars, saving the city money on new road construction and maintenance.
 
-Middle housing is widely popular. According to a city survey, 81% of respondents support middle housing near transit and jobs and 67% support it in residential areas. This is a clear majority in both cases. In areas with existing middle housing, it is [viewed positively][new-old-duplex].
+Middle housing is widely popular. According to a city survey, 81% of respondents support middle housing near transit and jobs and 67% support it in residential areas. This is a clear majority in both cases. In areas across the country with existing middle housing, it is [viewed positively][new-old-duplex].
 
 Building middle housing like fourplexes and sixplexes increases housing supply, while preserving and enhancing the family-oriented character of neighborhoods. Even without building Manhattan-style skyscrapers, we can increase the number of housing units greatly in our city. This means more families will be able to live here, making the area safer and more welcoming.
 
+## Rebuttals to arguments against
+
 I understand that there are those who object to these proposed middle housing policies. I find this regrettable and upsetting. Their arguments, which go something like this, do not stand up to scrutiny:
 
-**"This will make traffic and parking worse."**
+### "This will make traffic and parking worse."
 
 By building more homes near transit, we make it possible for more people to get around without cars and all the parking spaces and road maintenance they require.
 
 Failing to build more housing near transit is the true culprit for traffic. If we don't build more housing near transit, more people will have to move out of our city and then commute in via car, clogging up and wearing down our roads, polluting our air, and endangering the public, while not paying property taxes.
 
-**"This will make single family housing illegal."**
+### "This will make single family housing illegal."
 
 No, it won't. No current resident will be forced to do anything as a result of improved middle housing policies like the ones proposed. In fact, all we'd be doing is allowing people to do things that are currently illegal.
 
@@ -45,13 +49,13 @@ If a community wants to remain entirely single family houses, they would be allo
 
 In this sense, legalizing housing is a bipartisan win. Conservatives can celebrate a reduction of burdensome government regulation that is currently stifling businesses (housing developers) from providing the free market what it demanding (housing). Liberals can celebrate increased access to housing for all, not just those who are already rich and powerful enough to afford the artificially high prices of the current limited housing supply.
 
-**"This will reduce the number of trees."**
+### "This will reduce the number of trees."
 
 Requiring a sprawling, low-density, car-centric style of development via exclusionary single-family zoning is the true threat to tree cover, and the environment in general.
 
 We'll have to cut down more trees, both to harvest more wood to build more houses that hold fewer people, and to acquire more land that has fewer people living on it, if we fail to legalize denser housing.
 
-**"This will worsen the neighborhood character."**
+### "This will worsen the neighborhood character."
 
 It is the current policy of single-family exclusionary zoning that is worsening the neighborhood character, as middle-class working families are forced out of our city.
 
@@ -61,7 +65,7 @@ Allowing families to live and work here will improve neighborhood character by c
 
 Without increased housing supply, middle class families will continue to leave our city and school enrollment will continue to drop. The neighborhood character will turn from working families to wealthy, privileged rich people with every home sale if prohibitively high housing costs are not addressed by building more housing.
 
-**"This will go against what current residents want."**
+### "This will go against what current residents want."
 
 No. There is a clear majority of residents who support middle housing policies, as mentioned above.
 
