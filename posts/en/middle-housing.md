@@ -27,7 +27,7 @@ More homes near transit means more people can live, work, and shop in our city w
 
 Middle housing is widely popular. According to a city survey, 81% of respondents support middle housing near transit and jobs and 67% support it in residential areas. This is a clear and resounding majority in both cases.
 
-Middle housing like fourplexes and sixplexes increase housing supply while preserving and enhancing the family oriented character of neighborhoods. Even without building Manhattan-style skyscrapers, we can increase the number of housing units greatly. This means more families will be able to live in these neighborhoods, making the area safer and more welcoming.
+Building middle housing like fourplexes and sixplexes increases housing supply, while preserving and enhancing the family oriented character of neighborhoods. Even without building Manhattan-style skyscrapers, we can increase the number of housing units greatly. This means more families will be able to live in these neighborhoods, making the area safer and more welcoming.
 
 Without increased housing supply, middle class families will continue to leave our city and school enrollment will continue to drop. The neighborhood character will turn from working families to wealthy, privileged rich people with every home sale if prohibitively high housing costs are not addressed by building more housing.
 
