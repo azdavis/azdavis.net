@@ -31,7 +31,7 @@ Middle housing like fourplexes and sixplexes increase housing supply while prese
 
 Without increased housing supply, middle class families will continue to leave our city and school enrollment will continue to drop. The neighborhood character will turn from working families to wealthy, privileged rich people with every home sale if prohibitively high housing costs are not addressed by building more housing.
 
-I understand that during past public meetings on this topic, there are those who object to these proposed middle housing policies. I find this regrettable and upsetting. Their arguments, which go something like this, do not stand up to scrutiny:
+I understand that there are those who object to these proposed middle housing policies. I find this regrettable and upsetting. Their arguments, which go something like this, do not stand up to scrutiny:
 
 "There won't be enough parking or road space."
 
