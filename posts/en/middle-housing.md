@@ -21,7 +21,7 @@ The governor's office has stated that [transit oriented development should be a 
 
 > There is no single housing policy that can produce more homes, for a range of incomes, than a transit-oriented development policy that moves high-density housing past simply being zoned for, to actually being constructed – by up to 70 percent more production.
 
-Allowing more homes to be built near transit means more tax revenue for the city from those denser parcels of land. Denser housing means more people utilize each mile of sewers, roads, power lines, etc that the city has to maintain, which is a more efficient use of limited city resources.
+Allowing higher housing density means more tax revenue for the city from those denser parcels of land. Denser housing means more people utilize each mile of sewers, roads, power lines, etc that the city has to maintain, which is a more efficient use of limited city resources.
 
 More homes near transit means more people can live, work, and shop in our city without needing to use a car as much. When people live near transit, they can get around more easily while using and supporting our growing transit system, instead of having to use a large, expensive personal car for every trip. This means we decrease vehicle miles traveled per capita, which means less tire particulate pollution, less noise pollution, less land required for parking, less wear and tear on our roads, and less traffic violence.
 
