@@ -31,7 +31,7 @@ Building middle housing like fourplexes and sixplexes increases housing supply, 
 
 I understand that there are those who object to these proposed middle housing policies. I find this regrettable and upsetting. Their arguments, which go something like this, do not stand up to scrutiny:
 
-**"There won't be enough parking or road space."**
+**"This will make traffic and parking worse."**
 
 By building more homes near transit, we make it possible for more people to get around without cars and all the parking spaces and road maintenance they require.
 
@@ -43,13 +43,17 @@ No, it won't. No current resident will be forced to do anything as a result of i
 
 If a community wants to remain entirely single family houses, they would be allowed to. Legalizing middle housing simply allows current residents to have more freedom to choose what they want to do with their property.
 
+In this sense, legalizing housing is a bipartisan win. Conservatives can celebrate a reduction of burdensome government regulation that is currently stifling businesses (housing developers) from providing the free market what it demanding (housing). Liberals can celebrate increased access to housing for all, not just those who are already rich and powerful enough to afford the artificially high prices of the current limited housing supply.
+
 **"This will reduce the number of trees."**
 
-Requiring a sprawling, low-density, car-centric style of development via exclusionary single-family zoning is the true threat to tree cover, and the environment in general. We'll have to cut down more trees, both to harvest more wood to build more houses that hold fewer people, and to acquire more land that has fewer people living on it, if we fail to legalize denser housing.
+Requiring a sprawling, low-density, car-centric style of development via exclusionary single-family zoning is the true threat to tree cover, and the environment in general.
+
+We'll have to cut down more trees, both to harvest more wood to build more houses that hold fewer people, and to acquire more land that has fewer people living on it, if we fail to legalize denser housing.
 
 **"This will worsen the neighborhood character."**
 
-In fact, it's the current policy of single-family exclusionary zoning that is worsening the neighborhood character, as middle-class working families are forced out of our city.
+It is the current policy of single-family exclusionary zoning that is worsening the neighborhood character, as middle-class working families are forced out of our city.
 
 I can't speak to exactly what neighborhood character these people think they are protecting, but any neighborhood character that forces hardworking families to move out, and which leads to kids who are raised here not being able to afford to live here when they grow up, is not a neighborhood character worth preserving.
 
@@ -57,17 +61,19 @@ Allowing families to live and work here will improve neighborhood character by c
 
 Without increased housing supply, middle class families will continue to leave our city and school enrollment will continue to drop. The neighborhood character will turn from working families to wealthy, privileged rich people with every home sale if prohibitively high housing costs are not addressed by building more housing.
 
-**"Listen to the current residents."**
+**"This will go against what current residents want."**
 
-Indeed I agree we should listen to the clear majority of residents who support middle housing policies, as mentioned above.
+No. There is a clear majority of residents who support middle housing policies, as mentioned above.
 
-However, what they probably really mean is "listen to the people who show up to these public comment meetings." But we should note that the people who usually go to these meetings are not representative of the general public. These are usually older residents who were lucky enough to buy into the area when it was cheaper, and now resist any change to the area.
+However, what they probably really mean is "this will go against what the people who usually go to these public comment meetings want." But we should note that the people who usually go to these meetings are not representative of current city residents, much less the general public.
 
-We should reject the minority viewpoint of those few people that would privately benefit from further increase to their property values if sufficient housing supply is not made legal. The benefit these property owners get from their skyrocketing property values via this artificial forced scarcity is not worth the extensive harm incurred on the public by failing to build enough housing.
+The people who go to these meetings are usually those who have enough time on their hands to keep track of the schedules of all of these public comment meetings, who were lucky enough to buy into the area when it was cheaper, and who now resist any change to the area: NIMBYs.
 
-Their argument is, in a sense, a circular one. By opposing policies that welcome new residents, they deny the status of resident to exactly the people who would have liked to live here but were disallowed by prohibitively expensive housing costs.
+We should reject the minority viewpoint of those few people that would privately benefit from further increase to their already high property values if sufficient housing supply is not made legal. The benefit these property owners get from their skyrocketing property values via this artificial forced scarcity is not worth the extensive harm incurred on the public by failing to build sufficient housing.
 
-We should think about all the people who support these improved middle housing policies, and would live in our city and contribute to the community, but who are denied the ability to live here by those who fail to be welcoming to new community members. We should consider the fact that these people are not and cannot be heard in these public comment meetings, but they exist nonetheless, and they would gladly contribute to our community, if we only allowed them to.
+Their argument is, in a sense, a self-reinforcing one. By opposing policies that welcome new residents, they deny the status of resident to exactly the people who would have liked to live here but were disallowed by prohibitively expensive housing costs. They thus effectively control the narrative by tending to shut out the very people who would benefit from these policies from the public comment meetings about said policies.
+
+We should think about all the people who support improved housing policies, and would live in our city and contribute to the community, but who are denied the ability to live here by those who fail to be welcoming to new community members. We should consider the fact that these people are not and cannot be heard in these public comment meetings, but they exist nonetheless, and they would gladly live here contribute to our community, if we only allowed them to.
 
 [tod]: https://www.theurbanist.org/2025/01/24/ferguson-team-transit-oriented-development-should-be-top-priority/
 [plan]: https://static1.squarespace.com/static/5d70140860791400013fe3ce/t/6781783bd5ecaf25ebef1d68/1736538172811/Proposed+Housing+Action+Plan+final.pdf
