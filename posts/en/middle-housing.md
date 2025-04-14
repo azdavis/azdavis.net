@@ -41,7 +41,7 @@ Failing to build more housing near transit is the true culprit for traffic. If w
 
 "This will make single family housing illegal."
 
-No, it won't. Nobody will be forced to do anything as a result of improved middle housing policies like the ones proposed. In fact, all we'd be doing is allowing people to do things that are currently illegal.
+No, it won't. No current resident will be forced to do anything as a result of improved middle housing policies like the ones proposed. In fact, all we'd be doing is allowing people to do things that are currently illegal.
 
 If a community wants to remain entirely single family houses, they would be allowed to. Legalizing middle housing simply allows current residents to have more freedom to choose what they want to do with their property.
 
