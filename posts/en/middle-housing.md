@@ -1,5 +1,5 @@
 ---
-title: "In support of middle housing"
+title: "In support of transit-oriented middle housing"
 date: 2025-04-13
 desc: An email sent to my city council in support of more housing.
 ---
@@ -17,7 +17,7 @@ I'm a resident of Bellevue writing to express support for proposed policies to a
 
 Bellevue is a very high cost of living area. Housing prices are expensive. This shows that people want to live here, but there is insufficient housing supply to answer the demand. The city should improve this situation by allowing more housing, especially near transit.
 
-The governor's office has stated that [transit oriented development should be a top priority][tod]:
+The governor's office has stated that [transit-oriented development should be a top priority][tod]:
 
 > There is no single housing policy that can produce more homes, for a range of incomes, than a transit-oriented development policy that moves high-density housing past simply being zoned for, to actually being constructed – by up to 70 percent more production.
 
