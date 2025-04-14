@@ -70,5 +70,5 @@ Their argument is, in a sense, a circular one. By opposing policies that welcome
 We should think about all the people who support these improved middle housing policies, and would live in our city and contribute to the community, but who are denied the ability to live here by those who fail to be welcoming to new community members. We should consider the fact that these people are not and cannot be heard in these public comment meetings, but they exist nonetheless, and they would gladly contribute to our community, if we only allowed them to.
 
 [tod]: https://www.theurbanist.org/2025/01/24/ferguson-team-transit-oriented-development-should-be-top-priority/
-[plan]: https://www.theurbanist.org/2025/04/11/bellevues-bold-middle-housing-plan/
+[plan]: https://static1.squarespace.com/static/5d70140860791400013fe3ce/t/6781783bd5ecaf25ebef1d68/1736538172811/Proposed+Housing+Action+Plan+final.pdf
 [middle]: https://en.wikipedia.org/wiki/Missing_middle_housing
