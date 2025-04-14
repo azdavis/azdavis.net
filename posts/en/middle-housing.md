@@ -55,7 +55,7 @@ We'll have to cut down more trees, both to harvest more wood to build more house
 
 It is the current policy of single-family exclusionary zoning that is worsening the neighborhood character, as middle-class working families are forced out of our city.
 
-I can't speak to exactly what neighborhood character these people think they are protecting, but any neighborhood character that forces hardworking families to move out, and which leads to kids who are raised here not being able to afford to live here when they grow up, is not a neighborhood character worth preserving.
+I can't speak to exactly what neighborhood character these people think they are protecting, but any supposed neighborhood character that prices out hardworking families, and which leads to kids who are raised here not being able to afford to live here when they grow up, is not a neighborhood character worth preserving.
 
 Allowing families to live and work here will improve neighborhood character by creating vibrant, welcoming communities. It will also provide an increased customer base to support local businesses.
 
