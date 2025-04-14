@@ -47,7 +47,7 @@ If a community wants to remain entirely single family houses, they would be allo
 
 "This will reduce the number of trees."
 
-Requiring a sprawling, low-density, car-centric style of development via exclusionary single-family zoning is the true threat to tree cover, and the environment in general. We'll have to cut down more trees, both to build more houses that hold fewer people, and to acquire more land that has fewer people on it, without allowing denser housing.
+Requiring a sprawling, low-density, car-centric style of development via exclusionary single-family zoning is the true threat to tree cover, and the environment in general. We'll have to cut down more trees, both to harvest more wood to build more houses that hold fewer people, and to acquire more land that has fewer people living on it, if we fail to legalize denser housing.
 
 "This will worsen the neighborhood character."
 
