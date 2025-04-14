@@ -33,23 +33,23 @@ Without increased housing supply, middle class families will continue to leave o
 
 I understand that there are those who object to these proposed middle housing policies. I find this regrettable and upsetting. Their arguments, which go something like this, do not stand up to scrutiny:
 
-"There won't be enough parking or road space."
+**"There won't be enough parking or road space."**
 
 By building more homes near transit, we make it possible for more people to get around without cars and all the parking spaces and road maintenance they require.
 
 Failing to build more housing near transit is the true culprit for traffic. If we don't build more housing near transit, more people will have to move out of our city and then commute in via car, clogging up and wearing down our roads, polluting our air, and endangering the public, while not paying property taxes.
 
-"This will make single family housing illegal."
+**"This will make single family housing illegal."**
 
 No, it won't. No current resident will be forced to do anything as a result of improved middle housing policies like the ones proposed. In fact, all we'd be doing is allowing people to do things that are currently illegal.
 
 If a community wants to remain entirely single family houses, they would be allowed to. Legalizing middle housing simply allows current residents to have more freedom to choose what they want to do with their property.
 
-"This will reduce the number of trees."
+**"This will reduce the number of trees."**
 
 Requiring a sprawling, low-density, car-centric style of development via exclusionary single-family zoning is the true threat to tree cover, and the environment in general. We'll have to cut down more trees, both to harvest more wood to build more houses that hold fewer people, and to acquire more land that has fewer people living on it, if we fail to legalize denser housing.
 
-"This will worsen the neighborhood character."
+**"This will worsen the neighborhood character."**
 
 In fact, it's the current policy of single-family exclusionary zoning that is worsening the neighborhood character, as middle-class working families are forced out of our city.
 
@@ -57,7 +57,7 @@ I can't speak to exactly what neighborhood character these people think they are
 
 Allowing families to live and work here will improve neighborhood character by creating vibrant, welcoming communities. It will also provide an increased customer base to support local businesses.
 
-"Listen to the current residents."
+**"Listen to the current residents."**
 
 Indeed I agree we should listen to the clear majority of residents who support middle housing policies, as mentioned above.
 
