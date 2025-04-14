@@ -63,7 +63,7 @@ Indeed I agree we should listen to the clear majority of residents who support m
 
 However, what they probably really mean is "listen to the people who show up to these public comment meetings." But we should note that the people who usually go to these meetings are not representative of the general public. These are usually older residents who were lucky enough to buy into the area when it was cheaper, and now resist any change to the area.
 
-We should reject the minority viewpoint of those few people that would privately benefit from further increase to their property values if sufficient housing supply is not made legal. The benefit these property owners get from their skyrocketing property values via this artificial forced scarcity is not worth the extensive harm to the public incurred by failing to build enough housing.
+We should reject the minority viewpoint of those few people that would privately benefit from further increase to their property values if sufficient housing supply is not made legal. The benefit these property owners get from their skyrocketing property values via this artificial forced scarcity is not worth the extensive harm incurred on the public by failing to build enough housing.
 
 Their argument is, in a sense, a circular one. By opposing policies that welcome new residents, they deny the status of resident to exactly the people who would have liked to live here but were disallowed by prohibitively expensive housing costs.
 
