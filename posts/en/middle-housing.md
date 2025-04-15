@@ -69,7 +69,7 @@ Without increased housing supply, middle class families will continue to leave o
 
 No. There is a clear majority of residents who support middle housing policies, as mentioned above.
 
-However, what they probably really mean is "this will go against what the people who usually go to these public comment meetings want." But we should note that the people who usually go to these meetings are [not representative of current city residents][public-hearing], much less the general public.
+However, what they probably really mean is "this will go against what the people who usually go to these public comment meetings want." But we should note that the people who usually go to these meetings are [not representative][public-hearing] of current city residents, much less the general public.
 
 The people who go to these meetings are usually those who have enough time on their hands to keep track of the schedules of all of these public comment meetings, who were lucky enough to buy into the area when it was cheaper, and who now resist any change to the area.
 
@@ -77,7 +77,7 @@ We should reject the minority viewpoint of those few people that would privately
 
 Their argument is, in a sense, a self-reinforcing one. By opposing policies that welcome new residents, they deny the status of resident to exactly the people who would have liked to live here but were disallowed by prohibitively expensive housing costs. They thus effectively control the narrative by tending to shut out the very people who would benefit from these policies from the public comment meetings about said policies.
 
-We should think about all the people who support improved housing policies, and would live in our city and contribute to the community, but who are denied the ability to live here by those who fail to be welcoming to new community members. We should consider the fact that these people are not and cannot be heard in these public comment meetings, but they exist nonetheless, and they would gladly live here contribute to our community, [if we only allowed them to][laf].
+We should think about all the people who support improved housing policies, and would live in our city and contribute to the community, but who are denied the ability to live here by those who fail to be welcoming to new community members. We should consider the fact that these people are not and cannot be heard in these public comment meetings, but they exist nonetheless, and they would gladly live here contribute to our community, if we only [allowed them to][laf].
 
 [tod]: https://www.theurbanist.org/2025/01/24/ferguson-team-transit-oriented-development-should-be-top-priority/
 [plan]: https://www.theurbanist.org/2025/04/11/bellevues-bold-middle-housing-plan/
