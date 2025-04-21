@@ -23,7 +23,7 @@ The governor's office has stated that [transit-oriented development should be a 
 
 > There is no single housing policy that can produce more homes, for a range of incomes, than a transit-oriented development policy that moves high-density housing past simply being zoned for, to actually being constructed – by up to 70 percent more production.
 
-More homes near transit means more people can live, work, and shop in our city without needing to use a car as much. When people live near transit, they can get around more easily by using and supporting our growing transit system, instead of having to use a large, expensive personal car for every trip. This means we decrease vehicle miles traveled per capita, which means less tire particulate pollution, less noise pollution, less land required for parking, less wear and tear on our roads, and less traffic violence.
+More homes near transit means more people can live, work, and shop in our city without needing to use a car as much. When people live near transit, they can get around more easily by using and supporting our growing transit system, instead of having to use a large, expensive personal car for every trip. This means we decrease vehicle miles traveled per capita, which means less tire particulate pollution, less noise pollution, less demand for parking, less wear and tear on our roads, and less traffic violence.
 
 Allowing higher housing density means more tax revenue for the city from those denser parcels of land. Denser housing means more people utilize each mile of sewers, roads, power lines, etc that the city has to maintain, which is a more efficient use of limited city resources. Transit-oriented development means more people can live and work in the city, generating tax revenue, while using public transit and thus putting less strain on our roads than they would if they used cars, saving the city money on new road construction and maintenance.
 
@@ -37,7 +37,7 @@ I understand that there are those who object to these proposed middle housing po
 
 ### "This will make traffic and parking worse."
 
-By building more homes near transit, we make it possible for more people to get around without cars and all the parking spaces and road maintenance they require.
+By building more homes near transit, we make it possible for more people to get around without cars. This decreases demand for parking and costly road maintenance.
 
 Failing to build more housing near transit is the true culprit for traffic. If we don't build more housing near transit, more people will have to move out of our city and then commute in via car, clogging up and wearing down our roads, polluting our air, and endangering the public, while not paying property taxes.
 
@@ -47,11 +47,11 @@ No, it won't. No current resident will be forced to do anything as a result of i
 
 If a community wants to remain entirely single family houses, they would be allowed to. Legalizing middle housing simply allows current residents to have more freedom to choose what they want to do with their property.
 
-In this sense, legalizing housing is a bipartisan win. Conservatives can celebrate a reduction of burdensome government regulation that is currently stifling businesses (housing developers) from providing the free market what it demanding (housing). Liberals can celebrate increased access to housing for all, not just those who are already rich and powerful enough to afford the artificially high prices of the current limited housing supply.
+In this sense, legalizing housing is a bipartisan win. Conservatives can celebrate a reduction of burdensome government regulation that is currently stifling businesses (local builders and contractors) from providing the free market what it demanding (housing). Liberals can celebrate increased access to housing for all, not just those who are already rich and powerful enough to afford the artificially high prices of the current limited housing supply.
 
 ### "This will reduce the number of trees."
 
-Requiring a sprawling, low-density, car-centric style of development via exclusionary single-family zoning is the true threat to tree cover, and the environment in general.
+Mandating a sprawling, low-density, car-centric style of development via one-size-fits-all exclusionary single-family zoning is the true threat to tree cover, and the environment in general.
 
 We'll have to cut down more trees, both to harvest more wood to build more houses that hold fewer people, and to acquire more land that has fewer people living on it, if we fail to legalize denser housing.
 
