@@ -15,7 +15,7 @@ You are allowed to adapt this text for your purposes. If you do, please state:
 
 I'm a resident of Bellevue writing to express support for proposed policies to allow more middle housing in Bellevue, especially near transit, beyond what state law requires.
 
-Bellevue is a very high cost of living area. Housing prices are expensive. This shows that people want to live here, but there is insufficient housing supply to answer the demand. The city should improve this situation by allowing more housing, especially near transit.
+Housing is very expensive in Bellevue. This shows that people want to live here, but there is insufficient housing supply to answer the demand. The city should improve this situation by allowing more housing, especially near transit.
 
 ## Benefits
 
@@ -23,9 +23,9 @@ The governor's office has stated that [transit-oriented development should be a 
 
 > There is no single housing policy that can produce more homes, for a range of incomes, than a transit-oriented development policy that moves high-density housing past simply being zoned for, to actually being constructed – by up to 70 percent more production.
 
-More homes near transit means more people can live, work, and shop in our city without needing to use a car as much. When people live near transit, they can get around more easily by using and supporting our growing transit system, instead of having to use a large, expensive personal car for every trip. This means we decrease vehicle miles traveled per capita, which means less tire particulate pollution, less noise pollution, less demand for parking, less wear and tear on our roads, and less traffic violence.
+More homes near transit means more people can live, work, and shop in our city without needing to use a car as much. This means we decrease vehicle miles traveled per capita, which means less tire particulate pollution, less noise pollution, less demand for parking, less wear and tear on our roads, and less traffic violence.
 
-Allowing higher housing density means more tax revenue for the city from those denser parcels of land. Denser housing means more people utilize each mile of sewers, roads, power lines, etc that the city has to maintain, which is a more efficient use of limited city resources. Transit-oriented development means more people can live and work in the city, generating tax revenue, while using public transit and thus putting less strain on our roads than they would if they used cars, saving the city money on new road construction and maintenance.
+Allowing higher housing density means more tax revenue for the city. Denser housing means more people utilize each mile of water mains, sewers, sidewalks, power lines, and other utilities that the city must maintain, which is a more efficient use of limited city resources. It means more people can live and work in our city, generating tax revenue and supporting local businesses. Residents of transit-oriented developments use public transit more, which puts less strain on our roads than cars, saving the city money on new road construction, maintenance, and traffic management.
 
 Middle housing is widely popular. According to a city survey, 81% of respondents support middle housing near transit and jobs and 67% support it in residential areas. This is a clear majority in both cases. In areas across the country with existing middle housing, it is [viewed positively][new-old-duplex].
 
@@ -59,11 +59,9 @@ We'll have to cut down more trees, both to harvest more wood to build more house
 
 It is the current policy of single-family exclusionary zoning that is worsening the neighborhood character, as middle-class working families are forced out of our city.
 
-I can't speak to exactly what neighborhood character these people think they are protecting, but any supposed neighborhood character that prices out hardworking families, and which leads to kids who are raised here not being able to afford to live here when they grow up, is not a neighborhood character worth preserving.
+I can't speak to exactly what neighborhood character these people think they are protecting, but any supposed neighborhood character that prices out hardworking families, and which leads to local kids not being able to afford to live here when they grow up, is not a neighborhood character worth preserving.
 
-Allowing families to live and work here will improve neighborhood character by creating vibrant, welcoming communities. It will also provide an increased customer base to support local businesses.
-
-Without increased housing supply, middle class families will continue to leave our city and school enrollment will continue to drop. The neighborhood character will turn from working families to wealthy, privileged rich people with every home sale if prohibitively high housing costs are not addressed by building more housing.
+Without increased housing supply, middle-class families will continue to leave our city and school enrollment will continue to drop. The neighborhood character will turn from working families to wealthy, privileged rich people with every home sale if prohibitively high housing costs are not addressed by building more housing.
 
 ### "This will go against what current residents want."
 
@@ -71,13 +69,13 @@ No. There is a clear majority of residents who support middle housing policies, 
 
 However, what they probably really mean is "this will go against what the people who usually go to these public comment meetings want." But we should note that the people who usually go to these meetings are [not representative][public-hearing] of current city residents, much less the general public.
 
-The people who go to these meetings are usually those who have enough time on their hands to keep track of the schedules of all of these public comment meetings, who were lucky enough to buy into the area when it was cheaper, and who now resist any change to the area.
+The people who tend to go to these meetings are those who have enough time on their hands to keep track of the schedules of all of these public comment meetings, who were lucky enough to buy into the area when it was cheaper, and who now resist any change to the area.
 
-We should reject the minority viewpoint of those few people that would privately benefit from further increase to their already high property values if sufficient housing supply is not made legal. The benefit these property owners get from their skyrocketing property values via this artificial forced scarcity is not worth the extensive harm incurred on the public by failing to build sufficient housing.
+We should reject the minority viewpoint of those few people who believe they would privately benefit from further increase to their already high property values if sufficient housing supply is not made legal. The benefit these property owners get from their skyrocketing property values via this artificial forced scarcity is not worth the extensive harm incurred on the public by failing to build sufficient housing.
 
 Their argument is, in a sense, a self-reinforcing one. By opposing policies that welcome new residents, they deny the status of resident to exactly the people who would have liked to live here but were disallowed by prohibitively expensive housing costs. They thus effectively control the narrative by tending to shut out the very people who would benefit from these policies from the public comment meetings about said policies.
 
-We should think about all the people who support improved housing policies, and would live in our city and contribute to the community, but who are denied the ability to live here by those who fail to be welcoming to new community members. We should consider the fact that these people are not and cannot be heard in these public comment meetings, but they exist nonetheless, and they would gladly live here and contribute to our community, if we only [allowed them to][laf].
+We should think about the people who would live in our city, but are denied the ability to do so by exclusionary zoning policies. We should consider the fact that these people tend to not be heard in these public comment meetings, since they are not residents, but they exist nonetheless, and they would gladly live here and contribute to our community, if we only [allowed them to][laf].
 
 [tod]: https://www.theurbanist.org/2025/01/24/ferguson-team-transit-oriented-development-should-be-top-priority/
 [plan]: https://www.theurbanist.org/2025/04/11/bellevues-bold-middle-housing-plan/
