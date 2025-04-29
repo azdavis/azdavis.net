@@ -71,7 +71,7 @@ Indeed, **I support** government efficiency and the rule of law. That's why I su
 
 ---
 
-But conservatives do not appear to actually be concerned about all of that. Their effort to increase government efficiency is [driven by political ideology][doge], not return on investment. They cheered when their guy, a convicted felon, got the [unprecedented sentence of "no sentence"][discharge].
+But conservatives do not appear to actually be concerned about all of that. Their effort to increase government efficiency is [driven by political ideology][doge-ideo], not [return][doge1] on [investment][doge2]. They cheered when their guy, a convicted felon, got the unprecedented sentence of ["no punishment"][discharge].
 
 The rich and powerful support [slashing regulation][regulation10to1] and taxes (and [enforcement of taxes][irscut]) because it will [enrich themselves][trumptaxcut], at the cost of the health, safety, and comfort of rest of us. They [decry the social safety net][elonsocsecponzi]  while accepting massive [tax breaks, subsidies, and grants][spacexfedfunding].
 
@@ -92,7 +92,7 @@ If no, I tend to support it.
 This is not a hard and fast rule: [few things are][moderation]. And when I say "I've devised", I don't mean to imply that I'm the first person to have thought up these ideas. But I strive to have this be a core idea for **me** that informs **my** decisions and actions.
 
 [discharge]: https://www.politico.com/news/2025/01/10/trump-unconditional-discharge-sentencing-what-that-means-00197500
-[doge]: https://www.r-bloggers.com/2025/02/political-ideology-and-doge-layoffs/
+[doge-ideo]: https://www.r-bloggers.com/2025/02/political-ideology-and-doge-layoffs/
 [drking]: https://cityobservatory.org/dr-king-socialism-for-the-rich-and-rugged-free-enterprise-capitalism-for-the-poor/
 [elonsocsecponzi]: https://www.msnbc.com/opinion/msnbc-opinion/social-security-musk-trump-cuts-fraud-ponzi-rcna194556
 [elonworkvisa]: https://www.washingtonpost.com/business/2024/10/26/elon-musk-immigration-status/
@@ -110,3 +110,5 @@ This is not a hard and fast rule: [few things are][moderation]. And when I say "
 [tbtf]: https://en.wikipedia.org/wiki/Too_big_to_fail
 [trumptaxcut]: https://www.cbpp.org/research/federal-tax/the-2017-trump-tax-law-was-skewed-to-the-rich-expensive-and-failed-to-deliver
 [webster]: https://jsomers.net/blog/dictionary
+[doge1]: https://www.nytimes.com/2025/04/13/us/politics/doge-contracts-savings.html
+[doge2]: https://www.cbsnews.com/news/doge-cuts-cost-135-billion-analysis-elon-musk-department-of-government-efficiency/
