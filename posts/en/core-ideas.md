@@ -8,7 +8,7 @@ Here's a question:
 
 > Are some people inherently superior to others?
 
-This question, if answered honestly, says a lot about a person's overall worldview.
+A person's honest answer to this question says a lot about overall worldview.
 
 Most people, even if they actually believed the answer is yes, would probably answer no. Because the obvious follow-up to a yes answer is: Which people do you think are superior? And why? People usually would rather not, or cannot, acknowledge their prejudices and biases.
 
