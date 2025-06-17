@@ -17,7 +17,7 @@ I'm a resident of Bellevue writing to express support for proposed policies to a
 
 I know first-hand that housing is very expensive in Bellevue. I'm a renter who might like to buy a home in Bellevue, but I have doubts that I'll be able to, given the current situation of limited housing options and high prices.
 
-Homes are expensive in our city because there are simply not enough homes available for all the people that might want to live and work in our city. This breeds fierce competition over the small number of available homes, which drives up prices and pushes working people out of our city.
+Homes are expensive in our city because there are simply not enough of them available for all the people that might want to live and work here. This breeds fierce competition over the small number of available homes, which drives up prices and pushes working people out of our city.
 
 We should improve this situation by allowing more housing, especially near transit.
 
