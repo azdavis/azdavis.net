@@ -11,6 +11,8 @@ You are allowed to adapt this text for your purposes. If you do, please state:
 - that you adapted it from me, and
 - that I did not ask or exhort you to use my text, I merely allowed it.
 
+I used [this advice](https://welcomingneighbors.us/wp-content/uploads/Crafting-Powerful-Pro-Housing-Messages-Slide-Deck.pdf) on creating pro-housing messaging to help craft my statement.
+
 ---
 
 I'm a resident of Bellevue writing to express support for proposed policies to allow more middle housing in Bellevue, especially near transit, beyond what state law requires.
@@ -71,11 +73,11 @@ Without increased housing options, middle-class families will continue to leave 
 
 No. There is a clear majority of residents who support middle housing policies, as mentioned above.
 
-However, what they probably really mean is "this will go against what the people who usually go to these public comment meetings want." But we should note that the people who usually go to these meetings are [not representative][public-hearing] of current city residents, much less the general public.
+However, what they probably really mean is "this will go against what the people who usually go to these public comment meetings want." But we should note that those who usually go to these meetings are [not representative][public-hearing] of current city residents, much less the general public.
 
-The people who tend to go to these meetings are those who have enough time on their hands to keep track of the schedules of all of these public comment meetings, who were lucky enough to buy into the area when it was cheaper, and who now resist any change to the area.
+The ones who tend to go to these meetings are those who have enough time on their hands to both keep track of the schedules of, and attend, these public comment meetings. They often tend to be folks who were lucky enough to buy into the area when it was cheaper, and who now resist any change to the area.
 
-We should reject the minority viewpoint of those few people who believe they would privately benefit from further increase to their already high property values if sufficient housing is not made legal. The benefit these property owners get from their skyrocketing property values via this artificial forced scarcity is not worth the extensive harm incurred on the public by failing to allow more homes in our community.
+We should reject the minority viewpoint of those few individuals who believe they would privately benefit from further increase to their already high property values if sufficient housing is not made legal. The benefit these property owners get from their skyrocketing property values via this artificial forced scarcity is not worth the extensive harm incurred on the public by failing to allow more homes in our community.
 
 Their argument is, in a sense, a self-reinforcing one. By opposing policies that welcome new residents to our community, they deny the status of resident to exactly the people who would have liked to live here, but were disallowed by prohibitively expensive housing costs. They thus effectively control the narrative, by tending to shut out the people who would benefit from improved housing policies, from the public comment meetings about those very policies.
 
