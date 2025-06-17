@@ -61,9 +61,9 @@ We'll have to cut down more trees, both to harvest more wood to build more house
 
 ### "This will worsen the neighborhood character."
 
-It is the current policy of exclusionary zoning, which bans affordable more housing types, that is worsening the neighborhood character, as middle-class working families are forced out of our city.
+It is the current policy of exclusionary zoning, which bans all varieties of affordable housing types, that is worsening the neighborhood character, as middle-class working families are forced out of our city.
 
-I can't speak to exactly what neighborhood character we would supposedly be protecting by banning more housing choices, but any supposed neighborhood character that prices out hardworking families, and which leads to local kids not being able to afford to live here when they grow up, is not a neighborhood character worth preserving.
+I can't speak to exactly what neighborhood character we would supposedly be protecting by continuing to ban affordable housing choices, but any supposed neighborhood character that prices out hardworking families, and which leads to local kids not being able to afford to live here when they grow up, is not a neighborhood character worth preserving.
 
 Without increased housing options, middle-class families will continue to leave our city and school enrollment will continue to drop. The neighborhood character will turn from working families to wealthy, privileged rich people with every home sale, if prohibitively high housing costs are not addressed by legalizing more housing.
 
