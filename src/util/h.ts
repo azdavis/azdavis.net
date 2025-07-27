@@ -10,6 +10,7 @@ type ElemName =
   | "head"
   | "header"
   | "html"
+  | "img"
   | "link"
   | "main"
   | "meta"

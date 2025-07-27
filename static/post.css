@@ -137,3 +137,16 @@ path {
   fill: var(--page-fg);
   stroke: var(--page-fg);
 }
+
+.sig {
+  max-width: 8em;
+  margin: 0 0 0 auto;
+  background: 0;
+  filter: brightness(200%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sig {
+    filter: brightness(400%);
+  }
+}

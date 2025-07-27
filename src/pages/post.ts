@@ -51,6 +51,9 @@ export function post(
           ]),
     ]),
     h("main", {}, [block(data.content).replace("@@GRAPH_PLACEHOLDER@@", g)]),
-    h("footer", { class: "muted" }, ["Thanks for reading."]),
+    h("footer", { class: "muted" }, [
+      "Thanks for reading.",
+      h('img', { class: 'sig', src: '/img/sig.png', alt: 'a signature for A Z Davis' }),
+    ]),
   ]);
 }
