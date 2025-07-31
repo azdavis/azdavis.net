@@ -142,11 +142,11 @@ path {
   max-width: 8em;
   margin: 0 0 0 auto;
   background: 0;
-  filter: brightness(200%);
+  filter: brightness(190%);
 }
 
 @media (prefers-color-scheme: dark) {
   .sig {
-    filter: brightness(400%);
+    filter: brightness(370%);
   }
 }
